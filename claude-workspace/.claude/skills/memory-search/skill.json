@@ -1,0 +1,11 @@
+{
+  "name": "memory-search",
+  "description": "Search persistent memory for observations",
+  "command": "node",
+  "args": [".claude/skills/memory-search/memory-search.js", "${query}", "${limit}"],
+  "requiresConfirmation": false,
+  "env": {
+    "WORKER_URL": "${WORKER_URL}",
+    "MEMORY_API_KEY": "${MEMORY_API_KEY}"
+  }
+}

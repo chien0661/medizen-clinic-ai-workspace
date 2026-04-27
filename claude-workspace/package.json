@@ -1,0 +1,21 @@
+{
+  "name": "template-ai-team",
+  "version": "1.6.10",
+  "description": "Multi-agent AI development team template with persistent memory",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "yaml": "^2.4.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "ai-team",
+    "multi-agent",
+    "claude-code",
+    "persistent-memory"
+  ],
+  "author": "",
+  "license": "MIT"
+}

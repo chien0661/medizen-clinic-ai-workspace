@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>An Bình CMS — Hệ thống quản lý phòng khám</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF7F2;
+  --surface: #FFFFFF;
+  --surface-2: #F4F0E9;
+  --surface-hover: #EDE7DD;
+  --primary: #1A4D47;
+  --primary-soft: #E8EDEB;
+  --primary-text: #0E2E2A;
+  --accent: #B8543C;
+  --accent-soft: #FAEEE8;
+  --text: #1F1B16;
+  --text-muted: #6B6660;
+  --text-faint: #9B968D;
+  --border: rgba(31, 27, 22, 0.08);
+  --border-strong: rgba(31, 27, 22, 0.16);
+  --success: #4A7C59;
+  --success-soft: #E8F0E9;
+  --warning: #C8870D;
+  --warning-soft: #FAEFD7;
+  --danger: #B8543C;
+  --danger-soft: #FAEEE8;
+  --info: #4A6FB8;
+  --info-soft: #E5EBF6;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(31, 27, 22, 0.04);
+  --shadow: 0 2px 8px rgba(31, 27, 22, 0.06), 0 1px 2px rgba(31, 27, 22, 0.04);
+  --shadow-lg: 0 8px 24px rgba(31, 27, 22, 0.08), 0 2px 4px rgba(31, 27, 22, 0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.app {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas: "sidebar header" "sidebar main";
+  height: 100vh;
+}
+
+/* ========== HEADER ========== */
+.header {
+  grid-area: header;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 20px;
+}
+
+.header-search {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  transition: border 0.15s, background 0.15s;
+}
+.header-search:focus-within { background: var(--surface); border-color: var(--border-strong); }
+.header-search input { flex: 1; background: transparent; border: 0; outline: 0; }
+.header-search input::placeholder { color: var(--text-faint); }
+.header-search kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  color: var(--text-muted);
+}
+
+.header-actions { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+
+.icon-btn {
+  width: 36px; height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  position: relative;
+  transition: background 0.15s, color 0.15s;
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--text); }
+.icon-btn .dot {
+  position: absolute;
+  top: 8px; right: 8px;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 8px 4px 4px;
+  border-radius: var(--radius);
+  transition: background 0.15s;
+}
+.user-menu:hover { background: var(--surface-2); }
+.avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+.user-info { line-height: 1.2; }
+.user-name { font-size: 13px; font-weight: 600; }
+.user-role { font-size: 11px; color: var(--text-muted); }
+
+/* ========== SIDEBAR ========== */
+.sidebar {
+  grid-area: sidebar;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 16px 12px 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.brand-mark {
+  width: 36px; height: 36px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.brand-name {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.brand-sub { font-size: 11px; color: var(--text-muted); }
+
+.nav-group { margin-bottom: 12px; }
+.nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 8px 12px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+  position: relative;
+}
+.nav-item:hover { background: var(--surface-2); color: var(--text); }
+.nav-item.active {
+  background: var(--primary-soft);
+  color: var(--primary-text);
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 8px; bottom: 8px;
+  width: 3px;
+  background: var(--primary);
+  border-radius: 0 2px 2px 0;
+}
+.nav-item svg { width: 18px; height: 18px; flex-shrink: 0; opacity: 0.8; }
+.nav-item.active svg { opacity: 1; }
+.nav-badge {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--accent);
+  color: #fff;
+  padding: 1px 7px;
+  border-radius: 999px;
+  min-width: 20px;
+  text-align: center;
+}
+.nav-item.active .nav-badge { background: var(--primary); }
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+/* ========== MAIN ========== */
+.main {
+  grid-area: main;
+  overflow-y: auto;
+  background: var(--bg);
+}
+.page { padding: 28px 32px 80px; max-width: 1400px; }
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.page-title {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.page-title em { font-style: italic; color: var(--primary); font-weight: 400; }
+.page-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.page-actions { display: flex; gap: 8px; }
+
+.screen { display: none; }
+.screen.active { display: block; animation: fadeIn 0.25s ease-out; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== COMPONENTS ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  transition: background 0.15s, border 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--surface-2); }
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.btn-primary:hover { background: var(--primary-text); }
+.btn-ghost { background: transparent; border-color: transparent; color: var(--text-muted); }
+.btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+.btn-danger { color: var(--danger); border-color: var(--border-strong); }
+.btn-danger:hover { background: var(--danger-soft); border-color: var(--danger); }
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+.btn-icon { padding: 8px; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.badge.success { background: var(--success-soft); color: var(--success); }
+.badge.warning { background: var(--warning-soft); color: var(--warning); }
+.badge.danger { background: var(--danger-soft); color: var(--danger); }
+.badge.info { background: var(--info-soft); color: var(--info); }
+.badge.muted { background: var(--surface-2); color: var(--text-muted); }
+.badge.primary { background: var(--primary-soft); color: var(--primary-text); }
+.badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.9; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.card-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.card-title { font-size: 15px; font-weight: 600; }
+.card-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.card-body { padding: 16px 20px; }
+.card-body.dense { padding: 8px; }
+.card-body.flush { padding: 0; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card.accent { background: var(--primary); color: #fff; border-color: var(--primary); }
+.stat-card.accent .stat-label { color: rgba(255,255,255,0.75); }
+.stat-card.accent .stat-trend { color: rgba(255,255,255,0.85); }
+.stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 4px 0 2px;
+  line-height: 1.05;
+}
+.stat-trend { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.stat-trend.up { color: var(--success); }
+.stat-trend.down { color: var(--danger); }
+.stat-bg-icon {
+  position: absolute;
+  right: -10px; bottom: -10px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table tr:last-child td { border-bottom: 0; }
+.table tr.clickable:hover td { background: var(--surface-2); cursor: pointer; }
+.table .num { font-variant-numeric: tabular-nums; text-align: right; }
+.table .actions { text-align: right; white-space: nowrap; }
+
+.patient-cell { display: flex; align-items: center; gap: 10px; }
+.patient-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--primary-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.patient-name { font-weight: 600; line-height: 1.2; }
+.patient-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+.queue-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.queue-row:hover { background: var(--surface-2); }
+.queue-row:last-child { border-bottom: 0; }
+.queue-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 24px;
+  color: var(--text-faint);
+  text-align: center;
+  font-weight: 500;
+}
+.queue-num.priority { color: var(--accent); }
+.queue-info { min-width: 0; }
+.queue-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.queue-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+}
+.queue-time .num { font-size: 14px; color: var(--text); font-weight: 500; }
+
+.vital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+.vital {
+  background: var(--surface-2);
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  position: relative;
+}
+.vital.warn {
+  background: var(--warning-soft);
+  border: 1px solid rgba(200, 135, 13, 0.3);
+}
+.vital-label { font-size: 11px; color: var(--text-muted); font-weight: 500; }
+.vital-value {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-top: 2px;
+}
+.vital-value .unit {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-left: 3px;
+}
+.vital.warn .vital-value { color: var(--warning); }
+
+.med-item {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: var(--surface);
+}
+.med-item:last-child { margin-bottom: 0; }
+.med-item.warn { border-color: rgba(200, 135, 13, 0.4); background: var(--warning-soft); }
+.med-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.med-name { font-weight: 600; font-size: 14px; }
+.med-dosage { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.med-batches {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.batch-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  background: var(--surface-2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--text);
+}
+.batch-tag.warn { background: var(--warning-soft); color: var(--warning); }
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.tab {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s;
+}
+.tab:hover { color: var(--text); }
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.tab-count {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 6px;
+  background: var(--surface-2);
+  font-size: 11px;
+  border-radius: 10px;
+  color: var(--text-muted);
+}
+.tab.active .tab-count { background: var(--primary-soft); color: var(--primary); }
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin: 24px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-title:first-child { margin-top: 0; }
+
+.grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.input, .select {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+.input:focus, .select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+.label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 4px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: var(--surface);
+}
+.field-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.field-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* Calendar */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cal-head {
+  background: var(--surface-2);
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-align: center;
+}
+.cal-day {
+  background: var(--surface);
+  padding: 8px;
+  min-height: 96px;
+  font-size: 12px;
+  position: relative;
+}
+.cal-day.muted { background: var(--surface-2); color: var(--text-faint); }
+.cal-day.today {
+  background: var(--primary-soft);
+}
+.cal-num { font-weight: 600; font-size: 13px; }
+.cal-day.today .cal-num { color: var(--primary-text); }
+.cal-event {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  background: var(--info-soft);
+  color: var(--info);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cal-event.busy { background: var(--accent-soft); color: var(--accent); }
+
+/* Reports */
+.chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 200px;
+  padding-top: 20px;
+}
+.chart-bar {
+  flex: 1;
+  background: var(--primary);
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  min-height: 4px;
+  transition: opacity 0.15s;
+}
+.chart-bar:hover { opacity: 0.85; }
+.chart-bar.alt { background: var(--accent); }
+.chart-bar-label {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.chart-bar-value {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Login screen */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.login-overlay.show { display: flex; }
+.login-card {
+  width: 380px;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+}
+.login-brand {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.login-brand .brand-mark {
+  margin: 0 auto 12px;
+  width: 56px; height: 56px;
+  font-size: 28px;
+}
+.login-brand h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 500;
+  font-style: italic;
+}
+.login-brand p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+.login-form { display: flex; flex-direction: column; gap: 14px; }
+
+/* Misc */
+.divider { height: 1px; background: var(--border); margin: 16px 0; }
+.flex { display: flex; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.flex-1 { flex: 1; }
+.text-muted { color: var(--text-muted); }
+.text-sm { font-size: 12px; }
+.text-xs { font-size: 11px; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mt-2 { margin-top: 8px; }
+
+.empty-state {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.empty-state-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.timeline-item:last-child { border-bottom: 0; }
+.timeline-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.timeline-content { font-size: 13px; }
+.timeline-actor { font-weight: 500; }
+
+/* Specific to invoice */
+.invoice-totals {
+  background: var(--surface-2);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-top: 16px;
+}
+.invoice-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 13px;
+}
+.invoice-line.total {
+  border-top: 1px solid var(--border-strong);
+  margin-top: 8px;
+  padding-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.invoice-line.total .num { font-family: 'Fraunces', serif; font-size: 20px; }
+
+.toast {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 200;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 64px 1fr; }
+  .brand-name, .brand-sub, .nav-item span:not(.nav-badge), .nav-label { display: none; }
+  .brand { justify-content: center; padding: 6px 0 18px; }
+  .nav-item { justify-content: center; padding: 10px; }
+  .nav-item.active::before { left: -8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">A</div>
+    <div>
+      <div class="brand-name">An Bình</div>
+      <div class="brand-sub">Đa khoa · 1 cơ sở</div>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-label">Khám bệnh</div>
+    <button class="nav-item" data-screen="dashboard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      <span>Bảng tổng quan</span>
+    </button>
+    <button class="nav-item active" data-screen="queue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span>Hàng đợi</span>
+      <span class="nav-badge">5</span>
+    </button>
+    <button class="nav-item" data-screen="appointments">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <span>Lịch hẹn</span>
+    </button>
+    <button class="nav-item" data-screen="patients">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Bệnh nhân</span>
+    </button>
+    <button class="nav-item" data-screen="visit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+      <span>Lượt khám</span>
+    </button>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-label">Kho & Dược</div>
+    <button class="nav-item" data-screen="pharmacy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 12h18M12 3v18"/></svg>
+      <span>Phòng dược</span>
+      <span class="nav-badge" style="background: var(--warning); color: #fff;">7</span>
+    </button>
+    <button class="nav-item" data-screen="inventory">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/></svg>
+      <span>Kho thuốc</span>
+    </button>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-label">Tài chính</div>
+    <button class="nav-item" data-screen="billing">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l10 5 10-5M2 7v10l10 5 10-5V7M2 7l10-5 10 5"/></svg>
+      <span>Hóa đơn</span>
+    </button>
+    <button class="nav-item" data-screen="reports">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <span>Báo cáo</span>
+    </button>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-label">Quản trị</div>
+    <button class="nav-item" data-screen="hr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Nhân sự</span>
+    </button>
+    <button class="nav-item" data-screen="settings">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Cấu hình</span>
+    </button>
+  </div>
+
+  <div class="sidebar-footer">
+    <button class="nav-item" onclick="document.getElementById('login').classList.add('show')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      <span>Đăng xuất</span>
+    </button>
+  </div>
+</aside>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="header-search">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input placeholder="Tìm bệnh nhân, mã đơn, số điện thoại...">
+    <kbd>⌘K</kbd>
+  </div>
+  <div class="header-actions">
+    <button class="icon-btn" title="Thông báo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      <span class="dot"></span>
+    </button>
+    <button class="icon-btn" title="Trợ giúp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+    </button>
+    <div class="user-menu">
+      <div class="avatar">NA</div>
+      <div class="user-info">
+        <div class="user-name">BS. Nguyễn Văn An</div>
+        <div class="user-role">Bác sĩ · Đa khoa</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MAIN ============ -->
+<main class="main">
+
+<!-- ====== DASHBOARD ====== -->
+<div class="page screen" data-screen="dashboard">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Bảng <em>tổng quan</em></h1>
+      <p class="page-subtitle">Thứ Bảy, 26 tháng 4, 2026 · Cập nhật 10:23</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7V3m8 4V3M3 11h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>Hôm nay</button>
+      <button class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Tiếp đón mới</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card accent">
+      <div class="stat-label">Doanh thu hôm nay</div>
+      <div class="stat-value">8,4tr</div>
+      <div class="stat-trend">↑ 12% so với hôm qua</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Bệnh nhân khám</div>
+      <div class="stat-value">17</div>
+      <div class="stat-trend up">↑ 3 so với TB tuần</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Đang chờ</div>
+      <div class="stat-value">5</div>
+      <div class="stat-trend">2 ưu tiên · 22 phút TB</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Công nợ</div>
+      <div class="stat-value">2,1tr</div>
+      <div class="stat-trend down">3 hóa đơn quá hạn</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card mb-4">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Doanh thu 7 ngày qua</div>
+            <div class="card-sub">Đơn vị: triệu đồng</div>
+          </div>
+          <div class="flex gap-2">
+            <span class="badge primary"><span class="dot"></span> Dịch vụ</span>
+            <span class="badge muted"><span class="dot"></span> Thuốc</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 55%;"><span class="chart-bar-value">5.2</span><span class="chart-bar-label">T2</span></div>
+            <div class="chart-bar" style="height: 68%;"><span class="chart-bar-value">6.4</span><span class="chart-bar-label">T3</span></div>
+            <div class="chart-bar" style="height: 72%;"><span class="chart-bar-value">6.8</span><span class="chart-bar-label">T4</span></div>
+            <div class="chart-bar" style="height: 60%;"><span class="chart-bar-value">5.7</span><span class="chart-bar-label">T5</span></div>
+            <div class="chart-bar" style="height: 80%;"><span class="chart-bar-value">7.5</span><span class="chart-bar-label">T6</span></div>
+            <div class="chart-bar alt" style="height: 92%;"><span class="chart-bar-value">8.4</span><span class="chart-bar-label">T7</span></div>
+            <div class="chart-bar" style="height: 38%; opacity: 0.4;"><span class="chart-bar-value">—</span><span class="chart-bar-label">CN</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Lượt khám gần đây</div>
+          <button class="btn btn-ghost btn-sm">Xem tất cả →</button>
+        </div>
+        <div class="card-body flush">
+          <table class="table">
+            <thead>
+              <tr><th>Bệnh nhân</th><th>Bác sĩ</th><th>Tình trạng</th><th class="num">Tổng tiền</th></tr>
+            </thead>
+            <tbody>
+              <tr class="clickable">
+                <td><div class="patient-cell"><div class="patient-avatar">PA</div><div><div class="patient-name">Phan Anh Tú</div><div class="patient-sub">BN001241 · Nam, 45 tuổi</div></div></div></td>
+                <td>BS. An</td>
+                <td><span class="badge success"><span class="dot"></span>Hoàn tất</span></td>
+                <td class="num">425.000₫</td>
+              </tr>
+              <tr class="clickable">
+                <td><div class="patient-cell"><div class="patient-avatar">DL</div><div><div class="patient-name">Đỗ Thị Lan</div><div class="patient-sub">BN001244 · Nữ, 29 tuổi</div></div></div></td>
+                <td>BS. Mai</td>
+                <td><span class="badge info"><span class="dot"></span>Đang khám</span></td>
+                <td class="num">—</td>
+              </tr>
+              <tr class="clickable">
+                <td><div class="patient-cell"><div class="patient-avatar">VH</div><div><div class="patient-name">Vũ Thị Hằng</div><div class="patient-sub">BN001239 · Nữ, 62 tuổi</div></div></div></td>
+                <td>BS. An</td>
+                <td><span class="badge warning"><span class="dot"></span>Chờ thanh toán</span></td>
+                <td class="num">680.000₫</td>
+              </tr>
+              <tr class="clickable">
+                <td><div class="patient-cell"><div class="patient-avatar">NB</div><div><div class="patient-name">Ngô Văn Bảo</div><div class="patient-sub">BN001238 · Nam, 51 tuổi</div></div></div></td>
+                <td>BS. Mai</td>
+                <td><span class="badge success"><span class="dot"></span>Hoàn tất</span></td>
+                <td class="num">230.000₫</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card mb-4">
+        <div class="card-head">
+          <div class="card-title">Cảnh báo</div>
+          <span class="badge danger">5</span>
+        </div>
+        <div class="card-body" style="padding: 8px;">
+          <div class="med-item warn" style="margin: 0 0 6px;">
+            <div class="med-head">
+              <div>
+                <div class="med-name" style="font-size: 13px;">Lô Amoxicillin sắp hết HSD</div>
+                <div class="med-dosage">L24Z901 · còn 19 ngày · 320 viên</div>
+              </div>
+              <button class="btn btn-sm">Xử lý</button>
+            </div>
+          </div>
+          <div class="med-item warn" style="margin: 0 0 6px;">
+            <div class="med-head">
+              <div>
+                <div class="med-name" style="font-size: 13px;">Insulin Mixtard 30 dưới mức</div>
+                <div class="med-dosage">Còn 12 lọ · tối thiểu 24</div>
+              </div>
+              <button class="btn btn-sm">Đặt hàng</button>
+            </div>
+          </div>
+          <div class="med-item" style="margin: 0 0 6px;">
+            <div class="med-head">
+              <div>
+                <div class="med-name" style="font-size: 13px;">3 hóa đơn quá hạn 30 ngày</div>
+                <div class="med-dosage">Tổng 1.840.000₫</div>
+              </div>
+              <button class="btn btn-sm">Xem</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-head">
+          <div class="card-title">Bác sĩ hôm nay</div>
+        </div>
+        <div class="card-body" style="padding: 8px;">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px;">
+            <div class="avatar" style="background: var(--info);">NA</div>
+            <div class="flex-1">
+              <div style="font-weight: 600;">BS. Nguyễn Văn An</div>
+              <div class="text-xs text-muted">Đa khoa · Ca sáng 7:30—12:00</div>
+            </div>
+            <span class="badge success"><span class="dot"></span>Đang khám</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px;">
+            <div class="avatar" style="background: var(--accent);">TM</div>
+            <div class="flex-1">
+              <div style="font-weight: 600;">BS. Trần Thị Mai</div>
+              <div class="text-xs text-muted">Đa khoa · Ca sáng 8:00—13:00</div>
+            </div>
+            <span class="badge success"><span class="dot"></span>Đang khám</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px;">
+            <div class="avatar" style="background: var(--text-faint);">LH</div>
+            <div class="flex-1">
+              <div style="font-weight: 600;">YT. Lê Thu Hà</div>
+              <div class="text-xs text-muted">Y tá · Ca sáng 7:30—12:00</div>
+            </div>
+            <span class="badge muted">Đo SH</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Hoạt động</div>
+        </div>
+        <div class="card-body" style="padding: 8px 16px;">
+          <div class="timeline-item">
+            <div class="timeline-time">10:18</div>
+            <div class="timeline-content"><span class="timeline-actor">YT. Hà</span> đã đo sinh hiệu cho <em>Lê Thị Hồng</em></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:05</div>
+            <div class="timeline-content"><span class="timeline-actor">BS. Mai</span> hoàn tất khám <em>Đỗ Thị Lan</em></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:42</div>
+            <div class="timeline-content"><span class="timeline-actor">DS. Hoa</span> cấp phát đơn 20260426-013</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:15</div>
+            <div class="timeline-content"><span class="timeline-actor">LT. Linh</span> tiếp đón <em>Phan Anh Tú</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== QUEUE ====== -->
+<div class="page screen active" data-screen="queue">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Hàng <em>đợi</em></h1>
+      <p class="page-subtitle">5 bệnh nhân đang chờ · 2 đang khám · TB chờ 14 phút</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>Làm mới</button>
+      <button class="btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="11" x2="22" y2="13"/><path d="M2 12h6M9 12c0 5 3 9 6 9s6-4 6-9-3-9-6-9-6 4-6 9z"/></svg>Tiếp đón mới</button>
+      <button class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Gọi tiếp theo</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Đang chờ</div><div class="stat-value">5</div><div class="stat-trend">2 ưu tiên</div></div>
+    <div class="stat-card"><div class="stat-label">Đang khám</div><div class="stat-value">2</div><div class="stat-trend">2 bác sĩ</div></div>
+    <div class="stat-card"><div class="stat-label">Chờ thanh toán</div><div class="stat-value">3</div><div class="stat-trend">2,4tr ₫</div></div>
+    <div class="stat-card"><div class="stat-label">Đã hoàn tất</div><div class="stat-value">12</div><div class="stat-trend">hôm nay</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Đang chờ <span class="text-muted text-sm" style="font-weight: 400;">· sắp xếp theo ưu tiên</span></div>
+      <div class="flex gap-2">
+        <button class="btn btn-ghost btn-sm">Lọc: Tất cả</button>
+      </div>
+    </div>
+    <div class="card-body flush">
+      <div class="queue-row">
+        <div class="queue-num priority">1</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar" style="background: var(--accent-soft); color: var(--accent);">LH</div>
+            <div>
+              <div class="patient-name">Lê Thị Hồng</div>
+              <div class="patient-sub">BN001245 · Nữ, 78 tuổi · 0912 345 678</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge danger"><span class="dot"></span>Ưu tiên</span>
+            <span class="badge primary">Tái khám</span>
+            <span class="badge success"><span class="dot"></span>Đã đo SH</span>
+            <span>·</span>
+            <span><strong style="color: var(--text);">Đau ngực, khó thở</strong></span>
+          </div>
+        </div>
+        <div class="queue-time">
+          <div class="num">8 phút</div>
+          <div>09:35</div>
+        </div>
+        <div><button class="btn btn-primary btn-sm">Gọi vào</button></div>
+      </div>
+
+      <div class="queue-row">
+        <div class="queue-num priority">2</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar" style="background: var(--accent-soft); color: var(--accent);">TB</div>
+            <div>
+              <div class="patient-name">Trần Văn Bình</div>
+              <div class="patient-sub">BN001246 · Nam, 42 tuổi · 0903 987 654</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge danger"><span class="dot"></span>Ưu tiên</span>
+            <span class="badge success"><span class="dot"></span>Đã đo SH</span>
+            <span>·</span>
+            <span><strong style="color: var(--text);">Sốt cao 39°C</strong></span>
+          </div>
+        </div>
+        <div class="queue-time">
+          <div class="num">12 phút</div>
+          <div>09:31</div>
+        </div>
+        <div><button class="btn btn-sm">Gọi vào</button></div>
+      </div>
+
+      <div class="queue-row">
+        <div class="queue-num">3</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar">NH</div>
+            <div>
+              <div class="patient-name">Nguyễn Thị Hoa</div>
+              <div class="patient-sub">BN001247 · Nữ, 35 tuổi · 0987 234 567</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge success"><span class="dot"></span>Đã đo SH</span>
+            <span>·</span>
+            <span>Đau bụng vùng thượng vị</span>
+          </div>
+        </div>
+        <div class="queue-time">
+          <div class="num">15 phút</div>
+          <div>09:28</div>
+        </div>
+        <div><button class="btn btn-sm">Gọi vào</button></div>
+      </div>
+
+      <div class="queue-row">
+        <div class="queue-num">4</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar">PT</div>
+            <div>
+              <div class="patient-name">Phạm Minh Tuấn</div>
+              <div class="patient-sub">BN001248 · Nam, 8 tuổi · Mẹ: Lê Hương 0918 555 222</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge primary">Tái khám</span>
+            <span class="badge muted">Chưa đo SH</span>
+            <span>·</span>
+            <span>Ho kéo dài 5 ngày</span>
+          </div>
+        </div>
+        <div class="queue-time">
+          <div class="num">18 phút</div>
+          <div>09:25</div>
+        </div>
+        <div><button class="btn btn-sm">Đo SH</button></div>
+      </div>
+
+      <div class="queue-row">
+        <div class="queue-num">5</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar">HD</div>
+            <div>
+              <div class="patient-name">Hoàng Văn Đức</div>
+              <div class="patient-sub">BN001249 · Nam, 56 tuổi · 0888 123 456</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge muted">Chưa đo SH</span>
+            <span>·</span>
+            <span>Khám sức khỏe định kỳ</span>
+          </div>
+        </div>
+        <div class="queue-time">
+          <div class="num">22 phút</div>
+          <div>09:21</div>
+        </div>
+        <div><button class="btn btn-sm">Đo SH</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top: 24px;">Đang khám <span class="badge muted">2</span></div>
+  <div class="card">
+    <div class="card-body flush">
+      <div class="queue-row" style="background: var(--info-soft);">
+        <div class="queue-num">·</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar" style="background: var(--info-soft); color: var(--info);">DL</div>
+            <div>
+              <div class="patient-name">Đỗ Thị Lan</div>
+              <div class="patient-sub">BN001244 · Nữ, 29 tuổi</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge info"><span class="dot"></span>Đang khám</span>
+            <span>·</span>
+            <span>BS. Trần Thị Mai · Phòng 2</span>
+          </div>
+        </div>
+        <div class="queue-time"><div class="num">14 phút</div><div>từ 10:09</div></div>
+        <div><button class="btn btn-sm" data-screen-link="visit">Mở</button></div>
+      </div>
+      <div class="queue-row" style="background: var(--info-soft);">
+        <div class="queue-num">·</div>
+        <div class="queue-info">
+          <div class="patient-cell">
+            <div class="patient-avatar" style="background: var(--info-soft); color: var(--info);">VH</div>
+            <div>
+              <div class="patient-name">Vũ Thị Hằng</div>
+              <div class="patient-sub">BN001239 · Nữ, 62 tuổi</div>
+            </div>
+          </div>
+          <div class="queue-meta">
+            <span class="badge info"><span class="dot"></span>Đang khám</span>
+            <span>·</span>
+            <span>BS. Nguyễn Văn An · Phòng 1</span>
+          </div>
+        </div>
+        <div class="queue-time"><div class="num">8 phút</div><div>từ 10:15</div></div>
+        <div><button class="btn btn-sm">Mở</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== APPOINTMENTS ====== -->
+<div class="page screen" data-screen="appointments">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Lịch <em>hẹn</em></h1>
+      <p class="page-subtitle">Tuần 26/04 — 02/05/2026 · 47 lịch hẹn</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn">Tuần</button>
+      <button class="btn">Tháng</button>
+      <button class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Đặt lịch</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Hôm nay</div><div class="stat-value">8</div><div class="stat-trend">3 đã check-in</div></div>
+    <div class="stat-card"><div class="stat-label">Ngày mai</div><div class="stat-value">11</div><div class="stat-trend">5 chưa xác nhận</div></div>
+    <div class="stat-card"><div class="stat-label">Tỷ lệ đến</div><div class="stat-value">87%</div><div class="stat-trend up">↑ 4% so với tháng trước</div></div>
+    <div class="stat-card"><div class="stat-label">No-show tuần</div><div class="stat-value">3</div><div class="stat-trend">2 đã gọi lại</div></div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-head">
+      <div class="card-title">Tháng 4, 2026</div>
+      <div class="flex gap-2">
+        <button class="btn btn-icon btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="btn btn-icon btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="calendar">
+        <div class="cal-head">CN</div><div class="cal-head">T2</div><div class="cal-head">T3</div><div class="cal-head">T4</div><div class="cal-head">T5</div><div class="cal-head">T6</div><div class="cal-head">T7</div>
+
+        <div class="cal-day muted"><span class="cal-num">29</span></div>
+        <div class="cal-day muted"><span class="cal-num">30</span></div>
+        <div class="cal-day muted"><span class="cal-num">31</span></div>
+        <div class="cal-day"><span class="cal-num">1</span></div>
+        <div class="cal-day"><span class="cal-num">2</span><div class="cal-event">8 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">3</span><div class="cal-event">12 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">4</span></div>
+
+        <div class="cal-day"><span class="cal-num">5</span></div>
+        <div class="cal-day"><span class="cal-num">6</span><div class="cal-event">9 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">7</span><div class="cal-event">11 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">8</span><div class="cal-event">10 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">9</span><div class="cal-event">14 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">10</span><div class="cal-event busy">18 (đầy)</div></div>
+        <div class="cal-day"><span class="cal-num">11</span><div class="cal-event">5 lịch hẹn</div></div>
+
+        <div class="cal-day"><span class="cal-num">12</span></div>
+        <div class="cal-day"><span class="cal-num">13</span><div class="cal-event">11 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">14</span><div class="cal-event">9 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">15</span><div class="cal-event">12 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">16</span><div class="cal-event">10 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">17</span><div class="cal-event">13 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">18</span><div class="cal-event">7 lịch hẹn</div></div>
+
+        <div class="cal-day"><span class="cal-num">19</span></div>
+        <div class="cal-day"><span class="cal-num">20</span><div class="cal-event">10 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">21</span><div class="cal-event">9 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">22</span><div class="cal-event">11 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">23</span><div class="cal-event">8 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">24</span><div class="cal-event">12 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">25</span><div class="cal-event">6 lịch hẹn</div></div>
+
+        <div class="cal-day"><span class="cal-num">26</span></div>
+        <div class="cal-day today"><span class="cal-num">26</span><div class="cal-event">8 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">27</span><div class="cal-event">11 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">28</span><div class="cal-event">9 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">29</span><div class="cal-event">10 lịch hẹn</div></div>
+        <div class="cal-day"><span class="cal-num">30</span><div class="cal-event">7 lịch hẹn</div></div>
+        <div class="cal-day muted"><span class="cal-num">1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Lịch hẹn hôm nay</div>
+      <span class="badge muted">8 lịch · 3 đã đến</span>
+    </div>
+    <div class="card-body flush">
+      <table class="table">
+        <thead><tr><th>Giờ</th><th>Bệnh nhân</th><th>Bác sĩ</th><th>Lý do khám</th><th>Trạng thái</th><th class="actions">Thao tác</th></tr></thead>
+        <tbody>
+          <tr class="clickable"><td class="font-mono">08:00</td><td><div class="patient-cell"><div class="patient-avatar">PA</div><div><div class="patient-name">Phan Anh Tú</div><div class="patient-sub">BN001241</div></div></div></td><td>BS. An</td><td>Tái khám tăng huyết áp</td><td><span class="badge success"><span class="dot"></span>Đã hoàn tất</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">08:30</td><td><div class="patient-cell"><div class="patient-avatar">VH</div><div><div class="patient-name">Vũ Thị Hằng</div><div class="patient-sub">BN001239</div></div></div></td><td>BS. An</td><td>Khám tổng quát</td><td><span class="badge info"><span class="dot"></span>Đang khám</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">09:00</td><td><div class="patient-cell"><div class="patient-avatar">DL</div><div><div class="patient-name">Đỗ Thị Lan</div><div class="patient-sub">BN001244</div></div></div></td><td>BS. Mai</td><td>Sốt cao 2 ngày</td><td><span class="badge info"><span class="dot"></span>Đang khám</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">09:30</td><td><div class="patient-cell"><div class="patient-avatar">LH</div><div><div class="patient-name">Lê Thị Hồng</div><div class="patient-sub">BN001245</div></div></div></td><td>BS. Mai</td><td>Tái khám tim mạch</td><td><span class="badge warning"><span class="dot"></span>Đã đến</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">10:00</td><td><div class="patient-cell"><div class="patient-avatar">PT</div><div><div class="patient-name">Phạm Minh Tuấn</div><div class="patient-sub">BN001248</div></div></div></td><td>BS. An</td><td>Tái khám viêm phế quản</td><td><span class="badge warning"><span class="dot"></span>Đã đến</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">10:30</td><td><div class="patient-cell"><div class="patient-avatar">HD</div><div><div class="patient-name">Hoàng Văn Đức</div><div class="patient-sub">BN001249</div></div></div></td><td>BS. Mai</td><td>Khám sức khỏe định kỳ</td><td><span class="badge primary"><span class="dot"></span>Đã xác nhận</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">14:00</td><td><div class="patient-cell"><div class="patient-avatar">NM</div><div><div class="patient-name">Nguyễn Minh Khang</div><div class="patient-sub">BN001230</div></div></div></td><td>BS. An</td><td>Tư vấn dinh dưỡng</td><td><span class="badge muted"><span class="dot"></span>Chưa xác nhận</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td class="font-mono">15:30</td><td><div class="patient-cell"><div class="patient-avatar">LT</div><div><div class="patient-name">Lý Thị Tâm</div><div class="patient-sub">BN001225</div></div></div></td><td>BS. Mai</td><td>Khám sản khoa</td><td><span class="badge muted"><span class="dot"></span>Chưa xác nhận</span></td><td class="actions">⋯</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PATIENTS ====== -->
+<div class="page screen" data-screen="patients">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Bệnh <em>nhân</em></h1>
+      <p class="page-subtitle">1.249 hồ sơ · 47 mới trong tháng</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Xuất CSV</button>
+      <button class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM20 8v6M23 11h-6"/></svg>Bệnh nhân mới</button>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center;">
+      <div class="header-search" style="flex: 1; max-width: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input placeholder="Tên, mã bệnh nhân, số điện thoại, CCCD...">
+      </div>
+      <select class="select" style="width: 140px;"><option>Tất cả giới</option><option>Nam</option><option>Nữ</option></select>
+      <select class="select" style="width: 160px;"><option>Mọi độ tuổi</option><option>Trẻ em (&lt;16)</option><option>Người lớn</option><option>Người cao tuổi (&gt;60)</option></select>
+      <button class="btn">Thêm bộ lọc</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body flush">
+      <table class="table">
+        <thead><tr><th>Bệnh nhân</th><th>SĐT</th><th>Tuổi / Giới</th><th>Lượt khám gần</th><th>Cảnh báo</th><th class="actions"></th></tr></thead>
+        <tbody>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">LH</div><div><div class="patient-name">Lê Thị Hồng</div><div class="patient-sub">BN001245</div></div></div></td><td class="font-mono">0912 345 678</td><td>78 · Nữ</td><td>Hôm nay</td><td><span class="badge danger"><span class="dot"></span>Penicillin</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">TB</div><div><div class="patient-name">Trần Văn Bình</div><div class="patient-sub">BN001246</div></div></div></td><td class="font-mono">0903 987 654</td><td>42 · Nam</td><td>Hôm nay</td><td>—</td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">NH</div><div><div class="patient-name">Nguyễn Thị Hoa</div><div class="patient-sub">BN001247</div></div></div></td><td class="font-mono">0987 234 567</td><td>35 · Nữ</td><td>Hôm nay</td><td>—</td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">PT</div><div><div class="patient-name">Phạm Minh Tuấn</div><div class="patient-sub">BN001248 · Mẹ: Lê Hương</div></div></div></td><td class="font-mono">0918 555 222</td><td>8 · Nam</td><td>Hôm nay</td><td><span class="badge warning"><span class="dot"></span>Hen suyễn</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">HD</div><div><div class="patient-name">Hoàng Văn Đức</div><div class="patient-sub">BN001249</div></div></div></td><td class="font-mono">0888 123 456</td><td>56 · Nam</td><td>Hôm nay</td><td><span class="badge warning"><span class="dot"></span>Tăng HA</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">DL</div><div><div class="patient-name">Đỗ Thị Lan</div><div class="patient-sub">BN001244</div></div></div></td><td class="font-mono">0936 111 789</td><td>29 · Nữ</td><td>Hôm nay</td><td>—</td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">PA</div><div><div class="patient-name">Phan Anh Tú</div><div class="patient-sub">BN001241</div></div></div></td><td class="font-mono">0908 222 444</td><td>45 · Nam</td><td>Hôm nay</td><td><span class="badge warning"><span class="dot"></span>Tiểu đường II</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">VH</div><div><div class="patient-name">Vũ Thị Hằng</div><div class="patient-sub">BN001239</div></div></div></td><td class="font-mono">0967 333 111</td><td>62 · Nữ</td><td>Hôm nay</td><td><span class="badge warning"><span class="dot"></span>Tăng HA · Mỡ máu</span></td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">NB</div><div><div class="patient-name">Ngô Văn Bảo</div><div class="patient-sub">BN001238</div></div></div></td><td class="font-mono">0983 555 999</td><td>51 · Nam</td><td>25/04/2026</td><td>—</td><td class="actions">⋯</td></tr>
+          <tr class="clickable"><td><div class="patient-cell"><div class="patient-avatar">LT</div><div><div class="patient-name">Lý Thị Tâm</div><div class="patient-sub">BN001225</div></div></div></td><td class="font-mono">0974 666 333</td><td>32 · Nữ</td><td>22/04/2026</td><td><span class="badge info"><span class="dot"></span>Mang thai 24w</span></td><td class="actions">⋯</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-body" style="padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border);">
+      <div class="text-sm text-muted">Hiển thị 1—10 của 1.249</div>
+      <div class="flex gap-2">
+        <button class="btn btn-sm">Trước</button>
+        <button class="btn btn-sm btn-primary">1</button>
+        <button class="btn btn-sm">2</button>
+        <button class="btn btn-sm">3</button>
+        <span class="text-muted">...</span>
+        <button class="btn btn-sm">125</button>
+        <button class="btn btn-sm">Sau</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== VISIT DETAIL ====== -->
+<div class="page screen" data-screen="visit">
+  <div class="page-header">
+    <div>
+      <div class="text-sm text-muted mb-2"><a href="#" data-screen-link="queue" style="color: var(--text-muted);">← Hàng đợi</a></div>
+      <h1 class="page-title" style="font-size: 26px;">Lê Thị <em>Hồng</em></h1>
+      <p class="page-subtitle">BN001245 · Nữ, 78 tuổi (1948) · Nhóm máu O+ · <span style="color: var(--danger); font-weight: 500;">⚠ Dị ứng Penicillin</span></p>
+    </div>
+    <div class="page-actions">
+      <span class="badge info"><span class="dot"></span>Đang khám · BS. An · Phòng 1</span>
+      <button class="btn">Tạm dừng</button>
+      <button class="btn btn-primary">Hoàn tất khám</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="vitals">Sinh hiệu</button>
+    <button class="tab" data-tab="services">Dịch vụ <span class="tab-count">2</span></button>
+    <button class="tab" data-tab="prescription">Đơn thuốc <span class="tab-count">3</span></button>
+    <button class="tab" data-tab="history">Lịch sử khám <span class="tab-count">12</span></button>
+    <button class="tab" data-tab="notes">Ghi chú bác sĩ</button>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="card mb-4">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Sinh hiệu</div>
+            <div class="card-sub">Đo lúc 09:35 bởi YT. Lê Thu Hà · Schema v3</div>
+          </div>
+          <button class="btn btn-sm">Cập nhật</button>
+        </div>
+        <div class="card-body">
+          <div class="vital-grid">
+            <div class="vital warn">
+              <div class="vital-label">Huyết áp</div>
+              <div class="vital-value">158/95<span class="unit">mmHg</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">Nhịp tim</div>
+              <div class="vital-value">88<span class="unit">lần/ph</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">Nhiệt độ</div>
+              <div class="vital-value">36.8<span class="unit">°C</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">SpO2</div>
+              <div class="vital-value">97<span class="unit">%</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">Cân nặng</div>
+              <div class="vital-value">52<span class="unit">kg</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">Chiều cao</div>
+              <div class="vital-value">156<span class="unit">cm</span></div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">BMI</div>
+              <div class="vital-value">21.4</div>
+            </div>
+            <div class="vital">
+              <div class="vital-label">Đau (VAS)</div>
+              <div class="vital-value">6<span class="unit">/10</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-head">
+          <div class="card-title">Dịch vụ chỉ định</div>
+          <button class="btn btn-sm">+ Thêm dịch vụ</button>
+        </div>
+        <div class="card-body flush">
+          <table class="table">
+            <thead><tr><th>Dịch vụ</th><th class="num">SL</th><th class="num">Đơn giá</th><th class="num">Thành tiền</th><th>Trạng thái</th></tr></thead>
+            <tbody>
+              <tr><td><div style="font-weight: 600;">Khám bác sĩ chuyên khoa</div><div class="patient-sub">DV001 · BS. Nguyễn Văn An</div></td><td class="num">1</td><td class="num">200.000₫</td><td class="num">200.000₫</td><td><span class="badge success"><span class="dot"></span>Đã thực hiện</span></td></tr>
+              <tr><td><div style="font-weight: 600;">Điện tâm đồ (ECG)</div><div class="patient-sub">DV015 · YT. Lê Thu Hà</div></td><td class="num">1</td><td class="num">150.000₫</td><td class="num">150.000₫</td><td><span class="badge success"><span class="dot"></span>Đã thực hiện</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Đơn thuốc</div>
+          <div class="flex gap-2">
+            <button class="btn btn-sm">Mẫu thường dùng</button>
+            <button class="btn btn-sm btn-primary">+ Thêm thuốc</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="med-item">
+            <div class="med-head">
+              <div>
+                <div class="med-name">Amlodipin 5mg <span class="badge primary">Cấp tại quầy</span></div>
+                <div class="med-dosage">30 viên · Uống <strong>1 viên/ngày sáng sau ăn</strong> · 30 ngày</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600;">90.000₫</div>
+                <div class="text-xs text-muted">3.000 × 30</div>
+              </div>
+            </div>
+            <div class="med-batches">
+              <span>FEFO:</span>
+              <span class="batch-tag">L24A892 · HSD 09/2027 · 30v</span>
+              <span class="badge success" style="font-size: 10px;"><span class="dot"></span>Đã reserve</span>
+            </div>
+          </div>
+
+          <div class="med-item">
+            <div class="med-head">
+              <div>
+                <div class="med-name">Atorvastatin 20mg <span class="badge primary">Cấp tại quầy</span></div>
+                <div class="med-dosage">30 viên · Uống <strong>1 viên/ngày tối sau ăn</strong> · 30 ngày</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600;">270.000₫</div>
+                <div class="text-xs text-muted">9.000 × 30</div>
+              </div>
+            </div>
+            <div class="med-batches">
+              <span>FEFO:</span>
+              <span class="batch-tag">L23K418 · HSD 12/2026 · 30v</span>
+              <span class="badge success" style="font-size: 10px;"><span class="dot"></span>Đã reserve</span>
+            </div>
+          </div>
+
+          <div class="med-item">
+            <div class="med-head">
+              <div>
+                <div class="med-name">Aspirin 81mg <span class="badge muted">Mua ngoài</span></div>
+                <div class="med-dosage">30 viên · Uống <strong>1 viên/ngày sáng sau ăn</strong> · 30 ngày</div>
+              </div>
+              <div style="text-align: right; color: var(--text-muted); font-size: 12px;">
+                Không tính tiền
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card mb-4">
+        <div class="card-head">
+          <div class="card-title">Tóm tắt</div>
+        </div>
+        <div class="card-body">
+          <div class="invoice-line"><span class="text-muted">Mã lượt khám</span><span class="font-mono">20260426-014</span></div>
+          <div class="invoice-line"><span class="text-muted">Check-in</span><span>09:35</span></div>
+          <div class="invoice-line"><span class="text-muted">Bắt đầu khám</span><span>09:42</span></div>
+          <div class="invoice-line"><span class="text-muted">Bác sĩ</span><span>BS. Nguyễn Văn An</span></div>
+          <div class="invoice-line"><span class="text-muted">Lý do khám</span><span>Đau ngực, khó thở</span></div>
+          <div class="divider"></div>
+          <div class="invoice-line"><span class="text-muted">Dịch vụ</span><span class="num">350.000₫</span></div>
+          <div class="invoice-line"><span class="text-muted">Thuốc tại quầy</span><span class="num">360.000₫</span></div>
+          <div class="invoice-line total"><span>Tổng tạm tính</span><span class="num">710.000₫</span></div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-head">
+          <div class="card-title">Tiền sử</div>
+        </div>
+        <div class="card-body">
+          <div class="text-sm">
+            <div class="mb-3"><strong style="color: var(--danger);">⚠ Dị ứng:</strong> Penicillin (phát ban toàn thân)</div>
+            <div class="mb-3"><strong>Mạn tính:</strong><br>
+              <span class="text-muted">· Tăng huyết áp (chẩn đoán 2018)</span><br>
+              <span class="text-muted">· Rối loạn lipid máu (2020)</span>
+            </div>
+            <div><strong>Phẫu thuật:</strong> <span class="text-muted">Cắt amidan 1985</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Lượt khám gần</div>
+        </div>
+        <div class="card-body" style="padding: 8px 16px;">
+          <div class="timeline-item">
+            <div class="timeline-time">28/03/26</div>
+            <div class="timeline-content"><div style="font-weight: 500;">Tái khám tăng HA</div><div class="text-muted text-xs">BP 150/92 · Tăng liều Amlodipin</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15/02/26</div>
+            <div class="timeline-content"><div style="font-weight: 500;">Khám định kỳ</div><div class="text-muted text-xs">XN máu · ECG bình thường</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10/01/26</div>
+            <div class="timeline-content"><div style="font-weight: 500;">Cảm cúm thông thường</div><div class="text-muted text-xs">Paracetamol + Vitamin C</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PHARMACY ====== -->
+<div class="page screen" data-screen="pharmacy">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Phòng <em>dược</em></h1>
+      <p class="page-subtitle">7 đơn chờ cấp · 1 đang cấp một phần · 23 đã cấp hôm nay</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn">Lịch sử cấp phát</button>
+      <button class="btn">In đơn nháp</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Đơn chờ cấp</div><div class="stat-value">7</div><div class="stat-trend">Cũ nhất 12 phút</div></div>
+    <div class="stat-card"><div class="stat-label">Cấp một phần</div><div class="stat-value">1</div><div class="stat-trend">Thiếu 1 thuốc</div></div>
+    <div class="stat-card"><div class="stat-label">Đã cấp hôm nay</div><div class="stat-value">23</div><div class="stat-trend">68 mặt hàng</div></div>
+    <div class="stat-card accent"><div class="stat-label">Doanh thu thuốc</div><div class="stat-value">3,2tr</div><div class="stat-trend">↑ 8% so với hôm qua</div></div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Đỗ Thị Lan <span class="text-muted text-sm" style="font-weight: 400;">· BN001244 · Nữ, 29 tuổi</span></div>
+        <div class="card-sub">Đơn 20260426-014 · BS. Trần Thị Mai · Kê 09:48</div>
+      </div>
+      <span class="badge warning"><span class="dot"></span>Chờ cấp</span>
+    </div>
+    <div class="card-body">
+      <div class="med-item">
+        <div class="med-head">
+          <div>
+            <div class="med-name">Paracetamol 500mg</div>
+            <div class="med-dosage">20 viên · 1 viên × 3 lần/ngày khi sốt · 7 ngày</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: 600;">30.000₫</div>
+            <div class="text-xs text-muted">1.500 × 20</div>
+          </div>
+        </div>
+        <div class="med-batches">
+          <span>FEFO:</span>
+          <span class="batch-tag">L25B112 · HSD 06/2026 · 20v</span>
+          <span class="badge success" style="font-size: 10px;"><span class="dot"></span>Đã reserve</span>
+          <button class="btn btn-ghost btn-sm" style="margin-left: auto;">Đổi lô</button>
+        </div>
+      </div>
+
+      <div class="med-item warn">
+        <div class="med-head">
+          <div>
+            <div class="med-name">Amoxicillin 500mg <span class="badge warning"><span class="dot"></span>Lô gần HSD</span></div>
+            <div class="med-dosage">21 viên · 1 viên × 3 lần/ngày · 7 ngày · Sau ăn</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: 600;">63.000₫</div>
+            <div class="text-xs text-muted">3.000 × 21</div>
+          </div>
+        </div>
+        <div class="med-batches">
+          <span>FEFO:</span>
+          <span class="batch-tag warn">L24Z901 · HSD 15/05/2026 (19 ngày) · 21v</span>
+          <button class="btn btn-ghost btn-sm" style="margin-left: auto;">Đổi lô</button>
+        </div>
+      </div>
+
+      <div class="med-item">
+        <div class="med-head">
+          <div>
+            <div class="med-name">Vitamin C 1000mg</div>
+            <div class="med-dosage">10 viên sủi · 1 viên/ngày sáng · 10 ngày · Hòa nước uống</div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-weight: 600;">35.000₫</div>
+            <div class="text-xs text-muted">3.500 × 10</div>
+          </div>
+        </div>
+        <div class="med-batches">
+          <span>FEFO:</span>
+          <span class="batch-tag">L25H304 · HSD 11/2027 · 10v</span>
+          <span class="badge success" style="font-size: 10px;"><span class="dot"></span>Đã reserve</span>
+        </div>
+      </div>
+
+      <div class="invoice-totals">
+        <div class="invoice-line"><span>Tổng tiền thuốc</span><span class="num">128.000₫</span></div>
+        <div class="invoice-line"><span class="text-muted">Đã thanh toán cùng hóa đơn dịch vụ</span><span class="badge success"><span class="dot"></span>Paid</span></div>
+      </div>
+
+      <div class="flex gap-2 mt-2" style="margin-top: 16px; justify-content: flex-end;">
+        <button class="btn">In đơn cho BN</button>
+        <button class="btn">Cấp một phần</button>
+        <button class="btn btn-primary">Cấp phát toàn bộ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Phan Anh Tú <span class="text-muted text-sm" style="font-weight: 400;">· BN001241 · Nam, 45 tuổi</span></div>
+        <div class="card-sub">Đơn 20260426-011 · BS. Nguyễn Văn An · Kê 09:15 · 4 thuốc</div>
+      </div>
+      <span class="badge warning"><span class="dot"></span>Chờ cấp</span>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-head">
+      <div>
+        <div class="card-title">Nguyễn Thanh Long <span class="text-muted text-sm" style="font-weight: 400;">· BN000189 · Nam, 67 tuổi</span></div>
+        <div class="card-sub">Đơn 20260426-008 · BS. Trần Thị Mai · Kê 08:42 · 6 thuốc</div>
+      </div>
+      <span class="badge warning"><span class="dot"></span>Cấp một phần · 1/6 còn lại</span>
+    </div>
+  </div>
+</div>
+
+<!-- ====== INVENTORY ====== -->
+<div class="page screen" data-screen="inventory">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Kho <em>thuốc</em></h1>
+      <p class="page-subtitle">487 SKU · 248 triệu giá trị tồn · 12 lô sắp hết hạn</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn">Báo cáo tồn kho</button>
+      <button class="btn">Kiểm kê</button>
+      <button class="btn btn-primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Nhập kho</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Tổng SKU</div><div class="stat-value">487</div><div class="stat-trend">453 đang hoạt động</div></div>
+    <div class="stat-card" style="background: var(--warning-soft); border-color: rgba(200, 135, 13, 0.3);"><div class="stat-label" style="color: var(--warning);">Sắp hết hạn</div><div class="stat-value" style="color: var(--warning);">12</div><div class="stat-trend" style="color: var(--warning);">Trong 90 ngày</div></div>
+    <div class="stat-card" style="background: var(--danger-soft); border-color: rgba(184, 84, 60, 0.3);"><div class="stat-label" style="color: var(--danger);">Sắp hết hàng</div><div class="stat-value" style="color: var(--danger);">8</div><div class="stat-trend" style="color: var(--danger);">Dưới mức tối thiểu</div></div>
+    <div class="stat-card"><div class="stat-label">Giá trị tồn</div><div class="stat-value">248tr</div><div class="stat-trend">↑ 12tr trong tháng</div></div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body" style="padding: 12px 16px; display: flex; gap: 8px; align-items: center;">
+      <div class="header-search" style="flex: 1; max-width: none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input placeholder="Tìm thuốc theo tên, mã, ATC...">
+      </div>
+      <select class="select" style="width: 160px;"><option>Mọi nhóm thuốc</option><option>Kháng sinh</option><option>Tim mạch</option><option>Tiểu đường</option></select>
+      <select class="select" style="width: 160px;"><option>Tình trạng</option><option>Đủ hàng</option><option>Sắp hết</option><option>Sắp hết HSD</option></select>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+            <span style="font-weight: 600; font-size: 15px;">Amoxicillin 500mg</span>
+            <span class="badge muted">viên</span>
+            <span class="font-mono text-xs text-muted">MED042 · ATC: J01CA04</span>
+          </div>
+          <div class="flex gap-4 text-sm" style="color: var(--text-muted);">
+            <span>Tổng: <strong style="color: var(--text);">1.250 viên</strong></span>
+            <span>Đã reserve: 156</span>
+            <span>Khả dụng: <strong style="color: var(--text);">1.094</strong></span>
+            <span>Mức tối thiểu: 200</span>
+            <span>Giá bán: 3.000₫/viên</span>
+          </div>
+        </div>
+        <div><span class="badge warning"><span class="dot"></span>Có lô sắp HSD</span></div>
+      </div>
+
+      <div style="margin-top: 14px; padding: 12px; background: var(--surface-2); border-radius: var(--radius);">
+        <div class="text-xs text-muted mb-3" style="font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">Theo lô (FEFO)</div>
+        <div class="text-sm" style="display: grid; gap: 8px;">
+          <div style="display: grid; grid-template-columns: 100px 1fr 100px 80px 100px; gap: 12px; align-items: center;">
+            <span class="font-mono text-xs">L24Z901</span>
+            <span style="color: var(--warning);"><strong>HSD 15/05/2026</strong> (19 ngày)</span>
+            <span class="num"><strong>320 viên</strong></span>
+            <span class="text-xs text-muted">DKSH</span>
+            <span><span class="badge warning" style="font-size: 10px;">Ưu tiên xuất</span></span>
+          </div>
+          <div style="display: grid; grid-template-columns: 100px 1fr 100px 80px 100px; gap: 12px; align-items: center;">
+            <span class="font-mono text-xs">L25C204</span>
+            <span>HSD 22/11/2026</span>
+            <span class="num">500 viên</span>
+            <span class="text-xs text-muted">DKSH</span>
+            <span></span>
+          </div>
+          <div style="display: grid; grid-template-columns: 100px 1fr 100px 80px 100px; gap: 12px; align-items: center;">
+            <span class="font-mono text-xs">L25H110</span>
+            <span>HSD 08/03/2027</span>
+            <span class="num">430 viên</span>
+            <span class="text-xs text-muted">Pharimexco</span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+            <span style="font-weight: 600; font-size: 15px;">Paracetamol 500mg</span>
+            <span class="badge muted">viên</span>
+            <span class="font-mono text-xs text-muted">MED001 · ATC: N02BE01</span>
+          </div>
+          <div class="flex gap-4 text-sm" style="color: var(--text-muted);">
+            <span>Tổng: <strong style="color: var(--text);">3.480 viên</strong></span>
+            <span>Đã reserve: 42</span>
+            <span>Khả dụng: <strong style="color: var(--text);">3.438</strong></span>
+            <span>Mức tối thiểu: 500</span>
+            <span>Giá bán: 1.500₫/viên</span>
+          </div>
+        </div>
+        <div><span class="badge success"><span class="dot"></span>Đủ hàng</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+            <span style="font-weight: 600; font-size: 15px;">Insulin Mixtard 30</span>
+            <span class="badge muted">lọ</span>
+            <span class="font-mono text-xs text-muted">MED198 · ATC: A10AD01</span>
+          </div>
+          <div class="flex gap-4 text-sm" style="color: var(--text-muted);">
+            <span>Tổng: <strong style="color: var(--text);">18 lọ</strong></span>
+            <span>Đã reserve: 6</span>
+            <span>Khả dụng: <strong style="color: var(--danger);">12</strong></span>
+            <span>Mức tối thiểu: 24 · Đặt: 50</span>
+          </div>
+          <div style="height: 6px; background: var(--surface-2); border-radius: 3px; margin-top: 8px; overflow: hidden;">
+            <div style="height: 100%; width: 24%; background: var(--danger);"></div>
+          </div>
+        </div>
+        <div><span class="badge danger"><span class="dot"></span>Dưới mức tối thiểu</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 6px;">
+            <span style="font-weight: 600; font-size: 15px;">Amlodipin 5mg</span>
+            <span class="badge muted">viên</span>
+            <span class="font-mono text-xs text-muted">MED078 · ATC: C08CA01</span>
+          </div>
+          <div class="flex gap-4 text-sm" style="color: var(--text-muted);">
+            <span>Tổng: <strong style="color: var(--text);">2.150 viên</strong></span>
+            <span>Đã reserve: 90</span>
+            <span>Khả dụng: <strong style="color: var(--text);">2.060</strong></span>
+            <span>Mức tối thiểu: 300</span>
+            <span>Giá bán: 3.000₫/viên</span>
+          </div>
+        </div>
+        <div><span class="badge success"><span class="dot"></span>Đủ hàng</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== BILLING ====== -->
+<div class="page screen" data-screen="billing">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Hóa <em>đơn</em></h1>
+      <p class="page-subtitle">17 hóa đơn hôm nay · 8,4tr doanh thu · 2,1tr công nợ</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn">Xuất Excel</button>
+      <button class="btn btn-primary">+ Hóa đơn ngoài lượt khám</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active">Tất cả <span class="tab-count">17</span></button>
+    <button class="tab">Đã thanh toán <span class="tab-count">12</span></button>
+    <button class="tab">Chờ thanh toán <span class="tab-count">3</span></button>
+    <button class="tab">Quá hạn <span class="tab-count">2</span></button>
+    <button class="tab">Đã hủy <span class="tab-count">0</span></button>
+  </div>
+
+  <div class="card">
+    <div class="card-body flush">
+      <table class="table">
+        <thead>
+          <tr><th>Mã HĐ</th><th>Bệnh nhân</th><th>Phát hành</th><th class="num">Tổng tiền</th><th class="num">Đã trả</th><th class="num">Còn lại</th><th>Trạng thái</th><th>PT thanh toán</th><th class="actions"></th></tr>
+        </thead>
+        <tbody>
+          <tr class="clickable">
+            <td class="font-mono">INV-20260426-016</td>
+            <td><div class="patient-cell"><div class="patient-avatar">PA</div><div><div class="patient-name">Phan Anh Tú</div></div></div></td>
+            <td>10:18</td>
+            <td class="num"><strong>425.000₫</strong></td>
+            <td class="num">425.000₫</td>
+            <td class="num">—</td>
+            <td><span class="badge success"><span class="dot"></span>Đã thanh toán</span></td>
+            <td><span class="badge muted">Tiền mặt</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td class="font-mono">INV-20260426-015</td>
+            <td><div class="patient-cell"><div class="patient-avatar">VH</div><div><div class="patient-name">Vũ Thị Hằng</div></div></div></td>
+            <td>10:23</td>
+            <td class="num"><strong>680.000₫</strong></td>
+            <td class="num">0₫</td>
+            <td class="num" style="color: var(--warning);"><strong>680.000₫</strong></td>
+            <td><span class="badge warning"><span class="dot"></span>Chờ thanh toán</span></td>
+            <td>—</td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td class="font-mono">INV-20260426-014</td>
+            <td><div class="patient-cell"><div class="patient-avatar">DL</div><div><div class="patient-name">Đỗ Thị Lan</div></div></div></td>
+            <td>10:08</td>
+            <td class="num"><strong>378.000₫</strong></td>
+            <td class="num">378.000₫</td>
+            <td class="num">—</td>
+            <td><span class="badge success"><span class="dot"></span>Đã thanh toán</span></td>
+            <td><span class="badge muted">Chuyển khoản</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td class="font-mono">INV-20260426-013</td>
+            <td><div class="patient-cell"><div class="patient-avatar">NB</div><div><div class="patient-name">Ngô Văn Bảo</div></div></div></td>
+            <td>09:42</td>
+            <td class="num"><strong>230.000₫</strong></td>
+            <td class="num">230.000₫</td>
+            <td class="num">—</td>
+            <td><span class="badge success"><span class="dot"></span>Đã thanh toán</span></td>
+            <td><span class="badge muted">Tiền mặt</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td class="font-mono">INV-20260426-012</td>
+            <td><div class="patient-cell"><div class="patient-avatar">NL</div><div><div class="patient-name">Nguyễn Thanh Long</div></div></div></td>
+            <td>09:30</td>
+            <td class="num"><strong>1.250.000₫</strong></td>
+            <td class="num">700.000₫</td>
+            <td class="num" style="color: var(--warning);"><strong>550.000₫</strong></td>
+            <td><span class="badge warning"><span class="dot"></span>Trả một phần</span></td>
+            <td><span class="badge muted">Tiền mặt + Thẻ</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable" style="background: var(--danger-soft);">
+            <td class="font-mono">INV-20260321-008</td>
+            <td><div class="patient-cell"><div class="patient-avatar">TQH</div><div><div class="patient-name">Trần Quốc Hưng</div></div></div></td>
+            <td>21/03/26</td>
+            <td class="num"><strong>890.000₫</strong></td>
+            <td class="num">0₫</td>
+            <td class="num" style="color: var(--danger);"><strong>890.000₫</strong></td>
+            <td><span class="badge danger"><span class="dot"></span>Quá hạn 36 ngày</span></td>
+            <td>—</td>
+            <td class="actions">⋯</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== REPORTS ====== -->
+<div class="page screen" data-screen="reports">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Báo <em>cáo</em></h1>
+      <p class="page-subtitle">Tháng 4/2026 · Cập nhật theo thời gian thực</p>
+    </div>
+    <div class="page-actions">
+      <select class="select" style="width: 180px;"><option>Tháng này</option><option>Tháng trước</option><option>3 tháng gần</option><option>Năm 2026</option></select>
+      <button class="btn">Xuất PDF</button>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card accent"><div class="stat-label">Doanh thu tháng</div><div class="stat-value">186tr</div><div class="stat-trend">↑ 23% so với T3</div></div>
+    <div class="stat-card"><div class="stat-label">Lượt khám</div><div class="stat-value">412</div><div class="stat-trend up">↑ 18%</div></div>
+    <div class="stat-card"><div class="stat-label">Bệnh nhân mới</div><div class="stat-value">47</div><div class="stat-trend up">↑ 7</div></div>
+    <div class="stat-card"><div class="stat-label">TB chi tiêu/lượt</div><div class="stat-value">451k</div><div class="stat-trend up">↑ 4%</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card mb-4">
+      <div class="card-head">
+        <div>
+          <div class="card-title">Doanh thu theo ngày</div>
+          <div class="card-sub">Tháng 4/2026 · 4 tuần đầu</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-bars" style="height: 180px;">
+          <div class="chart-bar" style="height: 45%;"><span class="chart-bar-label">T1</span></div>
+          <div class="chart-bar" style="height: 52%;"><span class="chart-bar-label">T2</span></div>
+          <div class="chart-bar" style="height: 60%;"><span class="chart-bar-label">T3</span></div>
+          <div class="chart-bar" style="height: 55%;"><span class="chart-bar-label">T4</span></div>
+          <div class="chart-bar alt" style="height: 78%;"><span class="chart-bar-label">T5</span></div>
+          <div class="chart-bar" style="height: 65%;"><span class="chart-bar-label">T6</span></div>
+          <div class="chart-bar" style="height: 70%;"><span class="chart-bar-label">T7</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-head">
+        <div class="card-title">Cơ cấu doanh thu</div>
+      </div>
+      <div class="card-body">
+        <div style="margin-bottom: 16px;">
+          <div class="flex justify-between text-sm mb-2"><span>Khám bệnh</span><span><strong>58tr</strong> · 31%</span></div>
+          <div style="height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden;"><div style="height: 100%; width: 31%; background: var(--primary);"></div></div>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <div class="flex justify-between text-sm mb-2"><span>Xét nghiệm · CĐHA</span><span><strong>42tr</strong> · 23%</span></div>
+          <div style="height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden;"><div style="height: 100%; width: 23%; background: var(--info);"></div></div>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <div class="flex justify-between text-sm mb-2"><span>Thuốc tại quầy</span><span><strong>74tr</strong> · 40%</span></div>
+          <div style="height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden;"><div style="height: 100%; width: 40%; background: var(--accent);"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2"><span>Thủ thuật khác</span><span><strong>12tr</strong> · 6%</span></div>
+          <div style="height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden;"><div style="height: 100%; width: 6%; background: var(--text-faint);"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-head">
+      <div class="card-title">Top 5 dịch vụ doanh thu cao</div>
+      <button class="btn btn-sm btn-ghost">Xem tất cả →</button>
+    </div>
+    <div class="card-body flush">
+      <table class="table">
+        <thead><tr><th>Dịch vụ</th><th>Mã</th><th class="num">Lượt</th><th class="num">Đơn giá TB</th><th class="num">Doanh thu</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Khám bác sĩ chuyên khoa</strong></td><td class="font-mono text-muted">DV001</td><td class="num">312</td><td class="num">200.000₫</td><td class="num"><strong>62.400.000₫</strong></td></tr>
+          <tr><td><strong>Siêu âm tổng quát</strong></td><td class="font-mono text-muted">DV022</td><td class="num">87</td><td class="num">350.000₫</td><td class="num"><strong>30.450.000₫</strong></td></tr>
+          <tr><td><strong>Xét nghiệm máu cơ bản</strong></td><td class="font-mono text-muted">DV010</td><td class="num">156</td><td class="num">180.000₫</td><td class="num"><strong>28.080.000₫</strong></td></tr>
+          <tr><td><strong>Điện tâm đồ (ECG)</strong></td><td class="font-mono text-muted">DV015</td><td class="num">94</td><td class="num">150.000₫</td><td class="num"><strong>14.100.000₫</strong></td></tr>
+          <tr><td><strong>Khám bác sĩ tổng quát</strong></td><td class="font-mono text-muted">DV002</td><td class="num">68</td><td class="num">150.000₫</td><td class="num"><strong>10.200.000₫</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Hiệu suất bác sĩ</div>
+    </div>
+    <div class="card-body flush">
+      <table class="table">
+        <thead><tr><th>Bác sĩ</th><th class="num">Lượt khám</th><th class="num">BN duy nhất</th><th class="num">TB phút/lượt</th><th class="num">Doanh thu DV</th></tr></thead>
+        <tbody>
+          <tr><td><div class="patient-cell"><div class="avatar" style="width: 32px; height: 32px; background: var(--info);">NA</div><div><div class="patient-name">BS. Nguyễn Văn An</div><div class="patient-sub">Đa khoa</div></div></div></td><td class="num">218</td><td class="num">187</td><td class="num">18 phút</td><td class="num"><strong>52,4tr</strong></td></tr>
+          <tr><td><div class="patient-cell"><div class="avatar" style="width: 32px; height: 32px; background: var(--accent);">TM</div><div><div class="patient-name">BS. Trần Thị Mai</div><div class="patient-sub">Đa khoa</div></div></div></td><td class="num">194</td><td class="num">172</td><td class="num">22 phút</td><td class="num"><strong>47,9tr</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== HR ====== -->
+<div class="page screen" data-screen="hr">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Nhân <em>sự</em></h1>
+      <p class="page-subtitle">9 nhân viên · 2 đang trực · 1 đơn xin nghỉ chờ duyệt</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn">Xếp ca</button>
+      <button class="btn btn-primary">+ Nhân viên mới</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active">Danh sách</button>
+    <button class="tab">Lịch ca <span class="tab-count">14</span></button>
+    <button class="tab">Chấm công</button>
+    <button class="tab">Nghỉ phép <span class="tab-count">1</span></button>
+  </div>
+
+  <div class="card">
+    <div class="card-body flush">
+      <table class="table">
+        <thead><tr><th>Nhân viên</th><th>Vai trò</th><th>Liên hệ</th><th>Ca hôm nay</th><th>Trạng thái</th><th class="actions"></th></tr></thead>
+        <tbody>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="avatar" style="background: var(--info);">NA</div><div><div class="patient-name">BS. Nguyễn Văn An</div><div class="patient-sub">Số CCHN: BS-12345</div></div></div></td>
+            <td><span class="badge primary">Bác sĩ</span></td>
+            <td class="font-mono text-sm">0901 111 222<br>nv.an@anbinh.vn</td>
+            <td>Sáng 7:30—12:00</td>
+            <td><span class="badge success"><span class="dot"></span>Đang trực</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="avatar" style="background: var(--accent);">TM</div><div><div class="patient-name">BS. Trần Thị Mai</div><div class="patient-sub">Số CCHN: BS-12389</div></div></div></td>
+            <td><span class="badge primary">Bác sĩ</span></td>
+            <td class="font-mono text-sm">0902 333 444<br>tt.mai@anbinh.vn</td>
+            <td>Sáng 8:00—13:00</td>
+            <td><span class="badge success"><span class="dot"></span>Đang trực</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="patient-avatar">LH</div><div><div class="patient-name">YT. Lê Thu Hà</div><div class="patient-sub">Y tá điều dưỡng</div></div></div></td>
+            <td><span class="badge info">Y tá</span></td>
+            <td class="font-mono text-sm">0903 555 666</td>
+            <td>Sáng 7:30—12:00</td>
+            <td><span class="badge success"><span class="dot"></span>Đang trực</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="patient-avatar">PH</div><div><div class="patient-name">DS. Phạm Thị Hoa</div><div class="patient-sub">Dược sĩ đại học</div></div></div></td>
+            <td><span class="badge info">Dược sĩ</span></td>
+            <td class="font-mono text-sm">0904 777 888</td>
+            <td>Sáng 8:00—12:00</td>
+            <td><span class="badge success"><span class="dot"></span>Đang trực</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="patient-avatar">NL</div><div><div class="patient-name">LT. Nguyễn Thị Linh</div><div class="patient-sub">Lễ tân</div></div></div></td>
+            <td><span class="badge muted">Lễ tân</span></td>
+            <td class="font-mono text-sm">0905 999 000</td>
+            <td>Sáng 7:00—12:00</td>
+            <td><span class="badge success"><span class="dot"></span>Đang trực</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+          <tr class="clickable">
+            <td><div class="patient-cell"><div class="patient-avatar">TT</div><div><div class="patient-name">Trần Thanh Thảo</div><div class="patient-sub">Quản trị hệ thống</div></div></div></td>
+            <td><span class="badge danger">Admin</span></td>
+            <td class="font-mono text-sm">0906 111 999</td>
+            <td>—</td>
+            <td><span class="badge muted"><span class="dot"></span>Off</span></td>
+            <td class="actions">⋯</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SETTINGS ====== -->
+<div class="page screen" data-screen="settings">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Cấu <em>hình</em></h1>
+      <p class="page-subtitle">Tùy chỉnh phòng khám của bạn</p>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab">Thông tin chung</button>
+    <button class="tab">Giờ hoạt động</button>
+    <button class="tab active">Chỉ số sinh hiệu</button>
+    <button class="tab">Vai trò &amp; quyền</button>
+    <button class="tab">Catalog dịch vụ</button>
+    <button class="tab">Mẫu in</button>
+  </div>
+
+  <div style="background: var(--info-soft); padding: 14px 18px; border-radius: var(--radius); margin-bottom: 20px; font-size: 13px; color: var(--info); display: flex; gap: 12px; align-items: flex-start;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <div>
+      <strong>Schema động — version 3</strong> · sửa đổi ngày 12/03/2026 bởi BS. An. Mỗi lần thay đổi sẽ tạo một schema version mới — dữ liệu cũ vẫn đọc được theo schema gốc của nó.
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="section-title">Nhóm: Sinh hiệu <button class="btn btn-ghost btn-sm">+ Thêm trường</button></div>
+
+      <div class="field-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 600;">Huyết áp tâm thu</span>
+            <span class="badge danger" style="font-size: 10px;">Bắt buộc</span>
+          </div>
+          <div class="field-meta">
+            <span class="field-key">systolic_bp</span>
+            <span>Số nguyên · mmHg</span>
+            <span>Hợp lệ: 50–250</span>
+            <span style="color: var(--warning);">Cảnh báo: &lt;90 hoặc &gt;140</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 600;">Huyết áp tâm trương</span>
+            <span class="badge danger" style="font-size: 10px;">Bắt buộc</span>
+          </div>
+          <div class="field-meta">
+            <span class="field-key">diastolic_bp</span>
+            <span>Số nguyên · mmHg</span>
+            <span>Hợp lệ: 30–150</span>
+            <span style="color: var(--warning);">Cảnh báo: &lt;60 hoặc &gt;90</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 600;">Nhịp tim</span>
+            <span class="badge danger" style="font-size: 10px;">Bắt buộc</span>
+          </div>
+          <div class="field-meta">
+            <span class="field-key">pulse</span>
+            <span>Số nguyên · lần/phút</span>
+            <span>Hợp lệ: 30–200</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 600;">Nhiệt độ</span>
+            <span class="badge danger" style="font-size: 10px;">Bắt buộc</span>
+          </div>
+          <div class="field-meta">
+            <span class="field-key">temperature</span>
+            <span>Số thực (1 chữ số) · °C</span>
+            <span>Hợp lệ: 33.0–43.0</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="section-title">Nhóm: Nhân trắc</div>
+
+      <div class="field-row">
+        <div>
+          <div style="font-weight: 600;">Cân nặng</div>
+          <div class="field-meta">
+            <span class="field-key">weight</span>
+            <span>Số thực (1 chữ số) · kg</span>
+            <span>Hợp lệ: 1–300</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="field-row">
+        <div>
+          <div style="font-weight: 600;">Chiều cao</div>
+          <div class="field-meta">
+            <span class="field-key">height</span>
+            <span>Số thực (1 chữ số) · cm</span>
+            <span>Hợp lệ: 30–250</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+
+      <div class="section-title">Nhóm: Tùy chỉnh phòng khám</div>
+
+      <div class="field-row" style="border-style: dashed;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-weight: 600;">Mức độ đau (VAS)</span>
+            <span class="badge primary" style="font-size: 10px;">Tùy chỉnh</span>
+          </div>
+          <div class="field-meta">
+            <span class="field-key">pain_score</span>
+            <span>Số nguyên · thang 0–10</span>
+            <span>Thêm bởi BS. An · 12/03/2026</span>
+          </div>
+        </div>
+        <button class="btn btn-sm">Sửa</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="card-head"><div class="card-title">Áp dụng preset chuyên khoa</div></div>
+        <div class="card-body">
+          <p class="text-sm text-muted mb-3">Khởi tạo nhanh các trường chuẩn theo chuyên khoa. Có thể tùy chỉnh sau.</p>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <button class="field-row" style="cursor: pointer; text-align: left; width: 100%;"><div><div style="font-weight: 600;">Đa khoa</div><div class="field-meta">7 trường · Đang dùng</div></div><span class="badge success"><span class="dot"></span>Đang dùng</span></button>
+            <button class="field-row" style="cursor: pointer; text-align: left; width: 100%;"><div><div style="font-weight: 600;">Nhi khoa</div><div class="field-meta">5 trường · Có vòng đầu</div></div><span style="color: var(--info);">Áp dụng →</span></button>
+            <button class="field-row" style="cursor: pointer; text-align: left; width: 100%;"><div><div style="font-weight: 600;">Sản khoa</div><div class="field-meta">6 trường · Có nhịp tim thai</div></div><span style="color: var(--info);">Áp dụng →</span></button>
+            <button class="field-row" style="cursor: pointer; text-align: left; width: 100%;"><div><div style="font-weight: 600;">Răng hàm mặt</div><div class="field-meta">3 trường · Tối giản</div></div><span style="color: var(--info);">Áp dụng →</span></button>
+            <button class="field-row" style="cursor: pointer; text-align: left; width: 100%;"><div><div style="font-weight: 600;">Da liễu</div><div class="field-meta">3 trường</div></div><span style="color: var(--info);">Áp dụng →</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-2" style="margin-top: 20px;">
+        <div class="card-head"><div class="card-title">Lịch sử thay đổi</div></div>
+        <div class="card-body" style="padding: 8px 16px;">
+          <div class="timeline-item">
+            <div class="timeline-time">12/03/26</div>
+            <div class="timeline-content"><div><strong>v3</strong> — BS. An</div><div class="text-muted text-xs">Thêm trường <code>pain_score</code> (Mức độ đau VAS)</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">08/02/26</div>
+            <div class="timeline-content"><div><strong>v2</strong> — Admin</div><div class="text-muted text-xs">Cập nhật ngưỡng cảnh báo huyết áp</div></div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15/01/26</div>
+            <div class="timeline-content"><div><strong>v1</strong> — Admin</div><div class="text-muted text-xs">Khởi tạo schema từ preset Đa khoa</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+<!-- ============ LOGIN OVERLAY ============ -->
+<div class="login-overlay" id="login">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="brand-mark">A</div>
+      <h1>An <em style="font-style: italic;">Bình</em></h1>
+      <p>Hệ thống quản lý phòng khám</p>
+    </div>
+    <div class="login-form">
+      <div>
+        <label class="label">Mã phòng khám</label>
+        <input class="input" value="anbinh" placeholder="Mã phòng khám">
+      </div>
+      <div>
+        <label class="label">Tên đăng nhập</label>
+        <input class="input" value="bs.an" placeholder="Tên đăng nhập">
+      </div>
+      <div>
+        <label class="label">Mật khẩu</label>
+        <input class="input" type="password" value="••••••••" placeholder="Mật khẩu">
+      </div>
+      <button class="btn btn-primary" style="justify-content: center; padding: 12px;" onclick="document.getElementById('login').classList.remove('show')">Đăng nhập</button>
+      <div style="text-align: center;">
+        <a href="#" style="font-size: 12px; color: var(--text-muted);">Quên mật khẩu?</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg">Đã chuyển</span>
+</div>
+
+<script>
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-screen]');
+  const screens = document.querySelectorAll('.screen[data-screen]');
+  const links = document.querySelectorAll('[data-screen-link]');
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toast-msg');
+
+  function showScreen(name) {
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.screen === name));
+    screens.forEach(s => s.classList.toggle('active', s.dataset.screen === name));
+    document.querySelector('.main').scrollTop = 0;
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => showScreen(item.dataset.screen));
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      showScreen(link.dataset.screenLink);
+    });
+  });
+
+  // Tabs within screens
+  document.querySelectorAll('.tabs').forEach(group => {
+    group.addEventListener('click', e => {
+      const tab = e.target.closest('.tab');
+      if (!tab) return;
+      group.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t === tab));
+    });
+  });
+
+  // Show toast helper
+  window.showToast = (msg) => {
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+  };
+
+  // Make queue "Gọi vào" clickable as demo
+  document.querySelectorAll('.queue-row .btn-primary').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      window.showToast('Đã chuyển bệnh nhân vào ca khám');
+      setTimeout(() => showScreen('visit'), 600);
+    });
+  });
+
+  // Cmd+K focus search
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      document.querySelector('.header-search input').focus();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

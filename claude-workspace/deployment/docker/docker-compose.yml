@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  claude-memory-worker:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    image: claude-memory-worker:latest
+    container_name: claude-memory-worker
+    restart: unless-stopped
+
+    ports:
+      - "37777:37777"
+
+    environment:
+      # Required: Anthropic API Key
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+
+      # Optional: API Key for client authentication
+      - API_KEY=${API_KEY:-}
+
+      # Worker configuration
+      - WORKER_PORT=37777
+      - NODE_ENV=production
+
+      # Database configuration
+      - MEMORY_DB_PATH=/opt/claude-memory/data/memory.db
+
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_PATH=/opt/claude-memory/logs
+
+      # Security
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-*}
+
+    volumes:
+      # Persist database
+      - claude-memory-data:/opt/claude-memory/data
+      # Persist logs
+      - claude-memory-logs:/opt/claude-memory/logs
+      # Persist backups
+      - claude-memory-backups:/opt/claude-memory/backups
+
+    networks:
+      - claude-memory-network
+
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:37777/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }).on('error', () => process.exit(1));"]
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
+
+    # Resource limits (adjust based on your needs)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  claude-memory-data:
+    driver: local
+  claude-memory-logs:
+    driver: local
+  claude-memory-backups:
+    driver: local
+
+networks:
+  claude-memory-network:
+    driver: bridge

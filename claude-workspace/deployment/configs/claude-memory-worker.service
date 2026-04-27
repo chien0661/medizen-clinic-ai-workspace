@@ -1,0 +1,50 @@
+[Unit]
+Description=Claude Memory Worker Service
+Documentation=https://bitbucket.vissoft.vn/scm/ct/template-ai-team
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=claudemem
+Group=claudemem
+WorkingDirectory=/opt/claude-memory/server/mcp-servers/claude-mem-server
+
+# Environment
+EnvironmentFile=/opt/claude-memory/server/.env
+Environment="NODE_ENV=production"
+
+# Start command
+ExecStart=/usr/bin/node dist/services/worker.js
+
+# Restart policy
+Restart=always
+RestartSec=10
+StartLimitInterval=400
+StartLimitBurst=3
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=claude-memory
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/claude-memory/data /opt/claude-memory/logs /opt/claude-memory/backups
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=512
+TasksMax=4096
+MemoryLimit=2G
+
+# Process management
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

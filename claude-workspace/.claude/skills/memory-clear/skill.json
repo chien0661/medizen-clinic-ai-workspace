@@ -1,0 +1,11 @@
+{
+  "name": "memory-clear",
+  "description": "Clear all memory observations (PERMANENT deletion)",
+  "command": "node",
+  "args": [".claude/skills/memory-clear/memory-clear.js"],
+  "requiresConfirmation": true,
+  "env": {
+    "WORKER_URL": "${WORKER_URL}",
+    "MEMORY_API_KEY": "${MEMORY_API_KEY}"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://github.com/modelcontextprotocol/specification/blob/main/schema/mcp.schema.json",
+  "mcpServers": {
+    "claude-mem": {
+      "comment": "Persistent memory system - captures observations across sessions",
+      "command": "node",
+      "args": [
+        "--env-file=.env",
+        "mcp-servers/claude-mem-server/dist/index.js"
+      ],
+      "env": {
+        "WORKER_URL": "${WORKER_URL}"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "search",
+        "timeline",
+        "get_observations",
+        "__IMPORTANT"
+      ]
+    },
+    "atlassian": {
+      "comment": "VISSOFT Jira & Confluence - read tasks/specs from company systems. Set disabled: true if not using.",
+      "command": "node",
+      "args": [
+        "--env-file=.env",
+        "mcp-client.js"
+      ],
+      "env": {
+        "MCP_SERVER_URL": "https://mcp-server.vissoft.vn",
+        "JIRA_URL": "https://jira.vissoft.vn",
+        "CONFLUENCE_URL": "https://confluence.vissoft.vn"
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    },
+    "atlassian-vds": {
+      "comment": "VDS Partner Confluence - for partner documentation publishing. Set disabled: true if not needed.",
+      "command": "node",
+      "args": [
+        "--env-file=.env",
+        "mcp-servers/mcp-vds-server/dist/index.js"
+      ],
+      "env": {
+        "JIRA_BASE_URL": "http://localhost:8080",
+        "JIRA_PAT": "dummy-token-not-used",
+        "CONFLUENCE_BASE_URL": "http://your-confluence-server:8090",
+        "TRANSPORT": "stdio"
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    },
+    "mariadb": {
+      "comment": "MariaDB database access - for Test Agent to validate database state. Disabled by default. Set disabled: false to enable.",
+      "command": "node",
+      "args": [
+        "--env-file=.env",
+        "mcp-servers/mariadb-server/index.js"
+      ],
+      "disabled": true,
+      "alwaysAllow": []
+    },
+    "sonarqube": {
+      "comment": "SonarQube code quality gates - validates code before push. Company-wide token pre-configured. Set disabled: true to skip quality checks.",
+      "command": "node",
+      "args": [
+        "mcp-servers/sonarqube-server/index.js"
+      ],
+      "env": {
+        "SONARQUBE_URL": "https://sonarqube.vissoft.vn",
+        "SONARQUBE_TOKEN": "squ_fe8873bcb1e5b96c33c61bd3c2d34089e8c81c2c"
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    },
+    "figma": {
+      "comment": "Figma design specs - read UI/UX requirements from Figma. Disabled by default. Set disabled: false to enable. Requires FIGMA_ACCESS_TOKEN in .env",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-figma"
+      ],
+      "env": {
+        "FIGMA_ACCESS_TOKEN": "${FIGMA_ACCESS_TOKEN}"
+      },
+      "disabled": true,
+      "alwaysAllow": []
+    },
+    "playwright": {
+      "comment": "Playwright browser automation - E2E testing, visual inspection, UI screenshots. Used by Test, Code Review, and Documentation agents. Disabled by default. Set disabled: false to enable.",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "disabled": true,
+      "alwaysAllow": []
+    }
+  }
+}

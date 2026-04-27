@@ -1,0 +1,20 @@
+{
+  "name": "release-skill",
+  "version": "1.0.0",
+  "description": "Automated release skill for AI Team Template",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "release": "./index.js"
+  },
+  "scripts": {
+    "release": "node index.js"
+  },
+  "keywords": [
+    "release",
+    "automation",
+    "claude-code"
+  ],
+  "author": "AI Team Template",
+  "license": "MIT"
+}

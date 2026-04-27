@@ -1,0 +1,11 @@
+{
+  "name": "memory-export",
+  "description": "Export memory observations to markdown file",
+  "command": "node",
+  "args": [".claude/skills/memory-export/memory-export.js", "${output_file}", "${project}"],
+  "requiresConfirmation": false,
+  "env": {
+    "WORKER_URL": "${WORKER_URL}",
+    "MEMORY_API_KEY": "${MEMORY_API_KEY}"
+  }
+}

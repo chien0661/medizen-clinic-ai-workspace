@@ -1,0 +1,126 @@
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build Outputs
+target/
+build/
+dist/
+!mcp-servers/*/dist/  # Exception: Keep MCP server built files
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.key
+*.pem
+*.p12
+*.jks
+
+# MCP Configuration (contains sensitive tokens)
+.mcp.json
+!.mcp.json.example
+mcp-client.js
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Java/Maven
+*.class
+.mtj.tmp/
+hs_err_pid*
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.swp
+~*
+
+# Local Settings (keep settings.local.json for local overrides)
+.claude/settings.local.json
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+nul
+
+# Docker and Claude Memory Deployment
+# Deployment environment files (sensitive credentials)
+deployment/docker/.env
+deployment/**/.env
+!deployment/**/.env.example
+
+# Docker volumes and data (contains user data and API keys)
+deployment/docker/data/
+deployment/docker/logs/
+deployment/docker/backups/
+
+# Claude Memory database (contains session data)
+.claude-mem/
+*.db-shm
+*.db-wal
+
+# Docker-related temporary files
+deployment/**/*.log
+deployment/**/temp/
+deployment/**/tmp/
+
+# Backup files from setup
+.mcp.json.backup.*
+.claude/settings.local.json.backup.*
+
+# Upgrade template working directory
+.template-upgrade/
+.template-upgrade-backup/

@@ -1,0 +1,13 @@
+{
+  "version": "1.6.10",
+  "installed": "2026-02-10",
+  "lastUpgrade": "2026-02-10",
+  "templateRepository": "https://bitbucket.vissoft.vn/scm/ct/template-ai-team.git",
+  "isTemplateRepo": true,
+  "customizations": {
+    "skills": [],
+    "agents": [],
+    "config": []
+  },
+  "notes": "This is the template repository itself. Version tracking is used for development and testing of the upgrade system."
+}

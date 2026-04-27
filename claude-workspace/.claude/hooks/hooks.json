@@ -1,0 +1,33 @@
+{
+  "pre-hooks": [
+    {
+      "name": "smart-install",
+      "script": "smart-install.js",
+      "description": "Verify memory system dependencies"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "SessionStart",
+      "script": "context-hook.js",
+      "description": "Inject context from previous sessions",
+      "configured": true
+    },
+    {
+      "name": "PostToolUse",
+      "script": "save-hook.js",
+      "description": "Capture tool observations",
+      "configured": true
+    },
+    {
+      "name": "SessionEnd",
+      "scripts": ["summary-hook.js", "cleanup-hook.js"],
+      "description": "Generate session summary, then mark session complete",
+      "configured": true
+    }
+  ],
+  "notes": {
+    "UserPromptSubmit": "Not configured - save-hook.js only handles PostToolUse data format",
+    "Stop": "Merged into SessionEnd - summary-hook.js runs before cleanup-hook.js"
+  }
+}

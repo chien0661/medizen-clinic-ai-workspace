@@ -1,0 +1,25 @@
+{
+  "name": "sonarqube-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for SonarQube code quality integration",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "mcp",
+    "sonarqube",
+    "code-quality",
+    "quality-gate"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

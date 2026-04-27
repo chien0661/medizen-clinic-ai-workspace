@@ -1,0 +1,64 @@
+{
+  "env": {
+    "WORKER_URL": "http://localhost:37777"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(mvn:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(docker:*)",
+      "Bash(bash:*)",
+      "Bash(openssl rand:*)",
+      "WebSearch",
+      "mcp__claude-mem__search",
+      "mcp__claude-mem____IMPORTANT",
+      "mcp__claude-mem__timeline",
+      "mcp__claude-mem__get_observations"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "claude-mem",
+    "atlassian",
+    "atlassian-vds",
+    "mariadb",
+    "sonarqube",
+    "figma"
+  ],
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/save-hook.js",
+            "statusMessage": "Capturing observation..."
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/cleanup-hook.js",
+            "statusMessage": "Finalizing session..."
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/context-hook.js",
+            "statusMessage": "Loading context..."
+          }
+        ]
+      }
+    ]
+  }
+}
