@@ -2,11 +2,11 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: IN_REVIEW
+status: IN_PROGRESS
 priority: High
-assigned: code-review-agent
+assigned: code-implementation-agent
 created: 2026-04-26
-updated: 2026-04-28
+updated: 2026-04-27
 branch: "feature/task-005-patients"
 iteration: 1
 tags: [patient, sprint-3]
@@ -61,6 +61,7 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 - **Created**: 2026-04-26
 - **Started**: 2026-04-28
 - **Implementation Completed**: 2026-04-28
+- **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED (2 CRITICAL, 6 MAJOR, 3 MINOR). See `handoff/review-report.md` and `handoff/review-to-implementation.md`. Top blockers: (C1) migration 0008 fails `alembic upgrade head` because `unaccent` isn't IMMUTABLE inside the GIN expression index — reproduced live; (C2) "integration" suite is mock-only, violates PROJECT.md TASK-004 iter-1 precedent; (M1) `audit_patient_read` BackgroundTask uses an already-closed AsyncSession — audit-on-read is silently dropped; (M2) phone search uses `ILIKE '%q%'` over a btree, cannot meet AC < 100ms @ 100k.
 
 ## Notes
 
