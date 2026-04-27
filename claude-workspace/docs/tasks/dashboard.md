@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 (auto-generated)
+**Last Updated**: 2026-04-28 01:29:43 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,11 +13,10 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 18 |
+| **TODO** | 17 |
 | **IN_PROGRESS** | 1 |
-| **IN_REVIEW** | 0 |
-| **DOCUMENTING** | 1 |
-| **DONE** | 5 |
+| **IN_REVIEW** | 1 |
+| **DONE** | 6 |
 
 ### By Priority
 
@@ -26,9 +25,10 @@
 
 ### By Agent
 
-- **Documentation Agent**: 2 tasks (TASK-004, TASK-016)
-- **Code Implementation Agent**: 1 task (TASK-014)
-- **Unassigned**: 18 tasks (TASK-005, TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
+- **Documentation Agent**: 1 tasks (TASK-016)
+- **Unassigned**: 17 tasks (TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
+- **code-implementation-agent**: 1 tasks (TASK-014)
+- **code-review-agent**: 1 tasks (TASK-005)
 
 ---
 
@@ -37,9 +37,6 @@
 ### 🔴 High Priority
 
 #### TODO
-
-- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
-  - **Assigned**: Unassigned
 
 - **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
   - **Assigned**: Unassigned
@@ -74,12 +71,11 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
-#### DOCUMENTING
+#### IN_REVIEW
 
-- **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
-  - **Assigned**: documentation-agent
-  - **Branch**: `feature/task-004-rbac`
-  - **Iteration**: 2 | HEAD: `afb922a` | 289 tests passing
+- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
+  - **Assigned**: code-review-agent
+  - **Branch**: `feature/task-005-patients`
 
 ### 🟡 Medium Priority
 
@@ -89,9 +85,6 @@
   - **Assigned**: Unassigned
 
 - **[TASK-010](tasks/TASK-010/task.md)** - Service Catalog + VisitService (Performed Services Tracking)
-  - **Assigned**: Unassigned
-
-- **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
   - **Assigned**: Unassigned
 
 - **[TASK-015](tasks/TASK-015/task.md)** - Reporting + In-App Notifications + Background Jobs (Arq)
@@ -105,6 +98,11 @@
 
 - **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
   - **Assigned**: Unassigned
+
+#### IN_PROGRESS
+
+- **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
+  - **Assigned**: code-implementation-agent
 
 ---
 
@@ -120,6 +118,9 @@
 
 - **[TASK-003](tasks/TASK-003/task.md)** - Auth — JWT Login/Refresh + Password Reset + Account Lockout
   - **Completed**: 2026-04-27
+
+- **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
+  - **Completed**: 2026-04-28
 
 - **[TASK-016](tasks/TASK-016/task.md)** - Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
   - **Completed**: 2026-04-27

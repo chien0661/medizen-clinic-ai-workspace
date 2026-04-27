@@ -2,12 +2,13 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: TODO
+status: IN_REVIEW
 priority: High
-assigned: Unassigned
+assigned: code-review-agent
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-28
+branch: "feature/task-005-patients"
+iteration: 1
 tags: [patient, sprint-3]
 affected-repos: [clinic-cms]
 refs:
@@ -58,6 +59,8 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-28
+- **Implementation Completed**: 2026-04-28
 
 ## Notes
 
