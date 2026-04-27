@@ -233,3 +233,62 @@ From TASK-003 auth-api.md:
 - **Code Review Agent**: 45-60 min (security review of secure_store, auth flow logic, permission filtering, API contract gaps)
 - **Test Agent**: 45-60 min (needs to verify `pnpm dev` works in Tauri dev mode once CI available; can run TS tests locally — 136 pass)
 - **Documentation Agent**: 30-40 min
+
+---
+
+## Iteration 2 (FIX MODE) — 2026-04-27
+
+**Trigger**: Code Review iter 1 → CHANGES_REQUESTED (1 CRIT, 4 MAJ, 8 MIN)
+**Branch**: `feature/TASK-017-fe-shell`
+**Quality gates after fixes**: 142/142 tests pass | tsc clean | ESLint clean
+
+### Issues Fixed
+
+#### CRITICAL
+
+| # | Issue | Fix | Commit |
+|---|---|---|---|
+| C1 | `secure_store.rs` docstring claimed AES-GCM encryption; code writes plaintext | Rewrote module doc as "PLAINTEXT v1 stub"; added `std::sync::Once`-guarded `eprintln!` warning on first write; added `#[cfg(unix)]` chmod 0o600 after every save; added top-of-file `TODO(security)` block pointing to `keyring` crate | `ee1070e` |
+
+#### MAJOR
+
+| # | Issue | Fix | Commit |
+|---|---|---|---|
+| M1 | `loadFromStorage` set `isAuthenticated: true` with `user: null` | Added `TOKEN_KEYS.USER` to secureStore; `setTokens` now persists user as JSON; `loadFromStorage` hydrates user — corrupted JSON falls back to null gracefully | `e1b5993` |
+| M2 | Vietnamese locales shipped as ASCII transliterations | Rewrote all 4 `vi/*.json` files with proper UTF-8 diacritics (Đăng nhập, Mật khẩu, Phòng khám, Tổng quan, Bác sĩ, Nhà thuốc, etc.) | `9e05b9e` |
+| M3 | Token rotation wrote 3 IPC calls, stomped user from refresh response | Added `rotateTokens(access, refresh)` to authStore — parallel IPC, does NOT touch user; `apiClient.doRefresh` now uses a single `await rotateTokens(...)` | `e1b5993` + `34d2113` |
+| M4 | No happy-path/recursion-guard/concurrency tests for refresh; `window.location.hash` raced with React Router | Added 3 new apiClient tests: happy-path retry, refresh-returns-401 recursion guard, concurrent 401 dedup (single refresh call). Fixed redirect race: `logout()` then `await Promise.resolve()` before hash assignment so RequireAuth renders first | `34d2113` |
+
+#### MINOR (addressed)
+
+| # | Issue | Fix | Commit |
+|---|---|---|---|
+| m1 | No ESLint config | Added `.eslintrc.cjs` with typescript-eslint + react-hooks-recommended; `npm run lint` now passes clean | `9f22d68` + `c545481` |
+| m3 | Dead `get()` call in `updateRefreshToken` | Removed | `e1b5993` |
+| m5 | `<a href="#">` for forgotPassword caused hash navigation | Changed to `<button type="button">` | `9f22d68` |
+| m8 | Hardcoded English aria-labels in Topbar | Added `themeToggle.toDark/toLight` + `userMenu.label` i18n keys to both `vi/` and `en/` `shell.json`; Topbar uses `t()` for both | `9e05b9e` + `9f22d68` |
+
+#### MINOR (deferred — not in scope for this iteration)
+
+- m2 (Zod schema rebuilt per render) — informational, no action required per review
+- m4 (Topbar clinic-name hardcoded "Clinic CMS") — deferred to TASK-018 per original review note
+- m6 (no dangerouslySetInnerHTML — clean) — no action needed
+- m7 (secure_store.rs empty test block) — deferred until keyring migration
+
+### New Commits on `feature/TASK-017-fe-shell`
+
+```
+ee1070e  fix(secure-store): align docstring and impl — plaintext v1 with warn+chmod (TASK-017)
+e1b5993  fix(auth-store): persist and restore user across app restart (TASK-017)
+34d2113  fix(api-client): use rotateTokens + store-driven redirect + add M4 tests (TASK-017)
+9e05b9e  fix(i18n): restore Vietnamese diacritics in vi locales + add i18n aria-label keys (TASK-017)
+9f22d68  fix(shell): translate aria-labels, fix forgot-password href, add ESLint config (TASK-017)
+c545481  fix(eslint): exempt ui/ from react-refresh/only-export-components (TASK-017)
+```
+
+### Test Delta
+
+- Before: 136/136
+- After: **142/142** (+6 new: 3 authStore + 3 apiClient)
+- `tsc --noEmit`: CLEAN
+- `npm run lint`: CLEAN

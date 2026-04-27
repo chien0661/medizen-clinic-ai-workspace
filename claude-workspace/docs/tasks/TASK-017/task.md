@@ -2,9 +2,9 @@
 id: TASK-017
 type: feature
 title: FE — Auth + App Shell + Design System + i18n (vi/en)
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Review Agent
+assigned: 
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/TASK-017-fe-shell"
@@ -61,10 +61,10 @@ Lớp UI foundation cho Tauri client: routing, auth flow (login/lockout/change p
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -76,6 +76,11 @@ Lớp UI foundation cho Tauri client: routing, auth flow (login/lockout/change p
 - **Created**: 2026-04-26
 - **Started**: 2026-04-27
 - **Implementation Completed**: 2026-04-27
+- **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED (1 CRITICAL, 4 MAJOR, 8 MINOR). See `handoff/review-report.md`.
+- **Fix iteration 2**: 2026-04-27 — All 1 CRIT + 4 MAJ + 4 of 8 MINOR fixed. 142/142 tests, tsc clean, ESLint clean. Re-submitted for review.
+- **Review (2nd pass)**: 2026-04-27 — **APPROVED**. All 1 CRIT + 4 MAJ verified per-commit. 142/142 tests pass, tsc clean, ESLint clean. See `handoff/review-report.md` §"Iteration 2 Review" and `handoff/review-to-test.md`.
+- **Testing Completed**: 2026-04-27 — **PASSED**. 169/169 tests, tsc clean, ESLint clean, coverage 85.34% lines / 80.11% branches / 77.41% functions. Test Agent added 24-test vi-locale-diacritics regression backstop and renamed orphan `.ts` JSX file to `.tsx` to fix transform error. Phase B (Tauri runtime) and Phase C (build/Lighthouse) remain deferred to CI per original review handoff. See `deliveries/test-reports/test-report.md` and `handoff/test-to-documentation.md`.
+- **Documentation Completed**: 2026-04-27 — Functional design document, API specs delivery, and Tauri IPC reference completed. 3 files created. Task marked DONE.
 
 ## Notes
 
