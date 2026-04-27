@@ -2,12 +2,12 @@
 id: TASK-004
 type: feature
 title: Users + RBAC (Role + Permission + Multi-Role)
-status: TODO
+status: IN_PROGRESS
 priority: High
-assigned: Unassigned
+assigned: code-implementation-agent
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-004-rbac"
 tags: [rbac, users, sprint-2]
 affected-repos: [clinic-cms]
 refs:
@@ -44,7 +44,7 @@ CRUD User trong clinic, RBAC với `Role`, `Permission`, `UserRole` (M2M), `User
 
 ## Progress Checklist
 
-- [ ] Implementation
+- [x] Implementation
 - [ ] Code Review
 - [ ] Testing
 - [ ] Documentation

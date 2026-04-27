@@ -171,6 +171,165 @@ Implemented the Tauri 2.x foundation for clinic-cms-web: a new desktop client re
 
 ---
 
+---
+
+## Iteration 2 (FIX MODE) — 2026-04-27
+
+**Reason**: Code Review iteration 1 returned CHANGES_REQUESTED. See `review-to-implementation.md` for full issue list.
+
+### Issue #1 — CRITICAL: Printer RCE (FIXED)
+
+**File**: `clinic-cms-web/src-tauri/src/plugins/printer.rs`
+**Commit**: `c02cffd` — `fix(printer): validate printer_name against allowlist regex (TASK-016)`
+
+Added `validate_printer_name(name: &str) -> Result<(), String>` that:
+- Rejects names longer than 128 characters
+- Rejects any character outside `[A-Za-z0-9 _\-:]` (blocks shell metacharacters `&`, `;`, `|`, backtick, `$`, etc.)
+- Applied to both `#[cfg(target_os = "windows")]` and `#[cfg(not(target_os = "windows"))]` branches of `send_to_printer()`
+- Added 4 Rust unit tests: valid names accepted, RCE patterns rejected, too-long name rejected, non-ASCII rejected
+
+Tradeoff documented: non-ASCII printer names blocked in v1. Win32 OpenPrinter/WritePrinter API migration deferred as post-v1 TODO (no shell = no injection surface).
+
+---
+
+### Issue #2 — CRITICAL: Missing Tauri 2.x capabilities + icons (FIXED)
+
+**Files**: `clinic-cms-web/src-tauri/capabilities/default.json`, `clinic-cms-web/src-tauri/icons/`
+**Commit**: `a579677` — `feat(tauri): add capabilities/default.json and icon placeholders (TASK-016)`
+
+**capabilities/default.json** created with:
+- `windows: ["main"]`
+- `core:default`, `core:event:default`
+- `sql:default`, `sql:allow-execute`, `sql:allow-select`, `sql:allow-load`
+- `shell:allow-open`
+- `core:ipc:allow-invoke` with explicit allowlist for all 10 custom commands: `health_check`, `get_app_config`, `print_receipt`, `start_barcode_listener`, `emit_barcode_scan`, `get_pending_changes_count`, `get_last_sync_time`, `set_last_sync_time`, `db_execute`, `db_query`
+
+**icons/** created with 5 placeholder files matching `bundle.icon` entries in `tauri.conf.json`:
+- `32x32.png` (32×32 px), `128x128.png` (128×128), `128x128@2x.png` (256×256 — @2x resolution)
+- `icon.ico` (PNG-in-ICO, 16×16), `icon.icns` (PNG-in-ICNS, 128×128)
+- All are minimal valid binary files (VISSoft blue #1a6bac, generated via Python struct/zlib)
+- TODO: replace with real brand icons before first production build
+
+---
+
+### Issue #3 — MAJOR: SQL column injection in `applyServerRecord` (FIXED)
+
+**File**: `clinic-cms-web/src/sync/database.ts` (lines ~119 area)
+**Commit**: `ab335bd` — `fix(sync): whitelist columns in applyServerRecord (TASK-016)`
+
+Added `ENTITY_COLUMNS: Record<EntityType, readonly string[]>` constant with per-entity column whitelists mirroring the 7-table schema in `db.rs`. The `applyServerRecord` function now:
+1. Filters `serverData` keys against `ENTITY_COLUMNS[entityType]` (plus `SYNC_META_COLS` exclusion set)
+2. Throws `Error("applyServerRecord(${entityType}): rejected unknown column(s): ...")` on any unknown key — surfaces as a retryable sync failure
+3. No SQL is executed if unknown columns are present
+
+Also fixes duplicate-column bug (review finding #7): `sync_status`, `server_version`, `sync_error`, `sync_attempted_at` are stripped from server data before being appended explicitly — preventing the SQL syntax error from duplicate column names.
+
+**New test file**: `src/tests/database.test.ts` (5 tests):
+- `accepts a valid patient record with known columns`
+- `rejects a patient record with an unknown (injected) column key` — verifies `mockExecute` NOT called
+- `rejects a record with any unknown key for any entity` — iterates all 6 remaining entity types
+- `strips sync-metadata keys from server data (no duplicate columns)` — asserts `sync_status` appears exactly once in INSERT column list; asserts `server_version` param is from function arg (5), not server data (99)
+- `applies sync_status='synced' and server_version from parameter, not from data`
+
+---
+
+### Issue #4 — MAJOR: BE branch wrong base (FIXED)
+
+**Repo**: `clinic-cms`, branch `feature/TASK-016-sync-endpoint`
+
+**Problem**: branch was cut from `feature/task-004-rbac`, so RBAC commit `28aefad` (+3,470 lines, 28 files) sat on top of the sync stub `2618dc8`.
+
+**Fix**: Reset branch to `main`, cherry-picked `2618dc8` (sync stub — all 5 files intact: `app/main.py`, `app/modules/sync/__init__.py`, `app/modules/sync/api/__init__.py`, `app/modules/sync/api/routes.py`, `tests/unit/test_sync_endpoint.py`), then applied the unused-import fix (issue #8).
+
+**Post-fix verification**:
+```
+git log main..feature/TASK-016-sync-endpoint --oneline
+fcb1138 fix(sync): remove unused imports and db parameter from sync routes (TASK-016)
+3dfbd0e feat(sync): add GET /api/v1/sync/changes endpoint stub (TASK-016)
+```
+
+Only 2 TASK-016 commits on top of `main`. RBAC commit `28aefad` is gone.
+
+---
+
+### Issue #5 — MAJOR: Event-listener leak in `useSync` (FIXED)
+
+**File**: `clinic-cms-web/src/hooks/useSync.ts` (lines ~94-102)
+**Included in**: Commit `eb61c1a`
+
+Hoisted `const onOnline = () => setOnline(true)` and `const onOffline = () => setOnline(false)` above the `addEventListener` calls. Both `addEventListener` and `removeEventListener` now reference the same function instances.
+
+---
+
+### Issue #8 — MINOR: Unused imports in BE sync routes (FIXED)
+
+**File**: `clinic-cms/app/modules/sync/api/routes.py`
+**Commit**: `fcb1138` on `feature/TASK-016-sync-endpoint`
+
+Removed: `import importlib`, `from sqlalchemy import select, text`, `from sqlalchemy.ext.asyncio import AsyncSession`, `from app.core.db import get_db`, `from fastapi import Depends`. Removed `db: AsyncSession = Depends(get_db)` parameter from `get_changes()`.
+
+---
+
+### Issue #9 — MINOR: `emit_barcode_scan` not in invoke_handler (FIXED)
+
+**File**: `clinic-cms-web/src-tauri/src/lib.rs`
+**Included in**: Commit `eb61c1a`
+
+Added `plugins::scanner::emit_barcode_scan` to `tauri::generate_handler![]`.
+
+---
+
+### Issue #10 — MINOR: `useBarcode` initial `lastKeystrokeRef = 0` (FIXED)
+
+**File**: `clinic-cms-web/src/hooks/useBarcode.ts`
+**Included in**: Commit `eb61c1a`
+
+Changed `useRef<number>(0)` to `useRef<number>(-Infinity)`. First-keystroke interval is now `+Infinity` (always > `maxInterval`), so the buffer resets correctly even if it were non-empty, making the behaviour explicit rather than relying on `bufferRef.current` being empty.
+
+---
+
+### Issue #11 — MINOR: Commit package-lock.json (FIXED)
+
+**File**: `clinic-cms-web/package-lock.json`
+**Commit**: `ab7dc44`
+
+Committed `package-lock.json` so CI and other developers get reproducible installs. Pnpm migration deferred to a follow-up task.
+
+---
+
+### Quality Gates (Iteration 2)
+
+| Gate | Result |
+|------|--------|
+| `npx vitest run` | 41/41 PASS (36 original + 5 new database.test.ts) |
+| `npx tsc --noEmit` | CLEAN (0 errors) |
+| Rust tests (cargo test) | Cannot run — no Rust toolchain on host. Must verify in CI. |
+| No new lint errors | Verified by inspection |
+| All 4 CRITICAL/MAJOR fixes committed | ✅ |
+| All 4 MINOR items addressed | ✅ |
+
+---
+
+### Commit Hashes — `feature/TASK-016-tauri-foundation`
+
+| Hash | Description |
+|------|-------------|
+| `30f3319` | feat(tauri): scaffold Tauri 2.x shell with React 18 frontend (TASK-016) — original |
+| `c02cffd` | fix(printer): validate printer_name against allowlist regex (TASK-016) |
+| `a579677` | feat(tauri): add capabilities/default.json and icon placeholders (TASK-016) |
+| `ab335bd` | fix(sync): whitelist columns in applyServerRecord (TASK-016) |
+| `eb61c1a` | fix(hooks,tauri): minor review fixes — event listener leak, barcode handler, useBarcode ref (TASK-016) |
+| `ab7dc44` | chore: commit package-lock.json for reproducible installs (TASK-016) |
+
+### Commit Hashes — `clinic-cms feature/TASK-016-sync-endpoint`
+
+| Hash | Description |
+|------|-------------|
+| `3dfbd0e` | feat(sync): add GET /api/v1/sync/changes endpoint stub (TASK-016) — cherry-picked from original `2618dc8` |
+| `fcb1138` | fix(sync): remove unused imports and db parameter from sync routes (TASK-016) |
+
+---
+
 ## Notes on Acceptance Criteria Status
 
 | Criterion | Status | Notes |

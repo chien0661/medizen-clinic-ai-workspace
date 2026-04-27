@@ -2,11 +2,13 @@
 id: TASK-016
 type: feature
 title: Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: Documentation Agent
 created: 2026-04-26
 updated: 2026-04-27
+testing_completed: 2026-04-27
+documentation_completed: 2026-04-27
 branch: "feature/TASK-016-tauri-foundation"
 tags: [tauri, frontend, offline, hardware, sprint-15, foundation]
 affected-repos: [clinic-cms, clinic-cms-web]
@@ -64,8 +66,8 @@ UI per-module được tách thành các task riêng:
 ## Progress Checklist
 
 - [x] Implementation
-- [ ] Code Review
-- [ ] Testing
+- [x] Code Review (iteration 1: CHANGES_REQUESTED → iteration 2: APPROVED)
+- [x] Testing (73/73 tests pass — 2026-04-27)
 - [ ] Documentation
 
 ## Related Files
@@ -76,6 +78,7 @@ UI per-module được tách thành các task riêng:
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Implementation Completed (iteration 2 / FIX MODE)**: 2026-04-27
 
 ## Notes
 

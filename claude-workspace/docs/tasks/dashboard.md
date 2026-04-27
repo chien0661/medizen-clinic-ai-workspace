@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-26 (auto-update — TASK-003 → IN_TESTING after BUG-001 fix)
+**Last Updated**: 2026-04-27 (TASK-016 → DOCUMENTING by test-agent, 73/73 tests PASS)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,12 +13,12 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| TODO | 22 |
+| TODO | 20 |
 | IN_PROGRESS | 0 |
-| IN_REVIEW | 1 |
+| IN_REVIEW | 2 |
 | IN_TESTING | 1 |
 | DOCUMENTING | 1 |
-| DONE | 0 |
+| DONE | 1 |
 
 ### By Priority
 
@@ -42,10 +42,10 @@
 
 | Sprint | Task | Title | Priority | Status | Blockers |
 |--------|------|-------|----------|--------|----------|
-| 0-1 | [TASK-001](TASK-001/task.md) | Foundation — Project Skeleton, Docker Compose, Base Models, Alembic | High | DOCUMENTING | — |
+| 0-1 | [TASK-001](TASK-001/task.md) | Foundation — Project Skeleton, Docker Compose, Base Models, Alembic | High | DONE | — |
 | 1 | [TASK-002](TASK-002/task.md) | Tenancy + RLS Policies + Audit Log Infrastructure | High | IN_REVIEW | — |
 | 2 | [TASK-003](TASK-003/task.md) | Auth — JWT Login/Refresh + Password Reset + Account Lockout | High | IN_TESTING | — |
-| 2 | [TASK-004](TASK-004/task.md) | Users + RBAC (Role + Permission + Multi-Role) | High | TODO | TASK-003 |
+| 2 | [TASK-004](TASK-004/task.md) | Users + RBAC (Role + Permission + Multi-Role) | High | IN_REVIEW | — |
 | 3 | [TASK-005](TASK-005/task.md) | Patient Management — CRUD + Guardian + Search + Merge | High | TODO | TASK-002, 004 |
 | 3 | [TASK-006](TASK-006/task.md) | Clinic Settings + Tenant Onboarding Wizard | Medium | TODO | TASK-004, 005 |
 | 4 | [TASK-007](TASK-007/task.md) | Visit — Entity + State Machine + Visit Number | High | TODO | TASK-005 |
@@ -62,7 +62,7 @@
 
 | Sprint | Task | Title | Priority | Status | Blockers |
 |--------|------|-------|----------|--------|----------|
-| 15 | [TASK-016](TASK-016/task.md) | Tauri Foundation — Shell + Offline Sync Engine + Hardware | High | TODO | TASK-001 |
+| 15 | [TASK-016](TASK-016/task.md) | Tauri Foundation — Shell + Offline Sync Engine + Hardware | High | DOCUMENTING | TASK-001 |
 | 15 | [TASK-017](TASK-017/task.md) | FE — Auth + App Shell + Design System + i18n (vi/en) | High | TODO | TASK-003, 016 |
 | 15 | [TASK-018](TASK-018/task.md) | FE — Reception (Patient + Walk-in + Appointment + Queue) | High | TODO | TASK-017, 005, 007, 008 |
 | 15 | [TASK-019](TASK-019/task.md) | FE — Doctor (Visit + Vitals + Service + Prescription) | High | TODO | TASK-017, 007, 009, 010, 011, 012 |

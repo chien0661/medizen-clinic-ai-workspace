@@ -68,7 +68,7 @@ Lớp UI foundation cho Tauri client: routing, auth flow (login/lockout/change p
 
 ## Related Files
 
-- **Code**: `clinic-cms/desktop/`
+- **Code**: `clinic-cms-web/`
 - **Reference UI**: `E:\MyProject\clinic-cms-workspace\docs\clinic_cms_mockup.html`
 
 ## Timestamps
