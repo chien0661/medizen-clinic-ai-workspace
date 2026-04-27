@@ -2,11 +2,11 @@
 id: TASK-004
 type: feature
 title: Users + RBAC (Role + Permission + Multi-Role)
-status: DOCUMENTING
+status: DONE
 priority: High
-assigned: documentation-agent
+assigned: ""
 created: 2026-04-26
-updated: 2026-04-27
+updated: 2026-04-28
 iteration: 2
 branch: "feature/task-004-rbac"
 tags: [rbac, users, sprint-2]
@@ -48,7 +48,7 @@ CRUD User trong clinic, RBAC với `Role`, `Permission`, `UserRole` (M2M), `User
 - [x] Implementation
 - [x] Code Review
 - [x] Testing
-- [ ] Documentation
+- [x] Documentation
 
 ## Related Files
 
@@ -62,6 +62,7 @@ CRUD User trong clinic, RBAC với `Role`, `Permission`, `UserRole` (M2M), `User
 - **Implementation Completed (Iteration 2)**: 2026-04-27 — HEAD bba9020, 273 tests passing
 - **Code Review APPROVED (Iteration 2)**: 2026-04-27 — all CRITICAL + MAJOR findings VERIFIED resolved
 - **Testing Completed**: 2026-04-27 — 289 passed / 0 failed; 16 new e2e tests added; HEAD afb922a
+- **Documentation Completed**: 2026-04-28 — functional design + API spec + SQL scripts + operations guide
 
 ## Notes
 
