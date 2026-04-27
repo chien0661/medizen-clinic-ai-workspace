@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 (TASK-016 → DOCUMENTING by test-agent, 73/73 tests PASS)
+**Last Updated**: 2026-04-27 (TASK-017 → IN_REVIEW by implementation-agent, 136/136 tests PASS)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,9 +13,9 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| TODO | 20 |
+| TODO | 19 |
 | IN_PROGRESS | 0 |
-| IN_REVIEW | 2 |
+| IN_REVIEW | 3 |
 | IN_TESTING | 1 |
 | DOCUMENTING | 1 |
 | DONE | 1 |
@@ -63,7 +63,7 @@
 | Sprint | Task | Title | Priority | Status | Blockers |
 |--------|------|-------|----------|--------|----------|
 | 15 | [TASK-016](TASK-016/task.md) | Tauri Foundation — Shell + Offline Sync Engine + Hardware | High | DOCUMENTING | TASK-001 |
-| 15 | [TASK-017](TASK-017/task.md) | FE — Auth + App Shell + Design System + i18n (vi/en) | High | TODO | TASK-003, 016 |
+| 15 | [TASK-017](TASK-017/task.md) | FE — Auth + App Shell + Design System + i18n (vi/en) | High | IN_REVIEW | TASK-003, 016 |
 | 15 | [TASK-018](TASK-018/task.md) | FE — Reception (Patient + Walk-in + Appointment + Queue) | High | TODO | TASK-017, 005, 007, 008 |
 | 15 | [TASK-019](TASK-019/task.md) | FE — Doctor (Visit + Vitals + Service + Prescription) | High | TODO | TASK-017, 007, 009, 010, 011, 012 |
 | 15 | [TASK-020](TASK-020/task.md) | FE — Pharmacy (Dispense + Inventory + Stock Adjustment) | High | TODO | TASK-017, 011, 012 |

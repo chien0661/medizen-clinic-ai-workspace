@@ -2,12 +2,12 @@
 id: TASK-017
 type: feature
 title: FE — Auth + App Shell + Design System + i18n (vi/en)
-status: TODO
+status: IN_REVIEW
 priority: High
-assigned: Unassigned
+assigned: Code Review Agent
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/TASK-017-fe-shell"
 tags: [frontend, tauri, react, foundation, sprint-15]
 affected-repos: [clinic-cms]
 refs:
@@ -74,6 +74,8 @@ Lớp UI foundation cho Tauri client: routing, auth flow (login/lockout/change p
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-27
+- **Implementation Completed**: 2026-04-27
 
 ## Notes
 
