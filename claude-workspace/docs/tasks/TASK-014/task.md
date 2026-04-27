@@ -64,6 +64,8 @@ Tách 2 khái niệm: Schedule (kế hoạch — input cho appointment capacity)
 - **Created**: 2026-04-26
 - **Started**: 2026-04-28
 - **Implementation Completed**: 2026-04-28
+- **Review Round 1 Completed**: 2026-04-28 (CHANGES_REQUESTED — 0 Critical, 2 Major, 6 Minor)
+- **Fix Iteration 1 Completed**: 2026-04-28
 
 ## Notes
 

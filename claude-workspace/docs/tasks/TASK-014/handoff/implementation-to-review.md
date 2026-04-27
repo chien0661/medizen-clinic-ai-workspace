@@ -143,3 +143,44 @@ putting app imports before stdlib on lines 1-15 that register as "not executed".
    `/attendance/me` appear before `/attendance` (the parameterized list). FastAPI
    resolves these correctly because they have fixed paths, but verify no routing
    ambiguity.
+
+---
+
+## Round 2 — Review Feedback Fixes (2026-04-28)
+
+**Commit**: `840acd0`
+
+All 8 issues from the review report were addressed. 4 new unit tests added.
+
+### Major Fixes
+
+1. **`app/modules/hr/services/shift_service.py:182-197`** (`update_shift`) — added `if shift.end_time <= shift.start_time: raise BusinessRuleError(...)` after applying patch fields.
+2. **`app/modules/hr/services/shift_service.py:69-84`** (`update_shift_template`) — same validation added after applying patch fields.
+3. **`app/modules/hr/services/attendance_service.py:55-67`** (`check_in`) — when `shift_id` provided, raises `NotFoundError` if shift not found or deleted, raises `ForbiddenError` if `shift.user_id != user_id` or `shift.clinic_id != clinic_id`.
+
+### Minor Fixes
+
+4. **`app/workers/jobs/generate_recurring_shifts.py:51`** — replaced f-string `SET LOCAL` with bind-parameterised `SELECT set_config('app.current_clinic_id', :cid, true)`.
+5. **`app/modules/hr/services/attendance_service.py:61-62, 130-131`** — added UTC timezone caveat comments on shift time combination in `check_in` and `check_out`.
+6. **`app/modules/hr/services/attendance_service.py:179, 216`** — added UTC caveat comments on `func.date()` casts in `list_time_logs` and `export_attendance_xlsx`.
+7. **`app/modules/hr/api/routes.py:478-481`** — removed `Depends(require_permission("attendance.manage"))` from `GET /attendance/me`; any authenticated user can read their own time log.
+8. **`app/modules/hr/services/leave_service.py:90-91`** — added self-approval guard: `if lr.user_id == approved_by: raise BusinessRuleError("Cannot approve your own leave request")`.
+9. **Lint** — `ruff check --fix` applied; 7 I001 import-order warnings resolved across 7 files (routes.py, all 5 HR services, generate_recurring_shifts.py).
+
+### New Unit Tests (`tests/unit/test_hr_service_logic.py`)
+
+| Test | Validates |
+|------|-----------|
+| `TestShiftUpdateRejectsInvertedTimes::test_shift_update_rejects_inverted_times` | `update_shift` raises `BusinessRuleError` on inverted times |
+| `TestShiftUpdateRejectsInvertedTimes::test_shift_template_update_rejects_inverted_times` | `update_shift_template` raises `BusinessRuleError` on inverted times |
+| `TestCheckInRejectsOtherUsersShiftId::test_check_in_rejects_other_users_shift_id` | `check_in` raises `ForbiddenError` for cross-user shift_id |
+| `TestApproveLeaveRejectsSelfApproval::test_approve_leave_rejects_self_approval` | `approve_leave_request` raises `BusinessRuleError` on self-approval |
+
+### Test Results
+
+| Suite | Tests | Passed | Failed |
+|-------|-------|--------|--------|
+| Unit (HR logic) | 21 | 21 | 0 |
+| Integration (HR e2e) | 14 | 14 | 0 |
+| **Total HR** | **35** | **35** | **0** |
+| Full suite | 324 | 324 | 0 |
