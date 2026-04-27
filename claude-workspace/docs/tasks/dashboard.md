@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-26 (auto-update — TASK-002 → IN_REVIEW)
+**Last Updated**: 2026-04-26 (auto-update — TASK-003 → IN_TESTING after BUG-001 fix)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,10 +13,10 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| TODO | 23 |
+| TODO | 22 |
 | IN_PROGRESS | 0 |
 | IN_REVIEW | 1 |
-| IN_TESTING | 0 |
+| IN_TESTING | 1 |
 | DOCUMENTING | 1 |
 | DONE | 0 |
 
@@ -44,7 +44,7 @@
 |--------|------|-------|----------|--------|----------|
 | 0-1 | [TASK-001](TASK-001/task.md) | Foundation — Project Skeleton, Docker Compose, Base Models, Alembic | High | DOCUMENTING | — |
 | 1 | [TASK-002](TASK-002/task.md) | Tenancy + RLS Policies + Audit Log Infrastructure | High | IN_REVIEW | — |
-| 2 | [TASK-003](TASK-003/task.md) | Auth — JWT Login/Refresh + Password Reset + Account Lockout | High | TODO | TASK-001, 002 |
+| 2 | [TASK-003](TASK-003/task.md) | Auth — JWT Login/Refresh + Password Reset + Account Lockout | High | IN_TESTING | — |
 | 2 | [TASK-004](TASK-004/task.md) | Users + RBAC (Role + Permission + Multi-Role) | High | TODO | TASK-003 |
 | 3 | [TASK-005](TASK-005/task.md) | Patient Management — CRUD + Guardian + Search + Merge | High | TODO | TASK-002, 004 |
 | 3 | [TASK-006](TASK-006/task.md) | Clinic Settings + Tenant Onboarding Wizard | Medium | TODO | TASK-004, 005 |
