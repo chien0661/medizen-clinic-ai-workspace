@@ -2,14 +2,14 @@
 id: TASK-016
 type: feature
 title: Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
-status: TODO
+status: IN_REVIEW
 priority: High
 assigned: Unassigned
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/TASK-016-tauri-foundation"
 tags: [tauri, frontend, offline, hardware, sprint-15, foundation]
-affected-repos: [clinic-cms]
+affected-repos: [clinic-cms, clinic-cms-web]
 refs:
   detail_design: "../../../../docs/clinic_management_system_design.md#20-offline-sync"
   other:
@@ -34,7 +34,7 @@ UI per-module được tách thành các task riêng:
 
 ## Requirements
 
-- [ ] Tauri shell + React (Vite) trong `clinic-cms/desktop/`
+- [ ] Tauri shell + React (Vite) trong `clinic-cms-web/` (parallel folder, NOT clinic-cms/desktop/)
 - [ ] Local SQLite schema mirror các bảng cần offline (theo §16.1 BA — Patient, Visit, Vitals, Appointment, VisitService, Prescription, TimeLog)
 - [ ] Mỗi table local có cols: `sync_status` (synced/pending_create/pending_update/pending_delete), `sync_attempted_at`, `sync_error`, `server_version`
 - [ ] Sync engine (Rust hoặc TS):
@@ -63,14 +63,14 @@ UI per-module được tách thành các task riêng:
 
 ## Progress Checklist
 
-- [ ] Implementation
+- [x] Implementation
 - [ ] Code Review
 - [ ] Testing
 - [ ] Documentation
 
 ## Related Files
 
-- **Code**: `clinic-cms/desktop/` (Tauri app)
+- **Code**: `clinic-cms-web/` (Tauri app — separate repo parallel to clinic-cms/ BE)
 - **Reference UI**: `E:\MyProject\clinic-cms-workspace\docs\clinic_cms_mockup.html`
 
 ## Timestamps
