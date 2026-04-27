@@ -1,132 +1,128 @@
-# Handoff: TASK-005 → Code Review
+# Handoff: TASK-005 → Code Review Agent (Iteration 2)
 
-**From**: Code Implementation Agent
-**To**: Code Review Agent
-**Status**: IN_REVIEW
-**Date**: 2026-04-28
-**Branch**: `feature/task-005-patients` (branched from `feature/task-004-rbac`, HEAD `afb922a`)
-**Iteration**: 1
+**From:** Code Implementation Agent  
+**To:** Code Review Agent  
+**Status:** IN_REVIEW (iteration 2)  
+**Date:** 2026-04-27  
+**Branch:** `feature/task-005-patients` (HEAD `d9c0546`)
 
 ---
 
 ## Summary
 
-Implemented the full Patient Management module for Clinic CMS: CRUD operations, full-text + trigram search by phone/name/code, guardian relationships, merge-duplicate with 7-day undo window, audit log on reads, and RLS tenant isolation. All 11 API routes registered in `app/main.py`.
+All 2 CRITICAL + 6 MAJOR + 2 MINOR findings from iteration 1 review have been addressed. Migration round-trip is clean. 79/79 tests pass. Coverage 95%. Ruff exit 0.
 
 ---
 
-## Files Created / Modified
+## Finding-by-Finding Resolution
 
-### New — Source (`clinic-cms/`)
+### CRITICAL
 
-| File | Description |
-|------|-------------|
-| `alembic/versions/0008_create_patients.py` | Migration: `patient`, `patient_relation`, `patient_merge_log` tables; extensions (`unaccent`, `pg_trgm`); 5 indexes; `fn_next_patient_code()`; RLS; grants |
-| `app/modules/patients/__init__.py` | Package init |
-| `app/modules/patients/models/__init__.py` | |
-| `app/modules/patients/models/patient.py` | `Patient(BaseEntity)` with `__auditable__ = True`, `__audit_exclude__ = frozenset({"id_number"})` |
-| `app/modules/patients/models/patient_relation.py` | `PatientRelation(BaseEntity)` |
-| `app/modules/patients/models/patient_merge_log.py` | `PatientMergeLog(BaseEntity)` |
-| `app/modules/patients/schemas/__init__.py` | |
-| `app/modules/patients/schemas/patient_schemas.py` | Pydantic schemas: `PatientCreate`, `PatientUpdate`, `PatientResponse`, `PatientListResponse`, `PatientCreateResponse`, `PatientRelationCreate`, `PatientRelationResponse`, `PatientMergeRequest`, `PatientMergeResponse`, `PatientSearchQuery` |
-| `app/modules/patients/services/__init__.py` | |
-| `app/modules/patients/services/patient_service.py` | CRUD + search + `generate_patient_code` + async audit read |
-| `app/modules/patients/services/guardian_service.py` | `add_guardian`, `list_relations`, `remove_relation` |
-| `app/modules/patients/services/merge_service.py` | `merge`, `undo_merge`, `RELATED_PATIENT_TABLES` registry, custom exceptions |
-| `app/modules/patients/api/__init__.py` | |
-| `app/modules/patients/api/routes.py` | 11 API routes (list, create, search, detail, update, delete, add/list/remove guardian, merge, undo) |
-| `tests/unit/patients/__init__.py` | |
-| `tests/unit/patients/test_patient_service.py` | 18 unit tests for patient CRUD + search + audit |
-| `tests/unit/patients/test_guardian_service.py` | 9 unit tests for guardian CRUD |
-| `tests/unit/patients/test_merge_service.py` | 12 unit tests for merge + undo + snapshot |
-| `tests/unit/patients/test_patient_schemas.py` | 20 unit tests for schema validation |
-| `tests/integration/patients/__init__.py` | |
-| `tests/integration/patients/test_patients_api.py` | 26 integration/HTTP contract tests |
+**C1 — Migration 0008 fails on clean DB (unaccent not IMMUTABLE)**  
+Fix: Added `immutable_unaccent(text)` SQL function (IMMUTABLE, STRICT, PARALLEL SAFE) in `upgrade()` before the GIN index. Updated `gix_patient_name_search` to use `immutable_unaccent(full_name)`. Added `gix_patient_phone_trgm` GIN index for phone (M2 fix, same commit). Updated `fn_next_patient_code` to use numeric `MAX(CAST(SUBSTRING(...) AS INTEGER))` over all rows including soft-deleted (M5 fix). Added `DROP FUNCTION IF EXISTS immutable_unaccent(text)` to `downgrade()`. Also updated `search_patients` in `patient_service.py` to call `func.immutable_unaccent()` matching the index.  
+Commit: `adea8b6`  
+Verified: `alembic downgrade 0007 → upgrade head → downgrade -1 → upgrade head` — all clean.
 
-### Modified
+**C2 — Integration tests are mock-only**  
+Fix: Completely rewrote `tests/integration/patients/test_patients_api.py`. New file: 15 real e2e tests against `app.main:app` using `httpx.AsyncClient` + live PostgreSQL + Redis. Pattern modelled on `test_rbac_e2e_real_db.py`. Covers: patient permissions seeded, create 201 + patient_code, duplicate name+DOB → 201 + warnings, fuzzy name search (Nguyễn Văn An AC), apostrophe in search (M3), phone search via trigram (M2), code search, guardian add/list/remove, merge happy path, cross-tenant 403, undo within window (restores drop_patient), undo expired → 410, audit READ row written (M1 verification), tenant isolation documentation, permission gating 403, M4 undo correctness, M5 code non-reuse.  
+Commit: `d9c0546`
 
-| File | Change |
-|------|--------|
-| `app/main.py` | Import + register `patients_router` (lines 19, 51) |
+### MAJOR
+
+**M1 — `audit_patient_read` BackgroundTask uses a closed AsyncSession**  
+Fix: Changed `audit_patient_read` signature to `(patient_id: UUID, clinic_id: UUID, user_id: UUID | None) -> None`. Opens its own `AsyncSessionLocal()` session, sets RLS context vars via `SET LOCAL`, writes audit, commits, closes. Route now passes `patient.id, clinic_id, user_id` (plain values, no ORM objects) to background task.  
+Files: `app/modules/patients/services/patient_service.py`, `app/modules/patients/api/routes.py`  
+Commit: `e2e06cb`
+
+**M2 — Phone search uses ILIKE '%q%' over btree (cannot meet AC < 100ms @ 100k)**  
+Fix: Added `gix_patient_phone_trgm ON patient USING gin (phone gin_trgm_ops) WHERE NOT is_deleted` in migration. Rewrote phone search branch to use `Patient.phone.op("%")(q)` (pg_trgm similarity operator) + `ORDER BY similarity(phone, q) DESC`.  
+Files: `alembic/versions/0008_create_patients.py`, `app/modules/patients/services/patient_service.py`  
+Commit: `adea8b6` (migration), `e2e06cb` (service)
+
+**M3 — `to_tsquery` crashes on apostrophes / special chars**  
+Fix: Replaced `to_tsquery("simple", ...)` with `plainto_tsquery("simple", func.immutable_unaccent(q))`. `plainto_tsquery` sanitises arbitrary user input and cannot raise on apostrophes. Regression test added (`test_search_by_name_apostrophe_does_not_raise` in unit tests, `test_search_by_name_apostrophe_does_not_500` in integration tests).  
+File: `app/modules/patients/services/patient_service.py`  
+Commit: `e2e06cb`
+
+**M4 — Undo over-reassigns rows that originally belonged to keep_patient**  
+Fix: `merge()` now captures, per `(table, fk_col)`, the list of row IDs that were actually moved from `drop_id → keep_id`. This manifest is stored as `source_patient_data["reassigned_refs"]`. `undo_merge()` reads the manifest and issues `UPDATE ... WHERE id = ANY(:ids)` — only reverting rows that were actually moved at merge time. Rows originally on `keep_patient` are untouched. Legacy fallback (blind reassignment) retained for merge_logs that pre-date this fix (no `reassigned_refs` key). Regression test added in both unit (`test_undo_only_moves_manifested_rows`) and integration (`test_undo_does_not_reassign_keep_patient_own_relations`).  
+File: `app/modules/patients/services/merge_service.py`  
+Commit: `6aefd35`
+
+**M5 — Unique-code conflict between merge and undo**  
+Fix: `fn_next_patient_code` no longer filters `WHERE NOT is_deleted`. It uses `MAX(CAST(SUBSTRING(patient_code FROM 3) AS INTEGER))` over ALL rows (including soft-deleted) to ensure codes are never reused. This prevents `uq_patient_clinic_code` violations when `undo_merge` un-soft-deletes a patient. Regression test in integration: `test_patient_code_not_reused_after_merge_and_undo_succeeds`.  
+File: `alembic/versions/0008_create_patients.py` (in `fn_next_patient_code` function body)  
+Commit: `adea8b6`
+
+**M6 — 11 ruff lint errors in test files**  
+Fix: Removed all unused imports (`ForbiddenError`, `PatientMergeRequest`, `datetime`, `timezone`, `call`) and unused local assignments (`rel`, `merge_log`, `result` x2, `mock_search`). Unit tests for `audit_patient_read` updated to match new signature. `test_captures_all_columns` converted to `async def` to match module-level `pytestmark` (m2 fix).  
+Files: all four unit test files + integration test file  
+Commit: `b384e97`
+
+### MINOR
+
+**m1 — fn_next_patient_code lexical MAX breaks at 4 → 5 digit width**  
+Fixed as part of M5: switched to `MAX(CAST(SUBSTRING(...) AS INTEGER))` numeric ordering. Handles BN9999 → BN10000 correctly.
+
+**m2 — Sync `test_captures_all_columns` marked asyncio at class scope**  
+Fixed: method converted to `async def test_captures_all_columns`.
+
+**m3 — Repeated `# noqa: B008` in routes**  
+Left as-is. Pre-existing pattern across the codebase. Out of scope per reviewer note.
 
 ---
 
-## Test Results
+## Verification Results
 
-| Suite | Passed | Failed | Total |
-|-------|--------|--------|-------|
-| Unit — patient_service | 18 | 0 | 18 |
-| Unit — guardian_service | 9 | 0 | 9 |
-| Unit — merge_service | 12 | 0 | 12 |
-| Unit — schemas | 20 | 0 | 20 |
-| Integration — HTTP API | 26 | 0 | 26 |
-| **TOTAL** | **85** | **0** | **85** |
+### Migration Round-Trip (run on live Docker stack, without user's HR WIP files)
 
-**Coverage on `app/modules/patients/`**: **98%** (467 statements, 9 missed)
-
-Missed lines:
-- `api/routes.py:50,57` — early-exit paths in `_require_clinic_id()` / `_require_user_id()` (unreachable through the test middleware; covered by TASK-004 middleware tests)
-- `schemas/patient_schemas.py:28-32` — `_VN_PHONE_RE` / `_PATIENT_CODE_RE` constants used in validators (import-time, not covered by branch)
-- `merge_service.py:105,240` — minor branches
-
-**Pre-existing failures (not caused by TASK-005)**: 4 tests in `tests/unit/test_tenancy_middleware.py` fail on the base `feature/task-004-rbac` branch before this branch was created. Verified by `git stash` + re-run.
-
----
-
-## Design Decisions for Review Attention
-
-### 1. Related Tables Registry in `merge_service.py`
-
-```python
-RELATED_PATIENT_TABLES: list[tuple[str, str]] = [
-    ("patient_relation", "patient_id"),
-    ("patient_relation", "guardian_patient_id"),
-    # TASK-007: ("visit", "patient_id"),
-    # TASK-008: ("appointment", "patient_id"),
-    # TASK-011: ("prescription", "patient_id"),
-    # TASK-013: ("invoice", "patient_id"),
-]
+```
+alembic downgrade 0007 → OK
+alembic upgrade head   → OK (created immutable_unaccent, all 3 GIN indexes, fn_next_patient_code)
+alembic downgrade -1   → OK (dropped function, indexes, tables cleanly)
+alembic upgrade head   → OK (idempotent forward)
 ```
 
-The merge logic iterates this constant with raw SQL `UPDATE`. Future tasks extend it by appending entries — no other logic changes needed. `patient_relation` appears **twice** (once per FK column) so both `patient_id` and `guardian_patient_id` FKs are reassigned on merge.
+Note: The user's untracked HR files (`0008_create_hr_schedule.py`, `0009_create_patients.py`) create an alembic multi-head conflict in the versions directory. The pre-existing `test_alembic_upgrade_head_is_idempotent` and `test_alembic_history_shows_migration` tests fail when those files are present. When the HR files are moved out temporarily, those tests pass. This is a pre-existing user working-tree issue, not a TASK-005 regression.
 
-**Potential concern**: The undo path reverses reassignments using the same registry by swapping `keep_id`/`drop_id`. This is directionally correct but may over-reassign if the guardian row was manually modified between merge and undo. This is an accepted limitation for v1 — the undo restores back to drop_patient for ALL relation rows pointing to keep_patient, which could reassign rows that naturally point to keep_patient. Review team may want to verify this is acceptable.
+### Full Test Suite
 
-### 2. Patient Code Generation (`fn_next_patient_code`)
+```
+tests/unit/patients/        : 61 passed
+tests/integration/patients/ : 18 passed (real DB e2e)
+Total patients module       : 79/79 passed
+Coverage on app/modules/patients/ : 95% (493 stmts, 27 missed)
 
-Uses `SELECT ... FOR UPDATE` inside a PL/pgSQL function. Works correctly under concurrent INSERTs within a transaction. **Limitation**: the lock only works reliably when the INSERT is in a transaction with `BEGIN` — FastAPI's `AsyncSession` with `commit()` in `get_db()` satisfies this. The Python-level fallback (`generate_patient_code`) calls `fn_next_patient_code` via `text()`.
+Full suite: 396 passed, 3 failed (all pre-existing)
+  - test_alembic_upgrade_head_is_idempotent — HR file conflict (not TASK-005)
+  - test_alembic_history_shows_migration — HR file conflict (not TASK-005)
+  - test_tenancy_middleware.py::TestDevHeaders::test_clinic_id_only_no_user_allowed — pre-existing on task-004-rbac base
+```
 
-### 3. Duplicate Warning (not 409)
+### Lint
 
-`create_patient()` returns `(patient, warnings)`. If a patient with the same `full_name` + `date_of_birth` exists, a warning string is appended. The API returns HTTP 201 with a `warnings` list in the response body. This matches the spec requirement: "warn if duplicate, do NOT block".
-
-### 4. Search Strategy (name type)
-
-Two queries are fired: ts_query (full-text with `unaccent`) AND pg_trgm (`similarity > 0.2`). Results are deduplicated in Python (ts results take priority). This avoids complex UNION SQL but fires 2 DB round-trips for name searches. Consider merging into a single UNION query in a follow-up if performance profiling shows it matters.
-
-### 5. Audit of READ operations
-
-`GET /patients/{id}` fires `audit_patient_read` as a FastAPI `BackgroundTask`. The background task reuses the same `AsyncSession` that was already active during the request. This follows the brief's instruction ("async, fire-and-forget") and matches the TASK-004 pattern. Note: if the outer transaction rolls back after the response is sent, the background task's audit write may still commit (it uses the already-committed session). This is a known trade-off for async audit.
-
-### 6. `id_number` PII exclusion
-
-`Patient.__audit_exclude__ = frozenset({"id_number"})` — CCCD/CMND is excluded from audit snapshots per the brief. The value will appear as `"***"` in audit logs.
-
----
-
-## Known Limitations
-
-1. **No integration test with real DB**: All tests mock the service layer or use a minimal test app. Real DB round-trip tests (migration verification, RLS, fn_next_patient_code) require the Docker stack. Added to the test agent's scope.
-2. **Migration forward/backward verification**: Cannot run `alembic upgrade/downgrade` without the Docker stack (PostgreSQL + extensions). The migration was manually reviewed for correctness.
-3. **4 pre-existing test failures** in `test_tenancy_middleware.py` on the base branch — not caused by this PR.
-4. **Undo reassignment overlap**: See design decision #1 above.
+```
+ruff check app/modules/patients/ tests/unit/patients/ tests/integration/patients/
+All checks passed!
+```
 
 ---
 
-## Commit SHAs
+## New Commits (iteration 2)
 
 | SHA | Message |
-|-----|---------|
-| `a79981d` | test(patients): TASK-005 unit and integration tests for patient module (85 tests, 98% coverage) |
-| `838631b` | feat(patients): TASK-005 implement CRUD + search + guardian + merge services and API routes |
-| `00bf6e6` | feat(patients): TASK-005 add Patient + PatientRelation + PatientMergeLog migration 0008 |
+|---|---|
+| `adea8b6` | fix(patients): TASK-005 use IMMUTABLE wrapper around unaccent in expression index (C1) |
+| `e2e06cb` | fix(patients): TASK-005 use fresh AsyncSession in audit_patient_read BackgroundTask (M1) |
+| `6aefd35` | fix(patients): TASK-005 record per-row reassignment manifest for accurate undo (M4) |
+| `b384e97` | style(patients): TASK-005 ruff lint fixes in test files (M6) |
+| `d9c0546` | test(patients): TASK-005 rewrite integration tests as DB-backed e2e (C2) |
+
+Note: M2, M3 fixes are in commit `e2e06cb` (patient_service.py); M5, m1 fixes are in commit `adea8b6` (migration).
+
+---
+
+## Known Limitations / Deferred
+
+- **RLS isolation via BYPASSRLS**: The `cms` DB user has `BYPASSRLS` so DB-level RLS is not enforced in the test environment. The `test_tenant_isolation_via_http` test documents this and asserts only that the HTTP response is 200 or 404 (either is acceptable). Production correctness depends on using the `cms_app` role which does not have BYPASSRLS. This is a pre-existing architectural note, not introduced by TASK-005.
+- **m3 (`# noqa: B008`)**: Left as-is per reviewer guidance ("consistent with existing codebase, leave for future global cleanup").

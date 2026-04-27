@@ -2,13 +2,13 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: IN_PROGRESS
+status: IN_REVIEW
 priority: High
-assigned: code-implementation-agent
+assigned: code-review-agent
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/task-005-patients"
-iteration: 1
+iteration: 2
 tags: [patient, sprint-3]
 affected-repos: [clinic-cms]
 refs:
@@ -61,7 +61,8 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 - **Created**: 2026-04-26
 - **Started**: 2026-04-28
 - **Implementation Completed**: 2026-04-28
-- **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED (2 CRITICAL, 6 MAJOR, 3 MINOR). See `handoff/review-report.md` and `handoff/review-to-implementation.md`. Top blockers: (C1) migration 0008 fails `alembic upgrade head` because `unaccent` isn't IMMUTABLE inside the GIN expression index — reproduced live; (C2) "integration" suite is mock-only, violates PROJECT.md TASK-004 iter-1 precedent; (M1) `audit_patient_read` BackgroundTask uses an already-closed AsyncSession — audit-on-read is silently dropped; (M2) phone search uses `ILIKE '%q%'` over a btree, cannot meet AC < 100ms @ 100k.
+- **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED (2 CRITICAL, 6 MAJOR, 3 MINOR). See `handoff/review-report.md` and `handoff/review-to-implementation.md`.
+- **Fix iteration 2**: 2026-04-27 — All 2 CRIT + 6 MAJ + 2 MIN fixed. (C1) Added `immutable_unaccent()` SQL function + updated GIN index expression and search queries; (C2) Rewrote integration tests as real DB e2e against `app.main:app` (15 scenarios); (M1) Fresh `AsyncSessionLocal()` in `audit_patient_read`; (M2) Trigram GIN index on phone + similarity operator; (M3) Switched to `plainto_tsquery`; (M4) Per-row reassignment manifest in `source_patient_data['reassigned_refs']`; (M5) `fn_next_patient_code` uses numeric MAX over ALL rows (incl. soft-deleted); (M6) All 11 ruff violations fixed. Minor: (m1) `fn_next_patient_code` now uses integer MAX (no more lexical ordering bug); (m2) `test_captures_all_columns` converted to `async`. Migration round-trip clean. 79/79 tests pass (61 unit + 18 integration). Coverage 95% on patients module. Ruff exit 0.
 
 ## Notes
 
