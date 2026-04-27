@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 22:54:35 (auto-generated)
+**Last Updated**: 2026-04-27 14:00 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,7 +14,9 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 19 |
-| **IN_PROGRESS** | 1 |
+| **IN_PROGRESS** | 0 |
+| **IN_REVIEW** | 0 |
+| **DOCUMENTING** | 1 |
 | **DONE** | 5 |
 
 ### By Priority
@@ -24,9 +26,8 @@
 
 ### By Agent
 
-- **Documentation Agent**: 1 tasks (TASK-016)
+- **Documentation Agent**: 2 tasks (TASK-004, TASK-016)
 - **Unassigned**: 19 tasks (TASK-005, TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-014, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **code-implementation-agent**: 1 tasks (TASK-004)
 
 ---
 
@@ -72,11 +73,12 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
-#### IN_PROGRESS
+#### DOCUMENTING
 
 - **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
-  - **Assigned**: code-implementation-agent
+  - **Assigned**: documentation-agent
   - **Branch**: `feature/task-004-rbac`
+  - **Iteration**: 2 | HEAD: `afb922a` | 289 tests passing
 
 ### 🟡 Medium Priority
 
