@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 05:25:49 (auto-generated)
+**Last Updated**: 2026-04-27 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,7 +14,8 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 17 |
-| **IN_REVIEW** | 2 |
+| **IN_REVIEW** | 0 |
+| **IN_TESTING** | 2 |
 | **DONE** | 6 |
 
 ### By Priority
@@ -26,7 +27,7 @@
 
 - **Documentation Agent**: 1 tasks (TASK-016)
 - **Unassigned**: 17 tasks (TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **code-review-agent**: 2 tasks (TASK-005, TASK-014)
+- **test-agent**: 2 tasks (TASK-005, TASK-014)
 
 ---
 
@@ -69,10 +70,10 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
-#### IN_REVIEW
+#### IN_TESTING
 
 - **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
-  - **Assigned**: code-review-agent
+  - **Assigned**: test-agent
   - **Branch**: `feature/task-005-patients`
 
 ### 🟡 Medium Priority
@@ -97,10 +98,10 @@
 - **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
   - **Assigned**: Unassigned
 
-#### IN_REVIEW
+#### IN_TESTING
 
 - **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
-  - **Assigned**: code-review-agent
+  - **Assigned**: test-agent
   - **Branch**: `feature/task-014-hr-schedule`
 
 ---

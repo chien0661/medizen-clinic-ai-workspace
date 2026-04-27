@@ -2,9 +2,9 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: IN_REVIEW
+status: IN_TESTING
 priority: High
-assigned: code-review-agent
+assigned: test-agent
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/task-005-patients"
@@ -63,6 +63,7 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 - **Implementation Completed**: 2026-04-28
 - **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED (2 CRITICAL, 6 MAJOR, 3 MINOR). See `handoff/review-report.md` and `handoff/review-to-implementation.md`.
 - **Fix iteration 2**: 2026-04-27 — All 2 CRIT + 6 MAJ + 2 MIN fixed. (C1) Added `immutable_unaccent()` SQL function + updated GIN index expression and search queries; (C2) Rewrote integration tests as real DB e2e against `app.main:app` (15 scenarios); (M1) Fresh `AsyncSessionLocal()` in `audit_patient_read`; (M2) Trigram GIN index on phone + similarity operator; (M3) Switched to `plainto_tsquery`; (M4) Per-row reassignment manifest in `source_patient_data['reassigned_refs']`; (M5) `fn_next_patient_code` uses numeric MAX over ALL rows (incl. soft-deleted); (M6) All 11 ruff violations fixed. Minor: (m1) `fn_next_patient_code` now uses integer MAX (no more lexical ordering bug); (m2) `test_captures_all_columns` converted to `async`. Migration round-trip clean. 79/79 tests pass (61 unit + 18 integration). Coverage 95% on patients module. Ruff exit 0.
+- **Review (2nd pass)**: 2026-04-27 — APPROVED. All 2 CRIT + 6 MAJ + 2 MIN verified RESOLVED per-commit (`adea8b6` C1/M2-mig/M5/m1; `e2e06cb` M1/M2-svc/M3; `6aefd35` M4; `b384e97` M6/m2; `d9c0546` C2). m3 deferred per iter-1 guidance. Migration round-trip clean. 79/79 patient tests pass, 95% coverage, ruff clean. No new findings. Handoff: `handoff/review-to-test.md`. Status → IN_TESTING.
 
 ## Notes
 

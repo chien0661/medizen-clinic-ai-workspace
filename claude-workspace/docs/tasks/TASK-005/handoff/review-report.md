@@ -282,3 +282,81 @@ The good news: the module structure, models, schemas, permissions, and routing a
 10. Resubmit for review with iteration 2.
 
 **Review Time:** ~75 minutes (including live DB reproduction of C1).
+
+---
+
+## Iteration 2 Review
+
+**Reviewer:** Code Review Agent
+**Date:** 2026-04-27
+**Branch:** `feature/task-005-patients` (HEAD `d9c0546`)
+**Iter-1 baseline:** `a79981d`. Iter-2 commits: `adea8b6 → e2e06cb → 6aefd35 → b384e97 → d9c0546`.
+**Verdict:** **APPROVED** → status `IN_TESTING`.
+
+### Per-finding verification
+
+| ID | Severity | Status | Commit | Verification |
+|----|----------|--------|--------|--------------|
+| **C1** | CRITICAL | **RESOLVED** | `adea8b6` | `immutable_unaccent(text)` SQL function (IMMUTABLE STRICT PARALLEL SAFE) added in `upgrade()`; `gix_patient_name_search` now uses it; `DROP FUNCTION` added to `downgrade()`. Live verified: `\df+ immutable_unaccent` → Volatility immutable. Migration round-trip clean (see below). |
+| **C2** | CRITICAL | **RESOLVED** | `d9c0546` | `tests/integration/patients/test_patients_api.py` rewritten — 18 real e2e tests against `app.main:app` via `httpx.AsyncClient` + live PG/Redis. Zero `AsyncMock`/`unittest.mock.patch`/mini-FastAPI. Modelled on `test_rbac_e2e_real_db.py`. Confirmed by grep: no mock primitives in file. |
+| **M1** | MAJOR | **RESOLVED** | `e2e06cb` | `audit_patient_read(patient_id, clinic_id, user_id)` opens fresh `AsyncSessionLocal()`, sets RLS via `SET LOCAL`, writes audit, commits, closes. Route passes plain UUIDs to BackgroundTask. Integration test `test_get_patient_writes_audit_read_row` verifies audit row landed. |
+| **M2** | MAJOR | **RESOLVED** | `adea8b6` (migration) + `e2e06cb` (service) | Added `gix_patient_phone_trgm ON patient USING gin (phone gin_trgm_ops) WHERE NOT is_deleted`. Phone branch uses `Patient.phone.op("%")(q)` + `ORDER BY similarity(phone,q) DESC`. Index confirmed live in `\d+ patient`. Note: throughput at 100k still wants the test agent's perf-bench validation. |
+| **M3** | MAJOR | **RESOLVED** | `e2e06cb` | `to_tsquery` → `plainto_tsquery("simple", func.immutable_unaccent(q))`. Sanitises arbitrary input. Integration test `test_search_by_name_apostrophe_does_not_500` exercises `O'Brien`. |
+| **M4** | MAJOR | **RESOLVED** | `6aefd35` | `merge()` collects `SELECT id WHERE fk = drop_id` per (table,fk_col) before reassign, persists list as `source_patient_data["reassigned_refs"]`. `undo_merge()` reverts only those IDs via `UPDATE ... WHERE id = ANY(:ids)`. Legacy fallback for older logs retained (no manifest). Integration test `test_undo_does_not_reassign_keep_patient_own_relations` asserts keep-patient's pre-existing relation is untouched after undo. |
+| **M5** | MAJOR | **RESOLVED** | `adea8b6` | `fn_next_patient_code` body: `SELECT MAX(CAST(SUBSTRING(patient_code FROM 3) AS INTEGER)) FROM patient WHERE clinic_id = p_clinic_id` — no `is_deleted` filter. Codes never reused. Verified live in `\df+ fn_next_patient_code`. Integration test `test_patient_code_not_reused_after_merge_and_undo_succeeds` asserts new code != drop_code AND undo succeeds without IntegrityError. |
+| **M6** | MAJOR | **RESOLVED** | `b384e97` | All 11 ruff violations cleared. `ruff check app/modules/patients/ tests/unit/patients/ tests/integration/patients/` → "All checks passed!". |
+| **m1** | MINOR | **RESOLVED** | `adea8b6` | Numeric-MAX fix (M5) also addresses lexical-ordering bug at BN9999→BN10000 boundary. |
+| **m2** | MINOR | **RESOLVED** | `b384e97` | `test_captures_all_columns` converted to `async def`. |
+| **m3** | MINOR | **DEFERRED** | — | Per iter-1 reviewer note ("consistent with codebase, leave for future global cleanup"). Not a blocker. |
+
+### Per-commit summary
+
+- `adea8b6` — C1 + M2 (migration index) + M5 + m1 (`fn_next_patient_code`). Migration only. Round-trip clean.
+- `e2e06cb` — M1 (fresh session) + M2 (phone branch) + M3 (`plainto_tsquery`). Service + route changes only.
+- `6aefd35` — M4 (manifest-based undo). Pure merge-service change with backward-compat legacy fallback.
+- `b384e97` — M6 + m2. Tests-only, lint-only.
+- `d9c0546` — C2 (real e2e suite). Tests-only.
+
+### Build verification — actually observed
+
+| Check | Observed | Iter-2 handoff claim | Match |
+|-------|----------|---------------------|-------|
+| `pytest -q tests/{unit,integration}/patients/` | **79 passed** in 21.31s | 79/79 | ✅ |
+| `pytest --cov=app/modules/patients --cov-report=term ...` | **95 %** (493 stmts, 27 missed) | 95% | ✅ |
+| `ruff check app/modules/patients/ tests/{unit,integration}/patients/` | **All checks passed** | exit 0 | ✅ |
+| Full suite `pytest -q` (HR files moved aside) | **398 passed, 1 failed** | 396 + 3 pre-existing | ✅ better than claimed (alembic tests pass once HR conflict removed) |
+| Pre-existing failure | `test_tenancy_middleware.py::TestDevHeaders::test_clinic_id_only_no_user_allowed` (TASK-004 base) | same | ✅ |
+
+### Migration round-trip — actually observed (HR files moved aside per stash protocol)
+
+```
+docker exec clinic_cms_api alembic downgrade 0007  → OK (0008 → 0007)
+docker exec clinic_cms_api alembic upgrade head    → OK (0007 → 0008, indexes/function created)
+docker exec clinic_cms_api alembic downgrade -1    → OK (0008 → 0007)
+docker exec clinic_cms_api alembic upgrade head    → OK (idempotent forward)
+
+\df+ immutable_unaccent             → Volatility=immutable, Parallel=safe ✅
+\d+ patient                         → gix_patient_name_search (uses immutable_unaccent),
+                                       gix_patient_phone_trgm (gin_trgm_ops), all present
+\df+ fn_next_patient_code           → numeric MAX over all rows, no NOT is_deleted filter ✅
+```
+
+The user's untracked `0008_create_hr_schedule.py` and `0009_create_patients.py` from TASK-014 WIP cause an alembic multi-head conflict if left in place. They were moved to `/tmp/task005-review-stash/` for round-trip verification and restored afterward. The user's working tree is unchanged — no git operations performed against those files.
+
+### New findings introduced by iter-2 changes
+
+**None.** No new CRITICAL or MAJOR. The 1 deprecation warning surfaced in tests (`ORJSONResponse is deprecated`) is pre-existing FastAPI noise unrelated to this task.
+
+### Notes for the test agent
+
+- Performance: AC1 ("phone search < 100ms @ 100k") is now plausible (trigram index in place) but **not benchmarked**. The test agent should seed ~100k patients and assert latency budget.
+- Tenant isolation: `test_tenant_isolation_via_http` documents that `cms` DB role has `BYPASSRLS`. The test agent should verify behaviour with the production `cms_app` role (RLS-enforced) — this is the actual production risk surface for cross-tenant leakage.
+- Audit timing: `test_get_patient_writes_audit_read_row` uses `await asyncio.sleep(0.5)` — could be flaky on slow CI. Consider polling instead.
+- AC ↔ test mapping is complete: AC1 phone-search-<100ms (deferred to perf bench), AC2 fuzzy "nguyen vn an" → "Nguyễn Văn An" (covered), AC3 guardian primary-contact (covered), AC4 merge reassign visit/prescription/invoice (only `patient_relation` covered — visit/prescription/invoice tables don't exist yet; registry has commented-out hints), AC5 undo restores prior state (covered + M4 manifest-correctness covered), AC6 undo > 7d → 410 (covered).
+
+### Decision
+
+**APPROVED.** Iter-1 had 2 CRIT + 6 MAJ + 3 MIN. Iter-2 resolves all 2 CRIT, all 6 MAJ, and 2 of 3 MIN; the remaining MIN (m3 — `# noqa: B008`) was explicitly deferred at iter-1 review time and is consistent with the rest of the codebase. No regressions, no new findings. Proceed to testing.
+
+**Review Time (iter 2):** ~50 minutes (per-commit verification + live DB round-trip + full test reproduction).
+
