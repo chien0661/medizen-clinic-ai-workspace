@@ -126,3 +126,29 @@ Note: M2, M3 fixes are in commit `e2e06cb` (patient_service.py); M5, m1 fixes ar
 
 - **RLS isolation via BYPASSRLS**: The `cms` DB user has `BYPASSRLS` so DB-level RLS is not enforced in the test environment. The `test_tenant_isolation_via_http` test documents this and asserts only that the HTTP response is 200 or 404 (either is acceptable). Production correctness depends on using the `cms_app` role which does not have BYPASSRLS. This is a pre-existing architectural note, not introduced by TASK-005.
 - **m3 (`# noqa: B008`)**: Left as-is per reviewer guidance ("consistent with existing codebase, leave for future global cleanup").
+
+---
+
+## Iteration 3 Fixes (2026-04-27)
+
+All 4 bugs reported by Test Agent (iteration 3) have been fixed. 117/117 non-perf tests pass. Coverage 94%. Ruff exit 0.
+
+| Bug | Severity | Fix Description | Commit SHA |
+|-----|----------|-----------------|------------|
+| BUG-004 | Critical | `undo_merge()` now accepts `clinic_id` param; route passes caller's clinic; post-fetch ownership check raises 404 if mismatch | `d020648`, `61208ae` |
+| BUG-003 | High | `PatientMergeRequest` model_validator rejects `keep_id == drop_id` with 422 | `2da9db0` |
+| BUG-001 | High | `search_patients` route rejects `q` containing `\x00` with 400 | `ae4d8f8` |
+| BUG-002 | Medium | `PatientCreate` + `PatientUpdate` field_validator rejects future `date_of_birth` with 422 | `0625af8` |
+
+### Test Results
+
+```
+117 passed, 2 deselected (perf) in 50.61s
+Coverage: 94% (app/modules/patients/)
+Ruff: All checks passed!
+Full suite (non-perf): 498 passed, 3 failed (pre-existing unrelated failures)
+```
+
+### Design Note: BUG-004 `clinic_id` Optionality
+
+`clinic_id` is `Optional[UUID] = None` in the service signature to preserve backward compatibility with pre-existing unit tests that call the service directly without a clinic context. The route always supplies `clinic_id`, so the security check is enforced on all production API calls. The `None` path is a pure unit-test convenience — it is never exercised from the HTTP layer.

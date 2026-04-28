@@ -2,9 +2,9 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: IN_PROGRESS
+status: IN_REVIEW
 priority: High
-assigned: code-implementation-agent
+assigned: code-review-agent
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/task-005-patients"
@@ -65,6 +65,7 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 - **Fix iteration 2**: 2026-04-27 — All 2 CRIT + 6 MAJ + 2 MIN fixed. (C1) Added `immutable_unaccent()` SQL function + updated GIN index expression and search queries; (C2) Rewrote integration tests as real DB e2e against `app.main:app` (15 scenarios); (M1) Fresh `AsyncSessionLocal()` in `audit_patient_read`; (M2) Trigram GIN index on phone + similarity operator; (M3) Switched to `plainto_tsquery`; (M4) Per-row reassignment manifest in `source_patient_data['reassigned_refs']`; (M5) `fn_next_patient_code` uses numeric MAX over ALL rows (incl. soft-deleted); (M6) All 11 ruff violations fixed. Minor: (m1) `fn_next_patient_code` now uses integer MAX (no more lexical ordering bug); (m2) `test_captures_all_columns` converted to `async`. Migration round-trip clean. 79/79 tests pass (61 unit + 18 integration). Coverage 95% on patients module. Ruff exit 0.
 - **Review (2nd pass)**: 2026-04-27 — APPROVED. All 2 CRIT + 6 MAJ + 2 MIN verified RESOLVED per-commit (`adea8b6` C1/M2-mig/M5/m1; `e2e06cb` M1/M2-svc/M3; `6aefd35` M4; `b384e97` M6/m2; `d9c0546` C2). m3 deferred per iter-1 guidance. Migration round-trip clean. 79/79 patient tests pass, 95% coverage, ruff clean. No new findings. Handoff: `handoff/review-to-test.md`. Status → IN_TESTING.
 - **Testing (Phase 3)**: 2026-04-27 — FAILED. 4 bugs found during fuzz/negative testing: (BUG-001) null byte in search q → 500; (BUG-002) future DOB accepted → 201; (BUG-003) self-merge allowed → 201; (BUG-004) cross-clinic undo merge → 200 (Critical). 113/117 non-perf tests pass. Performance: phone p95=46.9ms (AC1 PASS). RLS verified. Coverage 95%. See `deliveries/test-reports/test-report.md`. Status → IN_PROGRESS (iter 3).
+- **Fix iteration 3**: 2026-04-27 — All 4 bugs (1 CRIT, 2 HIGH, 1 MED) fixed. 117/117 non-perf tests pass. Coverage 94%. Ruff exit 0. BUG-004: clinic_id ownership check in undo_merge() (`d020648`, `61208ae`); BUG-003: Pydantic model_validator rejects self-merge (`2da9db0`); BUG-001: null byte guard in search route (`ae4d8f8`); BUG-002: field_validator rejects future DOB on PatientCreate + PatientUpdate (`0625af8`). Status → IN_REVIEW (iter 3).
 
 ## Notes
 
