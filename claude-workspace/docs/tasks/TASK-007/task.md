@@ -2,9 +2,9 @@
 id: TASK-007
 type: feature
 title: Visit — Entity + State Machine + Visit Number Generation
-status: DOCUMENTING
+status: DONE
 priority: High
-assigned: documentation-agent
+assigned: 
 created: 2026-04-26
 updated: 2026-04-28
 branch: "feature/task-007-visits"
@@ -51,8 +51,8 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 
 - [x] Implementation
 - [x] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Testing
+- [x] Documentation (Completed: 2026-04-28)
 
 ## Related Files
 
@@ -67,6 +67,7 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 - **Fix iteration 2**: 2026-04-27 — All 2 MAJ + 2 of 3 MIN fixed. m3 (ORJSON deprecation) deferred as pre-existing in codebase. 83/83 tests pass, coverage 87%, lint clean. Re-submitted for review.
 - **Review (2nd pass)**: 2026-04-27 — APPROVED. All 4 in-scope fixes RESOLVED (M1 narrower permissions + 2 new gating tests; M2 strict 200/200 distinct-IDs assertion + DB-level IN_PROGRESS verification; m1 docstring; m2 assert_can_transition symmetry). m3 ORJSON deferral verified pre-existing (introduced in TASK-001 commit `6bf2c53`). Build numbers match handoff: 83/83 pass, 87% coverage (317/41), ruff clean. M2 stability 5/5 runs. Handed off to Test Agent — see `handoff/review-to-test.md`.
 - **Testing Completed**: 2026-04-28 — PASSED. 33 new tests added (perf/RLS/lifecycle/concurrent/negative). Total 117 tests pass (116 non-perf + 1 perf). AC #6 p95=13.6ms < 50ms. RLS verified via cms_app role. 5-way concurrent call-next SKIP LOCKED verified. Coverage 87%. 1 bug documented: BUG-001 (ghost patient_id → FK IntegrityError not mapped to 404). Handed off to Documentation Agent.
+- **Documentation Completed**: 2026-04-28 — 3 deliverables delivered: visits-functional-design.md (Vietnamese, 700+ lines covering all sections), visits-api.md (10 endpoints with curl examples), visits-ddl.md (complete DDL, RLS, indexes, forward/downgrade scripts). All files commit-ready.
 
 ## Notes
 

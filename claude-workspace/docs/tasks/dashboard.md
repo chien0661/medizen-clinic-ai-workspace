@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 09:15 (auto-generated)
+**Last Updated**: 2026-04-28 16:39:11 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,8 +14,7 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 16 |
-| **DOCUMENTING** | 1 |
-| **DONE** | 8 |
+| **DONE** | 9 |
 
 ### By Priority
 
@@ -24,7 +23,7 @@
 
 ### By Agent
 
-- **Documentation Agent**: 2 tasks (TASK-007, TASK-016)
+- **Documentation Agent**: 1 tasks (TASK-016)
 - **Unassigned**: 16 tasks (TASK-006, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
 
 ---
@@ -64,13 +63,6 @@
 
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
-
-#### DOCUMENTING
-
-- **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
-  - **Assigned**: documentation-agent
-  - **Branch**: `feature/task-007-visits`
-  - **Iteration**: 2
 
 ### 🟡 Medium Priority
 
@@ -114,6 +106,9 @@
 
 - **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
   - **Completed**: 2026-04-27
+
+- **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
+  - **Completed**: 2026-04-28
 
 - **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
   - **Completed**: 2026-04-28
