@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 (auto-generated)
+**Last Updated**: 2026-04-28 09:15 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,7 +14,7 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 16 |
-| **IN_TESTING** | 1 |
+| **DOCUMENTING** | 1 |
 | **DONE** | 8 |
 
 ### By Priority
@@ -24,9 +24,8 @@
 
 ### By Agent
 
-- **Documentation Agent**: 1 tasks (TASK-016)
+- **Documentation Agent**: 2 tasks (TASK-007, TASK-016)
 - **Unassigned**: 16 tasks (TASK-006, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **test-agent**: 1 tasks (TASK-007)
 
 ---
 
@@ -66,10 +65,10 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
-#### IN_TESTING
+#### DOCUMENTING
 
 - **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
-  - **Assigned**: test-agent
+  - **Assigned**: documentation-agent
   - **Branch**: `feature/task-007-visits`
   - **Iteration**: 2
 
