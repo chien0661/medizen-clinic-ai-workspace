@@ -2,11 +2,11 @@
 id: TASK-014
 type: feature
 title: HR — Shift + Recurring Schedule + Attendance + Leave Request
-status: IN_PROGRESS
+status: IN_REVIEW
 priority: Medium
-assigned: code-implementation-agent
+assigned: code-review-agent
 created: 2026-04-26
-updated: 2026-04-27
+updated: 2026-04-28
 branch: feature/task-014-hr-schedule
 tags: [hr, schedule, attendance, sprint-12]
 affected-repos: [clinic-cms]
@@ -68,6 +68,7 @@ Tách 2 khái niệm: Schedule (kế hoạch — input cho appointment capacity)
 - **Fix Iteration 1 Completed**: 2026-04-28
 - **Review Round 2 Completed**: 2026-04-28 (APPROVED — 8/8 findings FIXED, 35/35 HR tests pass)
 - **Testing Round 1**: 2026-04-27 (FAIL — 9 failures in 64 new tests, 4 bugs: BUG-001 through BUG-004)
+- **Fix Iteration 2 Completed**: 2026-04-28
 
 ## Notes
 

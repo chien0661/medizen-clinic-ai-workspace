@@ -184,3 +184,45 @@ All 8 issues from the review report were addressed. 4 new unit tests added.
 | Integration (HR e2e) | 14 | 14 | 0 |
 | **Total HR** | **35** | **35** | **0** |
 | Full suite | 324 | 324 | 0 |
+
+---
+
+## Round 3 — Bug Fixes from Test Iteration 1 (2026-04-28)
+
+**Commit**: `cc5c539`
+
+Fixed 4 bugs surfaced by 9 failing tests in 64 new complementary tests (test round 1).
+
+### Bug Fixes
+
+| Bug | File : Line | Fix Description |
+|-----|------------|-----------------|
+| **BUG-001** (CRITICAL) | `shift_service.py` `get_shift_template` / `get_shift` | Added `clinic_id` guard: `if clinic_id is not None and str(tmpl.clinic_id) != str(clinic_id): raise NotFoundError(...)` — prevents cross-clinic mutation via BYPASSRLS superuser |
+| **BUG-001** (CRITICAL) | `leave_service.py` `get_leave_request` | Same clinic_id guard pattern for LeaveRequest |
+| **BUG-001** (CRITICAL) | `recurring_service.py` `get_recurring_schedule` | Same clinic_id guard pattern for RecurringSchedule |
+| **BUG-001** (CRITICAL) | `routes.py` (update/delete/approve/reject handlers) | All mutating route handlers now pass `clinic_id=_clinic_id()` to service `update_*`, `delete_*`, `approve_*`, `reject_*` functions |
+| **BUG-002** (MAJOR) | `exceptions.py` — no change needed | `BusinessRuleError` already correctly mapped to HTTP 400 via `AppException` handler. The time check (`if shift.end_time <= shift.start_time`) already existed in task014 code; the Docker test environment was running stale code from a different branch mount |
+| **BUG-003** (MAJOR) | `leave_service.py` `approve_leave_request` line ~90 | Changed `lr.user_id == approved_by` to `str(lr.user_id) == str(approved_by)` — fixes UUID type mismatch that prevented self-approval rejection |
+| **BUG-004** (CRITICAL) | `attendance_service.py` `check_in` ~line 56 | Replaced `db.get(Shift, shift_id)` with explicit `SELECT ... WHERE is_deleted IS FALSE` to bypass ORM cache and properly detect soft-deleted shifts |
+| **BUG-004** (CRITICAL) | `attendance_service.py` `check_in` ~line 59 | Changed `shift.user_id != user_id or shift.clinic_id != clinic_id` to `str(shift.user_id) != str(user_id) or str(shift.clinic_id) != str(clinic_id)` — fixes UUID type mismatch for cross-user check-in guard |
+
+### Nuance Beyond the Handoff Recipe
+
+**FIX-2 (BUG-002)**: The handoff suggested verifying `BusinessRuleError` → HTTP 400 mapping in `exceptions.py`. The exception handler WAS already correct. The root cause of the 2 failing BR-01 tests was that the Docker test container mounts `clinic-cms/app` (the `feature/task-005-patients` branch), NOT `clinic-cms-task014/app` (the `feature/task-014-hr-schedule` branch). The Docker was running an older version of `update_shift_template` and `update_shift` that lacked the time-inversion check. The fix in task014 code was already correct — it required deploying task014 files to Docker for test validation.
+
+**FIX-1 (BUG-001)**: Service functions (`update_shift_template`, `delete_shift_template`, `update_shift`, `delete_shift`, `approve_leave_request`, `reject_leave_request`, `update_recurring_schedule`, `delete_recurring_schedule`) were extended to accept `clinic_id: UUID | None = None` and forward it to their `get_*` calls. This avoids changing the public API signature (backward compatible — `clinic_id` defaults to `None`).
+
+### Test Results (Final)
+
+| Suite | Tests | Passed | Failed |
+|-------|-------|--------|--------|
+| Unit (HR logic) | 17 | 17 | 0 |
+| Integration (HR e2e) | 14 | 14 | 0 |
+| Integration (HR API contracts) | 28 | 28 | 0 |
+| Integration (HR business rules) | 36 | 36 | 0 |
+| Integration (HR workflows) | 7 | 7 | 0 |
+| **Total HR** | **95** | **95** | **0** |
+| Full suite (non-HR) | 404 | 404 | 0 |
+| Pre-existing failing (unrelated) | 1 | 0 | 1 |
+
+Note: `test_tenancy_middleware.py::test_clinic_id_only_no_user_allowed` was already failing before this task (documented in Round 2 handoff, item 6). Not introduced by TASK-014.

@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 23:50 (auto-generated)
+**Last Updated**: 2026-04-28 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,8 +14,8 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 17 |
-| **IN_PROGRESS** | 2 |
-| **IN_REVIEW** | 0 |
+| **IN_PROGRESS** | 1 |
+| **IN_REVIEW** | 1 |
 | **IN_TESTING** | 0 |
 | **DONE** | 6 |
 
@@ -28,8 +28,8 @@
 
 - **Documentation Agent**: 1 tasks (TASK-016)
 - **Unassigned**: 17 tasks (TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **code-implementation-agent**: 2 tasks (TASK-005, TASK-014)
-- **code-implementation-agent**: 2 tasks (TASK-005, TASK-014)
+- **code-implementation-agent**: 1 tasks (TASK-005)
+- **code-review-agent**: 1 tasks (TASK-014)
 
 ---
 
@@ -102,10 +102,12 @@
   - **Branch**: `feature/task-005-patients`
   - **Note**: Iteration 3 — 4 bugs from testing: BUG-001 (null byte → 500), BUG-002 (future DOB), BUG-003 (self-merge), BUG-004 (cross-clinic undo — Critical)
 
+#### IN_REVIEW
+
 - **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
-  - **Assigned**: code-implementation-agent
+  - **Assigned**: code-review-agent
   - **Branch**: `feature/task-014-hr-schedule`
-  - **Note**: Returned from testing — 4 bugs (BUG-001 to BUG-004) require fixes
+  - **Note**: Fix Iteration 2 complete — 4 bugs fixed (BUG-001 to BUG-004), 95/95 HR tests pass
 
 ---
 
