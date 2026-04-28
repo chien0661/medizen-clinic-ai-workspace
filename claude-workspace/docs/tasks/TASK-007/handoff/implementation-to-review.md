@@ -123,3 +123,64 @@ The design requires `doctor_id` and `assigned_doctor_id` as FKs to `user`. Both 
 - `mark_paid` (AWAITING_PAYMENT → COMPLETED) is ready for TASK-013 Billing integration but has no invoice side-effect yet — per task spec this is intentional.
 - The `v_active_queue` view is defined in the migration but the service uses an ORM query (with matching WHERE + ORDER BY) rather than querying the view directly, because SQLAlchemy's ORM cannot natively map to a view without additional setup. A future refactor could add a mapped view entity.
 - Coverage on `visit_service.py` is 77% — the uncovered lines are in `list_visits` filter branches (doctor_id, visit_date filters) and edge cases in `call_next` not exercised by the concurrent test. The overall module coverage (87%) comfortably exceeds the 80% threshold.
+
+---
+
+## Iteration 2 Fixes
+
+**Date**: 2026-04-27
+**Commits (newest first)**:
+
+| SHA | Message |
+|---|---|
+| `0a5f02a` | test(visits): TASK-007 strengthen concurrent call-next test to require 200/200 with distinct IDs (M2) |
+| `021b321` | fix(visits): TASK-007 use narrower permissions visit.cancel + payment.receive on cancel/mark-paid (M1) |
+
+### M1 — Narrower permissions on cancel + mark-paid (FIXED)
+
+`routes.py`: `/visits/{id}/cancel` changed from `require_permission("visit.write")` to `require_permission("visit.cancel")`. `/visits/{id}/mark-paid` changed from `require_permission("visit.write")` to `require_permission("payment.receive")`.
+
+Two new integration tests added:
+- `test_cancel_requires_visit_cancel_permission`: nurse (has `visit.write`, no `visit.cancel`) gets 403; doctor (has `visit.cancel`) gets 200.
+- `test_mark_paid_requires_payment_receive_permission`: doctor (has `visit.write`, no `payment.receive`) gets 403; admin (has all permissions) gets 200.
+
+### M2 — Concurrent call-next test strengthened (FIXED)
+
+`test_concurrent_call_next_no_double_assign` rewritten:
+- Pre-existing WAITING visits are cancelled so the queue is exactly 2 rows.
+- Two independent `AsyncClient` instances are used (one per concurrent request) to maximise connection-pool concurrency at the PostgreSQL level.
+- Both results must be 200 — accepting 200+404 is no longer valid.
+- Asserts `len(set(assigned_ids)) == 2` (no double-assign).
+- Asserts both returned IDs come from the seeded set.
+- Asserts both visits transition to `IN_PROGRESS` via a direct DB query.
+
+### m1 — `list_queue` docstring (FIXED)
+
+Updated to: "Return active queue (WAITING + IN_PROGRESS), tenant-scoped. Ordering matches the v_active_queue view definition (priority DESC, created_at ASC). Implemented as an ORM query for typing convenience — SQLAlchemy ORM does not natively map onto views."
+
+### m2 — `assert_can_transition` in `call_next` (FIXED)
+
+Added `assert_can_transition(visit.status, VisitStatus.IN_PROGRESS.value)` before the status assignment for state-machine symmetry and defense-in-depth.
+
+### m3 — ORJSON deprecation warnings (DEFERRED)
+
+Pre-existing in `app/core/exceptions.py` and `app/main.py` — not introduced by TASK-007. Deferred to a dedicated cleanup task. 31 warnings remain in the test output but do not affect correctness or coverage.
+
+### Test Results (Iteration 2)
+
+| Suite | Passed | Failed | Total |
+|---|---|---|---|
+| Unit (all) | 59 | 0 | 59 |
+| Integration (e2e) | 24 | 0 | 24 |
+| **Total** | **83** | **0** | **83** |
+
+**Coverage**: 87% on `app/modules/visits/` (317 stmts, 41 missed)
+**Lint**: `ruff check` → All checks passed!
+
+### Re-Review Scope
+
+- M1: verify `visit.cancel` / `payment.receive` decorator changes + 2 new permission tests.
+- M2: re-run `test_concurrent_call_next_no_double_assign` — confirm strict 200/200 assertion with distinct IDs and IN_PROGRESS state verification.
+- m1, m2: spot-check docstring + assert_can_transition in call_next.
+- m3: confirm deferred status is documented here; no code change needed.
+- Full re-run: `pytest tests/unit/visits/ tests/integration/visits/ -q` + `ruff check ...`.

@@ -2,13 +2,13 @@
 id: TASK-007
 type: feature
 title: Visit — Entity + State Machine + Visit Number Generation
-status: IN_PROGRESS
+status: IN_REVIEW
 priority: High
-assigned: code-implementation-agent
+assigned: code-review-agent
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/task-007-visits"
-iteration: 1
+iteration: 2
 tags: [visit, sprint-4]
 affected-repos: [clinic-cms]
 refs:
@@ -64,6 +64,7 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 - **Started**: 2026-04-27
 - **Implementation Completed**: 2026-04-27
 - **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED. 0 CRIT, 2 MAJ (mark-paid/cancel use overly-broad visit.write instead of seeded visit.cancel/payment.receive; concurrent call-next test accepts 1×200+1×404 which doesn't prove the AC), 3 MIN. Migration round-trip clean, coverage 87 %, lint clean, 81/81 tests pass — see `handoff/review-report.md` and `handoff/review-to-implementation.md` for the targeted fix list.
+- **Fix iteration 2**: 2026-04-27 — All 2 MAJ + 2 of 3 MIN fixed. m3 (ORJSON deprecation) deferred as pre-existing in codebase. 83/83 tests pass, coverage 87%, lint clean. Re-submitted for review.
 
 ## Notes
 
