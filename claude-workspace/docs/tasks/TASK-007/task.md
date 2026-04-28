@@ -2,11 +2,11 @@
 id: TASK-007
 type: feature
 title: Visit — Entity + State Machine + Visit Number Generation
-status: IN_REVIEW
+status: IN_TESTING
 priority: High
-assigned: code-review-agent
+assigned: test-agent
 created: 2026-04-26
-updated: 2026-04-27
+updated: 2026-04-28
 branch: "feature/task-007-visits"
 iteration: 2
 tags: [visit, sprint-4]
@@ -50,7 +50,7 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 ## Progress Checklist
 
 - [x] Implementation
-- [ ] Code Review
+- [x] Code Review
 - [ ] Testing
 - [ ] Documentation
 
@@ -65,6 +65,7 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 - **Implementation Completed**: 2026-04-27
 - **Review (1st pass)**: 2026-04-27 — CHANGES_REQUESTED. 0 CRIT, 2 MAJ (mark-paid/cancel use overly-broad visit.write instead of seeded visit.cancel/payment.receive; concurrent call-next test accepts 1×200+1×404 which doesn't prove the AC), 3 MIN. Migration round-trip clean, coverage 87 %, lint clean, 81/81 tests pass — see `handoff/review-report.md` and `handoff/review-to-implementation.md` for the targeted fix list.
 - **Fix iteration 2**: 2026-04-27 — All 2 MAJ + 2 of 3 MIN fixed. m3 (ORJSON deprecation) deferred as pre-existing in codebase. 83/83 tests pass, coverage 87%, lint clean. Re-submitted for review.
+- **Review (2nd pass)**: 2026-04-27 — APPROVED. All 4 in-scope fixes RESOLVED (M1 narrower permissions + 2 new gating tests; M2 strict 200/200 distinct-IDs assertion + DB-level IN_PROGRESS verification; m1 docstring; m2 assert_can_transition symmetry). m3 ORJSON deferral verified pre-existing (introduced in TASK-001 commit `6bf2c53`). Build numbers match handoff: 83/83 pass, 87% coverage (317/41), ruff clean. M2 stability 5/5 runs. Handed off to Test Agent — see `handoff/review-to-test.md`.
 
 ## Notes
 
