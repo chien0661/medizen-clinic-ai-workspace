@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 08:36:53 (auto-generated)
+**Last Updated**: 2026-04-28 08:51:08 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,8 +14,7 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 17 |
-| **DOCUMENTING** | 1 |
-| **DONE** | 7 |
+| **DONE** | 8 |
 
 ### By Priority
 
@@ -26,7 +25,6 @@
 
 - **Documentation Agent**: 1 tasks (TASK-016)
 - **Unassigned**: 17 tasks (TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **documentation-agent**: 2 tasks (TASK-005, TASK-014)
 
 ---
 
@@ -69,12 +67,6 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
-#### DOCUMENTING
-
-- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
-  - **Assigned**: documentation-agent
-  - **Branch**: `feature/task-005-patients`
-
 ### 🟡 Medium Priority
 
 #### TODO
@@ -114,6 +106,9 @@
 
 - **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
   - **Completed**: 2026-04-28
+
+- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
+  - **Completed**: 2026-04-27
 
 - **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
   - **Completed**: 2026-04-28

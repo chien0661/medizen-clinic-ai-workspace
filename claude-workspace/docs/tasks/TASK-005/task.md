@@ -2,9 +2,9 @@
 id: TASK-005
 type: feature
 title: Patient Management — CRUD + Guardian + Search + Merge Duplicates
-status: DOCUMENTING
+status: DONE
 priority: High
-assigned: documentation-agent
+assigned: 
 created: 2026-04-26
 updated: 2026-04-27
 branch: "feature/task-005-patients"
@@ -47,10 +47,10 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -68,6 +68,7 @@ Quản lý bệnh nhân: CRUD, search nhanh theo phone/name/patient_code (full-t
 - **Fix iteration 3**: 2026-04-27 — All 4 bugs (1 CRIT, 2 HIGH, 1 MED) fixed. 117/117 non-perf tests pass. Coverage 94%. Ruff exit 0. BUG-004: clinic_id ownership check in undo_merge() (`d020648`, `61208ae`); BUG-003: Pydantic model_validator rejects self-merge (`2da9db0`); BUG-001: null byte guard in search route (`ae4d8f8`); BUG-002: field_validator rejects future DOB on PatientCreate + PatientUpdate (`0625af8`). Status → IN_REVIEW (iter 3).
 - **Review (3rd pass)**: 2026-04-27 — APPROVED. All 4 bug fixes verified at root cause: BUG-001 (`ae4d8f8`) null-byte guard before DB; BUG-002 (`0625af8`) field_validator on Create+Update; BUG-003 (`2da9db0`) schema-level self-merge guard; BUG-004 (`d020648`+`61208ae`) tenant ownership check returning 404 to prevent enumeration. The optional `clinic_id=None` default is a unit-test seam — route always passes a real auth-context clinic_id; no production bypass. 117/117 non-perf tests pass, 94% coverage, ruff clean. No new findings. Re-routed to test agent for regression validation. See `handoff/review-to-test.md`. Status → IN_TESTING.
 - **Testing Completed (regression)**: 2026-04-27 — **PASSED**. 117/117 non-perf tests + 2/2 perf tests, 94% coverage, ruff clean. 4 BUG regression tests verified individually (3.97s). Phone search p95=46.9ms (AC1 PASS at 100k). RLS verified under cms_app role. See `deliveries/test-reports/test-report.md` (Iteration 3 — Regression Validation section) and `handoff/test-to-documentation.md`.
+- **Documentation Completed**: 2026-04-27 — Final delivery: (1) `deliveries/final-specs/patients-functional-design.md` (Vietnamese, 900+ lines), (2) `deliveries/api-specs/patients-api.md` (11 endpoints fully documented), (3) `deliveries/sql-scripts/patients-ddl.md` (complete DDL with comments)
 
 ## Notes
 
