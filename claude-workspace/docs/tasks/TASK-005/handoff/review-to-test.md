@@ -102,3 +102,51 @@ On completion, deposit:
 - `docs/tasks/TASK-005/handoff/test-to-documentation.md` once all tests pass.
 
 If any test fails the AC or reveals a defect, status moves to `IN_PROGRESS` (iter 3 — last automatic attempt before user escalation per `complete-task` skill loop-prevention rule).
+
+---
+
+## Iteration 3 Handoff (2026-04-27) — Bug-Fix Regression Validation
+
+**Decision (review iter 3):** **APPROVED**
+**Branch HEAD:** `feature/task-005-patients` @ `6e98751`
+**Scope:** Quick regression verification of the 4 bug fixes from iter-2 testing. NOT a full re-test cycle.
+
+### Context
+
+Iter-2 testing surfaced 4 bugs (`BUG-001`/`002`/`003`/`004`). Implementation Agent fixed all 4 (commits `ae4d8f8`, `0625af8`, `2da9db0`, `d020648`+`61208ae`, plus style polish `6e98751`). Code Review Agent (iter 3) verified each fix at the root cause and APPROVED.
+
+### Verification asks (minimal — please be quick)
+
+1. **Confirm the 4 previously-failing tests now PASS:**
+   - `tests/integration/patients/test_patients_negative.py::TestSearchNegativePaths::test_search_null_byte_q_does_not_500` (BUG-001)
+   - `tests/integration/patients/test_patients_negative.py::TestCreateNegativePaths::test_create_future_dob_returns_4xx` (BUG-002)
+   - `tests/integration/patients/test_patients_negative.py::TestMergeNegativePaths::test_merge_same_id_returns_4xx` (BUG-003)
+   - `tests/integration/patients/test_patients_negative.py::TestUndoNegativePaths::test_undo_merge_from_different_clinic_returns_404_or_403` (BUG-004 — check response is 404 specifically, not 403, to avoid enumeration leak)
+
+2. **Sanity full pass:** `pytest tests/{unit,integration}/patients/ -m 'not perf' --tb=short`. Expect 117/117 pass, ~94% coverage.
+
+3. **Mark each bug report as RESOLVED** in `docs/tasks/TASK-005/bugs/BUG-00{1..4}.md` with the verifying test name + commit SHA.
+
+4. **Do NOT re-run the full perf / RLS / advanced merge matrix** — those passed in iter-2 testing and are unchanged. Only the 4 negative-path scenarios are in scope.
+
+### After verification
+
+- If all 4 PASS and full suite holds 117/117: write `docs/tasks/TASK-005/handoff/test-to-documentation.md` and update task status to `DOCUMENTING` with `assigned: documentation-agent`.
+- If anything fails: file a new bug, set status to `IN_PROGRESS` (iter 4), and notify the user — iter 4 is past the loop-prevention threshold and requires human escalation.
+
+### Out of scope (do not file as bugs — already cleared)
+
+- `m3` (`# noqa: B008` repetition) — deferred at iter-1 reviewer guidance.
+- BUG-004 service signature `clinic_id: UUID | None = None` — confirmed safe by iter-3 review (route always supplies a real auth-context clinic_id; `None` path is unit-test-only).
+- Pre-existing `test_tenancy_middleware.py::TestDevHeaders::test_clinic_id_only_no_user_allowed` failure (TASK-004 base).
+- Alembic multi-head conflict from user's untracked TASK-014 HR files.
+
+### Per-bug fix references
+
+| Bug | Severity | Fix Commit(s) | Layer |
+|-----|----------|---------------|-------|
+| BUG-001 | High | `ae4d8f8` | route guard (rejects `\x00` in `q` with 400) |
+| BUG-002 | Medium | `0625af8` | schema field_validator on `PatientCreate` + `PatientUpdate` |
+| BUG-003 | High | `2da9db0`, style `6e98751` | schema model_validator on `PatientMergeRequest` |
+| BUG-004 | Critical | `d020648`, `61208ae` | route forwards `clinic_id`; service raises `NotFoundError` (HTTP 404) on tenant mismatch |
+

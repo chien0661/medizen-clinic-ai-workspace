@@ -360,3 +360,56 @@ The user's untracked `0008_create_hr_schedule.py` and `0009_create_patients.py` 
 
 **Review Time (iter 2):** ~50 minutes (per-commit verification + live DB round-trip + full test reproduction).
 
+---
+
+## Iteration 3 Review
+
+**Date:** 2026-04-27
+**Reviewer:** Code Review Agent
+**Scope:** Verify the 4 bug fixes from Test Agent (BUG-001/002/003/004). NOT a re-review of the whole feature — iter-2 already APPROVED the codebase.
+
+### Per-bug verification
+
+| Bug | Severity | Fix Commit | Verification | Verdict |
+|-----|----------|------------|--------------|---------|
+| BUG-001 | High | `ae4d8f8` | `search_patients` route now rejects `q` containing `\x00` with HTTP 400 BEFORE any DB call. Root-cause fix: prevents asyncpg UTF8 error at the boundary. Test `test_search_null_byte_q_does_not_500` PASSES. | RESOLVED |
+| BUG-002 | Medium | `0625af8` | `field_validator` on `date_of_birth` added to BOTH `PatientCreate` and `PatientUpdate` — rejects `dob > date.today()` with 422. Existing `validate_dob` model_validator handles year/dob coherence. Test `test_create_future_dob_returns_4xx` PASSES. | RESOLVED |
+| BUG-003 | High | `2da9db0` (+ style `6e98751`) | `PatientMergeRequest.model_validator(mode="after")` rejects `keep_id == drop_id` with 422 at the schema layer — earliest possible rejection point. Test `test_merge_same_id_returns_4xx` PASSES. | RESOLVED |
+| BUG-004 | Critical | `d020648` (+ `61208ae`) | Route now reads `clinic_id` via `_require_clinic_id()` and forwards to service. Service compares `merge_log.clinic_id` against caller's `clinic_id`; mismatch raises `NotFoundError` (HTTP 404, not 403, not 200) — prevents cross-tenant merge-id enumeration. Test `test_undo_merge_from_different_clinic_returns_404_or_403` PASSES. | RESOLVED |
+
+### BUG-004 specific scrutiny — `clinic_id: UUID \| None = None` backward-compat default
+
+The follow-up commit `61208ae` changed the service signature from `clinic_id: UUID` (required) to `clinic_id: UUID | None = None` to keep pre-existing unit tests (`tests/unit/patients/test_merge_service.py`) — which call the service directly without an HTTP/auth context — working unmodified.
+
+**Assessment: SAFE.** Verified:
+- The route handler `undo_merge` at `routes.py:330-345` ALWAYS calls `_require_clinic_id()` and forwards a real UUID. No code path lets an authenticated HTTP caller pass `clinic_id=None`.
+- The service guard `if clinic_id is not None and merge_log.clinic_id != clinic_id` skips the check only when called without a clinic context — which only happens from unit tests that construct merge_logs in-process.
+- No user-controlled input flows into `clinic_id` (it comes from the JWT-derived `current_clinic_id` ContextVar, not from request body/path/query).
+- Service uses parameterised attribute access (`merge_log.clinic_id != clinic_id`) — no SQL string concatenation, no injection surface.
+- `grep undo_merge\(` on `app/` confirms only the route calls the service in production. All other callers are unit tests.
+
+The optional default is a pragmatic test-compat seam, not a security regression. Acceptable.
+
+### Build verification — actually observed
+
+Tests run inside `clinic_cms_api` container (Python 3.11; host is Python 3.10 missing `datetime.UTC`).
+
+| Check | Observed | Iter-3 handoff claim | Match |
+|-------|----------|---------------------|-------|
+| `pytest tests/{unit,integration}/patients/ -m 'not perf'` | **117 passed, 2 deselected** in 51.53s | 117/117 | YES |
+| Coverage on `app/modules/patients/` | **94 %** (515 stmts, 31 missed) | 94% | YES |
+| `ruff check app/modules/patients/ tests/{unit,integration}/patients/` | **All checks passed!** | exit 0 | YES |
+| 4 named regression tests (run individually) | **4 passed** in 3.97s | implicit | YES |
+
+### New findings introduced by iter-3 fixes
+
+**None.** All 4 fixes are minimal, targeted, and at the correct layer (schema validators for input contracts, route guard for I/O safety, service-level tenant check for the privileged operation). No new SQL injection paths, no new bypass routes. The style polish in `6e98751` (unquoted forward-ref) is cosmetic and benign.
+
+### Decision
+
+**APPROVED.** All 4 bugs (1 CRIT + 2 HIGH + 1 MED) are RESOLVED at the root cause. BUG-004 fix is genuinely tenant-isolating and uses 404 to avoid enumeration leakage. The optional `clinic_id=None` default is a unit-test convenience that cannot be exercised from an authenticated HTTP path. 117/117 non-perf tests pass, 94% coverage, ruff clean. The MINOR finding `m3` (`# noqa: B008`) carried over and remains acceptable.
+
+Per workflow, after FIX MODE the loop returns to test agent for regression validation. Re-routing to test-agent for a quick verification of the 4 previously-failing tests + a sanity full-pass, then DOCUMENTING.
+
+**Review Time (iter 3):** ~25 minutes (4 commits verified + spot-check of the 4 regression tests + full suite + lint + BUG-004 backdoor analysis).
+
