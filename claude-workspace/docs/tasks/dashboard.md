@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 18:41:03 (auto-generated)
+**Last Updated**: 2026-04-28 22:00:00 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 15 |
-| **DONE** | 10 |
+| **TODO** | 14 |
+| **DONE** | 11 |
 
 ### By Priority
 
@@ -24,7 +24,8 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 15 tasks (TASK-006, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-023, TASK-024, TASK-025)
+- **chiendv**: 1 tasks (TASK-010)
+- **Unassigned**: 14 tasks (TASK-006, TASK-008, TASK-009, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-023, TASK-024, TASK-025)
 
 ---
 
@@ -71,9 +72,6 @@
 - **[TASK-006](tasks/TASK-006/task.md)** - Clinic Settings + Tenant Onboarding Wizard
   - **Assigned**: Unassigned
 
-- **[TASK-010](tasks/TASK-010/task.md)** - Service Catalog + VisitService (Performed Services Tracking)
-  - **Assigned**: Unassigned
-
 - **[TASK-015](tasks/TASK-015/task.md)** - Reporting + In-App Notifications + Background Jobs (Arq)
   - **Assigned**: Unassigned
 
@@ -115,6 +113,9 @@
 
 - **[TASK-017](tasks/TASK-017/task.md)** - FE — Auth + App Shell + Design System + i18n (vi/en)
   - **Completed**: 2026-04-27
+
+- **[TASK-010](tasks/TASK-010/task.md)** - Service Catalog + VisitService (Performed Services Tracking)
+  - **Completed**: 2026-04-28
 
 - **[TASK-022](tasks/TASK-022/task.md)** - FE — HR (Shift Calendar + Recurring Schedule + Leave Request + Attendance Check-in/out)
   - **Completed**: 2026-04-27
