@@ -1,12 +1,73 @@
 # Test Report — TASK-014: HR Module (Shift + Recurring + Attendance + Leave)
 
-**Test Agent Run**: 2026-04-27  
-**Branch**: `feature/task-014-hr-schedule`  
-**Test Environment**: Docker container `clinic_cms_api` (Python 3.11, PostgreSQL 15, Redis 7)  
+**Test Agent Run**: 2026-04-27 (Round 1) / 2026-04-28 (Round 2 — Final Verification)
+**Branch**: `feature/task-014-hr-schedule`
+**Test Environment**: Docker container `clinic_cms_api` (Python 3.11, PostgreSQL 15, Redis 7)
 
 ---
 
-## Executive Summary
+## Round 2 — Final Verification (2026-04-28)
+
+**TESTING PHASE: PASSED — all bugs resolved, advancing to DOCUMENTING**
+
+### Summary
+
+All 4 bugs filed in Round 1 (`BUG-001` through `BUG-004`) were fixed in commit `cc5c539`. A full re-run of the 95-test HR suite confirms zero failures attributable to TASK-014.
+
+| Metric | Value |
+|--------|-------|
+| Total HR tests run | 95 |
+| Passed | **95** |
+| Failed | **0** |
+| Runtime | 79.60s |
+| Commit verified | `cc5c539` |
+
+### Spot-check: 9 Originally-Failing Tests
+
+All 9 tests that failed in Round 1 now pass:
+
+| Test | Round 1 | Round 2 |
+|------|---------|---------|
+| `test_user_b_cannot_patch_clinic_a_shift_template` | FAIL | PASS |
+| `test_user_b_cannot_patch_clinic_a_shift` | FAIL | PASS |
+| `test_user_b_cannot_approve_clinic_a_leave` | FAIL | PASS |
+| `test_br01_patch_shift_to_inverted_times_rejected` | FAIL | PASS |
+| `test_br01_patch_shift_template_equal_times_rejected` | FAIL | PASS |
+| `test_br07_self_approval_rejected_400` | FAIL | PASS |
+| `test_br09_checkin_with_deleted_shift_404` | FAIL | PASS |
+| `test_br10_staff_cannot_checkin_admins_shift` | FAIL | PASS |
+| `test_check_in_with_cross_clinic_shift_id_forbidden` | FAIL | PASS |
+
+**Spot-check run**: `9 passed, 302 deselected, 18 warnings in 11.47s`
+
+### Business Rules Validation — Round 2
+
+All 16/16 SRS business rules now pass:
+
+| BR | Description | Round 1 | Round 2 |
+|----|-------------|---------|---------|
+| BR-01b | PATCH inverted times rejected | FAIL | PASS |
+| BR-07 | Self-approval rejected | FAIL | PASS |
+| BR-09 | Check-in with deleted shift → 404 | FAIL | PASS |
+| BR-10 | Cross-user check-in → 403 | FAIL | PASS |
+| All others (BR-01 to BR-14, non-failing) | PASS | PASS |
+
+### Bug Resolution Summary
+
+| Bug | Severity | Fix in `cc5c539` |
+|-----|----------|------------------|
+| BUG-001 | CRITICAL | Service-layer `clinic_id` guard added to all `get_*()` helpers; 8 mutating routes pass `clinic_id` from request context |
+| BUG-002 | MAJOR | Docker mount issue resolved (BUG-002 logic was already correct in TASK-014 branch); tests now run against correct image |
+| BUG-003 | MAJOR | `str()` coercion on both sides of UUID comparison in `leave_service.approve_leave_request()`; self-approval check placed before status check |
+| BUG-004 | CRITICAL | `db.get()` replaced with explicit SQL query bypassing ORM cache; `str()` coercion on `user_id`/`clinic_id` ownership comparison |
+
+### Pre-existing Non-TASK-014 Failure (unchanged)
+
+- `tests/unit/test_tenancy_middleware.py::TestDevHeaders::test_clinic_id_only_no_user_allowed` — 1 failure (pre-existing, `/api/v1/patients` endpoint; not introduced by TASK-014, not blocking)
+
+---
+
+## Executive Summary (Round 1 — 2026-04-27)
 
 **TESTING PHASE: FAILED — bugs found, task returned to IN_PROGRESS**
 
