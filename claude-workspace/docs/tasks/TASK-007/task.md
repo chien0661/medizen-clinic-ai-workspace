@@ -2,12 +2,13 @@
 id: TASK-007
 type: feature
 title: Visit — Entity + State Machine + Visit Number Generation
-status: TODO
+status: IN_REVIEW
 priority: High
-assigned: Unassigned
+assigned: code-review-agent
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-007-visits"
+iteration: 1
 tags: [visit, sprint-4]
 affected-repos: [clinic-cms]
 refs:
@@ -48,7 +49,7 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 
 ## Progress Checklist
 
-- [ ] Implementation
+- [x] Implementation
 - [ ] Code Review
 - [ ] Testing
 - [ ] Documentation
@@ -60,6 +61,8 @@ Visit là entity trung tâm kết nối Patient-Appointment-Doctor-Vitals-Servic
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-27
+- **Implementation Completed**: 2026-04-27
 
 ## Notes
 
