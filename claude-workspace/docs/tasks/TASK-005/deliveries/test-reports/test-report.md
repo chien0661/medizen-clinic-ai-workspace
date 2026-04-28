@@ -1,13 +1,14 @@
 # Test Report: TASK-005 - Patient Management
 
 **Test Agent:** Test Agent (claude-sonnet-4-6)
-**Date:** 2026-04-27
-**Status:** FAILED — 4 bugs filed, status → IN_PROGRESS (iteration 3)
-**Branch:** `feature/task-005-patients` (HEAD `d9c0546`)
+**Date (initial run):** 2026-04-27 — FAILED, 4 bugs filed (iter 3 round-trip)
+**Date (regression validation):** 2026-04-27 — **ALL PASS** after iter-3 fixes
+**Status:** ✅ ALL PASSED — handing off to Documentation
+**Branch:** `feature/task-005-patients` (HEAD post iter-3 fixes: `6e98751`)
 
 ---
 
-## Test Statistics
+## Test Statistics (Final — after iter-3 bug fixes)
 
 | Test Type | Scenarios | Passed | Failed | Success Rate |
 |-----------|-----------|--------|--------|--------------|
@@ -16,10 +17,12 @@
 | RLS Isolation (new) | 8 | 8 | 0 | 100% |
 | Audit Invariants (new) | 5 | 5 | 0 | 100% |
 | Merge Advanced (new) | 6 | 6 | 0 | 100% |
-| Negative / Fuzz (new) | 19 | 15 | **4** | 78.9% |
+| Negative / Fuzz (new) | 19 | 19 | 0 | 100% |
 | Performance (perf mark) | 2 | 2 | 0 | 100% |
-| **TOTAL (excl. perf)** | **117** | **113** | **4** | **96.6%** |
-| **TOTAL (incl. perf)** | **119** | **115** | **4** | **96.6%** |
+| **TOTAL (excl. perf)** | **117** | **117** | **0** | **100%** |
+| **TOTAL (incl. perf)** | **119** | **119** | **0** | **100%** |
+
+### Initial run (iter-2 code) — 113/117 — 4 negative-path failures → 4 bugs filed (BUG-001..004) → all RESOLVED in iter-3.
 
 ---
 
@@ -266,6 +269,21 @@ Fix priority order:
 
 **Test Execution Time:** ~75 seconds (excl. perf fixture seeding ~20s)
 **Total Scenarios:** 119 (117 excl. perf)
-**Total Passed:** 115 (113 excl. perf)
-**Total Failed:** 4
+**Total Passed:** 115 (113 excl. perf) initial run → **117/117 after iter-3 fixes**
+**Total Failed:** 4 → **0 after iter-3 fixes**
 **Environment:** Docker stack (clinic_cms_postgres, clinic_cms_redis, clinic_cms_api)
+
+---
+
+## Iteration 3 — Regression Validation (final pass)
+
+After Implementation Agent fixed all 4 bugs (commits `d020648`, `2da9db0`, `ae4d8f8`, `0625af8` + style polish `6e98751`, `61208ae`), the regression run confirms:
+
+| Check | Result |
+|---|---|
+| 4 BUG-named regression tests (`test_search_null_byte_q_does_not_500`, `test_create_future_dob_returns_4xx`, `test_merge_same_id_returns_4xx`, `test_undo_merge_from_different_clinic_returns_404_or_403`) | **4/4 PASS** in 3.97s |
+| Patients module full pass (`pytest tests/{unit,integration}/patients/ -m 'not perf'`) | **117/117 PASS** in 53.87s |
+| Coverage on `app/modules/patients/` | **94%** (515 stmts, 31 missed) — above 80% threshold |
+| Lint (`ruff check app/modules/patients/ tests/{unit,integration}/patients/`) | All checks passed |
+
+All 4 bug reports updated with `## Resolution` sections containing the fix-commit SHAs. Status: `IN_TESTING` → `DOCUMENTING`. Handoff: `handoff/test-to-documentation.md`.

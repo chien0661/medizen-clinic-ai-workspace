@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 (auto-generated)
+**Last Updated**: 2026-04-28 08:36:53 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,11 +14,8 @@
 |--------|-------|
 | **Total Tasks** | 25 |
 | **TODO** | 17 |
-| **IN_PROGRESS** | 0 |
-| **IN_REVIEW** | 0 |
 | **DOCUMENTING** | 1 |
-| **IN_TESTING** | 1 |
-| **DONE** | 6 |
+| **DONE** | 7 |
 
 ### By Priority
 
@@ -27,11 +24,9 @@
 
 ### By Agent
 
-- **Documentation Agent**: 2 tasks (TASK-014, TASK-016)
+- **Documentation Agent**: 1 tasks (TASK-016)
 - **Unassigned**: 17 tasks (TASK-006, TASK-007, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
-- **code-implementation-agent**: 0 tasks
-- **code-review-agent**: 0 tasks
-- **test-agent**: 1 tasks (TASK-005)
+- **documentation-agent**: 2 tasks (TASK-005, TASK-014)
 
 ---
 
@@ -74,6 +69,11 @@
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
 
+#### DOCUMENTING
+
+- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
+  - **Assigned**: documentation-agent
+  - **Branch**: `feature/task-005-patients`
 
 ### 🟡 Medium Priority
 
@@ -97,20 +97,6 @@
 - **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
   - **Assigned**: Unassigned
 
-#### IN_TESTING
-
-- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
-  - **Assigned**: test-agent
-  - **Branch**: `feature/task-005-patients`
-  - **Note**: Review iter-3 APPROVED. All 4 bug fixes verified (BUG-001/002/003/004). Re-routed to test agent for regression validation of the 4 previously-failing tests + sanity full pass. 117/117 non-perf tests pass, coverage 94%, ruff clean.
-
-#### DOCUMENTING
-
-- **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
-  - **Assigned**: documentation-agent
-  - **Branch**: `feature/task-014-hr-schedule`
-  - **Note**: Testing Round 2 PASSED — 95/95 HR tests pass, 4 bugs (BUG-001 to BUG-004) all RESOLVED in commit cc5c539, 16/16 BR rules passing
-
 ---
 
 ## Completed Tasks
@@ -127,6 +113,9 @@
   - **Completed**: 2026-04-27
 
 - **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
+  - **Completed**: 2026-04-28
+
+- **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
   - **Completed**: 2026-04-28
 
 - **[TASK-016](tasks/TASK-016/task.md)** - Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
