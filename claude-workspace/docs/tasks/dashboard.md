@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-28 16:39:11 (auto-generated)
+**Last Updated**: 2026-04-28 18:41:03 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 16 |
-| **DONE** | 9 |
+| **TODO** | 15 |
+| **DONE** | 10 |
 
 ### By Priority
 
@@ -24,7 +24,7 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 16 tasks (TASK-006, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-022, TASK-023, TASK-024, TASK-025)
+- **Unassigned**: 15 tasks (TASK-006, TASK-008, TASK-009, TASK-010, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-023, TASK-024, TASK-025)
 
 ---
 
@@ -77,9 +77,6 @@
 - **[TASK-015](tasks/TASK-015/task.md)** - Reporting + In-App Notifications + Background Jobs (Arq)
   - **Assigned**: Unassigned
 
-- **[TASK-022](tasks/TASK-022/task.md)** - FE — HR (Shift Calendar + Recurring Schedule + Leave Request + Attendance Check-in/out)
-  - **Assigned**: Unassigned
-
 - **[TASK-023](tasks/TASK-023/task.md)** - FE — Admin (Users + Roles + Clinic Settings + Vital Schema Editor + Onboarding Wizard)
   - **Assigned**: Unassigned
 
@@ -117,6 +114,9 @@
   - **Completed**: 2026-04-27
 
 - **[TASK-017](tasks/TASK-017/task.md)** - FE — Auth + App Shell + Design System + i18n (vi/en)
+  - **Completed**: 2026-04-27
+
+- **[TASK-022](tasks/TASK-022/task.md)** - FE — HR (Shift Calendar + Recurring Schedule + Leave Request + Attendance Check-in/out)
   - **Completed**: 2026-04-27
 
 

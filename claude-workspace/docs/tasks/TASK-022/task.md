@@ -2,14 +2,14 @@
 id: TASK-022
 type: feature
 title: FE — HR (Shift Calendar + Recurring Schedule + Leave Request + Attendance Check-in/out)
-status: TODO
+status: DONE
 priority: Medium
-assigned: Unassigned
+assigned: ""
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-022-fe-hr"
 tags: [frontend, hr, schedule, attendance, sprint-16]
-affected-repos: [clinic-cms]
+affected-repos: [clinic-cms-web]
 refs:
   detail_design: "../../../../docs/clinic_management_system_design.md#14-module-hr--schedule"
   other:
@@ -69,10 +69,10 @@ UI cho admin: shift schedule calendar (week/month view), recurring schedule edit
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -81,6 +81,12 @@ UI cho admin: shift schedule calendar (week/month view), recurring schedule edit
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Implementation started**: 2026-04-27
+- **Implementation completed**: 2026-04-27
+- **Review completed**: 2026-04-27
+- **Testing completed**: 2026-04-27
+- **Documentation completed**: 2026-04-27
+- **Done**: 2026-04-27
 
 ## Notes
 
