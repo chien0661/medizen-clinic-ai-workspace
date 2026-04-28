@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-29 00:20:22 (auto-generated)
+**Last Updated**: 2026-04-29 01:25:49 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 13 |
-| **DONE** | 12 |
+| **TODO** | 12 |
+| **DONE** | 13 |
 
 ### By Priority
 
@@ -24,8 +24,8 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 13 tasks (TASK-008, TASK-009, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-023, TASK-024, TASK-025)
-- **chiendv**: 1 tasks (TASK-010)
+- **Unassigned**: 12 tasks (TASK-009, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-023, TASK-024, TASK-025)
+- **chiendv**: 2 tasks (TASK-008, TASK-010)
 
 ---
 
@@ -35,9 +35,6 @@
 
 #### TODO
 
-- **[TASK-008](tasks/TASK-008/task.md)** - Appointment + Queue (Slot Capacity + Smart Walk-in vs Appointment)
-  - **Assigned**: Unassigned
-
 - **[TASK-009](tasks/TASK-009/task.md)** - Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
   - **Assigned**: Unassigned
 
@@ -46,6 +43,7 @@
 
 - **[TASK-012](tasks/TASK-012/task.md)** - Inventory + Batch + StockMovement + FEFO + Pharmacy Dispense
   - **Assigned**: Unassigned
+  - **Branch**: `feature/task-012-inventory`
 
 - **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
   - **Assigned**: Unassigned
@@ -104,6 +102,9 @@
 
 - **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
   - **Completed**: 2026-04-28
+
+- **[TASK-008](tasks/TASK-008/task.md)** - Appointment + Queue (Slot Capacity + Smart Walk-in vs Appointment)
+  - **Completed**: 2026-04-29
 
 - **[TASK-010](tasks/TASK-010/task.md)** - Service Catalog + VisitService (Performed Services Tracking)
   - **Completed**: 2026-04-28
