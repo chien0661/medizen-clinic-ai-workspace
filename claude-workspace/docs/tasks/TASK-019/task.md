@@ -2,12 +2,12 @@
 id: TASK-019
 type: feature
 title: FE — Doctor (My Queue + Consultation + Vitals Dynamic + Service + Prescription)
-status: TODO
+status: DONE
 priority: High
 assigned: Unassigned
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-019-fe-doctor"
 tags: [frontend, doctor, visit, vitals, prescription, sprint-15]
 affected-repos: [clinic-cms]
 refs:
@@ -77,10 +77,17 @@ UI cho bác sĩ: my queue với call-next, consultation page (patient summary + 
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review, 2 iterations)
+- [x] Testing (274 tests pass, tsc clean, lint clean)
+- [x] Documentation
+
+## Completion
+
+- **Completed**: 2026-04-27
+- **Branch**: `feature/task-019-fe-doctor`
+- **Commits**: 6 commits (types/api/i18n, queue, consultation, dashboard, routing, tests)
+- **Tests**: 274 pass (26 files), 0 tsc errors, 0 lint warnings
 
 ## Related Files
 
