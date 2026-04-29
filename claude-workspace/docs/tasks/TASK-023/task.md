@@ -2,12 +2,12 @@
 id: TASK-023
 type: feature
 title: FE — Admin (Users + Roles + Clinic Settings + Vital Schema Editor + Onboarding Wizard)
-status: TODO
+status: DONE
 priority: Medium
-assigned: Unassigned
+assigned: chiendv
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: feature/task-023-fe-admin
 tags: [frontend, admin, settings, onboarding, sprint-16]
 affected-repos: [clinic-cms]
 refs:
@@ -86,10 +86,10 @@ UI cho admin: quản lý user của clinic, role + permission matrix editor, cli
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review, 3 iterations — TS errors fixed)
+- [x] Testing (271 tests pass, 41 admin tests)
+- [x] Documentation
 
 ## Related Files
 
@@ -98,6 +98,7 @@ UI cho admin: quản lý user của clinic, role + permission matrix editor, cli
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Completed**: 2026-04-27
 
 ## Notes
 
