@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 8 |
-| **DONE** | 17 |
+| **TODO** | 7 |
+| **DONE** | 18 |
 
 ### By Priority
 
@@ -24,8 +24,8 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 9 tasks (TASK-011, TASK-012, TASK-013, TASK-015, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
-- **chiendv**: 3 tasks (TASK-008, TASK-010, TASK-023)
+- **Unassigned**: 8 tasks (TASK-012, TASK-013, TASK-015, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
+- **chiendv**: 4 tasks (TASK-008, TASK-010, TASK-011, TASK-023)
 
 ---
 
@@ -34,9 +34,6 @@
 ### 🔴 High Priority
 
 #### TODO
-
-- **[TASK-011](tasks/TASK-011/task.md)** - Medicine Catalog + Prescription (In-House / External Mixed)
-  - **Assigned**: Unassigned
 
 - **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
   - **Assigned**: Unassigned
@@ -68,6 +65,9 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-011](tasks/TASK-011/task.md)** - Medicine Catalog + Prescription (In-House / External Mixed)
+  - **Completed**: 2026-04-27
 
 - **[TASK-001](tasks/TASK-001/task.md)** - Foundation — Project Skeleton, Docker Compose, Base Models, Alembic
   - **Completed**: 2026-04-26
@@ -115,6 +115,9 @@
   - **Completed**: 2026-04-27
 
 - **[TASK-018](tasks/TASK-018/task.md)** - FE — Reception (Patient Register/Search/Merge + Walk-in + Appointment Booking + Queue Board)
+  - **Completed**: 2026-04-27
+
+- **[TASK-012](tasks/TASK-012/task.md)** - Inventory — Medicine Stock + Batch (FEFO) + Reservation + Dispense
   - **Completed**: 2026-04-27
 
 ---
