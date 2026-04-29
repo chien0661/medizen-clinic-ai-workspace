@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 21:00 (auto-generated)
+**Last Updated**: 2026-04-27 11:10 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 10 |
-| **DONE** | 15 |
+| **TODO** | 9 |
+| **DONE** | 16 |
 
 ### By Priority
 
@@ -24,7 +24,7 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 10 tasks (TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
+- **Unassigned**: 9 tasks (TASK-011, TASK-012, TASK-013, TASK-015, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
 - **chiendv**: 3 tasks (TASK-008, TASK-010, TASK-023)
 
 ---
@@ -43,9 +43,6 @@
   - **Branch**: `feature/task-012-inventory`
 
 - **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
-  - **Assigned**: Unassigned
-
-- **[TASK-018](tasks/TASK-018/task.md)** - FE — Reception (Patient Register/Search/Merge + Walk-in + Appointment Booking + Queue Board)
   - **Assigned**: Unassigned
 
 - **[TASK-019](tasks/TASK-019/task.md)** - FE — Doctor (My Queue + Consultation + Vitals Dynamic + Service + Prescription)
@@ -121,6 +118,8 @@
 - **[TASK-009](tasks/TASK-009/task.md)** - Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
   - **Completed**: 2026-04-27
 
+- **[TASK-018](tasks/TASK-018/task.md)** - FE — Reception (Patient Register/Search/Merge + Walk-in + Appointment Booking + Queue Board)
+  - **Completed**: 2026-04-27
 
 ---
 

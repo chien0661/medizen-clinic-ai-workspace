@@ -2,12 +2,12 @@
 id: TASK-018
 type: feature
 title: FE — Reception (Patient Register/Search/Merge + Walk-in + Appointment Booking + Queue Board)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: None
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-018-fe-reception"
 tags: [frontend, reception, patient, queue, sprint-15]
 affected-repos: [clinic-cms]
 refs:
@@ -71,10 +71,10 @@ UI cho lễ tân: tra cứu/tạo bệnh nhân (search SĐT/tên/mã), guardian 
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -83,6 +83,8 @@ UI cho lễ tân: tra cứu/tạo bệnh nhân (search SĐT/tên/mã), guardian 
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-27
+- **Documentation Completed**: 2026-04-27 11:10:00
 
 ## Notes
 
