@@ -1,8 +1,8 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-29 (TASK-025 DONE — ALL TASKS COMPLETE)
+**Last Updated**: 2026-04-29 23:23:24 (auto-generated)
 
-> **Note**: This file is auto-generated. Do not edit manually.
+> **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
 > To create new tasks, use: `/task-create TASK-ID "Title" Priority Type`
 
@@ -12,35 +12,30 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 25 |
-| **TODO** | 0 |
-| **DONE** | 25 |
+| **Total Tasks** | 26 |
+| **DONE** | 26 |
 
 ### By Priority
 
-- **High**: 18 tasks
+- **High**: 19 tasks
 - **Medium**: 7 tasks
+
+### By Agent
+
+- **Documentation Agent**: 1 tasks (TASK-016)
+- **None**: 4 tasks (TASK-009, TASK-018, TASK-020, TASK-025)
+- **Unassigned**: 2 tasks (TASK-012, TASK-019)
+- **chiendv**: 7 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024)
 
 ---
 
 ## Active Tasks
-
-*No active tasks — all 25 tasks DONE.*
 
 ---
 
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
-
-- **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
-  - **Completed**: 2026-04-29
-  - **Branch**: `feature/task-025-e2e (BE) | feature/task-025-e2e-fe (FE)`
-  - **Results**: Smoke 38/38 PASS, Regression 85/89 PASS (4 SKIP), 0 FAIL
-
-- **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
-  - **Completed**: 2026-04-27
-  - **Branch**: `feature/task-024-fe-dashboard`
 
 - **[TASK-001](tasks/TASK-001/task.md)** - Foundation — Project Skeleton, Docker Compose, Base Models, Alembic
   - **Completed**: 2026-04-26
@@ -86,7 +81,6 @@
 
 - **[TASK-015](tasks/TASK-015/task.md)** - Reporting + In-App Notifications + Background Jobs (Arq)
   - **Completed**: 2026-04-27
-  - **Branch**: `feature/task-015-reports`
 
 - **[TASK-016](tasks/TASK-016/task.md)** - Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
   - **Completed**: 2026-04-27
@@ -112,6 +106,16 @@
 - **[TASK-023](tasks/TASK-023/task.md)** - FE — Admin (Users + Roles + Clinic Settings + Vital Schema Editor + Onboarding Wizard)
   - **Completed**: 2026-04-27
 
+- **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
+  - **Completed**: 2026-04-27
+
+- **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
+  - **Completed**: 2026-04-29
+
+- **[TASK-026](tasks/TASK-026/task.md)** - FE integration audit — replace remaining mocks with real BE + retest
+  - **Completed**: 2026-04-29
+
+
 ---
 
-**Tip**: Click on any task ID to view full details.
+**💡 Tip**: Click on any task ID to view full details.
