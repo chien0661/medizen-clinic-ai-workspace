@@ -2,14 +2,14 @@
 id: TASK-025
 type: feature
 title: System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: None
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-29
+branch: "feature/task-025-e2e (BE) | feature/task-025-e2e-fe (FE)"
 tags: [integration, e2e, playwright, performance, sprint-16]
-affected-repos: [clinic-cms]
+affected-repos: [clinic-cms, clinic-cms-web]
 refs:
   detail_design: "../../../../docs/clinic_management_system_design.md#22-testing-strategy"
   other:
@@ -94,10 +94,10 @@ Final task: tích hợp toàn bộ FE (TASK-017..024) + BE (TASK-001..015) + Tau
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -108,6 +108,11 @@ Final task: tích hợp toàn bộ FE (TASK-017..024) + BE (TASK-001..015) + Tau
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-29
+- **Implementation Completed**: 2026-04-29
+- **Review Completed**: 2026-04-29
+- **Testing Completed**: 2026-04-29
+- **Documentation Completed**: 2026-04-29
 
 ## Notes
 
