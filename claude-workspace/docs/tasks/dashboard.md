@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 (auto-generated)
+**Last Updated**: 2026-04-27 21:00 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 11 |
-| **DONE** | 14 |
+| **TODO** | 10 |
+| **DONE** | 15 |
 
 ### By Priority
 
@@ -24,7 +24,7 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 11 tasks (TASK-009, TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
+- **Unassigned**: 10 tasks (TASK-011, TASK-012, TASK-013, TASK-015, TASK-018, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
 - **chiendv**: 3 tasks (TASK-008, TASK-010, TASK-023)
 
 ---
@@ -34,9 +34,6 @@
 ### 🔴 High Priority
 
 #### TODO
-
-- **[TASK-009](tasks/TASK-009/task.md)** - Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
-  - **Assigned**: Unassigned
 
 - **[TASK-011](tasks/TASK-011/task.md)** - Medicine Catalog + Prescription (In-House / External Mixed)
   - **Assigned**: Unassigned
@@ -119,6 +116,9 @@
   - **Completed**: 2026-04-27
 
 - **[TASK-023](tasks/TASK-023/task.md)** - FE — Admin (Users + Roles + Clinic Settings + Vital Schema Editor + Onboarding Wizard)
+  - **Completed**: 2026-04-27
+
+- **[TASK-009](tasks/TASK-009/task.md)** - Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
   - **Completed**: 2026-04-27
 
 

@@ -2,12 +2,12 @@
 id: TASK-009
 type: feature
 title: Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: None
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: feature/task-009-vitals
 tags: [vitals, dynamic-form, sprint-5]
 affected-repos: [clinic-cms]
 refs:
@@ -51,10 +51,10 @@ Vitals form động per clinic: 3 bảng `vital_field_definition` (defs hiện h
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review)
+- [x] Testing (32/32 tests passed)
+- [x] Documentation
 
 ## Related Files
 
@@ -63,6 +63,12 @@ Vitals form động per clinic: 3 bảng `vital_field_definition` (defs hiện h
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-27
+- **Implementation Completed**: 2026-04-27
+- **Review Completed**: 2026-04-27 (self-review)
+- **Testing Completed**: 2026-04-27
+- **Documentation Completed**: 2026-04-27
+- **Done**: 2026-04-27
 
 ## Notes
 
