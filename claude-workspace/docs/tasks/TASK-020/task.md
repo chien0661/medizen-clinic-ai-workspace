@@ -2,12 +2,12 @@
 id: TASK-020
 type: feature
 title: FE — Pharmacy (Pending Dispense + Substitute Batch + Inventory + Stock Adjustment)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: None
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-020-fe-pharmacy"
 tags: [frontend, pharmacy, inventory, sprint-15]
 affected-repos: [clinic-cms]
 refs:
@@ -73,10 +73,18 @@ UI cho dược sĩ: list pending dispense, dispense workflow (verify batch FEFO 
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review — 3 cycles)
+- [x] Testing (282 tests all pass, tsc clean, lint clean)
+- [x] Documentation
+
+## Timestamps
+
+- **Started**: 2026-04-27
+- **Implementation Completed**: 2026-04-27
+- **Review Completed**: 2026-04-27
+- **Testing Completed**: 2026-04-27
+- **Documentation Completed**: 2026-04-27
 
 ## Related Files
 

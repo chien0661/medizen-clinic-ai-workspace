@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 (auto-generated)
+**Last Updated**: 2026-04-27 (auto-generated — TASK-019 IN_PROGRESS)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,9 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 7 |
-| **DONE** | 18 |
+| **TODO** | 5 |
+| **IN_PROGRESS** | 1 |
+| **DONE** | 19 |
 
 ### By Priority
 
@@ -23,8 +24,9 @@
 
 ### By Agent
 
+- **Code Implementation Agent**: 1 tasks (TASK-019)
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 8 tasks (TASK-012, TASK-013, TASK-015, TASK-019, TASK-020, TASK-021, TASK-024, TASK-025)
+- **Unassigned**: 6 tasks (TASK-013, TASK-015, TASK-021, TASK-024, TASK-025, TASK-012)
 - **chiendv**: 4 tasks (TASK-008, TASK-010, TASK-011, TASK-023)
 
 ---
@@ -39,10 +41,8 @@
   - **Assigned**: Unassigned
 
 - **[TASK-019](tasks/TASK-019/task.md)** - FE — Doctor (My Queue + Consultation + Vitals Dynamic + Service + Prescription)
-  - **Assigned**: Unassigned
-
-- **[TASK-020](tasks/TASK-020/task.md)** - FE — Pharmacy (Pending Dispense + Substitute Batch + Inventory + Stock Adjustment)
-  - **Assigned**: Unassigned
+  - **Assigned**: Code Implementation Agent
+  - **Status**: IN_PROGRESS (branch: feature/task-019-fe-doctor)
 
 - **[TASK-021](tasks/TASK-021/task.md)** - FE — Billing (Invoice Auto-Gen + Multi-Payment + Discount + Void/Refund + POS Print)
   - **Assigned**: Unassigned
@@ -118,6 +118,9 @@
   - **Completed**: 2026-04-27
 
 - **[TASK-012](tasks/TASK-012/task.md)** - Inventory — Medicine Stock + Batch (FEFO) + Reservation + Dispense
+  - **Completed**: 2026-04-27
+
+- **[TASK-020](tasks/TASK-020/task.md)** - FE — Pharmacy (Pending Dispense + Substitute Batch + Inventory + Stock Adjustment)
   - **Completed**: 2026-04-27
 
 ---
