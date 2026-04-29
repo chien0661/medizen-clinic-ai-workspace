@@ -2,12 +2,12 @@
 id: TASK-015
 type: feature
 title: Reporting + In-App Notifications + Background Jobs (Arq)
-status: TODO
+status: DONE
 priority: Medium
-assigned: Unassigned
+assigned: chiendv
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-015-reports"
 tags: [reporting, notifications, jobs, sprint-14]
 affected-repos: [clinic-cms]
 refs:
@@ -49,10 +49,10 @@ refs:
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review)
+- [x] Testing (41/41 PASS, 85% coverage)
+- [x] Documentation
 
 ## Related Files
 
