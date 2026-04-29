@@ -1,9 +1,46 @@
 # TASK-025: Integration Final Test Report
 
-**Date**: 2026-04-29  
-**Task**: System Integration + E2E Test Suite (Final Acceptance)  
+**Date**: 2026-04-27  
+**Task**: System Integration + E2E Test Suite (Final Acceptance) + FE Stub Flip to Real BE  
 **Status**: DONE  
 **Test Executor**: Automated Agent  
+
+---
+
+## 0. FE Stub-to-Real-BE Flip Summary (2026-04-27)
+
+All FE stub layers replaced with real BE API calls. BE main has TASK-005..015 merged.
+
+| Module | Files Modified | Stubs Removed | Endpoints Wired |
+|--------|---------------|---------------|-----------------|
+| pharmacy | `src/modules/pharmacy/api.ts` | `IS_STUB=true` flag + all STUB_* data | 11 |
+| billing | `src/modules/billing/api.ts` | STUB NOTICE comments | 11 (already wired) |
+| dashboard | `src/modules/dashboard/api.ts` | All mock returns | 4 |
+| doctor | `src/modules/doctor/api.ts` | STUB_VITALS, STUB_MEDICINES, stub prescriptions | 5 |
+| notifications | `src/modules/notifications/api.ts` | In-memory STUB_NOTIFICATIONS store | 5 |
+| reports | `src/modules/reports/api.ts` | All deterministic mock bodies | 5 |
+| admin | `src/modules/admin/api.ts` | Settings/vitals/medicines/onboarding mocks | 12 |
+| **Total** | 7 API files + 3 type files | 7 stub layers | **53 endpoints** |
+
+**Beta banners removed from pages:**
+- `src/pages/pharmacy/PendingDispensePage.tsx`, `InventoryPage.tsx`, `AdjustmentsPage.tsx`, `PurchaseInPage.tsx`, `SubstituteBatchPage.tsx`
+- `src/pages/billing/InvoiceListPage.tsx`, `InvoiceDetailPage.tsx`, `GenerateInvoicePage.tsx`
+- `src/components/doctor/VitalsTab.tsx`, `PrescriptionTab.tsx`
+- i18n `pharmacy.json` (betaBanner key removed), `doctor.json` (values cleared), `billing.json` (values cleared)
+
+**Bug handling wired:**
+- BUG-001: `POST /services` 500 → graceful toast error in `ServicesPage.tsx`
+- BUG-002: `POST /visits/{id}/vitals` 400 → inline "Chưa cấu hình schema" message in `VitalsTab.tsx`
+- BUG-003: `GET /visits/{id}/prescriptions` 405 → fallback `GET /prescriptions?visit_id=` with null return on any error
+
+**Test results after flip:**
+- `tsc --noEmit`: CLEAN (0 errors)
+- Unit+component tests: **529 PASS / 0 FAIL** (49 test files)
+
+**Stubs retained with reason:**
+- `adminAuditApi`: mock data — BE audit log endpoint not confirmed on demo (`TODO(audit)`)
+
+
 
 ---
 
