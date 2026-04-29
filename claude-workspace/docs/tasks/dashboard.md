@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 (auto-generated — TASK-013 DONE)
+**Last Updated**: 2026-04-27 (auto-generated — TASK-021 DONE)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 4 |
-| **DONE** | 21 |
+| **TODO** | 3 |
+| **DONE** | 22 |
 
 ### By Priority
 
@@ -24,7 +24,7 @@
 ### By Agent
 
 - **Documentation Agent**: 1 tasks (TASK-016)
-- **Unassigned**: 5 tasks (TASK-015, TASK-021, TASK-024, TASK-025, TASK-012)
+- **Unassigned**: 4 tasks (TASK-015, TASK-024, TASK-025, TASK-012)
 - **chiendv**: 4 tasks (TASK-008, TASK-010, TASK-011, TASK-023)
 
 ---
@@ -34,9 +34,6 @@
 ### 🔴 High Priority
 
 #### TODO
-
-- **[TASK-021](tasks/TASK-021/task.md)** - FE — Billing (Invoice Auto-Gen + Multi-Payment + Discount + Void/Refund + POS Print)
-  - **Assigned**: Unassigned
 
 - **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
   - **Assigned**: Unassigned
@@ -56,6 +53,9 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-021](tasks/TASK-021/task.md)** - FE — Billing (Invoice Auto-Gen + Multi-Payment + Discount + Void/Refund + POS Print)
+  - **Completed**: 2026-04-27
 
 - **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
   - **Completed**: 2026-04-27

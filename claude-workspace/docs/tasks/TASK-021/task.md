@@ -2,12 +2,12 @@
 id: TASK-021
 type: feature
 title: FE — Billing (Invoice Auto-Gen + Multi-Payment + Discount + Void/Refund + POS Print)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: ""
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-021-fe-billing"
 tags: [frontend, billing, payment, sprint-15]
 affected-repos: [clinic-cms]
 refs:
@@ -81,10 +81,10 @@ UI cho lễ tân/cashier thu tiền: invoice tự động generate khi visit AWA
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review, 1 cycle)
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -93,6 +93,8 @@ UI cho lễ tân/cashier thu tiền: invoice tự động generate khi visit AWA
 ## Timestamps
 
 - **Created**: 2026-04-26
+- **Started**: 2026-04-27 15:45:00
+- **Documentation Completed**: 2026-04-27 16:00:00
 
 ## Notes
 
