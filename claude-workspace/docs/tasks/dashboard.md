@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-27 11:10 (auto-generated)
+**Last Updated**: 2026-04-27 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,8 +13,8 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 25 |
-| **TODO** | 9 |
-| **DONE** | 16 |
+| **TODO** | 8 |
+| **DONE** | 17 |
 
 ### By Priority
 
@@ -37,10 +37,6 @@
 
 - **[TASK-011](tasks/TASK-011/task.md)** - Medicine Catalog + Prescription (In-House / External Mixed)
   - **Assigned**: Unassigned
-
-- **[TASK-012](tasks/TASK-012/task.md)** - Inventory + Batch + StockMovement + FEFO + Pharmacy Dispense
-  - **Assigned**: Unassigned
-  - **Branch**: `feature/task-012-inventory`
 
 - **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
   - **Assigned**: Unassigned

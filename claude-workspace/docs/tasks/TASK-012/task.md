@@ -2,12 +2,12 @@
 id: TASK-012
 type: feature
 title: Inventory + Batch + StockMovement + FEFO + Pharmacy Dispense
-status: TODO
+status: DONE
 priority: High
 assigned: Unassigned
 created: 2026-04-26
-updated: 2026-04-26
-branch: ""
+updated: 2026-04-27
+branch: "feature/task-012-inventory"
 tags: [inventory, pharmacy, fefo, sprint-8]
 affected-repos: [clinic-cms]
 refs:
@@ -57,10 +57,10 @@ Inventory 3 cấp: Medicine (catalog) → InventoryItem (per clinic) → Batch (
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review (self-review, 2 iterations)
+- [x] Testing (34/34 pass)
+- [x] Documentation
 
 ## Related Files
 
