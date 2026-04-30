@@ -10,8 +10,9 @@
 ```
 MediZen — Modern
 │
-├── 🔐 Auth
-│   ├── Đăng nhập (e98de272)        ← role-aware redirect
+├── 🔐 Auth (chưa login)
+│   ├── Đăng nhập (e98de272)        ← email + password (KHÔNG cần mã PK)
+│   ├── Chọn phòng khám              ← TODO — màn chooser khi user kiêm nhiều PK + chưa set default
 │   ├── Quên mật khẩu                ← TODO
 │   ├── MFA setup / verify           ← TODO
 │   └── Đổi mật khẩu                 ← thuộc Profile
@@ -80,13 +81,36 @@ MediZen — Modern
 │       ├── Audit log
 │       └── Bảo mật & Mã hóa
 │
-└── 👤 Profile cá nhân
-    ├── Thông tin cá nhân
-    ├── Đổi mật khẩu
-    ├── Cài đặt thông báo
-    ├── Phiên đăng nhập đang hoạt động
-    └── Đăng xuất
+├── 👤 Profile cá nhân
+│   ├── Thông tin cá nhân
+│   ├── Đổi mật khẩu
+│   ├── Cài đặt thông báo
+│   ├── Phiên đăng nhập đang hoạt động
+│   ├── Phòng khám của tôi (multi-clinic) — set default · revoke access · accept invite
+│   └── Đăng xuất
+│
+└── 🌐 App shell components (cross-cutting)
+    ├── Topbar
+    │   ├── Logo MediZen + breadcrumb
+    │   ├── ⌘K Quick search palette (NAV-001)
+    │   ├── 🔔 Notifications bell (popover)
+    │   ├── 🏥 Clinic switcher dropdown (NAV-002) — chỉ hiện nếu user có >1 clinic
+    │   └── Avatar + multi-role chip + menu (Profile / Đăng xuất)
+    ├── Sidebar (left, 240px / collapsed 72px)
+    │   ├── Logo top
+    │   ├── Module group(s) — UNION qua tất cả role user có
+    │   └── Avatar block bottom + multi-role chip
+    ├── Right drawer (360px, contextual)
+    │   ├── Patient context (trong EMR)
+    │   ├── Notification detail
+    │   └── Audit log diff viewer
+    └── Modal layer
+        ├── Confirm dialogs
+        ├── Form modals (đăng ký BN, đặt hẹn, ...)
+        └── Onboarding tour
 ```
+
+**Chi tiết menu theo role + spec từng màn**: xem [MENU_AND_SCREENS.md](MENU_AND_SCREENS.md)
 
 ---
 

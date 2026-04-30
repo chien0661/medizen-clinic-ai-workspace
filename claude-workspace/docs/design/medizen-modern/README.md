@@ -13,6 +13,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — m
 |---|---|
 | [README.md](README.md) | Index (file này) |
 | [SITEMAP.md](SITEMAP.md) | Sitemap toàn hệ thống + ma trận quyền theo vai trò + flow path BN |
+| [MENU_AND_SCREENS.md](MENU_AND_SCREENS.md) | **Sườn menu chi tiết theo role + spec từng màn hình** — gồm pre-login flow, app shell, sidebar mỗi role, screen catalog 40+ màn |
 | [MULTI_ROLE_UX.md](MULTI_ROLE_UX.md) | UX pattern cho user kiêm 2-3 vai trò (merge sidebar) |
 | [ACTION_FLOWS.md](ACTION_FLOWS.md) | 7 flow nghiệp vụ chi tiết step-by-step (tiếp nhận, đo vital, EMR, cấp thuốc, ...) |
 | [TAB_MATRIX.md](TAB_MATRIX.md) | Spec tất cả tab của EMR (6) + Cấu hình (8) + Báo cáo (6) — input cho generation Phase C |
