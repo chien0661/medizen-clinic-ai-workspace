@@ -12,8 +12,9 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 30 |
+| **Total Tasks** | 31 |
 | **IN_PROGRESS** | 2 |
+| **TODO** | 1 |
 | **DONE** | 28 |
 
 ### By Priority
@@ -42,6 +43,12 @@
 - **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
   - **Assigned**: chiendv
   - **Status**: IN_REVIEW (implementation complete 2026-05-01)
+
+#### TODO
+
+- **[TASK-031](tasks/TASK-031/task.md)** - MediZen UI — Generate 15 màn còn lại trong fresh Stitch project (TASK-029 follow-up)
+  - **Assigned**: Unassigned
+  - **Created**: 2026-05-01
 
 ---
 
