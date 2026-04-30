@@ -1,8 +1,24 @@
 # MediZen — Landing Page Design Spec
 
-**Cập nhật**: 2026-04-30 (v1 — concept design)
+**Cập nhật**: 2026-05-01 (v1 — concept design + mockup HTML)
 **Mục tiêu**: Trang giới thiệu sản phẩm + đăng ký dùng thử cho phòng khám đa khoa VN
 **URL dự kiến**: https://medizen.vn (hoặc https://app.medizen.vn/landing)
+
+> ## 📦 Mockup deliverable (TASK-028)
+>
+> **File**: [landing-mockup.html](landing-mockup.html) — 694 dòng, single-file HTML/CSS/JS self-contained
+>
+> Render đủ **12 sections** theo spec dưới với:
+> - Design tokens MediZen Modern (Indigo `#6366F1` / Slate / Emerald + Plus Jakarta Sans + Inter)
+> - Responsive 3 breakpoints (desktop / tablet 1024px / mobile 640px)
+> - Vietnamese copy đầy đủ diacritics (vi default, en toggle visual)
+> - FAQ accordion, billing toggle (monthly/yearly), scroll-triggered reveal animations
+> - Sticky topbar với CTAs, signup form (mock submit)
+>
+> **Cách dùng**:
+> 1. Mở trực tiếp trong browser để xem design.
+> 2. Screenshot từng section → paste vào Stitch project mới làm visual reference khi iterate.
+> 3. Dùng làm baseline khi FE engineer code phase implementation (subroute `/welcome` trong `clinic-cms-web`).
 
 > Tài liệu này mô tả **thiết kế concept** cho landing page MediZen. Không phải HTML/code — là spec để designer/dev triển khai. Cross-reference với [README.md](README.md) (design system tokens) và [MENU_AND_SCREENS.md](MENU_AND_SCREENS.md) (app screens dùng làm preview).
 

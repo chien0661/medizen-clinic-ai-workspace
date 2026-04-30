@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="MediZen — Quản lý phòng khám hiện đại trên nền tảng đám mây. EMR động, FEFO inventory, multi-role, báo cáo realtime.">
+<meta property="og:title" content="MediZen — Quản lý phòng khám hiện đại">
+<meta property="og:description" content="Hệ thống quản lý phòng khám đa khoa với EMR động, FEFO inventory và báo cáo realtime. Dùng thử miễn phí 14 ngày.">
+<meta property="og:type" content="website">
+<title>MediZen — Quản lý phòng khám hiện đại</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#6366F1; --indigo-50:#EEF2FF; --indigo-100:#E0E7FF; --indigo-600:#4F46E5; --indigo-700:#4338CA;
+  --slate:#0F172A; --slate-50:#F8FAFC; --slate-100:#F1F5F9; --slate-200:#E2E8F0; --slate-300:#CBD5E1; --slate-400:#94A3B8; --slate-500:#64748B; --slate-600:#475569; --slate-700:#334155; --slate-800:#1E293B; --slate-900:#0F172A;
+  --emerald:#10B981; --emerald-50:#ECFDF5; --emerald-600:#059669;
+  --amber:#F59E0B; --amber-50:#FFFBEB;
+  --red:#EF4444; --red-50:#FEF2F2;
+  --sky:#0EA5E9; --sky-50:#F0F9FF;
+  --shadow-sm:0 1px 2px rgba(15,23,42,.05);
+  --shadow:0 4px 6px rgba(15,23,42,.07),0 2px 4px rgba(15,23,42,.06);
+  --shadow-lg:0 20px 25px rgba(15,23,42,.10),0 8px 10px rgba(15,23,42,.04);
+  --r-xl:12px; --r-lg:8px; --r-md:6px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter',-apple-system,system-ui,sans-serif;color:var(--slate-800);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--slate);line-height:1.2;margin:0 0 .5em}
+p{margin:0 0 1em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;font-size:inherit;color:inherit}
+img{max-width:100%}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;border-radius:var(--r-lg);font-weight:600;font-size:15px;transition:all .15s;white-space:nowrap}
+.btn-primary{background:var(--indigo);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--indigo-600);transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn-secondary{background:#fff;color:var(--slate);border:1px solid var(--slate-200)}
+.btn-secondary:hover{background:var(--slate-50);border-color:var(--slate-300)}
+.btn-ghost{color:var(--slate-700)}
+.btn-ghost:hover{color:var(--indigo)}
+.btn-lg{padding:14px 32px;font-size:16px}
+.chip{display:inline-flex;align-items:center;padding:4px 10px;border-radius:var(--r-md);font-size:12px;font-weight:500;background:var(--indigo-50);color:var(--indigo-700)}
+.section{padding:96px 0}
+.section-tight{padding:64px 0}
+.eyebrow{font-size:13px;font-weight:600;color:var(--indigo);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.h-display{font-size:56px;line-height:1.1;letter-spacing:-.02em}
+.h-section{font-size:36px;letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--slate-600)}
+
+/* §0 Topbar */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--slate-100)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--slate)}
+.brand-mark{width:32px;height:32px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--indigo),var(--sky));display:grid;place-items:center;color:#fff;font-weight:700}
+.nav{display:flex;gap:32px}
+.nav a{font-size:14px;font-weight:500;color:var(--slate-700)}
+.nav a:hover{color:var(--indigo)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.lang-toggle{display:flex;border:1px solid var(--slate-200);border-radius:var(--r-md);overflow:hidden}
+.lang-toggle button{padding:6px 10px;font-size:12px;font-weight:600}
+.lang-toggle button.active{background:var(--slate);color:#fff}
+
+/* §1 Hero */
+.hero{padding:120px 0 96px;background:radial-gradient(ellipse at top right,var(--indigo-50),transparent 60%),radial-gradient(ellipse at bottom left,var(--sky-50),transparent 60%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:#fff;border:1px solid var(--slate-200);border-radius:999px;font-size:13px;color:var(--slate-700);box-shadow:var(--shadow-sm);margin-bottom:24px}
+.hero-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 3px rgba(16,185,129,.2)}
+.hero h1 span.accent{background:linear-gradient(120deg,var(--indigo),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero-trust{display:flex;align-items:center;gap:24px;margin-top:32px;color:var(--slate-500);font-size:13px}
+.hero-trust strong{color:var(--slate);font-size:18px;font-family:'Plus Jakarta Sans'}
+.hero-card{background:#fff;border-radius:var(--r-xl);box-shadow:var(--shadow-lg);padding:24px;border:1px solid var(--slate-100);position:relative}
+.hero-card::before{content:'';position:absolute;inset:-1px;border-radius:var(--r-xl);padding:1px;background:linear-gradient(135deg,var(--indigo) 0%,transparent 50%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:exclude;mask-composite:exclude;pointer-events:none}
+.hero-card .hc-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--slate-100);margin-bottom:16px}
+.hero-card .hc-title{font-weight:700;color:var(--slate)}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.kpi{padding:12px;background:var(--slate-50);border-radius:var(--r-lg)}
+.kpi-label{font-size:11px;color:var(--slate-500);text-transform:uppercase;letter-spacing:.05em}
+.kpi-value{font-family:'Plus Jakarta Sans';font-weight:700;font-size:22px;color:var(--slate);margin-top:4px}
+.kpi-delta{font-size:11px;color:var(--emerald-600);margin-top:2px;font-weight:500}
+.spark{height:48px;background:linear-gradient(180deg,var(--indigo-50),transparent);border-radius:var(--r-md);position:relative;overflow:hidden}
+.spark::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(180deg,transparent,rgba(99,102,241,.15));clip-path:polygon(0 80%,8% 60%,18% 70%,28% 45%,40% 55%,52% 30%,64% 50%,76% 25%,88% 40%,100% 15%,100% 100%,0 100%)}
+.queue-row{display:flex;align-items:center;gap:12px;padding:8px;border-radius:var(--r-md)}
+.queue-row+.queue-row{border-top:1px solid var(--slate-100)}
+.queue-num{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--indigo);width:42px}
+.queue-name{flex:1;font-size:13px;color:var(--slate-700)}
+.queue-status{font-size:11px;padding:2px 8px;border-radius:var(--r-md);font-weight:500}
+.qs-wait{background:var(--amber-50);color:var(--amber)}
+.qs-prog{background:var(--indigo-50);color:var(--indigo-700)}
+.qs-done{background:var(--emerald-50);color:var(--emerald-600)}
+
+/* §2 Social proof */
+.proof{padding:48px 0;background:var(--slate-50);border-top:1px solid var(--slate-100);border-bottom:1px solid var(--slate-100)}
+.proof-text{text-align:center;color:var(--slate-500);font-size:14px;margin-bottom:24px}
+.proof-logos{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;opacity:.55}
+.proof-logo{font-family:'Plus Jakarta Sans';font-weight:700;color:var(--slate-500);font-size:16px;letter-spacing:.02em}
+
+/* §3 Problem */
+.problem{background:#fff}
+.problem-head{text-align:center;max-width:720px;margin:0 auto 64px}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pain-card{padding:28px;border:1px solid var(--slate-200);border-radius:var(--r-xl);transition:all .15s}
+.pain-card:hover{border-color:var(--red);box-shadow:var(--shadow);transform:translateY(-2px)}
+.pain-icon{width:48px;height:48px;border-radius:var(--r-lg);background:var(--red-50);color:var(--red);display:grid;place-items:center;margin-bottom:16px;font-size:22px}
+.pain-card h4{font-size:18px;color:var(--slate);margin-bottom:8px}
+.pain-card p{font-size:14px;color:var(--slate-600);margin:0}
+
+/* §4 Solution */
+.solution{background:linear-gradient(180deg,#fff,var(--slate-50))}
+.solution-head{text-align:center;max-width:720px;margin:0 auto 64px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feat-card{background:#fff;padding:28px;border:1px solid var(--slate-200);border-radius:var(--r-xl);transition:all .15s}
+.feat-card:hover{border-color:var(--indigo);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.feat-icon{width:52px;height:52px;border-radius:var(--r-lg);background:var(--indigo-50);color:var(--indigo);display:grid;place-items:center;margin-bottom:16px;font-size:24px}
+.feat-card h4{font-size:18px;margin-bottom:8px}
+.feat-card p{font-size:14px;color:var(--slate-600);margin:0 0 12px}
+.feat-link{font-size:13px;font-weight:600;color:var(--indigo);display:inline-flex;align-items:center;gap:4px}
+.feat-link:hover{color:var(--indigo-600)}
+
+/* §5 Comparison */
+.comparison{background:#fff}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--shadow);margin-top:48px}
+.compare-table th,.compare-table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--slate-100);font-size:14px}
+.compare-table thead th{background:var(--slate-50);font-weight:600;color:var(--slate);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.compare-table thead th.col-medi{background:var(--indigo);color:#fff}
+.compare-table tbody tr:last-child td{border-bottom:0}
+.tick{color:var(--emerald);font-weight:700}
+.cross{color:var(--slate-300)}
+.feat-name{font-weight:500;color:var(--slate-700)}
+
+/* §6 Workflow */
+.workflow{background:var(--slate-900);color:var(--slate-100)}
+.workflow h2{color:#fff}
+.workflow .lead{color:var(--slate-400)}
+.workflow-head{text-align:center;max-width:720px;margin:0 auto 64px}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;margin-top:48px}
+.timeline::before{content:'';position:absolute;top:38px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,var(--indigo),var(--sky))}
+.tl-step{text-align:center;position:relative;padding:0 8px}
+.tl-circle{width:76px;height:76px;border-radius:50%;background:var(--slate-800);border:2px solid var(--indigo);display:grid;place-items:center;margin:0 auto 16px;font-size:28px;position:relative;z-index:1}
+.tl-circle.active{background:var(--indigo);box-shadow:0 0 0 6px rgba(99,102,241,.2)}
+.tl-time{font-size:12px;color:var(--slate-400);font-family:'Plus Jakarta Sans';font-weight:600;letter-spacing:.05em}
+.tl-step h5{font-size:15px;color:#fff;margin:6px 0 4px;font-family:'Plus Jakarta Sans'}
+.tl-step p{font-size:12px;color:var(--slate-400);margin:0}
+
+/* §7 Use cases */
+.use-cases{background:#fff}
+.uc-head{text-align:center;max-width:720px;margin:0 auto 64px}
+.uc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.uc-card{padding:32px;border:2px solid var(--slate-200);border-radius:var(--r-xl);background:#fff;display:flex;flex-direction:column;gap:16px}
+.uc-card.featured{border-color:var(--indigo);box-shadow:var(--shadow-lg)}
+.uc-tag{align-self:flex-start;padding:6px 12px;background:var(--indigo-50);color:var(--indigo-700);border-radius:var(--r-md);font-size:12px;font-weight:600}
+.uc-card h4{font-size:20px;margin:0}
+.uc-card .uc-size{font-size:13px;color:var(--slate-500)}
+.uc-card hr{border:0;border-top:1px solid var(--slate-200);margin:8px 0}
+.uc-card ul{margin:0;padding-left:18px;font-size:14px;color:var(--slate-700)}
+.uc-card ul li{margin-bottom:6px}
+.uc-roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.uc-roles span{padding:4px 10px;background:var(--slate-100);color:var(--slate-700);border-radius:var(--r-md);font-size:11px;font-weight:500}
+
+/* §8 Pricing */
+.pricing{background:linear-gradient(180deg,var(--slate-50),#fff)}
+.pr-head{text-align:center;max-width:720px;margin:0 auto 32px}
+.billing-toggle{display:inline-flex;background:#fff;border:1px solid var(--slate-200);border-radius:999px;padding:4px;margin:0 auto 48px;display:flex;width:fit-content;left:50%}
+.billing-toggle button{padding:8px 20px;border-radius:999px;font-size:14px;font-weight:600;color:var(--slate-600)}
+.billing-toggle button.active{background:var(--slate);color:#fff}
+.bt-wrap{text-align:center;margin-bottom:48px}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pr-card{background:#fff;border:2px solid var(--slate-200);border-radius:var(--r-xl);padding:32px;display:flex;flex-direction:column;gap:16px}
+.pr-card.featured{border-color:var(--indigo);box-shadow:var(--shadow-lg);position:relative}
+.pr-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--indigo);color:#fff;padding:4px 14px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.pr-card h4{font-size:18px;margin:0}
+.pr-tagline{font-size:13px;color:var(--slate-500);margin:0}
+.pr-price{display:flex;align-items:baseline;gap:6px;font-family:'Plus Jakarta Sans'}
+.pr-price strong{font-size:42px;font-weight:800;color:var(--slate)}
+.pr-price small{font-size:14px;color:var(--slate-500)}
+.pr-card ul{margin:0;padding:0;list-style:none;font-size:14px;color:var(--slate-700);flex:1}
+.pr-card ul li{padding:6px 0;display:flex;gap:8px;align-items:flex-start}
+.pr-card ul li::before{content:'✓';color:var(--emerald);font-weight:700;flex-shrink:0}
+.pr-card ul li.gone{color:var(--slate-400)}
+.pr-card ul li.gone::before{content:'—';color:var(--slate-300)}
+
+/* §9 Testimonials */
+.testimonials{background:var(--slate-50)}
+.tm-head{text-align:center;max-width:720px;margin:0 auto 48px}
+.tm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tm-card{background:#fff;padding:28px;border-radius:var(--r-xl);box-shadow:var(--shadow-sm);border:1px solid var(--slate-100);display:flex;flex-direction:column;gap:16px}
+.tm-stars{color:var(--amber);font-size:14px;letter-spacing:2px}
+.tm-quote{font-size:15px;color:var(--slate-700);font-style:italic;flex:1;margin:0;line-height:1.6}
+.tm-author{display:flex;gap:12px;align-items:center;padding-top:16px;border-top:1px solid var(--slate-100)}
+.tm-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--sky));color:#fff;display:grid;place-items:center;font-weight:700;font-family:'Plus Jakarta Sans'}
+.tm-name{font-size:14px;font-weight:600;color:var(--slate)}
+.tm-role{font-size:12px;color:var(--slate-500)}
+
+/* §10 FAQ */
+.faq{background:#fff}
+.faq-head{text-align:center;max-width:720px;margin:0 auto 48px}
+.faq-list{max-width:780px;margin:0 auto;border-radius:var(--r-xl);background:#fff;border:1px solid var(--slate-200);overflow:hidden}
+.faq-item{border-bottom:1px solid var(--slate-100)}
+.faq-item:last-child{border-bottom:0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;width:100%;padding:20px 24px;text-align:left;font-weight:600;color:var(--slate);font-size:15px}
+.faq-q:hover{background:var(--slate-50)}
+.faq-q .icon{transition:transform .2s;color:var(--indigo);font-size:20px;font-weight:600}
+.faq-item.open .faq-q .icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:14px;color:var(--slate-600);padding:0 24px}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
+
+/* §11 Final CTA + signup */
+.final-cta{background:linear-gradient(135deg,var(--indigo) 0%,#7C3AED 50%,var(--sky) 100%);color:#fff;padding:96px 0}
+.fc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.fc-grid h2{color:#fff;font-size:42px}
+.fc-grid p{color:rgba(255,255,255,.85);font-size:17px}
+.fc-bullets{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.fc-bullets div{display:flex;gap:12px;align-items:center;font-size:15px}
+.fc-bullets .check{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;flex-shrink:0;font-size:12px}
+.signup-form{background:#fff;color:var(--slate);padding:32px;border-radius:var(--r-xl);box-shadow:var(--shadow-lg)}
+.signup-form h3{font-size:22px;margin:0 0 4px;color:var(--slate)}
+.signup-form .form-sub{font-size:14px;color:var(--slate-500);margin-bottom:24px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:500;color:var(--slate-700);margin-bottom:6px}
+.field input{width:100%;padding:10px 14px;border:1px solid var(--slate-200);border-radius:var(--r-lg);font-size:14px;font-family:inherit;color:var(--slate);transition:border-color .15s}
+.field input:focus{outline:0;border-color:var(--indigo);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.signup-form button{width:100%;margin-top:8px}
+.form-tos{font-size:12px;color:var(--slate-500);margin-top:12px;text-align:center}
+.form-tos a{color:var(--indigo);text-decoration:underline}
+
+/* Footer */
+.footer{background:var(--slate-900);color:var(--slate-400);padding:64px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.foot-brand{color:#fff;font-family:'Plus Jakarta Sans';font-weight:800;font-size:24px;margin-bottom:16px}
+.foot-tag{font-size:14px;line-height:1.6}
+.foot-social{display:flex;gap:12px;margin-top:20px}
+.foot-social a{width:36px;height:36px;border-radius:var(--r-md);background:var(--slate-800);display:grid;place-items:center;color:var(--slate-300);font-size:14px}
+.foot-social a:hover{background:var(--indigo);color:#fff}
+.foot-col h5{color:#fff;font-size:14px;margin-bottom:16px;font-family:'Plus Jakarta Sans'}
+.foot-col ul{list-style:none;padding:0;margin:0;font-size:14px;display:flex;flex-direction:column;gap:10px}
+.foot-col ul a:hover{color:#fff}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--slate-800);font-size:13px}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:1024px){
+  .hero-grid,.fc-grid{grid-template-columns:1fr;gap:48px}
+  .pain-grid,.feat-grid,.uc-grid,.pr-grid,.tm-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:repeat(3,1fr);row-gap:48px}
+  .timeline::before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media (max-width:640px){
+  .h-display{font-size:38px}
+  .h-section{font-size:28px}
+  .nav,.proof-logos{display:none}
+  .pain-grid,.feat-grid,.uc-grid,.pr-grid,.tm-grid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;row-gap:32px}
+  .compare-table{font-size:13px}
+  .compare-table th,.compare-table td{padding:12px}
+  .foot-grid{grid-template-columns:1fr}
+  .section{padding:64px 0}
+  .hero{padding:80px 0 64px}
+  .final-cta{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- §0 Topbar -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="#" class="brand"><span class="brand-mark">M</span> MediZen</a>
+    <nav class="nav">
+      <a href="#problem">Vấn đề</a>
+      <a href="#solution">Tính năng</a>
+      <a href="#comparison">So sánh</a>
+      <a href="#pricing">Báo giá</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="lang-toggle">
+        <button class="active">VI</button>
+        <button>EN</button>
+      </div>
+      <a class="btn btn-ghost" href="/login">Đăng nhập</a>
+      <a class="btn btn-primary" href="#signup">Đăng ký demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- §1 HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal in">
+      <span class="hero-eyebrow"><span class="dot"></span> Hệ thống đang phục vụ 50+ phòng khám</span>
+      <h1 class="h-display">Quản lý phòng khám <span class="accent">hiện đại</span> — chỉ trong 1 hệ thống</h1>
+      <p class="lead">EMR động · FEFO inventory · Multi-role · Báo cáo realtime. Số hoá toàn bộ quy trình từ tiếp nhận đến thanh toán, giảm 60% thời gian giấy tờ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#signup">Dùng thử 14 ngày miễn phí →</a>
+        <a class="btn btn-secondary btn-lg" href="#workflow">▶ Xem demo 5 phút</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>50+</strong> Phòng khám</div>
+        <div><strong>200K+</strong> Bệnh nhân</div>
+        <div><strong>99.9%</strong> Uptime SLA</div>
+      </div>
+    </div>
+    <div class="hero-card reveal in">
+      <div class="hc-head">
+        <div class="hc-title">Phòng khám An Khang — Hôm nay</div>
+        <span class="chip">● Live</span>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Lượt khám</div><div class="kpi-value">42</div><div class="kpi-delta">↑ 12% vs hôm qua</div></div>
+        <div class="kpi"><div class="kpi-label">Doanh thu</div><div class="kpi-value">8.5M</div><div class="kpi-delta">↑ 8.2%</div></div>
+        <div class="kpi"><div class="kpi-label">Đang chờ</div><div class="kpi-value">7</div><div class="kpi-delta" style="color:var(--amber)">⚠ Cần điều phối</div></div>
+        <div class="kpi"><div class="kpi-label">Sắp hết thuốc</div><div class="kpi-value">3</div><div class="kpi-delta" style="color:var(--red)">! Reorder</div></div>
+      </div>
+      <div class="spark"></div>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--slate-100)">
+        <div style="font-size:12px;font-weight:600;color:var(--slate-500);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Hàng đợi</div>
+        <div class="queue-row"><div class="queue-num">#012</div><div class="queue-name">Nguyễn Thị Hoa — 32 tuổi</div><div class="queue-status qs-prog">Đang khám</div></div>
+        <div class="queue-row"><div class="queue-num">#013</div><div class="queue-name">Trần Văn Bình — 45 tuổi</div><div class="queue-status qs-wait">Chờ</div></div>
+        <div class="queue-row"><div class="queue-num">#014</div><div class="queue-name">Lê Minh Châu — 28 tuổi</div><div class="queue-status qs-wait">Chờ</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §2 Social proof -->
+<section class="proof">
+  <div class="container">
+    <div class="proof-text">Được tin dùng bởi <strong>50+ phòng khám tại Việt Nam</strong></div>
+    <div class="proof-logos">
+      <span class="proof-logo">✚ AnKhang</span>
+      <span class="proof-logo">⚕ MedCenter</span>
+      <span class="proof-logo">◆ ViệtMed</span>
+      <span class="proof-logo">★ HealthPlus</span>
+      <span class="proof-logo">◯ AlphaCare</span>
+      <span class="proof-logo">▲ DiamondClinic</span>
+      <span class="proof-logo">✦ NovaMed</span>
+    </div>
+  </div>
+</section>
+
+<!-- §3 PROBLEM -->
+<section class="section problem" id="problem">
+  <div class="container">
+    <div class="problem-head reveal">
+      <div class="eyebrow">Nỗi đau truyền thống</div>
+      <h2 class="h-section">6 vấn đề phòng khám đang gặp hàng ngày</h2>
+      <p class="lead">Quản lý thủ công bằng giấy + Excel khiến chủ phòng khám mất kiểm soát.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal"><div class="pain-icon">📂</div><h4>Hồ sơ thất lạc</h4><p>Giấy tờ rải rác, BS không tra cứu nhanh được lịch sử bệnh án của BN cũ.</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">💊</div><h4>Thuốc hết hạn</h4><p>Không có cảnh báo near-expiry, mỗi tháng lỗ vài triệu vì thuốc bỏ đi.</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">⏰</div><h4>Chấm công thủ công</h4><p>Excel chấm công sai, tranh cãi lương cuối tháng giữa BS và quản lý.</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">📊</div><h4>Báo cáo cuối tháng 3 ngày</h4><p>Tổng hợp doanh thu — chi phí — công nợ phải làm tay từ nhiều file Excel.</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">🤔</div><h4>BS quên BN cũ</h4><p>Không nhớ BN đã đi khám gì, kê thuốc gì — phải hỏi lại BN từ đầu.</p></div>
+      <div class="pain-card reveal"><div class="pain-icon">📞</div><h4>Lễ tân ghi sai SĐT</h4><p>Sai 1 số điện thoại = mất cơ hội tái khám + nhắc lịch hẹn không đến đúng người.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 SOLUTION -->
+<section class="section solution" id="solution">
+  <div class="container">
+    <div class="solution-head reveal">
+      <div class="eyebrow">Giải pháp MediZen</div>
+      <h2 class="h-section">6 tính năng nổi bật</h2>
+      <p class="lead">Số hoá toàn diện, vận hành mượt mà từ ngày đầu sử dụng.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="feat-icon">🩺</div><h4>EMR động per clinic</h4><p>Schema vital tuỳ chỉnh theo chuyên khoa. Pediatric thêm head circumference, OB-GYN thêm fundal height. Không cần dev.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+      <div class="feat-card reveal"><div class="feat-icon">📦</div><h4>FEFO inventory tự động</h4><p>Reserve theo first-expiry first-out. Cảnh báo near-expiry 30 ngày. Stock movement audit log không sửa được.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+      <div class="feat-card reveal"><div class="feat-icon">👥</div><h4>Multi-role + merge sidebar</h4><p>1 user kiêm 2-3 vai trò (BS + Admin, Lễ tân + Thanh toán). Sidebar tự gộp, không bị spam menu.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+      <div class="feat-card reveal"><div class="feat-icon">📈</div><h4>Báo cáo realtime</h4><p>Doanh thu, BS performance, inventory status — cập nhật theo phút, không phải đợi job batch.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+      <div class="feat-card reveal"><div class="feat-icon">🔒</div><h4>Audit log đầy đủ</h4><p>Mọi thao tác CRUD ghi lại immutable. PII tự động redact. Đáp ứng tiêu chuẩn HIPAA-like.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+      <div class="feat-card reveal"><div class="feat-icon">🏥</div><h4>Multi-tenant RLS</h4><p>Postgres Row-Level Security cô lập dữ liệu giữa các phòng khám. Một lần cài, nhiều chi nhánh dùng.</p><a class="feat-link" href="#">Tìm hiểu →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 COMPARISON -->
+<section class="section comparison" id="comparison">
+  <div class="container">
+    <div class="problem-head reveal">
+      <div class="eyebrow">So sánh</div>
+      <h2 class="h-section">Truyền thống vs MediZen</h2>
+      <p class="lead">Khác biệt rõ ràng sau 2 tuần triển khai.</p>
+    </div>
+    <table class="compare-table">
+      <thead><tr><th>Tính năng</th><th>Quản lý truyền thống</th><th class="col-medi">MediZen</th></tr></thead>
+      <tbody>
+        <tr><td class="feat-name">Tra cứu hồ sơ bệnh nhân</td><td>5-10 phút lục giấy</td><td><span class="tick">✓</span> Tức thì, full-text search</td></tr>
+        <tr><td class="feat-name">Cảnh báo thuốc near-expiry</td><td><span class="cross">✗</span> Không có</td><td><span class="tick">✓</span> Auto 30 ngày trước hết hạn</td></tr>
+        <tr><td class="feat-name">Multi-role (BS kiêm Admin)</td><td><span class="cross">✗</span> Phải đăng nhập 2 account</td><td><span class="tick">✓</span> Merge sidebar, 1 lần đăng nhập</td></tr>
+        <tr><td class="feat-name">Báo cáo doanh thu cuối tháng</td><td>3-5 ngày làm tay</td><td><span class="tick">✓</span> Realtime dashboard</td></tr>
+        <tr><td class="feat-name">Audit log thao tác</td><td><span class="cross">✗</span> Không có</td><td><span class="tick">✓</span> Append-only, immutable</td></tr>
+        <tr><td class="feat-name">Multi-clinic / chuỗi</td><td><span class="cross">✗</span> Mỗi chi nhánh phải mua riêng</td><td><span class="tick">✓</span> 1 hệ thống, RLS cô lập</td></tr>
+        <tr><td class="feat-name">Tích hợp BHYT</td><td>Tách riêng, copy-paste</td><td><span class="tick">✓</span> Tracking mức hưởng + DM</td></tr>
+        <tr><td class="feat-name">Backup dữ liệu</td><td>Manual, hay quên</td><td><span class="tick">✓</span> Auto cloud backup hằng ngày</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- §6 WORKFLOW -->
+<section class="section workflow" id="workflow">
+  <div class="container">
+    <div class="workflow-head reveal">
+      <div class="eyebrow" style="color:var(--sky)">Một ngày phòng khám</div>
+      <h2>Workflow từ A đến Z trong 1 hệ thống</h2>
+      <p class="lead">6 bước, mỗi bước được tự động hoá tối đa.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step reveal"><div class="tl-circle active">📋</div><div class="tl-time">07:30</div><h5>Tiếp nhận</h5><p>Lễ tân tạo BN mới hoặc tra cứu — 30 giây</p></div>
+      <div class="tl-step reveal"><div class="tl-circle">🌡️</div><div class="tl-time">08:00</div><h5>Đo sinh hiệu</h5><p>ĐD đo HA/nhịp tim/BMI — schema động</p></div>
+      <div class="tl-step reveal"><div class="tl-circle">🩺</div><div class="tl-time">08:15</div><h5>BS khám</h5><p>EMR tự fill từ vital + lịch sử BN</p></div>
+      <div class="tl-step reveal"><div class="tl-circle">💊</div><div class="tl-time">08:30</div><h5>Cấp thuốc</h5><p>Dược sĩ FEFO dispense + in nhãn</p></div>
+      <div class="tl-step reveal"><div class="tl-circle">💳</div><div class="tl-time">08:45</div><h5>Thanh toán</h5><p>Multi-payment, tự gen hoá đơn BHYT</p></div>
+      <div class="tl-step reveal"><div class="tl-circle">📊</div><div class="tl-time">17:00</div><h5>Báo cáo cuối ngày</h5><p>Auto snapshot — không phải làm tay</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 USE CASES -->
+<section class="section use-cases">
+  <div class="container">
+    <div class="uc-head reveal">
+      <div class="eyebrow">Phù hợp với mọi quy mô</div>
+      <h2 class="h-section">3 nhóm khách hàng MediZen phục vụ</h2>
+    </div>
+    <div class="uc-grid">
+      <div class="uc-card reveal">
+        <span class="uc-tag">Quy mô nhỏ</span>
+        <h4>Phòng khám 1-2 BS</h4>
+        <div class="uc-size">5-10 nhân viên · 30-50 BN/ngày</div>
+        <hr>
+        <ul>
+          <li>BS kiêm chủ phòng khám + admin</li>
+          <li>1 lễ tân / 1 ĐD / 1 dược sĩ</li>
+          <li>Onboarding wizard 30 phút</li>
+        </ul>
+        <div class="uc-roles"><span>BS+Admin</span><span>Lễ tân</span><span>ĐD</span><span>DS</span></div>
+      </div>
+      <div class="uc-card featured reveal">
+        <span class="uc-tag">Phổ biến nhất</span>
+        <h4>Phòng khám đa khoa 5-10 BS</h4>
+        <div class="uc-size">15-30 nhân viên · 100-200 BN/ngày</div>
+        <hr>
+        <ul>
+          <li>Multi-specialty: Nội, Nhi, Sản, Da liễu</li>
+          <li>Schema vital riêng cho từng chuyên khoa</li>
+          <li>Inventory phân loại theo nhánh</li>
+          <li>Báo cáo financial + clinical separated</li>
+        </ul>
+        <div class="uc-roles"><span>BS</span><span>ĐD</span><span>Lễ tân</span><span>DS</span><span>Thu ngân</span><span>Admin</span></div>
+      </div>
+      <div class="uc-card reveal">
+        <span class="uc-tag">Doanh nghiệp</span>
+        <h4>Chuỗi phòng khám multi-tenant</h4>
+        <div class="uc-size">50+ nhân viên · 3+ chi nhánh</div>
+        <hr>
+        <ul>
+          <li>Multi-clinic dashboard tổng hợp</li>
+          <li>RLS cô lập dữ liệu BN giữa chi nhánh</li>
+          <li>Quản trị tập trung roles + permissions</li>
+          <li>API public + tích hợp HIS bên thứ 3</li>
+        </ul>
+        <div class="uc-roles"><span>HQ Admin</span><span>Branch Admin</span><span>BS</span><span>Staff</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §8 PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="pr-head reveal">
+      <div class="eyebrow">Báo giá</div>
+      <h2 class="h-section">Minh bạch, không phí ẩn</h2>
+      <p class="lead">Bắt đầu miễn phí 14 ngày. Đổi gói bất cứ lúc nào.</p>
+    </div>
+    <div class="bt-wrap reveal">
+      <div class="billing-toggle">
+        <button class="active">Hằng tháng</button>
+        <button>Hằng năm <span style="color:var(--emerald);font-weight:700;margin-left:6px">−20%</span></button>
+      </div>
+    </div>
+    <div class="pr-grid">
+      <div class="pr-card reveal">
+        <h4>Starter</h4>
+        <p class="pr-tagline">Phòng khám nhỏ 1-2 BS</p>
+        <div class="pr-price"><strong>490K</strong><small>₫/tháng</small></div>
+        <ul>
+          <li>1 phòng khám · 5 user</li>
+          <li>500 BN/tháng</li>
+          <li>EMR + Inventory + Billing</li>
+          <li>Báo cáo cơ bản</li>
+          <li class="gone">Multi-role merge sidebar</li>
+          <li class="gone">API tích hợp</li>
+        </ul>
+        <a class="btn btn-secondary" href="#signup">Bắt đầu miễn phí</a>
+      </div>
+      <div class="pr-card featured reveal">
+        <span class="pr-badge">Phổ biến</span>
+        <h4>Professional</h4>
+        <p class="pr-tagline">Phòng khám đa khoa 5-10 BS</p>
+        <div class="pr-price"><strong>1.290K</strong><small>₫/tháng</small></div>
+        <ul>
+          <li>1 phòng khám · Unlimited user</li>
+          <li>Unlimited BN</li>
+          <li>Tất cả tính năng Starter</li>
+          <li>Multi-role + merge sidebar</li>
+          <li>Báo cáo nâng cao + export Excel</li>
+          <li>Hỗ trợ ưu tiên (giờ hành chính)</li>
+        </ul>
+        <a class="btn btn-primary" href="#signup">Đăng ký Professional</a>
+      </div>
+      <div class="pr-card reveal">
+        <h4>Enterprise</h4>
+        <p class="pr-tagline">Chuỗi phòng khám 3+ chi nhánh</p>
+        <div class="pr-price"><strong>Liên hệ</strong></div>
+        <ul>
+          <li>Multi-clinic + RLS isolation</li>
+          <li>Tất cả tính năng Professional</li>
+          <li>API public + webhooks</li>
+          <li>SLA 99.9% + support 24/7</li>
+          <li>Onboarding chuyên sâu (CSM)</li>
+          <li>SSO + custom integrations</li>
+        </ul>
+        <a class="btn btn-secondary" href="#signup">Liên hệ tư vấn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §9 TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="tm-head reveal">
+      <div class="eyebrow">Khách hàng nói gì</div>
+      <h2 class="h-section">Phòng khám đã chuyển đổi cùng MediZen</h2>
+    </div>
+    <div class="tm-grid">
+      <div class="tm-card reveal">
+        <div class="tm-stars">★★★★★</div>
+        <blockquote class="tm-quote">"Sau 2 tuần dùng MediZen, lễ tân giảm 70% thời gian tiếp nhận. Báo cáo cuối tháng từ 3 ngày xuống 30 phút. Tiền lời rõ ràng từ tháng đầu."</blockquote>
+        <div class="tm-author">
+          <div class="tm-avatar">NL</div>
+          <div><div class="tm-name">BS. Nguyễn Văn Long</div><div class="tm-role">Chủ Phòng Khám An Khang · Hà Nội</div></div>
+        </div>
+      </div>
+      <div class="tm-card reveal">
+        <div class="tm-stars">★★★★★</div>
+        <blockquote class="tm-quote">"Tính năng FEFO inventory cứu mình mỗi tháng vài triệu tiền thuốc hết hạn. Audit log giúp track ai làm gì — minh bạch tuyệt đối với BS và nhân viên."</blockquote>
+        <div class="tm-author">
+          <div class="tm-avatar">TT</div>
+          <div><div class="tm-name">DS. Trần Thị Trang</div><div class="tm-role">Quản lý Nhà thuốc · MedCenter Q.7</div></div>
+        </div>
+      </div>
+      <div class="tm-card reveal">
+        <div class="tm-stars">★★★★★</div>
+        <blockquote class="tm-quote">"Mình kiêm BS + Admin. Trước phải đăng nhập 2 account, giờ merge sidebar gọn gàng. EMR động cho nhi khoa của mình thêm head_circumference dễ dàng."</blockquote>
+        <div class="tm-author">
+          <div class="tm-avatar">HM</div>
+          <div><div class="tm-name">BS. Hồ Minh</div><div class="tm-role">PK Nhi Khoa Bé Yêu · TP.HCM</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §10 FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="faq-head reveal">
+      <div class="eyebrow">Câu hỏi thường gặp</div>
+      <h2 class="h-section">FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">Dữ liệu phòng khám của tôi có an toàn không?<span class="icon">+</span></button>
+        <div class="faq-a"><p>An toàn tuyệt đối. MediZen mã hoá AES-256 at-rest, TLS 1.3 in-transit. Mỗi phòng khám cô lập bằng PostgreSQL Row-Level Security. Backup hằng ngày off-site. Audit log immutable cho mọi thao tác. Tuân thủ chuẩn HIPAA-like + Nghị định 53/2022.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Có hỗ trợ chế độ offline khi mất Internet không?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Có. Tauri client hỗ trợ offline mode — tạo BN, walk-in, ghi vital tiếp tục được. Khi online auto-sync lên cloud. Conflict resolution theo quy tắc last-write-wins + manual review cho merge.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Tôi có nhiều chi nhánh, MediZen quản lý thế nào?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Gói Enterprise hỗ trợ multi-clinic full. Mỗi chi nhánh là 1 tenant cô lập (RLS), nhưng HQ admin có dashboard tổng hợp. Roles + permissions có thể centrally managed hoặc per-clinic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Tôi đã có dữ liệu cũ trên Excel, có migrate được không?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Có. Onboarding wizard hỗ trợ import CSV/Excel cho: Bệnh nhân (full + history), Inventory (medicines + batches), Service catalog. CSM hỗ trợ migration tận nơi cho gói Enterprise.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Có tích hợp được với hệ thống BHYT không?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Có. MediZen tracking đầy đủ mức hưởng theo tuyến + danh mục thuốc/dịch vụ BHYT. Báo cáo claim status + reject reason analysis. Phase 2 sẽ direct-API tới VSS khi BHYT mở public API.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Đào tạo nhân viên tốn bao lâu?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Tài liệu video hướng dẫn 2 giờ là dùng được tính năng cơ bản. CSM 1-on-1 cho gói Professional/Enterprise: 1 buổi onboarding 2 giờ + follow-up 1 tuần. Chứng chỉ hoàn thành đào tạo cho từng vai trò.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Báo giá có bao gồm server / hạ tầng không?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Có. Tất cả 3 gói đều all-inclusive: hosting cloud (AWS Singapore), CDN, backup, monitoring, support. Không có chi phí ẩn. Chỉ tính phí thêm nếu vượt usage tier (BN/tháng cho Starter).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Hỗ trợ kỹ thuật ra sao?<span class="icon">+</span></button>
+        <div class="faq-a"><p>Starter: email 24h. Professional: chat + email giờ hành chính (8-22h, 7 ngày), response < 4h. Enterprise: 24/7 phone + chat + email, dedicated CSM, response < 1h cho P0.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §11 FINAL CTA + signup -->
+<section class="section final-cta" id="signup">
+  <div class="container fc-grid">
+    <div class="reveal">
+      <h2>Sẵn sàng nâng cấp phòng khám của bạn?</h2>
+      <p>Bắt đầu thử nghiệm 14 ngày miễn phí. Không cần thẻ tín dụng. Hoàn tiền 100% trong 30 ngày nếu không hài lòng.</p>
+      <div class="fc-bullets">
+        <div><span class="check">✓</span> Setup phòng khám trong 30 phút (onboarding wizard)</div>
+        <div><span class="check">✓</span> Migrate dữ liệu Excel cũ tự động</div>
+        <div><span class="check">✓</span> CSM hỗ trợ tận nơi tuần đầu (Professional/Enterprise)</div>
+        <div><span class="check">✓</span> Hợp đồng đàm phán linh hoạt theo quy mô</div>
+      </div>
+    </div>
+    <form class="signup-form reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent = '✓ Đã gửi — chúng tôi sẽ liên hệ trong 24h'; this.querySelector('button').disabled = true;">
+      <h3>Đăng ký demo</h3>
+      <p class="form-sub">Để lại thông tin, CSM sẽ gọi tư vấn trong 24h.</p>
+      <div class="field"><label>Họ và tên *</label><input type="text" required placeholder="Nguyễn Văn A"></div>
+      <div class="field"><label>Số điện thoại *</label><input type="tel" required placeholder="0912 345 678"></div>
+      <div class="field"><label>Email *</label><input type="email" required placeholder="email@phongkham.vn"></div>
+      <div class="field"><label>Tên phòng khám *</label><input type="text" required placeholder="PK Đa khoa An Khang"></div>
+      <button type="submit" class="btn btn-primary btn-lg">Gửi đăng ký →</button>
+      <div class="form-tos">Bằng việc đăng ký, bạn đồng ý với <a href="#">Điều khoản</a> và <a href="#">Chính sách bảo mật</a>.</div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">✚ MediZen</div>
+        <p class="foot-tag">Hệ thống quản lý phòng khám đa khoa hiện đại — số hoá toàn diện, vận hành thông minh.</p>
+        <div class="foot-social">
+          <a href="#">Ⓕ</a><a href="#">▶</a><a href="#">in</a><a href="#">@</a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Sản phẩm</h5><ul><li><a href="#solution">Tính năng</a></li><li><a href="#pricing">Báo giá</a></li><li><a href="#">Demo</a></li><li><a href="#">Roadmap</a></li><li><a href="#">Changelog</a></li></ul></div>
+      <div class="foot-col"><h5>Tài nguyên</h5><ul><li><a href="#">Tài liệu</a></li><li><a href="#">Blog</a></li><li><a href="#">Webinar</a></li><li><a href="#">Case study</a></li><li><a href="#">Hỗ trợ</a></li></ul></div>
+      <div class="foot-col"><h5>Pháp lý</h5><ul><li><a href="#">Điều khoản</a></li><li><a href="#">Bảo mật</a></li><li><a href="#">Cookies</a></li><li><a href="#">Bảo vệ dữ liệu</a></li><li><a href="#">Liên hệ</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 MediZen. Sản phẩm của ViSoft Technology · MST 0123456789.</div>
+      <div>📞 1900 1234 · ✉ hello@medizen.vn · 🇻🇳 Tiếng Việt</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-item .faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+// Lang toggle (visual only)
+document.querySelectorAll('.lang-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.lang-toggle button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+// Billing toggle (visual only)
+document.querySelectorAll('.billing-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.billing-toggle button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+// Reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

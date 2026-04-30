@@ -18,6 +18,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — m
 | [ACTION_FLOWS.md](ACTION_FLOWS.md) | 7 flow nghiệp vụ chi tiết step-by-step (tiếp nhận, đo vital, EMR, cấp thuốc, ...) |
 | [TAB_MATRIX.md](TAB_MATRIX.md) | Spec tất cả tab của EMR (6) + Cấu hình (8) + Báo cáo (6) — input cho generation Phase C |
 | [LANDING_PAGE.md](LANDING_PAGE.md) | **Thiết kế landing page** — 12 sections (hero · problem · solution · comparison · workflow · pricing · testimonials · FAQ · signup form · footer) + animations + form spec + SEO + A/B test ideas |
+| [landing-mockup.html](landing-mockup.html) | **Mockup landing page (TASK-028)** — single-file HTML high-fidelity, 694 dòng, render đủ 12 sections theo `LANDING_PAGE.md`, design tokens MediZen Modern, responsive 3 breakpoints, FAQ accordion + scroll reveal animations. Mở trực tiếp trong browser hoặc paste vào Stitch project làm reference. |
 | [SECURITY.md](SECURITY.md) | **Security & sensitive data spec** — Phân loại 4-tier · PII inventory ~30 cols · 3 lớp encryption · Per-tenant key + crypto-shred · PII lifecycle · Audit hash chain · Anomaly detection · Threat model STRIDE · Compliance HIPAA + Nghị định 13 |
 
 ---
