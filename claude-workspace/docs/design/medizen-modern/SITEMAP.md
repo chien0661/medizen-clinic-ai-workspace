@@ -71,14 +71,14 @@ MediZen — Modern
 │
 ├── ⚙️ Cấu hình hệ thống — Quản trị
 │   └── Cấu hình (7c43ae65) — chứa 8 SECTION:
-│       ├── Phòng khám                 ← Phase C — multi-branch
-│       ├── Vai trò & Phân quyền       ← Phase C — RBAC matrix
-│       ├── Ca trực & Giờ làm          ← Phase C
-│       ├── Bảng giá dịch vụ           ✓ đã sinh
-│       ├── BHYT (mức hưởng + DM)      ← Phase C
-│       ├── Tích hợp (VSS/HL7/DICOM)   ← Phase C
-│       ├── Audit log                  ← Phase C
-│       └── Bảo mật & Mã hóa           ← Phase C
+│       ├── Phòng khám                 ← chứa toggle "Cho phép BHYT" (default OFF)
+│       ├── Vai trò & Phân quyền       ← RBAC matrix
+│       ├── Ca trực & Giờ làm
+│       ├── Bảng giá dịch vụ
+│       ├── BHYT (mức hưởng + DM)      ← ⚠ chỉ hiện khi bhyt_enabled = true
+│       ├── Tích hợp (VSS/HL7/DICOM)   ← tab VSS chỉ hiện khi bhyt_enabled = true
+│       ├── Audit log
+│       └── Bảo mật & Mã hóa
 │
 └── 👤 Profile cá nhân
     ├── Thông tin cá nhân
@@ -132,6 +132,12 @@ MediZen backend (`PROJECT.md`) định nghĩa **5 system roles + 38 permissions*
 **Override examples**:
 - Một bác sĩ có thể được cấp thêm quyền `payment.read` → thấy tab "Hoá đơn" trong patient profile
 - Một lễ tân có thể bị thu hồi quyền `appointment.cancel` → nút "Hủy hẹn" disabled, hover hiển thị "Bạn không có quyền — liên hệ quản trị"
+
+**Feature flag BHYT** (`clinic.bhyt_enabled`, default OFF):
+- Toggle ở Cấu hình → Phòng khám → Tab Thông tin
+- Khi OFF: ẩn module "BHYT (mức hưởng + DM)" + tab "VSS" trong Tích hợp + tab "Báo cáo BHYT" + cột BHYT trong Bảng giá DV + ô BHYT khi tiếp nhận + dòng BHYT trong đơn thuốc/CLS/hoá đơn — bất kể role có quyền `bhyt.*` hay không
+- Permission `bhyt.*` chỉ áp dụng khi flag ON. Khi flag OFF, permission grant không phát huy tác dụng (UI vẫn ẩn).
+- Xem chi tiết các vùng UI ảnh hưởng tại [TAB_MATRIX.md](TAB_MATRIX.md#feature-flag-toàn-cục-bhyt-bậttắt)
 
 ---
 

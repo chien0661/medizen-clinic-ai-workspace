@@ -122,6 +122,18 @@ Chi tiết design tokens xem trong **Stitch design system asset** `assets/127877
 
 ---
 
+## 🚩 Feature flags
+
+| Flag | Default | Mô tả | Vùng UI ảnh hưởng |
+|---|---|---|---|
+| `clinic.bhyt_enabled` | **OFF** | Bật/tắt mọi tính năng liên quan BHYT | Cấu hình BHYT · tab Báo cáo BHYT · tab VSS trong Tích hợp · cột BHYT trong Bảng giá · ô BHYT trong Tiếp nhận · dòng BHYT trong Kê đơn/CLS/Hoá đơn — xem [TAB_MATRIX.md §Feature flag](TAB_MATRIX.md#feature-flag-toàn-cục-bhyt-bậttắt) |
+| `clinic.emergency_enabled` | ON | Cho phép luồng Cấp cứu (red queue, FAST registration) | Triage button trong Tiếp nhận · queue badge "Cấp cứu" |
+| `clinic.telehealth_enabled` | OFF | Tương lai — đang reserve | Khi ON sẽ hiện thêm Lịch hẹn online + EMR remote |
+
+Toggle ở **Cấu hình → Phòng khám → Tab Thông tin → Section "Tính năng"**. Quản trị có quyền sửa.
+
+---
+
 ## 📌 Liên quan
 
 - [PROJECT.md](../../../PROJECT.md) — Workspace config (RBAC, tech stack)

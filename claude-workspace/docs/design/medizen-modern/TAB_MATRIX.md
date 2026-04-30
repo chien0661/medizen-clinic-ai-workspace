@@ -6,6 +6,34 @@ Mục đích: liệt kê **mọi tab** của các màn complex, mô tả nội d
 
 ---
 
+## ⚙️ Feature flag toàn cục: BHYT bật/tắt
+
+> **Setting**: `clinic.bhyt_enabled` (boolean) — cấu hình ở **Cấu hình → Phòng khám → Tab Thông tin**.
+> **Mặc định**: **OFF** (phòng khám tư mới setup không dính tới BHYT).
+
+Khi flag = **OFF**, UI ẩn hoặc thu hẹp các phần BHYT để tránh nhiễu cho phòng khám không nhận BHYT:
+
+| Vùng UI | Khi BHYT OFF (default) | Khi BHYT ON |
+|---|---|---|
+| Sidebar Quản trị | Mục "BHYT" trong Cấu hình **ẩn** | Hiện mục "BHYT (Mức hưởng + DM)" |
+| Cấu hình → Phòng khám → Tab Thông tin | Hiện toggle "Cho phép BHYT" — OFF | Toggle ON, hiện link "→ Cấu hình mức hưởng BHYT" |
+| Cấu hình → Bảng giá DV | Cột "BHYT %" và "BN trả (sau BHYT)" **ẩn** | Hiện cả 2 cột |
+| Cấu hình → Tích hợp → Tab "VSS" | **Disabled** với banner "Bật BHYT trước" | Hiển thị bình thường |
+| Tiếp nhận & Đăng ký BN | Field "Số thẻ BHYT" + "Tra cứu VSS" **ẩn** | Hiển thị + auto check |
+| EMR Tab 4 — Kê đơn | Cột "BHYT chi trả" trong card thuốc + "Tổng đơn" **ẩn** — chỉ hiện "Tổng tiền" + "BN trả" | Hiển thị 3 dòng (Tổng / BHYT / BN trả) |
+| EMR Tab 5 — CLS | Cột "BHYT" + "BN trả" trong bảng chỉ định **ẩn** — gộp thành "Phí" | Hiển thị split |
+| EMR Tab 6 — Tóm tắt | Section "Tổng chi phí" bỏ dòng "BHYT 80% chi trả" — chỉ "Tổng + BN trả" | 3 dòng đầy đủ |
+| Thanh toán hoá đơn | Phần "Phân bổ BHYT" **ẩn** — BN trả 100% | Hiển thị split + lý do từ chối nếu có |
+| Báo cáo — Tab BHYT | Tab **ẩn khỏi tab strip** (5 tab thay vì 6) | Hiển thị bình thường |
+| Báo cáo — Tab Tài chính | Bar chart "Doanh thu" bỏ stack BHYT — chỉ "Tự trả + Hợp đồng" | Stacked 3 nhóm |
+| Audit log | Action `bhyt.*` không xuất hiện | Hiển thị bình thường |
+
+**Lý do default OFF**: ~30-40% phòng khám tư mới ở VN không đăng ký nhận BHYT (chỉ làm dịch vụ tự trả). Bật BHYT yêu cầu đăng ký với BHXH + ký HD + cấu hình mã cơ sở KCB — không phải mặc định ai cũng có. UI default OFF giúp onboarding đơn giản; khi nào PK ký HD BHYT thì admin bật toggle.
+
+**Backend implication**: cần thêm setting `bhyt_enabled` vào bảng `clinic_settings` (default `false`); FastAPI route guard cho các module BHYT trả 404 khi setting OFF; FE check setting via `useClinicSettings()` hook để hide/show.
+
+---
+
 ## A. EMR — Chi tiết lượt khám (6 tabs)
 
 **Layout chung**: Patient banner sticky + tab strip + 3-col layout (left summary 280px / center content 720px / right context 380px). Chuyển tab giữ nguyên patient banner & 2 cột phụ.
@@ -297,9 +325,22 @@ Hệ thống
 - Header card: tên PK + logo upload + tagline
 - Tab strip: "Thông tin · Chi nhánh · Khoa · Phòng"
 - **Tab Thông tin**: form phẳng (tên, mã số thuế, địa chỉ, hotline, website, giờ mở cửa, chứng chỉ hành nghề)
+  - **Section "Tính năng"** (group cuối cùng của tab):
+    - **Toggle "Cho phép BHYT"** (`clinic.bhyt_enabled`) — *mặc định OFF*
+      - Khi OFF: chip xám "Tắt — phòng khám không nhận BHYT, tất cả BN tự trả 100%"
+      - Khi ON: chip emerald "Đang bật" + 2 dòng phụ:
+        - Mã cơ sở KCB: input bắt buộc
+        - Link "→ Cấu hình mức hưởng BHYT" (nhảy sang section BHYT)
+      - Hover info icon (?) tooltip: "Khi bật, hệ thống hiển thị thêm cột BHYT trên bảng giá, ô số thẻ BHYT khi tiếp nhận BN, phần phân bổ BHYT khi thanh toán, và mục Báo cáo BHYT. Yêu cầu đã ký HD với BHXH."
+    - Toggle "Cho phép cấp cứu (FAST)" — default ON
+    - Toggle "Cho phép Telehealth" — default OFF (placeholder, tương lai)
 - **Tab Chi nhánh**: bảng chi nhánh (mã, tên, địa chỉ, SL phòng, status), nút "+ Thêm chi nhánh"
 - **Tab Khoa**: cây phân khoa (Nội → Tim mạch / Hô hấp / Tiêu hóa, Sản, Nhi, ...) — drag-drop sắp xếp
 - **Tab Phòng**: bảng phòng từng chi nhánh + capacity + thiết bị
+
+**Footer hành vi khi đổi toggle BHYT**:
+- OFF → ON: confirm modal "Bật BHYT? Cần nhập Mã cơ sở KCB. Sidebar và các form sẽ hiện mục BHYT từ lần reload tiếp theo."
+- ON → OFF: confirm modal cảnh báo amber "Tắt BHYT sẽ ẩn mục BHYT khỏi sidebar. Dữ liệu BHYT đã ghi (mức hưởng, đơn rejected, ...) **không bị xoá** — chỉ ẩn UI. Có thể bật lại bất cứ lúc nào."
 
 ### Section: Vai trò & Phân quyền (RBAC matrix)
 
@@ -332,6 +373,8 @@ Hệ thống
 ### Section: BHYT
 
 **Stitch screen**: `7ff9fe5bc8d541ecb7844f8965ddbf2b`
+
+> **Hiển thị có điều kiện**: Section này chỉ xuất hiện trên sidebar Quản trị khi `clinic.bhyt_enabled = true` (xem Section "Phòng khám" → Tab Thông tin → toggle "Cho phép BHYT"). Mặc định BHYT = OFF, nên section này **ẩn** ở phòng khám mới setup. Khi flag OFF, các route `/settings/bhyt/*` trả 404 từ BE.
 
 **Content**:
 - Tab: "Mức hưởng · Danh mục · Lý do từ chối · Lịch sử đồng bộ"
@@ -486,6 +529,8 @@ Hệ thống
 ### Tab 6: BHYT
 
 **Stitch screen**: `12334fcf1bec408a80075ea361164ad4`
+
+> **Hiển thị có điều kiện**: Tab này chỉ xuất hiện trong tab strip Báo cáo khi `clinic.bhyt_enabled = true`. Khi flag OFF (default), tab strip Reports rút còn **5 tab** (Tổng quan / Tài chính / Lâm sàng / Vận hành / Dược). API `/reports/bhyt/*` trả 404 từ BE.
 
 **KPI**:
 - Tỉ lệ duyệt
