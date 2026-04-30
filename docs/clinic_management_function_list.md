@@ -39,8 +39,10 @@
 22. [DATA — Import/Export/Backup](#22-data--importexportbackup)
 23. [INT — Integrations](#23-int--integrations)
 24. [I18N — Localization & A11y](#24-i18n--localization--a11y)
+25. [NAV — Navigation & Quick Search](#25-nav--navigation--quick-search)
+26. [NFR — Non-functional requirements](#26-nfr--non-functional-requirements)
 
-**Tổng kết**: §25
+**Tổng kết**: §27 · **Cách dùng**: §28
 
 ---
 
@@ -48,7 +50,7 @@
 
 | Code | Tên | Mô tả | Role | Phase | Task | Status |
 |---|---|---|---|---|---|---|
-| AUTH-001 | Đăng nhập username/password | Login bằng `clinic_code` + `username` + `password`, trả JWT access + refresh | Tất cả | v1 | TASK-003 | ✅ |
+| AUTH-001 | Đăng nhập email/password | Login bằng `email` (hoặc `username`) + `password` — KHÔNG cần `clinic_code`. Sau khi xác thực OK, hệ thống resolve default clinic của account → set context + trả JWT chứa `account_id` + `clinic_id` + `roles` + `perms` | Tất cả | v1 | TASK-003 | 🔄 (cần migrate khỏi clinic_code) |
 | AUTH-002 | Refresh token | Refresh access token bằng refresh token (rolling) | Tất cả | v1 | TASK-003 | ✅ |
 | AUTH-003 | Logout | Revoke refresh token, xoá local storage | Tất cả | v1 | TASK-003 | ✅ |
 | AUTH-004 | Đổi mật khẩu | User tự đổi password | Tất cả | v1 | TASK-003 | ✅ |
@@ -65,6 +67,11 @@
 | AUTH-015 | Last login tracking | Hiển thị thời gian login lần cuối | Tất cả | v1 | TASK-003 | ✅ |
 | AUTH-016 | IP whitelist (super admin) | Chỉ login admin từ IP whitelist | Super Admin | v2 | TASK-026 | 💡 |
 | AUTH-017 | Re-authentication | Yêu cầu nhập password trước action nguy hiểm | Admin | v2 | — | 💡 |
+| AUTH-018 | Account ↔ Multi-clinic mapping | 1 account (email unique global) → N phòng khám. Bảng pivot `account_clinic_role` (account_id, clinic_id, roles[], is_default, granted_at, granted_by). Owner clinic mời user đã tồn tại → chỉ thêm row pivot, KHÔNG tạo account mới. Account có thể bị revoke khỏi 1 clinic mà không xoá account. | Clinic Admin | v1 | TASK-006 | ⬜ |
+| AUTH-019 | Default clinic per account | Mỗi account chọn 1 phòng khám mặc định (`is_default=true` trong pivot). Sau login auto-load context default. User tự đổi default trong Profile. | Tất cả | v1 | TASK-006 | ⬜ |
+| AUTH-020 | Auto-resolve clinic post-login | Khi login OK, BE đọc `account_clinic_role`: chỉ 1 clinic → auto select; có default → load default; không default + nhiều clinic → trả list để FE hiện màn "Chọn phòng khám" trước khi vào dashboard. | System | v1 | TASK-006 | ⬜ |
+| AUTH-021 | Switch-clinic flow + JWT reset | Khi user switch clinic (qua NAV-002), BE revoke JWT cũ, sinh JWT mới với `clinic_id` + `roles` + `perms` mới (RBAC khác giữa các clinic). Clear FE cache (zustand + react-query) tránh leak data clinic cũ. | System | v1 | TASK-003 | ⬜ |
+| AUTH-022 | Last-active clinic remembered | Lưu clinic dùng cuối (Tauri local storage + Redis `user:last_clinic:{uid}`). Login sau auto chọn clinic này (override `default_clinic_id` nếu có). | System | v1 | TASK-003 | ⬜ |
 
 ---
 
@@ -86,6 +93,10 @@
 | RBAC-012 | Role description | Mỗi role có mô tả khi nào dùng | Clinic Admin | v1 | TASK-023 | ⬜ |
 | RBAC-013 | Audit role changes | Mọi thay đổi role/perm ghi audit | System | v1 | TASK-002 | ✅ |
 | RBAC-014 | Platform RBAC tách biệt | `platform_role` + `platform_permission` riêng | System | v1 | TASK-026 | ⬜ |
+| RBAC-015 | Applied role trong audit | Mỗi action ghi audit log với field `applied_role` — role mà user đang dùng khi thực hiện action. VD user kiêm BS+QT sửa giá DV → ghi `applied_role=admin`; user đó kê đơn → `applied_role=doctor`. Truy vết khi sự cố. | System | v1 | TASK-002 | ⬜ |
+| RBAC-016 | Separation of Duties (SoD) | Enforce trên audit-critical action. VD user kiêm BS+DS KHÔNG được tự duyệt đơn của chính mình; user tạo đề xuất giá KHÔNG được self-approve. UI disabled + tooltip giải thích, BE check 403. | System | v1 | TASK-004 | ⬜ |
+| RBAC-017 | Merge sidebar cho multi-role | UI hiển thị UNION tất cả module mà user có quyền (qua mọi role) — KHÔNG có role-switcher. Sidebar group label phân tách "─── Bác sĩ ───" / "─── Quản trị ───". Xem `medizen-modern/MULTI_ROLE_UX.md`. | All | v1 | TASK-017 | ⬜ |
+| RBAC-018 | Multi-role chip ở avatar | Hiển thị tất cả role hiện hành ở sidebar footer + topbar avatar badge ("+2"). Hover thấy full list + ngày được cấp. | All | v1 | TASK-017 | ⬜ |
 
 ---
 
@@ -264,6 +275,7 @@
 | RX-013 | Lịch sử đơn của BN | Hiển thị trong patient detail | Doctor | v1 | TASK-005 | ⬜ |
 | RX-014 | Đơn template | Save đơn common cho dùng lại | Doctor | v2 | — | 💡 |
 | RX-015 | Reserve stock | Khi tạo đơn internal → reserve tồn kho | System | v1 | TASK-012 | ⬜ |
+| RX-016 | Hiển thị stock thuốc khi kê đơn | Mỗi card thuốc trong form kê đơn hiển thị real-time tồn kho (số lượng còn + đơn vị). Chip emerald "✓ Còn 320 viên" / amber "⚠ Còn 12 viên" (dưới min) / red "✕ Hết hàng — đề xuất thay thế". Hover tooltip hiện breakdown theo lô (FEFO, HSD). Nếu kê quá tồn → cảnh báo "Vượt tồn kho — chỉ kê được 12 viên" + button "Đề xuất thuốc tương đương". Filter chip "Chỉ hiện thuốc còn hàng" default ON. Loại "External" (mua ngoài) không hiển thị stock. | Doctor | v1 | TASK-011 | ⬜ |
 
 ---
 
@@ -609,7 +621,53 @@
 
 ---
 
-## 25. Tổng kết theo phase
+## 25. NAV — Navigation & Quick Search
+
+| Code | Tên | Mô tả | Role | Phase | Task | Status |
+|---|---|---|---|---|---|---|
+| NAV-001 | Global command palette (Ctrl+K / ⌘K) | Mở popup ở bất cứ màn nào, type-ahead search across: bệnh nhân (theo tên/mã/SĐT), thuốc (tên/hoạt chất/ATC), tính năng/màn (theo nhãn menu), hoá đơn (số INV-), đơn thuốc (RX-), lượt khám (LK-). Result group theo entity, mỗi item có icon + breadcrumb, click → navigate. Hỗ trợ ↑/↓/Enter để chọn không cần chuột. | All | v1 | TASK-017 | ⬜ |
+| NAV-002 | Clinic switcher dropdown (topbar) | Avatar bên cạnh có dropdown 240px liệt kê tất cả phòng khám user có quyền + chỉ báo current (chip "Hiện tại"). Click row → trigger AUTH-021 switch flow. Search box trong dropdown nếu user có >5 clinic. Footer "→ Cấu hình clinic" và "Đăng xuất". | All | v1 | TASK-017 | ⬜ |
+| NAV-003 | Quick search bệnh nhân | NAV-001 sub-mode "/bn " hoặc tab "Bệnh nhân" — tìm theo tên (fuzzy unaccent + trigram), mã BN, SĐT, CCCD, BHYT (nếu enabled). Hiện 5 result đầu với avatar + tuổi + giới + chip status visit gần nhất. | Receptionist+ | v1 | TASK-017 | ⬜ |
+| NAV-004 | Quick search thuốc | NAV-001 sub-mode "/thuoc " — search theo tên thương mại, hoạt chất, mã ATC. Hiện stock badge + giá + chip "Trong DM BHYT" nếu enabled. Click → mở Medicine Detail hoặc add vào đơn nếu đang ở EMR Tab Kê đơn. | Doctor/Pharmacist | v1 | TASK-017 | ⬜ |
+| NAV-005 | Quick search feature/màn | NAV-001 default mode (không prefix) — fuzzy search tên menu/route. VD gõ "ke don" → match "Khám bệnh → Kê đơn thuốc". Track recent + frequent để đẩy lên top. | All | v1 | TASK-017 | ⬜ |
+| NAV-006 | Recent items pin | NAV-001 footer hiển thị 5 entity user mở gần nhất (BN, đơn, hoá đơn). Persisted per-user trong Tauri local storage. | All | v2 | — | 💡 |
+| NAV-007 | Keyboard shortcuts cheatsheet | Press "?" hoặc Ctrl+/ → modal hiện full danh sách shortcuts (Ctrl+K search, Ctrl+N new, Ctrl+S save, Esc close, ...). Mỗi shortcut có scope (global / page-specific). | All | v1 | TASK-017 | ⬜ |
+| NAV-008 | Breadcrumb navigation | Topbar luôn hiện breadcrumb "Trang chủ / Module / Resource". Click level cao → quay về. Resource có badge status (vd "Lê Hà Vy · Đang khám"). | All | v1 | TASK-017 | ✅ |
+
+---
+
+## 26. NFR — Non-functional requirements
+
+> Phi chức năng — track như requirement có status để đo lường liên tục. Không dính role cụ thể (toàn hệ thống).
+
+| Code | Tên | Mô tả / Ngưỡng | Phase | Task | Status |
+|---|---|---|---|---|---|
+| **NFR-001** | API response time | p50 <200ms · p95 <500ms · p99 <1s cho mọi endpoint trừ /reports/* (allow p95 <2s). Đo qua middleware structlog + Prometheus. | v1 | — | 🔄 |
+| **NFR-002** | Page load time | First Contentful Paint <1.5s · Time to Interactive <2.5s trên mạng 4G + máy mid-range. Đo qua Lighthouse + Web Vitals. | v1 | TASK-017 | 🔄 |
+| **NFR-003** | Concurrent users | ≥100 concurrent users / clinic mà không degrade response time >20%. Test load qua Locust trước v1 GA. | v1 | — | ⬜ |
+| **NFR-004** | Uptime SLA | 99.5% uptime / tháng (≤3.6h downtime). Trừ scheduled maintenance window thông báo 7 ngày trước. | v1 | — | ⬜ |
+| **NFR-005** | Encryption in-transit | TLS 1.3 bắt buộc, không cho TLS 1.2. HSTS preload. Cert auto-renew Let's Encrypt. | v1 | TASK-001 | ✅ |
+| **NFR-006** | Encryption at-rest | Postgres TDE AES-256 cho data + WAL. Backup mã hoá AES-256 + key trong KMS. | v1 | TASK-002 | 🔄 |
+| **NFR-007** | Multi-tenant isolation | Postgres RLS enforce ở session var `app.current_clinic_id`. Mọi query phải scoped bởi RLS — không có cross-tenant leak. Verify qua test e2e cho từng module mới. | v1 | TASK-002 | ✅ |
+| **NFR-008** | OWASP Top 10 protection | Audit định kỳ: SQL injection (parameterized query) · XSS (React auto-escape + CSP) · CSRF (SameSite cookie + token) · auth/session (JWT + bcrypt) · misconfig (env review hằng quý). | v1 | — | 🔄 |
+| **NFR-009** | Audit log immutable | Bảng audit_log append-only, không UPDATE/DELETE. Retention 7 năm (BYT compliance). Backup riêng + offsite. | v1 | TASK-002 | ✅ |
+| **NFR-010** | Data retention BN | Lượt khám + bệnh án giữ 30 năm theo quy định BYT. Auto-archive sau 5 năm vào storage rẻ hơn. | v2 | — | ⬜ |
+| **NFR-011** | Backup & DR | Daily incremental + weekly full backup. RTO 4h · RPO 24h. Test restore hằng quý. | v1 | — | ⬜ |
+| **NFR-012** | Accessibility WCAG 2.1 AA | Mọi màn pass aXe-core scan (0 violations). Contrast ≥4.5:1 text · ≥3:1 graphics. Keyboard navigation 100% (không cần chuột). Screen reader (NVDA/JAWS) support. | v1 | TASK-017 | ✅ |
+| **NFR-013** | Browser support | Chrome / Edge / Firefox last 2 versions. Safari 15+. Tauri shell ưu tiên (desktop). KHÔNG support IE11. | v1 | TASK-017 | ✅ |
+| **NFR-014** | OS support (Tauri) | Windows 10+ (build 1903+) · macOS 11+ · Ubuntu 20.04+. Bundle size <80MB per platform. | v1 | TASK-016 | ✅ |
+| **NFR-015** | Responsive (web fallback) | Vite web fallback cho admin lite trên tablet 1024×768+. Mobile responsive cho landing + sub-flow đăng ký BN. Phase 2 mới làm full mobile EMR. | v2 | — | ⬜ |
+| **NFR-016** | Localization | Vi (mặc định) · En (đầy đủ). Tất cả string qua i18next, không hardcode. Date/number/currency theo locale. | v1 | TASK-017 | ✅ |
+| **NFR-017** | Code coverage | New code ≥80% · Overall ≥70%. Enforce ở CI gate. Integration test phải hit DB thật + Redis (không mock). | v1 | — | 🔄 |
+| **NFR-018** | Observability | Structured log JSON (structlog) · Metrics Prometheus · Trace OpenTelemetry. Mọi request có request_id + user_id + clinic_id. | v1 | TASK-001 | 🔄 |
+| **NFR-019** | Search performance | Patient search 100k records p95 <100ms (trigram + unaccent + indexed). Medicine search 10k records p95 <50ms. Global search (NAV-001) <300ms. | v1 | TASK-005 | ✅ |
+| **NFR-020** | Offline capability (Tauri) | Tauri SQLite mirror cho dữ liệu BN gần nhất + lượt khám đang dở. Sync khi online lại (eventual consistency, conflict resolution last-write-wins). | v1 | TASK-016 | 🔄 |
+| **NFR-021** | Compliance HIPAA + Nghị định 13/2023 | Checklist 14 mục (xem `medizen-modern/TAB_MATRIX.md` Section "Bảo mật → Compliance"). Quarterly review. | v1 | — | 🔄 |
+| **NFR-022** | Rate limiting | Login 10/min/IP. Sensitive write 60/min/user. Reports query 30/min/user. SlowAPI middleware. | v1 | TASK-003 | ✅ |
+
+---
+
+## 27. Tổng kết theo phase
 
 ### Phase 1 (MVP — Q2-Q3 2026)
 
@@ -617,8 +675,8 @@
 
 | Group | Total | DONE | TODO |
 |---|---|---|---|
-| AUTH | 12 | 9 | 3 |
-| RBAC | 11 | 9 | 2 |
+| AUTH | 17 | 8 | 9 |
+| RBAC | 15 | 9 | 6 |
 | TENANT | 14 | 0 | 14 |
 | SUB | 21 | 0 | 21 |
 | PATIENT | 22 | 17 | 5 |
@@ -626,7 +684,7 @@
 | VITAL | 10 | 0 | 10 |
 | DIAG | 7 | 7 | 0 |
 | SVC | 8 | 0 | 8 |
-| RX | 11 | 0 | 11 |
+| RX | 12 | 0 | 12 |
 | MED | 16 | 0 | 16 |
 | PHRM | 11 | 1 | 10 |
 | APPT | 14 | 0 | 14 |
@@ -641,9 +699,11 @@
 | DATA | 7 | 2 | 5 |
 | INT | 11 | 4 | 7 |
 | I18N+A11Y+THEME | 17 | 14 | 3 |
-| **TỔNG v1** | **324** | **102** | **222** |
+| NAV | 7 | 1 | 6 |
+| NFR | 20 | 9 | 11 |
+| **TỔNG v1** | **361** | **111** | **250** |
 
-→ Tiến độ MVP: **~31% DONE** (102/324)
+→ Tiến độ MVP: **~31% DONE** (111/361)
 
 ### Phase 2 (Q4 2026 - Q1 2027)
 
@@ -655,7 +715,7 @@
 
 ---
 
-## 26. Cách sử dụng tài liệu này
+## 28. Cách sử dụng tài liệu này
 
 ### Cho Project Manager
 - Track tiến độ MVP — count DONE/TODO mỗi tuần
@@ -681,7 +741,7 @@
 
 ---
 
-**Ngày**: 2026-04-30 (rebrand MediZen + thêm CFG-017 BHYT toggle)
-**Phiên bản**: 1.1
-**Tổng**: 324 v1 + 50 v2 + 30 v3 = ~404 functions
+**Ngày**: 2026-04-30 (v1.2 — multi-clinic per account · global search · multi-role UX · NFR tracking)
+**Phiên bản**: 1.2
+**Tổng**: 361 v1 + 53 v2 + 30 v3 = ~444 functions
 **Đồng bộ với**: `clinic_management_business_analysis.md`, `clinic_management_saas_platform_model.md`, `clinic_management_ux_specification.md`, `claude-workspace/docs/design/medizen-modern/`
