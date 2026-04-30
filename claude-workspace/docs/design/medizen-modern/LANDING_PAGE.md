@@ -8,9 +8,10 @@
 
 - **Repo**: `../clinic-cms-landing/` (Next.js 15 App Router + TypeScript + Tailwind CSS)
 - **Branch**: `feature/TASK-030-landing-page`
-- **Task**: TASK-030 (status: IN_REVIEW)
+- **Task**: TASK-030 (status: DONE — implemented + reviewed + tested + documented 2026-05-01)
 - **Deploy URL**: TBD post Vercel setup (TASK-031)
-- **Implemented**: 2026-05-01 — all 12 sections, full SEO/a11y annotations, 35 tests passing
+- **Implementation**: 2026-05-01 — all 12 sections, full SEO/a11y annotations, 35/35 tests passing
+- **Documentation**: Functional design spec completed at `docs/tasks/TASK-030/deliveries/final-specs/landing-page-functional-design.md`
 
 > ## 📦 Mockup deliverable (TASK-028)
 >
