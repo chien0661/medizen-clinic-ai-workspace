@@ -13,9 +13,10 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 31 |
-| **IN_PROGRESS** | 2 |
+| **IN_PROGRESS** | 1 |
+| **DOCUMENTING** | 0 |
 | **TODO** | 0 |
-| **DONE** | 29 |
+| **DONE** | 30 |
 
 ### By Priority
 
@@ -40,15 +41,16 @@
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
   - **Assigned**: chiendv
 
-- **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
-  - **Assigned**: chiendv
-  - **Status**: IN_TESTING (review approved 2026-05-01 — 0 CRITICAL / 0 MAJOR / 5 MINOR)
 
 ---
 
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
+  - **Completed**: 2026-05-01
+  - **Details**: 12 sections, 5 JSON-LD schemas, WCAG 2.1 AA, 35/35 tests pass, 152 kB bundle, Lighthouse-CI gates ready
 
 - **[TASK-031](tasks/TASK-031/task.md)** - MediZen UI — Generate 15 màn còn lại (45/47 canonical, 2 blocked-stitch-api)
   - **Completed**: 2026-05-01

@@ -2,13 +2,16 @@
 id: TASK-030
 type: feature
 title: Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
-status: IN_REVIEW
+status: DONE
 priority: High
 assigned: chiendv
 iteration: 1
 created: 2026-05-01
 updated: 2026-05-01
 completed_implementation: 2026-05-01
+completed_review: 2026-05-01
+completed_testing: 2026-05-01
+completed_documentation: 2026-05-01
 branch: "feature/TASK-030-landing-page"
 jira_key: ""
 tags: [landing-page, marketing, frontend, seo, schema-org, accessibility, medizen, new-repo]
@@ -267,9 +270,9 @@ Inject vào `<head>` qua `<script type="application/ld+json">`. Validate qua htt
 ## Progress Checklist
 
 - [x] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Code Review (APPROVED — 0 CRITICAL / 0 MAJOR / 5 MINOR — see `handoff/review-report.md`)
+- [x] Testing (PASS — 35/35 tests, 5 JSON-LD schemas, build exit 0 — see `deliveries/test-reports/test-report.md`)
+- [x] Documentation (COMPLETE — functional design + SEO checklist + workspace docs updated — see `deliveries/final-specs/landing-page-functional-design.md`)
 
 ## Related Files
 
