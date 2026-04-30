@@ -665,6 +665,37 @@
 | **NFR-021** | Compliance HIPAA + Nghị định 13/2023 | Checklist 14 mục (xem `medizen-modern/TAB_MATRIX.md` Section "Bảo mật → Compliance"). Quarterly review. | v1 | — | 🔄 |
 | **NFR-022** | Rate limiting | Login 10/min/IP. Sensitive write 60/min/user. Reports query 30/min/user. SlowAPI middleware. | v1 | TASK-003 | ✅ |
 
+### NFR-023..046 — Bảo mật dữ liệu nhạy cảm (PII/PHI deep)
+
+> Xem chi tiết spec ở [`docs/design/medizen-modern/SECURITY.md`](../claude-workspace/docs/design/medizen-modern/SECURITY.md). Phân loại 4-tier (Public/Internal/Confidential/Restricted), encryption strategy, key management, PII lifecycle, threat model.
+
+| Code | Tên | Mô tả / Ngưỡng | Phase | Task | Status |
+|---|---|---|---|---|---|
+| **NFR-023** | Data classification 4-tier | Mọi field/column gán 1 tier T0-T3 (Public/Internal/Confidential PII/Restricted PHI+Credentials). PII inventory ~30 columns ở T2/T3. Tier càng cao → control nghiêm hơn. | v1 | — | ⬜ |
+| **NFR-024** | Column-level encryption T3 | Trên top TDE, các field T3 (CCCD, BHYT card, MFA secret, audit diff) thêm 1 lớp AES-256 column-level qua envelope encryption. Master key trong KMS không bao giờ rời. Per-tenant key isolation. | v1 | — | ⬜ |
+| **NFR-025** | Per-tenant encryption keys | Mỗi clinic 1 master key riêng trong KMS. Leak 1 clinic không ảnh hưởng clinic khác. Crypto-shred (revoke key) → instant data destruction cho clinic đó. | v1 | — | ⬜ |
+| **NFR-026** | Key rotation policy | Master key 1 năm · Tenant key 1 năm hoặc on-demand · JWT signing 30 ngày · Backup key 90 ngày · TLS cert 90 ngày (Let's Encrypt auto-renew). Zero-downtime rotation. | v1 | — | 🔄 |
+| **NFR-027** | Bcrypt cost ≥12 | Password hash bcrypt cost factor ≥12 (mặc định 10 không đủ 2026+). Pepper toàn cục optional defense in depth. History 5 password gần nhất, rotation 90 ngày. | v1 | TASK-003 | 🔄 |
+| **NFR-028** | JWT RS256 + key rotation | Chuyển từ HS256 sang RS256 (asymmetric). Public key publish ở `/.well-known/jwks.json`. Key rotation 30 ngày với grace 7d overlap. | v2 | — | ⬜ |
+| **NFR-029** | Session fingerprinting | Mỗi JWT đính kèm device fingerprint + IP + UA. Khi user dùng JWT từ device/IP khác đột ngột → force MFA hoặc re-login + alert email "Phiên đăng nhập từ thiết bị mới". | v2 | — | ⬜ |
+| **NFR-030** | PII redaction trong log | Cấm log full PII trong structlog. Email `bs.an@hd.vn` → `b***@h***.vn`. Phone `***1234`. CCCD `***7890`. Pattern `__audit_exclude__` cho models. Global redact list ở `app/core/audit.py`. | v1 | TASK-002 | 🔄 |
+| **NFR-031** | Data minimization | Chỉ thu thập field cần thiết. Form đăng ký BN có 2 mode (Quick: tên+SĐT+DOB+giới · Full: thêm CCCD+BHYT+địa chỉ khi cần BHYT). Tránh PII trong URL query (chỉ POST body). | v1 | — | ⬜ |
+| **NFR-032** | Right to Erasure (Nghị định 13) | BN yêu cầu xoá hồ sơ → soft delete + crypto-shred encryption key (data on disk forever unreadable) + audit event + confirm 2 bước. Process ≤30 ngày từ request. | v2 | — | ⬜ |
+| **NFR-033** | Data portability | BN download data của mình (JSON + PDF) — quyền theo Nghị định 13. Self-service portal trong Profile. Encrypted export với password user-provided. | v2 | — | ⬜ |
+| **NFR-034** | WAF (Web Application Firewall) | Cloudflare hoặc AWS WAF với OWASP Top 10 ruleset auto-update. Custom rules: SQL keywords trong query → block. Bot detection. Geo-block per clinic config. | v2 | — | ⬜ |
+| **NFR-035** | DDoS protection | Cloudflare Pro+ Always Online · circuit breaker FastAPI level (slowapi + tenacity) · auto-scale k8s HPA + RDS read replica. | v2 | — | ⬜ |
+| **NFR-036** | mTLS internal service-to-service | API ↔ DB ↔ Redis ↔ Worker ↔ S3 dùng mTLS với cert internal CA (HashiCorp Vault). 30 ngày rotate auto. Cert pinning. | v2 | — | ⬜ |
+| **NFR-037** | SAST (static analysis) | ruff + Bandit (Python) · ESLint security plugin (TS) · Semgrep (multi-lang) chạy pre-commit + CI. Block PR nếu high severity. | v1 | — | 🔄 |
+| **NFR-038** | DAST (dynamic analysis) | OWASP ZAP scan pre-prod env trước mỗi major release. Block release nếu high severity finding. | v2 | — | ⬜ |
+| **NFR-039** | Dependency scanning | Safety (Python CVE) + npm audit (Node) + Trivy (container) chạy CI + nightly. Auto-PR upgrade qua Dependabot. Block deploy nếu critical CVE chưa patch ≤7 ngày. | v1 | — | 🔄 |
+| **NFR-040** | Secret management | Không hardcode secret trong code — git-secrets pre-commit hook + GitHub secret scanning. Dev: `.env.local` (gitignore). Prod: HashiCorp Vault hoặc AWS Secrets Manager. | v1 | — | 🔄 |
+| **NFR-041** | Backup encryption + ACL | Backup AES-256 (gpg encrypt) trước upload S3 SSE-KMS. IAM role chỉ Ops + DBA, MFA-required cho restore. SHA-256 checksum + sign GPG. Cross-region replication. | v1 | — | ⬜ |
+| **NFR-042** | Anomaly detection trên audit log | Background job 15 phút quét audit với 7 rules: failed_login_burst, mass_pii_reveal, cross_clinic_access, sudden_role_grant, mass_export, audit_tamper_detected, key_decrypt_anomaly. Alert PD/Slack. | v1 | TASK-002 | ⬜ |
+| **NFR-043** | Breach notification ≤72h | Theo Nghị định 13/2023. Process + template email + DPO contact list. Notify Bộ TTTT + affected users không chậm trễ. Drill annually. | v1 | — | ⬜ |
+| **NFR-044** | Forensic logging | Hash chain trên audit_log (`hash = SHA256(prev_hash || row_data)`) — tamper detection. Preserve raw logs 30 ngày + chain of custody khi nghi ngờ breach. | v1 | TASK-002 | ⬜ |
+| **NFR-045** | Tauri code signing + secure storage | Code signing Win + Mac notarization cho Tauri bundle. Update auto-signed via Tauri updater. Secure local storage (Tauri Store API encrypted). | v1 | TASK-016 | 🔄 |
+| **NFR-046** | Pen test annual | 3rd party penetration test mỗi năm 1 lần. Scope: web app + API + Tauri client + infrastructure. Findings tracked → fix theo SLA: critical ≤7d, high ≤30d. | v2 | — | ⬜ |
+
 ---
 
 ## 27. Tổng kết theo phase
@@ -700,10 +731,10 @@
 | INT | 11 | 4 | 7 |
 | I18N+A11Y+THEME | 17 | 14 | 3 |
 | NAV | 7 | 1 | 6 |
-| NFR | 20 | 9 | 11 |
-| **TỔNG v1** | **361** | **111** | **250** |
+| NFR | 36 | 9 | 27 |
+| **TỔNG v1** | **377** | **111** | **266** |
 
-→ Tiến độ MVP: **~31% DONE** (111/361)
+→ Tiến độ MVP: **~29% DONE** (111/377)
 
 ### Phase 2 (Q4 2026 - Q1 2027)
 
@@ -741,7 +772,7 @@
 
 ---
 
-**Ngày**: 2026-04-30 (v1.2 — multi-clinic per account · global search · multi-role UX · NFR tracking)
-**Phiên bản**: 1.2
-**Tổng**: 361 v1 + 53 v2 + 30 v3 = ~444 functions
+**Ngày**: 2026-04-30 (v1.3 — security deep PII/PHI: 24 NFR security entries + SECURITY.md spec)
+**Phiên bản**: 1.3
+**Tổng**: 377 v1 + 61 v2 + 30 v3 = ~468 functions
 **Đồng bộ với**: `clinic_management_business_analysis.md`, `clinic_management_saas_platform_model.md`, `clinic_management_ux_specification.md`, `claude-workspace/docs/design/medizen-modern/`
