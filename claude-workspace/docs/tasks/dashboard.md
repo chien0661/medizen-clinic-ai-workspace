@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-04-29 23:23:24 (auto-generated)
+**Last Updated**: 2026-04-30 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,12 +12,12 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 26 |
-| **DONE** | 26 |
+| **Total Tasks** | 27 |
+| **DONE** | 27 |
 
 ### By Priority
 
-- **High**: 19 tasks
+- **High**: 20 tasks
 - **Medium**: 7 tasks
 
 ### By Agent
@@ -114,6 +114,9 @@
 
 - **[TASK-026](tasks/TASK-026/task.md)** - FE integration audit — replace remaining mocks with real BE + retest
   - **Completed**: 2026-04-29
+
+- **[TASK-027](tasks/TASK-027/task.md)** - Cura Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
+  - **Completed**: 2026-04-30
 
 
 ---
