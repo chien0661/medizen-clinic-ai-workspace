@@ -2,11 +2,12 @@
 id: TASK-029
 type: feature
 title: MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
-status: IN_PROGRESS
+status: IN_REVIEW
 priority: High
 assigned: chiendv
 created: 2026-05-01
 updated: 2026-05-01
+completed_partial: 2026-05-01
 branch: ""
 jira_key: ""
 tags: [design, ui, stitch, phase-d, multi-clinic, search, security, medizen-modern]
@@ -159,11 +160,13 @@ Hiện 32 unique màn trên Stitch project `5572301228665717471` đã lệch v�
 
 ## Progress Checklist
 
-- [x] Implementation A — Edit 8 màn hiện hữu (qua `edit_screens` MCP) — 8/8 ✓
-- [ ] Implementation B — Sinh 16 màn mới (qua `generate_screen_from_text` MCP) — 5/16 ✓ (Chọn PK, Quên MK, Danh sách BN, Hồ sơ BN, Queue board); 3 missing batch 2 (Profile, Cmd+K, Clinic switcher) + 8 batch 3 chưa fire
-- [ ] Code Review (Cura Modern design QA — consistency tokens + tab pattern + flag BHYT impact)
-- [ ] Testing (UX walkthrough multi-clinic flow + search palette + EMR stock chip + Profile multi-PK)
-- [ ] Documentation (README + SITEMAP + MENU_AND_SCREENS + TAB_MATRIX cập nhật screen ID) — cleanup-and-screen-mapping.md done; README/SITEMAP/MENU_AND_SCREENS chưa update
+- [x] **APPROACH PIVOT**: Tạo NEW Stitch project `2542650746708884228` thay vì cleanup old project (per user decision)
+- [x] Implementation — Sinh 32/47 màn mới trong fresh project ✓ (~68% done, 6 batches fired)
+- [ ] Implementation — 15 màn còn lại (TASK-030 backlog): Quên MK, Danh sách BN, Hồ sơ BN 8 tabs, Queue board, Reports BHYT, Pharmacy 4, Billing 2, Profile multi-tab, Cmd+K palette, Clinic switcher, Notifications
+- [x] Documentation: `MEDIZEN_FRESH_PROJECT.md` mapping 32 screen IDs canonical + 15 màn pending
+- [x] Documentation: README.md updated với new project URL
+- [ ] Documentation: SITEMAP/MENU_AND_SCREENS/TAB_MATRIX cập nhật mapping mới (defer cho TASK-030)
+- [ ] Code Review + Testing (defer cho TASK-030 sau khi đủ 47 màn)
 
 ## Related Files
 

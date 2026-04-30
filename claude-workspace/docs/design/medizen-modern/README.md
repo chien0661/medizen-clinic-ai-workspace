@@ -2,8 +2,9 @@
 
 Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — một bản UI hiện đại, role-aware cho hệ thống quản lý phòng khám đa khoa MediZen.
 
-**Stitch project**: https://stitch.withgoogle.com/projects/5572301228665717471
-**Cập nhật**: 2026-04-30 (Phase B + C done — 32 màn)
+**Stitch project (NEW — TASK-029)**: https://stitch.withgoogle.com/projects/2542650746708884228 — **32/47 màn ✓** với MediZen Modern design system (clean, không còn "Cura" branding)
+**Stitch project (OLD — deprecated)**: https://stitch.withgoogle.com/projects/5572301228665717471
+**Cập nhật**: 2026-05-01 (TASK-029 fresh project rebuild — partial 68% done, xem [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md))
 
 ---
 
@@ -20,6 +21,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — m
 | [LANDING_PAGE.md](LANDING_PAGE.md) | **Thiết kế landing page** — 12 sections (hero · problem · solution · comparison · workflow · pricing · testimonials · FAQ · signup form · footer) + animations + form spec + SEO + A/B test ideas |
 | [landing-mockup.html](landing-mockup.html) | **Mockup landing page (TASK-028)** — single-file HTML high-fidelity, 694 dòng, render đủ 12 sections theo `LANDING_PAGE.md`, design tokens MediZen Modern, responsive 3 breakpoints, FAQ accordion + scroll reveal animations. Mở trực tiếp trong browser hoặc paste vào Stitch project làm reference. |
 | [SECURITY.md](SECURITY.md) | **Security & sensitive data spec** — Phân loại 4-tier · PII inventory ~30 cols · 3 lớp encryption · Per-tenant key + crypto-shred · PII lifecycle · Audit hash chain · Anomaly detection · Threat model STRIDE · Compliance HIPAA + Nghị định 13 |
+| [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md) | **Canonical screen ID mapping** cho fresh Stitch project `2542650746708884228` — 32/47 màn ✓ + 15 màn còn thiếu cho TASK-030 |
 
 ---
 
