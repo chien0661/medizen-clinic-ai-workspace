@@ -2,9 +2,9 @@
 
 Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — một bản UI hiện đại, role-aware cho hệ thống quản lý phòng khám đa khoa MediZen.
 
-**Stitch project (NEW — TASK-029)**: https://stitch.withgoogle.com/projects/2542650746708884228 — **32/47 màn ✓** với MediZen Modern design system (clean, không còn "Cura" branding)
+**Stitch project (NEW — TASK-029/031)**: https://stitch.withgoogle.com/projects/2542650746708884228 — **45/47 màn canonical ✓** (~96%) với MediZen Modern design system (clean, không còn "Cura" branding)
 **Stitch project (OLD — deprecated)**: https://stitch.withgoogle.com/projects/5572301228665717471
-**Cập nhật**: 2026-05-01 (TASK-029 fresh project rebuild — partial 68% done, xem [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md))
+**Cập nhật**: 2026-05-01 (TASK-031 partial DONE — 45/47 canonical, 2 màn `blocked-stitch-api` (Billing AR aging + Notifications), 12 duplicates cần cleanup manual. Xem [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md))
 
 ---
 
@@ -21,7 +21,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — m
 | [LANDING_PAGE.md](LANDING_PAGE.md) | **Thiết kế landing page** — 12 sections (hero · problem · solution · comparison · workflow · pricing · testimonials · FAQ · signup form · footer) + animations + form spec + SEO + A/B test ideas |
 | [landing-mockup.html](landing-mockup.html) | **Mockup landing page (TASK-028)** — single-file HTML high-fidelity, 694 dòng, render đủ 12 sections theo `LANDING_PAGE.md`, design tokens MediZen Modern, responsive 3 breakpoints, FAQ accordion + scroll reveal animations. Mở trực tiếp trong browser hoặc paste vào Stitch project làm reference. |
 | [SECURITY.md](SECURITY.md) | **Security & sensitive data spec** — Phân loại 4-tier · PII inventory ~30 cols · 3 lớp encryption · Per-tenant key + crypto-shred · PII lifecycle · Audit hash chain · Anomaly detection · Threat model STRIDE · Compliance HIPAA + Nghị định 13 |
-| [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md) | **Canonical screen ID mapping** cho fresh Stitch project `2542650746708884228` — 32/47 màn ✓ + 15 màn còn thiếu cho TASK-030 |
+| [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md) | **Canonical screen ID mapping** cho fresh Stitch project `2542650746708884228` — 45/47 canonical ✓ + 2 blocked-stitch-api + 12 duplicates cleanup notes |
 
 ---
 
@@ -47,67 +47,91 @@ Chi tiết design tokens xem trong **Stitch design system asset** `assets/127877
 
 ---
 
-## 🗂️ 32 màn (Stitch — đã đủ)
+## 🗂️ 45 màn canonical (project mới `2542650746708884228`)
 
-### 🔐 Auth (1)
-- Đăng nhập — `e98de272bc7249f39f9a233c7adb17f2`
+> Bảng dưới list canonical screen IDs. Xem chi tiết và 12 duplicates cần cleanup trong [MEDIZEN_FRESH_PROJECT.md](MEDIZEN_FRESH_PROJECT.md).
+
+### 🔐 Auth & Onboarding (3)
+- Đăng nhập — `10fa1b88fcb14939b196120c068b4359`
+- Chọn phòng khám (multi-clinic) — `a24a76fa86c34ab4bd29280e3f8a673d`
+- Quên mật khẩu — `e7d8a31dfb64457dbb1065168111ae01`
 
 ### 🏠 Dashboards per-role (5) + Multi-role (1)
-- Dashboard Lễ tân — `e8ec8790c76f4a04b42400c78f3e934a`
-- Dashboard Điều dưỡng — `416445275b17462e87c4dd6f29d42106`
-- Dashboard Bác sĩ — `ccc8e77578684bd98a03a7d4344f70ff`
-- Dashboard Dược sĩ — `0d856e6c35484cd2bffc967b23ce8268`
-- Dashboard Quản trị — `e1e5cfeb40ce4de49b9be9e922fc3ab2`
-- **Dashboard Multi-role (BS + Quản trị)** — `308fffe2883f4c1cad7e7441120158b9` ← Phase B
+- Dashboard Lễ tân — `08884cb4dda34c2a94b0d0859ead80c3`
+- Dashboard Điều dưỡng — `2048c96803b942ce9a327a6b8fb5eca8`
+- Dashboard Bác sĩ — `a1da59d6c00e4a0186408c134d0a7bc1`
+- Dashboard Dược sĩ — `e22f743e588d476a935e06e6a7bead0d`
+- Dashboard Quản trị — `0107aedca56b4e86a10034239dbee630`
+- **Dashboard Multi-role (Tổng quan)** — `18ed36db80964e6c9f32ac367163cb6f`
 
-### 🏥 Clinical workflow (3)
-- Tiếp nhận & Đăng ký BN — `8c84c7e3270d4b729d83d1c5d4f60992`
-- Lịch hẹn (calendar tuần) — `2e1591c3fd534046932aaf2969fd571b`
-- Kho thuốc & Cấp phát — `434d73b9387947328139f56dfad5309f`
+### 🏥 Clinical workflow (4) + 1 bonus
+- Tiếp nhận & Đăng ký BN — `c192150a9ca44949b2ae7bff71268055`
+- Lịch hẹn (calendar tuần) — `d4a26b27a53f4627a759d4a47be5ef64`
+- *(bonus)* Quản lý lịch hẹn (list/management view) — `f9728dac61f44dbd9118ff79e2819f0b`
+- Phòng chờ Kanban (5 cột state machine) — `b29cce2159544b148ca95def7ffd36ac`
+- Kho thuốc & Cấp phát — `d1f07ac3a95d447f89a9324dd6dad740`
 
 ### 🩺 EMR — Chi tiết lượt khám (6 tab)
-- EMR Tab 1 — Sinh hiệu — `acef698641904014bf33326dcdd90813`
-- EMR Tab 2 — Khám LS (S.O.A.P) — `c12bf23adc844cfc8b3d4f632111b501`
-- EMR Tab 3 — Chẩn đoán — `fbb61911b4f0496392836546150d2cb9`
-- EMR Tab 4 — Kê đơn thuốc — `7e32e3c8c27043dfae12c8409a1acc2a`
-- EMR Tab 5 — Cận lâm sàng (CLS) — `b8f84b4034da4ebda2040f1260a01a0a`
-- EMR Tab 6 — Tóm tắt & Hoàn tất — `41e3a324001a4c469864e4538ad5539a`
+- EMR Tab 1 — Sinh hiệu — `7099e99ae3f54df7a109f9c1b1e2de3c`
+- EMR Tab 2 — Khám LS (S.O.A.P) — `b65f72edaff34c588183ec43bcfa4020`
+- EMR Tab 3 — Chẩn đoán — `f7a8a34921584dc8a40fb8d690b975b4`
+- EMR Tab 4 — Kê đơn thuốc (stock chip RX-016) — `e09e91adb049450ebb842dfe3a84339b`
+- EMR Tab 5 — Cận lâm sàng (CLS) — `1c8dc9a45b4646ca93b743e76cb7fd5c`
+- EMR Tab 6 — Tóm tắt & Hoàn tất — `1ffdbfe6457a4b0bbc1319f338b16656`
 
-### 💰 Billing (1)
-- Thanh toán hoá đơn — `43971b42ba2b4043a89e8aa32261ec16`
+### 👤 Patient Master (2)
+- Danh sách Bệnh nhân — `4e751f21216f4d57914c09e909ebeeef`
+- Hồ sơ BN — Lê Hà Vy (3-col, 8 tabs, AI gợi ý) — `2d438ac0dfb04bdc83e41ec0b29bc7d9`
+
+### 💰 Billing (2/3 — 1 blocked)
+- Thanh toán Hoá đơn — `6c560c9159bd492a93f81a040fc081ff`
+- Lịch sử hoá đơn — `e4089713951341d18ca200d33e2bbc66`
+- ⚠️ **Công nợ AR aging** — blocked-stitch-api
+
+### 💊 Pharmacy (5)
+- Kho thuốc & Cấp phát — `d1f07ac3a95d447f89a9324dd6dad740`
+- Danh mục thuốc — `59d0a9320fd84fd2a281cff113657d95`
+- Tạo phiếu nhập kho (PO) — `3cb03ffce4ea4f739cbe1f82576b349b`
+- Kiểm kê thực tế (3-step wizard) — `8ed40f5e4cf54108adf4fe0d59b0048d`
+- Xử lý hết hạn (30/60/90d) — `9c07546bdc214e499f3af5db011b2249`
 
 ### ⚙️ Cấu hình hệ thống (8 section)
-- Phòng khám & Chi nhánh — `5f5f1093c7114782aaf063043443395d`
-- Vai trò & Phân quyền (RBAC) — `1cb79779d2f145efb13f3d1223f70fc0`
-- Ca trực & Giờ làm — `31b1b71d30bd4de88048648db5ab158f`
-- Bảng giá dịch vụ — `7c43ae65ba4346fea4685212f222866b`
-- BHYT (mức hưởng + DM) — `7ff9fe5bc8d541ecb7844f8965ddbf2b`
-- Tích hợp (VSS/HL7/DICOM/SMS) — `1d6fc53966d541c4abb1f3c6949fc20f`
-- Audit log — `e7735b5a24944273b631b514409be668`
-- Bảo mật & Mã hoá — `b15b501502274b55999bc61ac70f5045`
+- Phòng khám & Chi nhánh (toggle BHYT default OFF) — `cf5b5eaa419a469591f378d8756dc1c4`
+- Vai trò & Phân quyền (RBAC) — `db783faa5ee44d5fa7a4495c4640151a`
+- Ca trực & Giờ làm — `c37cf2c381c44368aed26bc6f03c9116`
+- Bảng giá dịch vụ — `149093160f354daaa28ba80046bc8f19`
+- BHYT (mức hưởng + DM) — `1a8f4df42c844078ba28ad915ccc87e8`
+- Tích hợp (VSS/HL7/DICOM/SMS) — `9b5d4a26e1ff42368a64721ef9d1c95e`
+- Audit log — `c13abb5084b946e7ae1ba3ae56c32df2`
+- Bảo mật & Mã hoá (PII inventory + Anomaly + Hash chain) — `c8547b82621c4c0ca4abb8a4e3a2f149`
 
 ### 📊 Báo cáo & Thống kê (6 tab)
-- Tab Tổng quan — `d86ddd116f614b41b7f6536af01f86dc`
-- Tab Tài chính — `e471372c45ce42da827ce03c7f14559c`
-- Tab Lâm sàng — `eb2d066147e2472180010db35b66333e`
-- Tab Vận hành — `9431a116c63b4045a9798698d0826d41`
-- Tab Dược — `6b235c69f8e047c7a5798990e9665c81`
-- Tab BHYT — `12334fcf1bec408a80075ea361164ad4`
+- Tab Tổng quan — `0edb38245675437a9b9eeca7b5cdf91c`
+- Tab Tài chính — `af50d7704ee34c6d9589438b51ac1e0e`
+- Tab Lâm sàng — `7673357fad4b4c468b4eefa51d100f98`
+- Tab Vận hành — `e3fdaab8c9514a0291c2e1ee0c7945bd`
+- Tab Dược — `b98d3d7a78c643d69f7474d71f2d926b`
+- Tab BHYT (funnel duyệt + top từ chối + sync VSS) — `0b6214575af0401a8f8b96402e3c0d70`
 
-### ⚠ Duplicate (cần xoá khỏi project Stitch)
-- `283a28fda61c4785973ee139f668a00b` — Kho thuốc V2 (bản retry cũ)
-- `4da3b971f72b410a8a44f6ed76149b18` — Kho thuốc V3 incomplete (no screenshot)
-- `692bb83d5b254461ad1abdef1ae7b0f3` — Dashboard Đa vai trò (auto-retry sinh từ TASK-027 batch 1)
-- `a83fc3556c1f438eb070d7708e017902` — Dashboard Đa vai trò v3 (auto-retry sinh từ TASK-027 batch 1)
+### 🪟 Modals & Popovers (2)
+- ⌘K Quick Search Palette (mode `/bn /thuoc /inv /rx /lk`) — `3812ba7a5ff8430890011daceafd3343`
+- Clinic Switcher Dropdown — `af58042597394694a83eebec6c3d5ff1`
 
-→ 4 duplicate này là tác phẩm phụ của Stitch khi MCP timeout. Chỉ giữ 1 canonical multi-role (`308fffe2`) và 1 canonical Kho thuốc (`434d73b9`).
+### 👤 Profile Multi-tab (1)
+- Profile cá nhân — BS. An (5 tabs với "Phòng khám của tôi" + 3 PK card + radio default) — `18d1ec870224423c8b50717aeb957bd3`
+
+### 🔔 Notifications (0/1 — blocked)
+- ⚠️ **Trung tâm Thông báo** — blocked-stitch-api
+
+### ⚠ Cleanup pending — 12 duplicates trong project mới
+Xem [MEDIZEN_FRESH_PROJECT.md §3](MEDIZEN_FRESH_PROJECT.md#3-cleanup-notes--12-duplicates-trong-project-mới-cần-xoá-thủ-công) — danh sách 12 IDs cần xoá manual qua Stitch UI (Auth dups: 2 · Patient: 4 · Queue: 2 · Settings: 2 · Reports: 1 · Modals: 1).
 
 ---
 
 ## 🚀 Cách sử dụng tài liệu này
 
 ### Cho **Designer** xem mock:
-1. Mở [Stitch project](https://stitch.withgoogle.com/projects/5572301228665717471)
+1. Mở [Stitch project (NEW MediZen Modern 45/47)](https://stitch.withgoogle.com/projects/2542650746708884228)
 2. Đọc [SITEMAP.md](SITEMAP.md) để hiểu cấu trúc tổng thể
 3. Đọc [TAB_MATRIX.md](TAB_MATRIX.md) cho spec từng tab
 

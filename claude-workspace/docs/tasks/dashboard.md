@@ -14,8 +14,8 @@
 |--------|-------|
 | **Total Tasks** | 31 |
 | **IN_PROGRESS** | 2 |
-| **TODO** | 1 |
-| **DONE** | 28 |
+| **TODO** | 0 |
+| **DONE** | 29 |
 
 ### By Priority
 
@@ -42,19 +42,16 @@
 
 - **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
   - **Assigned**: chiendv
-  - **Status**: IN_REVIEW (implementation complete 2026-05-01)
-
-#### TODO
-
-- **[TASK-031](tasks/TASK-031/task.md)** - MediZen UI — Generate 15 màn còn lại trong fresh Stitch project (TASK-029 follow-up)
-  - **Assigned**: Unassigned
-  - **Created**: 2026-05-01
+  - **Status**: IN_TESTING (review approved 2026-05-01 — 0 CRITICAL / 0 MAJOR / 5 MINOR)
 
 ---
 
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-031](tasks/TASK-031/task.md)** - MediZen UI — Generate 15 màn còn lại (45/47 canonical, 2 blocked-stitch-api)
+  - **Completed**: 2026-05-01
 
 - **[TASK-001](tasks/TASK-001/task.md)** - Foundation — Project Skeleton, Docker Compose, Base Models, Alembic
   - **Completed**: 2026-04-26

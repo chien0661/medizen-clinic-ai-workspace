@@ -2,11 +2,12 @@
 id: TASK-031
 type: feature
 title: MediZen UI — Generate 15 màn còn lại trong fresh Stitch project (TASK-029 follow-up)
-status: TODO
+status: DONE
 priority: High
-assigned: Unassigned
+assigned: chiendv
 created: 2026-05-01
 updated: 2026-05-01
+completed: 2026-05-01
 branch: ""
 jira_key: ""
 tags: [design, ui, stitch, phase-d, medizen-modern, follow-up, task-029]
@@ -144,3 +145,26 @@ TASK-029 fire 8 màn / batch hiệu quả batch 1-3 (~85% success) nhưng tụt 
 ## Blockers
 
 None — chỉ là thời gian wall-clock cho 15 calls sequential.
+
+## Completion Summary (2026-05-01)
+
+**Final result**: 13/15 màn ✓ (87%) — 2 màn `blocked-stitch-api`.
+
+**Project state**:
+- 45 unique canonical screens trong project `2542650746708884228` (~96% / 47 target)
+- 1 bonus screen "Quản lý lịch hẹn" (alt-naming)
+- 12 duplicates cần cleanup manual qua Stitch UI
+- 2 màn missing: **Billing — Công nợ AR aging** + **Notifications full page**
+
+**13 màn mới TASK-031 đã sinh thành công** — xem mapping đầy đủ tại [`deliveries/final-specs/screen-ids-final.md`](deliveries/final-specs/screen-ids-final.md).
+
+**2 màn blocked-stitch-api**: Đã fire 2 lần (batch C+D + retry), MCP timeout cả 2 lần, server không persist. Nguyên nhân: project >50 screens hit Stitch rate-limit cứng. Per spec, mark blocked + skip thay vì spam retry.
+
+**Next steps khuyến nghị cho 2 màn blocked**:
+- Lựa chọn 1: Cleanup 12 duplicates trước (giảm project về 45) rồi retry 2 màn missing
+- Lựa chọn 2 (preferred): Defer to **TASK-032 FE Phase D implementation** — port 47 màn sang React/Tailwind, code 2 màn blocked trực tiếp dựa trên spec đã có trong §A.1/§A.2
+
+**Docs đã update**:
+- [`docs/design/medizen-modern/MEDIZEN_FRESH_PROJECT.md`](../../design/medizen-modern/MEDIZEN_FRESH_PROJECT.md) — bảng "32/47" → "45/47" với canonical IDs đầy đủ + 12 duplicates cleanup notes + 2 blocked notes
+- [`docs/design/medizen-modern/README.md`](../../design/medizen-modern/README.md) — bảng 32 màn → 45 màn canonical
+- [`docs/tasks/TASK-031/deliveries/final-specs/screen-ids-final.md`](deliveries/final-specs/screen-ids-final.md) — final delivery mapping
