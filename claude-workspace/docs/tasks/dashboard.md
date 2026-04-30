@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-01 00:20:46 (auto-generated)
+**Last Updated**: 2026-05-01 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,13 +12,13 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 29 |
-| **IN_PROGRESS** | 1 |
+| **Total Tasks** | 30 |
+| **IN_PROGRESS** | 2 |
 | **DONE** | 28 |
 
 ### By Priority
 
-- **High**: 21 tasks
+- **High**: 22 tasks
 - **Medium**: 8 tasks
 
 ### By Agent
@@ -38,6 +38,10 @@
 
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
   - **Assigned**: chiendv
+
+- **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
+  - **Assigned**: chiendv
+  - **Status**: IN_REVIEW (implementation complete 2026-05-01)
 
 ---
 

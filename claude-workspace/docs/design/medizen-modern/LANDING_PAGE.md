@@ -4,6 +4,14 @@
 **Mục tiêu**: Trang giới thiệu sản phẩm + đăng ký dùng thử cho phòng khám đa khoa VN
 **URL dự kiến**: https://medizen.vn (hoặc https://app.medizen.vn/landing)
 
+## Implementation status
+
+- **Repo**: `../clinic-cms-landing/` (Next.js 15 App Router + TypeScript + Tailwind CSS)
+- **Branch**: `feature/TASK-030-landing-page`
+- **Task**: TASK-030 (status: IN_REVIEW)
+- **Deploy URL**: TBD post Vercel setup (TASK-031)
+- **Implemented**: 2026-05-01 — all 12 sections, full SEO/a11y annotations, 35 tests passing
+
 > ## 📦 Mockup deliverable (TASK-028)
 >
 > **File**: [landing-mockup.html](landing-mockup.html) — 694 dòng, single-file HTML/CSS/JS self-contained

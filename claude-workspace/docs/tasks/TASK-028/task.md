@@ -1,14 +1,14 @@
 ---
 id: TASK-028
 type: feature
-title: Landing Page MediZen — Stitch design (project mới) + implementation
-status: DONE
+title: Landing Page MediZen — Stitch project (design-only deliverable)
+status: IN_PROGRESS
 priority: Medium
 assigned: 
 iteration: 1
-completed: 2026-05-01
+completed: 
 created: 2026-04-30
-updated: 2026-04-30
+updated: 2026-05-01
 branch: ""
 jira_key: ""
 tags: [landing-page, marketing, stitch, design, frontend, medizen]
@@ -16,34 +16,48 @@ affected-repos: [clinic-cms-web]
 refs:
   detail_design: "../../../design/medizen-modern/LANDING_PAGE.md"
   implementation_plan: ""
-  figma: ""
+  figma: "https://stitch.withgoogle.com/projects/12631558811738458989"
   confluence: ""
   jira_ticket: ""
+  stitch_project_id: "12631558811738458989"
+  stitch_design_system_asset_id: "10014644980044777618"
   other:
     - "../../../design/medizen-modern/README.md"
     - "../../TASK-027/task.md"
 ---
 
-# TASK-028: Landing Page MediZen — Stitch design (project mới) + implementation
+# TASK-028: Landing Page MediZen — Stitch project (design-only deliverable)
 
 ## Description
 
-Tạo **landing page (marketing site)** cho platform **MediZen** theo:
-- Spec đầy đủ: `docs/design/medizen-modern/LANDING_PAGE.md` — 12 sections (894 dòng spec) đã có sẵn từ TASK-027.
-- Design system: "MediZen Modern" — Indigo `#6366F1` / Slate `#0F172A` / Emerald `#10B981` / Plus Jakarta Sans + Inter.
+**Deliverable duy nhất của task này**: Một **Stitch project mới** (`MediZen — Landing`) chứa design 12 sections của landing page MediZen, sinh qua Stitch MCP tools (`mcp__stitch__create_project`, `mcp__stitch__generate_screen_from_text`).
 
-Khác với TASK-027 (sinh 32 màn **app** trên Stitch project `5572301228665717471`), task này tạo **Stitch project MỚI riêng cho landing page** để tách rời design app vs marketing site.
+**KHÔNG bao gồm trong scope**:
+- React/FE implementation (`clinic-cms-web/src/pages/landing/`) — tách thành task riêng (TASK-030 dự kiến)
+- Lighthouse/SEO/OG tags — task riêng (TASK-031 dự kiến)
+- HTML mockup — đã sinh ở commit `dacce0c` nhưng **không phải deliverable chính** của task này; coi là reference visualizer
+
+**Input spec**:
+- `docs/design/medizen-modern/LANDING_PAGE.md` — 12 sections (894 dòng spec) từ TASK-027
+- Design system "MediZen Modern": Indigo `#6366F1` / Slate `#0F172A` / Emerald `#10B981` / Plus Jakarta Sans + Inter
+
+**Output**:
+- Stitch project URL (lưu vào `refs.figma:` field của task này)
+- 12 screens trên Stitch project, mỗi screen tương ứng 1 section
+- Screenshots/exports → `docs/tasks/TASK-028/deliveries/stitch-screens/`
+
+Khác với TASK-027 (32 màn **app** trên Stitch project `5572301228665717471`), task này tạo **Stitch project MỚI riêng cho landing page** để tách app vs marketing site.
 
 ## Stitch project mới — design brief
 
-**Steps cho người tạo project**:
+**Tự động hoá qua Stitch MCP** (không còn cần user thao tác tay):
 
-1. Vào https://stitch.withgoogle.com → click **New project**
-2. Chọn template **Marketing / Landing page** (web)
-3. Đặt tên: `MediZen — Landing`
-4. Paste design brief dưới đây vào prompt input của Stitch.
-5. Iterate từng section một (bắt đầu với Hero, sau đó Problem → Solution → ...).
-6. Lưu link project vào field `figma:` của task này khi tạo xong.
+1. `mcp__stitch__create_project` — tên `MediZen — Landing`, template `web` / `marketing landing`
+2. `mcp__stitch__create_design_system` — đăng ký token "MediZen Modern" (xem dưới)
+3. `mcp__stitch__generate_screen_from_text` — sinh từng section một, dùng brief paste section bên dưới
+4. `mcp__stitch__list_screens` + `mcp__stitch__get_screen` — confirm 12 screens được tạo
+5. Lưu project URL/ID vào field `refs.figma:` của task này
+6. Export screenshots → `docs/tasks/TASK-028/deliveries/stitch-screens/`
 
 ### Brief paste vào Stitch
 
@@ -103,66 +117,62 @@ Khác với TASK-027 (sinh 32 màn **app** trên Stitch project `557230122866571
 >
 > **Reference file**: `LANDING_PAGE.md` có spec chi tiết hơn từng section nếu Stitch cần thêm context.
 
-## Requirements
+## Requirements (scope = design-only)
 
-### A. Stitch design (manual user step)
-- [ ] Tạo Stitch project mới `MediZen — Landing` — KHÔNG nhồi vào project `5572301228665717471` (đó là app, đã có 32 màn).
-- [ ] Sinh 12 sections theo brief trên (1 section = 1 Stitch screen, hoặc 1 long-scroll screen tuỳ Stitch hỗ trợ).
-- [ ] Lưu Stitch project URL vào `task.md` field `refs.figma:`.
-- [ ] Export design (HTML/CSS hoặc Figma) → `docs/tasks/TASK-028/refs/stitch-export/`.
+### A. Stitch project (deliverable chính — qua MCP)
+- [ ] `mcp__stitch__create_project` → tạo project `MediZen — Landing` (web / marketing template). KHÔNG dùng project `5572301228665717471` (đó là app TASK-027).
+- [ ] `mcp__stitch__create_design_system` → đăng ký design system "MediZen Modern" với đầy đủ tokens (Indigo / Slate / Emerald / Plus Jakarta Sans / Inter / radius / spacing).
+- [ ] `mcp__stitch__generate_screen_from_text` × 12 → sinh từng section theo brief (Sticky topbar + 12 sections = 13 screens, hoặc gộp vào 1 long-scroll screen tuỳ Stitch hỗ trợ).
+- [ ] `mcp__stitch__apply_design_system` → confirm design tokens được apply nhất quán across all screens.
+- [ ] Lưu Stitch project URL/ID vào `refs.figma:` field của task này.
+- [ ] Export screenshots/HTML → `docs/tasks/TASK-028/deliveries/stitch-screens/`.
 
 ### B. Documentation
 - [ ] Update `docs/design/medizen-modern/LANDING_PAGE.md` § "Stitch project URL" với link mới.
 - [ ] Update `docs/design/medizen-modern/README.md` mục Landing — add link Stitch project.
 
-### C. FE Implementation
-- [ ] Build trong `clinic-cms-web/src/pages/landing/` — option A (subroute `/welcome` trong app hiện tại) — đề xuất.
-- [ ] Reuse `tailwind.config.js` design tokens (Indigo/Slate/Emerald đã có cho app).
-- [ ] i18n namespace mới: `src/locales/{vi,en}/landing.json`.
-- [ ] Routes: `/welcome` (default redirect khi unauthenticated user vào root). `/login` link rõ ràng.
-- [ ] Components per section: `<HeroSection>`, `<SocialProof>`, `<ProblemSection>`, `<SolutionGrid>`, `<ComparisonTable>`, `<WorkflowAnimation>`, `<UseCases>`, `<PricingTable>`, `<Testimonials>`, `<FAQAccordion>`, `<FinalCTA>`, `<Footer>`.
-- [ ] Signup form submit → POST endpoint mới (cần BE thêm `POST /api/v1/leads` HOẶC dùng 3rd-party form như Formspree v1).
-
-### D. Quality
-- [ ] Lighthouse: Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 95
-- [ ] FCP < 1.5s, CLS < 0.1
-- [ ] OG tags + Twitter Card cho social share
-- [ ] Cross-browser: Chrome, Firefox, Safari, mobile Safari, Chrome Android
+### C/D. Out of scope (deferred → separate tasks)
+- FE Implementation (`clinic-cms-web/src/pages/landing/`) → **TASK-030 (TBD)**
+- Lighthouse / SEO / OG tags / lead capture endpoint → **TASK-031 (TBD)**
 
 ## Acceptance Criteria
 
-- [ ] Stitch project `MediZen — Landing` tồn tại, có link
-- [ ] 12 section render đúng spec `LANDING_PAGE.md`
-- [ ] Design tokens khớp với app (Indigo/Slate/Emerald, Plus Jakarta Sans + Inter)
-- [ ] Responsive 3 breakpoints (desktop / tablet / mobile)
-- [ ] vi/en toggle works, tất cả strings i18n
-- [ ] CTA "Đăng nhập" navigate sang `/login`
-- [ ] Signup form submit thành công → toast confirmation, lead capture
-- [ ] Lighthouse 90+ ở 4 metrics
-- [ ] Tested trên 5 browser/platform
-- [ ] Deploy sẵn sàng (route `/welcome` accessible từ app hiện tại)
+- [ ] Stitch project `MediZen — Landing` tồn tại, URL được lưu trong `refs.figma:`
+- [ ] 12+ screens trên Stitch render đúng spec `LANDING_PAGE.md`
+- [ ] Design system "MediZen Modern" được áp dụng nhất quán (Indigo/Slate/Emerald, Plus Jakarta Sans + Inter, radius/spacing đúng spec)
+- [ ] Tất cả screens responsive (desktop 1280px+ minimum; tablet/mobile nếu Stitch hỗ trợ)
+- [ ] Screenshots export đầy đủ ở `deliveries/stitch-screens/`
+- [ ] LANDING_PAGE.md + README.md đã link Stitch project URL
 
 ## Progress Checklist
 
-- [x] Implementation (Phase A+B: Stitch design via HTML mockup) — design-only scope
-- [x] Code Review (self-review: tsc N/A, browser visual check)
-- [x] Testing (manual: 12 sections render, responsive 3 breakpoints, FAQ accordion, scroll reveal)
-- [x] Documentation (LANDING_PAGE.md + README.md updated with mockup link)
-- [ ] **Phase C — FE Implementation (deferred)**: build React components in `clinic-cms-web/src/pages/landing/` — separate task
-- [ ] **Phase D — Quality (deferred)**: Lighthouse 90+, OG tags, real BE lead capture endpoint — separate task
+- [x] HTML mockup reference (commit `dacce0c`, 694 lines) — visualizer, không phải deliverable chính
+- [x] **Stitch project created** — `MediZen — Landing` (ID `12631558811738458989`)
+- [x] **Stitch design system registered** — `MediZen Modern` (asset ID `10014644980044777618`)
+- [x] 12 sections sinh trên Stitch — **12/12 done** (all sections 1–12 generated; see `handoff/stitch-generation-progress.md` for screen IDs)
+- [ ] Screenshots exported → `deliveries/stitch-screens/`
+- [ ] Documentation links updated (LANDING_PAGE.md + README.md)
 
 ## Related Files
 
 - **Design spec (existing)**: `docs/design/medizen-modern/LANDING_PAGE.md` — 894 dòng, 12 sections đã spec đầy đủ
 - **Design system (existing)**: `docs/design/medizen-modern/README.md` — tokens
-- **Predecessor task**: `docs/tasks/TASK-027/task.md` — design app (32 màn)
-- **Stitch project (new — to be created)**: TBD link
-- **Code (planned)**: `clinic-cms-web/src/pages/landing/`
-- **i18n (planned)**: `clinic-cms-web/src/locales/{vi,en}/landing.json`
+- **HTML mockup reference**: commit `dacce0c` — 694 dòng visualizer, KHÔNG phải deliverable chính
+- **Predecessor task**: `docs/tasks/TASK-027/task.md` — design app (32 màn) trên Stitch project `5572301228665717471`
+- **Stitch project (TO BE CREATED via MCP)**: TBD URL — sẽ được lưu vào `refs.figma:` của task này
+- **Future tasks (deferred)**:
+  - TASK-030 (TBD): FE Implementation `clinic-cms-web/src/pages/landing/`
+  - TASK-031 (TBD): Quality + lead capture endpoint
+
+## Notes
+
+- Implemented in TASK-030 (`../clinic-cms-landing/`) — Next.js 15 repo with 12 sections, full SEO/a11y, branch `feature/TASK-030-landing-page`
 
 ## Timestamps
 
 - **Created**: 2026-04-30
+- **Re-scoped**: 2026-05-01 — narrowed to design-only (Stitch project), HTML mockup demoted to reference
+- **Completed**: 2026-05-01 — all 12 sections generated on Stitch (sections 2–12 generated in this session)
 
 ## Notes
 
@@ -173,29 +183,15 @@ TASK-027 đã sinh 32 màn **app** (dashboard/EMR/Settings/Reports) trên Stitch
 - Khi iterate landing có thể test variants A/B mà không impact app design
 - Marketing team có thể own Stitch landing project riêng
 
-### Implementation option
+### Vì sao re-scope task này (2026-05-01)
 
-**Option A** (đề xuất): Subroute `/welcome` trong `clinic-cms-web` hiện tại.
-- Pros: 1 codebase, share Tailwind config, share i18n setup, deploy chung.
-- Cons: bundle size lớn hơn cho user mới (web app load).
+Lần đầu task này được tick DONE chỉ với HTML mockup (commit `dacce0c`). Nhưng **deliverable thực** mà spec yêu cầu là Stitch project — HTML mockup chỉ là visualizer. Task được re-scope rõ ràng:
 
-**Option B**: Tách Vite app riêng `clinic-cms-landing/`.
-- Pros: faster TTFB cho marketing visitors, deploy CDN/Vercel/Netlify.
-- Cons: 2 codebase, sync design system manually.
+- **In scope**: Stitch project + design system + 12 screens (qua MCP)
+- **Out of scope**: FE code, Lighthouse, lead capture → tách thành TASK-030, TASK-031
 
-V1 đi Option A. V2 nếu marketing traffic >50% có thể tách.
-
-### Lead capture
-
-Form `Đăng ký demo` cần submit về đâu đó. 3 options:
-
-1. BE endpoint mới `POST /api/v1/leads` (cần thêm 1 BE task).
-2. Formspree / Tally / Google Form embed — không cần BE, tốn $5-10/tháng.
-3. Email-only fallback: mailto link.
-
-Đề xuất Option 2 cho v1 (rapid go-to-market), Option 1 cho v2 khi muốn analytics CRM.
+Trước đây assumption "Stitch không có public API → cần user tạo tay" đã sai — Stitch MCP tools (`mcp__stitch__*`) đã có sẵn trong workspace này, có thể tự động hoá toàn bộ.
 
 ## Blockers
 
-- Cần user tạo Stitch project trước (không tự động được — Stitch không có public API).
-- Có thể cần BE endpoint cho lead form (nếu chọn Option 1).
+- (Resolved) ~~Cần user tạo Stitch project trước (không tự động được — Stitch không có public API).~~ → Stitch MCP đã có sẵn, không còn blocker.
