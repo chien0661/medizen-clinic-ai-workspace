@@ -1,4 +1,4 @@
-# Cura — Tab Matrix (states đầy đủ của các trang nhiều tab)
+# MediZen — Tab Matrix (states đầy đủ của các trang nhiều tab)
 
 **Cập nhật**: 2026-04-30 (Phase C done — đã đính screen ID cho mọi tab)
 
@@ -101,7 +101,7 @@ Mỗi nhóm:
   - Nút "+ Thêm hướng xử trí"
 
 **Right context**:
-- AI gợi ý chẩn đoán (Cura AI) với confidence %
+- AI gợi ý chẩn đoán (MediZen AI) với confidence %
 - Đường liên kết tới hướng dẫn lâm sàng (ESC/Bộ Y tế guidelines)
 
 ---
@@ -132,7 +132,7 @@ Mỗi nhóm:
 5-7 thuốc dạng card xếp dọc.
 
 **Section "Cảnh báo"** (border-left red/amber):
-- Tương tác thuốc-thuốc (check qua API DrugBank/Cura DB)
+- Tương tác thuốc-thuốc (check qua API DrugBank/MediZen DB)
 - Tương tác thuốc-bệnh (vd: Diclofenac cho BN suy thận)
 - Dị ứng (auto-block thuốc dị ứng)
 - Trùng lặp với thuốc đang dùng

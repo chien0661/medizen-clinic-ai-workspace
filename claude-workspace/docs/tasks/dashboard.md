@@ -115,7 +115,7 @@
 - **[TASK-026](tasks/TASK-026/task.md)** - FE integration audit — replace remaining mocks with real BE + retest
   - **Completed**: 2026-04-29
 
-- **[TASK-027](tasks/TASK-027/task.md)** - Cura Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
+- **[TASK-027](tasks/TASK-027/task.md)** - MediZen Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
   - **Completed**: 2026-04-30
 
 

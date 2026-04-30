@@ -1,4 +1,4 @@
-# Cura — UX cho User kiêm nhiều vai trò
+# MediZen — UX cho User kiêm nhiều vai trò
 
 **Cập nhật**: 2026-04-30 (Phase B done — Stitch screen `308fffe2883f4c1cad7e7441120158b9`)
 
@@ -18,7 +18,7 @@ Phòng khám tư hoặc đa khoa nhỏ ở VN **rất hiếm khi mỗi người 
 | **Lễ tân + Điều dưỡng tiền khám** | PK 1 người 2 ca | ~30% |
 | **Bác sĩ + Dược sĩ** (PK rất nhỏ) | BS đa khoa kiêm bán thuốc | ~15% |
 
-→ Backend Cura đã hỗ trợ **multi-role per user** + **per-user grant/deny override** (`PROJECT.md`, TASK-004 RBAC). UI cần thể hiện tốt việc này.
+→ Backend MediZen đã hỗ trợ **multi-role per user** + **per-user grant/deny override** (`PROJECT.md`, TASK-004 RBAC). UI cần thể hiện tốt việc này.
 
 ---
 
@@ -39,13 +39,13 @@ Phòng khám tư hoặc đa khoa nhỏ ở VN **rất hiếm khi mỗi người 
 | Phù hợp PK đa khoa nhỏ VN | ✓ ĐÚNG NGỮ CẢNH | ✗ Tạo cảm giác "cồng kềnh" |
 | Lỗi phổ biến tránh được | Không có vụ "tôi tưởng đã đăng nhập role kia" | Hay xảy ra |
 
-**Trường hợp ngoại lệ** (dùng role-switcher): khi 2 role có **mục đích trái ngược** (vd: "Khám" vs "Audit chính BS đó") — không phải case của Cura.
+**Trường hợp ngoại lệ** (dùng role-switcher): khi 2 role có **mục đích trái ngược** (vd: "Khám" vs "Audit chính BS đó") — không phải case của MediZen.
 
 ### Anatomy sidebar khi user kiêm nhiều role
 
 ```
 ┌─ Sidebar (240px) ──────────────────────┐
-│  [Logo Cura]                            │
+│  [Logo MediZen]                            │
 │                                         │
 │  🏠  Tổng quan                          │ ← Dashboard Multi-role (gộp KPI cả 2 role)
 │                                         │
@@ -247,7 +247,7 @@ Chỉ khi đáp ứng đủ **cả 3 điều kiện**:
 2. ✅ Có ít nhất 2 role với **ngữ cảnh hoàn toàn tách biệt** (vd: "phòng khám VN" vs "chi nhánh ở Mỹ")
 3. ✅ User report là sidebar quá dài, scrollbar nhiều, gây mất tập trung
 
-→ Hiện chưa có case này trong Cura. Có thể bật flag `multi_role_switcher_v2` về sau nếu phát sinh.
+→ Hiện chưa có case này trong MediZen. Có thể bật flag `multi_role_switcher_v2` về sau nếu phát sinh.
 
 ---
 

@@ -1,6 +1,6 @@
-# Cura Clinic — Modern · Design Documentation
+# MediZen — Modern · Design Documentation
 
-Tài liệu design hoàn chỉnh cho phiên bản **"Cura Clinic — Modern"** — một bản UI hiện đại, role-aware cho hệ thống quản lý phòng khám đa khoa Cura.
+Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — một bản UI hiện đại, role-aware cho hệ thống quản lý phòng khám đa khoa MediZen.
 
 **Stitch project**: https://stitch.withgoogle.com/projects/5572301228665717471
 **Cập nhật**: 2026-04-30 (Phase B + C done — 32 màn)
@@ -19,7 +19,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"Cura Clinic — Modern"** �
 
 ---
 
-## 🎨 Design system "Cura Modern"
+## 🎨 Design system "MediZen Modern"
 
 | Token | Giá trị |
 |---|---|
@@ -126,4 +126,4 @@ Chi tiết design tokens xem trong **Stitch design system asset** `assets/127877
 
 - [PROJECT.md](../../../PROJECT.md) — Workspace config (RBAC, tech stack)
 - [docs/tasks/](../../tasks/) — Task tracking
-- [Project Stitch gốc "Cura SaaS Platform Architecture"](https://stitch.withgoogle.com/projects/5851786557170020581) — phiên bản trước (giữ làm reference)
+- [Project Stitch gốc "MediZen SaaS Platform Architecture"](https://stitch.withgoogle.com/projects/5851786557170020581) — phiên bản trước (giữ làm reference)

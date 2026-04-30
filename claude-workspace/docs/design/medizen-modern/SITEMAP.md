@@ -1,4 +1,4 @@
-# Cura Clinic — Modern · Sitemap toàn hệ thống
+# MediZen — Modern · Sitemap toàn hệ thống
 
 **Project Stitch**: https://stitch.withgoogle.com/projects/5572301228665717471
 **Cập nhật**: 2026-04-30 (Phase B + C done — 32 màn)
@@ -8,7 +8,7 @@
 ## 1. Sơ đồ module (cây tổ chức)
 
 ```
-Cura Clinic — Modern
+MediZen — Modern
 │
 ├── 🔐 Auth
 │   ├── Đăng nhập (e98de272)        ← role-aware redirect
@@ -92,7 +92,7 @@ Cura Clinic — Modern
 
 ## 2. Ma trận hiển thị module theo vai trò
 
-Cura backend (`PROJECT.md`) định nghĩa **5 system roles + 38 permissions**. Một user có thể giữ **nhiều role** đồng thời + có **per-user grant/deny override**. Ma trận dưới đây là default — override sẽ được áp dụng sau cùng.
+MediZen backend (`PROJECT.md`) định nghĩa **5 system roles + 38 permissions**. Một user có thể giữ **nhiều role** đồng thời + có **per-user grant/deny override**. Ma trận dưới đây là default — override sẽ được áp dụng sau cùng.
 
 | Module                        | Lễ tân | Điều dưỡng | Bác sĩ | Dược sĩ | Quản trị |
 |-------------------------------|:------:|:----------:|:------:|:-------:|:--------:|

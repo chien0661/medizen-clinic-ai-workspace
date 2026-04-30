@@ -2,7 +2,7 @@
 
 **Stitch project**: https://stitch.withgoogle.com/projects/5572301228665717471
 **Hoàn tất**: 2026-04-30
-**Cách tạo**: Stitch MCP `generate_screen_from_text` với prompt theo spec `cura-modern/TAB_MATRIX.md` + `MULTI_ROLE_UX.md`.
+**Cách tạo**: Stitch MCP `generate_screen_from_text` với prompt theo spec `medizen-modern/TAB_MATRIX.md` + `MULTI_ROLE_UX.md`.
 
 ## Tổng
 
@@ -10,7 +10,7 @@
 |---|---|---|
 | 14 màn unique | +18 màn (1 Phase B + 17 Phase C) | **32 màn unique** |
 
-Cura design system v2 (`assets/12787757101558093729`) đã apply cho mọi màn — tokens Indigo `#6366F1` / Slate / Emerald / Amber / Red, Plus Jakarta Sans + Inter, 12/8/6 px roundness.
+MediZen design system v2 (`assets/12787757101558093729`) đã apply cho mọi màn — tokens Indigo `#6366F1` / Slate / Emerald / Amber / Red, Plus Jakarta Sans + Inter, 12/8/6 px roundness.
 
 ## Phase B — Multi-role Dashboard (1)
 
@@ -78,10 +78,10 @@ MCP `generate_screen_from_text` timeout phía client trong khi server vẫn xử
 
 ## Đã update đồng thời
 
-- `docs/design/cura-modern/README.md` — section "32 màn (đã đủ)" + flag duplicates
-- `docs/design/cura-modern/SITEMAP.md` §6 — bảng mapping screen ID toàn bộ 32 màn + bảng duplicates riêng
-- `docs/design/cura-modern/TAB_MATRIX.md` — đính `**Stitch screen**: <id>` ở đầu mỗi tab/section (20 mục)
-- `docs/design/cura-modern/MULTI_ROLE_UX.md` §4 — đính screen ID Multi-role Dashboard
+- `docs/design/medizen-modern/README.md` — section "32 màn (đã đủ)" + flag duplicates
+- `docs/design/medizen-modern/SITEMAP.md` §6 — bảng mapping screen ID toàn bộ 32 màn + bảng duplicates riêng
+- `docs/design/medizen-modern/TAB_MATRIX.md` — đính `**Stitch screen**: <id>` ở đầu mỗi tab/section (20 mục)
+- `docs/design/medizen-modern/MULTI_ROLE_UX.md` §4 — đính screen ID Multi-role Dashboard
 
 ## Việc còn lại (ngoài scope task này)
 

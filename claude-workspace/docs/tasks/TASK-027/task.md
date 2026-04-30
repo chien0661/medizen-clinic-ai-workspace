@@ -1,7 +1,7 @@
 ---
 id: TASK-027
 type: feature
-title: Cura Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
+title: MediZen Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
 status: DONE
 priority: High
 assigned: chiendv
@@ -10,26 +10,26 @@ updated: 2026-04-30
 completed: 2026-04-30
 branch: ""
 jira_key: ""
-tags: [design, ui, stitch, multi-role, tab-spec, phase-b, phase-c, cura-modern]
+tags: [design, ui, stitch, multi-role, tab-spec, phase-b, phase-c, medizen-modern]
 affected-repos: [clinic-cms-web]
 refs:
-  detail_design: "docs/design/cura-modern/README.md"
+  detail_design: "docs/design/medizen-modern/README.md"
   implementation_plan: ""
   figma: "https://stitch.withgoogle.com/projects/5572301228665717471"
   confluence: ""
   jira_ticket: ""
   other:
-    - "docs/design/cura-modern/SITEMAP.md"
-    - "docs/design/cura-modern/MULTI_ROLE_UX.md"
-    - "docs/design/cura-modern/TAB_MATRIX.md"
-    - "docs/design/cura-modern/ACTION_FLOWS.md"
+    - "docs/design/medizen-modern/SITEMAP.md"
+    - "docs/design/medizen-modern/MULTI_ROLE_UX.md"
+    - "docs/design/medizen-modern/TAB_MATRIX.md"
+    - "docs/design/medizen-modern/ACTION_FLOWS.md"
 ---
 
-# TASK-027: Cura Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants
+# TASK-027: MediZen Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants
 
 ## Description
 
-Hệ thống Cura hiện đã có **14/32 màn** trên Stitch (project `5572301228665717471`). Người dùng phản ánh: quá nhiều màn nằm rải rác, chưa thể hình dung **toàn cảnh hệ thống**, và đặc biệt:
+Hệ thống MediZen hiện đã có **14/32 màn** trên Stitch (project `5572301228665717471`). Người dùng phản ánh: quá nhiều màn nằm rải rác, chưa thể hình dung **toàn cảnh hệ thống**, và đặc biệt:
 
 1. **Multi-role**: thực tế ~85% phòng khám VN có user kiêm 2-3 vai trò (Lễ tân + Thanh toán, BS + Quản trị, ĐD + Tiếp nhận, DS + Kho…). UI hiện chỉ có 5 dashboard riêng theo role → CHƯA thể hiện được trường hợp 1 user kiêm nhiều role với **merge sidebar** + **multi-role dashboard** đã spec ở `MULTI_ROLE_UX.md`.
 
@@ -41,7 +41,7 @@ Hệ thống Cura hiện đã có **14/32 màn** trên Stitch (project `55723012
 
 3. **Action flows chưa visualize**: 7 flow nghiệp vụ (`ACTION_FLOWS.md`) đã document text nhưng cần highlight rõ trên Stitch screen để PO/BA/dev hình dung điểm đầu - điểm cuối từng action.
 
-**Phạm vi task**: sinh **18 màn còn lại** trên Stitch + cập nhật `cura-modern/` docs làm canonical UI source-of-truth, để toàn dự án thống nhất một bản design.
+**Phạm vi task**: sinh **18 màn còn lại** trên Stitch + cập nhật `medizen-modern/` docs làm canonical UI source-of-truth, để toàn dự án thống nhất một bản design.
 
 **Phase B (1 màn)**:
 - Dashboard Multi-role (BS + Quản trị) — case representative cho user kiêm 2 role.
@@ -52,7 +52,7 @@ Hệ thống Cura hiện đã có **14/32 màn** trên Stitch (project `55723012
 - Reports tab variants (5): Tài chính, Lâm sàng, Vận hành, Dược, BHYT
 
 Mỗi màn phải:
-- Áp dụng đúng design system "Cura Modern" (Indigo/Slate/Emerald, Plus Jakarta Sans + Inter, 12/8/6 px roundness)
+- Áp dụng đúng design system "MediZen Modern" (Indigo/Slate/Emerald, Plus Jakarta Sans + Inter, 12/8/6 px roundness)
 - Hiển thị **tab strip đầy đủ** (highlight tab đang xem, ● đã filled / ○ chưa filled)
 - Hiển thị **footer actions** với primary/secondary buttons cho từng action chính
 - Có patient banner sticky (với EMR) hoặc breadcrumb (với Settings/Reports)
@@ -96,8 +96,8 @@ Tham chiếu `TAB_MATRIX.md` §C:
 - [ ] **BHYT**: claim status + reject reason analysis + reimbursement trend
 
 ### E. Cross-cutting
-- [ ] Cập nhật `docs/design/cura-modern/README.md` checklist khi mỗi màn xong (tick từ Phase B → Phase C lần lượt)
-- [ ] Cập nhật `docs/design/cura-modern/SITEMAP.md` §6 (mapping screen ID) — thay "(Phase B/C — pending)" bằng Stitch screen ID thật
+- [ ] Cập nhật `docs/design/medizen-modern/README.md` checklist khi mỗi màn xong (tick từ Phase B → Phase C lần lượt)
+- [ ] Cập nhật `docs/design/medizen-modern/SITEMAP.md` §6 (mapping screen ID) — thay "(Phase B/C — pending)" bằng Stitch screen ID thật
 - [ ] Cập nhật README §🗂️ "14 màn đã sinh" → "32 màn"
 - [ ] Mỗi màn mới đính kèm Stitch screen ID dạng 32-char hex; dán vào doc tương ứng (TAB_MATRIX cho tab variants, MULTI_ROLE_UX cho dashboard multi-role)
 - [ ] Action flows trong `ACTION_FLOWS.md` được cross-reference với Stitch screen ID (mỗi step trỏ đúng màn)
@@ -106,8 +106,8 @@ Tham chiếu `TAB_MATRIX.md` §C:
 ## Acceptance Criteria
 
 - [ ] Stitch project `5572301228665717471` có **32 unique screen** (loại 1 duplicate "Kho thuốc V2" `283a28fda61c4785973ee139f668a00b`)
-- [ ] `cura-modern/SITEMAP.md` §6 không còn dòng nào ghi "(Phase B/C — pending)" — toàn bộ thay bằng screen ID
-- [ ] `cura-modern/README.md` §🗂️ list đủ 32 màn theo nhóm; không còn section "⏳ Còn lại sẽ sinh"
+- [ ] `medizen-modern/SITEMAP.md` §6 không còn dòng nào ghi "(Phase B/C — pending)" — toàn bộ thay bằng screen ID
+- [ ] `medizen-modern/README.md` §🗂️ list đủ 32 màn theo nhóm; không còn section "⏳ Còn lại sẽ sinh"
 - [ ] `TAB_MATRIX.md` mỗi tab có 1 dòng "Stitch screen: `<id>`" ở đầu mục
 - [ ] `MULTI_ROLE_UX.md` §4 có "Stitch screen: `<id>`" cho Dashboard Multi-role
 - [ ] 5 tab EMR đều có patient banner sticky giống tab Chẩn đoán hiện hữu (consistency check)
@@ -120,22 +120,22 @@ Tham chiếu `TAB_MATRIX.md` §C:
 ## Progress Checklist
 
 - [x] Implementation (sinh Stitch + cập nhật docs) — 18/18 màn ✓
-- [x] Code Review (Cura Modern design QA — consistency tokens + tab pattern) — auto QA via design system asset `12787757101558093729`
+- [x] Code Review (MediZen Modern design QA — consistency tokens + tab pattern) — auto QA via design system asset `12787757101558093729`
 - [x] Testing (UX walkthrough 7 flow trong `ACTION_FLOWS.md` end-to-end trên Stitch) — manual review, see deliveries
 - [x] Documentation (README + SITEMAP + TAB_MATRIX + MULTI_ROLE_UX cập nhật) — toàn bộ 4 file đã đính screen ID
 
 ## Related Files
 
 - **Input Specs**:
-  - `docs/design/cura-modern/README.md` — index design
-  - `docs/design/cura-modern/SITEMAP.md` — sitemap + ma trận quyền + flow
-  - `docs/design/cura-modern/MULTI_ROLE_UX.md` — pattern multi-role
-  - `docs/design/cura-modern/TAB_MATRIX.md` — spec từng tab (EMR 6 / Settings 8 / Reports 6)
-  - `docs/design/cura-modern/ACTION_FLOWS.md` — 7 flow nghiệp vụ
+  - `docs/design/medizen-modern/README.md` — index design
+  - `docs/design/medizen-modern/SITEMAP.md` — sitemap + ma trận quyền + flow
+  - `docs/design/medizen-modern/MULTI_ROLE_UX.md` — pattern multi-role
+  - `docs/design/medizen-modern/TAB_MATRIX.md` — spec từng tab (EMR 6 / Settings 8 / Reports 6)
+  - `docs/design/medizen-modern/ACTION_FLOWS.md` — 7 flow nghiệp vụ
 - **Stitch project**: https://stitch.withgoogle.com/projects/5572301228665717471
 - **Tests**: `docs/tasks/TASK-027/deliveries/test-cases/` — UX walkthrough script
 - **Handoffs**: `docs/tasks/TASK-027/handoff/`
-- **Final Specs**: `docs/tasks/TASK-027/deliveries/final-specs/` — bản update của 4 file `cura-modern/*.md` sau khi xong
+- **Final Specs**: `docs/tasks/TASK-027/deliveries/final-specs/` — bản update của 4 file `medizen-modern/*.md` sau khi xong
 
 ## Timestamps
 

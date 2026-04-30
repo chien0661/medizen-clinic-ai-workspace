@@ -1,4 +1,4 @@
-# Cura — Action Flows chi tiết
+# MediZen — Action Flows chi tiết
 
 **Cập nhật**: 2026-04-30
 
