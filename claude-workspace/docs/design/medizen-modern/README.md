@@ -17,6 +17,7 @@ Tài liệu design hoàn chỉnh cho phiên bản **"MediZen — Modern"** — m
 | [MULTI_ROLE_UX.md](MULTI_ROLE_UX.md) | UX pattern cho user kiêm 2-3 vai trò (merge sidebar) |
 | [ACTION_FLOWS.md](ACTION_FLOWS.md) | 7 flow nghiệp vụ chi tiết step-by-step (tiếp nhận, đo vital, EMR, cấp thuốc, ...) |
 | [TAB_MATRIX.md](TAB_MATRIX.md) | Spec tất cả tab của EMR (6) + Cấu hình (8) + Báo cáo (6) — input cho generation Phase C |
+| [LANDING_PAGE.md](LANDING_PAGE.md) | **Thiết kế landing page** — 12 sections (hero · problem · solution · comparison · workflow · pricing · testimonials · FAQ · signup form · footer) + animations + form spec + SEO + A/B test ideas |
 
 ---
 
