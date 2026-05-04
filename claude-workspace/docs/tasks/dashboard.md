@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-01 (auto-generated)
+**Last Updated**: 2026-05-04 21:05 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,23 +12,28 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 31 |
-| **IN_PROGRESS** | 1 |
+| **Total Tasks** | 47 |
+| **IN_PROGRESS** | 1 (TASK-032 — Phase C done, Phase D paused for user decision) |
+| **IN_REVIEW** | 1 (TASK-047) |
+| **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 0 |
-| **DONE** | 30 |
+| **TODO** | 2 (TASK-029, TASK-041) |
+| **DONE** | 44 |
 
 ### By Priority
 
-- **High**: 22 tasks
-- **Medium**: 8 tasks
+- **High**: 31 tasks
+- **Medium**: 10 tasks
+- **Low**: 2 (TASK-039b)
+- **Other**: 1
 
 ### By Agent
 
+- **Code Review Agent**: 1 task (TASK-039b)
 - **Documentation Agent**: 1 tasks (TASK-016)
 - **None**: 4 tasks (TASK-009, TASK-018, TASK-020, TASK-025)
 - **Unassigned**: 2 tasks (TASK-012, TASK-019)
-- **chiendv**: 9 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029)
+- **chiendv**: 20 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-032, TASK-033..042)
 
 ---
 
@@ -36,10 +41,38 @@
 
 ### 🔴 High Priority
 
+#### IN_REVIEW
+
+- **[TASK-047](tasks/TASK-047/task.md)** - In phiếu khám + in hóa đơn (FE) — native browser print, A5/A4
+  - **Assigned**: code-review-agent
+  - **Branch**: `feature/TASK-047-print-receipts` (clinic-cms-web, commit 391c09b)
+  - **Note**: PrintableInvoice (A4) + PrintablePrescription (A5) + PrintPrescriptionModal implemented. 21 new unit tests. 799/799 tests pass.
+
+
 #### IN_PROGRESS
+
+- **[TASK-032](tasks/TASK-032/task.md)** - Audit FE + BE theo MediZen Modern design + function list v1.3 — gap analysis + tự tạo sub-tasks + tự implement
+  - **Assigned**: chiendv
+  - **Note**: Phase A/B/C COMPLETE. Audit report → `docs/tasks/TASK-032/deliveries/final-specs/audit-report.md`. 10 sub-tasks created (TASK-033..042). Phase D PAUSED — user decision needed on execution strategy + KMS choice + branch consolidation strategy. See audit-report.md "Recommendation to user" section.
+
+#### TODO
 
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
   - **Assigned**: chiendv
+
+- **[TASK-041](tasks/TASK-041/task.md)** - BE branch consolidation — merge medicines/inventory/billing/notifications/prescriptions/reports/pharmacy from feature branches
+  - **Assigned**: chiendv · **Effort**: Medium (2-5d, revised from "Very Large" after verification)
+  - **Note**: Modules exist on `feature/task-010..015` branches. NOT a fresh build. See TASK-041 task.md correction.
+  - **Blocked by**: TASK-033 (decide refactor-before-merge vs merge-then-refactor)
+
+### 🟡 Medium Priority
+
+#### TODO
+
+- **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
+  - **Assigned**: chiendv · **Effort**: Large (5-7d)
+  - **Blocked by**: TASK-039, TASK-033, TASK-041, TASK-034
+
 
 
 ---
@@ -47,6 +80,62 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-051](tasks/TASK-051/task.md)** - Cập nhật UI — tăng cỡ chữ, mặc định tiếng Việt, template in FE — DONE 2026-05-04
+  - **Completed**: 2026-05-04
+  - **Details**: i18n default Vietnamese (detection.order=['localStorage'] only, fallbackLng='vi'). Typography: 7 pages nudged (text-xs→text-sm, text-sm→text-base on body content). 4 print templates: VisitSlip A5 (QueueBoard), LabOrder A5 (PatientDetail), PaymentReceipt POS 80mm (InvoiceDetail), MedicalSummary A4 (PatientDetail). 838/838 tests pass (830 original +31 dev +8 test-agent i18n regression). 0 new lint/TS errors. Functional design: `docs/tasks/TASK-051/deliveries/final-specs/ui-typography-i18n-print-functional-design.md`
+
+- **[TASK-045](tasks/TASK-045/task.md)** - VSS BHYT integration — DONE 2026-05-01; 4 endpoints + 2 FE pages + mock client + 37 BE (22 unit + 15 integration) + 581 FE tests; 4 merge-time stubs documented
+  - **Completed**: 2026-05-01
+  - **Details**: Migration 0029 (vss_sync_log, RLS, index); VssClient mock adapter; 4 endpoints (eligibility-check/submit-claim/sync-log/status); VssIntegrationConfigPage + VssSyncLogPage; 2 tests added per review F3 (vss-failure → FAILED, RLS cross-tenant). Cross-task coord: TASK-034 (stubs replace), TASK-037 P2 (PII encrypt), TASK-038 (migration restamp), TASK-035 (sidebar nav).
+
+- **[TASK-038](tasks/TASK-038/task.md)** - Security NFR rest — DONE 2026-05-01; Q.1 + B.1-B.4 + B.5-B.7 + B.8-B.14 + B.15-B.17 all closed
+  - **Completed**: 2026-05-01
+  - **Details**: PII lifecycle erasure (B.15-B.17) — 31/31 tests pass; 2-step token-bound erasure + daily pii_archive cron + cascade soft-delete + audit preserved; 3 post-review fixes (last_accessed_at update, admin-binding token check, audit_actions constants + json.dumps). All sub-scopes complete: JWT validator, password history, anomaly cron, MFA/TOTP, login fingerprint, PII lifecycle.
+
+- **[TASK-039b](tasks/TASK-039b/task.md)** - MediZen component restyle — DONE 2026-05-01; 11 components + 670 tests; backward-compat preserved post-fix
+  - **Completed**: 2026-05-01
+  - **Details**: Button/Input/Select/Textarea/Card/Dialog/Toast/Badge/Tooltip/Popover/Tabs/Avatar restyled with MediZen variants. 9 new components, 2 updated. 123 new tests (670 total). Dialog padding regression fixed (p-6 restored). Input conditional wrapping. Popover a11y fixed (role=region + aria-label). Functional design: `docs/tasks/TASK-039b/deliveries/final-specs/component-restyle-functional-design.md`
+
+- **[TASK-046](tasks/TASK-046/task.md)** - Bảo mật settings — DONE 2026-05-01; 4 panels + TenantErasureModal + 31 tests + 7 mocks documented
+  - **Completed**: 2026-05-01
+  - **Details**: MFA, Encryption, Login History, Password panels; 2-step crypto-shred confirmation; 55 i18n keys (vi/en); 578 total tests; route guard + DialogDescription a11y fix applied; 7 upstream-task mocks documented
+
+- **[TASK-044](tasks/TASK-044/task.md)** - 4 role dashboards — DONE 2026-05-01; 572 tests; mock data placeholders; 4 new perms documented for BE seed
+  - **Completed**: 2026-05-01
+  - **Details**: ReceptionDashboardPage + NurseDashboardPage + PharmacyDashboardPage + AdminDashboardPage; 25 task tests (572 total); permission renamed to 2-level convention (reception.dashboard / nurse.dashboard / pharmacy.dashboard / admin.dashboard); A11y fix kpi-low-stock → button; merge-time TODOs: BE seed + Sidebar nav entries
+
+- **[TASK-035](tasks/TASK-035/task.md)** - Multi-role merge sidebar UX (RBAC-015..018) + applied_role audit + SoD framework
+  - **Completed**: 2026-05-01
+  - **Details**: Multi-role sidebar grouping + applied_role audit + SoD framework; 14 BE tests (8 SoD unit + 3 audit unit + 3 SoD integration) + 592 FE tests (6 Sidebar-multi-role + 6 Topbar role chip + applied-role context); F.5/F.6/F.7 applied_role context wired post-fix; 2/3 SoD endpoints applied (invoice payment + pharmacy dispense); TASK-037 hash-chain merge coordination tracked
+
+- **[TASK-036](tasks/TASK-036/task.md)** - Cmd+K Quick Search (NAV-001..008) — BE search API + FE palette + breadcrumb + global shortcuts
+  - **Completed**: 2026-05-01
+  - **Details**: 6 search modes (bn/thuoc/inv/rx/lk/all) + 4 shortcut keys + breadcrumb auto-gen + cheatsheet; 646 FE tests (67 task-specific) + 22 BE tests; 4 fixes (Breadcrumb Link, rate limit 30/min, exception handling, ShortcutCheatsheet); migration 0027 with 5 GIN trigram indexes + encryption merge coordination flagged
+
+- **[TASK-037](tasks/TASK-037/task.md)** - Column encryption (envelope/DEK/KEK) + hash chain audit log (NFR-024/025/031)
+  - **Completed**: 2026-05-01
+  - **Details**: TASK-037 Phase 1 + Phase 2 DONE; 50/50 tests (20 P1 + 30 P2). Phase 1: hash chain audit with pg_advisory_xact_lock + chain_seq-inside-lock. Phase 2: 19 PII columns encrypted (Patient 11 + User 4 + Clinic 4) with per-tenant DEK + master KEK; Vault stub (prod) / pgcrypto (dev); crypto-shred 2-step (token + HMAC); with_tenant_context helper for Arq workers; audit redaction strategy (no audit-DEK YAGNI); 4 merge-time coordination items (bhyt_facility_code/password_rotation/SOAP-encryption/search-redesign) documented
+
+- **[TASK-034](tasks/TASK-034/task.md)** - BHYT toggle wiring (CFG-017) — feature flag primitive + 11 UI gates + BhytConfigPage + BhytReportPage
+  - **Completed**: 2026-05-01
+  - **Details**: TASK-034 BHYT toggle — DONE 2026-05-01; 10/11 UI gates + feature flag primitive + 33 BE + 547 FE tests; Gate #7 LabOrdersTab deferred (TASK-033/041 dep); 4 i18n parity keys added post-review
+
+- **[TASK-042](tasks/TASK-042/task.md)** - EMR 8-tab refactor + RX-016 stock chip 3-state + lot tooltip + substitute suggest
+  - **Completed**: 2026-05-01
+  - **Details**: 6 base tabs + 1 backward-compat; 59 task-specific + 588 BE unit tests PASS; 568 FE tests PASS, 0 TS, 0 lint; RX-016 3-state chip (emerald/amber/red) + substitute drawer; ICD-10: 225 seeds (14 categories); F1 Wave 3-A encryption, F2 audit log, F3 lot tooltip data path flagged for follow-up
+
+- **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
+  - **Completed**: 2026-05-01
+  - **Details**: 7/8 màn DONE (ProfilePage multi-clinic tab deferred to TASK-033 merge); 566/566 tests pass, 0 TS, 0 lint; ForgotPasswordPage 2-state, PatientDetailPage 3-col + 4 tabs wired, QueueBoard 5-col Kanban, ARAgingReport buckets + BarChart, Notifications bulk+pagination+filter, Stocktake 3-step wizard, ExpiryProcessing 30/60/90 + a11y
+
+- **[TASK-033](tasks/TASK-033/task.md)** - Multi-clinic per account (AUTH-018..022) — schema + auth flow + JWT shape + RBAC cache
+  - **Completed**: 2026-05-01
+  - **Details**: 27 BE unit + 31 auth integration + 568 FE tests all PASS; migration `0021_multi_clinic_account` with email-dup pre-check; JWT `active_clinic_id` claims; ClinicSwitcher + ClinicSelectorPage + ProfilePage "Phòng khám của tôi"; ~50 call sites updated; 2 fixes (price-override clinic_id threading, 0-clinic guard, integration test clinic_code cleanup)
+
+- **[TASK-039](tasks/TASK-039/task.md)** - MediZen Modern design system port — Tailwind tokens + Indigo brand + fonts
+  - **Completed**: 2026-05-01
+  - **Details**: 64 files, 191 codemod replacements, 547/547 tests pass, 0 brand-* references, unblocks TASK-034/035/036/040/042
 
 - **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
   - **Completed**: 2026-05-01
