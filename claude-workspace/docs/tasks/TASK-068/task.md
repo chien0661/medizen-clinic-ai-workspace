@@ -2,7 +2,7 @@
 id: TASK-068
 type: feature
 title: Theme Selection & Customization System
-status: IN_REVIEW
+status: DONE
 priority: Medium
 assigned: Unassigned
 created: 2026-05-31
@@ -75,10 +75,10 @@ Thêm tính năng chọn và tùy chỉnh theme cho hệ thống Clinic CMS. Ng�
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -93,6 +93,7 @@ Thêm tính năng chọn và tùy chỉnh theme cho hệ thống Clinic CMS. Ng�
 ## Timestamps
 
 - **Created**: 2026-05-31
+- **Completed**: 2026-05-31
 
 ## Notes
 

@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-31 22:22 (auto-generated)
+**Last Updated**: 2026-05-31 23:05 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,12 +13,12 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 54 |
-| **IN_PROGRESS** | 3 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review; TASK-068 — 3 bugs from testing) |
+| **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-066, TASK-067) |
-| **DONE** | 46 |
+| **DONE** | 47 |
 
 ### By Priority
 
@@ -59,9 +59,6 @@
   - **Assigned**: Code Implementation Agent · **Type**: feature (audit) · **Started**: 2026-05-30
   - **Note**: Audit/phân tích (không build mới). Deliverables: `deliveries/final-specs/ui-ux-audit.md` (đối chiếu design MediZen Modern/Pro) + `functional-audit.md` (FE↔BE). Target: FE `../clinic-cms-web` (main), BE `../clinic-cms-merge` (audit trên state hiện tại, nhánh `fix/TASK-052-*`).
 
-- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes + live preview + color picker
-  - **Assigned**: Implementation Agent · **Type**: feature · **Priority**: Medium · **Branch**: `feature/TASK-068-theme-system`
-  - **Note**: Testing FAILED 2026-05-31. 3 bugs — BUG-001 CRITICAL (`@import` after `@tailwind` → CSS vars not loaded), BUG-002 CRITICAL (Sidebar/Button still hardcoded `bg-slate-900`/`bg-indigo-500`), BUG-003 MAJOR (custom color not persisted to localStorage). Unit tests 914/914 pass. See `handoff/test-to-implementation.md` + `bugs/`.
 
 
 #### TODO
@@ -101,6 +98,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes + live preview + color picker — DONE 2026-05-31
+  - **Completed**: 2026-05-31
+  - **Details**: 6 preset themes (Medical Blue, Emerald Health, Soft Lavender, Warm Coral, Midnight Dark, Slate Professional) + live preview + custom color picker. CSS custom properties, Zustand store, localStorage persistence, FOUC prevention. Round-2 testing: 914/914 unit tests + 7/7 E2E tests PASS. Functional design: `docs/tasks/TASK-068/deliveries/final-specs/theme-system-functional-design.md`
 
 - **[TASK-051](tasks/TASK-051/task.md)** - Cập nhật UI — tăng cỡ chữ, mặc định tiếng Việt, template in FE — DONE 2026-05-04
   - **Completed**: 2026-05-04
