@@ -2,9 +2,9 @@
 id: TASK-065
 type: bug
 title: Fix BUG-003 (GET /visits/{id}/prescriptions → 405) + BE VSS config endpoint
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Implementation Agent
+assigned: Documentation Agent
 created: 2026-05-31
 updated: 2026-05-31
 branch: ""
@@ -72,7 +72,7 @@ Nhưng `GET /api/v1/prescriptions?visit_id=` cũng không tồn tại trên BE (
 
 - [x] Implementation
 - [x] Code Review
-- [ ] Testing
+- [x] Testing
 - [ ] Documentation
 
 ## Related Files
@@ -97,6 +97,7 @@ Nhưng `GET /api/v1/prescriptions?visit_id=` cũng không tồn tại trên BE (
 - **Implementation Completed**: 2026-05-31
 - **Review Completed**: 2026-05-31 (APPROVED → IN_TESTING)
 - **Testing Failed**: 2026-05-31 (IN_TESTING → IN_PROGRESS — BUG-001: FE test uses api.patch, impl uses api.put)
+- **Testing Completed**: 2026-05-31 (Round 2 — 970/970 tests PASSED → DOCUMENTING)
 
 ## Blockers
 
