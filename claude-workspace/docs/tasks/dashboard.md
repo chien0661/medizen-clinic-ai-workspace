@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-04 21:05 (auto-generated)
+**Last Updated**: 2026-05-31 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,18 +12,18 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 47 |
-| **IN_PROGRESS** | 1 (TASK-032 — Phase C done, Phase D paused for user decision) |
+| **Total Tasks** | 54 |
+| **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 2 (TASK-029, TASK-041) |
-| **DONE** | 44 |
+| **TODO** | 7 (TASK-029, TASK-041, TASK-052, TASK-065, TASK-066, TASK-067, TASK-068) |
+| **DONE** | 45 |
 
 ### By Priority
 
 - **High**: 31 tasks
-- **Medium**: 10 tasks
+- **Medium**: 11 tasks
 - **Low**: 2 (TASK-039b)
 - **Other**: 1
 
@@ -55,6 +55,11 @@
   - **Assigned**: chiendv
   - **Note**: Phase A/B/C COMPLETE. Audit report → `docs/tasks/TASK-032/deliveries/final-specs/audit-report.md`. 10 sub-tasks created (TASK-033..042). Phase D PAUSED — user decision needed on execution strategy + KMS choice + branch consolidation strategy. See audit-report.md "Recommendation to user" section.
 
+- **[TASK-053](tasks/TASK-053/task.md)** - Khởi động FE + BE(merge), phân tích FE đã đáp ứng UI/UX chưa & rà soát toàn bộ chức năng
+  - **Assigned**: Code Implementation Agent · **Type**: feature (audit) · **Started**: 2026-05-30
+  - **Note**: Audit/phân tích (không build mới). Deliverables: `deliveries/final-specs/ui-ux-audit.md` (đối chiếu design MediZen Modern/Pro) + `functional-audit.md` (FE↔BE). Target: FE `../clinic-cms-web` (main), BE `../clinic-cms-merge` (audit trên state hiện tại, nhánh `fix/TASK-052-*`).
+
+
 #### TODO
 
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
@@ -65,6 +70,18 @@
   - **Note**: Modules exist on `feature/task-010..015` branches. NOT a fresh build. See TASK-041 task.md correction.
   - **Blocked by**: TASK-033 (decide refactor-before-merge vs merge-then-refactor)
 
+- **[TASK-052](tasks/TASK-052/task.md)** - Tài liệu API mapping theo function list (461 fn × 26 module) + audit gap test toàn bộ BE + fix bug
+  - **Assigned**: chiendv · **Type**: feature · **Branch**: `fix/TASK-052-test-encryption-fixtures`
+  - **Note**: BE test sweep + bugfix DONE (1498 passed / 26 failed→parked). **API mapping DONE + source-verified (v2) 2026-05-30** → `deliveries/api-specs/api-mapping.md`: 461 fn ↔ 207 endpoint = **200 MAPPED · 24 DRIFT · 85 GAP · 152 N/A** (đã đọc source xác minh từng DRIFT/GAP, file:line). Còn lại: Review → Test → Docs. Scope guard: 85 GAP là backlog, KHÔNG build trong task này.
+
+- **[TASK-065](tasks/TASK-065/task.md)** - Fix BUG-003 (GET /visits/{id}/prescriptions → 405) + BE VSS config endpoint
+  - **Assigned**: Unassigned · **Type**: bug · **Priority**: High
+  - **Source**: TASK-053 §3.5/§3.6 — tab Kê đơn EMR empty state sai + VssIntegrationConfigPage save không có API
+
+- **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
+  - **Assigned**: Unassigned · **Type**: feature · **Priority**: High
+  - **Source**: TASK-053 runtime audit — AR aging hiện **30.1M công nợ bịa** (MOCK_DATA khi BE 404, ảnh 25)
+
 ### 🟡 Medium Priority
 
 #### TODO
@@ -72,6 +89,14 @@
 - **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
   - **Assigned**: chiendv · **Effort**: Large (5-7d)
   - **Blocked by**: TASK-039, TASK-033, TASK-041, TASK-034
+
+- **[TASK-067](tasks/TASK-067/task.md)** - FE UI routes cleanup — Security route, BHYT config route, Reports hub, Profile stubs, useSync browser UX
+  - **Assigned**: Unassigned · **Type**: feature · **Priority**: Medium
+  - **Source**: TASK-053 ui-ux-audit gap G1/G2/G5/G8/G9 + runtime useSync noise
+
+- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes hiện đại + live preview + color picker + dark mode
+  - **Assigned**: Unassigned · **Type**: feature · **Priority**: Medium
+  - **Note**: CSS variables approach; 6 presets (Medical Blue, Emerald Health, Soft Lavender, Warm Coral, Midnight Dark, Slate Professional); persist per-user; WCAG AA contrast.
 
 
 

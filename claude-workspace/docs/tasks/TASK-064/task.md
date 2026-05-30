@@ -2,9 +2,9 @@
 id: TASK-064
 type: feature
 title: BE inventory completeness — stocktake submit + batches/dispose endpoints + gỡ mock-success FE
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Implementation Agent
+assigned: Documentation Agent
 created: 2026-05-31
 updated: 2026-05-31
 branch: ""
@@ -78,6 +78,7 @@ Nhiệm vụ: (a) implement 2 endpoint BE, (b) gỡ mock-success FE để lỗi 
 
 - **Created**: 2026-05-31
 - **Review Completed (CHANGES_REQUESTED)**: 2026-05-31 — returned to IN_PROGRESS
+- **Testing Completed**: 2026-05-31 — all 27 test scenarios passed, status → DOCUMENTING
 
 ## Notes
 
