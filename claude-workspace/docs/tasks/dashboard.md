@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-31 (auto-generated)
+**Last Updated**: 2026-05-31 22:22 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,12 +13,12 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 54 |
-| **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
+| **IN_PROGRESS** | 3 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review; TASK-068 — 3 bugs from testing) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 7 (TASK-029, TASK-041, TASK-052, TASK-065, TASK-066, TASK-067, TASK-068) |
-| **DONE** | 45 |
+| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-066, TASK-067) |
+| **DONE** | 46 |
 
 ### By Priority
 
@@ -59,6 +59,10 @@
   - **Assigned**: Code Implementation Agent · **Type**: feature (audit) · **Started**: 2026-05-30
   - **Note**: Audit/phân tích (không build mới). Deliverables: `deliveries/final-specs/ui-ux-audit.md` (đối chiếu design MediZen Modern/Pro) + `functional-audit.md` (FE↔BE). Target: FE `../clinic-cms-web` (main), BE `../clinic-cms-merge` (audit trên state hiện tại, nhánh `fix/TASK-052-*`).
 
+- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes + live preview + color picker
+  - **Assigned**: Implementation Agent · **Type**: feature · **Priority**: Medium · **Branch**: `feature/TASK-068-theme-system`
+  - **Note**: Testing FAILED 2026-05-31. 3 bugs — BUG-001 CRITICAL (`@import` after `@tailwind` → CSS vars not loaded), BUG-002 CRITICAL (Sidebar/Button still hardcoded `bg-slate-900`/`bg-indigo-500`), BUG-003 MAJOR (custom color not persisted to localStorage). Unit tests 914/914 pass. See `handoff/test-to-implementation.md` + `bugs/`.
+
 
 #### TODO
 
@@ -73,10 +77,6 @@
 - **[TASK-052](tasks/TASK-052/task.md)** - Tài liệu API mapping theo function list (461 fn × 26 module) + audit gap test toàn bộ BE + fix bug
   - **Assigned**: chiendv · **Type**: feature · **Branch**: `fix/TASK-052-test-encryption-fixtures`
   - **Note**: BE test sweep + bugfix DONE (1498 passed / 26 failed→parked). **API mapping DONE + source-verified (v2) 2026-05-30** → `deliveries/api-specs/api-mapping.md`: 461 fn ↔ 207 endpoint = **200 MAPPED · 24 DRIFT · 85 GAP · 152 N/A** (đã đọc source xác minh từng DRIFT/GAP, file:line). Còn lại: Review → Test → Docs. Scope guard: 85 GAP là backlog, KHÔNG build trong task này.
-
-- **[TASK-065](tasks/TASK-065/task.md)** - Fix BUG-003 (GET /visits/{id}/prescriptions → 405) + BE VSS config endpoint
-  - **Assigned**: Unassigned · **Type**: bug · **Priority**: High
-  - **Source**: TASK-053 §3.5/§3.6 — tab Kê đơn EMR empty state sai + VssIntegrationConfigPage save không có API
 
 - **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
   - **Assigned**: Unassigned · **Type**: feature · **Priority**: High
@@ -93,10 +93,6 @@
 - **[TASK-067](tasks/TASK-067/task.md)** - FE UI routes cleanup — Security route, BHYT config route, Reports hub, Profile stubs, useSync browser UX
   - **Assigned**: Unassigned · **Type**: feature · **Priority**: Medium
   - **Source**: TASK-053 ui-ux-audit gap G1/G2/G5/G8/G9 + runtime useSync noise
-
-- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes hiện đại + live preview + color picker + dark mode
-  - **Assigned**: Unassigned · **Type**: feature · **Priority**: Medium
-  - **Note**: CSS variables approach; 6 presets (Medical Blue, Emerald Health, Soft Lavender, Warm Coral, Midnight Dark, Slate Professional); persist per-user; WCAG AA contrast.
 
 
 
