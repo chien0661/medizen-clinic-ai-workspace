@@ -2,9 +2,9 @@
 id: TASK-066
 type: feature
 title: BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Review Agent
+assigned: Documentation Agent
 created: 2026-05-31
 updated: 2026-05-31
 branch: ""
@@ -87,6 +87,10 @@ Tương tự: `DoctorDashboardPage.tsx:122` có "// Mock weekly data (replace wi
 - **Implementation Completed**: 2026-05-31
 - **Review (CHANGES_REQUESTED, back to IN_PROGRESS)**: 2026-05-31
 - **Fix Applied, Re-submitted for Review**: 2026-05-31
+- **Review Round 2 APPROVED → IN_TESTING**: 2026-05-31
+- **Testing FAILED → IN_PROGRESS**: 2026-05-31 (2 stale FE unit tests — BUG-066-001)
+- **Fix Applied (BUG-066-001), Re-submitted for Review**: 2026-05-31
+- **Testing Completed (Round 2 PASSED) → DOCUMENTING**: 2026-05-31
 
 ## Notes
 
