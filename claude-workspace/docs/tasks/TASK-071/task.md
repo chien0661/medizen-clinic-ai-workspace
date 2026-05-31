@@ -2,11 +2,11 @@
 id: TASK-071
 type: feature
 title: Super Admin — Thống kê phòng khám theo thời gian
-status: DOCUMENTING
+status: DONE
 priority: Medium
 assigned: Unassigned
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-06-01
 review_round: 2
 branch: "feature/TASK-071-superadmin-analytics"
 jira_key: ""
@@ -94,10 +94,10 @@ Bổ sung tính năng thống kê chi tiết cho Super Admin — xem chỉ số 
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -112,6 +112,7 @@ Bổ sung tính năng thống kê chi tiết cho Super Admin — xem chỉ số 
 ## Timestamps
 
 - **Created**: 2026-05-31
+- **Completed**: 2026-06-01
 
 ## Notes
 

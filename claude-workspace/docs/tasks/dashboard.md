@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-31 17:40 (auto-generated)
+**Last Updated**: 2026-06-01 00:15 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,13 +12,13 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 56 |
+| **Total Tasks** | 57 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 4 (TASK-029, TASK-041, TASK-052, TASK-069) |
-| **DONE** | 50 |
+| **DONE** | 51 |
 
 ### By Priority
 
@@ -83,6 +83,14 @@
   - **Assigned**: chiendv · **Effort**: Large (5-7d)
   - **Blocked by**: TASK-039, TASK-033, TASK-041, TASK-034
 
+#### IN_TESTING
+
+*(none)*
+
+#### DOCUMENTING
+
+*(none)*
+
 
 
 
@@ -91,6 +99,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-071](tasks/TASK-071/task.md)** - Super Admin Analytics — Thống kê phòng khám theo thời gian — DONE 2026-06-01
+  - **Completed**: 2026-06-01
+  - **Details**: 3 APIs (overview, timeseries, clinics) + FE page `/superadmin/analytics` + filter bar + stats cards (7 metrics) + line chart + sortable clinic comparison table. BE 38/38 tests (23 unit + 15 integration), FE 39/39 TASK-071 tests, 6/6 E2E (TC-001–TC-006) all PASS. Route guard verified (403 non-superuser). Functional design: `docs/tasks/TASK-071/deliveries/final-specs/analytics-functional-design.md`. API reference: `docs/tasks/TASK-071/deliveries/api-specs/analytics-api-reference.md`
 
 - **[TASK-070](tasks/TASK-070/task.md)** - FE Super Admin — Quản lý toàn hệ thống (clinics + accounts) — DONE 2026-05-31
   - **Completed**: 2026-05-31
