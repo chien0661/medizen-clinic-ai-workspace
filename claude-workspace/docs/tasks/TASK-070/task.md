@@ -2,7 +2,7 @@
 id: TASK-070
 type: feature
 title: FE Super Admin — Quản lý toàn hệ thống (clinics + accounts)
-status: DOCUMENTING
+status: DONE
 priority: High
 assigned: Documentation Agent
 created: 2026-05-31
@@ -107,7 +107,7 @@ Base URL: `/api/v1/superadmin/` — require `is_superuser: true` trong JWT
 - [x] Implementation
 - [x] Code Review — APPROVED 2026-05-31 round 2 (commit 721433b, see handoff/review-to-test.md): all 3 round-1 blockers + nits 1/2/3 resolved (FE types aligned to real BE shapes, Sidebar clean, mocks fixed). 22/22 tests pass.
 - [x] Testing — PASS 2026-05-31 (22/22 unit, TC-001/002/003/004 all PASS, see deliveries/test-reports/test-report.md)
-- [ ] Documentation
+- [x] Documentation — DONE 2026-05-31 (functional design + API reference + commit)
 
 ## Related Files
 
@@ -123,6 +123,7 @@ Base URL: `/api/v1/superadmin/` — require `is_superuser: true` trong JWT
 ## Timestamps
 
 - **Created**: 2026-05-31
+- **Completed**: 2026-05-31
 
 ## Notes
 
