@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-31 07:36 (auto-generated)
+**Last Updated**: 2026-05-31 09:30 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -17,8 +17,8 @@
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 4 (TASK-029, TASK-041, TASK-052, TASK-067) |
-| **DONE** | 48 |
+| **TODO** | 3 (TASK-029, TASK-041, TASK-052) |
+| **DONE** | 49 |
 
 ### By Priority
 
@@ -84,9 +84,6 @@
   - **Assigned**: chiendv · **Effort**: Large (5-7d)
   - **Blocked by**: TASK-039, TASK-033, TASK-041, TASK-034
 
-- **[TASK-067](tasks/TASK-067/task.md)** - FE UI routes cleanup — Security route, BHYT config route, Reports hub, Profile stubs, useSync browser UX
-  - **Assigned**: Unassigned · **Type**: feature · **Priority**: Medium
-  - **Source**: TASK-053 ui-ux-audit gap G1/G2/G5/G8/G9 + runtime useSync noise
 
 
 
@@ -246,6 +243,10 @@
 
 - **[TASK-028](tasks/TASK-028/task.md)** - Landing Page MediZen — Stitch design (project mới) + implementation
   - **Completed**: 2026-04-30
+
+- **[TASK-067](tasks/TASK-067/task.md)** - FE UI routes cleanup — Security route, BHYT config route, Reports hub, Profile stubs, useSync browser UX — DONE 2026-05-31
+  - **Completed**: 2026-05-31
+  - **Details**: 6 FE route changes: `/admin/security` (SecuritySettingsPage), `/admin/bhyt` (BhytConfigPage), `/reports` hub with tab nav + nested routes, Profile "info"/"notifications" tabs with read-only display + "coming soon" badges, `/settings` → `/admin/settings` redirect, `useSync` browser guard (skip Tauri sync when `window.__TAURI__` absent). All 930 unit tests + 8 E2E tests PASS. Functional design: `docs/tasks/TASK-067/deliveries/final-specs/fe-routes-cleanup-functional-design.md`
 
 - **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
   - **Completed**: 2026-05-31
