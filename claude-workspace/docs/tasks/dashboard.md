@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-05-31 23:05 (auto-generated)
+**Last Updated**: 2026-05-31 07:36 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -17,8 +17,8 @@
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-066, TASK-067) |
-| **DONE** | 47 |
+| **TODO** | 4 (TASK-029, TASK-041, TASK-052, TASK-067) |
+| **DONE** | 48 |
 
 ### By Priority
 
@@ -61,6 +61,7 @@
 
 
 
+
 #### TODO
 
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
@@ -74,10 +75,6 @@
 - **[TASK-052](tasks/TASK-052/task.md)** - Tài liệu API mapping theo function list (461 fn × 26 module) + audit gap test toàn bộ BE + fix bug
   - **Assigned**: chiendv · **Type**: feature · **Branch**: `fix/TASK-052-test-encryption-fixtures`
   - **Note**: BE test sweep + bugfix DONE (1498 passed / 26 failed→parked). **API mapping DONE + source-verified (v2) 2026-05-30** → `deliveries/api-specs/api-mapping.md`: 461 fn ↔ 207 endpoint = **200 MAPPED · 24 DRIFT · 85 GAP · 152 N/A** (đã đọc source xác minh từng DRIFT/GAP, file:line). Còn lại: Review → Test → Docs. Scope guard: 85 GAP là backlog, KHÔNG build trong task này.
-
-- **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
-  - **Assigned**: Unassigned · **Type**: feature · **Priority**: High
-  - **Source**: TASK-053 runtime audit — AR aging hiện **30.1M công nợ bịa** (MOCK_DATA khi BE 404, ảnh 25)
 
 ### 🟡 Medium Priority
 
@@ -250,6 +247,9 @@
 - **[TASK-028](tasks/TASK-028/task.md)** - Landing Page MediZen — Stitch design (project mới) + implementation
   - **Completed**: 2026-04-30
 
+- **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
+  - **Completed**: 2026-05-31
+  - **Details**: 3 endpoints (GET /reports/ar-aging + export + doctor-weekly), MOCK_DATA removed from FE, 29 BE integration tests + 914 FE unit tests + 4 E2E tests all PASS. Functional design + API specs documented. BUG-066-001 resolved (stale unit test updates).
 
 ---
 
