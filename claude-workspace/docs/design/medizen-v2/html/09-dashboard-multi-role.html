@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 — Dashboard Tổng quan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     DESIGN SYSTEM TOKENS
+  ============================================= */
+  :root {
+    --color-primary:        #4F46E5;
+    --color-primary-light:  #EEF2FF;
+    --color-primary-hover:  #4338CA;
+    --color-secondary:      #7C3AED;
+    --color-secondary-light:#F5F3FF;
+    --color-accent:         #EC4899;
+    --color-accent-light:   #FDF2F8;
+    --color-emerald:        #059669;
+    --color-emerald-light:  #ECFDF5;
+    --color-amber:          #D97706;
+    --color-amber-light:    #FFFBEB;
+    --color-rose:           #E11D48;
+    --color-rose-light:     #FFF1F2;
+    --color-sky:            #0284C7;
+    --color-sky-light:      #F0F9FF;
+
+    --bg:                   #F5F3FF;
+    --surface:              #FFFFFF;
+    --border:               #E8E4F3;
+    --border-strong:        #D1C9EE;
+
+    --text-primary:         #1E1B4B;
+    --text-secondary:       #4B5563;
+    --text-muted:           #9CA3AF;
+    --text-on-dark:         #FFFFFF;
+
+    --sidebar-bg:           #1E1B4B;
+    --sidebar-hover:        rgba(255,255,255,0.08);
+    --sidebar-active:       rgba(79,70,229,0.35);
+    --sidebar-text:         rgba(255,255,255,0.75);
+    --sidebar-active-text:  #FFFFFF;
+
+    --radius-sm:  6px;
+    --radius-md:  12px;
+    --radius-lg:  16px;
+    --radius-xl:  24px;
+
+    --shadow-sm:  0 1px 3px rgba(79,70,229,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md:  0 4px 16px rgba(79,70,229,0.10), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg:  0 8px 32px rgba(79,70,229,0.12), 0 4px 12px rgba(0,0,0,0.06);
+
+    --font-head: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* =============================================
+     RESET & BASE
+  ============================================= */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 15px; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-primary);
+    min-width: 1920px;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+  }
+
+  /* =============================================
+     SIDEBAR
+  ============================================= */
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-logo .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-sub {
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  /* User card in sidebar */
+  .sidebar-user {
+    padding: 18px 20px;
+    margin: 16px 12px;
+    background: rgba(255,255,255,0.06);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .user-avatar {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-head);
+    color: white;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .user-info { flex: 1; min-width: 0; }
+
+  .user-name {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-role {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .user-status {
+    width: 8px; height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    border: 2px solid var(--sidebar-bg);
+    flex-shrink: 0;
+  }
+
+  /* Nav groups */
+  .nav-section { padding: 8px 12px; }
+
+  .nav-section-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 12px 4px;
+    font-family: var(--font-head);
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    margin-bottom: 2px;
+  }
+
+  .nav-item:hover { background: var(--sidebar-hover); }
+
+  .nav-item.active {
+    background: var(--sidebar-active);
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .nav-icon {
+    font-size: 1rem;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nav-label {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--sidebar-text);
+    flex: 1;
+  }
+
+  .nav-item.active .nav-label { color: var(--sidebar-active-text); font-weight: 600; }
+
+  .nav-badge {
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-family: var(--font-head);
+  }
+
+  .nav-badge.emerald { background: var(--color-emerald); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 16px 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* =============================================
+     MAIN LAYOUT
+  ============================================= */
+  .main-wrapper {
+    margin-left: 260px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* =============================================
+     TOPBAR
+  ============================================= */
+  .topbar {
+    height: 64px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .topbar-breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-family: var(--font-head);
+  }
+
+  .topbar-search {
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 8px 14px;
+    gap: 8px;
+    width: 280px;
+    transition: border-color 0.15s;
+  }
+
+  .topbar-search:hover { border-color: var(--color-primary); }
+
+  .topbar-search input {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    width: 100%;
+  }
+
+  .topbar-search input::placeholder { color: var(--text-muted); }
+
+  .topbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .topbar-btn {
+    width: 38px; height: 38px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .topbar-btn:hover { background: var(--bg); }
+
+  .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 8px; height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+
+  .topbar-divider {
+    width: 1px; height: 28px;
+    background: var(--border);
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .topbar-user:hover { background: var(--bg); }
+
+  .topbar-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.82rem;
+    font-family: var(--font-head);
+  }
+
+  .topbar-username {
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: var(--font-head);
+    color: var(--text-primary);
+  }
+
+  .topbar-role-chip {
+    font-size: 0.68rem;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-family: var(--font-head);
+  }
+
+  /* =============================================
+     PAGE CONTENT
+  ============================================= */
+  .page {
+    padding: 28px 36px 48px;
+    flex: 1;
+  }
+
+  /* =============================================
+     PAGE HEADER
+  ============================================= */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .page-title-group {}
+
+  .page-title {
+    font-family: var(--font-head);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  /* =============================================
+     ROLE SWITCHER TABS
+  ============================================= */
+  .role-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 4px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .role-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: var(--font-head);
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.18s;
+    position: relative;
+    white-space: nowrap;
+    border: none;
+    background: none;
+  }
+
+  .role-tab:hover { color: var(--text-secondary); background: var(--bg); }
+
+  .role-tab.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.35);
+  }
+
+  .role-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+  }
+
+  .role-tab.active .role-dot {
+    background: #A5F3FC;
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  /* =============================================
+     ROLE SUMMARY BANNER
+  ============================================= */
+  .role-banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .role-card {
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: var(--shadow-md);
+    min-height: 100px;
+  }
+
+  .role-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+
+  .role-card::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: 30px;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .role-card.indigo { background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%); }
+  .role-card.violet { background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%); }
+  .role-card.emerald { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+
+  .role-card-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .role-card-content { position: relative; z-index: 1; }
+
+  .role-card-title {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .role-card-stats {
+    display: flex;
+    gap: 20px;
+  }
+
+  .role-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .role-stat-value {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+  }
+
+  .role-stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+  }
+
+  .role-stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 2px 0;
+  }
+
+  /* =============================================
+     TWO-COLUMN LAYOUT
+  ============================================= */
+  .two-col {
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  /* =============================================
+     CARD
+  ============================================= */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title-icon {
+    font-size: 1rem;
+  }
+
+  .card-action {
+    font-size: 0.78rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-head);
+    background: var(--color-primary-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: none;
+    transition: all 0.15s;
+  }
+
+  .card-action:hover { background: var(--color-primary); color: white; }
+
+  .card-body { padding: 0; }
+
+  /* =============================================
+     TIMELINE (SCHEDULE)
+  ============================================= */
+  .timeline { padding: 8px 0; }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0 22px;
+    position: relative;
+    min-height: 64px;
+  }
+
+  .timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 40px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .timeline-time {
+    width: 52px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-family: var(--font-head);
+    padding-top: 14px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 14px;
+  }
+
+  .timeline-dot-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+  }
+
+  .timeline-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .timeline-dot.indigo { background: var(--color-primary); box-shadow: 0 0 0 3px #EEF2FF; }
+  .timeline-dot.violet { background: var(--color-secondary); box-shadow: 0 0 0 3px #F5F3FF; }
+  .timeline-dot.emerald { background: var(--color-emerald); box-shadow: 0 0 0 3px #ECFDF5; }
+  .timeline-dot.amber { background: var(--color-amber); box-shadow: 0 0 0 3px #FFFBEB; }
+  .timeline-dot.rose { background: var(--color-rose); box-shadow: 0 0 0 3px #FFF1F2; }
+  .timeline-dot.sky { background: var(--color-sky); box-shadow: 0 0 0 3px #F0F9FF; }
+  .timeline-dot.gray { background: #D1D5DB; box-shadow: 0 0 0 3px #F9FAFB; }
+
+  .timeline-dot.pulse {
+    animation: dot-pulse 2s infinite;
+  }
+
+  @keyframes dot-pulse {
+    0%, 100% { box-shadow: 0 0 0 3px #EEF2FF; }
+    50% { box-shadow: 0 0 0 6px rgba(79,70,229,0.2); }
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding: 8px 0 8px 14px;
+  }
+
+  .timeline-entry {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    border-left: 3px solid transparent;
+    margin-bottom: 2px;
+    transition: background 0.15s;
+  }
+
+  .timeline-entry:hover { background: #EDE9FE; }
+
+  .timeline-entry.indigo-border { border-color: var(--color-primary); }
+  .timeline-entry.violet-border { border-color: var(--color-secondary); }
+  .timeline-entry.emerald-border { border-color: var(--color-emerald); }
+  .timeline-entry.amber-border { border-color: var(--color-amber); }
+  .timeline-entry.rose-border { border-color: var(--color-rose); }
+  .timeline-entry.sky-border { border-color: var(--color-sky); }
+  .timeline-entry.active-entry {
+    background: #EEF2FF;
+    border-color: var(--color-primary);
+  }
+
+  .entry-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .entry-patient {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .entry-type-chip {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-family: var(--font-head);
+  }
+
+  .chip-indigo { background: #EEF2FF; color: var(--color-primary); }
+  .chip-violet { background: #F5F3FF; color: var(--color-secondary); }
+  .chip-emerald { background: #ECFDF5; color: var(--color-emerald); }
+  .chip-amber { background: #FFFBEB; color: var(--color-amber); }
+  .chip-rose { background: #FFF1F2; color: var(--color-rose); }
+  .chip-sky { background: #F0F9FF; color: var(--color-sky); }
+  .chip-gray { background: #F3F4F6; color: #6B7280; }
+  .chip-active { background: var(--color-primary); color: white; }
+
+  .entry-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .entry-meta span { display: flex; align-items: center; gap: 3px; }
+
+  .timeline-empty {
+    padding: 10px 0 10px 14px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* =============================================
+     RIGHT COLUMN
+  ============================================= */
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* KPI CARD */
+  .kpi-list { padding: 16px 22px; display: flex; flex-direction: column; gap: 18px; }
+
+  .kpi-item {}
+
+  .kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .kpi-label {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: var(--font-head);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .kpi-value-group {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .kpi-pct {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .kpi-target {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .progress-track {
+    height: 8px;
+    background: var(--bg);
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 1s ease;
+  }
+
+  .fill-indigo { background: linear-gradient(90deg, #4F46E5, #818CF8); }
+  .fill-violet { background: linear-gradient(90deg, #7C3AED, #A78BFA); }
+  .fill-emerald { background: linear-gradient(90deg, #059669, #34D399); }
+
+  .kpi-sub {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .kpi-change {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .change-up { background: #ECFDF5; color: var(--color-emerald); }
+  .change-down { background: #FFF1F2; color: var(--color-rose); }
+
+  /* NEWS CARD */
+  .news-list { padding: 8px 0; }
+
+  .news-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 22px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+
+  .news-item:last-child { border-bottom: none; }
+  .news-item:hover { background: var(--bg); }
+
+  .news-icon-wrap {
+    width: 36px; height: 36px;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .news-icon-wrap.indigo-bg { background: var(--color-primary-light); }
+  .news-icon-wrap.violet-bg { background: #F5F3FF; }
+  .news-icon-wrap.amber-bg { background: #FFFBEB; }
+  .news-icon-wrap.rose-bg { background: #FFF1F2; }
+
+  .news-content { flex: 1; }
+
+  .news-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-family: var(--font-head);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  .news-body {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  .news-time {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-family: var(--font-head);
+  }
+
+  .news-unread {
+    width: 7px; height: 7px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* =============================================
+     QUICK ACCESS GRID
+  ============================================= */
+  .quickaccess-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .qa-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .qa-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .qa-icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    transition: transform 0.18s;
+  }
+
+  .qa-card:hover .qa-icon-wrap { transform: scale(1.08); }
+
+  .qa-icon-indigo { background: var(--color-primary-light); }
+  .qa-icon-violet { background: #F5F3FF; }
+  .qa-icon-emerald { background: #ECFDF5; }
+  .qa-icon-amber { background: #FFFBEB; }
+  .qa-icon-rose { background: #FFF1F2; }
+  .qa-icon-sky { background: #F0F9FF; }
+
+  .qa-label {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .qa-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: -4px;
+  }
+
+  /* =============================================
+     SECTION LABEL
+  ============================================= */
+  .section-label {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* =============================================
+     DATE CHIP
+  ============================================= */
+  .date-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 7px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: var(--font-head);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* =============================================
+     MISC UTILITIES
+  ============================================= */
+  .flex { display: flex; }
+  .flex-col { flex-direction: column; }
+  .items-center { align-items: center; }
+  .gap-8 { gap: 8px; }
+  .gap-10 { gap: 10px; }
+  .mt-4 { margin-top: 4px; }
+  .fw-600 { font-weight: 600; }
+  .fw-700 { font-weight: 700; }
+  .font-head { font-family: var(--font-head); }
+  .text-sm { font-size: 0.82rem; }
+  .text-muted { color: var(--text-muted); }
+  .relative { position: relative; }
+
+  /* Scroll styling */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #B0A8D8; }
+
+  /* =============================================
+     STATUS BADGE
+  ============================================= */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-family: var(--font-head);
+  }
+
+  .status-online { background: #ECFDF5; color: #059669; }
+  .status-busy { background: #FFF1F2; color: #E11D48; }
+  .status-away { background: #FFFBEB; color: #D97706; }
+
+  /* Current time indicator */
+  .current-time-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 2px 0;
+  }
+
+  .time-now-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-family: var(--font-head);
+    background: var(--color-primary-light);
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SIDEBAR
+============================================================ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="logo-mark" style="text-decoration:none">
+      <div class="logo-icon">🏥</div>
+      <div>
+        <div class="logo-text">MediZen</div>
+        <div class="logo-sub">v2.0 · Phòng Khám</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- User card -->
+  <div class="sidebar-user">
+    <div class="flex items-center gap-10">
+      <div class="user-avatar">NM</div>
+      <div class="user-info">
+        <div class="user-name">BS. Nguyễn Văn Minh</div>
+        <div class="user-role">Bác sĩ · Quản trị viên</div>
+      </div>
+      <div class="user-status"></div>
+    </div>
+  </div>
+
+  <!-- Nav: Chính -->
+  <div class="nav-section">
+    <div class="nav-section-label">Chính</div>
+    <a class="nav-item active" href="04-dashboard-le-tan.html">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Tổng quan</span>
+    </a>
+    <a class="nav-item" href="15-emr-sinh-hieu.html">
+      <span class="nav-icon">🩺</span>
+      <span class="nav-label">Khám bệnh</span>
+      <span class="nav-badge">4</span>
+    </a>
+    <a class="nav-item" href="13-phong-cho-queue.html">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Tiếp nhận</span>
+      <span class="nav-badge" style="background:#7C3AED">12</span>
+    </a>
+    <a class="nav-item" href="14-lich-hen.html">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Lịch hẹn</span>
+      <span class="nav-badge emerald">3</span>
+    </a>
+    <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+      <span class="nav-icon">💊</span>
+      <span class="nav-label">Kê đơn thuốc</span>
+    </a>
+    <a class="nav-item" href="24-thanh-toan.html">
+      <span class="nav-icon">💳</span>
+      <span class="nav-label">Thanh toán</span>
+    </a>
+  </div>
+
+  <!-- Nav: Quản lý -->
+  <div class="nav-section">
+    <div class="nav-section-label">Quản lý</div>
+    <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Bệnh nhân</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🏗️</span>
+      <span class="nav-label">Dịch vụ y tế</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🧪</span>
+      <span class="nav-label">Xét nghiệm</span>
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Báo cáo</span>
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Cấu hình</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🔔</span>
+      <span class="nav-label">Thông báo</span>
+      <span class="nav-badge">7</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🚪</span>
+      <span class="nav-label">Đăng xuất</span>
+    </a>
+  </div>
+</aside>
+
+<!-- ============================================================
+     MAIN WRAPPER
+============================================================ -->
+<div class="main-wrapper">
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span>MediZen</span>
+      <span style="color:var(--border-strong)">›</span>
+      <span class="current">Tổng quan</span>
+    </div>
+
+    <div class="topbar-search">
+      <span style="font-size:0.9rem;color:var(--text-muted)">🔍</span>
+      <input type="text" placeholder="Tìm bệnh nhân, lịch hẹn, dịch vụ...">
+      <span style="font-size:0.72rem;color:var(--text-muted);background:var(--border);padding:1px 6px;border-radius:4px;font-family:var(--font-head)">⌘K</span>
+    </div>
+
+    <div class="topbar-right">
+      <button class="topbar-btn" title="Lịch làm việc">📅</button>
+      <button class="topbar-btn" title="Thông báo">
+        🔔
+        <span class="notif-dot"></span>
+      </button>
+      <button class="topbar-btn" title="Tin nhắn">💬</button>
+      <div class="topbar-divider"></div>
+      <div class="topbar-user">
+        <div class="topbar-avatar">NM</div>
+        <div>
+          <div class="topbar-username">BS. Nguyễn Văn Minh</div>
+        </div>
+        <span class="topbar-role-chip">BS · Admin</span>
+        <span style="font-size:0.75rem;color:var(--text-muted);margin-left:4px">▾</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="page">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-title-group">
+        <div class="page-title">Tổng quan hệ thống</div>
+        <div class="page-subtitle">Chào buổi sáng, bác sĩ Minh! Hôm nay có 4 bệnh nhân đang chờ khám.</div>
+      </div>
+      <div class="flex items-center gap-10">
+        <div class="date-chip">
+          📆 Thứ Hai, 31/05/2026
+        </div>
+        <!-- Role Switcher -->
+        <div class="role-switcher">
+          <a href="06-dashboard-bac-si.html" class="role-tab active" style="text-decoration:none">
+            <span>🩺</span>
+            <span>Bác sĩ</span>
+            <span class="role-dot"></span>
+          </a>
+          <a href="04-dashboard-le-tan.html" class="role-tab" style="text-decoration:none">
+            <span>🛡️</span>
+            <span>Quản trị</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROLE SUMMARY BANNER -->
+    <div class="role-banner">
+      <!-- Bác sĩ -->
+      <div class="role-card indigo">
+        <div class="role-card-icon">🩺</div>
+        <div class="role-card-content">
+          <div class="role-card-title">Bác sĩ — Nguyễn Văn Minh</div>
+          <div class="role-card-stats">
+            <div class="role-stat">
+              <div class="role-stat-value">4</div>
+              <div class="role-stat-label">BN chờ khám</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value" style="color:#A5F3FC">1</div>
+              <div class="role-stat-label">Đang khám</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value">8</div>
+              <div class="role-stat-label">Hoàn thành</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;top:14px;right:16px;z-index:2">
+          <span class="status-badge status-busy">● Đang khám</span>
+        </div>
+      </div>
+
+      <!-- Lễ tân -->
+      <div class="role-card violet">
+        <div class="role-card-icon">📋</div>
+        <div class="role-card-content">
+          <div class="role-card-title">Lễ tân — Hàng đợi &amp; Lịch hẹn</div>
+          <div class="role-card-stats">
+            <div class="role-stat">
+              <div class="role-stat-value">12</div>
+              <div class="role-stat-label">Hàng đợi</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value" style="color:#E9D5FF">3</div>
+              <div class="role-stat-label">Lịch hẹn sắp tới</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value">27</div>
+              <div class="role-stat-label">Đã tiếp nhận</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;top:14px;right:16px;z-index:2">
+          <span class="status-badge status-away" style="background:rgba(255,255,255,0.15);color:white">⚡ Bận rộn</span>
+        </div>
+      </div>
+
+      <!-- Quản trị -->
+      <div class="role-card emerald">
+        <div class="role-card-icon">📊</div>
+        <div class="role-card-content">
+          <div class="role-card-title">Quản trị — Hiệu suất hôm nay</div>
+          <div class="role-card-stats">
+            <div class="role-stat">
+              <div class="role-stat-value">8.5M</div>
+              <div class="role-stat-label">Doanh thu (₫)</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value" style="color:#A7F3D0">47</div>
+              <div class="role-stat-label">Lượt khám</div>
+            </div>
+            <div class="role-stat-divider"></div>
+            <div class="role-stat">
+              <div class="role-stat-value">94%</div>
+              <div class="role-stat-label">Hài lòng</div>
+            </div>
+          </div>
+        </div>
+        <div style="position:absolute;top:14px;right:16px;z-index:2">
+          <span style="background:rgba(255,255,255,0.2);color:white;font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:20px;font-family:var(--font-head)">↑ 12% vs hôm qua</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN SECTION -->
+    <div class="two-col">
+
+      <!-- LEFT: SCHEDULE -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-title-icon">🗓️</span>
+            Lịch trình hôm nay
+          </div>
+          <div class="flex items-center gap-8">
+            <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-head)">
+              📍 Phòng khám số <strong style="color:var(--color-primary)">102</strong>
+            </div>
+            <button class="card-action">Xem tất cả</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+
+            <!-- 8:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">08:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot emerald"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry emerald-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Trần Thị Hoa <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-001234</span></div>
+                    <span class="entry-type-chip chip-emerald">✅ Hoàn thành</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 34 tuổi · Nữ</span>
+                    <span>💊 Tái khám tiểu đường</span>
+                    <span>⏱ 20 phút</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 8:30 -->
+            <div class="timeline-item">
+              <div class="timeline-time">08:30</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot emerald"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry emerald-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Lê Văn Phúc <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-002891</span></div>
+                    <span class="entry-type-chip chip-emerald">✅ Hoàn thành</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 61 tuổi · Nam</span>
+                    <span>❤️ Huyết áp cao — theo dõi định kỳ</span>
+                    <span>⏱ 25 phút</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 9:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">09:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot emerald"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry emerald-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Nguyễn Thị Lan Anh <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-003445</span></div>
+                    <span class="entry-type-chip chip-emerald">✅ Hoàn thành</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 28 tuổi · Nữ</span>
+                    <span>🌡️ Sốt virus, ho kéo dài</span>
+                    <span>⏱ 18 phút</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 9:30 ĐANG KHÁM -->
+            <div class="timeline-item">
+              <div class="timeline-time" style="color:var(--color-primary);font-weight:700">09:38</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot indigo pulse"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="current-time-indicator">
+                  <span class="time-now-label">⦿ Đang khám</span>
+                </div>
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry active-entry" style="margin-top:6px">
+                  <div class="entry-top">
+                    <div class="entry-patient" style="color:var(--color-primary)">Phạm Minh Khoa <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-004210</span></div>
+                    <span class="entry-type-chip chip-active">🔵 Đang khám</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 45 tuổi · Nam</span>
+                    <span>🦴 Đau lưng, thoái hóa cột sống</span>
+                    <span style="color:var(--color-primary);font-weight:600">⏱ 12 phút trôi qua</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 10:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">10:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot indigo"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry indigo-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Hoàng Thị Bích Ngọc <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-005678</span></div>
+                    <span class="entry-type-chip chip-indigo">⏳ Chờ khám</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 52 tuổi · Nữ</span>
+                    <span>💉 Khám định kỳ nội tiết</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 10:30 -->
+            <div class="timeline-item">
+              <div class="timeline-time">10:30</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot indigo"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry indigo-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Vũ Quang Hải <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-006120</span></div>
+                    <span class="entry-type-chip chip-indigo">⏳ Chờ khám</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 38 tuổi · Nam</span>
+                    <span>🧪 Kết quả xét nghiệm máu định kỳ</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 11:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">11:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot violet"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry violet-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Đặng Thị Thu Hằng <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-007334</span></div>
+                    <span class="entry-type-chip chip-violet">📞 Đặt lịch</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 29 tuổi · Nữ</span>
+                    <span>🤰 Khám thai tuần 32</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 11:30 -->
+            <div class="timeline-item">
+              <div class="timeline-time">11:30</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot sky"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry sky-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Bùi Thành Nam <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-008995</span></div>
+                    <span class="entry-type-chip chip-sky">🆕 Mới</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 67 tuổi · Nam</span>
+                    <span>🫀 Đau ngực, khó thở khi gắng sức</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 12:00 - Nghỉ trưa -->
+            <div class="timeline-item">
+              <div class="timeline-time">12:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot gray"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-empty">🍱 Nghỉ trưa (12:00 – 13:30)</div>
+              </div>
+            </div>
+
+            <!-- 14:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">14:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot amber"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry amber-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Ngô Thị Xuân Mai <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-009112</span></div>
+                    <span class="entry-type-chip chip-amber">📋 Tái khám</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 41 tuổi · Nữ</span>
+                    <span>🦷 Đau khớp hàm, viêm TMJ</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 15:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">15:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot violet"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry violet-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Trịnh Quốc Hùng <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-010789</span></div>
+                    <span class="entry-type-chip chip-violet">📞 Đặt lịch</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 55 tuổi · Nam</span>
+                    <span>🔬 Đọc kết quả sinh thiết</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 16:00 -->
+            <div class="timeline-item">
+              <div class="timeline-time">16:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot rose"></div>
+              </div>
+              <div class="timeline-content">
+                <a href="14-lich-hen.html" style="text-decoration:none;display:block"><div class="timeline-entry rose-border">
+                  <div class="entry-top">
+                    <div class="entry-patient">Lý Thị Kim Oanh <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400">· BN-011450</span></div>
+                    <span class="entry-type-chip chip-rose">🚨 Cấp cứu</span>
+                  </div>
+                  <div class="entry-meta">
+                    <span>🎂 72 tuổi · Nữ</span>
+                    <span>⚡ Hạ đường huyết đột ngột</span>
+                  </div>
+                </div></a>
+              </div>
+            </div>
+
+            <!-- 17:00 -->
+            <div class="timeline-item" style="min-height:50px">
+              <div class="timeline-time">17:00</div>
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot gray"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-empty">🏁 Kết thúc ca — tổng kết hồ sơ</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-col">
+
+        <!-- KPI CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-title-icon">🎯</span>
+              KPI tháng này
+            </div>
+            <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-head)">Tháng 5 / 2026</div>
+          </div>
+          <div class="kpi-list">
+
+            <!-- Doanh thu -->
+            <div class="kpi-item">
+              <div class="kpi-header">
+                <div class="kpi-label">
+                  <span>💰</span>
+                  Doanh thu
+                </div>
+                <div class="kpi-value-group">
+                  <span class="kpi-pct">83%</span>
+                  <span class="kpi-target">/ 150M₫</span>
+                </div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill-indigo" style="width:83%"></div>
+              </div>
+              <div class="kpi-sub">
+                <span>124.5M₫ thực hiện</span>
+                <span class="kpi-change change-up">↑ 8.3% vs tháng trước</span>
+              </div>
+            </div>
+
+            <!-- Bệnh nhân mới -->
+            <div class="kpi-item">
+              <div class="kpi-header">
+                <div class="kpi-label">
+                  <span>👥</span>
+                  Bệnh nhân mới
+                </div>
+                <div class="kpi-value-group">
+                  <span class="kpi-pct">67%</span>
+                  <span class="kpi-target">/ 300 BN</span>
+                </div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill-violet" style="width:67%"></div>
+              </div>
+              <div class="kpi-sub">
+                <span>201 bệnh nhân đã đăng ký</span>
+                <span class="kpi-change change-down">↓ 2.1% vs tháng trước</span>
+              </div>
+            </div>
+
+            <!-- Hài lòng bệnh nhân -->
+            <div class="kpi-item">
+              <div class="kpi-header">
+                <div class="kpi-label">
+                  <span>⭐</span>
+                  Sự hài lòng
+                </div>
+                <div class="kpi-value-group">
+                  <span class="kpi-pct">92%</span>
+                  <span class="kpi-target">/ Mục tiêu 90%</span>
+                </div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill fill-emerald" style="width:92%"></div>
+              </div>
+              <div class="kpi-sub">
+                <span>4.6/5.0 sao trung bình</span>
+                <span class="kpi-change change-up">↑ 3.2% vs tháng trước</span>
+              </div>
+            </div>
+
+            <!-- Tỷ lệ tái khám -->
+            <div class="kpi-item">
+              <div class="kpi-header">
+                <div class="kpi-label">
+                  <span>🔄</span>
+                  Tỷ lệ tái khám
+                </div>
+                <div class="kpi-value-group">
+                  <span class="kpi-pct">74%</span>
+                  <span class="kpi-target">/ Mục tiêu 75%</span>
+                </div>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width:74%;background:linear-gradient(90deg,#0284C7,#38BDF8)"></div>
+              </div>
+              <div class="kpi-sub">
+                <span>148 / 200 bệnh nhân tái khám</span>
+                <span class="kpi-change change-up">↑ 1.4% vs tháng trước</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- NEWS CARD -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="card-title-icon">📣</span>
+              Tin tức &amp; Cập nhật
+            </div>
+            <button class="card-action">Xem tất cả</button>
+          </div>
+          <div class="card-body">
+            <div class="news-list">
+
+              <div class="news-item">
+                <div class="news-icon-wrap indigo-bg">🏥</div>
+                <div class="news-content">
+                  <div class="news-title">Cập nhật phác đồ điều trị tăng huyết áp 2026</div>
+                  <div class="news-body">Bộ Y tế ban hành hướng dẫn mới về điều trị tăng huyết áp — áp dụng từ 01/06/2026. Các bác sĩ vui lòng cập nhật phác đồ.</div>
+                </div>
+                <div class="news-time">09:15</div>
+                <div class="news-unread"></div>
+              </div>
+
+              <div class="news-item">
+                <div class="news-icon-wrap violet-bg">💊</div>
+                <div class="news-content">
+                  <div class="news-title">Nhập kho thuốc: Metformin 850mg đã có</div>
+                  <div class="news-body">Lô thuốc 2,000 viên Metformin 850mg và Amlodipine 5mg đã nhập kho. Tồn kho đủ cho tháng 6. Liên hệ Dược để đặt thêm.</div>
+                </div>
+                <div class="news-time">08:45</div>
+                <div class="news-unread"></div>
+              </div>
+
+              <div class="news-item">
+                <div class="news-icon-wrap amber-bg">⚠️</div>
+                <div class="news-content">
+                  <div class="news-title">Bảo trì hệ thống HIS lúc 22:00 tối nay</div>
+                  <div class="news-body">Hệ thống sẽ bảo trì từ 22:00–23:30 ngày 31/05. Vui lòng hoàn thành hồ sơ bệnh nhân trước 21:45. Sao lưu dữ liệu đã được lên lịch tự động.</div>
+                </div>
+                <div class="news-time">Hôm qua</div>
+              </div>
+
+              <div class="news-item">
+                <div class="news-icon-wrap rose-bg">🎓</div>
+                <div class="news-content">
+                  <div class="news-title">Hội thảo CME: Cập nhật Tim mạch can thiệp</div>
+                  <div class="news-body">Hội thảo trực tuyến ngày 05/06/2026 lúc 14:00. Đăng ký qua email training@phongkham.vn — tín chỉ CME 4 giờ được công nhận.</div>
+                </div>
+                <div class="news-time">2 ngày trước</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /right-col -->
+    </div><!-- /two-col -->
+
+    <!-- QUICK ACCESS SECTION -->
+    <div class="section-label">⚡ Truy cập nhanh</div>
+    <div class="quickaccess-grid">
+
+      <a href="15-emr-sinh-hieu.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-indigo">🩺</div>
+        <div class="qa-label">Khám bệnh</div>
+        <div class="qa-sub">Mở phiên khám mới</div>
+      </a>
+
+      <a href="12-tiep-nhan-bn.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-violet">📋</div>
+        <div class="qa-label">Tiếp nhận</div>
+        <div class="qa-sub">Đăng ký bệnh nhân</div>
+      </a>
+
+      <a href="24-thanh-toan.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-emerald">💳</div>
+        <div class="qa-label">Thanh toán</div>
+        <div class="qa-sub">Xuất hóa đơn &amp; thu phí</div>
+      </a>
+
+      <a href="index.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-amber">📊</div>
+        <div class="qa-label">Báo cáo</div>
+        <div class="qa-sub">Phân tích &amp; thống kê</div>
+      </a>
+
+      <a href="index.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-rose">⚙️</div>
+        <div class="qa-label">Cấu hình</div>
+        <div class="qa-sub">Quản trị hệ thống</div>
+      </a>
+
+      <a href="14-lich-hen.html" class="qa-card" style="text-decoration:none">
+        <div class="qa-icon-wrap qa-icon-sky">📅</div>
+        <div class="qa-label">Lịch hẹn</div>
+        <div class="qa-sub">Đặt &amp; quản lý lịch</div>
+      </a>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

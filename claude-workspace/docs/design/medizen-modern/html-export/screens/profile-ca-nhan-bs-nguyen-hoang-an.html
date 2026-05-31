@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile cá nhân — BS. Nguyễn Hoàng An — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Profile cá nhân — BS. Nguyễn Hoàng An — MediZen</strong></span>
+    <span>ID: 18d1ec870224423c8b50717aeb957bd3</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[240px] z-50 bg-white border-r border-slate-200 flex flex-col p-4 gap-2">
+<div class="px-2 py-4 mb-4">
+<h1 class="text-xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">MediZen</h1>
+<p class="text-[10px] uppercase tracking-wider text-slate-400 font-bold mt-1">Modern EMR</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">person</span>
+                Patients
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+                Schedule
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">domain</span>
+                Clinics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">medication</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">analytics</span>
+                Reports
+            </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-100 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">help_outline</span>
+                Support
+            </a>
+<!-- Active State: Profile/Settings intent -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-indigo-50 text-indigo-600 rounded-xl font-medium text-sm scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+                Profile
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 hover:bg-slate-50 transition-colors rounded-xl font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-slate-400">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[240px] min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 h-14 px-8 bg-white/80 backdrop-blur-xl border-b border-slate-200 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="hover:text-indigo-600 cursor-pointer">Trang chủ</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="font-semibold text-slate-900">Profile</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3 pl-2 cursor-pointer hover:bg-slate-50 p-1 rounded-lg transition-colors">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-slate-900">Dr. Nguyễn Hoàng An</p>
+<p class="text-[10px] text-slate-500">Admin</p>
+</div>
+<img alt="Doctor profile avatar" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A professional headshot of a Vietnamese male doctor in his late 30s wearing a clean white lab coat and a stethoscope. He has a friendly, confident expression and is positioned against a soft-focus medical office background. The lighting is bright and modern, emphasizing a clean clinical aesthetic with subtle indigo tones in the background shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSA0bf-nxebViXSkgjgtMukRnjsGHc_6bbKWC_asjdXSN-aKTCmVyae9iU5ZSZs42bL3RnmDg8haTDety4lo1uyR5q9pO9y1v6T-oxvU-6QHxzq9AalMl6CDOfcRoZk6LPCb5D8YIuxRiw8-a0XvGYJzjIOh8vRmVo12BCQ7FGUN48aZdsIUwIEXkmj3NWymTJ3wzU7vzpRLPZPuFMwWGwUv5L6W0BKrG83lOzqL4d7DlLjqFyh5nmy7huaWC2Jfj9Gz0v-wPan9A"/>
+</div>
+</div>
+</header>
+<div class="max-w-[1200px] mx-auto p-8 flex gap-8">
+<!-- Left Column: User Card -->
+<div class="w-[320px] flex-shrink-0">
+<div class="bg-white border border-slate-200 rounded-xl p-6 shadow-[0_4px_20px_rgba(99,102,241,0.05)] text-center">
+<div class="relative inline-block mb-4">
+<div class="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-violet-500 rounded-full p-[3px]">
+<div class="bg-white rounded-full p-1 h-full w-full"></div>
+</div>
+<img alt="BS. Nguyễn Hoàng An" class="relative w-28 h-28 rounded-full object-cover border-4 border-white" data-alt="Close up portrait of a male Asian healthcare professional with short dark hair, smiling warmly. He wears a professional white medical uniform. The composition is centered with a circular crop, surrounded by a vibrant indigo and violet gradient ring. The aesthetic is clean, professional, and reflects high-end modern medical software UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdh38euPLuP1sFeu_-Dr5Nml9ooCIfoSuef_63zk_S68GzQ1QoRZJYPZBn45WsQZui0Cykzzt7UzZtOtrCvJS5YLE0kWJQUNTXr-Ebk9jFEv8lOkbcHvUCOcpqP_oDb_O65aRV6MVKSPBUs0KMhEozraTOJ7vS0F4VcIzGWROMCeMVu0CTYhb55jHRE8jyWOZYy3EVZbM2JnEyCDJImaotZ5y7RgUMoClsxvosh-BhWqBk08n9INn7oTjmSRvWMRYSOiCl4snff-8"/>
+<button class="absolute bottom-1 right-1 bg-white shadow-md border border-slate-200 p-1.5 rounded-full text-indigo-600 hover:bg-indigo-50 transition-colors">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<h2 class="text-xl font-bold text-slate-900 mb-1">BS. Nguyễn Hoàng An</h2>
+<p class="text-sm text-slate-500 mb-4">bs.an@hongduc.vn</p>
+<div class="inline-flex items-center px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full mb-6 border border-indigo-100">
+                        🏷️ Bác sĩ + Quản trị
+                    </div>
+<div class="text-left py-4 border-t border-slate-100 space-y-4">
+<div>
+<p class="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1">Phòng khám hiện tại</p>
+<p class="text-sm font-medium text-slate-700 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400 text-lg">corporate_fare</span>
+                                Hồng Đức Trung Tâm
+                            </p>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-3">
+<div class="text-center">
+<p class="text-xs font-bold text-slate-900">287</p>
+<p class="text-[9px] text-slate-500">Bệnh nhân</p>
+</div>
+<div class="text-center border-x border-slate-200 px-1">
+<p class="text-xs font-bold text-slate-900">824</p>
+<p class="text-[9px] text-slate-500">Lượt khám</p>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-slate-900">4.8/5</p>
+<p class="text-[9px] text-slate-500">Đánh giá</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-2.5 border border-slate-300 text-slate-500 text-sm font-semibold rounded-xl hover:bg-slate-50 hover:border-slate-400 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">logout</span>
+                        Đăng xuất
+                    </button>
+</div>
+</div>
+<!-- Right Column: Settings Tabs & Content -->
+<div class="flex-1 w-[800px]">
+<!-- Tab Strip -->
+<div class="flex gap-8 border-b border-slate-200 mb-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Thông tin</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Mật khẩu</button>
+<button class="pb-4 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600">Phòng khám của tôi</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Phiên</button>
+<button class="pb-4 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors flex items-center gap-2">
+                        Thông báo
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+</button>
+</div>
+<!-- Tab Content: My Clinics -->
+<div class="space-y-6">
+<div>
+<h3 class="text-lg font-bold text-slate-900 mb-1">Quản lý phòng khám</h3>
+<p class="text-sm text-slate-500">Bạn có quyền truy cập 3 phòng khám. Chọn 1 làm mặc định cho lần đăng nhập tới.</p>
+</div>
+<div class="space-y-4">
+<!-- Card 1: Default -->
+<div class="bg-white border-2 border-indigo-100 rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-3">
+<span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-[10px] font-bold rounded-full uppercase">Mặc định</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600">
+<span class="material-symbols-outlined text-3xl">corporate_fare</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                            🏥 Hồng Đức Trung Tâm
+                                            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-semibold rounded">🏷️ Bác sĩ + Quản trị</span>
+</h4>
+<p class="text-sm text-slate-500 mt-1">142 Lê Lai, Quận 1, TP. HCM</p>
+<p class="text-[11px] text-slate-400 mt-2">Đã được cấp quyền: <span class="font-medium">12/02/2025</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="flex items-center gap-2 cursor-pointer">
+<span class="text-sm font-medium text-indigo-600">● Mặc định</span>
+</div>
+<button class="px-6 py-2 bg-slate-100 text-slate-400 text-sm font-semibold rounded-lg cursor-not-allowed" disabled="">
+                                        Đang dùng
+                                    </button>
+<a class="text-xs text-red-500 hover:underline" href="#">Rời PK này</a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-300 transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 group-hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                            🏥 Đa khoa Mai Lan
+                                            <span class="px-2 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-semibold rounded">🏷️ Bác sĩ</span>
+</h4>
+<p class="text-sm text-slate-500 mt-1">56 NTMK, Quận 3, TP. HCM</p>
+<p class="text-[11px] text-slate-400 mt-2">Đã được cấp quyền: <span class="font-medium">03/04/2025</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="flex items-center gap-2 cursor-pointer group/radio">
+<span class="w-4 h-4 rounded-full border border-slate-300 group-hover/radio:border-indigo-400"></span>
+<span class="text-sm font-medium text-slate-500 group-hover/radio:text-indigo-600">○ Đặt mặc định</span>
+</div>
+<button class="px-6 py-2 bg-indigo-50 text-indigo-600 text-sm font-semibold rounded-lg hover:bg-indigo-100 transition-colors">
+                                        Chuyển sang
+                                    </button>
+<a class="text-xs text-slate-400 hover:text-red-500 hover:underline" href="#">Rời PK</a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 hover:border-slate-300 transition-colors group">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined text-3xl">home_health</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 flex items-center gap-2">
+                                            🏥 Phòng khám tư của tôi
+                                            <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-bold rounded">🏷️ Owner</span>
+</h4>
+<p class="text-sm text-slate-500 mt-1">88 Trần Phú, Quận 5, TP. HCM</p>
+<p class="text-[11px] text-slate-400 mt-2">Đã được cấp quyền: <span class="font-medium">28/03/2025</span></p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-3">
+<div class="flex items-center gap-2 cursor-pointer group/radio">
+<span class="w-4 h-4 rounded-full border border-slate-300 group-hover/radio:border-indigo-400"></span>
+<span class="text-sm font-medium text-slate-500 group-hover/radio:text-indigo-600">○ Đặt mặc định</span>
+</div>
+<button class="px-6 py-2 bg-indigo-50 text-indigo-600 text-sm font-semibold rounded-lg hover:bg-indigo-100 transition-colors">
+                                        Chuyển sang
+                                    </button>
+<a class="text-xs text-slate-400 hover:text-red-500 hover:underline" href="#">Rời PK</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Extra Info -->
+<div class="bg-slate-50 border border-slate-200 rounded-xl p-6 mt-8">
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-slate-200 text-slate-400 flex-shrink-0">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 mb-1">Mời tham gia PK khác</h4>
+<p class="text-sm text-slate-600 leading-relaxed">
+                                    Bạn có thể được mời tham gia PK mới qua email từ chủ PK. Email mời sẽ chuyển vào hộp inbox <span class="font-semibold text-indigo-600">bs.an@hongduc.vn</span>. Vui lòng kiểm tra kỹ danh tính người gửi trước khi chấp nhận.
+                                </p>
+</div>
+</div>
+</div>
+<div class="flex justify-center pt-4">
+<a class="flex items-center gap-2 text-sm font-semibold text-indigo-600 hover:gap-3 transition-all" href="#">
+                            Xem lịch sử grant/revoke quyền PK
+                            <span class="material-symbols-outlined text-lg">trending_flat</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on Profile as per instructions) -->
+
+</body>
+</html>

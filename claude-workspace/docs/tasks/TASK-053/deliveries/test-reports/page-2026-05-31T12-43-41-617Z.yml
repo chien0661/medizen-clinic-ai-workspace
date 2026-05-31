@@ -1,0 +1,1514 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - complementary [ref=e4]:
+        - generic [ref=e5]:
+          - img "MediZen" [ref=e6]
+          - generic [ref=e7]: MediZen
+        - navigation [ref=e8]:
+          - link "Tổng quan" [ref=e9] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e10]
+            - generic [ref=e15]: Tổng quan
+          - generic [ref=e16]:
+            - button "Tiếp tân" [ref=e17] [cursor=pointer]:
+              - img [ref=e18]
+              - generic [ref=e20]: Tiếp tân
+              - img [ref=e21]
+            - generic [ref=e23]:
+              - link "Bệnh nhân" [ref=e24] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e25]
+                - generic [ref=e30]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e31] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e32]
+                - generic [ref=e36]: Lịch hẹn
+              - link "Hàng chờ" [ref=e37] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e38]
+                - generic [ref=e42]: Hàng chờ
+          - generic [ref=e43]:
+            - button "Nhà thuốc active role" [ref=e44] [cursor=pointer]:
+              - img [ref=e45]
+              - generic [ref=e48]: Nhà thuốc
+              - generic "active role" [ref=e49]
+              - img [ref=e50]
+            - generic [ref=e52]:
+              - link "Cấp phát chờ" [ref=e53] [cursor=pointer]:
+                - /url: "#/pharmacy/pending"
+                - img [ref=e54]
+                - generic [ref=e56]: Cấp phát chờ
+              - link "Đổi lô thuốc" [ref=e57] [cursor=pointer]:
+                - /url: "#/pharmacy/substitute"
+                - img [ref=e58]
+                - generic [ref=e61]: Đổi lô thuốc
+              - link "Tồn kho" [ref=e62] [cursor=pointer]:
+                - /url: "#/pharmacy/inventory"
+                - img [ref=e63]
+                - generic [ref=e73]: Tồn kho
+              - link "Kiểm kê điều chỉnh" [ref=e74] [cursor=pointer]:
+                - /url: "#/pharmacy/adjustments"
+                - img [ref=e75]
+                - generic [ref=e76]: Kiểm kê điều chỉnh
+              - link "Nhập hàng" [ref=e77] [cursor=pointer]:
+                - /url: "#/pharmacy/purchase-in"
+                - img [ref=e78]
+                - generic [ref=e82]: Nhập hàng
+              - link "Kiểm kê kho" [ref=e83] [cursor=pointer]:
+                - /url: "#/pharmacy/stocktake"
+                - img [ref=e84]
+                - generic [ref=e89]: Kiểm kê kho
+              - link "Xử lý hết hạn" [ref=e90] [cursor=pointer]:
+                - /url: "#/pharmacy/expiry"
+                - img [ref=e91]
+                - generic [ref=e93]: Xử lý hết hạn
+          - generic [ref=e94]:
+            - button "Thanh toán" [ref=e95] [cursor=pointer]:
+              - img [ref=e96]
+              - generic [ref=e98]: Thanh toán
+              - img [ref=e99]
+            - link "Hóa đơn" [ref=e102] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e103]
+              - generic [ref=e106]: Hóa đơn
+          - generic [ref=e107]:
+            - button "Báo cáo" [ref=e108] [cursor=pointer]:
+              - img [ref=e109]
+              - generic [ref=e111]: Báo cáo
+              - img [ref=e112]
+            - generic [ref=e114]:
+              - link "Tồn kho" [ref=e115] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e116]
+                - generic [ref=e120]: Tồn kho
+              - link "Lượt khám" [ref=e121] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e122]
+                - generic [ref=e125]: Lượt khám
+              - link "Đơn thuốc" [ref=e126] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e127]
+                - generic [ref=e130]: Đơn thuốc
+          - link "Thông báo" [ref=e131] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e132]
+            - generic [ref=e135]: Thông báo
+          - generic [ref=e136]:
+            - button "Nhân sự" [ref=e137] [cursor=pointer]:
+              - img [ref=e138]
+              - generic [ref=e143]: Nhân sự
+              - img [ref=e144]
+            - generic [ref=e146]:
+              - link "Lịch ca" [ref=e147] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e148]
+                - generic [ref=e150]: Lịch ca
+              - link "Chấm công" [ref=e151] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e152]
+                - generic [ref=e155]: Chấm công
+              - link "Nghỉ phép" [ref=e156] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e157]
+                - generic [ref=e160]: Nghỉ phép
+          - generic [ref=e161]:
+            - button "Quản trị" [ref=e162] [cursor=pointer]:
+              - img [ref=e163]
+              - generic [ref=e165]: Quản trị
+              - img [ref=e166]
+            - link "Danh mục thuốc" [ref=e169] [cursor=pointer]:
+              - /url: "#/admin/medicines"
+              - img [ref=e170]
+              - generic [ref=e174]: Danh mục thuốc
+          - link "Cài đặt" [ref=e175] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e176]
+            - generic [ref=e179]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]: Thu nhỏ menu
+          - img [ref=e183]
+      - generic [ref=e185]:
+        - banner [ref=e186]:
+          - button "Chuyển phòng khám" [ref=e188] [cursor=pointer]:
+            - img [ref=e190]
+            - generic [ref=e194]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e195] [cursor=pointer]:
+            - img [ref=e196]
+            - generic [ref=e199]: Tìm kiếm
+            - generic [ref=e200]: ⌘K
+          - generic [ref=e201]:
+            - status "Online" [ref=e202]:
+              - generic [ref=e204]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e2142]': (!)
+            - button "Thông báo" [ref=e206] [cursor=pointer]:
+              - img [ref=e207]
+            - button "VI" [ref=e210] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e211] [cursor=pointer]:
+              - img [ref=e212]
+            - button "Chọn giao diện màu" [ref=e214] [cursor=pointer]:
+              - img [ref=e215]
+            - button "Menu người dùng" [ref=e221] [cursor=pointer]:
+              - generic [ref=e222]: DN
+              - generic [ref=e223]: Dược sĩ
+        - navigation "Breadcrumb" [ref=e2143]:
+          - link "Home" [ref=e2144] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e2145]
+          - generic [ref=e2148]:
+            - img [ref=e2149]
+            - link "Quản trị" [ref=e2151] [cursor=pointer]:
+              - /url: "#/admin"
+          - generic [ref=e2152]:
+            - img [ref=e2153]
+            - generic [ref=e2155]: Thuốc
+        - main [ref=e237]:
+          - generic [ref=e2156]:
+            - generic [ref=e2157]:
+              - heading "Danh mục thuốc" [level=1] [ref=e2159]
+              - generic [ref=e2160]:
+                - button "Nhập từ CSV" [ref=e2161] [cursor=pointer]:
+                  - img [ref=e2162]
+                  - text: Nhập từ CSV
+                - button "Thêm thuốc" [ref=e2165] [cursor=pointer]:
+                  - img [ref=e2166]
+                  - text: Thêm thuốc
+            - generic [ref=e2168]:
+              - img [ref=e2169]
+              - textbox "Tìm kiếm thuốc..." [ref=e2172]
+            - table [ref=e2174]:
+              - rowgroup [ref=e2175]:
+                - row "Mã thuốc Tên thuốc Hoạt chất Dạng bào chế Hàm lượng Thuốc nội Kích hoạt Tags Thao tác" [ref=e2176]:
+                  - columnheader "Mã thuốc" [ref=e2177]
+                  - columnheader "Tên thuốc" [ref=e2178]
+                  - columnheader "Hoạt chất" [ref=e2179]
+                  - columnheader "Dạng bào chế" [ref=e2180]
+                  - columnheader "Hàm lượng" [ref=e2181]
+                  - columnheader "Thuốc nội" [ref=e2182]
+                  - columnheader "Kích hoạt" [ref=e2183]
+                  - columnheader "Tags" [ref=e2184]
+                  - columnheader "Thao tác" [ref=e2185]
+              - rowgroup [ref=e2186]:
+                - row "ACETYLCYS Acetylcysteine 200mg (gói sủi) Acetylcysteine medicines.form.dosageForms.effervescent 200mg ✓ ✓ —" [ref=e2187]:
+                  - cell "ACETYLCYS" [ref=e2188]
+                  - cell "Acetylcysteine 200mg (gói sủi)" [ref=e2189]
+                  - cell "Acetylcysteine" [ref=e2190]
+                  - cell "medicines.form.dosageForms.effervescent" [ref=e2191]
+                  - cell "200mg" [ref=e2192]
+                  - cell "✓" [ref=e2193]
+                  - cell "✓" [ref=e2194]
+                  - cell "—" [ref=e2195]
+                  - cell [ref=e2196]:
+                    - generic [ref=e2197]:
+                      - button [ref=e2198] [cursor=pointer]:
+                        - img [ref=e2199]
+                      - button [ref=e2202] [cursor=pointer]:
+                        - img [ref=e2203]
+                - row "FOLIC5 Acid Folic 5mg Folic Acid Viên nén 5mg ✓ ✓ —" [ref=e2206]:
+                  - cell "FOLIC5" [ref=e2207]
+                  - cell "Acid Folic 5mg" [ref=e2208]
+                  - cell "Folic Acid" [ref=e2209]
+                  - cell "Viên nén" [ref=e2210]
+                  - cell "5mg" [ref=e2211]
+                  - cell "✓" [ref=e2212]
+                  - cell "✓" [ref=e2213]
+                  - cell "—" [ref=e2214]
+                  - cell [ref=e2215]:
+                    - generic [ref=e2216]:
+                      - button [ref=e2217] [cursor=pointer]:
+                        - img [ref=e2218]
+                      - button [ref=e2221] [cursor=pointer]:
+                        - img [ref=e2222]
+                - row "ACYCLOVIR5 Acyclovir 5% cream (tuýp) Acyclovir Kem 5% ✓ ✓ —" [ref=e2225]:
+                  - cell "ACYCLOVIR5" [ref=e2226]
+                  - cell "Acyclovir 5% cream (tuýp)" [ref=e2227]
+                  - cell "Acyclovir" [ref=e2228]
+                  - cell "Kem" [ref=e2229]
+                  - cell "5%" [ref=e2230]
+                  - cell "✓" [ref=e2231]
+                  - cell "✓" [ref=e2232]
+                  - cell "—" [ref=e2233]
+                  - cell [ref=e2234]:
+                    - generic [ref=e2235]:
+                      - button [ref=e2236] [cursor=pointer]:
+                        - img [ref=e2237]
+                      - button [ref=e2240] [cursor=pointer]:
+                        - img [ref=e2241]
+                - row "AMITRIPT25 Amitriptyline 25mg (viên) Amitriptyline Viên nén 25mg ✓ ✓ —" [ref=e2244]:
+                  - cell "AMITRIPT25" [ref=e2245]
+                  - cell "Amitriptyline 25mg (viên)" [ref=e2246]
+                  - cell "Amitriptyline" [ref=e2247]
+                  - cell "Viên nén" [ref=e2248]
+                  - cell "25mg" [ref=e2249]
+                  - cell "✓" [ref=e2250]
+                  - cell "✓" [ref=e2251]
+                  - cell "—" [ref=e2252]
+                  - cell [ref=e2253]:
+                    - generic [ref=e2254]:
+                      - button [ref=e2255] [cursor=pointer]:
+                        - img [ref=e2256]
+                      - button [ref=e2259] [cursor=pointer]:
+                        - img [ref=e2260]
+                - row "AMLO10 Amlodipine 10mg (viên) Amlodipine Viên nén 10mg ✓ ✓ —" [ref=e2263]:
+                  - cell "AMLO10" [ref=e2264]
+                  - cell "Amlodipine 10mg (viên)" [ref=e2265]
+                  - cell "Amlodipine" [ref=e2266]
+                  - cell "Viên nén" [ref=e2267]
+                  - cell "10mg" [ref=e2268]
+                  - cell "✓" [ref=e2269]
+                  - cell "✓" [ref=e2270]
+                  - cell "—" [ref=e2271]
+                  - cell [ref=e2272]:
+                    - generic [ref=e2273]:
+                      - button [ref=e2274] [cursor=pointer]:
+                        - img [ref=e2275]
+                      - button [ref=e2278] [cursor=pointer]:
+                        - img [ref=e2279]
+                - row "AMLOD5 Amlodipine 5mg Amlodipine Viên nén 5mg ✓ ✓ —" [ref=e2282]:
+                  - cell "AMLOD5" [ref=e2283]
+                  - cell "Amlodipine 5mg" [ref=e2284]
+                  - cell "Amlodipine" [ref=e2285]
+                  - cell "Viên nén" [ref=e2286]
+                  - cell "5mg" [ref=e2287]
+                  - cell "✓" [ref=e2288]
+                  - cell "✓" [ref=e2289]
+                  - cell "—" [ref=e2290]
+                  - cell [ref=e2291]:
+                    - generic [ref=e2292]:
+                      - button [ref=e2293] [cursor=pointer]:
+                        - img [ref=e2294]
+                      - button [ref=e2297] [cursor=pointer]:
+                        - img [ref=e2298]
+                - row "AMLO5 Amlodipine 5mg (viên) Amlodipine Viên nén 5mg ✓ ✓ —" [ref=e2301]:
+                  - cell "AMLO5" [ref=e2302]
+                  - cell "Amlodipine 5mg (viên)" [ref=e2303]
+                  - cell "Amlodipine" [ref=e2304]
+                  - cell "Viên nén" [ref=e2305]
+                  - cell "5mg" [ref=e2306]
+                  - cell "✓" [ref=e2307]
+                  - cell "✓" [ref=e2308]
+                  - cell "—" [ref=e2309]
+                  - cell [ref=e2310]:
+                    - generic [ref=e2311]:
+                      - button [ref=e2312] [cursor=pointer]:
+                        - img [ref=e2313]
+                      - button [ref=e2316] [cursor=pointer]:
+                        - img [ref=e2317]
+                - row "AMOX500 Amoxicillin 500mg Amoxicillin Viên nang 500mg ✓ ✓ —" [ref=e2320]:
+                  - cell "AMOX500" [ref=e2321]
+                  - cell "Amoxicillin 500mg" [ref=e2322]
+                  - cell "Amoxicillin" [ref=e2323]
+                  - cell "Viên nang" [ref=e2324]
+                  - cell "500mg" [ref=e2325]
+                  - cell "✓" [ref=e2326]
+                  - cell "✓" [ref=e2327]
+                  - cell "—" [ref=e2328]
+                  - cell [ref=e2329]:
+                    - generic [ref=e2330]:
+                      - button [ref=e2331] [cursor=pointer]:
+                        - img [ref=e2332]
+                      - button [ref=e2335] [cursor=pointer]:
+                        - img [ref=e2336]
+                - row "ASPIRIN81 Aspirin 81mg Aspirin Viên nén 81mg ✓ ✓ —" [ref=e2339]:
+                  - cell "ASPIRIN81" [ref=e2340]
+                  - cell "Aspirin 81mg" [ref=e2341]
+                  - cell "Aspirin" [ref=e2342]
+                  - cell "Viên nén" [ref=e2343]
+                  - cell "81mg" [ref=e2344]
+                  - cell "✓" [ref=e2345]
+                  - cell "✓" [ref=e2346]
+                  - cell "—" [ref=e2347]
+                  - cell [ref=e2348]:
+                    - generic [ref=e2349]:
+                      - button [ref=e2350] [cursor=pointer]:
+                        - img [ref=e2351]
+                      - button [ref=e2354] [cursor=pointer]:
+                        - img [ref=e2355]
+                - row "ATENO50 Atenolol 50mg Atenolol Viên nén 50mg ✓ ✓ —" [ref=e2358]:
+                  - cell "ATENO50" [ref=e2359]
+                  - cell "Atenolol 50mg" [ref=e2360]
+                  - cell "Atenolol" [ref=e2361]
+                  - cell "Viên nén" [ref=e2362]
+                  - cell "50mg" [ref=e2363]
+                  - cell "✓" [ref=e2364]
+                  - cell "✓" [ref=e2365]
+                  - cell "—" [ref=e2366]
+                  - cell [ref=e2367]:
+                    - generic [ref=e2368]:
+                      - button [ref=e2369] [cursor=pointer]:
+                        - img [ref=e2370]
+                      - button [ref=e2373] [cursor=pointer]:
+                        - img [ref=e2374]
+                - row "AUGMENT625 Augmentin 625mg (viên) Amoxicillin+Clavulanate Viên nén 625mg ✓ ✓ —" [ref=e2377]:
+                  - cell "AUGMENT625" [ref=e2378]
+                  - cell "Augmentin 625mg (viên)" [ref=e2379]
+                  - cell "Amoxicillin+Clavulanate" [ref=e2380]
+                  - cell "Viên nén" [ref=e2381]
+                  - cell "625mg" [ref=e2382]
+                  - cell "✓" [ref=e2383]
+                  - cell "✓" [ref=e2384]
+                  - cell "—" [ref=e2385]
+                  - cell [ref=e2386]:
+                    - generic [ref=e2387]:
+                      - button [ref=e2388] [cursor=pointer]:
+                        - img [ref=e2389]
+                      - button [ref=e2392] [cursor=pointer]:
+                        - img [ref=e2393]
+                - row "AZITHRO500 Azithromycin 500mg (viên) Azithromycin Viên nén 500mg ✓ ✓ —" [ref=e2396]:
+                  - cell "AZITHRO500" [ref=e2397]
+                  - cell "Azithromycin 500mg (viên)" [ref=e2398]
+                  - cell "Azithromycin" [ref=e2399]
+                  - cell "Viên nén" [ref=e2400]
+                  - cell "500mg" [ref=e2401]
+                  - cell "✓" [ref=e2402]
+                  - cell "✓" [ref=e2403]
+                  - cell "—" [ref=e2404]
+                  - cell [ref=e2405]:
+                    - generic [ref=e2406]:
+                      - button [ref=e2407] [cursor=pointer]:
+                        - img [ref=e2408]
+                      - button [ref=e2411] [cursor=pointer]:
+                        - img [ref=e2412]
+                - row "BERBERIN Berberin 100mg (viên) Berberine Viên nén 100mg ✓ ✓ —" [ref=e2415]:
+                  - cell "BERBERIN" [ref=e2416]
+                  - cell "Berberin 100mg (viên)" [ref=e2417]
+                  - cell "Berberine" [ref=e2418]
+                  - cell "Viên nén" [ref=e2419]
+                  - cell "100mg" [ref=e2420]
+                  - cell "✓" [ref=e2421]
+                  - cell "✓" [ref=e2422]
+                  - cell "—" [ref=e2423]
+                  - cell [ref=e2424]:
+                    - generic [ref=e2425]:
+                      - button [ref=e2426] [cursor=pointer]:
+                        - img [ref=e2427]
+                      - button [ref=e2430] [cursor=pointer]:
+                        - img [ref=e2431]
+                - row "BETAMETH Betamethasone 0.1% cream (tuýp) Betamethasone Kem 0.1% ✓ ✓ —" [ref=e2434]:
+                  - cell "BETAMETH" [ref=e2435]
+                  - cell "Betamethasone 0.1% cream (tuýp)" [ref=e2436]
+                  - cell "Betamethasone" [ref=e2437]
+                  - cell "Kem" [ref=e2438]
+                  - cell "0.1%" [ref=e2439]
+                  - cell "✓" [ref=e2440]
+                  - cell "✓" [ref=e2441]
+                  - cell "—" [ref=e2442]
+                  - cell [ref=e2443]:
+                    - generic [ref=e2444]:
+                      - button [ref=e2445] [cursor=pointer]:
+                        - img [ref=e2446]
+                      - button [ref=e2449] [cursor=pointer]:
+                        - img [ref=e2450]
+                - row "BISACODYL Bisacodyl 5mg Bisacodyl Viên nén 5mg ✓ ✓ —" [ref=e2453]:
+                  - cell "BISACODYL" [ref=e2454]
+                  - cell "Bisacodyl 5mg" [ref=e2455]
+                  - cell "Bisacodyl" [ref=e2456]
+                  - cell "Viên nén" [ref=e2457]
+                  - cell "5mg" [ref=e2458]
+                  - cell "✓" [ref=e2459]
+                  - cell "✓" [ref=e2460]
+                  - cell "—" [ref=e2461]
+                  - cell [ref=e2462]:
+                    - generic [ref=e2463]:
+                      - button [ref=e2464] [cursor=pointer]:
+                        - img [ref=e2465]
+                      - button [ref=e2468] [cursor=pointer]:
+                        - img [ref=e2469]
+                - row "BROMHEX8 Bromhexine 8mg (viên) Bromhexine Viên nén 8mg ✓ ✓ —" [ref=e2472]:
+                  - cell "BROMHEX8" [ref=e2473]
+                  - cell "Bromhexine 8mg (viên)" [ref=e2474]
+                  - cell "Bromhexine" [ref=e2475]
+                  - cell "Viên nén" [ref=e2476]
+                  - cell "8mg" [ref=e2477]
+                  - cell "✓" [ref=e2478]
+                  - cell "✓" [ref=e2479]
+                  - cell "—" [ref=e2480]
+                  - cell [ref=e2481]:
+                    - generic [ref=e2482]:
+                      - button [ref=e2483] [cursor=pointer]:
+                        - img [ref=e2484]
+                      - button [ref=e2487] [cursor=pointer]:
+                        - img [ref=e2488]
+                - row "CALCIDOL Calcium + Vitamin D3 Calcium Carbonate Viên nén 500mg ✓ ✓ —" [ref=e2491]:
+                  - cell "CALCIDOL" [ref=e2492]
+                  - cell "Calcium + Vitamin D3" [ref=e2493]
+                  - cell "Calcium Carbonate" [ref=e2494]
+                  - cell "Viên nén" [ref=e2495]
+                  - cell "500mg" [ref=e2496]
+                  - cell "✓" [ref=e2497]
+                  - cell "✓" [ref=e2498]
+                  - cell "—" [ref=e2499]
+                  - cell [ref=e2500]:
+                    - generic [ref=e2501]:
+                      - button [ref=e2502] [cursor=pointer]:
+                        - img [ref=e2503]
+                      - button [ref=e2506] [cursor=pointer]:
+                        - img [ref=e2507]
+                - row "CALCIDVIT Calcium + Vitamin D3 500mg (viên) Calcium carbonate+D3 Viên nén 500mg ✓ ✓ —" [ref=e2510]:
+                  - cell "CALCIDVIT" [ref=e2511]
+                  - cell "Calcium + Vitamin D3 500mg (viên)" [ref=e2512]
+                  - cell "Calcium carbonate+D3" [ref=e2513]
+                  - cell "Viên nén" [ref=e2514]
+                  - cell "500mg" [ref=e2515]
+                  - cell "✓" [ref=e2516]
+                  - cell "✓" [ref=e2517]
+                  - cell "—" [ref=e2518]
+                  - cell [ref=e2519]:
+                    - generic [ref=e2520]:
+                      - button [ref=e2521] [cursor=pointer]:
+                        - img [ref=e2522]
+                      - button [ref=e2525] [cursor=pointer]:
+                        - img [ref=e2526]
+                - row "CEFUROX500 Cefuroxime 500mg (viên) Cefuroxime Viên nén 500mg ✓ ✓ —" [ref=e2529]:
+                  - cell "CEFUROX500" [ref=e2530]
+                  - cell "Cefuroxime 500mg (viên)" [ref=e2531]
+                  - cell "Cefuroxime" [ref=e2532]
+                  - cell "Viên nén" [ref=e2533]
+                  - cell "500mg" [ref=e2534]
+                  - cell "✓" [ref=e2535]
+                  - cell "✓" [ref=e2536]
+                  - cell "—" [ref=e2537]
+                  - cell [ref=e2538]:
+                    - generic [ref=e2539]:
+                      - button [ref=e2540] [cursor=pointer]:
+                        - img [ref=e2541]
+                      - button [ref=e2544] [cursor=pointer]:
+                        - img [ref=e2545]
+                - row "CEPHALEX500 Cephalexin 500mg (viên nang) Cephalexin Viên nang 500mg ✓ ✓ —" [ref=e2548]:
+                  - cell "CEPHALEX500" [ref=e2549]
+                  - cell "Cephalexin 500mg (viên nang)" [ref=e2550]
+                  - cell "Cephalexin" [ref=e2551]
+                  - cell "Viên nang" [ref=e2552]
+                  - cell "500mg" [ref=e2553]
+                  - cell "✓" [ref=e2554]
+                  - cell "✓" [ref=e2555]
+                  - cell "—" [ref=e2556]
+                  - cell [ref=e2557]:
+                    - generic [ref=e2558]:
+                      - button [ref=e2559] [cursor=pointer]:
+                        - img [ref=e2560]
+                      - button [ref=e2563] [cursor=pointer]:
+                        - img [ref=e2564]
+                - row "CETIRIZ10 Cetirizine 10mg Cetirizine Viên nén 10mg ✓ ✓ —" [ref=e2567]:
+                  - cell "CETIRIZ10" [ref=e2568]
+                  - cell "Cetirizine 10mg" [ref=e2569]
+                  - cell "Cetirizine" [ref=e2570]
+                  - cell "Viên nén" [ref=e2571]
+                  - cell "10mg" [ref=e2572]
+                  - cell "✓" [ref=e2573]
+                  - cell "✓" [ref=e2574]
+                  - cell "—" [ref=e2575]
+                  - cell [ref=e2576]:
+                    - generic [ref=e2577]:
+                      - button [ref=e2578] [cursor=pointer]:
+                        - img [ref=e2579]
+                      - button [ref=e2582] [cursor=pointer]:
+                        - img [ref=e2583]
+                - row "CHLORAMP1 Chloramphenicol 1% nhỏ mắt (lọ) Chloramphenicol medicines.form.dosageForms.eye_drop 1% ✓ ✓ —" [ref=e2586]:
+                  - cell "CHLORAMP1" [ref=e2587]
+                  - cell "Chloramphenicol 1% nhỏ mắt (lọ)" [ref=e2588]
+                  - cell "Chloramphenicol" [ref=e2589]
+                  - cell "medicines.form.dosageForms.eye_drop" [ref=e2590]
+                  - cell "1%" [ref=e2591]
+                  - cell "✓" [ref=e2592]
+                  - cell "✓" [ref=e2593]
+                  - cell "—" [ref=e2594]
+                  - cell [ref=e2595]:
+                    - generic [ref=e2596]:
+                      - button [ref=e2597] [cursor=pointer]:
+                        - img [ref=e2598]
+                      - button [ref=e2601] [cursor=pointer]:
+                        - img [ref=e2602]
+                - row "CIPRO500 Ciprofloxacin 500mg Ciprofloxacin Viên nén 500mg ✓ ✓ —" [ref=e2605]:
+                  - cell "CIPRO500" [ref=e2606]
+                  - cell "Ciprofloxacin 500mg" [ref=e2607]
+                  - cell "Ciprofloxacin" [ref=e2608]
+                  - cell "Viên nén" [ref=e2609]
+                  - cell "500mg" [ref=e2610]
+                  - cell "✓" [ref=e2611]
+                  - cell "✓" [ref=e2612]
+                  - cell "—" [ref=e2613]
+                  - cell [ref=e2614]:
+                    - generic [ref=e2615]:
+                      - button [ref=e2616] [cursor=pointer]:
+                        - img [ref=e2617]
+                      - button [ref=e2620] [cursor=pointer]:
+                        - img [ref=e2621]
+                - row "CLOPIDO75 Clopidogrel 75mg Clopidogrel Viên nén 75mg ✓ ✓ —" [ref=e2624]:
+                  - cell "CLOPIDO75" [ref=e2625]
+                  - cell "Clopidogrel 75mg" [ref=e2626]
+                  - cell "Clopidogrel" [ref=e2627]
+                  - cell "Viên nén" [ref=e2628]
+                  - cell "75mg" [ref=e2629]
+                  - cell "✓" [ref=e2630]
+                  - cell "✓" [ref=e2631]
+                  - cell "—" [ref=e2632]
+                  - cell [ref=e2633]:
+                    - generic [ref=e2634]:
+                      - button [ref=e2635] [cursor=pointer]:
+                        - img [ref=e2636]
+                      - button [ref=e2639] [cursor=pointer]:
+                        - img [ref=e2640]
+                - row "CLOTRIM1 Clotrimazole 1% cream (tuýp) Clotrimazole Kem 1% ✓ ✓ —" [ref=e2643]:
+                  - cell "CLOTRIM1" [ref=e2644]
+                  - cell "Clotrimazole 1% cream (tuýp)" [ref=e2645]
+                  - cell "Clotrimazole" [ref=e2646]
+                  - cell "Kem" [ref=e2647]
+                  - cell "1%" [ref=e2648]
+                  - cell "✓" [ref=e2649]
+                  - cell "✓" [ref=e2650]
+                  - cell "—" [ref=e2651]
+                  - cell [ref=e2652]:
+                    - generic [ref=e2653]:
+                      - button [ref=e2654] [cursor=pointer]:
+                        - img [ref=e2655]
+                      - button [ref=e2658] [cursor=pointer]:
+                        - img [ref=e2659]
+                - row "COTRIM480 Co-trimoxazole 480mg (viên) Trimethoprim+Sulfamethoxazole Viên nén 480mg ✓ ✓ —" [ref=e2662]:
+                  - cell "COTRIM480" [ref=e2663]
+                  - cell "Co-trimoxazole 480mg (viên)" [ref=e2664]
+                  - cell "Trimethoprim+Sulfamethoxazole" [ref=e2665]
+                  - cell "Viên nén" [ref=e2666]
+                  - cell "480mg" [ref=e2667]
+                  - cell "✓" [ref=e2668]
+                  - cell "✓" [ref=e2669]
+                  - cell "—" [ref=e2670]
+                  - cell [ref=e2671]:
+                    - generic [ref=e2672]:
+                      - button [ref=e2673] [cursor=pointer]:
+                        - img [ref=e2674]
+                      - button [ref=e2677] [cursor=pointer]:
+                        - img [ref=e2678]
+                - row "DEXA05 Dexamethasone 0.5mg Dexamethasone Viên nén 0.5mg ✓ ✓ —" [ref=e2681]:
+                  - cell "DEXA05" [ref=e2682]
+                  - cell "Dexamethasone 0.5mg" [ref=e2683]
+                  - cell "Dexamethasone" [ref=e2684]
+                  - cell "Viên nén" [ref=e2685]
+                  - cell "0.5mg" [ref=e2686]
+                  - cell "✓" [ref=e2687]
+                  - cell "✓" [ref=e2688]
+                  - cell "—" [ref=e2689]
+                  - cell [ref=e2690]:
+                    - generic [ref=e2691]:
+                      - button [ref=e2692] [cursor=pointer]:
+                        - img [ref=e2693]
+                      - button [ref=e2696] [cursor=pointer]:
+                        - img [ref=e2697]
+                - row "DEXA4 Dexamethasone 4mg inj Dexamethasone Tiêm 4mg ✓ ✓ —" [ref=e2700]:
+                  - cell "DEXA4" [ref=e2701]
+                  - cell "Dexamethasone 4mg inj" [ref=e2702]
+                  - cell "Dexamethasone" [ref=e2703]
+                  - cell "Tiêm" [ref=e2704]
+                  - cell "4mg" [ref=e2705]
+                  - cell "✓" [ref=e2706]
+                  - cell "✓" [ref=e2707]
+                  - cell "—" [ref=e2708]
+                  - cell [ref=e2709]:
+                    - generic [ref=e2710]:
+                      - button [ref=e2711] [cursor=pointer]:
+                        - img [ref=e2712]
+                      - button [ref=e2715] [cursor=pointer]:
+                        - img [ref=e2716]
+                - row "DEXA4INJ Dexamethasone 4mg/ml (ống tiêm) Dexamethasone Tiêm 4mg/ml ✓ ✓ —" [ref=e2719]:
+                  - cell "DEXA4INJ" [ref=e2720]
+                  - cell "Dexamethasone 4mg/ml (ống tiêm)" [ref=e2721]
+                  - cell "Dexamethasone" [ref=e2722]
+                  - cell "Tiêm" [ref=e2723]
+                  - cell "4mg/ml" [ref=e2724]
+                  - cell "✓" [ref=e2725]
+                  - cell "✓" [ref=e2726]
+                  - cell "—" [ref=e2727]
+                  - cell [ref=e2728]:
+                    - generic [ref=e2729]:
+                      - button [ref=e2730] [cursor=pointer]:
+                        - img [ref=e2731]
+                      - button [ref=e2734] [cursor=pointer]:
+                        - img [ref=e2735]
+                - row "DIAZEPAM5 Diazepam 5mg (viên) Diazepam Viên nén 5mg ✓ ✓ —" [ref=e2738]:
+                  - cell "DIAZEPAM5" [ref=e2739]
+                  - cell "Diazepam 5mg (viên)" [ref=e2740]
+                  - cell "Diazepam" [ref=e2741]
+                  - cell "Viên nén" [ref=e2742]
+                  - cell "5mg" [ref=e2743]
+                  - cell "✓" [ref=e2744]
+                  - cell "✓" [ref=e2745]
+                  - cell "—" [ref=e2746]
+                  - cell [ref=e2747]:
+                    - generic [ref=e2748]:
+                      - button [ref=e2749] [cursor=pointer]:
+                        - img [ref=e2750]
+                      - button [ref=e2753] [cursor=pointer]:
+                        - img [ref=e2754]
+                - row "DICLO50 Diclofenac 50mg (viên) Diclofenac sodium Viên nén 50mg ✓ ✓ —" [ref=e2757]:
+                  - cell "DICLO50" [ref=e2758]
+                  - cell "Diclofenac 50mg (viên)" [ref=e2759]
+                  - cell "Diclofenac sodium" [ref=e2760]
+                  - cell "Viên nén" [ref=e2761]
+                  - cell "50mg" [ref=e2762]
+                  - cell "✓" [ref=e2763]
+                  - cell "✓" [ref=e2764]
+                  - cell "—" [ref=e2765]
+                  - cell [ref=e2766]:
+                    - generic [ref=e2767]:
+                      - button [ref=e2768] [cursor=pointer]:
+                        - img [ref=e2769]
+                      - button [ref=e2772] [cursor=pointer]:
+                        - img [ref=e2773]
+                - row "MOTILI10 Domperidone 10mg Domperidone Viên nén 10mg ✓ ✓ —" [ref=e2776]:
+                  - cell "MOTILI10" [ref=e2777]
+                  - cell "Domperidone 10mg" [ref=e2778]
+                  - cell "Domperidone" [ref=e2779]
+                  - cell "Viên nén" [ref=e2780]
+                  - cell "10mg" [ref=e2781]
+                  - cell "✓" [ref=e2782]
+                  - cell "✓" [ref=e2783]
+                  - cell "—" [ref=e2784]
+                  - cell [ref=e2785]:
+                    - generic [ref=e2786]:
+                      - button [ref=e2787] [cursor=pointer]:
+                        - img [ref=e2788]
+                      - button [ref=e2791] [cursor=pointer]:
+                        - img [ref=e2792]
+                - row "DOMPER10 Domperidone 10mg (viên) Domperidone Viên nén 10mg ✓ ✓ —" [ref=e2795]:
+                  - cell "DOMPER10" [ref=e2796]
+                  - cell "Domperidone 10mg (viên)" [ref=e2797]
+                  - cell "Domperidone" [ref=e2798]
+                  - cell "Viên nén" [ref=e2799]
+                  - cell "10mg" [ref=e2800]
+                  - cell "✓" [ref=e2801]
+                  - cell "✓" [ref=e2802]
+                  - cell "—" [ref=e2803]
+                  - cell [ref=e2804]:
+                    - generic [ref=e2805]:
+                      - button [ref=e2806] [cursor=pointer]:
+                        - img [ref=e2807]
+                      - button [ref=e2810] [cursor=pointer]:
+                        - img [ref=e2811]
+                - row "DOXYCYC100 Doxycycline 100mg (viên nang) Doxycycline Viên nang 100mg ✓ ✓ —" [ref=e2814]:
+                  - cell "DOXYCYC100" [ref=e2815]
+                  - cell "Doxycycline 100mg (viên nang)" [ref=e2816]
+                  - cell "Doxycycline" [ref=e2817]
+                  - cell "Viên nang" [ref=e2818]
+                  - cell "100mg" [ref=e2819]
+                  - cell "✓" [ref=e2820]
+                  - cell "✓" [ref=e2821]
+                  - cell "—" [ref=e2822]
+                  - cell [ref=e2823]:
+                    - generic [ref=e2824]:
+                      - button [ref=e2825] [cursor=pointer]:
+                        - img [ref=e2826]
+                      - button [ref=e2829] [cursor=pointer]:
+                        - img [ref=e2830]
+                - row "EFFERAGAN500 Efferalgan 500mg sủi Paracetamol medicines.form.dosageForms.effervescent 500mg ✓ ✓ —" [ref=e2833]:
+                  - cell "EFFERAGAN500" [ref=e2834]
+                  - cell "Efferalgan 500mg sủi" [ref=e2835]
+                  - cell "Paracetamol" [ref=e2836]
+                  - cell "medicines.form.dosageForms.effervescent" [ref=e2837]
+                  - cell "500mg" [ref=e2838]
+                  - cell "✓" [ref=e2839]
+                  - cell "✓" [ref=e2840]
+                  - cell "—" [ref=e2841]
+                  - cell [ref=e2842]:
+                    - generic [ref=e2843]:
+                      - button [ref=e2844] [cursor=pointer]:
+                        - img [ref=e2845]
+                      - button [ref=e2848] [cursor=pointer]:
+                        - img [ref=e2849]
+                - row "ENALAPRIL5 Enalapril 5mg (viên) Enalapril Viên nén 5mg ✓ ✓ —" [ref=e2852]:
+                  - cell "ENALAPRIL5" [ref=e2853]
+                  - cell "Enalapril 5mg (viên)" [ref=e2854]
+                  - cell "Enalapril" [ref=e2855]
+                  - cell "Viên nén" [ref=e2856]
+                  - cell "5mg" [ref=e2857]
+                  - cell "✓" [ref=e2858]
+                  - cell "✓" [ref=e2859]
+                  - cell "—" [ref=e2860]
+                  - cell [ref=e2861]:
+                    - generic [ref=e2862]:
+                      - button [ref=e2863] [cursor=pointer]:
+                        - img [ref=e2864]
+                      - button [ref=e2867] [cursor=pointer]:
+                        - img [ref=e2868]
+                - row "ERYTHRO500 Erythromycin 500mg Erythromycin Viên nén 500mg ✓ ✓ —" [ref=e2871]:
+                  - cell "ERYTHRO500" [ref=e2872]
+                  - cell "Erythromycin 500mg" [ref=e2873]
+                  - cell "Erythromycin" [ref=e2874]
+                  - cell "Viên nén" [ref=e2875]
+                  - cell "500mg" [ref=e2876]
+                  - cell "✓" [ref=e2877]
+                  - cell "✓" [ref=e2878]
+                  - cell "—" [ref=e2879]
+                  - cell [ref=e2880]:
+                    - generic [ref=e2881]:
+                      - button [ref=e2882] [cursor=pointer]:
+                        - img [ref=e2883]
+                      - button [ref=e2886] [cursor=pointer]:
+                        - img [ref=e2887]
+                - row "FESOMAT Ferrous sulfate 300mg (viên) Ferrous sulfate Viên nén 300mg ✓ ✓ —" [ref=e2890]:
+                  - cell "FESOMAT" [ref=e2891]
+                  - cell "Ferrous sulfate 300mg (viên)" [ref=e2892]
+                  - cell "Ferrous sulfate" [ref=e2893]
+                  - cell "Viên nén" [ref=e2894]
+                  - cell "300mg" [ref=e2895]
+                  - cell "✓" [ref=e2896]
+                  - cell "✓" [ref=e2897]
+                  - cell "—" [ref=e2898]
+                  - cell [ref=e2899]:
+                    - generic [ref=e2900]:
+                      - button [ref=e2901] [cursor=pointer]:
+                        - img [ref=e2902]
+                      - button [ref=e2905] [cursor=pointer]:
+                        - img [ref=e2906]
+                - row "DUP481466 First Medicine First medicines.form.dosageForms.null — ✓ ✓ —" [ref=e2909]:
+                  - cell "DUP481466" [ref=e2910]
+                  - cell "First Medicine" [ref=e2911]
+                  - cell "First" [ref=e2912]
+                  - cell "medicines.form.dosageForms.null" [ref=e2913]
+                  - cell "—" [ref=e2914]
+                  - cell "✓" [ref=e2915]
+                  - cell "✓" [ref=e2916]
+                  - cell "—" [ref=e2917]
+                  - cell [ref=e2918]:
+                    - generic [ref=e2919]:
+                      - button [ref=e2920] [cursor=pointer]:
+                        - img [ref=e2921]
+                      - button [ref=e2924] [cursor=pointer]:
+                        - img [ref=e2925]
+                - row "DUP149982 First Medicine First medicines.form.dosageForms.null — ✓ ✓ —" [ref=e2928]:
+                  - cell "DUP149982" [ref=e2929]
+                  - cell "First Medicine" [ref=e2930]
+                  - cell "First" [ref=e2931]
+                  - cell "medicines.form.dosageForms.null" [ref=e2932]
+                  - cell "—" [ref=e2933]
+                  - cell "✓" [ref=e2934]
+                  - cell "✓" [ref=e2935]
+                  - cell "—" [ref=e2936]
+                  - cell [ref=e2937]:
+                    - generic [ref=e2938]:
+                      - button [ref=e2939] [cursor=pointer]:
+                        - img [ref=e2940]
+                      - button [ref=e2943] [cursor=pointer]:
+                        - img [ref=e2944]
+                - row "DUP759734 First Medicine First medicines.form.dosageForms.null — ✓ ✓ —" [ref=e2947]:
+                  - cell "DUP759734" [ref=e2948]
+                  - cell "First Medicine" [ref=e2949]
+                  - cell "First" [ref=e2950]
+                  - cell "medicines.form.dosageForms.null" [ref=e2951]
+                  - cell "—" [ref=e2952]
+                  - cell "✓" [ref=e2953]
+                  - cell "✓" [ref=e2954]
+                  - cell "—" [ref=e2955]
+                  - cell [ref=e2956]:
+                    - generic [ref=e2957]:
+                      - button [ref=e2958] [cursor=pointer]:
+                        - img [ref=e2959]
+                      - button [ref=e2962] [cursor=pointer]:
+                        - img [ref=e2963]
+                - row "DUP862827 First Medicine First medicines.form.dosageForms.null — ✓ ✓ —" [ref=e2966]:
+                  - cell "DUP862827" [ref=e2967]
+                  - cell "First Medicine" [ref=e2968]
+                  - cell "First" [ref=e2969]
+                  - cell "medicines.form.dosageForms.null" [ref=e2970]
+                  - cell "—" [ref=e2971]
+                  - cell "✓" [ref=e2972]
+                  - cell "✓" [ref=e2973]
+                  - cell "—" [ref=e2974]
+                  - cell [ref=e2975]:
+                    - generic [ref=e2976]:
+                      - button [ref=e2977] [cursor=pointer]:
+                        - img [ref=e2978]
+                      - button [ref=e2981] [cursor=pointer]:
+                        - img [ref=e2982]
+                - row "DUP117310 First Medicine First medicines.form.dosageForms.null — ✓ ✓ —" [ref=e2985]:
+                  - cell "DUP117310" [ref=e2986]
+                  - cell "First Medicine" [ref=e2987]
+                  - cell "First" [ref=e2988]
+                  - cell "medicines.form.dosageForms.null" [ref=e2989]
+                  - cell "—" [ref=e2990]
+                  - cell "✓" [ref=e2991]
+                  - cell "✓" [ref=e2992]
+                  - cell "—" [ref=e2993]
+                  - cell [ref=e2994]:
+                    - generic [ref=e2995]:
+                      - button [ref=e2996] [cursor=pointer]:
+                        - img [ref=e2997]
+                      - button [ref=e3000] [cursor=pointer]:
+                        - img [ref=e3001]
+                - row "FUROSE40 Furosemide 40mg Furosemide Viên nén 40mg ✓ ✓ —" [ref=e3004]:
+                  - cell "FUROSE40" [ref=e3005]
+                  - cell "Furosemide 40mg" [ref=e3006]
+                  - cell "Furosemide" [ref=e3007]
+                  - cell "Viên nén" [ref=e3008]
+                  - cell "40mg" [ref=e3009]
+                  - cell "✓" [ref=e3010]
+                  - cell "✓" [ref=e3011]
+                  - cell "—" [ref=e3012]
+                  - cell [ref=e3013]:
+                    - generic [ref=e3014]:
+                      - button [ref=e3015] [cursor=pointer]:
+                        - img [ref=e3016]
+                      - button [ref=e3019] [cursor=pointer]:
+                        - img [ref=e3020]
+                - row "GLIBEN5 Glibenclamide 5mg Glibenclamide Viên nén 5mg ✓ ✓ —" [ref=e3023]:
+                  - cell "GLIBEN5" [ref=e3024]
+                  - cell "Glibenclamide 5mg" [ref=e3025]
+                  - cell "Glibenclamide" [ref=e3026]
+                  - cell "Viên nén" [ref=e3027]
+                  - cell "5mg" [ref=e3028]
+                  - cell "✓" [ref=e3029]
+                  - cell "✓" [ref=e3030]
+                  - cell "—" [ref=e3031]
+                  - cell [ref=e3032]:
+                    - generic [ref=e3033]:
+                      - button [ref=e3034] [cursor=pointer]:
+                        - img [ref=e3035]
+                      - button [ref=e3038] [cursor=pointer]:
+                        - img [ref=e3039]
+                - row "GLICLA80 Gliclazide 80mg (viên) Gliclazide Viên nén 80mg ✓ ✓ —" [ref=e3042]:
+                  - cell "GLICLA80" [ref=e3043]
+                  - cell "Gliclazide 80mg (viên)" [ref=e3044]
+                  - cell "Gliclazide" [ref=e3045]
+                  - cell "Viên nén" [ref=e3046]
+                  - cell "80mg" [ref=e3047]
+                  - cell "✓" [ref=e3048]
+                  - cell "✓" [ref=e3049]
+                  - cell "—" [ref=e3050]
+                  - cell [ref=e3051]:
+                    - generic [ref=e3052]:
+                      - button [ref=e3053] [cursor=pointer]:
+                        - img [ref=e3054]
+                      - button [ref=e3057] [cursor=pointer]:
+                        - img [ref=e3058]
+                - row "GLUCOSEI5 Glucose 5% 500ml (chai truyền) Glucose medicines.form.dosageForms.infusion 5%/500ml ✓ ✓ —" [ref=e3061]:
+                  - cell "GLUCOSEI5" [ref=e3062]
+                  - cell "Glucose 5% 500ml (chai truyền)" [ref=e3063]
+                  - cell "Glucose" [ref=e3064]
+                  - cell "medicines.form.dosageForms.infusion" [ref=e3065]
+                  - cell "5%/500ml" [ref=e3066]
+                  - cell "✓" [ref=e3067]
+                  - cell "✓" [ref=e3068]
+                  - cell "—" [ref=e3069]
+                  - cell [ref=e3070]:
+                    - generic [ref=e3071]:
+                      - button [ref=e3072] [cursor=pointer]:
+                        - img [ref=e3073]
+                      - button [ref=e3076] [cursor=pointer]:
+                        - img [ref=e3077]
+                - row "IBUP400 Ibuprofen 400mg Ibuprofen Viên nén 400mg ✓ ✓ —" [ref=e3080]:
+                  - cell "IBUP400" [ref=e3081]
+                  - cell "Ibuprofen 400mg" [ref=e3082]
+                  - cell "Ibuprofen" [ref=e3083]
+                  - cell "Viên nén" [ref=e3084]
+                  - cell "400mg" [ref=e3085]
+                  - cell "✓" [ref=e3086]
+                  - cell "✓" [ref=e3087]
+                  - cell "—" [ref=e3088]
+                  - cell [ref=e3089]:
+                    - generic [ref=e3090]:
+                      - button [ref=e3091] [cursor=pointer]:
+                        - img [ref=e3092]
+                      - button [ref=e3095] [cursor=pointer]:
+                        - img [ref=e3096]
+                - row "INSULIN Insulin Regular 100UI/ml Insulin Tiêm 100UI/ml ✓ ✓ —" [ref=e3099]:
+                  - cell "INSULIN" [ref=e3100]
+                  - cell "Insulin Regular 100UI/ml" [ref=e3101]
+                  - cell "Insulin" [ref=e3102]
+                  - cell "Tiêm" [ref=e3103]
+                  - cell "100UI/ml" [ref=e3104]
+                  - cell "✓" [ref=e3105]
+                  - cell "✓" [ref=e3106]
+                  - cell "—" [ref=e3107]
+                  - cell [ref=e3108]:
+                    - generic [ref=e3109]:
+                      - button [ref=e3110] [cursor=pointer]:
+                        - img [ref=e3111]
+                      - button [ref=e3114] [cursor=pointer]:
+                        - img [ref=e3115]
+                - row "LORA10 Loratadine 10mg Loratadine Viên nén 10mg ✓ ✓ —" [ref=e3118]:
+                  - cell "LORA10" [ref=e3119]
+                  - cell "Loratadine 10mg" [ref=e3120]
+                  - cell "Loratadine" [ref=e3121]
+                  - cell "Viên nén" [ref=e3122]
+                  - cell "10mg" [ref=e3123]
+                  - cell "✓" [ref=e3124]
+                  - cell "✓" [ref=e3125]
+                  - cell "—" [ref=e3126]
+                  - cell [ref=e3127]:
+                    - generic [ref=e3128]:
+                      - button [ref=e3129] [cursor=pointer]:
+                        - img [ref=e3130]
+                      - button [ref=e3133] [cursor=pointer]:
+                        - img [ref=e3134]
+                - row "LOSART50 Losartan 50mg (viên) Losartan Viên nén 50mg ✓ ✓ —" [ref=e3137]:
+                  - cell "LOSART50" [ref=e3138]
+                  - cell "Losartan 50mg (viên)" [ref=e3139]
+                  - cell "Losartan" [ref=e3140]
+                  - cell "Viên nén" [ref=e3141]
+                  - cell "50mg" [ref=e3142]
+                  - cell "✓" [ref=e3143]
+                  - cell "✓" [ref=e3144]
+                  - cell "—" [ref=e3145]
+                  - cell [ref=e3146]:
+                    - generic [ref=e3147]:
+                      - button [ref=e3148] [cursor=pointer]:
+                        - img [ref=e3149]
+                      - button [ref=e3152] [cursor=pointer]:
+                        - img [ref=e3153]
+                - row "MELO7.5 Meloxicam 7.5mg (viên) Meloxicam Viên nén 7.5mg ✓ ✓ —" [ref=e3156]:
+                  - cell "MELO7.5" [ref=e3157]
+                  - cell "Meloxicam 7.5mg (viên)" [ref=e3158]
+                  - cell "Meloxicam" [ref=e3159]
+                  - cell "Viên nén" [ref=e3160]
+                  - cell "7.5mg" [ref=e3161]
+                  - cell "✓" [ref=e3162]
+                  - cell "✓" [ref=e3163]
+                  - cell "—" [ref=e3164]
+                  - cell [ref=e3165]:
+                    - generic [ref=e3166]:
+                      - button [ref=e3167] [cursor=pointer]:
+                        - img [ref=e3168]
+                      - button [ref=e3171] [cursor=pointer]:
+                        - img [ref=e3172]
+                - row "METFOR500 Metformin 500mg Metformin Viên nén 500mg ✓ ✓ —" [ref=e3175]:
+                  - cell "METFOR500" [ref=e3176]
+                  - cell "Metformin 500mg" [ref=e3177]
+                  - cell "Metformin" [ref=e3178]
+                  - cell "Viên nén" [ref=e3179]
+                  - cell "500mg" [ref=e3180]
+                  - cell "✓" [ref=e3181]
+                  - cell "✓" [ref=e3182]
+                  - cell "—" [ref=e3183]
+                  - cell [ref=e3184]:
+                    - generic [ref=e3185]:
+                      - button [ref=e3186] [cursor=pointer]:
+                        - img [ref=e3187]
+                      - button [ref=e3190] [cursor=pointer]:
+                        - img [ref=e3191]
+                - row "METFORM500 Metformin 500mg (viên) Metformin Viên nén 500mg ✓ ✓ —" [ref=e3194]:
+                  - cell "METFORM500" [ref=e3195]
+                  - cell "Metformin 500mg (viên)" [ref=e3196]
+                  - cell "Metformin" [ref=e3197]
+                  - cell "Viên nén" [ref=e3198]
+                  - cell "500mg" [ref=e3199]
+                  - cell "✓" [ref=e3200]
+                  - cell "✓" [ref=e3201]
+                  - cell "—" [ref=e3202]
+                  - cell [ref=e3203]:
+                    - generic [ref=e3204]:
+                      - button [ref=e3205] [cursor=pointer]:
+                        - img [ref=e3206]
+                      - button [ref=e3209] [cursor=pointer]:
+                        - img [ref=e3210]
+                - row "METFORM850 Metformin 850mg (viên) Metformin Viên nén 850mg ✓ ✓ —" [ref=e3213]:
+                  - cell "METFORM850" [ref=e3214]
+                  - cell "Metformin 850mg (viên)" [ref=e3215]
+                  - cell "Metformin" [ref=e3216]
+                  - cell "Viên nén" [ref=e3217]
+                  - cell "850mg" [ref=e3218]
+                  - cell "✓" [ref=e3219]
+                  - cell "✓" [ref=e3220]
+                  - cell "—" [ref=e3221]
+                  - cell [ref=e3222]:
+                    - generic [ref=e3223]:
+                      - button [ref=e3224] [cursor=pointer]:
+                        - img [ref=e3225]
+                      - button [ref=e3228] [cursor=pointer]:
+                        - img [ref=e3229]
+                - row "METRO400 Metronidazole 400mg Metronidazole Viên nén 400mg ✓ ✓ —" [ref=e3232]:
+                  - cell "METRO400" [ref=e3233]
+                  - cell "Metronidazole 400mg" [ref=e3234]
+                  - cell "Metronidazole" [ref=e3235]
+                  - cell "Viên nén" [ref=e3236]
+                  - cell "400mg" [ref=e3237]
+                  - cell "✓" [ref=e3238]
+                  - cell "✓" [ref=e3239]
+                  - cell "—" [ref=e3240]
+                  - cell [ref=e3241]:
+                    - generic [ref=e3242]:
+                      - button [ref=e3243] [cursor=pointer]:
+                        - img [ref=e3244]
+                      - button [ref=e3247] [cursor=pointer]:
+                        - img [ref=e3248]
+                - row "NAPROX250 Naproxen 250mg (viên) Naproxen Viên nén 250mg ✓ ✓ —" [ref=e3251]:
+                  - cell "NAPROX250" [ref=e3252]
+                  - cell "Naproxen 250mg (viên)" [ref=e3253]
+                  - cell "Naproxen" [ref=e3254]
+                  - cell "Viên nén" [ref=e3255]
+                  - cell "250mg" [ref=e3256]
+                  - cell "✓" [ref=e3257]
+                  - cell "✓" [ref=e3258]
+                  - cell "—" [ref=e3259]
+                  - cell [ref=e3260]:
+                    - generic [ref=e3261]:
+                      - button [ref=e3262] [cursor=pointer]:
+                        - img [ref=e3263]
+                      - button [ref=e3266] [cursor=pointer]:
+                        - img [ref=e3267]
+                - row "NACL09500 Natri Clorid 0.9% 500ml (chai truyền) Sodium chloride medicines.form.dosageForms.infusion 0.9%/500ml ✓ ✓ —" [ref=e3270]:
+                  - cell "NACL09500" [ref=e3271]
+                  - cell "Natri Clorid 0.9% 500ml (chai truyền)" [ref=e3272]
+                  - cell "Sodium chloride" [ref=e3273]
+                  - cell "medicines.form.dosageForms.infusion" [ref=e3274]
+                  - cell "0.9%/500ml" [ref=e3275]
+                  - cell "✓" [ref=e3276]
+                  - cell "✓" [ref=e3277]
+                  - cell "—" [ref=e3278]
+                  - cell [ref=e3279]:
+                    - generic [ref=e3280]:
+                      - button [ref=e3281] [cursor=pointer]:
+                        - img [ref=e3282]
+                      - button [ref=e3285] [cursor=pointer]:
+                        - img [ref=e3286]
+                - row "NATRICL09 Natri Clorid 0.9% nước muối sinh lý (lọ) Sodium chloride medicines.form.dosageForms.solution 0.9% ✓ ✓ —" [ref=e3289]:
+                  - cell "NATRICL09" [ref=e3290]
+                  - cell "Natri Clorid 0.9% nước muối sinh lý (lọ)" [ref=e3291]
+                  - cell "Sodium chloride" [ref=e3292]
+                  - cell "medicines.form.dosageForms.solution" [ref=e3293]
+                  - cell "0.9%" [ref=e3294]
+                  - cell "✓" [ref=e3295]
+                  - cell "✓" [ref=e3296]
+                  - cell "—" [ref=e3297]
+                  - cell [ref=e3298]:
+                    - generic [ref=e3299]:
+                      - button [ref=e3300] [cursor=pointer]:
+                        - img [ref=e3301]
+                      - button [ref=e3304] [cursor=pointer]:
+                        - img [ref=e3305]
+                - row "NEOMYCIN Neomycin + Bacitracin mỡ (tuýp) Neomycin+Bacitracin medicines.form.dosageForms.ointment complex ✓ ✓ —" [ref=e3308]:
+                  - cell "NEOMYCIN" [ref=e3309]
+                  - cell "Neomycin + Bacitracin mỡ (tuýp)" [ref=e3310]
+                  - cell "Neomycin+Bacitracin" [ref=e3311]
+                  - cell "medicines.form.dosageForms.ointment" [ref=e3312]
+                  - cell "complex" [ref=e3313]
+                  - cell "✓" [ref=e3314]
+                  - cell "✓" [ref=e3315]
+                  - cell "—" [ref=e3316]
+                  - cell [ref=e3317]:
+                    - generic [ref=e3318]:
+                      - button [ref=e3319] [cursor=pointer]:
+                        - img [ref=e3320]
+                      - button [ref=e3323] [cursor=pointer]:
+                        - img [ref=e3324]
+                - row "NORFLOX400 Norfloxacin 400mg Norfloxacin Viên nén 400mg ✓ ✓ —" [ref=e3327]:
+                  - cell "NORFLOX400" [ref=e3328]
+                  - cell "Norfloxacin 400mg" [ref=e3329]
+                  - cell "Norfloxacin" [ref=e3330]
+                  - cell "Viên nén" [ref=e3331]
+                  - cell "400mg" [ref=e3332]
+                  - cell "✓" [ref=e3333]
+                  - cell "✓" [ref=e3334]
+                  - cell "—" [ref=e3335]
+                  - cell [ref=e3336]:
+                    - generic [ref=e3337]:
+                      - button [ref=e3338] [cursor=pointer]:
+                        - img [ref=e3339]
+                      - button [ref=e3342] [cursor=pointer]:
+                        - img [ref=e3343]
+                - row "OMEP20 Omeprazole 20mg Omeprazole Viên nang 20mg ✓ ✓ —" [ref=e3346]:
+                  - cell "OMEP20" [ref=e3347]
+                  - cell "Omeprazole 20mg" [ref=e3348]
+                  - cell "Omeprazole" [ref=e3349]
+                  - cell "Viên nang" [ref=e3350]
+                  - cell "20mg" [ref=e3351]
+                  - cell "✓" [ref=e3352]
+                  - cell "✓" [ref=e3353]
+                  - cell "—" [ref=e3354]
+                  - cell [ref=e3355]:
+                    - generic [ref=e3356]:
+                      - button [ref=e3357] [cursor=pointer]:
+                        - img [ref=e3358]
+                      - button [ref=e3361] [cursor=pointer]:
+                        - img [ref=e3362]
+                - row "ORS Oresol (gói pha uống) ORS medicines.form.dosageForms.powder 27.9g ✓ ✓ —" [ref=e3365]:
+                  - cell "ORS" [ref=e3366]
+                  - cell "Oresol (gói pha uống)" [ref=e3367]
+                  - cell "ORS" [ref=e3368]
+                  - cell "medicines.form.dosageForms.powder" [ref=e3369]
+                  - cell "27.9g" [ref=e3370]
+                  - cell "✓" [ref=e3371]
+                  - cell "✓" [ref=e3372]
+                  - cell "—" [ref=e3373]
+                  - cell [ref=e3374]:
+                    - generic [ref=e3375]:
+                      - button [ref=e3376] [cursor=pointer]:
+                        - img [ref=e3377]
+                      - button [ref=e3380] [cursor=pointer]:
+                        - img [ref=e3381]
+                - row "PANTOPRA40 Pantoprazole 40mg (viên) Pantoprazole Viên nén 40mg ✓ ✓ —" [ref=e3384]:
+                  - cell "PANTOPRA40" [ref=e3385]
+                  - cell "Pantoprazole 40mg (viên)" [ref=e3386]
+                  - cell "Pantoprazole" [ref=e3387]
+                  - cell "Viên nén" [ref=e3388]
+                  - cell "40mg" [ref=e3389]
+                  - cell "✓" [ref=e3390]
+                  - cell "✓" [ref=e3391]
+                  - cell "—" [ref=e3392]
+                  - cell [ref=e3393]:
+                    - generic [ref=e3394]:
+                      - button [ref=e3395] [cursor=pointer]:
+                        - img [ref=e3396]
+                      - button [ref=e3399] [cursor=pointer]:
+                        - img [ref=e3400]
+                - row "PARA325 Paracetamol 325mg trẻ em (viên) Paracetamol Viên nén 325mg ✓ ✓ —" [ref=e3403]:
+                  - cell "PARA325" [ref=e3404]
+                  - cell "Paracetamol 325mg trẻ em (viên)" [ref=e3405]
+                  - cell "Paracetamol" [ref=e3406]
+                  - cell "Viên nén" [ref=e3407]
+                  - cell "325mg" [ref=e3408]
+                  - cell "✓" [ref=e3409]
+                  - cell "✓" [ref=e3410]
+                  - cell "—" [ref=e3411]
+                  - cell [ref=e3412]:
+                    - generic [ref=e3413]:
+                      - button [ref=e3414] [cursor=pointer]:
+                        - img [ref=e3415]
+                      - button [ref=e3418] [cursor=pointer]:
+                        - img [ref=e3419]
+                - row "PARA500 Paracetamol 500mg Paracetamol Viên nén 500mg ✓ ✓ —" [ref=e3422]:
+                  - cell "PARA500" [ref=e3423]
+                  - cell "Paracetamol 500mg" [ref=e3424]
+                  - cell "Paracetamol" [ref=e3425]
+                  - cell "Viên nén" [ref=e3426]
+                  - cell "500mg" [ref=e3427]
+                  - cell "✓" [ref=e3428]
+                  - cell "✓" [ref=e3429]
+                  - cell "—" [ref=e3430]
+                  - cell [ref=e3431]:
+                    - generic [ref=e3432]:
+                      - button [ref=e3433] [cursor=pointer]:
+                        - img [ref=e3434]
+                      - button [ref=e3437] [cursor=pointer]:
+                        - img [ref=e3438]
+                - row "PARACOD Paracetamol 500mg + Codein 30mg Paracetamol+Codeine Viên nén 500/30mg ✓ ✓ —" [ref=e3441]:
+                  - cell "PARACOD" [ref=e3442]
+                  - cell "Paracetamol 500mg + Codein 30mg" [ref=e3443]
+                  - cell "Paracetamol+Codeine" [ref=e3444]
+                  - cell "Viên nén" [ref=e3445]
+                  - cell "500/30mg" [ref=e3446]
+                  - cell "✓" [ref=e3447]
+                  - cell "✓" [ref=e3448]
+                  - cell "—" [ref=e3449]
+                  - cell [ref=e3450]:
+                    - generic [ref=e3451]:
+                      - button [ref=e3452] [cursor=pointer]:
+                        - img [ref=e3453]
+                      - button [ref=e3456] [cursor=pointer]:
+                        - img [ref=e3457]
+                - row "PRED5 Prednisolone 5mg (viên) Prednisolone Viên nén 5mg ✓ ✓ —" [ref=e3460]:
+                  - cell "PRED5" [ref=e3461]
+                  - cell "Prednisolone 5mg (viên)" [ref=e3462]
+                  - cell "Prednisolone" [ref=e3463]
+                  - cell "Viên nén" [ref=e3464]
+                  - cell "5mg" [ref=e3465]
+                  - cell "✓" [ref=e3466]
+                  - cell "✓" [ref=e3467]
+                  - cell "—" [ref=e3468]
+                  - cell [ref=e3469]:
+                    - generic [ref=e3470]:
+                      - button [ref=e3471] [cursor=pointer]:
+                        - img [ref=e3472]
+                      - button [ref=e3475] [cursor=pointer]:
+                        - img [ref=e3476]
+                - row "RANTID150 Ranitidine 150mg Ranitidine Viên nén 150mg ✓ ✓ —" [ref=e3479]:
+                  - cell "RANTID150" [ref=e3480]
+                  - cell "Ranitidine 150mg" [ref=e3481]
+                  - cell "Ranitidine" [ref=e3482]
+                  - cell "Viên nén" [ref=e3483]
+                  - cell "150mg" [ref=e3484]
+                  - cell "✓" [ref=e3485]
+                  - cell "✓" [ref=e3486]
+                  - cell "—" [ref=e3487]
+                  - cell [ref=e3488]:
+                    - generic [ref=e3489]:
+                      - button [ref=e3490] [cursor=pointer]:
+                        - img [ref=e3491]
+                      - button [ref=e3494] [cursor=pointer]:
+                        - img [ref=e3495]
+                - row "RINGER Ringer lactate 500ml (chai truyền) Ringer lactate medicines.form.dosageForms.infusion 500ml ✓ ✓ —" [ref=e3498]:
+                  - cell "RINGER" [ref=e3499]
+                  - cell "Ringer lactate 500ml (chai truyền)" [ref=e3500]
+                  - cell "Ringer lactate" [ref=e3501]
+                  - cell "medicines.form.dosageForms.infusion" [ref=e3502]
+                  - cell "500ml" [ref=e3503]
+                  - cell "✓" [ref=e3504]
+                  - cell "✓" [ref=e3505]
+                  - cell "—" [ref=e3506]
+                  - cell [ref=e3507]:
+                    - generic [ref=e3508]:
+                      - button [ref=e3509] [cursor=pointer]:
+                        - img [ref=e3510]
+                      - button [ref=e3513] [cursor=pointer]:
+                        - img [ref=e3514]
+                - row "SALBUTAN Salbutamol 100mcg Salbutamol Hít 100mcg ✓ ✓ —" [ref=e3517]:
+                  - cell "SALBUTAN" [ref=e3518]
+                  - cell "Salbutamol 100mcg" [ref=e3519]
+                  - cell "Salbutamol" [ref=e3520]
+                  - cell "Hít" [ref=e3521]
+                  - cell "100mcg" [ref=e3522]
+                  - cell "✓" [ref=e3523]
+                  - cell "✓" [ref=e3524]
+                  - cell "—" [ref=e3525]
+                  - cell [ref=e3526]:
+                    - generic [ref=e3527]:
+                      - button [ref=e3528] [cursor=pointer]:
+                        - img [ref=e3529]
+                      - button [ref=e3532] [cursor=pointer]:
+                        - img [ref=e3533]
+                - row "SALBUT100 Salbutamol MDI 100mcg (bình xịt) Salbutamol Hít 100mcg ✓ ✓ —" [ref=e3536]:
+                  - cell "SALBUT100" [ref=e3537]
+                  - cell "Salbutamol MDI 100mcg (bình xịt)" [ref=e3538]
+                  - cell "Salbutamol" [ref=e3539]
+                  - cell "Hít" [ref=e3540]
+                  - cell "100mcg" [ref=e3541]
+                  - cell "✓" [ref=e3542]
+                  - cell "✓" [ref=e3543]
+                  - cell "—" [ref=e3544]
+                  - cell [ref=e3545]:
+                    - generic [ref=e3546]:
+                      - button [ref=e3547] [cursor=pointer]:
+                        - img [ref=e3548]
+                      - button [ref=e3551] [cursor=pointer]:
+                        - img [ref=e3552]
+                - row "SMECTA Smecta 3g (gói bột) Diosmectite medicines.form.dosageForms.powder 3g ✓ ✓ —" [ref=e3555]:
+                  - cell "SMECTA" [ref=e3556]
+                  - cell "Smecta 3g (gói bột)" [ref=e3557]
+                  - cell "Diosmectite" [ref=e3558]
+                  - cell "medicines.form.dosageForms.powder" [ref=e3559]
+                  - cell "3g" [ref=e3560]
+                  - cell "✓" [ref=e3561]
+                  - cell "✓" [ref=e3562]
+                  - cell "—" [ref=e3563]
+                  - cell [ref=e3564]:
+                    - generic [ref=e3565]:
+                      - button [ref=e3566] [cursor=pointer]:
+                        - img [ref=e3567]
+                      - button [ref=e3570] [cursor=pointer]:
+                        - img [ref=e3571]
+                - row "SPIROLAC25 Spironolactone 25mg Spironolactone Viên nén 25mg ✓ ✓ —" [ref=e3574]:
+                  - cell "SPIROLAC25" [ref=e3575]
+                  - cell "Spironolactone 25mg" [ref=e3576]
+                  - cell "Spironolactone" [ref=e3577]
+                  - cell "Viên nén" [ref=e3578]
+                  - cell "25mg" [ref=e3579]
+                  - cell "✓" [ref=e3580]
+                  - cell "✓" [ref=e3581]
+                  - cell "—" [ref=e3582]
+                  - cell [ref=e3583]:
+                    - generic [ref=e3584]:
+                      - button [ref=e3585] [cursor=pointer]:
+                        - img [ref=e3586]
+                      - button [ref=e3589] [cursor=pointer]:
+                        - img [ref=e3590]
+                - row "TST149282 Test Medicine Regression Test Generic Viên nén 10mg ✓ ✓ —" [ref=e3593]:
+                  - cell "TST149282" [ref=e3594]
+                  - cell "Test Medicine Regression" [ref=e3595]
+                  - cell "Test Generic" [ref=e3596]
+                  - cell "Viên nén" [ref=e3597]
+                  - cell "10mg" [ref=e3598]
+                  - cell "✓" [ref=e3599]
+                  - cell "✓" [ref=e3600]
+                  - cell "—" [ref=e3601]
+                  - cell [ref=e3602]:
+                    - generic [ref=e3603]:
+                      - button [ref=e3604] [cursor=pointer]:
+                        - img [ref=e3605]
+                      - button [ref=e3608] [cursor=pointer]:
+                        - img [ref=e3609]
+                - row "TST481053 Test Medicine Regression Test Generic Viên nén 10mg ✓ ✓ —" [ref=e3612]:
+                  - cell "TST481053" [ref=e3613]
+                  - cell "Test Medicine Regression" [ref=e3614]
+                  - cell "Test Generic" [ref=e3615]
+                  - cell "Viên nén" [ref=e3616]
+                  - cell "10mg" [ref=e3617]
+                  - cell "✓" [ref=e3618]
+                  - cell "✓" [ref=e3619]
+                  - cell "—" [ref=e3620]
+                  - cell [ref=e3621]:
+                    - generic [ref=e3622]:
+                      - button [ref=e3623] [cursor=pointer]:
+                        - img [ref=e3624]
+                      - button [ref=e3627] [cursor=pointer]:
+                        - img [ref=e3628]
+                - row "TST862097 Test Medicine Regression Test Generic Viên nén 10mg ✓ ✓ —" [ref=e3631]:
+                  - cell "TST862097" [ref=e3632]
+                  - cell "Test Medicine Regression" [ref=e3633]
+                  - cell "Test Generic" [ref=e3634]
+                  - cell "Viên nén" [ref=e3635]
+                  - cell "10mg" [ref=e3636]
+                  - cell "✓" [ref=e3637]
+                  - cell "✓" [ref=e3638]
+                  - cell "—" [ref=e3639]
+                  - cell [ref=e3640]:
+                    - generic [ref=e3641]:
+                      - button [ref=e3642] [cursor=pointer]:
+                        - img [ref=e3643]
+                      - button [ref=e3646] [cursor=pointer]:
+                        - img [ref=e3647]
+                - row "TST116623 Test Medicine Regression Test Generic Viên nén 10mg ✓ ✓ —" [ref=e3650]:
+                  - cell "TST116623" [ref=e3651]
+                  - cell "Test Medicine Regression" [ref=e3652]
+                  - cell "Test Generic" [ref=e3653]
+                  - cell "Viên nén" [ref=e3654]
+                  - cell "10mg" [ref=e3655]
+                  - cell "✓" [ref=e3656]
+                  - cell "✓" [ref=e3657]
+                  - cell "—" [ref=e3658]
+                  - cell [ref=e3659]:
+                    - generic [ref=e3660]:
+                      - button [ref=e3661] [cursor=pointer]:
+                        - img [ref=e3662]
+                      - button [ref=e3665] [cursor=pointer]:
+                        - img [ref=e3666]
+                - row "TST759063 Test Medicine Regression Test Generic Viên nén 10mg ✓ ✓ —" [ref=e3669]:
+                  - cell "TST759063" [ref=e3670]
+                  - cell "Test Medicine Regression" [ref=e3671]
+                  - cell "Test Generic" [ref=e3672]
+                  - cell "Viên nén" [ref=e3673]
+                  - cell "10mg" [ref=e3674]
+                  - cell "✓" [ref=e3675]
+                  - cell "✓" [ref=e3676]
+                  - cell "—" [ref=e3677]
+                  - cell [ref=e3678]:
+                    - generic [ref=e3679]:
+                      - button [ref=e3680] [cursor=pointer]:
+                        - img [ref=e3681]
+                      - button [ref=e3684] [cursor=pointer]:
+                        - img [ref=e3685]
+                - row "TEST069 Test Medicine TASK-069 TestIngredient Viên nén — ✓ antibiotic" [ref=e3688]:
+                  - cell "TEST069" [ref=e3689]
+                  - cell "Test Medicine TASK-069" [ref=e3690]
+                  - cell "TestIngredient" [ref=e3691]
+                  - cell "Viên nén" [ref=e3692]
+                  - cell [ref=e3693]
+                  - cell "—" [ref=e3694]
+                  - cell "✓" [ref=e3695]
+                  - cell "antibiotic" [ref=e3696]:
+                    - generic [ref=e3698]: antibiotic
+                  - cell [ref=e3699]:
+                    - generic [ref=e3700]:
+                      - button [ref=e3701] [cursor=pointer]:
+                        - img [ref=e3702]
+                      - button [ref=e3705] [cursor=pointer]:
+                        - img [ref=e3706]
+                - row "TOBRAMYCEYE Tobramycin 0.3% nhỏ mắt (lọ) Tobramycin medicines.form.dosageForms.eye_drop 0.3% ✓ ✓ —" [ref=e3709]:
+                  - cell "TOBRAMYCEYE" [ref=e3710]
+                  - cell "Tobramycin 0.3% nhỏ mắt (lọ)" [ref=e3711]
+                  - cell "Tobramycin" [ref=e3712]
+                  - cell "medicines.form.dosageForms.eye_drop" [ref=e3713]
+                  - cell "0.3%" [ref=e3714]
+                  - cell "✓" [ref=e3715]
+                  - cell "✓" [ref=e3716]
+                  - cell "—" [ref=e3717]
+                  - cell [ref=e3718]:
+                    - generic [ref=e3719]:
+                      - button [ref=e3720] [cursor=pointer]:
+                        - img [ref=e3721]
+                      - button [ref=e3724] [cursor=pointer]:
+                        - img [ref=e3725]
+                - row "VITB-COMPLEX Vitamin B-Complex (viên) B1+B6+B12 Viên nén complex ✓ ✓ —" [ref=e3728]:
+                  - cell "VITB-COMPLEX" [ref=e3729]
+                  - cell "Vitamin B-Complex (viên)" [ref=e3730]
+                  - cell "B1+B6+B12" [ref=e3731]
+                  - cell "Viên nén" [ref=e3732]
+                  - cell "complex" [ref=e3733]
+                  - cell "✓" [ref=e3734]
+                  - cell "✓" [ref=e3735]
+                  - cell "—" [ref=e3736]
+                  - cell [ref=e3737]:
+                    - generic [ref=e3738]:
+                      - button [ref=e3739] [cursor=pointer]:
+                        - img [ref=e3740]
+                      - button [ref=e3743] [cursor=pointer]:
+                        - img [ref=e3744]
+                - row "VITB1 Vitamin B1 100mg Thiamine Viên nén 100mg ✓ ✓ —" [ref=e3747]:
+                  - cell "VITB1" [ref=e3748]
+                  - cell "Vitamin B1 100mg" [ref=e3749]
+                  - cell "Thiamine" [ref=e3750]
+                  - cell "Viên nén" [ref=e3751]
+                  - cell "100mg" [ref=e3752]
+                  - cell "✓" [ref=e3753]
+                  - cell "✓" [ref=e3754]
+                  - cell "—" [ref=e3755]
+                  - cell [ref=e3756]:
+                    - generic [ref=e3757]:
+                      - button [ref=e3758] [cursor=pointer]:
+                        - img [ref=e3759]
+                      - button [ref=e3762] [cursor=pointer]:
+                        - img [ref=e3763]
+                - row "VITB12 Vitamin B12 1000mcg Cyanocobalamin Tiêm 1000mcg ✓ ✓ —" [ref=e3766]:
+                  - cell "VITB12" [ref=e3767]
+                  - cell "Vitamin B12 1000mcg" [ref=e3768]
+                  - cell "Cyanocobalamin" [ref=e3769]
+                  - cell "Tiêm" [ref=e3770]
+                  - cell "1000mcg" [ref=e3771]
+                  - cell "✓" [ref=e3772]
+                  - cell "✓" [ref=e3773]
+                  - cell "—" [ref=e3774]
+                  - cell [ref=e3775]:
+                    - generic [ref=e3776]:
+                      - button [ref=e3777] [cursor=pointer]:
+                        - img [ref=e3778]
+                      - button [ref=e3781] [cursor=pointer]:
+                        - img [ref=e3782]
+                - row "VITB12INJ Vitamin B12 1000mcg (ống tiêm) Cyanocobalamin Tiêm 1000mcg ✓ ✓ —" [ref=e3785]:
+                  - cell "VITB12INJ" [ref=e3786]
+                  - cell "Vitamin B12 1000mcg (ống tiêm)" [ref=e3787]
+                  - cell "Cyanocobalamin" [ref=e3788]
+                  - cell "Tiêm" [ref=e3789]
+                  - cell "1000mcg" [ref=e3790]
+                  - cell "✓" [ref=e3791]
+                  - cell "✓" [ref=e3792]
+                  - cell "—" [ref=e3793]
+                  - cell [ref=e3794]:
+                    - generic [ref=e3795]:
+                      - button [ref=e3796] [cursor=pointer]:
+                        - img [ref=e3797]
+                      - button [ref=e3800] [cursor=pointer]:
+                        - img [ref=e3801]
+                - row "VITB6 Vitamin B6 10mg (viên) Pyridoxine Viên nén 10mg ✓ ✓ —" [ref=e3804]:
+                  - cell "VITB6" [ref=e3805]
+                  - cell "Vitamin B6 10mg (viên)" [ref=e3806]
+                  - cell "Pyridoxine" [ref=e3807]
+                  - cell "Viên nén" [ref=e3808]
+                  - cell "10mg" [ref=e3809]
+                  - cell "✓" [ref=e3810]
+                  - cell "✓" [ref=e3811]
+                  - cell "—" [ref=e3812]
+                  - cell [ref=e3813]:
+                    - generic [ref=e3814]:
+                      - button [ref=e3815] [cursor=pointer]:
+                        - img [ref=e3816]
+                      - button [ref=e3819] [cursor=pointer]:
+                        - img [ref=e3820]
+                - row "VITC500 Vitamin C 500mg Ascorbic Acid Viên nén 500mg ✓ ✓ —" [ref=e3823]:
+                  - cell "VITC500" [ref=e3824]
+                  - cell "Vitamin C 500mg" [ref=e3825]
+                  - cell "Ascorbic Acid" [ref=e3826]
+                  - cell "Viên nén" [ref=e3827]
+                  - cell "500mg" [ref=e3828]
+                  - cell "✓" [ref=e3829]
+                  - cell "✓" [ref=e3830]
+                  - cell "—" [ref=e3831]
+                  - cell [ref=e3832]:
+                    - generic [ref=e3833]:
+                      - button [ref=e3834] [cursor=pointer]:
+                        - img [ref=e3835]
+                      - button [ref=e3838] [cursor=pointer]:
+                        - img [ref=e3839]
+                - row "ZINCSULFAT Zinc sulfate 20mg (viên/gói) Zinc sulfate Viên nén 20mg ✓ ✓ —" [ref=e3842]:
+                  - cell "ZINCSULFAT" [ref=e3843]
+                  - cell "Zinc sulfate 20mg (viên/gói)" [ref=e3844]
+                  - cell "Zinc sulfate" [ref=e3845]
+                  - cell "Viên nén" [ref=e3846]
+                  - cell "20mg" [ref=e3847]
+                  - cell "✓" [ref=e3848]
+                  - cell "✓" [ref=e3849]
+                  - cell "—" [ref=e3850]
+                  - cell [ref=e3851]:
+                    - generic [ref=e3852]:
+                      - button [ref=e3853] [cursor=pointer]:
+                        - img [ref=e3854]
+                      - button [ref=e3857] [cursor=pointer]:
+                        - img [ref=e3858]
+    - region "Notifications alt+T"
+  - generic [ref=e2141]: "0"

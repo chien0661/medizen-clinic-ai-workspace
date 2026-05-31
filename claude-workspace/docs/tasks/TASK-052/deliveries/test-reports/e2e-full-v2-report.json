@@ -1,0 +1,73 @@
+{
+  "passed": 48,
+  "bugs": 11,
+  "elapsed": 5.9,
+  "bugs_detail": [
+    {
+      "sc": "SC-HP-01",
+      "step": "5",
+      "sev": "P1",
+      "msg": "complete-emr → err"
+    },
+    {
+      "sc": "SC-HP-01",
+      "step": "7",
+      "sev": "P1",
+      "msg": "Payment → err"
+    },
+    {
+      "sc": "SC-HP-02",
+      "step": "3",
+      "sev": "P1",
+      "msg": "Payment → err"
+    },
+    {
+      "sc": "SC-HP-05",
+      "step": "3",
+      "sev": "P1",
+      "msg": "Pay 1 → err"
+    },
+    {
+      "sc": "SC-VAR-01",
+      "step": "2",
+      "sev": "P1",
+      "msg": "Search không tìm thấy"
+    },
+    {
+      "sc": "SC-VAR-02",
+      "step": "1",
+      "sev": "P1",
+      "msg": "→ err"
+    },
+    {
+      "sc": "SC-VAR-05",
+      "step": "1",
+      "sev": "P2",
+      "msg": "Appointment → err "
+    },
+    {
+      "sc": "SC-EXC-01",
+      "step": "4",
+      "sev": "P1",
+      "msg": "Admin void → err"
+    },
+    {
+      "sc": "SC-EXC-02",
+      "step": "2",
+      "sev": "P1",
+      "msg": "Status=WAITING kỳ vọng CANCELLED"
+    },
+    {
+      "sc": "SC-EXC-03",
+      "step": "1",
+      "sev": "P2",
+      "msg": "Appointment → err"
+    },
+    {
+      "sc": "SC-EXC-06",
+      "step": "3",
+      "sev": "P1",
+      "msg": "Pay → err"
+    }
+  ]
+}

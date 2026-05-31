@@ -1,0 +1,175 @@
+
+============================================================
+  Clinic CMS — E2E Full Test v2
+  http://localhost:8001/api/v1
+============================================================
+  Health: 200
+
+
+=======================================================
+SC-HP-01 Khám tổng quát đầy đủ
+=======================================================
+  OK  [SC-HP-01] B1 Visit 20260531-125 status=WAITING
+  OK  [SC-HP-01] B2 Vital nhập OK
+  OK  [SC-HP-01] B3 Start visit OK
+  OK  [SC-HP-01] B4 Dịch vụ thêm OK
+  BUG[P1][SC-HP-01] B5 complete-emr → err
+  OK  [SC-HP-01] B6 Invoice d0ec8831
+  BUG[P1][SC-HP-01] B7 Payment → err
+  OK  [SC-HP-01] B8 Pharmacy queue 17 items
+
+=======================================================
+SC-HP-02 Chỉ định dịch vụ kỹ thuật
+=======================================================
+  OK  [SC-HP-02] B1 Visit 20260531-126
+  BUG[P1][SC-HP-02] B3 Payment → err
+
+=======================================================
+SC-HP-03 Pre-assign bác sĩ
+=======================================================
+  OK  [SC-HP-03] B1 Visit pre-assign: 63fec5d7
+  OK  [SC-HP-03] B2 call-next → ? (assigned=63fec5d7-ef5b-4e90-a09c-08cef564eb4e)
+
+=======================================================
+SC-HP-04 Ca ưu tiên priority=5
+=======================================================
+  OK  [SC-HP-04] B1 priority=5 ✓
+  OK  [SC-HP-04] B2 Queue sort đúng: đầu priority=10 ✓
+
+=======================================================
+SC-HP-05 Multi-payment CASH+BANK_TRANSFER
+=======================================================
+  OK  [SC-HP-05] B1 Visit 20260531-131
+  BUG[P1][SC-HP-05] B3 Pay 1 → err
+
+=======================================================
+SC-VAR-01 Tái khám
+=======================================================
+  OK  [SC-VAR-01] B1 BN: d55e2085
+  BUG[P1][SC-VAR-01] B2 Search không tìm thấy
+  OK  [SC-VAR-01] B3 Visit tái khám is_follow_up=False
+
+=======================================================
+SC-VAR-02 Mua thuốc OTC (no visit)
+=======================================================
+  BUG[P1][SC-VAR-02] B1 → err
+
+=======================================================
+SC-VAR-03 Cấp cứu priority=10
+=======================================================
+  OK  [SC-VAR-03] B1 priority=10 ✓
+  OK  [SC-VAR-03] B2 Đầu queue priority=10 ✓
+
+=======================================================
+SC-VAR-04 Reassign bác sĩ
+=======================================================
+  OK  [SC-VAR-04] B1 Reassign → err
+
+=======================================================
+SC-VAR-05 Lịch hẹn check-in
+=======================================================
+  BUG[P2][SC-VAR-05] B1 Appointment → err 
+
+=======================================================
+SC-VAR-06 Đơn ngoại viện
+=======================================================
+  OK  [SC-VAR-06] B1 Đơn ngoại viện → err
+
+=======================================================
+SC-VAR-07 RBAC biến thể
+=======================================================
+
+=======================================================
+SC-EXC-01 Void hóa đơn (chỉ Admin)
+=======================================================
+  OK  [SC-EXC-01] B3 Thu ngân void → err
+  BUG[P1][SC-EXC-01] B4 Admin void → err
+
+=======================================================
+SC-EXC-02 Hủy visit
+=======================================================
+  OK  [SC-EXC-02] B1 Cancel → 200
+  BUG[P1][SC-EXC-02] B2 Status=WAITING kỳ vọng CANCELLED
+
+=======================================================
+SC-EXC-03 No-show
+=======================================================
+  BUG[P2][SC-EXC-03] B1 Appointment → err
+
+=======================================================
+SC-EXC-04 Hết tồn khi cấp phát
+=======================================================
+  OK  [SC-EXC-04] B1 → 200
+  OK  [SC-EXC-04] B2 Stock status: 77 items
+
+=======================================================
+SC-EXC-05 Sửa đơn trước cấp phát
+=======================================================
+
+=======================================================
+SC-EXC-06 Partial payment
+=======================================================
+  BUG[P1][SC-EXC-06] B3 Pay → err
+
+=======================================================
+SC-EXC-07 Giảm giá hóa đơn
+=======================================================
+  OK  [SC-EXC-07] B3 Giảm giá 20k → OK ✓
+
+=======================================================
+SC-EXC-08 Đo lại sinh hiệu
+=======================================================
+  OK  [SC-EXC-08] B2 Vital 1 → OK
+  OK  [SC-EXC-08] B3 Vital 2 → 201
+  OK  [SC-EXC-08] B4 GET vitals = 2 bản ghi ✓
+  OK  [SC-EXC-08] B5 Dược sĩ nhập vital → err
+
+=======================================================
+SC-RBAC-NO-TOKEN Không token → 401
+=======================================================
+  OK  [SC-RBAC-NO-TOKEN] B- GET /patients → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /visits → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /invoices → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /pharmacy/pending-dispense → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /visits/queue → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /reports/revenue → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /users → 401 ✓
+  OK  [SC-RBAC-NO-TOKEN] B- GET /roles → 401 ✓
+
+=======================================================
+SC-RBAC Phân quyền chéo
+=======================================================
+  OK  [SC-RBAC-01] B01 Lễ tân nhập vital → 0 (expect [403])
+  OK  [SC-RBAC-02] B02 Y tá cấp phát → 0 (expect [403])
+  OK  [SC-RBAC-03] B03 Dược sĩ tạo visit → 0 (expect [403])
+  OK  [SC-RBAC-04] B04 Thu ngân void HĐ → 0 (expect [403, 404])
+  OK  [SC-RBAC-05] B05 Lễ tân void HĐ → 0 (expect [403, 404])
+  OK  [SC-RBAC-06] B06 Bác sĩ xem users → 0 (expect [403])
+  OK  [SC-RBAC-07] B07 Bác sĩ xem revenue → 0 (expect [403])
+  OK  [SC-RBAC-08] B08 Y tá tạo role → 0 (expect [403])
+  OK  [SC-RBAC-09] B09 Lễ tân xem roles → 0 (expect [403])
+  OK  [SC-RBAC-10] B10 Dược sĩ sửa settings → 0 (expect [403])
+  OK  [SC-RBAC-11] B11 Thu ngân tạo thuốc → 0 (expect [403])
+  OK  [SC-RBAC-12] B12 Dược sĩ void HĐ → 0 (expect [403, 404])
+  OK  [SC-RBAC-13] B13 Lễ tân xem BN clinic mình → 200 ✓
+
+============================================================
+  TỔNG: 48 PASS | 11 BUG (5.9s)
+============================================================
+
+  🟠 P1 (9)
+  [SC-HP-01] B5: complete-emr → err
+  [SC-HP-01] B7: Payment → err
+  [SC-HP-02] B3: Payment → err
+  [SC-HP-05] B3: Pay 1 → err
+  [SC-VAR-01] B2: Search không tìm thấy
+  [SC-VAR-02] B1: → err
+  [SC-EXC-01] B4: Admin void → err
+  [SC-EXC-02] B2: Status=WAITING kỳ vọng CANCELLED
+  [SC-EXC-06] B3: Pay → err
+
+  🟡 P2 (2)
+  [SC-VAR-05] B1: Appointment → err 
+  [SC-EXC-03] B1: Appointment → err
+
+  Report: docs/tasks/TASK-052/deliveries/test-reports/e2e-full-v2-report.json

@@ -1,0 +1,472 @@
+[    3065ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[   33063ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[   63147ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[   93066ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  123065ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  153052ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  183057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  213052ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  243063ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  273063ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  303062ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  333059ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  363057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  393061ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  423057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  453055ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  483054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  513057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  543047ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  573067ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  603065ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  633053ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  663060ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  693061ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  723056ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  753057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  783060ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  813050ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  843058ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  873049ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  903066ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  933062ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  963063ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[  993063ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1023054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1053066ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1083054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1113065ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1143046ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1173054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1203059ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1233054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1263047ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1293043ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1323044ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1353054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1383051ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1413043ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1443042ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1473046ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1503057ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1533044ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1563048ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1593055ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1623060ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1653055ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1683046ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1713047ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1743048ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1773048ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1803051ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1833070ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1863049ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1893054ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1923040ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1953038ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 1983056ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 2013038ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 2043053ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 2073047ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 2103041ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780227885563:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780227885563:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780227885563:37
+[ 2107546ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:1420/src/pages/superadmin/SuperAdminAnalyticsPage.tsx?t=1780249682738:0
+[ 2107547ms] [ERROR] [hmr] Failed to reload /src/pages/superadmin/SuperAdminAnalyticsPage.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[ 2107547ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:1420/src/components/auth/RequireSuperuser.tsx?t=1780249682738:0
+[ 2107547ms] [ERROR] [hmr] Failed to reload /src/components/auth/RequireSuperuser.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[ 2107806ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=78ffe5fb:21550
+[ 2107861ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=78ffe5fb:4435
+[ 2107861ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=78ffe5fb:4435
+[ 2137925ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249682738:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249682738:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249682738:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249682738:37
+[ 2139271ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=78ffe5fb:21550
+[ 2139341ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=78ffe5fb:4435
+[ 2139341ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=78ffe5fb:4435
+[ 2169382ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249714177:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249714177:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:37
+[ 2199373ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249714177:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249714177:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:37
+[ 2229380ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249714177:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249714177:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:37
+[ 2259380ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249714177:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249714177:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:37
+[ 2289375ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780249714177:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780249714177:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:22:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780249714177:37

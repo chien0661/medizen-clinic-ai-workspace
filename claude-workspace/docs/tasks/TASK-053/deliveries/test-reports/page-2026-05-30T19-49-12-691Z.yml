@@ -1,0 +1,149 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - img "MediZen" [ref=e6]
+        - generic [ref=e7]: MediZen
+      - navigation [ref=e8]:
+        - link "Tổng quan" [ref=e9] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e10]
+          - generic [ref=e15]: Tổng quan
+        - generic [ref=e16]:
+          - button "Tiếp tân" [ref=e17] [cursor=pointer]:
+            - img [ref=e18]
+            - generic [ref=e20]: Tiếp tân
+            - img [ref=e21]
+          - generic [ref=e23]:
+            - link "Bệnh nhân" [ref=e24] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e25]
+              - generic [ref=e30]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e31] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e32]
+              - generic [ref=e36]: Lịch hẹn
+            - link "Hàng chờ" [ref=e37] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e38]
+              - generic [ref=e42]: Hàng chờ
+        - generic [ref=e43]:
+          - button "Bác sĩ active role" [ref=e44] [cursor=pointer]:
+            - img [ref=e45]
+            - generic [ref=e49]: Bác sĩ
+            - generic "active role" [ref=e50]
+            - img [ref=e51]
+          - generic [ref=e53]:
+            - link "Hàng đợi của tôi" [ref=e54] [cursor=pointer]:
+              - /url: "#/doctor/queue"
+              - img [ref=e55]
+              - generic [ref=e58]: Hàng đợi của tôi
+            - link "Bảng điều khiển" [ref=e59] [cursor=pointer]:
+              - /url: "#/doctor/dashboard"
+              - img [ref=e60]
+              - generic [ref=e62]: Bảng điều khiển
+        - generic [ref=e63]:
+          - button "Nhà thuốc" [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+            - generic [ref=e68]: Nhà thuốc
+            - img [ref=e69]
+          - link "Tồn kho" [ref=e72] [cursor=pointer]:
+            - /url: "#/pharmacy/inventory"
+            - img [ref=e73]
+            - generic [ref=e83]: Tồn kho
+        - generic [ref=e84]:
+          - button "Thanh toán" [ref=e85] [cursor=pointer]:
+            - img [ref=e86]
+            - generic [ref=e88]: Thanh toán
+            - img [ref=e89]
+          - link "Hóa đơn" [ref=e92] [cursor=pointer]:
+            - /url: "#/billing/invoices"
+            - img [ref=e93]
+            - generic [ref=e96]: Hóa đơn
+        - generic [ref=e97]:
+          - button "Báo cáo" [ref=e98] [cursor=pointer]:
+            - img [ref=e99]
+            - generic [ref=e101]: Báo cáo
+            - img [ref=e102]
+          - generic [ref=e104]:
+            - link "Tồn kho" [ref=e105] [cursor=pointer]:
+              - /url: "#/reports/inventory"
+              - img [ref=e106]
+              - generic [ref=e110]: Tồn kho
+            - link "Lượt khám" [ref=e111] [cursor=pointer]:
+              - /url: "#/reports/visit-volume"
+              - img [ref=e112]
+              - generic [ref=e115]: Lượt khám
+            - link "Đơn thuốc" [ref=e116] [cursor=pointer]:
+              - /url: "#/reports/prescriptions"
+              - img [ref=e117]
+              - generic [ref=e120]: Đơn thuốc
+        - link "Thông báo" [ref=e121] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e122]
+          - generic [ref=e125]: Thông báo
+        - generic [ref=e126]:
+          - button "Nhân sự" [ref=e127] [cursor=pointer]:
+            - img [ref=e128]
+            - generic [ref=e133]: Nhân sự
+            - img [ref=e134]
+          - generic [ref=e136]:
+            - link "Lịch ca" [ref=e137] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e138]
+              - generic [ref=e140]: Lịch ca
+            - link "Chấm công" [ref=e141] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e142]
+              - generic [ref=e145]: Chấm công
+            - link "Nghỉ phép" [ref=e146] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e147]
+              - generic [ref=e150]: Nghỉ phép
+        - button "Quản trị" [ref=e152] [cursor=pointer]:
+          - img [ref=e153]
+          - generic [ref=e155]: Quản trị
+          - img [ref=e156]
+        - link "Cài đặt" [ref=e158] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e159]
+          - generic [ref=e162]: Cài đặt
+      - button "Thu nhỏ menu" [ref=e164] [cursor=pointer]:
+        - generic [ref=e165]: Thu nhỏ menu
+        - img [ref=e166]
+    - generic [ref=e168]:
+      - banner [ref=e169]:
+        - button "Chuyển phòng khám" [ref=e171] [cursor=pointer]:
+          - img [ref=e173]
+          - generic [ref=e177]: Phong kham MediZen Demo
+        - button "Open quick search (Ctrl+K)" [ref=e178] [cursor=pointer]:
+          - img [ref=e179]
+          - generic [ref=e182]: Tìm kiếm
+          - generic [ref=e183]: ⌘K
+        - generic [ref=e184]:
+          - status "Online" [ref=e185]:
+            - generic [ref=e187]: Online
+          - button "Thông báo" [ref=e189] [cursor=pointer]:
+            - img [ref=e190]
+            - generic [ref=e193]: "2"
+          - button "VI" [ref=e194] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e195] [cursor=pointer]:
+            - img [ref=e196]
+          - button "Chọn giao diện màu" [ref=e198] [cursor=pointer]:
+            - img [ref=e199]
+          - button "Menu người dùng" [ref=e205] [cursor=pointer]:
+            - generic [ref=e206]: ĐN
+            - generic [ref=e207]: Y tá
+      - navigation "Breadcrumb" [ref=e208]:
+        - link "Home" [ref=e209] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e210]
+        - generic [ref=e213]:
+          - img [ref=e214]
+          - link "Nhà thuốc" [ref=e216] [cursor=pointer]:
+            - /url: "#/pharmacy"
+        - generic [ref=e217]:
+          - img [ref=e218]
+          - generic [ref=e220]: Stocktake
+      - main [ref=e221]
+  - region "Notifications alt+T"

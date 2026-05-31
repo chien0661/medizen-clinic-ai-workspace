@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trung tâm Thông báo — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Trung tâm Thông báo — MediZen</strong></span>
+    <span>ID: e9e7447a61d743c1888648778e3ceb2e</span>
+    <span>2560×3160 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-white border-r border-slate-200 flex flex-col py-4 gap-2 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" data-icon="medical_services">medical_services</span>
+</div>
+<span class="text-lg font-black text-indigo-600">MediZen</span>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Tổng quan
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="reorder">reorder</span>
+                Hàng đợi
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Bệnh nhân
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Lịch hẹn
+            </a>
+<a class="flex items-center justify-between px-3 py-2 bg-indigo-50 text-indigo-600 border-r-2 border-indigo-600 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                    Thông báo
+                </div>
+<span class="bg-indigo-600 text-white text-[10px] px-1.5 py-0.5 rounded-full">23</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                Báo cáo
+            </a>
+</nav>
+<div class="mt-auto px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Cài đặt
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-all duration-200 ease-in-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Đăng xuất
+            </a>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="flex-1 ml-[240px]">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-40 w-full h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 flex justify-between items-center px-6">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-xl" data-icon="search">search</span>
+</div>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-full text-sm w-[320px] focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Tìm kiếm bệnh nhân, thuốc... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:bg-indigo-50 transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-indigo-500 border-2 border-white rounded-full"></span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-700">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Phòng khám Quận 1
+                    <span class="material-symbols-outlined text-xs" data-icon="expand_more">expand_more</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">Bác sĩ An</p>
+<p class="text-[10px] text-slate-500">Quản trị viên</p>
+</div>
+<img alt="Bác sĩ An" class="w-8 h-8 rounded-full border-2 border-indigo-100 object-cover" data-alt="A professional headshot of a friendly Asian male doctor in his 40s wearing a clean white clinical coat and a stethoscope. The background is a soft-focus modern clinic setting with clean white walls and indigo-tinted accents. High-key lighting emphasizes a warm, trustworthy, and professional medical persona consistent with the MediZen brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKaBtRGvjxVuA4hGMYlxmRmy_Hcj0H0o728mevWcOqTUrfEK4Youg0izXvHNAz_xD592Zgk2Lp4ooNEhv78tYD1Uqtb8MEloUiXRv4NkuIvTe5HUK97RXOapTyqsgqaTKQmUooiQrB1Fd6_T4SSRkwpPDvpdxyAzLcEnBqM5ZQ8zammWa_RSrd2g9iFvQYmyTn5Agf-FMxleF12LYPYkH670pn1BReWsPvDwiojN_vdO-l_Kt3yILAGxvkz9exWaV5d7cQPeVF5dQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-8 max-w-[1440px] mx-auto">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 text-xs font-medium text-slate-500 mb-4">
+<span>BS. An</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-indigo-600">Thông báo</span>
+</nav>
+<!-- Header -->
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-4">
+<h1 class="text-3xl font-bold text-slate-900 tracking-tight">Trung tâm Thông báo</h1>
+<span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">23 chưa đọc</span>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+                        Đánh dấu tất cả đã đọc
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 shadow-sm shadow-indigo-200 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="archive">archive</span>
+                        Lưu trữ hàng loạt
+                    </button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-slate-200 mb-6 gap-8">
+<button class="pb-4 border-b-2 border-indigo-600 text-indigo-600 font-bold text-sm flex items-center gap-2">
+                    Tất cả <span class="px-2 py-0.5 bg-indigo-50 rounded-full text-[10px]">87</span>
+</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 font-medium text-sm hover:text-slate-700 transition-colors flex items-center gap-2">
+                    Chưa đọc <span class="px-2 py-0.5 bg-slate-100 rounded-full text-[10px]">23</span>
+</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 font-medium text-sm hover:text-slate-700 transition-colors flex items-center gap-2">
+                    Đã đánh dấu sao <span class="px-2 py-0.5 bg-slate-100 rounded-full text-[10px]">5</span>
+</button>
+<button class="pb-4 border-b-2 border-transparent text-slate-500 font-medium text-sm hover:text-slate-700 transition-colors flex items-center gap-2">
+                    Lưu trữ <span class="px-2 py-0.5 bg-slate-100 rounded-full text-[10px]">12</span>
+</button>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6 bg-white p-3 rounded-xl border border-slate-200">
+<div class="flex items-center gap-3 flex-1 min-w-[300px]">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border-slate-200 rounded-lg text-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tìm trong thông báo..." type="text"/>
+</div>
+<select class="bg-slate-50 border-slate-200 rounded-lg text-sm focus:ring-indigo-500 focus:border-indigo-500 py-2">
+<option>Tất cả loại</option>
+<option>Lịch hẹn</option>
+<option>Cảnh báo</option>
+<option>Hệ thống</option>
+<option>Báo cáo</option>
+<option>BHYT</option>
+</select>
+<select class="bg-slate-50 border-slate-200 rounded-lg text-sm focus:ring-indigo-500 focus:border-indigo-500 py-2">
+<option>7 ngày qua</option>
+<option>30 ngày qua</option>
+<option>Tháng này</option>
+</select>
+</div>
+<div class="flex items-center gap-2 pl-4 border-l border-slate-200">
+<button class="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="mark_email_read">mark_email_read</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Notifications Table -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm shadow-indigo-100/20">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50 border-b border-slate-200">
+<tr>
+<th class="py-3 px-4 w-10">
+<input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+</th>
+<th class="py-3 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider w-12">Loại</th>
+<th class="py-3 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nội dung</th>
+<th class="py-3 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Nguồn</th>
+<th class="py-3 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Phân loại</th>
+<th class="py-3 px-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Thời gian</th>
+<th class="py-3 px-4 w-10"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- 1. BN Lê Hà Vy Check-in (Unread) -->
+<tr class="bg-indigo-50/50 border-l-[3px] border-indigo-600 group hover:bg-indigo-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-sky-500" data-icon="person_check">person_check</span></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-slate-900">BN Lê Hà Vy đã check-in</div>
+<div class="text-sm text-slate-600 truncate max-w-xs">Bệnh nhân đã đến tại quầy tiếp đón, chờ khám lâm sàng...</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600 font-medium">PK Quận 1</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-sky-100 text-sky-700 rounded-full text-[10px] font-bold uppercase">Lịch hẹn</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">2 phút trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 2. Amoxicillin Hết hạn (Unread) -->
+<tr class="bg-indigo-50/50 border-l-[3px] border-indigo-600 group hover:bg-indigo-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-red-500" data-icon="emergency_home">emergency_home</span></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-slate-900">Lô thuốc Amoxicillin 500mg sắp hết hạn</div>
+<div class="text-sm text-slate-600 truncate max-w-xs">Lô #AMX-2023-01 sẽ hết hạn vào ngày 30/11/2023...</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600 font-medium">Hệ thống</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase">Cảnh báo</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">15 phút trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 3. Báo cáo doanh thu -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-indigo-500" data-icon="analytics">analytics</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Báo cáo doanh thu ngày 12/10 đã sẵn sàng</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Doanh thu đạt 125,000,000đ. Xem chi tiết tại đây.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Phòng Kế toán</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase">Báo cáo</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">1 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 4. Đồng bộ VSS -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-indigo-500" data-icon="cloud_sync">cloud_sync</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Hoàn tất đồng bộ dữ liệu VSS</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">540 bản ghi đã được đẩy lên hệ thống giám định BHYT.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">VSS</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase">BHYT</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">2 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 5. Công nợ BN Nguyễn Văn A -->
+<tr class="bg-indigo-50/50 border-l-[3px] border-indigo-600 group hover:bg-indigo-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-amber-500" data-icon="receipt_long">receipt_long</span></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-slate-900">Xác nhận công nợ BN Nguyễn Văn A</div>
+<div class="text-sm text-slate-600 truncate max-w-xs">Bệnh nhân chưa hoàn tất thanh toán cho hóa đơn #HD-9901...</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600 font-medium">PK Quận 1</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase">Thanh toán</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">3 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 6. Paracetamol tồn kho -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-amber-500" data-icon="inventory_2">inventory_2</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Cảnh báo tồn kho Paracetamol 500mg</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Số lượng còn lại dưới mức an toàn (50 vỉ). Vui lòng nhập thêm.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Kho dược</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase">Kho</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">4 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 7. Huỷ lịch hẹn -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-red-500" data-icon="event_busy">event_busy</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Hủy lịch hẹn: Trần Bình</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Khách hàng yêu cầu hủy lịch vào 15:30 chiều nay do việc bận.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Tổng đài</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-sky-100 text-sky-700 rounded-full text-[10px] font-bold uppercase">Lịch hẹn</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">5 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 8. Thanh toán hoàn tất -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-emerald-500" data-icon="task_alt">task_alt</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Thanh toán hoàn tất: #HD-8822</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Giao dịch 2,450,000đ đã được xác nhận qua chuyển khoản.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Thu ngân</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase">Thành công</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">6 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 9. Phiếu xuất kho -->
+<tr class="bg-indigo-50/50 border-l-[3px] border-indigo-600 group hover:bg-indigo-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-amber-500" data-icon="pending_actions">pending_actions</span></td>
+<td class="py-4 px-4">
+<div class="font-semibold text-slate-900">Phiếu xuất kho #XK-112 chờ duyệt</div>
+<div class="text-sm text-slate-600 truncate max-w-xs">Cần chữ ký số của Quản lý kho để hoàn tất xuất hàng...</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600 font-medium">Kho dược</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold uppercase">Kho</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">8 giờ trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 10. Báo cáo BHYT -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-indigo-500" data-icon="description">description</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Báo cáo quyết toán BHYT Tháng 9</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Đã tổng hợp danh sách 1,200 bệnh nhân hưởng BHYT.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Phòng Giám định</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase">BHYT</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">Hôm qua</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 11. Nghỉ phép -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-slate-500" data-icon="event_note">event_note</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Đăng ký nghỉ phép: ĐD Lê Mai</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Nghỉ phép năm từ 15/10 đến 17/10. Cần duyệt nhân sự.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Nhân sự</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-slate-100 text-slate-700 rounded-full text-[10px] font-bold uppercase">Hệ thống</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">Hôm qua</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 12. Cập nhật v2.4.1 -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-indigo-500" data-icon="update">update</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">MediZen đã cập nhật phiên bản v2.4.1</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Tối ưu hóa tốc độ tải bảng và thêm tính năng nhắc lịch uống thuốc.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Hệ thống</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full text-[10px] font-bold uppercase">Hệ thống</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">2 ngày trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 13. Sao lưu dữ liệu -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-emerald-500" data-icon="backup">backup</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Sao lưu dữ liệu định kỳ hoàn tất</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Toàn bộ dữ liệu bệnh án đã được mã hóa và lưu trữ an toàn.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Hệ thống</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase">Thành công</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">2 ngày trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- 14. Đăng ký mới -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="py-4 px-4"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-4 px-4"><span class="material-symbols-outlined text-sky-500" data-icon="app_registration">app_registration</span></td>
+<td class="py-4 px-4">
+<div class="font-medium text-slate-700">Đăng ký mới: Phạm Quốc Khánh</div>
+<div class="text-sm text-slate-500 truncate max-w-xs">Bệnh nhân mới vừa đăng ký tài khoản qua ứng dụng MediZen Mobile.</div>
+</td>
+<td class="py-4 px-4 text-sm text-slate-600">Hệ thống</td>
+<td class="py-4 px-4"><span class="px-2 py-0.5 bg-sky-100 text-sky-700 rounded-full text-[10px] font-bold uppercase">Hệ thống</span></td>
+<td class="py-4 px-4 text-sm text-slate-500 whitespace-nowrap">3 ngày trước</td>
+<td class="py-4 px-4 text-right">
+<button class="p-1 hover:bg-slate-200 rounded transition-colors text-slate-400">
+<span class="material-symbols-outlined text-lg" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between mt-6 px-2">
+<div class="text-sm text-slate-500">
+                    Đang hiển thị <span class="font-bold text-slate-900">1 - 14</span> trên <span class="font-bold text-slate-900">87</span> thông báo
+                </div>
+<div class="flex items-center gap-4">
+<div class="text-sm font-medium text-slate-500">Trang 1 / 7</div>
+<div class="flex gap-1">
+<button class="p-2 border border-slate-200 rounded-lg text-slate-400 hover:bg-slate-50 disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="p-2 border border-slate-200 rounded-lg text-slate-600 hover:bg-slate-50 hover:border-indigo-300 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>

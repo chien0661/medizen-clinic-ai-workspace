@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e50]:
+      - complementary [ref=e51]:
+        - generic [ref=e52]:
+          - img "MediZen" [ref=e53]
+          - generic [ref=e54]: MediZen
+        - navigation [ref=e55]:
+          - link "Tổng quan" [ref=e56] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e57]
+            - generic [ref=e62]: Tổng quan
+          - generic [ref=e63]:
+            - button "Tiếp tân active role" [ref=e64] [cursor=pointer]:
+              - img [ref=e65]
+              - generic [ref=e67]: Tiếp tân
+              - generic "active role" [ref=e68]
+              - img [ref=e69]
+            - generic [ref=e71]:
+              - link "Bệnh nhân" [ref=e72] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e73]
+                - generic [ref=e78]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e79] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e80]
+                - generic [ref=e84]: Lịch hẹn
+              - link "Hàng chờ" [ref=e85] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e86]
+                - generic [ref=e90]: Hàng chờ
+          - generic [ref=e91]:
+            - button "Bác sĩ" [ref=e92] [cursor=pointer]:
+              - img [ref=e93]
+              - generic [ref=e97]: Bác sĩ
+              - img [ref=e98]
+            - generic [ref=e100]:
+              - link "Hàng đợi của tôi" [ref=e101] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e102]
+                - generic [ref=e105]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e106] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e107]
+                - generic [ref=e109]: Bảng điều khiển
+          - button "Nhà thuốc" [ref=e111] [cursor=pointer]:
+            - img [ref=e112]
+            - generic [ref=e115]: Nhà thuốc
+            - img [ref=e116]
+          - generic [ref=e118]:
+            - button "Thanh toán active role" [ref=e119] [cursor=pointer]:
+              - img [ref=e120]
+              - generic [ref=e122]: Thanh toán
+              - generic "active role" [ref=e123]
+              - img [ref=e124]
+            - link "Hóa đơn" [ref=e127] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e128]
+              - generic [ref=e131]: Hóa đơn
+          - generic [ref=e132]:
+            - button "Báo cáo" [ref=e133] [cursor=pointer]:
+              - img [ref=e134]
+              - generic [ref=e136]: Báo cáo
+              - img [ref=e137]
+            - generic [ref=e139]:
+              - link "Tồn kho" [ref=e140] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e141]
+                - generic [ref=e145]: Tồn kho
+              - link "Lượt khám" [ref=e146] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e147]
+                - generic [ref=e150]: Lượt khám
+              - link "Đơn thuốc" [ref=e151] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e152]
+                - generic [ref=e155]: Đơn thuốc
+          - link "Thông báo" [ref=e156] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e157]
+            - generic [ref=e160]: Thông báo
+          - generic [ref=e161]:
+            - button "Nhân sự" [ref=e162] [cursor=pointer]:
+              - img [ref=e163]
+              - generic [ref=e168]: Nhân sự
+              - img [ref=e169]
+            - generic [ref=e171]:
+              - link "Lịch ca" [ref=e172] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e173]
+                - generic [ref=e175]: Lịch ca
+              - link "Chấm công" [ref=e176] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e177]
+                - generic [ref=e180]: Chấm công
+              - link "Nghỉ phép" [ref=e181] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e182]
+                - generic [ref=e185]: Nghỉ phép
+          - button "Quản trị" [ref=e187] [cursor=pointer]:
+            - img [ref=e188]
+            - generic [ref=e190]: Quản trị
+            - img [ref=e191]
+          - link "Cài đặt" [ref=e193] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e194]
+            - generic [ref=e197]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e199] [cursor=pointer]:
+          - generic [ref=e200]: Thu nhỏ menu
+          - img [ref=e201]
+      - generic [ref=e203]:
+        - banner [ref=e204]:
+          - button "Chuyển phòng khám" [ref=e206] [cursor=pointer]:
+            - img [ref=e208]
+            - generic [ref=e212]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e213] [cursor=pointer]:
+            - img [ref=e214]
+            - generic [ref=e217]: Tìm kiếm
+            - generic [ref=e218]: ⌘K
+          - generic [ref=e219]:
+            - status "Online" [ref=e220]:
+              - generic [ref=e222]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e1639]': (!)
+            - button "Thông báo" [ref=e224] [cursor=pointer]:
+              - img [ref=e225]
+              - generic [ref=e228]: "5"
+            - button "VI" [ref=e229] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e230] [cursor=pointer]:
+              - img [ref=e231]
+            - button "Chọn giao diện màu" [ref=e233] [cursor=pointer]:
+              - img [ref=e234]
+            - button "Menu người dùng" [ref=e240] [cursor=pointer]:
+              - generic [ref=e241]: LĐ
+              - generic [ref=e242]: Lễ tân
+        - navigation "Breadcrumb" [ref=e406]:
+          - link "Home" [ref=e407] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e408]
+          - generic [ref=e1092]:
+            - img [ref=e1093]
+            - link "Thanh toán" [ref=e1095] [cursor=pointer]:
+              - /url: "#/billing"
+          - generic [ref=e1640]:
+            - img [ref=e1641]
+            - 'link "Hóa đơn #fa2b227e" [ref=e1643] [cursor=pointer]':
+              - /url: "#/billing/invoices/fa2b227e-5b8b-41cb-8c0a-26ef3f03f7fe"
+        - main [ref=e243]:
+          - generic [ref=e1644]:
+            - generic [ref=e1645]:
+              - generic [ref=e1646]:
+                - button [ref=e1647] [cursor=pointer]:
+                  - img [ref=e1648]
+                - generic [ref=e1650]:
+                  - generic [ref=e1651]:
+                    - heading "INV-20260531-010" [level=1] [ref=e1652]
+                    - generic [ref=e1653]: Đã phát hành
+                  - paragraph [ref=e1654]:
+                    - text: "Lượt khám:"
+                    - code [ref=e1655]: 2df9aef0-eb11-4048-898d-3cf3ce582ce3
+              - generic [ref=e1656]:
+                - button "Thu tiền" [ref=e1657] [cursor=pointer]:
+                  - img [ref=e1658]
+                  - text: Thu tiền
+                - button "In hóa đơn" [ref=e1660] [cursor=pointer]:
+                  - img [ref=e1661]
+                  - text: In hóa đơn
+            - generic [ref=e1665]:
+              - generic [ref=e1666]: Chi tiết dịch vụ
+              - table [ref=e1668]:
+                - rowgroup [ref=e1669]:
+                  - row "Tên dịch vụ / thuốc SL Đơn giá Giảm giá Thành tiền" [ref=e1670]:
+                    - columnheader "Tên dịch vụ / thuốc" [ref=e1671]
+                    - columnheader "SL" [ref=e1672]
+                    - columnheader "Đơn giá" [ref=e1673]
+                    - columnheader "Giảm giá" [ref=e1674]
+                    - columnheader "Thành tiền" [ref=e1675]
+                - rowgroup [ref=e1676]:
+                  - row "AA 1.000 10.000 ₫ — 10.000 ₫" [ref=e1677]:
+                    - cell "AA" [ref=e1678]:
+                      - generic [ref=e1679]: AA
+                    - cell "1.000" [ref=e1680]
+                    - cell "10.000 ₫" [ref=e1681]
+                    - cell "—" [ref=e1682]
+                    - cell "10.000 ₫" [ref=e1683]
+            - generic [ref=e1685]:
+              - generic [ref=e1686]:
+                - generic [ref=e1687]: Tạm tính
+                - generic [ref=e1688]: 10.000 ₫
+              - generic [ref=e1690]:
+                - generic [ref=e1691]: Tổng cộng
+                - generic [ref=e1692]: 10.000 ₫
+              - generic [ref=e1693]:
+                - generic [ref=e1694]: Đã thanh toán
+                - generic [ref=e1695]: 0 ₫
+              - generic [ref=e1696]:
+                - generic [ref=e1697]: Còn lại
+                - generic [ref=e1698]: 10.000 ₫
+            - generic [ref=e1699]:
+              - generic [ref=e1700]: Lịch sử thanh toán
+              - generic [ref=e1701]: Chưa có thanh toán
+    - region "Notifications alt+T"
+  - generic [ref=e392]: "0"

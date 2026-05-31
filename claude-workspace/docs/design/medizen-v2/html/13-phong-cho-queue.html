@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Phòng Chờ</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+    --secondary: #7C3AED;
+    --accent: #EC4899;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --border: #E8E4F3;
+    --sidebar-w: 240px;
+    --topbar-h: 56px;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --amber: #F59E0B;
+    --amber-light: #FEF3C7;
+    --amber-dark: #D97706;
+    --emerald: #10B981;
+    --emerald-light: #D1FAE5;
+    --emerald-dark: #059669;
+    --gray: #6B7280;
+    --gray-light: #F3F4F6;
+    --shadow-sm: 0 1px 3px rgba(79,70,229,0.08), 0 1px 2px rgba(79,70,229,0.04);
+    --shadow-md: 0 4px 12px rgba(79,70,229,0.10), 0 2px 6px rgba(79,70,229,0.06);
+    --shadow-lg: 0 10px 28px rgba(79,70,229,0.13), 0 4px 10px rgba(79,70,229,0.08);
+  }
+
+  html, body {
+    width: 1920px;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ====== SIDEBAR ====== */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: 4px 0 20px rgba(79,70,229,0.06);
+  }
+
+  .sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  }
+
+  .logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .logo-text .brand { font-size: 17px; font-weight: 800; color: var(--primary); letter-spacing: -0.3px; }
+  .logo-text .version { font-size: 10px; color: var(--text-muted); font-weight: 500; letter-spacing: 0.5px; }
+
+  .sidebar-section {
+    padding: 12px 12px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    margin: 2px 8px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav-item:hover { background: #EEF2FF; color: var(--primary); }
+
+  .nav-item.active {
+    background: linear-gradient(135deg, #EEF2FF, #F0EDFF);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 3px; height: 22px;
+    background: var(--primary);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .nav-icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+
+  .nav-badge {
+    margin-left: auto;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .nav-badge.green { background: var(--emerald); }
+  .nav-badge.amber { background: var(--amber-dark); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding: 14px 12px;
+  }
+
+  .user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #F5F3FF, #EDE9FE);
+    cursor: pointer;
+  }
+
+  .user-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #F472B6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(236,72,153,0.35);
+  }
+
+  .user-info { flex: 1; min-width: 0; }
+  .user-name { font-size: 12.5px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .user-role { font-size: 11px; color: var(--text-muted); }
+
+  /* ====== TOPBAR ====== */
+  .topbar {
+    position: fixed;
+    top: 0; left: var(--sidebar-w);
+    right: 0;
+    height: var(--topbar-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 16px;
+    z-index: 99;
+    box-shadow: 0 2px 10px rgba(79,70,229,0.05);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .topbar-breadcrumb .current { color: var(--text-primary); font-weight: 600; }
+  .topbar-breadcrumb .sep { color: var(--border); }
+
+  .topbar-spacer { flex: 1; }
+
+  .topbar-date {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    background: var(--bg);
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+
+  .topbar-btn {
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .topbar-btn:hover { background: #EEF2FF; border-color: var(--primary); }
+
+  .notif-dot {
+    position: absolute;
+    top: 5px; right: 5px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 1.5px solid white;
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px 5px 6px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .topbar-user:hover { background: #F5F3FF; border-color: var(--primary); }
+
+  .topbar-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #F472B6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .topbar-uname { font-size: 12.5px; font-weight: 600; color: var(--text-primary); }
+  .topbar-urole { font-size: 11px; color: var(--text-muted); }
+
+  /* ====== MAIN CONTENT ====== */
+  .main {
+    margin-left: var(--sidebar-w);
+    padding-top: var(--topbar-h);
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 24px 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ====== PAGE HEADER ====== */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .page-title-block h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+  .page-title-block p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* ====== STAT CHIPS ====== */
+  .stat-chips {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 12px;
+    border: 1.5px solid;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    cursor: default;
+  }
+
+  .stat-chip-icon { font-size: 15px; }
+
+  .stat-chip-info { display: flex; flex-direction: column; }
+  .stat-chip-label { font-size: 11px; color: var(--text-muted); font-weight: 500; line-height: 1.2; }
+  .stat-chip-value { font-size: 20px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.2; }
+
+  .stat-chip.amber { border-color: #FDE68A; background: linear-gradient(135deg, #FFFBEB, #FEF3C7); }
+  .stat-chip.amber .stat-chip-value { color: var(--amber-dark); }
+
+  .stat-chip.emerald { border-color: #A7F3D0; background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+  .stat-chip.emerald .stat-chip-value { color: var(--emerald-dark); }
+
+  .stat-chip.indigo { border-color: #C7D2FE; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); }
+  .stat-chip.indigo .stat-chip-value { color: var(--primary); }
+
+  .stat-chip.gray { border-color: var(--border); background: linear-gradient(135deg, #F9FAFB, #F3F4F6); }
+  .stat-chip.gray .stat-chip-value { color: #374151; }
+
+  .stat-chip-divider {
+    width: 1px; height: 32px;
+    background: var(--border);
+    margin: 0 4px;
+  }
+
+  /* ====== FILTER ROW ====== */
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .filter-label { font-size: 12.5px; font-weight: 600; color: var(--text-muted); }
+
+  .filter-select {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+    min-width: 160px;
+  }
+  .filter-select:hover { border-color: var(--primary); background: white; }
+  .filter-select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+
+  .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 4px; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 16px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+    text-decoration: none;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79,70,229,0.4); }
+
+  .btn-outline {
+    background: var(--surface);
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+  }
+  .btn-outline:hover { background: #EEF2FF; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+  }
+  .btn-ghost:hover { background: #EEF2FF; color: var(--primary); border-color: var(--primary); }
+
+  .btn-refresh {
+    background: linear-gradient(135deg, #ECFDF5, #D1FAE5);
+    color: var(--emerald-dark);
+    border: 1.5px solid #A7F3D0;
+  }
+  .btn-refresh:hover { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); transform: translateY(-1px); }
+
+  /* ====== KANBAN BOARD ====== */
+  .kanban-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    flex: 1;
+    align-items: start;
+  }
+
+  .kanban-col {
+    background: var(--surface);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kanban-col-header {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid;
+    position: relative;
+  }
+
+  .col-header-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  .col-header-count {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .kanban-col.amber .kanban-col-header { background: linear-gradient(135deg, #FFFBEB, #FEF3C7); border-color: #FDE68A; }
+  .kanban-col.amber .col-header-title { color: #92400E; }
+  .kanban-col.amber .col-header-count { background: #FDE68A; color: #92400E; }
+
+  .kanban-col.emerald .kanban-col-header { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); border-color: #6EE7B7; }
+  .kanban-col.emerald .col-header-title { color: #064E3B; }
+  .kanban-col.emerald .col-header-count { background: #6EE7B7; color: #064E3B; }
+
+  .kanban-col.gray .kanban-col-header { background: linear-gradient(135deg, #F9FAFB, #F3F4F6); border-color: #D1D5DB; }
+  .kanban-col.gray .col-header-title { color: #374151; }
+  .kanban-col.gray .col-header-count { background: #D1D5DB; color: #374151; }
+
+  .kanban-col-body {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ====== PATIENT CARD ====== */
+  .patient-card {
+    background: var(--surface);
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    padding: 12px 13px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    border-left: 4px solid;
+    position: relative;
+    cursor: default;
+  }
+  .patient-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+  .patient-card.amber { border-left-color: var(--amber); }
+  .patient-card.emerald { border-left-color: var(--emerald); }
+  .patient-card.gray { border-left-color: #9CA3AF; opacity: 0.88; }
+
+  .card-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+
+  .card-row:last-child { margin-bottom: 0; }
+
+  .card-stt {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    background: var(--amber-dark);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .card-stt.emerald { background: var(--emerald-dark); }
+  .card-stt.gray { background: #9CA3AF; }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-age {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 2px 7px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .card-doctor {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 500;
+    flex: 1;
+  }
+
+  .card-type {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: #EEF2FF;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  .time-badge {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .time-badge.amber { background: var(--amber-light); color: #92400E; }
+  .time-badge.emerald { background: var(--emerald-light); color: #065F46; }
+  .time-badge.gray { background: #F3F4F6; color: #6B7280; }
+  .time-badge.red { background: #FEE2E2; color: #991B1B; }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+
+  .card-btn.call {
+    background: linear-gradient(135deg, var(--amber-dark), #F59E0B);
+    color: white;
+    box-shadow: 0 2px 6px rgba(217,119,6,0.3);
+  }
+  .card-btn.call:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(217,119,6,0.4); }
+
+  .card-btn.view {
+    background: linear-gradient(135deg, var(--emerald-dark), var(--emerald));
+    color: white;
+    box-shadow: 0 2px 6px rgba(16,185,129,0.3);
+  }
+  .card-btn.view:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(16,185,129,0.4); }
+
+  .card-btn.detail {
+    background: var(--bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+  .card-btn.detail:hover { background: #EEF2FF; color: var(--primary); border-color: var(--primary); }
+
+  .card-btn.outline-primary {
+    background: #EEF2FF;
+    color: var(--primary);
+    border: 1px solid #C7D2FE;
+  }
+  .card-btn.outline-primary:hover { background: var(--primary); color: white; }
+
+  .paid-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .paid-badge.paid { background: #D1FAE5; color: #065F46; }
+  .paid-badge.unpaid { background: #FEE2E2; color: #991B1B; }
+
+  .room-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--secondary);
+    background: #EDE9FE;
+    padding: 3px 9px;
+    border-radius: 7px;
+    flex-shrink: 0;
+  }
+
+  .priority-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .priority-dot.high { background: #EF4444; }
+  .priority-dot.medium { background: var(--amber); }
+  .priority-dot.low { background: var(--emerald); }
+
+  /* ====== BROADCAST BANNER ====== */
+  .broadcast-banner {
+    position: fixed;
+    bottom: 0; left: var(--sidebar-w); right: 0;
+    background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+    border-top: 2px solid #FDE68A;
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 98;
+    box-shadow: 0 -4px 16px rgba(245,158,11,0.15);
+  }
+
+  .broadcast-icon {
+    font-size: 18px;
+    animation: pulse 1.8s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(0.92); }
+  }
+
+  .broadcast-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #92400E;
+    flex: 1;
+  }
+
+  .broadcast-text strong { color: #78350F; }
+
+  .broadcast-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .broadcast-btn {
+    padding: 5px 14px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+
+  .broadcast-btn.confirm {
+    background: var(--amber-dark);
+    color: white;
+  }
+  .broadcast-btn.confirm:hover { background: #B45309; }
+
+  .broadcast-btn.dismiss {
+    background: transparent;
+    color: #92400E;
+    border: 1.5px solid #FDE68A;
+  }
+  .broadcast-btn.dismiss:hover { background: #FDE68A; }
+
+  .broadcast-time {
+    font-size: 11.5px;
+    color: #B45309;
+    font-weight: 500;
+  }
+
+  /* ====== SCROLLBAR ====== */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C7D2FE; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  /* ====== LIVE INDICATOR ====== */
+  .live-dot {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--emerald-dark);
+    background: var(--emerald-light);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid #A7F3D0;
+  }
+  .live-dot::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--emerald);
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .last-updated {
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+
+  /* Padding bottom for banner */
+  .content { padding-bottom: 70px; }
+</style>
+</head>
+<body>
+
+<!-- ====== SIDEBAR ====== -->
+<aside class="sidebar">
+  <a class="sidebar-logo" href="index.html" style="text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div class="logo-text">
+      <div class="brand">MediZen</div>
+      <div class="version">VERSION 2.0 · 2026</div>
+    </div>
+  </a>
+
+  <div class="sidebar-section">Tổng quan</div>
+
+  <a class="nav-item" href="04-dashboard-le-tan.html">
+    <span class="nav-icon">🏠</span>
+    <span>Tổng quan</span>
+  </a>
+
+  <div class="sidebar-section">Tiếp đón</div>
+
+  <a class="nav-item active" href="13-phong-cho-queue.html">
+    <span class="nav-icon">🕐</span>
+    <span>Phòng chờ</span>
+    <span class="nav-badge amber">8</span>
+  </a>
+
+  <a class="nav-item" href="14-lich-hen.html">
+    <span class="nav-icon">📅</span>
+    <span>Lịch hẹn</span>
+    <span class="nav-badge">12</span>
+  </a>
+
+  <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+    <span class="nav-icon">👥</span>
+    <span>Bệnh nhân</span>
+  </a>
+
+  <div class="sidebar-section">Lâm sàng</div>
+
+  <a class="nav-item" href="15-emr-sinh-hieu.html">
+    <span class="nav-icon">🩺</span>
+    <span>Khám bệnh</span>
+  </a>
+
+  <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+    <span class="nav-icon">💊</span>
+    <span>Dược</span>
+  </a>
+
+  <a class="nav-item" href="#">
+    <span class="nav-icon">🔬</span>
+    <span>Xét nghiệm</span>
+    <span class="nav-badge green">3</span>
+  </a>
+
+  <a class="nav-item" href="#">
+    <span class="nav-icon">🖼️</span>
+    <span>Chẩn đoán hình ảnh</span>
+  </a>
+
+  <div class="sidebar-section">Quản lý</div>
+
+  <a class="nav-item" href="#">
+    <span class="nav-icon">🏨</span>
+    <span>Quản lý giường</span>
+  </a>
+
+  <a class="nav-item" href="24-thanh-toan.html">
+    <span class="nav-icon">💰</span>
+    <span>Thanh toán</span>
+  </a>
+
+  <a class="nav-item" href="#">
+    <span class="nav-icon">📦</span>
+    <span>Kho dược</span>
+  </a>
+
+  <a class="nav-item" href="index.html">
+    <span class="nav-icon">📊</span>
+    <span>Báo cáo</span>
+  </a>
+
+  <a class="nav-item" href="index.html">
+    <span class="nav-icon">⚙️</span>
+    <span>Cấu hình</span>
+  </a>
+
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">H</div>
+      <div class="user-info">
+        <div class="user-name">Lê Thị Hoa</div>
+        <div class="user-role">Lễ tân · Ca sáng</div>
+      </div>
+      <span style="font-size:13px;color:var(--text-muted);">⚙️</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ====== TOPBAR ====== -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span>🏥 MediZen</span>
+    <span class="sep">›</span>
+    <span>Tiếp đón</span>
+    <span class="sep">›</span>
+    <span class="current">Phòng chờ</span>
+  </div>
+
+  <div class="topbar-spacer"></div>
+
+  <div class="live-dot">TRỰC TIẾP</div>
+  <div class="last-updated">Cập nhật lúc 09:47:23</div>
+
+  <div class="topbar-date">📅 Thứ Tư, 31/05/2026</div>
+
+  <div class="topbar-btn" title="Tìm kiếm">🔍</div>
+  <div class="topbar-btn" title="Thông báo">
+    🔔
+    <div class="notif-dot"></div>
+  </div>
+  <div class="topbar-btn" title="Cài đặt">⚙️</div>
+
+  <div class="topbar-user">
+    <div class="topbar-avatar">H</div>
+    <div>
+      <div class="topbar-uname">Lê Thị Hoa</div>
+      <div class="topbar-urole">Lễ tân</div>
+    </div>
+    <span style="font-size:11px;color:var(--text-muted);margin-left:4px;">▼</span>
+  </div>
+</header>
+
+<!-- ====== MAIN CONTENT ====== -->
+<main class="main">
+  <div class="content">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-title-block">
+        <h1>🪑 Phòng chờ hôm nay</h1>
+        <p>Theo dõi và quản lý hàng chờ bệnh nhân theo thời gian thực</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-outline">📢 Phát thông báo</button>
+        <a href="12-tiep-nhan-bn.html" class="btn btn-primary">➕ Tiếp nhận mới</a>
+      </div>
+    </div>
+
+    <!-- Stat Chips -->
+    <div class="stat-chips">
+      <div class="stat-chip amber">
+        <span class="stat-chip-icon">🕐</span>
+        <div class="stat-chip-info">
+          <span class="stat-chip-label">Đang chờ</span>
+          <span class="stat-chip-value">8</span>
+        </div>
+      </div>
+      <div class="stat-chip-divider"></div>
+      <div class="stat-chip emerald">
+        <span class="stat-chip-icon">🩺</span>
+        <div class="stat-chip-info">
+          <span class="stat-chip-label">Đang khám</span>
+          <span class="stat-chip-value">5</span>
+        </div>
+      </div>
+      <div class="stat-chip-divider"></div>
+      <div class="stat-chip indigo">
+        <span class="stat-chip-icon">✅</span>
+        <div class="stat-chip-info">
+          <span class="stat-chip-label">Hoàn thành</span>
+          <span class="stat-chip-value">15</span>
+        </div>
+      </div>
+      <div class="stat-chip-divider"></div>
+      <div class="stat-chip gray">
+        <span class="stat-chip-icon">⏰</span>
+        <div class="stat-chip-info">
+          <span class="stat-chip-label">Tổng lượt khám</span>
+          <span class="stat-chip-value">28</span>
+        </div>
+      </div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+        <div style="font-size:12.5px;color:var(--text-muted);">Thời gian chờ TB:</div>
+        <div style="font-size:15px;font-weight:700;color:var(--amber-dark);font-family:'Plus Jakarta Sans',sans-serif;">18 phút</div>
+        <div style="width:1px;height:24px;background:var(--border);"></div>
+        <div style="font-size:12.5px;color:var(--text-muted);">Thời gian khám TB:</div>
+        <div style="font-size:15px;font-weight:700;color:var(--emerald-dark);font-family:'Plus Jakarta Sans',sans-serif;">24 phút</div>
+      </div>
+    </div>
+
+    <!-- Filter Row -->
+    <div class="filter-row">
+      <span class="filter-label">🔍 Lọc theo:</span>
+      <select class="filter-select">
+        <option>👨‍⚕️ Tất cả bác sĩ</option>
+        <option>BS. Nguyễn Văn Minh</option>
+        <option>BS. Trần Thị Lan</option>
+        <option>BS. Phạm Quốc Hùng</option>
+        <option>BS. Lê Thị Mai</option>
+        <option>BS. Đỗ Minh Tuấn</option>
+      </select>
+      <select class="filter-select">
+        <option>🏥 Tất cả loại khám</option>
+        <option>Khám tổng quát</option>
+        <option>Khám chuyên khoa</option>
+        <option>Tái khám</option>
+        <option>Khám cấp cứu</option>
+        <option>Khám theo yêu cầu</option>
+      </select>
+      <select class="filter-select" style="min-width:140px;">
+        <option>🏢 Tất cả phòng</option>
+        <option>Phòng khám 1</option>
+        <option>Phòng khám 2</option>
+        <option>Phòng khám 3</option>
+        <option>Phòng khám 4</option>
+      </select>
+      <div class="filter-divider"></div>
+      <button class="btn btn-refresh">🔄 Làm mới</button>
+      <button class="btn btn-ghost">📤 Xuất danh sách</button>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
+        <span style="font-size:12px;color:var(--text-muted);">Hiển thị:</span>
+        <button class="btn btn-ghost" style="padding:5px 10px;font-size:12px;">📋 Danh sách</button>
+        <button class="btn btn-primary" style="padding:5px 10px;font-size:12px;">📊 Kanban</button>
+      </div>
+    </div>
+
+    <!-- Kanban Board -->
+    <div class="kanban-board">
+
+      <!-- COL 1: ĐANG CHỜ -->
+      <div class="kanban-col amber">
+        <div class="kanban-col-header">
+          <span style="font-size:16px;">🕐</span>
+          <span class="col-header-title">ĐANG CHỜ</span>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:11px;color:#B45309;font-weight:500;">Mới nhất trên cùng</span>
+            <span class="col-header-count">8</span>
+          </div>
+        </div>
+        <div class="kanban-col-body">
+
+          <!-- Card 1 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#01</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Nguyễn Văn An</a>
+              <span class="card-age">45 tuổi</span>
+              <div class="priority-dot high"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Nguyễn Văn Minh</span>
+              <span class="card-type">Tái khám</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Hà Đông, Hà Nội</span>
+              <div style="margin-left:auto;display:flex;gap:4px;align-items:center;">
+                <span class="time-badge red">⏰ 42 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 07:55</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#03</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Trần Thị Bích</a>
+              <span class="card-age">32 tuổi</span>
+              <div class="priority-dot medium"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Trần Thị Lan</span>
+              <span class="card-type">Khám tổng quát</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Cầu Giấy, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 35 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:12</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#05</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Phạm Minh Khôi</a>
+              <span class="card-age">8 tuổi</span>
+              <div class="priority-dot high"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Phạm Quốc Hùng</span>
+              <span class="card-type">Khám nhi khoa</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Đống Đa, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 28 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:19</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#07</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Lê Thị Thanh Hương</a>
+              <span class="card-age">58 tuổi</span>
+              <div class="priority-dot medium"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Lê Thị Mai</span>
+              <span class="card-type">Khám tim mạch</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Thanh Xuân, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 22 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:25</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#09</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Hoàng Đức Thắng</a>
+              <span class="card-age">41 tuổi</span>
+              <div class="priority-dot low"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Đỗ Minh Tuấn</span>
+              <span class="card-type">Khám xương khớp</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Hoàng Mai, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 15 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:32</div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#11</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Vũ Thị Ngọc Anh</a>
+              <span class="card-age">27 tuổi</span>
+              <div class="priority-dot low"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Trần Thị Lan</span>
+              <span class="card-type">Khám phụ khoa</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Hai Bà Trưng, HN</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 10 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:37</div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#13</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Ngô Văn Bảo</a>
+              <span class="card-age">65 tuổi</span>
+              <div class="priority-dot high"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Lê Thị Mai</span>
+              <span class="card-type">Khám lão khoa</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Long Biên, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 7 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:40</div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="patient-card amber">
+            <div class="card-row">
+              <span class="card-stt">#15</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Đinh Thị Kim Liên</a>
+              <span class="card-age">36 tuổi</span>
+              <div class="priority-dot low"></div>
+            </div>
+            <div class="card-row">
+              <span class="card-doctor">🩺 BS. Nguyễn Văn Minh</span>
+              <span class="card-type">Khám theo yêu cầu</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏠 Tây Hồ, Hà Nội</span>
+              <div style="margin-left:auto;">
+                <span class="time-badge amber">⏰ 3 phút</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <a href="12-tiep-nhan-bn.html" class="card-btn call">📢 Gọi vào</a>
+              <a href="11-ho-so-benh-nhan.html" class="card-btn outline-primary">📋 Hồ sơ</a>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Đến 08:44</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COL 2: ĐANG KHÁM -->
+      <div class="kanban-col emerald">
+        <div class="kanban-col-header">
+          <span style="font-size:16px;">🩺</span>
+          <span class="col-header-title">ĐANG KHÁM</span>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:11px;color:#065F46;font-weight:500;">Đang tiến hành</span>
+            <span class="col-header-count">5</span>
+          </div>
+        </div>
+        <div class="kanban-col-body">
+
+          <!-- Card 1 -->
+          <div class="patient-card emerald">
+            <div class="card-row">
+              <span class="card-stt emerald">#02</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Trần Quốc Dũng</a>
+              <span class="card-age">52 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span class="room-badge">🏢 Phòng khám 1</span>
+              <div style="flex:1;"></div>
+              <span class="time-badge emerald">⏱ 18 phút</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--emerald-dark);font-weight:600;">🩺 BS. Nguyễn Văn Minh</span>
+            </div>
+            <div class="card-row" style="margin-top:2px;">
+              <div style="flex:1;background:#F3F4F6;border-radius:4px;height:5px;overflow:hidden;">
+                <div style="width:72%;height:100%;background:linear-gradient(90deg,var(--emerald),#34D399);border-radius:4px;"></div>
+              </div>
+              <span style="font-size:10.5px;color:var(--emerald-dark);font-weight:600;margin-left:6px;">72%</span>
+            </div>
+            <div class="card-actions">
+              <a href="15-emr-sinh-hieu.html" class="card-btn view">📂 Xem EMR</a>
+              <button class="card-btn outline-primary">💊 Kê đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Bắt đầu 08:29</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="patient-card emerald">
+            <div class="card-row">
+              <span class="card-stt emerald">#04</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Nguyễn Thị Cẩm Tú</a>
+              <span class="card-age">29 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span class="room-badge">🏢 Phòng khám 2</span>
+              <div style="flex:1;"></div>
+              <span class="time-badge emerald">⏱ 14 phút</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--emerald-dark);font-weight:600;">🩺 BS. Trần Thị Lan</span>
+            </div>
+            <div class="card-row" style="margin-top:2px;">
+              <div style="flex:1;background:#F3F4F6;border-radius:4px;height:5px;overflow:hidden;">
+                <div style="width:55%;height:100%;background:linear-gradient(90deg,var(--emerald),#34D399);border-radius:4px;"></div>
+              </div>
+              <span style="font-size:10.5px;color:var(--emerald-dark);font-weight:600;margin-left:6px;">55%</span>
+            </div>
+            <div class="card-actions">
+              <a href="15-emr-sinh-hieu.html" class="card-btn view">📂 Xem EMR</a>
+              <button class="card-btn outline-primary">🔬 Xét nghiệm</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Bắt đầu 08:33</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="patient-card emerald">
+            <div class="card-row">
+              <span class="card-stt emerald">#06</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Bùi Văn Hải</a>
+              <span class="card-age">47 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span class="room-badge">🏢 Phòng khám 3</span>
+              <div style="flex:1;"></div>
+              <span class="time-badge emerald">⏱ 11 phút</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--emerald-dark);font-weight:600;">🩺 BS. Phạm Quốc Hùng</span>
+            </div>
+            <div class="card-row" style="margin-top:2px;">
+              <div style="flex:1;background:#F3F4F6;border-radius:4px;height:5px;overflow:hidden;">
+                <div style="width:42%;height:100%;background:linear-gradient(90deg,var(--emerald),#34D399);border-radius:4px;"></div>
+              </div>
+              <span style="font-size:10.5px;color:var(--emerald-dark);font-weight:600;margin-left:6px;">42%</span>
+            </div>
+            <div class="card-actions">
+              <a href="15-emr-sinh-hieu.html" class="card-btn view">📂 Xem EMR</a>
+              <button class="card-btn outline-primary">🖼️ Chẩn đoán hình ảnh</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Bắt đầu 08:36</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="patient-card emerald">
+            <div class="card-row">
+              <span class="card-stt emerald">#08</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Mai Thị Phương Thảo</a>
+              <span class="card-age">38 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span class="room-badge">🏢 Phòng khám 4</span>
+              <div style="flex:1;"></div>
+              <span class="time-badge emerald">⏱ 8 phút</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--emerald-dark);font-weight:600;">🩺 BS. Lê Thị Mai</span>
+            </div>
+            <div class="card-row" style="margin-top:2px;">
+              <div style="flex:1;background:#F3F4F6;border-radius:4px;height:5px;overflow:hidden;">
+                <div style="width:30%;height:100%;background:linear-gradient(90deg,var(--emerald),#34D399);border-radius:4px;"></div>
+              </div>
+              <span style="font-size:10.5px;color:var(--emerald-dark);font-weight:600;margin-left:6px;">30%</span>
+            </div>
+            <div class="card-actions">
+              <a href="15-emr-sinh-hieu.html" class="card-btn view">📂 Xem EMR</a>
+              <button class="card-btn outline-primary">💊 Kê đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Bắt đầu 08:39</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="patient-card emerald">
+            <div class="card-row">
+              <span class="card-stt emerald">#10</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="text-decoration:none;">Phan Thế Anh</a>
+              <span class="card-age">55 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span class="room-badge">🏢 Phòng khám 1</span>
+              <div style="flex:1;"></div>
+              <span class="time-badge emerald">⏱ 5 phút</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--emerald-dark);font-weight:600;">🩺 BS. Đỗ Minh Tuấn</span>
+            </div>
+            <div class="card-row" style="margin-top:2px;">
+              <div style="flex:1;background:#F3F4F6;border-radius:4px;height:5px;overflow:hidden;">
+                <div style="width:18%;height:100%;background:linear-gradient(90deg,var(--emerald),#34D399);border-radius:4px;"></div>
+              </div>
+              <span style="font-size:10.5px;color:var(--emerald-dark);font-weight:600;margin-left:6px;">18%</span>
+            </div>
+            <div class="card-actions">
+              <a href="15-emr-sinh-hieu.html" class="card-btn view">📂 Xem EMR</a>
+              <button class="card-btn outline-primary">🔬 Xét nghiệm</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">Bắt đầu 08:42</div>
+            </div>
+          </div>
+
+          <!-- Placeholder info -->
+          <div style="text-align:center;padding:14px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-radius:10px;border:1.5px dashed #6EE7B7;margin-top:2px;">
+            <div style="font-size:20px;margin-bottom:4px;">🩺</div>
+            <div style="font-size:12px;color:var(--emerald-dark);font-weight:600;">5/5 phòng khám đang hoạt động</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Không còn phòng trống</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- COL 3: HOÀN THÀNH -->
+      <div class="kanban-col gray">
+        <div class="kanban-col-header">
+          <span style="font-size:16px;">✅</span>
+          <span class="col-header-title">HOÀN THÀNH</span>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:11px;color:#4B5563;font-weight:500;">6 gần nhất / 15</span>
+            <span class="col-header-count">15</span>
+          </div>
+        </div>
+        <div class="kanban-col-body">
+
+          <!-- Card 1 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#14</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Trịnh Thị Bảo Châu</a>
+              <span class="card-age">44 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 2 · BS. Trần Thị Lan</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:47</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge paid">✅ Đã thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn detail">🖨️ In hóa đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">25 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#12</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Đặng Văn Sơn</a>
+              <span class="card-age">62 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 3 · BS. Phạm Quốc Hùng</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:41</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge unpaid">⚠️ Chưa thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn call" style="background:linear-gradient(135deg,#DC2626,#EF4444);">💳 Thu tiền</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">32 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#11</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Nguyễn Hồng Nhung</a>
+              <span class="card-age">33 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 1 · BS. Nguyễn Văn Minh</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:38</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge paid">✅ Đã thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn detail">🖨️ In hóa đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">22 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#09</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Lý Minh Phúc</a>
+              <span class="card-age">71 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 4 · BS. Lê Thị Mai</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:29</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge paid">✅ Đã thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn detail">🖨️ In hóa đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">38 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#07</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Hồ Thị Thanh Vân</a>
+              <span class="card-age">50 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 2 · BS. Đỗ Minh Tuấn</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:20</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge unpaid">⚠️ Chưa thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn call" style="background:linear-gradient(135deg,#DC2626,#EF4444);">💳 Thu tiền</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">28 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="patient-card gray">
+            <div class="card-row">
+              <span class="card-stt gray">#05</span>
+              <a href="11-ho-so-benh-nhan.html" class="card-name" style="color:#4B5563;text-decoration:none;">Cao Văn Tuấn Anh</a>
+              <span class="card-age">26 tuổi</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🏢 Phòng khám 3 · BS. Trần Thị Lan</span>
+            </div>
+            <div class="card-row">
+              <span style="font-size:12px;color:var(--text-muted);">🕐 Hoàn thành: 08:11</span>
+              <div style="flex:1;"></div>
+              <span class="paid-badge paid">✅ Đã thanh toán</span>
+            </div>
+            <div class="card-actions">
+              <a href="11-ho-so-benh-nhan.html" class="card-btn detail">📄 Chi tiết</a>
+              <button class="card-btn detail">🖨️ In hóa đơn</button>
+              <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">19 phút khám</div>
+            </div>
+          </div>
+
+          <!-- Show more -->
+          <div style="text-align:center;padding:10px;">
+            <button class="btn btn-ghost" style="width:100%;justify-content:center;font-size:12.5px;color:var(--text-muted);">
+              📜 Xem thêm 9 bệnh nhân đã hoàn thành
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ====== BROADCAST BANNER ====== -->
+<div class="broadcast-banner">
+  <span class="broadcast-icon">📢</span>
+  <div class="broadcast-text">
+    <strong>Thông báo:</strong> Bệnh nhân <strong>Nguyễn Văn An</strong> — số thứ tự <strong>#01</strong> — mời vào <strong>Phòng khám 2</strong> gặp <strong>BS. Nguyễn Văn Minh</strong>. Xin vui lòng chuẩn bị hồ sơ trước khi vào.
+  </div>
+  <div class="broadcast-time">⏰ 09:47 — Lê Thị Hoa</div>
+  <div class="broadcast-actions">
+    <button class="broadcast-btn confirm">✅ Xác nhận đã vào</button>
+    <button class="broadcast-btn dismiss">✕ Đóng</button>
+  </div>
+</div>
+
+</body>
+</html>

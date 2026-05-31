@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Danh mục thuốc</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+    --secondary: #7C3AED;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --sidebar-bg: #1E1B4B;
+    --sidebar-text: #C7D2FE;
+    --sidebar-active: #4F46E5;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --border: #E2E8F0;
+    --border-light: #F1F5F9;
+    --emerald: #059669;
+    --emerald-bg: #D1FAE5;
+    --amber: #D97706;
+    --amber-bg: #FEF3C7;
+    --rose: #E11D48;
+    --rose-bg: #FFE4E6;
+    --blue: #2563EB;
+    --blue-bg: #DBEAFE;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+  }
+
+  html, body { height: 100%; font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); font-size: 14px; line-height: 1.5; }
+
+  /* === SIDEBAR === */
+  .sidebar {
+    position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
+    background: var(--sidebar-bg);
+    display: flex; flex-direction: column;
+    z-index: 100; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  .sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.4);
+  }
+  .logo-text { line-height: 1.1; }
+  .logo-name { font-size: 15px; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+  .logo-version { font-size: 10px; color: var(--sidebar-text); opacity: 0.6; font-weight: 500; }
+
+  .sidebar-user {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .user-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #4F46E5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+  }
+  .user-info { flex: 1; min-width: 0; }
+  .user-name { font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .user-role { font-size: 10px; color: var(--sidebar-text); opacity: 0.7; }
+
+  .nav-section { padding: 12px 0 4px; }
+  .nav-section-label {
+    padding: 0 16px 6px;
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: rgba(199,210,254,0.4);
+  }
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 16px; margin: 1px 8px; border-radius: 8px;
+    cursor: pointer; transition: all 0.15s; color: var(--sidebar-text);
+    font-size: 13px; font-weight: 500; text-decoration: none;
+    position: relative;
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.07); color: #fff; }
+  .nav-item.active { background: var(--primary); color: #fff; box-shadow: 0 3px 10px rgba(79,70,229,0.35); }
+  .nav-item.parent-active { background: rgba(79,70,229,0.2); color: #fff; }
+  .nav-icon { font-size: 15px; flex-shrink: 0; width: 18px; text-align: center; }
+  .nav-label { flex: 1; }
+  .nav-badge {
+    background: #EF4444; color: #fff;
+    font-size: 9px; font-weight: 700; padding: 2px 5px;
+    border-radius: 10px; min-width: 16px; text-align: center;
+  }
+  .nav-arrow { font-size: 10px; opacity: 0.5; transition: transform 0.2s; }
+  .nav-arrow.open { transform: rotate(90deg); }
+  .sub-nav { background: rgba(0,0,0,0.15); margin: 2px 8px; border-radius: 8px; overflow: hidden; }
+  .sub-nav-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px 8px 36px; cursor: pointer;
+    color: var(--sidebar-text); font-size: 12px; font-weight: 500;
+    transition: all 0.15s; border-left: 2px solid transparent;
+  }
+  .sub-nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+  .sub-nav-item.active { color: #A5B4FC; border-left-color: #4F46E5; background: rgba(79,70,229,0.1); font-weight: 600; }
+  .sub-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.5; flex-shrink: 0; }
+  .sub-nav-item.active .sub-dot { opacity: 1; background: #4F46E5; }
+
+  .sidebar-footer {
+    margin-top: auto; padding: 12px 8px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .sidebar-footer-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 12px; border-radius: 8px; cursor: pointer;
+    color: var(--sidebar-text); font-size: 12px; font-weight: 500;
+    transition: all 0.15s;
+  }
+  .sidebar-footer-item:hover { background: rgba(255,255,255,0.07); color: #fff; }
+
+  /* === TOPBAR === */
+  .topbar {
+    position: fixed; top: 0; left: 240px; right: 0; height: 56px;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 28px;
+    z-index: 90; gap: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .breadcrumb { display: flex; align-items: center; gap: 6px; flex: 1; }
+  .breadcrumb-item { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+  .breadcrumb-item.active { color: var(--text-primary); font-weight: 600; }
+  .breadcrumb-sep { color: var(--text-muted); font-size: 11px; }
+  .topbar-actions { display: flex; align-items: center; gap: 10px; }
+  .topbar-icon-btn {
+    width: 34px; height: 34px; border-radius: var(--radius-sm);
+    border: 1px solid var(--border); background: transparent;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 15px; color: var(--text-secondary);
+    transition: all 0.15s; position: relative;
+  }
+  .topbar-icon-btn:hover { background: var(--bg); border-color: var(--primary); color: var(--primary); }
+  .notif-dot { position: absolute; top: 5px; right: 5px; width: 7px; height: 7px; border-radius: 50%; background: #EF4444; border: 2px solid #fff; }
+  .topbar-user {
+    display: flex; align-items: center; gap: 8px;
+    padding: 4px 10px 4px 4px; border-radius: var(--radius-md);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .topbar-user:hover { background: var(--bg); }
+  .topbar-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: linear-gradient(135deg, #7C3AED, #4F46E5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: #fff;
+  }
+  .topbar-user-info {}
+  .topbar-user-name { font-size: 12px; font-weight: 600; color: var(--text-primary); line-height: 1.2; }
+  .topbar-user-role { font-size: 10px; color: var(--text-muted); line-height: 1.2; }
+  .topbar-divider { width: 1px; height: 22px; background: var(--border); }
+
+  /* === MAIN CONTENT === */
+  .main { margin-left: 240px; margin-top: 56px; min-height: calc(100vh - 56px); background: var(--bg); padding: 24px 28px; }
+
+  /* === PAGE HEADER === */
+  .page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .page-title-block {}
+  .page-title { font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; }
+  .page-subtitle { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+  .page-actions { display: flex; align-items: center; gap: 10px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 9px 18px; border-radius: var(--radius-md);
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    transition: all 0.15s; border: none; white-space: nowrap;
+    font-family: inherit; letter-spacing: -0.1px;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff; box-shadow: 0 3px 10px rgba(79,70,229,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 5px 14px rgba(79,70,229,0.4); }
+  .btn-ghost {
+    background: transparent; color: var(--primary);
+    border: 1.5px solid var(--primary);
+  }
+  .btn-ghost:hover { background: rgba(79,70,229,0.06); }
+  .btn-white {
+    background: #fff; color: var(--text-secondary);
+    border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  }
+  .btn-white:hover { border-color: var(--primary); color: var(--primary); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+  /* === STATS ROW === */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
+  .stat-card {
+    background: var(--surface); border-radius: var(--radius-lg);
+    padding: 16px 20px; border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 14px;
+    transition: all 0.2s;
+  }
+  .stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+  .stat-icon {
+    width: 46px; height: 46px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .stat-icon.indigo { background: rgba(79,70,229,0.1); }
+  .stat-icon.emerald { background: rgba(5,150,105,0.1); }
+  .stat-icon.amber { background: rgba(217,119,6,0.1); }
+  .stat-icon.rose { background: rgba(225,29,72,0.1); }
+  .stat-info {}
+  .stat-value { font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: -0.5px; line-height: 1.1; }
+  .stat-label { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-top: 2px; }
+  .stat-change { font-size: 11px; font-weight: 600; margin-top: 4px; }
+  .stat-change.up { color: var(--emerald); }
+  .stat-change.down { color: var(--rose); }
+  .stat-change.warn { color: var(--amber); }
+
+  /* === FILTERS === */
+  .filters-bar {
+    background: var(--surface); border-radius: var(--radius-lg);
+    padding: 14px 18px; border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .search-wrap {
+    position: relative; flex: 1;
+  }
+  .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text-muted); pointer-events: none; }
+  .search-input {
+    width: 100%; padding: 9px 12px 9px 34px;
+    border: 1.5px solid var(--border); border-radius: var(--radius-md);
+    font-size: 13px; font-family: inherit; color: var(--text-primary);
+    background: var(--bg); transition: all 0.15s; outline: none;
+  }
+  .search-input:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,0.08); }
+  .search-input::placeholder { color: var(--text-muted); }
+  .filter-label { font-size: 12px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; }
+  .filter-select {
+    padding: 9px 32px 9px 12px; border: 1.5px solid var(--border);
+    border-radius: var(--radius-md); font-size: 13px; font-family: inherit;
+    color: var(--text-primary); background: var(--bg);
+    cursor: pointer; outline: none; transition: all 0.15s;
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394A3B8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 10px center;
+  }
+  .filter-select:focus { border-color: var(--primary); background-color: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,0.08); }
+  .filter-divider { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+  .filter-chips { display: flex; align-items: center; gap: 6px; }
+  .chip {
+    padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; border: 1.5px solid transparent;
+    white-space: nowrap;
+  }
+  .chip.default { background: var(--bg); color: var(--text-secondary); border-color: var(--border); }
+  .chip.default:hover { border-color: var(--primary); color: var(--primary); background: rgba(79,70,229,0.05); }
+  .chip.active-chip { background: rgba(79,70,229,0.1); color: var(--primary); border-color: var(--primary); }
+
+  /* === TABLE CARD === */
+  .table-card {
+    background: var(--surface); border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .table-header {
+    padding: 16px 20px; border-bottom: 1px solid var(--border-light);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .table-title { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+  .table-count { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 1px; }
+  .table-header-actions { display: flex; align-items: center; gap: 8px; }
+
+  .data-table { width: 100%; border-collapse: collapse; }
+  .data-table thead tr { background: var(--bg); }
+  .data-table th {
+    padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 700;
+    color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px;
+    border-bottom: 1px solid var(--border-light); white-space: nowrap;
+  }
+  .data-table th.center { text-align: center; }
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--border-light); transition: background 0.12s;
+  }
+  .data-table tbody tr:last-child { border-bottom: none; }
+  .data-table tbody tr:hover { background: rgba(79,70,229,0.025); }
+  .data-table td { padding: 11px 14px; vertical-align: middle; font-size: 13px; }
+  .data-table td.center { text-align: center; }
+
+  .drug-code { font-size: 11px; font-weight: 700; color: var(--primary); font-family: 'Inter', monospace; letter-spacing: 0.3px; }
+  .drug-name { font-weight: 600; color: var(--text-primary); font-size: 13px; }
+  .drug-form { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+  .active-ingredient { font-size: 12px; color: var(--text-secondary); }
+  .stock-val { font-weight: 700; color: var(--text-primary); }
+  .stock-val.low { color: var(--amber); }
+  .stock-val.zero { color: var(--rose); }
+  .min-val { font-size: 12px; color: var(--text-muted); }
+  .price { font-weight: 700; color: var(--text-primary); white-space: nowrap; }
+  .unit { font-size: 12px; color: var(--text-muted); }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 700;
+    white-space: nowrap;
+  }
+  .badge-emerald { background: var(--emerald-bg); color: var(--emerald); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  .badge-rose { background: var(--rose-bg); color: var(--rose); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); }
+  .badge-indigo { background: rgba(79,70,229,0.1); color: var(--primary); }
+  .badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  .bhyt-yes { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: var(--emerald); }
+  .bhyt-no { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: var(--text-muted); }
+
+  .action-btns { display: flex; align-items: center; gap: 5px; }
+  .action-btn {
+    width: 28px; height: 28px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.15s; border: 1px solid var(--border);
+    background: transparent; font-size: 12px; color: var(--text-secondary);
+  }
+  .action-btn:hover.edit { background: rgba(79,70,229,0.08); border-color: var(--primary); color: var(--primary); }
+  .action-btn:hover.import { background: rgba(5,150,105,0.08); border-color: var(--emerald); color: var(--emerald); }
+  .action-btn:hover.del { background: rgba(225,29,72,0.08); border-color: var(--rose); color: var(--rose); }
+  .action-tooltip { font-size: 10px; }
+
+  /* === STOCK BAR === */
+  .stock-bar-wrap { display: flex; align-items: center; gap: 6px; }
+  .stock-bar { flex: 1; height: 4px; background: var(--border-light); border-radius: 2px; overflow: hidden; min-width: 40px; }
+  .stock-bar-fill { height: 100%; border-radius: 2px; }
+  .fill-emerald { background: var(--emerald); }
+  .fill-amber { background: var(--amber); }
+  .fill-rose { background: var(--rose); }
+
+  /* === PAGINATION === */
+  .table-footer {
+    padding: 14px 20px; border-top: 1px solid var(--border-light);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg);
+  }
+  .pagination-info { font-size: 12px; color: var(--text-muted); }
+  .pagination-info strong { color: var(--text-primary); font-weight: 600; }
+  .pagination { display: flex; align-items: center; gap: 4px; }
+  .page-btn {
+    min-width: 30px; height: 30px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--text-secondary); transition: all 0.15s; padding: 0 6px;
+  }
+  .page-btn:hover { border-color: var(--primary); color: var(--primary); background: rgba(79,70,229,0.05); }
+  .page-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 2px 6px rgba(79,70,229,0.3); }
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .pagination-export { display: flex; align-items: center; gap: 8px; }
+
+  /* === CATEGORY TAGS === */
+  .cat-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+  .cat-tim-mach { background: #FEE2E2; color: #DC2626; }
+  .cat-khang-sinh { background: #FEF3C7; color: #B45309; }
+  .cat-vitamin { background: #D1FAE5; color: #065F46; }
+  .cat-giam-dau { background: #DBEAFE; color: #1D4ED8; }
+  .cat-tieu-hoa { background: #F3E8FF; color: #7C3AED; }
+  .cat-noi-tiet { background: #FCE7F3; color: #BE185D; }
+  .cat-than-kinh { background: #FFF7ED; color: #C2410C; }
+  .cat-ho-hap { background: #ECFDF5; color: #047857; }
+
+  /* === SCROLLBAR for main === */
+  .main::-webkit-scrollbar { width: 6px; }
+  .main::-webkit-scrollbar-thumb { background: rgba(79,70,229,0.2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="logo-mark" style="text-decoration:none">
+      <div class="logo-icon">💊</div>
+      <div class="logo-text">
+        <div class="logo-name">MediZen</div>
+        <div class="logo-version">v2.0 — Phòng khám đa khoa</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">TM</div>
+    <div class="user-info">
+      <div class="user-name">DS. Trần Thị Mai</div>
+      <div class="user-role">Dược sĩ lâm sàng</div>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Tổng quan</div>
+    <a href="04-dashboard-le-tan.html" class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Trang chủ</span>
+    </a>
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Thống kê</span>
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Khám bệnh</div>
+    <a href="14-lich-hen.html" class="nav-item">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Lịch hẹn</span>
+      <span class="nav-badge">3</span>
+    </a>
+    <a href="15-emr-sinh-hieu.html" class="nav-item">
+      <span class="nav-icon">🩺</span>
+      <span class="nav-label">Khám bệnh</span>
+    </a>
+    <a href="10-danh-sach-benh-nhan.html" class="nav-item">
+      <span class="nav-icon">📁</span>
+      <span class="nav-label">Hồ sơ bệnh nhân</span>
+    </a>
+    <a href="13-phong-cho-queue.html" class="nav-item">
+      <span class="nav-icon">🧪</span>
+      <span class="nav-label">Xét nghiệm</span>
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Nhà thuốc</div>
+    <a href="21-cap-phat-don-thuoc.html" class="nav-item parent-active">
+      <span class="nav-icon">💊</span>
+      <span class="nav-label">Nhà thuốc</span>
+      <span class="nav-arrow open">›</span>
+    </a>
+    <div class="sub-nav">
+      <a href="21-cap-phat-don-thuoc.html" class="sub-nav-item" style="text-decoration:none">
+        <div class="sub-dot"></div>
+        Cấp phát
+      </a>
+      <a href="22-danh-muc-thuoc.html" class="sub-nav-item active" style="text-decoration:none">
+        <div class="sub-dot"></div>
+        Danh mục thuốc
+      </a>
+      <a href="23-nhap-kho.html" class="sub-nav-item" style="text-decoration:none">
+        <div class="sub-dot"></div>
+        Nhập kho thuốc
+      </a>
+      <div class="sub-nav-item">
+        <div class="sub-dot"></div>
+        Kiểm kê
+      </div>
+      <div class="sub-nav-item">
+        <div class="sub-dot"></div>
+        Nhà cung cấp
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Tài chính</div>
+    <a href="24-thanh-toan.html" class="nav-item">
+      <span class="nav-icon">💳</span>
+      <span class="nav-label">Thanh toán</span>
+    </a>
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">📋</span>
+      <span class="nav-label">Hóa đơn</span>
+    </a>
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">🏥</span>
+      <span class="nav-label">Bảo hiểm y tế</span>
+    </a>
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">📈</span>
+      <span class="nav-label">Báo cáo doanh thu</span>
+    </a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Hệ thống</div>
+    <a href="10-danh-sach-benh-nhan.html" class="nav-item">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Nhân sự</span>
+    </a>
+    <a href="index.html" class="nav-item">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Cài đặt</span>
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-footer-item">
+      <span>🔔</span>
+      <span>Thông báo</span>
+      <span class="nav-badge" style="margin-left:auto">5</span>
+    </div>
+    <div class="sidebar-footer-item">
+      <span>🚪</span>
+      <span>Đăng xuất</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ==================== TOPBAR ==================== -->
+<header class="topbar">
+  <nav class="breadcrumb">
+    <span class="breadcrumb-item">💊 Nhà thuốc</span>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-item active">Danh mục thuốc</span>
+  </nav>
+  <div class="topbar-actions">
+    <button class="topbar-icon-btn" title="Tìm kiếm toàn cục">🔍</button>
+    <button class="topbar-icon-btn" title="Thông báo">
+      🔔
+      <span class="notif-dot"></span>
+    </button>
+    <button class="topbar-icon-btn" title="Trợ giúp">❓</button>
+    <div class="topbar-divider"></div>
+    <div class="topbar-user">
+      <div class="topbar-avatar">TM</div>
+      <div class="topbar-user-info">
+        <div class="topbar-user-name">DS. Trần Thị Mai</div>
+        <div class="topbar-user-role">Dược sĩ lâm sàng</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="main">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title-block">
+      <h1 class="page-title">💊 Danh mục thuốc</h1>
+      <p class="page-subtitle">Quản lý toàn bộ dược phẩm, tồn kho và giá bán trong hệ thống</p>
+    </div>
+    <div class="page-actions">
+      <a href="#" class="btn btn-ghost">
+        📥 Import Excel
+      </a>
+      <a href="#" class="btn btn-primary">
+        ➕ Thêm thuốc
+      </a>
+    </div>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon indigo">💊</div>
+      <div class="stat-info">
+        <div class="stat-value">248</div>
+        <div class="stat-label">Tổng dược phẩm</div>
+        <div class="stat-change up">↑ 12 so với tháng trước</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon emerald">✅</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color: var(--emerald)">224</div>
+        <div class="stat-label">Còn hàng</div>
+        <div class="stat-change up">90.3% tổng danh mục</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon amber">⚠️</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color: var(--amber)">8</div>
+        <div class="stat-label">Sắp hết hàng</div>
+        <div class="stat-change warn">Cần nhập thêm ngay</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon rose">❌</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color: var(--rose)">16</div>
+        <div class="stat-label">Hết hàng</div>
+        <div class="stat-change down">↑ 3 so với tuần trước</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTERS BAR -->
+  <div class="filters-bar">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Tìm theo tên thuốc, mã thuốc, hoạt chất...">
+    </div>
+    <div class="filter-divider"></div>
+    <span class="filter-label">Nhóm thuốc:</span>
+    <select class="filter-select">
+      <option>Tất cả nhóm</option>
+      <option>Tim mạch</option>
+      <option>Kháng sinh</option>
+      <option>Vitamin & Khoáng chất</option>
+      <option>Giảm đau / Hạ sốt</option>
+      <option>Tiêu hóa</option>
+      <option>Nội tiết</option>
+      <option>Thần kinh</option>
+      <option>Hô hấp</option>
+    </select>
+    <span class="filter-label">Trạng thái:</span>
+    <select class="filter-select">
+      <option>Tất cả trạng thái</option>
+      <option>Còn hàng</option>
+      <option>Sắp hết hàng</option>
+      <option>Hết hàng</option>
+    </select>
+    <span class="filter-label">BHYT:</span>
+    <select class="filter-select">
+      <option>Tất cả</option>
+      <option>Có BHYT</option>
+      <option>Không BHYT</option>
+    </select>
+    <div class="filter-divider"></div>
+    <div class="filter-chips">
+      <div class="chip active-chip">Tất cả (248)</div>
+      <div class="chip default">Còn hàng (224)</div>
+      <div class="chip default">Sắp hết (8)</div>
+      <div class="chip default">Hết hàng (16)</div>
+    </div>
+  </div>
+
+  <!-- TABLE CARD -->
+  <div class="table-card">
+    <div class="table-header">
+      <div>
+        <div class="table-title">Danh sách dược phẩm</div>
+        <div class="table-count">Hiển thị 1–15 / 248 dược phẩm · Cập nhật: 31/05/2026 08:45</div>
+      </div>
+      <div class="table-header-actions">
+        <button class="btn btn-white btn-sm">🔃 Làm mới</button>
+        <button class="btn btn-white btn-sm">🗂️ Cột hiển thị</button>
+        <button class="btn btn-white btn-sm">🔽 Sắp xếp</button>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:36px"><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></th>
+          <th>Mã thuốc</th>
+          <th>Tên thuốc</th>
+          <th>Hoạt chất</th>
+          <th>Nhóm thuốc</th>
+          <th class="center">Đơn vị</th>
+          <th>Tồn kho</th>
+          <th class="center">Mức tối thiểu</th>
+          <th style="text-align:right">Đơn giá</th>
+          <th class="center">BHYT</th>
+          <th class="center">Trạng thái</th>
+          <th class="center">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- ROW 1 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH001</span></td>
+          <td>
+            <div class="drug-name">Amlodipine 5mg</div>
+            <div class="drug-form">Viên nén bao film</div>
+          </td>
+          <td><span class="active-ingredient">Amlodipine besilate</span></td>
+          <td><span class="cat-tag cat-tim-mach">Tim mạch</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:100%"></div></div>
+              <span class="stock-val">250 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">50</span></td>
+          <td style="text-align:right"><span class="price">2.500₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit" title="Chỉnh sửa">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import" title="Nhập kho">📦</a>
+              <button class="action-btn del" title="Xóa">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 2 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH002</span></td>
+          <td>
+            <div class="drug-name">Amoxicillin 500mg</div>
+            <div class="drug-form">Viên nang cứng</div>
+          </td>
+          <td><span class="active-ingredient">Amoxicillin trihydrate</span></td>
+          <td><span class="cat-tag cat-khang-sinh">Kháng sinh</span></td>
+          <td class="center"><span class="unit">Hộp</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-amber" style="width:40%"></div></div>
+              <span class="stock-val low">12 hộp</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">20</span></td>
+          <td style="text-align:right"><span class="price">8.000₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-amber"><span class="badge-dot"></span> Sắp hết</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 3 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH003</span></td>
+          <td>
+            <div class="drug-name">Paracetamol 500mg</div>
+            <div class="drug-form">Viên nén</div>
+          </td>
+          <td><span class="active-ingredient">Paracetamol</span></td>
+          <td><span class="cat-tag cat-giam-dau">Giảm đau</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-rose" style="width:0%"></div></div>
+              <span class="stock-val zero">0 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">30</span></td>
+          <td style="text-align:right"><span class="price">1.200₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-rose"><span class="badge-dot"></span> Hết hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 4 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH004</span></td>
+          <td>
+            <div class="drug-name">Metformin 850mg</div>
+            <div class="drug-form">Viên nén giải phóng chậm</div>
+          </td>
+          <td><span class="active-ingredient">Metformin hydrochloride</span></td>
+          <td><span class="cat-tag cat-noi-tiet">Nội tiết</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:85%"></div></div>
+              <span class="stock-val">420 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">60</span></td>
+          <td style="text-align:right"><span class="price">3.500₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 5 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH005</span></td>
+          <td>
+            <div class="drug-name">Atorvastatin 20mg</div>
+            <div class="drug-form">Viên nén bao film</div>
+          </td>
+          <td><span class="active-ingredient">Atorvastatin calcium</span></td>
+          <td><span class="cat-tag cat-tim-mach">Tim mạch</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:70%"></div></div>
+              <span class="stock-val">350 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">40</span></td>
+          <td style="text-align:right"><span class="price">12.000₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 6 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH006</span></td>
+          <td>
+            <div class="drug-name">Vitamin C 1000mg</div>
+            <div class="drug-form">Viên sủi hòa tan</div>
+          </td>
+          <td><span class="active-ingredient">Ascorbic acid</span></td>
+          <td><span class="cat-tag cat-vitamin">Vitamin</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-amber" style="width:30%"></div></div>
+              <span class="stock-val low">15 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">20</span></td>
+          <td style="text-align:right"><span class="price">6.500₫</span></td>
+          <td class="center"><span class="bhyt-no">— Không</span></td>
+          <td class="center"><span class="badge badge-amber"><span class="badge-dot"></span> Sắp hết</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 7 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH007</span></td>
+          <td>
+            <div class="drug-name">Omeprazole 20mg</div>
+            <div class="drug-form">Viên nang bao tan trong ruột</div>
+          </td>
+          <td><span class="active-ingredient">Omeprazole</span></td>
+          <td><span class="cat-tag cat-tieu-hoa">Tiêu hóa</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:90%"></div></div>
+              <span class="stock-val">180 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">30</span></td>
+          <td style="text-align:right"><span class="price">5.000₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 8 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH008</span></td>
+          <td>
+            <div class="drug-name">Losartan 50mg</div>
+            <div class="drug-form">Viên nén bao film</div>
+          </td>
+          <td><span class="active-ingredient">Losartan potassium</span></td>
+          <td><span class="cat-tag cat-tim-mach">Tim mạch</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-rose" style="width:0%"></div></div>
+              <span class="stock-val zero">0 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">40</span></td>
+          <td style="text-align:right"><span class="price">9.500₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-rose"><span class="badge-dot"></span> Hết hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 9 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH009</span></td>
+          <td>
+            <div class="drug-name">Cetirizine 10mg</div>
+            <div class="drug-form">Viên nén</div>
+          </td>
+          <td><span class="active-ingredient">Cetirizine dihydrochloride</span></td>
+          <td><span class="cat-tag cat-ho-hap">Hô hấp</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:78%"></div></div>
+              <span class="stock-val">390 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">50</span></td>
+          <td style="text-align:right"><span class="price">4.200₫</span></td>
+          <td class="center"><span class="bhyt-no">— Không</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 10 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH010</span></td>
+          <td>
+            <div class="drug-name">Prednisolone 5mg</div>
+            <div class="drug-form">Viên nén</div>
+          </td>
+          <td><span class="active-ingredient">Prednisolone</span></td>
+          <td><span class="cat-tag cat-noi-tiet">Nội tiết</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-amber" style="width:22%"></div></div>
+              <span class="stock-val low">11 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">25</span></td>
+          <td style="text-align:right"><span class="price">2.800₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-amber"><span class="badge-dot"></span> Sắp hết</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 11 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH011</span></td>
+          <td>
+            <div class="drug-name">Cefuroxime 500mg</div>
+            <div class="drug-form">Viên nén bao film</div>
+          </td>
+          <td><span class="active-ingredient">Cefuroxime axetil</span></td>
+          <td><span class="cat-tag cat-khang-sinh">Kháng sinh</span></td>
+          <td class="center"><span class="unit">Hộp</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:65%"></div></div>
+              <span class="stock-val">26 hộp</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">15</span></td>
+          <td style="text-align:right"><span class="price">45.000₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 12 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH012</span></td>
+          <td>
+            <div class="drug-name">Gabapentin 300mg</div>
+            <div class="drug-form">Viên nang cứng</div>
+          </td>
+          <td><span class="active-ingredient">Gabapentin</span></td>
+          <td><span class="cat-tag cat-than-kinh">Thần kinh</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-rose" style="width:0%"></div></div>
+              <span class="stock-val zero">0 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">20</span></td>
+          <td style="text-align:right"><span class="price">18.000₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-rose"><span class="badge-dot"></span> Hết hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 13 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH013</span></td>
+          <td>
+            <div class="drug-name">Vitamin B Complex</div>
+            <div class="drug-form">Viên nén bao đường</div>
+          </td>
+          <td><span class="active-ingredient">B1, B6, B12 phối hợp</span></td>
+          <td><span class="cat-tag cat-vitamin">Vitamin</span></td>
+          <td class="center"><span class="unit">Hộp</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:92%"></div></div>
+              <span class="stock-val">46 hộp</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">10</span></td>
+          <td style="text-align:right"><span class="price">22.000₫</span></td>
+          <td class="center"><span class="bhyt-no">— Không</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 14 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH014</span></td>
+          <td>
+            <div class="drug-name">Bisoprolol 5mg</div>
+            <div class="drug-form">Viên nén bao film</div>
+          </td>
+          <td><span class="active-ingredient">Bisoprolol fumarate</span></td>
+          <td><span class="cat-tag cat-tim-mach">Tim mạch</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-amber" style="width:35%"></div></div>
+              <span class="stock-val low">7 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">30</span></td>
+          <td style="text-align:right"><span class="price">7.500₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-amber"><span class="badge-dot"></span> Sắp hết</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ROW 15 -->
+        <tr>
+          <td><input type="checkbox" style="width:14px;height:14px;cursor:pointer;accent-color:var(--primary)"></td>
+          <td><span class="drug-code">TH015</span></td>
+          <td>
+            <div class="drug-name">Salbutamol 2mg</div>
+            <div class="drug-form">Viên nén</div>
+          </td>
+          <td><span class="active-ingredient">Salbutamol sulfate</span></td>
+          <td><span class="cat-tag cat-ho-hap">Hô hấp</span></td>
+          <td class="center"><span class="unit">Viên</span></td>
+          <td>
+            <div class="stock-bar-wrap">
+              <div class="stock-bar"><div class="stock-bar-fill fill-emerald" style="width:80%"></div></div>
+              <span class="stock-val">160 viên</span>
+            </div>
+          </td>
+          <td class="center"><span class="min-val">30</span></td>
+          <td style="text-align:right"><span class="price">3.200₫</span></td>
+          <td class="center"><span class="bhyt-yes">✔ Có</span></td>
+          <td class="center"><span class="badge badge-emerald"><span class="badge-dot"></span> Còn hàng</span></td>
+          <td class="center">
+            <div class="action-btns" style="justify-content:center">
+              <button class="action-btn edit">✏️</button>
+              <a href="23-nhap-kho.html" class="action-btn import">📦</a>
+              <button class="action-btn del">✕</button>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- TABLE FOOTER / PAGINATION -->
+    <div class="table-footer">
+      <div style="display:flex; align-items:center; gap:20px;">
+        <div class="pagination-info">
+          Hiển thị <strong>1–15</strong> trong tổng số <strong>248</strong> dược phẩm
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="font-size:12px;color:var(--text-muted)">Số hàng mỗi trang:</span>
+          <select class="filter-select" style="padding:5px 24px 5px 8px; font-size:12px;">
+            <option>15</option>
+            <option>25</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <div class="pagination-export">
+          <button class="btn btn-white btn-sm">🖨️ In danh sách</button>
+          <a href="#" class="btn btn-white btn-sm">📤 Xuất Excel</a>
+        </div>
+        <div class="pagination">
+          <button class="page-btn" disabled>‹‹</button>
+          <button class="page-btn" disabled>‹</button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <span style="font-size:13px; color:var(--text-muted); padding:0 2px;">...</span>
+          <button class="page-btn">17</button>
+          <button class="page-btn">›</button>
+          <button class="page-btn">››</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

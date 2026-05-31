@@ -1,0 +1,21 @@
+[ 1445531ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:1420/@vite/client:559
+[ 1447880ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1451252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1454598ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1457953ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1461326ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1464685ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1468051ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1471428ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1474789ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1478149ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1481520ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1484892ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1488237ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1491598ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1494972ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1498331ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1501684ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:1420/:0
+[ 1512951ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:21550
+[ 1513045ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[ 1513045ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435

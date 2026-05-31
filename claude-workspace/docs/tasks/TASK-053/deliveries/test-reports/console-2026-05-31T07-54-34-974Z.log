@@ -1,0 +1,70 @@
+[      96ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-25&end=2026-05-31&granularity=daily:0
+[      97ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[     150ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/shifts?from=2026-05-31&to=2026-05-31:0
+[    1112ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-25&end=2026-05-31&granularity=daily:0
+[    1168ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/shifts?from=2026-05-31&to=2026-05-31:0
+[    3137ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-25&end=2026-05-31&granularity=daily:0
+[    3182ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/shifts?from=2026-05-31&to=2026-05-31:0
+[   26104ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[   30160ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[   56086ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[   60204ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[   86086ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[   90249ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  116096ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  120278ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  146082ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  150317ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  176081ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  180355ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  206092ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  210386ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  236088ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  240429ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0
+[  266087ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts?t=1780208929868:126:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts?t=1780208929868:196:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780208929868:22:22 @ :4
+[  270473ms] [ERROR] Failed to load resource: the server responded with a status of 403 (Forbidden) @ http://localhost:1420/api/v1/reports/revenue?start=2026-05-31&end=2026-05-31&granularity=daily:0

@@ -1,0 +1,187 @@
+[   19215ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[   49207ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[   79232ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  109202ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  139208ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  169209ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  199245ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  229205ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  259218ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  289225ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  319216ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  349212ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  379200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  409217ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  439200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  469205ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  499224ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  513950ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=678ec0e7:21550
+[  514163ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=678ec0e7:4435
+[  514164ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=678ec0e7:4435
+[  544112ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  566651ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=678ec0e7:21550
+[  566792ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=678ec0e7:4435
+[  566793ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=678ec0e7:4435
+[  596789ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  626777ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  656776ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  676135ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/App.tsx?t=1780171228055:0
+[  676136ms] [ERROR] [hmr] Failed to reload /src/App.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  676144ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228068:0
+[  676145ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  676618ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228069:0
+[  676618ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  676618ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  676623ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228070:0
+[  676623ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677035ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228055:0
+[  677035ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228056:0
+[  677036ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677036ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677513ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228061:0
+[  677514ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228062:0
+[  677514ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677514ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677520ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/components/error/ErrorBoundary.tsx?t=1780171228080:0
+[  677521ms] [ERROR] [hmr] Failed to reload /src/components/error/ErrorBoundary.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677525ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228080:0
+[  677525ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/components/hr/AttendanceWidget.tsx?t=1780171228080:0
+[  677526ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677526ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677526ms] [ERROR] [hmr] Failed to reload /src/components/hr/AttendanceWidget.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677528ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228081:0
+[  677528ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228082:0
+[  677528ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677528ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677529ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677529ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677538ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228083:0
+[  677539ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677540ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228084:0
+[  677540ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228085:0
+[  677540ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677541ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677543ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228086:0
+[  677543ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/components/notifications/NotificationsPanel.tsx?t=1780171228087:0
+[  677544ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677544ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677544ms] [ERROR] [hmr] Failed to reload /src/components/notifications/NotificationsPanel.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677549ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228087:0
+[  677550ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677550ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677551ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/components/shell/AppShell.tsx?t=1780171228087:0
+[  677551ms] [ERROR] [hmr] Failed to reload /src/components/shell/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677552ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/components/ui/button.tsx?t=1780171228088:0
+[  677553ms] [ERROR] [hmr] Failed to reload /src/components/ui/button.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677556ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228088:0
+[  677556ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677557ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/styles.css?t=1780171228103:0
+[  677557ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677557ms] [ERROR] [hmr] Failed to reload /src/styles.css. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://localhost:1420/@vite/client:175
+[  677620ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/@vite/client:0
+[  677620ms] [ERROR] Failed to load resource: the server responded with a status of 504 (Outdated Request) @ http://localhost:1420/src/main.tsx?t=1780171228772:0

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chẩn đoán — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Chẩn đoán — MediZen</strong></span>
+    <span>ID: f7a8a34921584dc8a40fb8d690b975b4</span>
+    <span>2560×3380 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Left Side Rail -->
+<aside class="flex flex-col h-full p-4 fixed left-0 top-0 w-[240px] bg-white border-r border-slate-200 z-50">
+<div class="mb-8 px-2">
+<span class="text-xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">MediZen</span>
+<p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Dr. Nguyen</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">space_dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Dashboard</span>
+</div>
+<div class="text-indigo-600 bg-indigo-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">hourglass_empty</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Patient Queue</span>
+</div>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Medical Records</span>
+</div>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">medication</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Prescriptions</span>
+</div>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">inventory</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Inventory</span>
+</div>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 transition-colors duration-200 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Settings</span>
+</div>
+</nav>
+<div class="mt-auto space-y-1 pt-4 border-t border-slate-100">
+<button class="w-full bg-indigo-600 text-white rounded-lg py-2.5 px-4 text-sm font-bold flex items-center justify-center gap-2 mb-4 hover:bg-indigo-700 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Consultation
+            </button>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Help Center</span>
+</div>
+<div class="text-slate-500 hover:bg-slate-50 rounded-lg px-3 py-2 flex items-center gap-3 cursor-pointer text-danger">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-['Plus_Jakarta_Sans'] font-semibold text-sm">Logout</span>
+</div>
+</div>
+</aside>
+<!-- Top Bar -->
+<header class="flex justify-between items-center w-[calc(100%-240px)] ml-[240px] px-6 sticky top-0 z-40 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200">
+<div class="flex items-center gap-4">
+<span class="text-lg font-bold text-slate-900 font-headline">MediZen EMR</span>
+<div class="h-4 w-[1px] bg-slate-300"></div>
+<nav class="flex gap-6">
+<a class="text-slate-500 hover:text-indigo-500 text-sm font-['Inter'] tracking-tight" href="#">Queue</a>
+<a class="text-slate-500 hover:text-indigo-500 text-sm font-['Inter'] tracking-tight" href="#">Vitals</a>
+<a class="text-indigo-600 border-b-2 border-indigo-600 font-bold text-sm font-['Inter'] tracking-tight pb-4 mt-4 transition-all" href="#">Diagnosis</a>
+<a class="text-slate-500 hover:text-indigo-500 text-sm font-['Inter'] tracking-tight" href="#">Treatment</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-indigo-600">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</div>
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-indigo-600">search</span>
+<button class="bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-lg hover:bg-indigo-700 transition-colors">Complete Visit</button>
+<div class="flex items-center gap-2 pl-2 border-l border-slate-200">
+<img alt="Doctor" class="w-8 h-8 rounded-full object-cover border border-slate-200" data-alt="A professional studio portrait of a Vietnamese doctor in his late 40s, wearing a clean white physician's coat. He possesses a reassuring smile and warm, intelligent eyes. The lighting is soft and directional, typical of a high-end medical clinic setting. The overall aesthetic is professional, modern, and clinical with a soft, slightly blurred office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP8rUhBsBtrhobDYDVmumAG8I3bnWPFg_Lf1pzY9ORfSMuR7nNGI_o-OgyRyWkxwqsrPo4gApB-fIXJwHG8RW3JfduVLSFe-K8qDgtVMm3oVqw89TQ7ID-4Av5BIAPvOruQgCpfnuNi1X4chi2RrdZ670j7ZhH3AHPRmMimZYIraiOJMIxATJ5DMedffueVCPc8BuM0yTpW9aNXLqwtJPTJ0KxXy6UeYx24H9Dwiyug104pzDCtwlUMoR5Q0_IibmBCj_Hu7txQo0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] pt-4 pb-20 px-6">
+<!-- Patient Banner -->
+<div class="bg-white rounded-xl border border-slate-200 p-4 mb-6 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-lg">LV</div>
+<div>
+<div class="flex items-center gap-3">
+<h2 class="text-lg font-bold text-slate-900">Lê Hà Vy</h2>
+<span class="text-slate-400">·</span>
+<span class="font-medium">45 tuổi</span>
+<span class="text-slate-400">·</span>
+<span class="text-sm font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">BN-2026-00427</span>
+<span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">BHYT</span>
+</div>
+<div class="flex items-center gap-3 mt-1 text-sm text-slate-500">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-red-500" style="font-variation-settings: 'FILL' 1;">monitor_heart</span> Tăng HA</span>
+<span class="text-slate-300">|</span>
+<span class="flex items-center gap-1 font-mono">LK-20260430-0042</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg"><span class="material-symbols-outlined">history</span></button>
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+<!-- Tab Strip -->
+<div class="flex items-center gap-1 mb-6">
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-transparent text-slate-500 font-medium text-sm cursor-pointer hover:bg-white transition-colors">
+                1.Sinh hiệu <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-transparent text-slate-500 font-medium text-sm cursor-pointer hover:bg-white transition-colors">
+                2.Khám LS <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-indigo-600 text-indigo-600 font-bold text-sm bg-white rounded-t-lg">
+                3.Chẩn đoán <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-transparent text-slate-400 font-medium text-sm cursor-pointer opacity-60">
+                4.Kê đơn <span class="w-2 h-2 rounded-full border border-slate-300"></span>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-transparent text-slate-400 font-medium text-sm cursor-pointer opacity-60">
+                5.CLS <span class="w-2 h-2 rounded-full border border-slate-300"></span>
+</div>
+<div class="px-4 py-2 flex items-center gap-2 border-b-2 border-transparent text-slate-400 font-medium text-sm cursor-pointer opacity-60">
+                6.Tóm tắt <span class="w-2 h-2 rounded-full border border-slate-300"></span>
+</div>
+</div>
+<!-- 3-Column Layout -->
+<div class="flex gap-6">
+<!-- Left Column: Summary -->
+<div class="w-[280px] shrink-0">
+<div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm sticky top-20">
+<div class="flex items-center gap-2 mb-4 text-slate-500">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<h3 class="font-bold text-sm uppercase tracking-tight">Tóm tắt S+O</h3>
+</div>
+<div class="text-sm text-slate-600 leading-relaxed space-y-3">
+<p>BN nữ 45t, tái khám theo hẹn. Ghi nhận nhức đầu nhẹ vùng chẩm khi thức dậy, mất ngủ 1 tuần gần đây do áp lực công việc.</p>
+<p>HA đo tại phòng khám: <span class="text-red-600 font-semibold">138/89 mmHg</span>. Cân nặng ổn định, không ghi nhận phù.</p>
+</div>
+</div>
+</div>
+<!-- Center Column: Main Assessment -->
+<div class="w-[720px] flex-1">
+<div class="space-y-6">
+<!-- Diagnosis Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+<h3 class="font-bold text-slate-900 mb-6 flex items-center gap-2">
+<span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                            Chẩn đoán chi tiết
+                        </h3>
+<div class="space-y-6">
+<!-- Main Diagnosis -->
+<div class="group relative">
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Chẩn đoán chính (ICD-10)</label>
+<div class="w-full flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-100 transition-all">
+<span class="material-symbols-outlined text-slate-400">search</span>
+<div class="flex flex-wrap gap-2 flex-1">
+<div class="bg-indigo-600 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+                                            I10 — Tăng huyết áp nguyên phát
+                                            <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-indigo-200">close</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer">expand_more</span>
+</div>
+</div>
+<!-- Secondary Diagnosis -->
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Chẩn đoán phụ</label>
+<div class="flex flex-wrap items-center gap-2">
+<div class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-2">
+                                        E78.5 RL Lipid máu
+                                        <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-slate-400">close</span>
+</div>
+<div class="bg-slate-100 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 flex items-center gap-2">
+                                        G47.0 Mất ngủ
+                                        <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-slate-400">close</span>
+</div>
+<button class="flex items-center gap-1 text-xs font-bold text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-indigo-50 border border-dashed border-indigo-200 transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                                        Thêm
+                                    </button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<!-- Severity -->
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Mức độ</label>
+<div class="flex p-1 bg-slate-100 rounded-lg">
+<button class="flex-1 py-1.5 text-xs font-bold text-slate-500 rounded-md hover:bg-white transition-all">Nhẹ</button>
+<button class="flex-1 py-1.5 text-xs font-bold bg-white text-indigo-600 rounded-md shadow-sm border border-slate-200">TB</button>
+<button class="flex-1 py-1.5 text-xs font-bold text-slate-500 rounded-md hover:bg-white transition-all">Nặng</button>
+<button class="flex-1 py-1.5 text-xs font-bold text-slate-500 rounded-md hover:bg-white transition-all">Nguy cấp</button>
+</div>
+</div>
+<!-- Status -->
+<div>
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Tình trạng</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-medium text-slate-500 cursor-pointer hover:border-indigo-300">Cấp</span>
+<span class="px-3 py-1 rounded-full border border-indigo-600 bg-indigo-50 text-xs font-bold text-indigo-600 cursor-pointer">Mạn</span>
+<span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-medium text-slate-500 cursor-pointer hover:border-indigo-300">Tái phát</span>
+<span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-medium text-slate-500 cursor-pointer hover:border-indigo-300">Hồi phục</span>
+<span class="px-3 py-1 rounded-full border border-slate-200 text-xs font-medium text-slate-500 cursor-pointer hover:border-indigo-300">Theo dõi</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Assessment Card -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="flex items-center px-6 py-4 bg-slate-50/50 border-b border-slate-200 justify-between">
+<h3 class="font-bold text-slate-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-600">assessment</span>
+                                S.O.A.P phần A (Assessment)
+                            </h3>
+<div class="flex gap-1 p-1 bg-slate-200/50 rounded-lg">
+<span class="px-3 py-1 text-[10px] font-black rounded-md cursor-pointer text-slate-500 hover:bg-white">S</span>
+<span class="px-3 py-1 text-[10px] font-black rounded-md cursor-pointer text-slate-500 hover:bg-white">O</span>
+<span class="px-3 py-1 text-[10px] font-black rounded-md bg-white text-indigo-600 shadow-sm">A</span>
+<span class="px-3 py-1 text-[10px] font-black rounded-md cursor-pointer text-slate-500 hover:bg-white">P</span>
+</div>
+</div>
+<div class="p-6">
+<textarea class="w-full h-32 p-4 border border-slate-200 rounded-xl bg-slate-50 text-sm leading-relaxed text-slate-700 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-500 transition-all resize-none outline-none">BN nữ 45 tuổi, tiền sử Tăng HA 5 năm, đang điều trị Amlodipine + Losartan. Hôm nay tái khám với HA 138/89 (target &lt;140/90 đạt). Ghi nhận khó ngủ 1 tuần — có thể do stress. Lipid máu chưa xét nghiệm 6 tháng.</textarea>
+</div>
+</div>
+<!-- Plan Card -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="flex items-center px-6 py-4 bg-slate-50/50 border-b border-slate-200 justify-between">
+<h3 class="font-bold text-slate-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-600">assignment_turned_in</span>
+                                S.O.A.P phần P (Plan)
+                            </h3>
+<button class="flex items-center gap-1 text-xs font-bold text-indigo-600 px-3 py-1 hover:underline">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+                                Thêm hướng xử trí
+                            </button>
+</div>
+<div class="p-6 grid grid-cols-1 gap-3">
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 group-hover:text-indigo-900 transition-colors">Tiếp tục thuốc hiện tại</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 group-hover:text-indigo-900 transition-colors">Thêm Mirtazapine 15mg cho mất ngủ</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 group-hover:text-indigo-900 transition-colors">XN Cholesterol+Triglyceride</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-400 italic">ECG nếu chưa có gần đây</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 group-hover:text-indigo-900 transition-colors">Theo dõi HA tại nhà</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input checked="" class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 group-hover:text-indigo-900 transition-colors">Tái khám 4 tuần</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg hover:bg-indigo-50/50 transition-colors cursor-pointer border border-transparent hover:border-indigo-100 group">
+<input class="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-400 italic">Tham vấn dinh dưỡng</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI & Guidelines -->
+<div class="w-[380px] shrink-0 space-y-6">
+<!-- AI Suggestions -->
+<div class="bg-indigo-50/50 rounded-xl border border-indigo-100 overflow-hidden shadow-sm">
+<div class="p-4 bg-white border-b border-indigo-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-600 text-[20px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<h3 class="font-bold text-sm text-indigo-900">AI gợi ý chẩn đoán</h3>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex items-center justify-between group">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 text-sm">I10 — Hypertension</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-600 rounded-full" style="width: 96%"></div>
+</div>
+<span class="text-[10px] font-bold text-indigo-600">96%</span>
+</div>
+</div>
+<button class="text-[11px] font-bold text-indigo-600 bg-white px-3 py-1 rounded-lg border border-indigo-200 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">Áp dụng</button>
+</div>
+<div class="flex items-center justify-between group opacity-80">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 text-sm">I10.0 — Essential Hypert.</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-400 rounded-full" style="width: 78%"></div>
+</div>
+<span class="text-[10px] font-bold text-indigo-500">78%</span>
+</div>
+</div>
+<button class="text-[11px] font-bold text-indigo-600 bg-white px-3 py-1 rounded-lg border border-indigo-200 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">Áp dụng</button>
+</div>
+<div class="flex items-center justify-between group opacity-60">
+<div class="flex flex-col">
+<span class="font-bold text-slate-900 text-sm">I15.9 — Secondary Hypert.</span>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+<div class="h-full bg-slate-400 rounded-full" style="width: 42%"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">42%</span>
+</div>
+</div>
+<button class="text-[11px] font-bold text-indigo-600 bg-white px-3 py-1 rounded-lg border border-indigo-200 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-all">Áp dụng</button>
+</div>
+</div>
+</div>
+<!-- Guidelines -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+<div class="flex items-center gap-2 mb-4 text-slate-500">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<h3 class="font-bold text-xs uppercase tracking-wider">Hướng dẫn lâm sàng</h3>
+</div>
+<div class="space-y-3">
+<a class="block p-3 rounded-lg border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all group" href="#">
+<div class="flex items-start justify-between">
+<span class="text-sm font-semibold text-slate-700 group-hover:text-indigo-700 leading-tight">ESC 2024 Hypertension Guideline</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-indigo-400 text-[18px]">open_in_new</span>
+</div>
+</a>
+<a class="block p-3 rounded-lg border border-slate-100 hover:border-indigo-200 hover:bg-indigo-50/30 transition-all group" href="#">
+<div class="flex items-start justify-between">
+<span class="text-sm font-semibold text-slate-700 group-hover:text-indigo-700 leading-tight">Hướng dẫn BYT/HAVN 2023</span>
+<span class="material-symbols-outlined text-slate-300 group-hover:text-indigo-400 text-[18px]">open_in_new</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Support Banner -->
+<div class="relative group cursor-pointer overflow-hidden rounded-xl h-32 border border-slate-200 shadow-sm">
+<img alt="Heart Vitality" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sophisticated medical illustration focusing on a human heart, rendered in a palette of deep indigo and sky blue. The heart is surrounded by soft, ethereal glows that symbolize vitality and monitoring. The background is a clean, slate-grey gradient with subtle geometric medical data overlays. The lighting is diffused and high-key, creating a professional and futuristic healthcare aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTKhxszOHxqBEkcwR-VNTAWAPXN6Eg4DdIXEwg5mlp-Bc6w7U31wOV8rxXeFLelGnlnw01rzI4xpDN965Hl9X13p21E_67cyFNDFTaiSct1ZoKnfkqP-gV51Cuf9JWnVBYVZ167jkNeBE0EV62v0_gTvXp-MxB-EOkrO03ScTk-WhD42eJW6QTHyElL3rRL8lrKbYTpG8N4SM6EoSftBw4E7EfEzwPKVaSMxZYNFiyjg78zZqP9sQohqV9UNxXgZ-8oECRTuezgH8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex flex-col justify-end p-4">
+<span class="text-white text-xs font-bold">Hệ thống gợi ý chẩn đoán tự động</span>
+<span class="text-slate-200 text-[10px]">Cập nhật tháng 04/2024</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Footer -->
+<footer class="fixed bottom-0 right-0 w-[calc(100%-240px)] px-6 h-14 bg-slate-50 border-t border-slate-200 flex justify-between items-center z-40">
+<div class="text-[10px] font-medium text-slate-500 uppercase tracking-widest">© 2024 MediZen Modern EMR</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-slate-600 border border-slate-200 rounded-lg px-4 py-1.5 font-medium text-xs hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                ← Tab 2
+            </button>
+<button class="flex items-center gap-2 text-slate-600 border border-slate-200 rounded-lg px-4 py-1.5 font-medium text-xs hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-[16px]">save</span>
+                Lưu nháp
+            </button>
+<button class="flex items-center gap-2 bg-indigo-600 text-white rounded-lg px-6 py-2 font-bold text-sm shadow-lg shadow-indigo-100 hover:bg-indigo-700 transition-all active:opacity-80">
+                Tiếp Kê đơn →
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</footer>
+
+</body>
+</html>

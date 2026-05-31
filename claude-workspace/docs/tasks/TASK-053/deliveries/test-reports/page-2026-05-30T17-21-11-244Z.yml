@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e10747]:
+      - complementary [ref=e10748]:
+        - generic [ref=e10749]:
+          - img [ref=e10751]
+          - generic [ref=e10752]: MediZen
+        - generic [ref=e10753]:
+          - heading [level=2] [ref=e10754]: Đăng nhập hệ thống
+          - paragraph [ref=e10755]: Quản lý phòng khám
+        - generic [ref=e10756]:
+          - generic [ref=e10757]:
+            - img [ref=e10758]
+            - generic [ref=e10761]: Patient-first
+          - generic [ref=e10762]:
+            - img [ref=e10763]
+            - generic [ref=e10765]: Real-time queue
+          - generic [ref=e10766]:
+            - img [ref=e10767]
+            - generic [ref=e10769]: RBAC + audit
+      - main [ref=e10770]:
+        - generic [ref=e10771]:
+          - generic [ref=e10772]:
+            - heading "Đăng nhập hệ thống" [level=1] [ref=e10773]
+            - paragraph [ref=e10774]: Quản lý phòng khám
+          - generic [ref=e10775]:
+            - generic [ref=e10776]:
+              - text: Tên đăng nhập
+              - generic [ref=e10777]:
+                - img
+                - textbox "Tên đăng nhập" [ref=e10778]:
+                  - /placeholder: Nhập tên đăng nhập
+            - generic [ref=e10779]:
+              - generic [ref=e10780]:
+                - generic [ref=e10781]: Mật khẩu
+                - button "Quên mật khẩu?" [ref=e10782] [cursor=pointer]
+              - generic [ref=e10783]:
+                - img
+                - textbox "Mật khẩu" [ref=e10784]:
+                  - /placeholder: Nhập mật khẩu
+                - button "Show password" [ref=e10785] [cursor=pointer]:
+                  - img [ref=e10786]
+            - generic [ref=e10789]:
+              - checkbox "Ghi nhớ đăng nhập" [ref=e10790] [cursor=pointer]
+              - checkbox
+              - generic [ref=e10791] [cursor=pointer]: Ghi nhớ đăng nhập
+            - button "Đăng nhập" [ref=e10792] [cursor=pointer]
+          - paragraph [ref=e10793]: © 2026 MediZen · v0.1.0
+    - region "Notifications alt+T"
+  - generic [ref=e7814]: Acetylcysteine 200mg

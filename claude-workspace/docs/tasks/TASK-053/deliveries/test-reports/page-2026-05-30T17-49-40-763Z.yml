@@ -1,0 +1,116 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - img "MediZen" [ref=e6]
+        - generic [ref=e7]: MediZen
+      - navigation [ref=e8]:
+        - link "Tổng quan" [ref=e9] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e10]
+          - generic [ref=e15]: Tổng quan
+        - generic [ref=e16]:
+          - button "Tiếp tân" [ref=e17] [cursor=pointer]:
+            - img [ref=e18]
+            - generic [ref=e20]: Tiếp tân
+            - img [ref=e21]
+          - generic [ref=e23]:
+            - link "Bệnh nhân" [ref=e24] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e25]
+              - generic [ref=e30]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e31] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e32]
+              - generic [ref=e36]: Lịch hẹn
+            - link "Hàng chờ" [ref=e37] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e38]
+              - generic [ref=e42]: Hàng chờ
+        - generic [ref=e43]:
+          - button "Bác sĩ" [ref=e44] [cursor=pointer]:
+            - img [ref=e45]
+            - generic [ref=e49]: Bác sĩ
+            - img [ref=e50]
+          - generic [ref=e52]:
+            - link "Hàng đợi của tôi" [ref=e53] [cursor=pointer]:
+              - /url: "#/doctor/queue"
+              - img [ref=e54]
+              - generic [ref=e57]: Hàng đợi của tôi
+            - link "Bảng điều khiển" [ref=e58] [cursor=pointer]:
+              - /url: "#/doctor/dashboard"
+              - img [ref=e59]
+              - generic [ref=e61]: Bảng điều khiển
+        - button "Nhà thuốc" [ref=e63] [cursor=pointer]:
+          - img [ref=e64]
+          - generic [ref=e67]: Nhà thuốc
+          - img [ref=e68]
+        - generic [ref=e70]:
+          - button "Thanh toán" [ref=e71] [cursor=pointer]:
+            - img [ref=e72]
+            - generic [ref=e74]: Thanh toán
+            - img [ref=e75]
+          - link "Hóa đơn" [ref=e78] [cursor=pointer]:
+            - /url: "#/billing/invoices"
+            - img [ref=e79]
+            - generic [ref=e82]: Hóa đơn
+        - button "Báo cáo" [ref=e84] [cursor=pointer]:
+          - img [ref=e85]
+          - generic [ref=e87]: Báo cáo
+          - img [ref=e88]
+        - link "Thông báo" [ref=e90] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e91]
+          - generic [ref=e94]: Thông báo
+        - generic [ref=e95]:
+          - button "Nhân sự" [ref=e96] [cursor=pointer]:
+            - img [ref=e97]
+            - generic [ref=e102]: Nhân sự
+            - img [ref=e103]
+          - generic [ref=e105]:
+            - link "Lịch ca" [ref=e106] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e107]
+              - generic [ref=e109]: Lịch ca
+            - link "Chấm công" [ref=e110] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e111]
+              - generic [ref=e114]: Chấm công
+            - link "Nghỉ phép" [ref=e115] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e116]
+              - generic [ref=e119]: Nghỉ phép
+        - button "Quản trị" [ref=e121] [cursor=pointer]:
+          - img [ref=e122]
+          - generic [ref=e124]: Quản trị
+          - img [ref=e125]
+        - link "Cài đặt" [ref=e127] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e128]
+          - generic [ref=e131]: Cài đặt
+      - button "Thu nhỏ menu" [ref=e133] [cursor=pointer]:
+        - generic [ref=e134]: Thu nhỏ menu
+        - img [ref=e135]
+    - generic [ref=e137]:
+      - banner [ref=e138]:
+        - button "Chuyển phòng khám" [ref=e140] [cursor=pointer]:
+          - img [ref=e142]
+          - generic [ref=e146]: Phong kham MediZen Demo
+        - button "Open quick search (Ctrl+K)" [ref=e147] [cursor=pointer]:
+          - img [ref=e148]
+          - generic [ref=e151]: Tìm kiếm
+          - generic [ref=e152]: ⌘K
+        - generic [ref=e153]:
+          - status "Online" [ref=e154]:
+            - generic [ref=e156]: Online
+          - button "Thông báo" [ref=e158] [cursor=pointer]:
+            - img [ref=e159]
+          - button "VI" [ref=e162] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e163] [cursor=pointer]:
+            - img [ref=e164]
+          - button "Menu người dùng" [ref=e166] [cursor=pointer]:
+            - generic [ref=e167]: TP
+            - generic [ref=e168]: cashier
+      - main [ref=e169]:
+        - generic [ref=e172]: Đang tải dữ liệu...
+  - region "Notifications alt+T"

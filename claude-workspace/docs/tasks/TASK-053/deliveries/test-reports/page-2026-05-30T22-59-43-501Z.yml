@@ -1,0 +1,381 @@
+- generic:
+  - generic:
+    - generic:
+      - complementary:
+        - generic:
+          - img
+          - generic: MediZen
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+            - generic: Tổng quan
+          - generic:
+            - button:
+              - img
+              - generic: Tiếp tân
+              - img
+            - generic:
+              - link:
+                - /url: "#/patients"
+                - img
+                - generic: Bệnh nhân
+              - link:
+                - /url: "#/appointments"
+                - img
+                - generic: Lịch hẹn
+              - link:
+                - /url: "#/queue"
+                - img
+                - generic: Hàng chờ
+          - generic:
+            - button:
+              - img
+              - generic: Bác sĩ
+              - img
+            - generic:
+              - link:
+                - /url: "#/doctor/queue"
+                - img
+                - generic: Hàng đợi của tôi
+              - link:
+                - /url: "#/doctor/dashboard"
+                - img
+                - generic: Bảng điều khiển
+          - generic:
+            - button:
+              - img
+              - generic: Nhà thuốc
+              - img
+            - generic:
+              - link:
+                - /url: "#/pharmacy/pending"
+                - img
+                - generic: Cấp phát chờ
+              - link:
+                - /url: "#/pharmacy/substitute"
+                - img
+                - generic: Đổi lô thuốc
+              - link:
+                - /url: "#/pharmacy/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/pharmacy/adjustments"
+                - img
+                - generic: Kiểm kê điều chỉnh
+              - link:
+                - /url: "#/pharmacy/purchase-in"
+                - img
+                - generic: Nhập hàng
+              - link:
+                - /url: "#/pharmacy/stocktake"
+                - img
+                - generic: Kiểm kê kho
+              - link:
+                - /url: "#/pharmacy/expiry"
+                - img
+                - generic: Xử lý hết hạn
+          - generic:
+            - button:
+              - img
+              - generic: Thanh toán
+              - img
+            - generic:
+              - link:
+                - /url: "#/billing/invoices"
+                - img
+                - generic: Hóa đơn
+          - generic:
+            - button:
+              - img
+              - generic: Báo cáo
+              - img
+            - generic:
+              - link:
+                - /url: "#/reports/revenue"
+                - img
+                - generic: Doanh thu
+              - link:
+                - /url: "#/reports/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/reports/doctor-performance"
+                - img
+                - generic: Hiệu suất bác sĩ
+              - link:
+                - /url: "#/reports/visit-volume"
+                - img
+                - generic: Lượt khám
+              - link:
+                - /url: "#/reports/prescriptions"
+                - img
+                - generic: Đơn thuốc
+              - link:
+                - /url: "#/reports/ar-aging"
+                - img
+                - generic: Công nợ AR
+          - link:
+            - /url: "#/notifications"
+            - img
+            - generic: Thông báo
+          - generic:
+            - button:
+              - img
+              - generic: Nhân sự
+              - img
+            - generic:
+              - link:
+                - /url: "#/hr/schedule"
+                - img
+                - generic: Lịch ca
+              - link:
+                - /url: "#/hr/me/timelog"
+                - img
+                - generic: Chấm công
+              - link:
+                - /url: "#/hr/leave/new"
+                - img
+                - generic: Nghỉ phép
+              - link:
+                - /url: "#/hr/leave/approve"
+                - img
+                - generic: Duyệt phép
+              - link:
+                - /url: "#/hr/recurring"
+                - img
+                - generic: Lịch định kỳ
+              - link:
+                - /url: "#/hr/shift-templates"
+                - img
+                - generic: Mẫu ca
+              - link:
+                - /url: "#/hr/attendance/export"
+                - img
+                - generic: Chấm công
+          - generic:
+            - button:
+              - img
+              - generic: Quản trị
+              - img
+            - generic:
+              - link:
+                - /url: "#/admin/users"
+                - img
+                - generic: Người dùng
+              - link:
+                - /url: "#/admin/roles"
+                - img
+                - generic: Vai trò & Phân quyền
+              - link:
+                - /url: "#/admin/settings"
+                - img
+                - generic: Cài đặt phòng khám
+              - link:
+                - /url: "#/admin/vitals"
+                - img
+                - generic: Chỉ số sinh tồn
+              - link:
+                - /url: "#/admin/services"
+                - img
+                - generic: Danh mục dịch vụ
+              - link:
+                - /url: "#/admin/medicines"
+                - img
+                - generic: Danh mục thuốc
+              - link:
+                - /url: "#/admin/audit"
+                - img
+                - generic: Nhật ký hoạt động
+          - link:
+            - /url: "#/settings"
+            - img
+            - generic: Cài đặt
+        - generic:
+          - button:
+            - generic: Thu nhỏ menu
+            - img
+      - generic:
+        - banner:
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic: Phong kham MediZen Demo
+          - button:
+            - img
+            - generic: Tìm kiếm
+            - generic: ⌘K
+          - generic:
+            - status "Online":
+              - generic: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context."': (!)
+            - generic:
+              - button:
+                - img
+                - generic: "2"
+            - button: VI
+            - button:
+              - img
+            - button [expanded]:
+              - img
+            - button:
+              - generic: DA
+              - generic: Quản trị
+        - main:
+          - generic:
+            - generic:
+              - heading [level=1]: Tổng quan
+              - paragraph: Xin chào, Demo Admin
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Lượt khám hôm nay
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+                  - generic:
+                    - img
+                    - text: —
+                - generic: so với hôm qua
+              - generic:
+                - generic:
+                  - generic: Doanh thu hôm nay
+                  - generic:
+                    - img
+                - generic:
+                  - generic: 0 ₫
+              - generic:
+                - generic:
+                  - generic: Chờ cấp phát
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+              - generic:
+                - generic:
+                  - generic: Cảnh báo kho
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "1"
+                - generic: "Tồn kho thấp: 1 · Sắp hết hạn: 0"
+              - generic:
+                - generic:
+                  - generic: Thông báo chưa đọc
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "2"
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Hóa đơn chờ
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+            - generic:
+              - heading [level=2]: Thao tác nhanh
+              - generic:
+                - button:
+                  - img
+                  - text: Khám mới (walk-in)
+                - button:
+                  - img
+                  - text: Đặt lịch
+                - button:
+                  - img
+                  - text: Tra cứu bệnh nhân
+            - generic:
+              - generic:
+                - heading [level=2]: Doanh thu 7 ngày
+                - generic:
+                  - generic:
+                    - generic:
+                      - application
+              - generic:
+                - heading [level=2]: Lượt khám theo giờ
+                - generic:
+                  - generic:
+                    - generic:
+                      - application:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic: 00:00
+                          - generic:
+                            - generic:
+                              - generic: "0"
+                            - generic:
+                              - generic: "15"
+                            - generic:
+                              - generic: "30"
+                            - generic:
+                              - generic: "45"
+                            - generic:
+                              - generic: "60"
+            - generic:
+              - heading [level=2]: Chấm công
+              - generic:
+                - paragraph: Ca hôm nay
+                - paragraph: Không có ca hôm nay
+              - generic:
+                - button:
+                  - img
+                  - text: Thủ công
+                - button:
+                  - generic: PIN
+                  - text: Mã PIN
+                - button:
+                  - img
+                  - text: QR Code
+                - button:
+                  - img
+                  - text: Sinh trắc học
+              - generic:
+                - button:
+                  - img
+                  - text: Check-in
+    - region "Notifications alt+T"
+  - generic: "0"
+  - menu "Chọn giao diện màu" [active] [ref=e834]:
+    - generic [ref=e835]: Chọn giao diện
+    - listbox "Theme presets" [ref=e836]:
+      - option "Medical Blue Navy blue professional" [ref=e837] [cursor=pointer]:
+        - generic [ref=e842]:
+          - paragraph [ref=e843]: Medical Blue
+          - paragraph [ref=e844]: Navy blue professional
+      - option "Emerald Health Fresh green, health vibes" [ref=e845] [cursor=pointer]:
+        - generic [ref=e850]:
+          - paragraph [ref=e851]: Emerald Health
+          - paragraph [ref=e852]: Fresh green, health vibes
+      - option "Soft Lavender Soft purple, elegant clinics" [ref=e853] [cursor=pointer]:
+        - generic [ref=e858]:
+          - paragraph [ref=e859]: Soft Lavender
+          - paragraph [ref=e860]: Soft purple, elegant clinics
+      - option "Warm Coral Warm orange-pink, friendly" [ref=e861] [cursor=pointer]:
+        - generic [ref=e866]:
+          - paragraph [ref=e867]: Warm Coral
+          - paragraph [ref=e868]: Warm orange-pink, friendly
+      - option "Midnight Dark Dark mode, eye-friendly" [selected] [ref=e869] [cursor=pointer]:
+        - generic [ref=e874]:
+          - paragraph [ref=e875]: Midnight Dark
+          - paragraph [ref=e876]: Dark mode, eye-friendly
+        - img [ref=e877]
+      - option "Slate Professional Neutral blue-gray, formal" [ref=e879] [cursor=pointer]:
+        - generic [ref=e884]:
+          - paragraph [ref=e885]: Slate Professional
+          - paragraph [ref=e886]: Neutral blue-gray, formal
+    - separator [ref=e887]
+    - generic [ref=e888]:
+      - paragraph [ref=e889]: Màu chủ đạo tuỳ chỉnh
+      - generic [ref=e890]:
+        - textbox "Custom primary color" [ref=e891] [cursor=pointer]: "#00685f"
+        - generic [ref=e892]: Mặc định
+    - separator [ref=e893]
+    - button "Đặt lại mặc định" [ref=e894] [cursor=pointer]:
+      - img [ref=e895]
+      - text: Đặt lại mặc định

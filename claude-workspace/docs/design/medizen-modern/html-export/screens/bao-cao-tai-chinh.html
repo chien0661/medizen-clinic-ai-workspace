@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo Tài chính — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .chart-bar-indigo { background-color: #6366F1; }
+        .chart-bar-emerald { background-color: #10B981; }
+        .chart-bar-amber { background-color: #F59E0B; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Báo cáo Tài chính — MediZen</strong></span>
+    <span>ID: af50d7704ee34c6d9589438b51ac1e0e</span>
+    <span>2560×3672 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col z-50 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-[240px] h-screen transition-all duration-200 ease-in-out">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-indigo-600 dark:text-indigo-400 font-headline leading-none">MediZen Modern</h1>
+<p class="text-[10px] text-slate-500 font-medium uppercase tracking-wider mt-1">Clinic Management</p>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<!-- Patients -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person_filled">person_filled</span>
+<span class="font-medium">Patients</span>
+</a>
+<!-- Appointments -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-medium">Appointments</span>
+</a>
+<!-- Financials (Active logic mapping to Reports/Financials) -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Financials</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Inventory</span>
+</a>
+<!-- Reports (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border-r-4 border-indigo-600 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-medium">Reports</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-slate-100 dark:border-slate-800">
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Logout</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="ml-[240px] min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 w-full h-14 px-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-sm text-slate-500">
+<span class="hover:text-indigo-600 cursor-pointer">Báo cáo</span>
+<span class="material-symbols-outlined text-xs mx-2">chevron_right</span>
+<span class="font-semibold text-slate-900 dark:text-white">Tài chính</span>
+</nav>
+<div class="ml-6 relative">
+<div class="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-full text-slate-400 text-xs border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined text-sm">search</span>
+<span>Tìm kiếm (⌘K)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<button class="p-2 text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<div class="flex items-center gap-3 pl-2 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900 dark:text-white leading-none">Administrator</p>
+<p class="text-[10px] text-indigo-500 font-medium mt-1">Quản trị hệ thống</p>
+</div>
+<div class="relative">
+<img alt="User profile" class="w-8 h-8 rounded-full border-2 border-indigo-100 group-hover:border-indigo-500 transition-all" data-alt="A professional medical administrator portrait, a middle-aged Asian woman in a clean white medical coat with a focused and friendly expression, set against a soft, bright clinic interior background with cool indigo and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCokuIyCV92hC6XIMuefxJWiskUZfdBhDLgci2OL91cXhwYzQY_yU99vEls7nsu4BLOUGIOm3_6-XiVnVWT7xO66MtaOOwIjpma3q7jF-ppGZd_2mRgNYuonQc4IpQcz0RDdo9RR-y3pC_1Drc8-TM0EwKWCEweEoQoHEo7Pu22l_LIxnhIGMJDFDjayxR1JmSV2cZ1NcKPllk_SmBh-DIDhG6CR_OmmueMm-rs5r3AKO2vOdfpQoLPa8UAbbDBZMJosAPKReI43gw"/>
+<div class="absolute -bottom-1 -right-1 w-3 h-3 bg-tertiary border-2 border-white rounded-full"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Sticky Filter Bar -->
+<div class="sticky top-14 z-30 bg-white/90 backdrop-blur-sm border-b border-slate-200 px-6 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3 overflow-x-auto scrollbar-hide">
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 hover:border-indigo-300 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-lg text-indigo-500">calendar_month</span>
+<span>01/04 - 30/04/2026</span>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 hover:border-indigo-300 cursor-pointer transition-colors">
+<span>Khoa</span>
+<span class="material-symbols-outlined text-lg text-slate-400">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-700 hover:border-indigo-300 cursor-pointer transition-colors">
+<span>Bác sĩ (BS)</span>
+<span class="material-symbols-outlined text-lg text-slate-400">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-3 py-1.5 rounded-lg text-sm font-bold text-indigo-700 cursor-pointer">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Chi nhánh: HD-01 Trung Tâm</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-2 ml-4">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-sm font-medium rounded-lg hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-lg">description</span>
+<span>Xuất Excel</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-slate-600 text-sm font-medium rounded-lg hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+<span>PDF</span>
+</button>
+</div>
+</div>
+<!-- Tab Strip -->
+<div class="px-6 mt-4">
+<div class="flex gap-8 border-b border-slate-200">
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Tổng quan</button>
+<button class="pb-3 text-sm font-semibold text-indigo-600 border-b-2 border-indigo-600">Tài chính</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Lâm sàng</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Vận hành</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">Dược</button>
+<button class="pb-3 text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors">BHYT</button>
+</div>
+</div>
+<!-- Dashboard Content Area -->
+<div class="p-6 space-y-6 max-w-[1600px] mx-auto">
+<!-- KPI Cards Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Revenue -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-medizen">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-indigo-50 rounded-lg text-indigo-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>12.4%</span>
+</div>
+</div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tổng doanh thu</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">₫1.247.560.000</h3>
+<div class="mt-4 h-8 w-full">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0 15 Q 10 5, 20 12 T 40 8 T 60 14 T 80 4 T 100 10" fill="none" stroke="#6366F1" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2: BHYT vs Self-pay -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-medizen">
+<div class="flex justify-between items-center mb-2">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">BHYT vs Tự trả</p>
+<div class="w-8 h-8 relative">
+<svg class="w-8 h-8" viewbox="0 0 36 36">
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E2E8F0" stroke-width="3"></path>
+<path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#6366F1" stroke-dasharray="68, 100" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+<div class="flex items-end justify-between mt-4">
+<div>
+<p class="text-[10px] text-slate-400 font-medium">BHYT (68%)</p>
+<p class="text-lg font-bold text-indigo-600">₫848M</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-slate-400 font-medium">Tự trả (32%)</p>
+<p class="text-lg font-bold text-slate-800">₫400M</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Outstanding Debt -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-medizen">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-50 rounded-lg text-amber-600">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-bold text-xs">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span>5.1%</span>
+</div>
+</div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Công nợ outstanding</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">₫186.400.000</h3>
+<p class="text-[10px] text-slate-400 font-medium mt-1">47 hoá đơn chưa tất toán</p>
+</div>
+<!-- Card 4: AR Turnover -->
+<div class="bg-white p-5 rounded-xl border border-danger/10 shadow-medizen bg-gradient-to-br from-white to-red-50/30">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-red-50 rounded-lg text-red-600">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div class="px-2 py-0.5 bg-red-100 text-red-700 rounded-full text-[10px] font-bold uppercase">Xấu</div>
+</div>
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">AR Turnover</p>
+<h3 class="text-2xl font-bold text-red-600 mt-1">18.4 ngày</h3>
+<div class="flex items-center gap-1 text-red-600 font-bold text-xs mt-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+2.1 ngày vs T3</span>
+</div>
+</div>
+</div>
+<!-- Charts Grid (2 Columns) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Monthly Revenue Chart -->
+<div class="lg:col-span-2 bg-white p-6 rounded-xl border border-slate-200 shadow-medizen">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="font-bold text-slate-800">Doanh thu theo tháng — 12 tháng</h4>
+<p class="text-xs text-slate-400 font-medium">Dữ liệu tổng hợp từ tháng 05/2025 - 04/2026</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-1.5">
+<div class="w-3 h-3 rounded-full bg-indigo-500"></div>
+<span class="text-[10px] font-semibold text-slate-500 uppercase">BHYT</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+<span class="text-[10px] font-semibold text-slate-500 uppercase">Tự trả</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-3 h-3 rounded-full bg-amber-500"></div>
+<span class="text-[10px] font-semibold text-slate-500 uppercase">Hợp đồng</span>
+</div>
+</div>
+</div>
+<div class="h-[280px] flex items-end justify-between gap-2 px-2">
+<!-- Bars 1-12 -->
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm group relative">
+<div class="h-[30%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[20%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T5</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm">
+<div class="h-[40%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T6</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[35%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[25%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T7</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[50%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T8</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[45%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[20%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[20%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T9</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[60%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[5%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T10</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[55%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[30%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T11</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[70%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T12</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[65%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[20%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[10%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T1</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[50%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[25%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T2</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[75%] bg-indigo-500/80 rounded-sm"></div>
+<div class="h-[15%] bg-emerald-500/80 rounded-sm"></div>
+<div class="h-[5%] bg-amber-500/80 rounded-sm"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-slate-400 font-bold">T3</span>
+</div>
+<div class="flex-1 flex flex-col-reverse gap-0.5 rounded-t-sm relative">
+<div class="h-[85%] bg-indigo-500 rounded-sm ring-2 ring-indigo-200"></div>
+<div class="h-[10%] bg-emerald-500 rounded-sm ring-2 ring-emerald-100"></div>
+<div class="h-[5%] bg-amber-500 rounded-sm ring-2 ring-amber-100"></div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-indigo-600 font-bold">T4</span>
+</div>
+</div>
+</div>
+<!-- Cash Flow Chart -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-medizen">
+<h4 class="font-bold text-slate-800 mb-6">Cash flow ngày — 30 ngày</h4>
+<div class="h-[240px] w-full flex items-center justify-center bg-slate-50 rounded-lg overflow-hidden border border-dashed border-slate-200 relative">
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<!-- Negative area fill -->
+<path d="M0 100 L 0 80 L 10 90 L 20 85 L 30 95 L 40 88 L 100 100 Z" fill="#FEE2E2"></path>
+<!-- Positive area fill -->
+<path d="M0 50 L 10 30 L 25 45 L 40 10 L 60 35 L 80 15 L 100 40 L 100 100 L 0 100 Z" fill="#EEF2FF"></path>
+<!-- Grid lines -->
+<line stroke="#CBD5E1" stroke-dasharray="2,2" x1="0" x2="100" y1="50" y2="50"></line>
+<!-- Lines -->
+<path d="M0 80 L 10 90 L 20 85 L 30 95 L 40 88 L 50 100" fill="none" stroke="#EF4444" stroke-width="1.5"></path>
+<path d="M0 50 L 10 30 L 25 45 L 40 10 L 60 35 L 80 15 L 100 40" fill="none" stroke="#6366F1" stroke-width="2"></path>
+</svg>
+<div class="absolute top-2 left-2 text-[10px] font-bold text-indigo-500 bg-white/80 px-1 rounded">Dòng tiền thu</div>
+<div class="absolute bottom-2 left-2 text-[10px] font-bold text-red-500 bg-white/80 px-1 rounded">Dòng tiền chi</div>
+</div>
+<div class="mt-4 space-y-2">
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-500 font-medium">Trung bình thu/ngày</span>
+<span class="font-bold">₫41.5M</span>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-500 font-medium">Trung bình chi/ngày</span>
+<span class="font-bold">₫32.8M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Row (3 Columns) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Payment Methods Donut -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-medizen">
+<h4 class="font-bold text-slate-800 mb-6 text-sm">Phương thức thanh toán</h4>
+<div class="flex flex-col items-center">
+<div class="w-32 h-32 relative mb-6">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="none" r="16" stroke="#6366F1" stroke-dasharray="42, 100" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#10B981" stroke-dasharray="28, 100" stroke-dashoffset="-42" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#F59E0B" stroke-dasharray="18, 100" stroke-dashoffset="-70" stroke-width="4"></circle>
+<circle cx="18" cy="18" fill="none" r="16" stroke="#0EA5E9" stroke-dasharray="12, 100" stroke-dashoffset="-88" stroke-width="4"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">TỔNG</span>
+<span class="text-xs font-bold text-slate-700">100%</span>
+</div>
+</div>
+<div class="w-full grid grid-cols-2 gap-3">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-indigo-500"></div>
+<span class="text-xs text-slate-600 font-medium">Tiền mặt (42%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-xs text-slate-600 font-medium">CK (28%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-xs text-slate-600 font-medium">POS (18%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-sky-500"></div>
+<span class="text-xs text-slate-600 font-medium">QR (12%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top 10 Services Horizontal Bar -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-medizen">
+<h4 class="font-bold text-slate-800 mb-6 text-sm">Top 10 DV doanh thu</h4>
+<div class="space-y-4">
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-slate-700">Khám TQ</span>
+<span class="text-indigo-600">₫186M</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 w-[95%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-slate-700">Siêu âm tim</span>
+<span class="text-indigo-600">₫142M</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 w-[78%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-slate-700">Xét nghiệm máu</span>
+<span class="text-indigo-600">₫128M</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 w-[70%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-slate-700">Nội soi dạ dày</span>
+<span class="text-indigo-600">₫96M</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 w-[55%]"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-slate-700">Chụp X-Quang</span>
+<span class="text-indigo-600">₫74M</span>
+</div>
+<div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 w-[42%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Revenue by Dr / Dept Bar Chart -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-medizen">
+<h4 class="font-bold text-slate-800 mb-6 text-sm">Doanh thu theo BS / Khoa</h4>
+<div class="h-[180px] flex items-end gap-4 px-2">
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-indigo-100 group-hover:bg-indigo-500 transition-colors rounded-t h-[95%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-400">186M</div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase whitespace-nowrap">BS. An</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-indigo-100 group-hover:bg-indigo-500 transition-colors rounded-t h-[75%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-400">152M</div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase whitespace-nowrap">BS. Bình</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-indigo-100 group-hover:bg-indigo-500 transition-colors rounded-t h-[65%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-400">128M</div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase whitespace-nowrap">BS. Trang</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-indigo-100 group-hover:bg-indigo-500 transition-colors rounded-t h-[55%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-400">112M</div>
+</div>
+<span class="text-[9px] font-bold text-slate-500 uppercase whitespace-nowrap">BS. Hùng</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-emerald-100 group-hover:bg-emerald-500 transition-colors rounded-t h-[48%] relative">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-400">98M</div>
+</div>
+<span class="text-[9px] font-bold text-emerald-600 uppercase whitespace-nowrap">Khoa Sản</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tables Row (2 Columns) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Pending Overdue Invoices -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-medizen overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<h4 class="font-bold text-slate-800 text-sm">Hoá đơn pending overdue</h4>
+<span class="px-2 py-1 bg-red-100 text-red-700 text-[10px] font-bold rounded-full uppercase">Cần xử lý gấp</span>
+</div>
+<table class="w-full text-sm text-left">
+<thead class="text-[10px] text-slate-400 uppercase bg-white border-b border-slate-100">
+<tr>
+<th class="px-4 py-3 font-bold">ID</th>
+<th class="px-4 py-3 font-bold">Bệnh nhân</th>
+<th class="px-4 py-3 font-bold">Số tiền</th>
+<th class="px-4 py-3 font-bold">Quá hạn</th>
+<th class="px-4 py-3 font-bold">Lễ tân</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-indigo-600">INV-2026-0231</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Nguyễn Văn A</td>
+<td class="px-4 py-3 font-bold text-slate-900">₫12.450.000</td>
+<td class="px-4 py-3">
+<span class="text-red-500 font-bold">12 ngày</span>
+</td>
+<td class="px-4 py-3 text-xs text-slate-500">LT. Minh</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-indigo-600">INV-2026-0245</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Lê Thị B</td>
+<td class="px-4 py-3 font-bold text-slate-900">₫4.200.000</td>
+<td class="px-4 py-3">
+<span class="text-red-500 font-bold">8 ngày</span>
+</td>
+<td class="px-4 py-3 text-xs text-slate-500">LT. Hoa</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-indigo-600">INV-2026-0258</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Trần Văn C</td>
+<td class="px-4 py-3 font-bold text-slate-900">₫8.900.000</td>
+<td class="px-4 py-3">
+<span class="text-amber-500 font-bold">4 ngày</span>
+</td>
+<td class="px-4 py-3 text-xs text-slate-500">LT. Minh</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Refund / Adjustments -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-medizen overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+<h4 class="font-bold text-slate-800 text-sm">Hoàn tiền/điều chỉnh trong kỳ</h4>
+<button class="text-xs text-indigo-600 font-bold hover:underline">Xem tất cả</button>
+</div>
+<table class="w-full text-sm text-left">
+<thead class="text-[10px] text-slate-400 uppercase bg-white border-b border-slate-100">
+<tr>
+<th class="px-4 py-3 font-bold">ID</th>
+<th class="px-4 py-3 font-bold">Bệnh nhân</th>
+<th class="px-4 py-3 font-bold">Số tiền</th>
+<th class="px-4 py-3 font-bold">Lý do</th>
+<th class="px-4 py-3 font-bold">Ngày</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-slate-400">REF-0422</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Phạm Văn D</td>
+<td class="px-4 py-3 font-bold text-red-600">-₫450.000</td>
+<td class="px-4 py-3 text-xs text-slate-500 italic truncate max-w-[100px]">Hủy khám BS bận</td>
+<td class="px-4 py-3 text-[10px] font-bold text-slate-400 uppercase">22/04</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-slate-400">ADJ-1092</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Vũ Minh E</td>
+<td class="px-4 py-3 font-bold text-red-600">-₫120.000</td>
+<td class="px-4 py-3 text-xs text-slate-500 italic truncate max-w-[100px]">Sai mã BHYT</td>
+<td class="px-4 py-3 text-[10px] font-bold text-slate-400 uppercase">21/04</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-slate-400">REF-0388</td>
+<td class="px-4 py-3 font-semibold text-slate-700">Đỗ Thị F</td>
+<td class="px-4 py-3 font-bold text-red-600">-₫2.100.000</td>
+<td class="px-4 py-3 text-xs text-slate-500 italic truncate max-w-[100px]">Trả thuốc còn hạn</td>
+<td class="px-4 py-3 text-[10px] font-bold text-slate-400 uppercase">19/04</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bottom Section (Profit & Loss Summary) -->
+<div class="bg-indigo-600 rounded-2xl p-8 text-white relative overflow-hidden shadow-xl">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[160px]">account_balance</span>
+</div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="space-y-1">
+<p class="text-indigo-200 text-xs font-bold uppercase tracking-widest">Revenue (Doanh thu)</p>
+<h4 class="text-3xl font-bold">₫1.247.560.000</h4>
+<div class="flex items-center gap-1 text-indigo-200 text-[10px] font-medium mt-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Đã bao gồm tất cả nguồn thu</span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-indigo-200 text-xs font-bold uppercase tracking-widest">− COGS (Thuốc &amp; Vật tư)</p>
+<h4 class="text-3xl font-bold opacity-90">₫386.000.000</h4>
+<div class="h-1 w-full bg-white/20 rounded-full mt-2">
+<div class="h-full bg-white w-[31%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1">
+<p class="text-indigo-200 text-xs font-bold uppercase tracking-widest">− OPEX (Lương &amp; Vận hành)</p>
+<h4 class="text-3xl font-bold opacity-90">₫512.000.000</h4>
+<div class="h-1 w-full bg-white/20 rounded-full mt-2">
+<div class="h-full bg-white w-[41%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/20">
+<p class="text-indigo-100 text-xs font-bold uppercase tracking-widest">= NET PROFIT (Lợi nhuận)</p>
+<h4 class="text-3xl font-extrabold text-white mt-1">₫349.560.000</h4>
+<div class="flex items-center justify-between mt-3">
+<span class="text-xs font-bold py-1 px-2 bg-emerald-500 rounded-lg text-white">Margin 28.0%</span>
+<span class="flex items-center gap-1 text-sm font-bold text-indigo-100">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                3.2%
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="px-6 py-8 text-center">
+<p class="text-xs text-slate-400 font-medium">MediZen Modern © 2026 • Hệ thống Quản trị Y tế Thế hệ mới • Chi nhánh HD-01</p>
+</footer>
+</main>
+<!-- Contextual Floating Action Button (Optional but handy for quick reports) -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-3">
+<button class="w-12 h-12 bg-white text-slate-600 rounded-full shadow-lg border border-slate-200 flex items-center justify-center hover:scale-105 transition-all">
+<span class="material-symbols-outlined">print</span>
+</button>
+<button class="w-14 h-14 bg-indigo-600 text-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+
+</body>
+</html>

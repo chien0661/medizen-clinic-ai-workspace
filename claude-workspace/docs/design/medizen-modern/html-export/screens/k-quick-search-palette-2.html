@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⌘K Quick Search Palette — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">⌘K Quick Search Palette — MediZen</strong></span>
+    <span>ID: 3812ba7a5ff8430890011daceafd3343</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Background Context (Blurred Dashboard) -->
+<div class="fixed inset-0 z-0 pointer-events-none filter blur-xl opacity-60">
+<div class="p-8 grid grid-cols-12 gap-6 h-screen">
+<div class="col-span-3 bg-white rounded-xl border border-slate-200 p-6 space-y-4">
+<div class="h-8 w-3/4 bg-slate-100 rounded"></div>
+<div class="h-32 w-full bg-slate-50 rounded"></div>
+<div class="h-32 w-full bg-slate-50 rounded"></div>
+</div>
+<div class="col-span-9 space-y-6">
+<div class="flex justify-between">
+<div class="h-10 w-48 bg-slate-200 rounded"></div>
+<div class="h-10 w-32 bg-slate-200 rounded"></div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="h-24 bg-white rounded-lg border border-slate-200"></div>
+<div class="h-24 bg-white rounded-lg border border-slate-200"></div>
+<div class="h-24 bg-white rounded-lg border border-slate-200"></div>
+<div class="h-24 bg-white rounded-lg border border-slate-200"></div>
+</div>
+<div class="h-[500px] bg-white rounded-xl border border-slate-200"></div>
+</div>
+</div>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-[12px]">
+<!-- Center Modal: NAV-001 -->
+<div class="w-full max-w-[920px] bg-white rounded-xl shadow-heavy overflow-hidden flex h-[600px]">
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- 1. Search input bar (sticky top) -->
+<div class="h-[64px] border-b border-slate-100 flex items-center px-6 gap-4 sticky top-0 bg-white z-20">
+<span class="material-symbols-outlined text-slate-400 text-[24px]" data-icon="search">search</span>
+<div class="flex items-center gap-2 flex-1">
+<span class="bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded text-sm font-semibold border border-indigo-100">/bn</span>
+<input class="w-full border-none focus:ring-0 text-lg font-medium text-slate-900 placeholder-slate-400 p-0" placeholder="Tìm bệnh nhân, thuốc, tính năng, hoá đơn... (gõ /bn /thuoc /inv /rx /lk để filter)" type="text" value="ha vy"/>
+</div>
+<div class="flex items-center gap-2 px-2 py-1 bg-slate-100 rounded text-[10px] font-bold text-slate-500 uppercase tracking-tighter">
+                        Esc
+                    </div>
+</div>
+<!-- 2. Tab strip filter -->
+<div class="h-[48px] border-b border-slate-100 flex items-center px-6 gap-6 bg-white overflow-x-auto scrollbar-hide shrink-0">
+<button class="flex items-center gap-2 text-sm text-slate-500 font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span> Tất cả (5)
+                    </button>
+<button class="flex items-center gap-2 text-sm text-indigo-600 font-semibold border-b-2 border-indigo-600 h-full whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span> Bệnh nhân (3)
+                    </button>
+<button class="flex items-center gap-2 text-sm text-slate-500 font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="pill">pill</span> Thuốc (1)
+                    </button>
+<button class="flex items-center gap-2 text-sm text-slate-500 font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="list_alt">list_alt</span> Tính năng (1)
+                    </button>
+<button class="flex items-center gap-2 text-sm text-slate-500 font-medium whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="payments">payments</span> Hoá đơn (0)
+                    </button>
+</div>
+<!-- 3. Scrollable result list -->
+<div class="flex-1 overflow-y-auto p-2">
+<!-- Group Header -->
+<div class="px-4 py-3 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Bệnh nhân</div>
+<!-- Row 1: Selected -->
+<div class="flex items-center gap-4 p-3 rounded-lg bg-indigo-50 border border-indigo-100 group cursor-pointer transition-all">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a Vietnamese woman in her 40s with a professional yet gentle expression, set against a clean medical facility background with soft indigo highlights. The lighting is bright and airy, following a modern clinical aesthetic with high-key illumination. The woman has dark hair and friendly eyes, representing a patient profile in a high-end electronic medical record system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVUlIhlcWnSiug4x6f3Gx1TAVEevRhPTN6PhpHT0u8ynOkQ0XbKpWAHsekfvSn0tlPG9skh9li9kK7s1kJCw51JDv5gg89vtQmdADWBdvhtAbf4qDVbmVIh3m2ZNAIXD-18DIP_vNvWMGdFtdLKFLdp-j7MxhpC3xOJ2wOvq2mLZVTyKYCOX81hceUgttOZqeUYP8nnNlWTTkWRlGZezVqP4AL9OSgKRG5xstzPVJXhj78qfl6-kuTrYfBmUZO_Uw_ke2DUInOuhY"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-indigo-900">Lê Hà Vy</span>
+<span class="px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-[10px] font-bold uppercase tracking-wide">Đang khám</span>
+</div>
+<div class="text-xs text-indigo-600/70 font-medium">45 · Nữ · BN-2026-00427</div>
+</div>
+<div class="hidden md:flex flex-col items-end gap-1">
+<div class="text-[10px] text-slate-400 font-medium">Bệnh nhân › Lê Hà Vy</div>
+<div class="w-6 h-6 rounded bg-indigo-200 flex items-center justify-center text-indigo-700">
+<span class="material-symbols-outlined text-sm" data-icon="keyboard_return">keyboard_return</span>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a Vietnamese man in his 30s with short black hair and a confident look, photographed in a minimalist studio setting. The color palette is composed of cool grays and soft blues, aligning with the MediZen brand guidelines. Soft, diffused lighting minimizes shadows, creating a clean and modern professional profile image for a medical database." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN8JB0NmnwUratnUpS480hBAvJJPypW-BPHVRTGh8it_v6J58fSScj9y8-f_WrKsGvpaX6U4HoTb7U4J0Jzbpfzveztfl2VVZrcLpJj1SV14Wk30_JWR2ccrpgZLDqRHPiG-inXsCpvvxEhBpBXrwDEMYoFNtJVDWpQUiGC9yJQ7wL8ZUcwsupZu2VMnmSQdQt6AjA3j-2heFqgN6lWahBJC81R20h0Hw97hXsGKryNexgzeeQj2MGUAA4oGfkdOsB5aG3lOKotew"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-slate-900">Hà Văn Vỹ</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wide">Hoàn tất 28/03</span>
+</div>
+<div class="text-xs text-slate-500">32 · Nam · BN-2026-00198</div>
+</div>
+<div class="text-[10px] text-slate-400 font-medium">Bệnh nhân › ...</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-slate-200 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A bright and colorful close-up portrait of a young Vietnamese girl around 8 years old with a happy expression. The background is a soft, out-of-focus medical play area with pastel tones of indigo and sky blue. The lighting is warm and natural, capturing a clear, high-resolution patient avatar that feels welcoming and compassionate within a pediatric EMR context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBQala50p56ysRQYq-TwSVAmJNvJxIkfbCKi08HcicrJfZAP2EKOSGF9cAwQHXgG_8dfvo0ivipQVuyIQsWv4dcLQbdtECRnKyGOu3nFG-WOPcx1rWFdFcSbCt06EGhPwcuqo7NxFl2q82yPPRXsfmLPiIS6MeL3aDdv17HqDQUuTlGNwBNqhwPMEniC2DlGPNDzizI6PqT-ROaJ1M8r5W8nxJ-NPdzvG1AE8vWhy6tH1SxByj7tJigatPxMJFA9ujEcDypiqX6Q"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-slate-900">Nguyễn Hà Vy</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wide">Tái khám 22/04</span>
+</div>
+<div class="text-xs text-slate-500">8 · Nữ · BN-2026-00532</div>
+</div>
+<div class="text-[10px] text-slate-400 font-medium">Bệnh nhân › ...</div>
+</div>
+<!-- Group Header -->
+<div class="px-4 py-3 mt-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Thuốc</div>
+<!-- Row 4 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-indigo-500" data-icon="pill">pill</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-slate-900">Aspirin</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wide">Còn 320 viên</span>
+</div>
+<div class="text-xs text-slate-500">100mg · Stock 320</div>
+</div>
+<div class="text-[10px] text-slate-400 font-medium">Thuốc › Aspirin</div>
+</div>
+<!-- Group Header -->
+<div class="px-4 py-3 mt-2 text-[11px] font-bold text-slate-500 uppercase tracking-widest">Tính năng</div>
+<!-- Row 5 -->
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 transition-all cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-500" data-icon="description">description</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-headline font-bold text-slate-900">Hồ sơ bệnh nhân</div>
+<div class="text-xs text-slate-500">Pages › Bệnh nhân</div>
+</div>
+</div>
+</div>
+<!-- 4. Footer keyboard hints (sticky bottom) -->
+<div class="h-[40px] bg-slate-50 border-t border-slate-100 flex items-center px-6 gap-6 sticky bottom-0 z-20">
+<div class="flex items-center gap-1.5">
+<span class="px-1 py-0.5 bg-white border border-slate-200 rounded text-[10px] font-bold text-slate-600">↑↓</span>
+<span class="text-[11px] font-medium text-slate-500">Chọn</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-1 py-0.5 bg-white border border-slate-200 rounded text-[10px] font-bold text-slate-600">↵</span>
+<span class="text-[11px] font-medium text-slate-500">Mở</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-1 py-0.5 bg-white border border-slate-200 rounded text-[10px] font-bold text-slate-600">Esc</span>
+<span class="text-[11px] font-medium text-slate-500">Đóng</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-1 py-0.5 bg-white border border-slate-200 rounded text-[10px] font-bold text-slate-600">/</span>
+<span class="text-[11px] font-medium text-slate-500">Filter mode</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="px-1 py-0.5 bg-white border border-slate-200 rounded text-[10px] font-bold text-slate-600">⌘K</span>
+<span class="text-[11px] font-medium text-slate-500">Toggle</span>
+</div>
+</div>
+</div>
+<!-- 5. Small right side panel -->
+<div class="w-[200px] border-l border-slate-100 bg-slate-50/50 p-6 space-y-6">
+<div>
+<h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Gần đây</h3>
+<ul class="space-y-4">
+<li class="group cursor-pointer">
+<div class="text-[10px] font-bold text-slate-400 leading-tight">BN-2026-00427</div>
+<div class="text-sm font-medium text-slate-600 group-hover:text-indigo-600 transition-colors">Lê Hà Vy</div>
+</li>
+<li class="group cursor-pointer">
+<div class="text-[10px] font-bold text-slate-400 leading-tight">INV-2026-0892</div>
+<div class="text-sm font-medium text-slate-600 group-hover:text-indigo-600 transition-colors">Hoá đơn #892</div>
+</li>
+<li class="group cursor-pointer">
+<div class="text-[10px] font-bold text-slate-400 leading-tight">LK-20260430-0042</div>
+<div class="text-sm font-medium text-slate-600 group-hover:text-indigo-600 transition-colors">Lịch hẹn Vy</div>
+</li>
+</ul>
+</div>
+<div class="pt-6 border-t border-slate-200">
+<h3 class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">Mẹo nhanh</h3>
+<div class="bg-indigo-50/50 p-3 rounded-lg border border-indigo-100/50">
+<p class="text-[11px] text-indigo-700/70 leading-relaxed italic">
+                            Sử dụng "/" để truy cập nhanh các bộ lọc chuyên sâu ngay từ thanh tìm kiếm.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

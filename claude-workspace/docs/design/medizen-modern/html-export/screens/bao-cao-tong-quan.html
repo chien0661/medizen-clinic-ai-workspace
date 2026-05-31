@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo — Tổng quan — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1/1;
+            border-radius: 4px;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Báo cáo — Tổng quan — MediZen</strong></span>
+    <span>ID: 0edb38245675437a9b9eeca7b5cdf91c</span>
+    <span>2560×3790 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed left-0 top-0 bottom-0 w-60 flex flex-col py-4 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 z-50 transition-all duration-200 ease-in-out">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="font-headline font-bold text-lg text-indigo-600 dark:text-indigo-400 leading-none">MediZen Modern</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1 font-semibold">Phòng khám Đa khoa</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-['Inter'] text-sm tracking-tight">Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">person</span>
+<span class="font-['Inter'] text-sm tracking-tight">Bệnh nhân</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+<span class="font-['Inter'] text-sm tracking-tight">Lịch hẹn</span>
+</a>
+<!-- ACTIVE TAB: Báo cáo -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 font-semibold border-r-2 border-indigo-600 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-['Inter'] text-sm tracking-tight">Báo cáo</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+<span class="font-['Inter'] text-sm tracking-tight">Kho dược</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-600 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-['Inter'] text-sm tracking-tight">Cấu hình</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-4 space-y-4">
+<button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 px-4 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-md shadow-indigo-200 transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                Thêm hồ sơ mới
+            </button>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-xl">support_agent</span>
+                    Hỗ trợ
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-danger text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+                    Đăng xuất
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="ml-60 min-h-screen flex flex-col">
+<!-- TopAppBar (Authority: JSON) -->
+<header class="fixed top-0 right-0 left-60 z-40 flex items-center justify-between px-6 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm shadow-indigo-500/5">
+<div class="flex items-center gap-4 flex-1">
+<nav class="flex text-xs font-medium text-slate-400 items-center gap-2">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span>Báo cáo</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-indigo-600 font-bold">Tổng quan</span>
+</nav>
+<div class="ml-8 relative group max-w-md w-full">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-full text-sm focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Tìm kiếm bệnh nhân, thuốc... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-6 w-px bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-3 pl-2 cursor-pointer active:opacity-80 transition-opacity">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900 leading-none">QT (Administrator)</p>
+<p class="text-[10px] text-slate-400 mt-1 font-medium">Quản trị viên</p>
+</div>
+<img alt="User Profile" class="w-9 h-9 rounded-full border-2 border-indigo-100 object-cover" data-alt="A professional portrait of a medical clinic administrator in a clean-cut suit with a friendly and composed expression. The lighting is bright and airy, reflecting a modern clinical office environment. The color palette emphasizes soft blues and white, maintaining the MediZen brand's calm and professional aesthetic. The image is high-resolution with a blurred background of a modern healthcare facility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXHxLOiHb1ixXODt9z90NTY1LhaSYUc30Iv43h72Nl8o19bUV8zGk5MZqYDLdZ7dQZcN73c2f1YolLunGvwOSOT_Y4YAmFnXQTTq_e3svVGWT_PreZtVoJb4RVW_MLvYHt6zdQAHzNUU_LQctUZHd5XY0x3NdtXR9kmI60n5VokJ3PkKh3IWO-R-zXTR5Ytp1MiftmaUu05fmLKhJE_tvr9UiCnK3IxUPP0qw_zi3H9PQwAugWicd8OApYeFhfcgfOdJwpNTCfkZw"/>
+</div>
+</div>
+</header>
+<!-- Sticky Filter Bar & Tabs -->
+<main class="mt-14 p-6 space-y-6">
+<!-- Sticky Filter Bar -->
+<div class="sticky top-14 z-30 bg-page/95 backdrop-blur-sm -mx-6 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm text-sm font-medium">
+<span class="material-symbols-outlined text-indigo-500 text-lg">calendar_month</span>
+                        01/04 - 30/04/2026 (Tháng 4)
+                        <span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm text-sm font-medium">
+<span class="text-slate-500">Khoa:</span>
+                        Tất cả
+                        <span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm text-sm font-medium">
+<span class="text-slate-500">BS:</span>
+                        Tất cả
+                        <span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+<div class="flex items-center gap-2 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm text-sm font-medium">
+<span class="text-slate-500">Chi nhánh:</span>
+                        HD-01
+                        <span class="material-symbols-outlined text-slate-400">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold hover:bg-slate-50 flex items-center gap-2 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-indigo-500">description</span>
+                        Xuất PDF
+                    </button>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-semibold hover:bg-slate-50 flex items-center gap-2 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-success">table_view</span>
+                        Xuất Excel
+                    </button>
+<button class="px-5 py-2 bg-indigo-600 text-white rounded-xl text-sm font-semibold hover:bg-indigo-700 shadow-md shadow-indigo-100 transition-colors">
+                        Lưu báo cáo
+                    </button>
+</div>
+</div>
+<!-- Tab Strip -->
+<div class="border-b border-slate-200 flex gap-8">
+<button class="pb-3 px-1 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-success"></span>
+                    Tổng quan
+                </button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span>
+                    Tài chính
+                </button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span>
+                    Lâm sàng
+                </button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span>
+                    Vận hành
+                </button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span>
+                    Dược
+                </button>
+<button class="pb-3 px-1 text-sm font-medium text-slate-500 hover:text-slate-800 transition-colors flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span>
+                    BHYT
+                </button>
+</div>
+<!-- Row 1: KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI 1 -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-soft">
+<div class="flex items-start justify-between mb-4">
+<div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+<div class="flex items-center gap-1 text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            8.2%
+                        </div>
+</div>
+<p class="text-slate-500 text-sm font-medium">Lượt khám</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold font-headline">18,624</h3>
+<div class="w-20 h-8 flex items-end gap-1 pb-1">
+<div class="flex-1 bg-indigo-200 h-[40%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-200 h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-300 h-[50%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-400 h-[80%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-600 h-[100%] rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-soft">
+<div class="flex items-start justify-between mb-4">
+<div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex items-center gap-1 text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            12.4%
+                        </div>
+</div>
+<p class="text-slate-500 text-sm font-medium">Doanh thu</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold font-headline">₫1.247B</h3>
+<div class="w-20 h-8 flex items-end gap-1 pb-1">
+<div class="flex-1 bg-emerald-200 h-[30%] rounded-sm"></div>
+<div class="flex-1 bg-emerald-200 h-[45%] rounded-sm"></div>
+<div class="flex-1 bg-emerald-300 h-[70%] rounded-sm"></div>
+<div class="flex-1 bg-emerald-400 h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-emerald-600 h-[100%] rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-soft">
+<div class="flex items-start justify-between mb-4">
+<div class="p-2.5 bg-sky-50 text-sky-600 rounded-xl">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<div class="flex items-center gap-1 text-danger text-xs font-bold bg-danger/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_down</span>
+                            2.1%
+                        </div>
+</div>
+<p class="text-slate-500 text-sm font-medium">BN mới</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold font-headline">287</h3>
+<div class="w-20 h-8 flex items-center justify-center">
+<div class="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-sky-500"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-soft">
+<div class="flex items-start justify-between mb-4">
+<div class="p-2.5 bg-violet-50 text-violet-600 rounded-xl">
+<span class="material-symbols-outlined">cached</span>
+</div>
+<div class="flex items-center gap-1 text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+                            3.5%
+                        </div>
+</div>
+<p class="text-slate-500 text-sm font-medium">Tỉ lệ tái khám</p>
+<div class="flex items-end justify-between mt-1">
+<h3 class="text-2xl font-bold font-headline">47%</h3>
+<div class="w-12 h-12 relative flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="24" cy="24" fill="transparent" r="20" stroke="#F1F5F9" stroke-width="4"></circle>
+<circle cx="24" cy="24" fill="transparent" r="20" stroke="#8B5CF6" stroke-dasharray="125.6" stroke-dashoffset="66.5" stroke-width="4"></circle>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 2: Charts Grid (2/3 + 1/3) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-soft p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="font-bold font-headline">12 tháng: Lượt khám + Doanh thu</h4>
+<p class="text-xs text-slate-400 mt-1">Dữ liệu tổng hợp từ tháng 05/2025 - 04/2026</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2 text-xs font-medium">
+<span class="w-3 h-3 rounded-sm bg-indigo-500"></span>
+                                Lượt khám
+                            </div>
+<div class="flex items-center gap-2 text-xs font-medium">
+<span class="w-3 h-3 rounded-full border-2 border-emerald-500"></span>
+                                Doanh thu
+                            </div>
+</div>
+</div>
+<div class="h-[300px] flex items-end gap-2 md:gap-4 relative pb-8 pt-4">
+<!-- Y Axis labels -->
+<div class="absolute left-0 top-0 h-full flex flex-col justify-between text-[10px] text-slate-400 -ml-2">
+<span>1.5B</span><span>1B</span><span>500M</span><span>0</span>
+</div>
+<!-- Bars & Line Visualization -->
+<div class="flex-1 h-full flex items-end justify-around pl-8">
+<!-- Placeholder months with bars -->
+<div class="w-full h-full flex items-end justify-between px-2">
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[40%] relative group">
+<div class="absolute inset-x-0 bottom-full mb-1 bg-slate-800 text-white text-[10px] px-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">842BN</div>
+</div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[55%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[48%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[62%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[58%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[70%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[65%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[78%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[82%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[75%]"></div>
+<div class="w-[6%] bg-slate-100 rounded-t-lg h-[92%]"></div>
+<div class="w-[6%] bg-indigo-500 rounded-t-lg h-[100%] shadow-lg shadow-indigo-100"></div>
+</div>
+</div>
+<!-- X Axis Labels -->
+<div class="absolute bottom-0 left-8 right-0 flex justify-around text-[10px] font-medium text-slate-400">
+<span>T5</span><span>T6</span><span>T7</span><span>T8</span><span>T9</span><span>T10</span><span>T11</span><span>T12</span><span>T1</span><span>T2</span><span>T3</span><span class="text-indigo-600 font-bold">T4</span>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200 shadow-soft p-6 flex flex-col">
+<h4 class="font-bold font-headline mb-6">Phân bố nguồn BN</h4>
+<div class="flex-1 flex items-center justify-center relative">
+<!-- Donut Graphic -->
+<div class="w-48 h-48 rounded-full border-[18px] border-slate-50 relative flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-[18px] border-indigo-500 border-t-transparent border-l-transparent rotate-[30deg]"></div>
+<div class="absolute inset-0 rounded-full border-[18px] border-sky-400 border-b-transparent border-r-transparent -rotate-[150deg]"></div>
+<div class="absolute inset-0 rounded-full border-[18px] border-emerald-400 border-t-transparent border-r-transparent rotate-[180deg]"></div>
+<div class="absolute inset-0 rounded-full border-[18px] border-violet-400 border-b-transparent border-l-transparent rotate-[270deg]"></div>
+<div class="text-center">
+<p class="text-xs text-slate-400 font-medium">Tổng BN</p>
+<p class="text-2xl font-bold font-headline">18,624</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-8">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+<span class="text-xs font-medium text-slate-600">Walk-in: 42%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+<span class="text-xs font-medium text-slate-600">Hẹn: 38%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<span class="text-xs font-medium text-slate-600">Cấp cứu: 12%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-violet-400"></span>
+<span class="text-xs font-medium text-slate-600">Tái khám: 8%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Bar Chart & Heatmap -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Top 10 Services -->
+<div class="bg-white rounded-2xl border border-slate-200 shadow-soft p-6">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-bold font-headline">Top 10 dịch vụ doanh thu</h4>
+<button class="text-indigo-600 text-xs font-bold hover:underline">Xem tất cả</button>
+</div>
+<div class="space-y-4">
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-700">Khám tổng quát</span>
+<span class="font-bold">₫186M</span>
+</div>
+<div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[100%] h-full bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-700">Siêu âm tim</span>
+<span class="font-bold">₫142M</span>
+</div>
+<div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[78%] h-full bg-indigo-400/80 rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-700">Xét nghiệm máu tổng quát</span>
+<span class="font-bold">₫128M</span>
+</div>
+<div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[70%] h-full bg-indigo-400/80 rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-700">Chụp MRI khớp gối</span>
+<span class="font-bold">₫112M</span>
+</div>
+<div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[62%] h-full bg-indigo-400/80 rounded-full"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-medium">
+<span class="text-slate-700">Nội soi dạ dày</span>
+<span class="font-bold">₫98M</span>
+</div>
+<div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[54%] h-full bg-indigo-400/80 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Heatmap -->
+<div class="bg-white rounded-2xl border border-slate-200 shadow-soft p-6">
+<div class="flex items-center justify-between mb-6">
+<h4 class="font-bold font-headline">Heatmap giờ × ngày</h4>
+<div class="flex items-center gap-2 text-[10px] font-medium text-slate-400 uppercase tracking-tighter">
+<span>Thấp</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-sm bg-indigo-50"></div>
+<div class="w-3 h-3 rounded-sm bg-indigo-200"></div>
+<div class="w-3 h-3 rounded-sm bg-indigo-400"></div>
+<div class="w-3 h-3 rounded-sm bg-indigo-600"></div>
+</div>
+<span>Cao</span>
+</div>
+</div>
+<div class="grid grid-cols-[30px_repeat(14,_1fr)] gap-2 items-center">
+<div class="h-6"></div>
+<!-- Hour headers (subset) -->
+<div class="text-[9px] text-slate-400 text-center">07h</div>
+<div class="text-[9px] text-slate-400 text-center">08h</div>
+<div class="text-[9px] text-slate-400 text-center">09h</div>
+<div class="text-[9px] text-slate-400 text-center">10h</div>
+<div class="text-[9px] text-slate-400 text-center">11h</div>
+<div class="text-[9px] text-slate-400 text-center">12h</div>
+<div class="text-[9px] text-slate-400 text-center">13h</div>
+<div class="text-[9px] text-slate-400 text-center">14h</div>
+<div class="text-[9px] text-slate-400 text-center">15h</div>
+<div class="text-[9px] text-slate-400 text-center">16h</div>
+<div class="text-[9px] text-slate-400 text-center">17h</div>
+<div class="text-[9px] text-slate-400 text-center">18h</div>
+<div class="text-[9px] text-slate-400 text-center">19h</div>
+<div class="text-[9px] text-slate-400 text-center">20h</div>
+<!-- Row T2 -->
+<div class="text-[9px] font-bold text-slate-500">T2</div>
+<div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row T3 -->
+<div class="text-[9px] font-bold text-slate-500">T3</div>
+<div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row T4 -->
+<div class="text-[9px] font-bold text-slate-500">T4</div>
+<div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row T5 -->
+<div class="text-[9px] font-bold text-slate-500">T5</div>
+<div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row T6 -->
+<div class="text-[9px] font-bold text-slate-500">T6</div>
+<div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row T7 -->
+<div class="text-[9px] font-bold text-slate-500">T7</div>
+<div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-600"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+<!-- Row CN -->
+<div class="text-[9px] font-bold text-slate-500">CN</div>
+<div class="heatmap-cell bg-indigo-400"></div><div class="heatmap-cell bg-indigo-200"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-100"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div><div class="heatmap-cell bg-indigo-50"></div>
+</div>
+</div>
+</div>
+<!-- Row 4: Top 5 BS Table -->
+<div class="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+<h4 class="font-bold font-headline">Top 5 Bác sĩ có hiệu suất tốt nhất</h4>
+<button class="flex items-center gap-1 text-slate-500 text-xs font-medium px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50">
+                        Sắp xếp theo: Doanh thu
+                        <span class="material-symbols-outlined text-sm">swap_vert</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-slate-50/50 text-left text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+<th class="px-6 py-4">Bác sĩ</th>
+<th class="px-6 py-4">Lượt khám</th>
+<th class="px-6 py-4">Doanh thu</th>
+<th class="px-6 py-4 text-center">Đánh giá</th>
+<th class="px-6 py-4 text-right">Tỉ lệ tái khám</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="BS. Nguyễn Hoàng An" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A portrait of Dr. Nguyen Hoang An, a male doctor with a kind smile and professional demeanor. He is wearing a white lab coat and a stethoscope around his neck. The setting is a bright, modern clinic with a soft indigo and white theme. The image conveys trust and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkKMgaZ99mghK6FDeTobqNdrUzj9LbJcK-EwlgpFPq_y3aItH9pzJ3TxhRIh6p05boZ7oL8TJNuyGJB8ynr6jY_fJxRo-Qrbi4oceEsvclcTb_O-uzab3vUq112LCiq-obAbkh0I6LxZGFIxfAYLAl5TjjtcfFFi8D4IE_rrC6nRY0Z6SoyfytbuL9hKP_IT5drV2M0JUx-yIUliOqMGwt_0rlxI6aNc33tkDAKUBfHpy9zF5_AgOXzs4ZtEjsBNYm7aMDt6iefzA"/>
+<div>
+<p class="text-sm font-bold text-slate-900">BS. Nguyễn Hoàng An</p>
+<p class="text-[10px] text-slate-400 font-medium">Khoa Nội tổng quát</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-semibold">824</td>
+<td class="px-6 py-4 text-sm font-bold text-indigo-600">₫186,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-700">4.8</span>
+<span class="material-symbols-outlined text-warning text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold">47%</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="BS. Trần Bình" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A portrait of Dr. Tran Binh, a confident middle-aged male doctor. He is in a professional white medical uniform against a clean, minimalistic office background. The lighting is crisp and clear, following the bright light-mode aesthetic. High quality, medical professional headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCec1g1hJKY6STw-BpWL5F6RQt5C7J7mC9JO1PrM5x74dx9vBhIbfePxDA7gBLa6k5eUAVE40hzGwLfkrPEc_xmEppvCfDYM_6TUy7sZV7PEft6ttj3Zb27_Y6JLOODlM0GcvEIuebr8tIUzcS6WzYZDQKBfrYHpsnrnLeI1-vaaYze5p2LmKboGNc0_h5tO49sju_ppTCl_ozr8FXEPqt49Hi4hpwF4hP5-rkeMKAnXp3HV_fRQRQzyLONqa6fVAhAaAtizyaM7fA"/>
+<div>
+<p class="text-sm font-bold text-slate-900">BS. Trần Bình</p>
+<p class="text-[10px] text-slate-400 font-medium">Khoa Tim mạch</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-semibold">712</td>
+<td class="px-6 py-4 text-sm font-bold text-indigo-600">₫152,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-700">4.7</span>
+<span class="material-symbols-outlined text-warning text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold">42%</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="BS. Phạm Thu Trang" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A professional portrait of Dr. Pham Thu Trang, a female doctor with an empathetic and professional look. She is wearing clinical attire in a high-key, bright medical office setting. The style is modern minimalist with a focuses on white and soft indigo tones, creating a calm and professional mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg46mnpYGkCcj2CLazSrne4f7Oj2JyJgetj1nmkWnwqHbs-LF_sc0yqMtDo6QlpwLRvrY_gbpo50hEoNnmQAex8wPMpX66KtK497QS2584AQnQQ8g8mevQL8bAXAhOg80O0lwpYuFIOnpl5uEUoyr5zCS46MMpWqOma2A6CpoVqvsAfnjvabKO7YF9nJyeMtvovqM8fL-k6XfokFEZrVjPLNjEt-zZ4JjOOkkyDSIfiqP5RsdoJyJQd-Tgga03bSsPxTsluFxHKSk"/>
+<div>
+<p class="text-sm font-bold text-slate-900">BS. Phạm Thu Trang</p>
+<p class="text-[10px] text-slate-400 font-medium">Khoa Nhi</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-semibold">656</td>
+<td class="px-6 py-4 text-sm font-bold text-indigo-600">₫128,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-700">4.9</span>
+<span class="material-symbols-outlined text-warning text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold">51%</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img alt="BS. Lê Việt Hùng" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A professional headshot of Dr. Le Viet Hung, a young male doctor with short dark hair and a clean appearance. He is dressed in a formal medical coat. The background is a soft-focus modern clinic hallway with bright white walls and indigo accents, reflecting the brand identity of MediZen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuZ7A2IthqklncBxcYZNb4GaWYEsA2UxPgG7ULAFR0VvGNSs_3iaxZt8iYzYUsejA1GziWtcQMP9V8Owm36wYZa0y_u5Bxu4JOsYfkiVZ4uw21uSnYmStEPtZvaH5KmPVxdmQUdR0MtqXRIq2PTmUwkxGZeik0r4aLpjENnyhrrDQHMXF8Q2rpyvRZ854ESd-aCTadfPi7vnmQR3D7BnczajP-RKjwOY6pPYEJxX64ym5wKJSjxPRk9-j8puN3QgpfgVAMVjGhHMk"/>
+<div>
+<p class="text-sm font-bold text-slate-900">BS. Lê Việt Hùng</p>
+<p class="text-[10px] text-slate-400 font-medium">Khoa Xét nghiệm</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-semibold">524</td>
+<td class="px-6 py-4 text-sm font-bold text-indigo-600">₫112,000,000</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-700">4.6</span>
+<span class="material-symbols-outlined text-warning text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold">38%</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 border-b-0">
+<div class="flex items-center gap-3">
+<img alt="BS. Nguyễn Thuý Hà" class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="Portrait of Dr. Nguyen Thuy Ha, a professional female physician in her late 30s. She is smiling gently, wearing a stethoscope and a white coat. The background is a modern, clean, and bright hospital office with a touch of greenery. The visual style is light-mode, minimalist, and uses a serene indigo and slate palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjeEKMX1Vm4jW0927LqhtJv--0eybkF9OTlD4mxYuTvh9NyzwBpmYBHqadwKWLVAv6UEup8IUaKVdeSQzYOt3aPMu1mV1shP0w4_YjtJQM-xvnjbh5o9DZEYm1xixeNkbXw--dlagvdRlTT-UTJBv9vjzGbtiLBQcYSjoRDSCrwhi3hOaXbFs9aQQpL9bPJ9dx2Rc7Nn8DjeEY_YLuN3YsZ2Zu5-oP3uXGIW5Y0aKFVl_MRHk95R8d1olZSA00_iJwkMyXi88XQOQ"/>
+<div>
+<p class="text-sm font-bold text-slate-900">BS. Nguyễn Thuý Hà</p>
+<p class="text-[10px] text-slate-400 font-medium">Khoa Sản</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-sm font-semibold border-b-0">456</td>
+<td class="px-6 py-4 text-sm font-bold text-indigo-600 border-b-0">₫98,000,000</td>
+<td class="px-6 py-4 border-b-0">
+<div class="flex items-center justify-center gap-1">
+<span class="text-sm font-bold text-slate-700">4.7</span>
+<span class="material-symbols-outlined text-warning text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right border-b-0">
+<span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[11px] font-bold">44%</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-slate-50/50 border-t border-slate-100 flex justify-between items-center">
+<p class="text-xs text-slate-500">Hiển thị 5 trên 48 bác sĩ</p>
+<button class="text-xs font-bold text-indigo-600 hover:text-indigo-700">Xem bảng xếp hạng đầy đủ ➝</button>
+</div>
+</div>
+</main>
+<footer class="mt-auto p-6 text-center">
+<p class="text-xs text-slate-400">© 2026 MediZen EMR - Hệ thống Quản lý Phòng khám Thông minh. Phiên bản v4.2.0-PRO</p>
+</footer>
+</div>
+
+</body>
+</html>

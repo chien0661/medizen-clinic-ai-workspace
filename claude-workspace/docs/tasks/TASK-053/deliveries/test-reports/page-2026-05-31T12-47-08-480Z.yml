@@ -1,0 +1,1578 @@
+- generic:
+  - generic:
+    - generic:
+      - complementary:
+        - generic:
+          - img
+          - generic: MediZen
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+            - generic: Tổng quan
+          - generic:
+            - button:
+              - img
+              - generic: Tiếp tân
+              - img
+            - generic:
+              - link:
+                - /url: "#/patients"
+                - img
+                - generic: Bệnh nhân
+              - link:
+                - /url: "#/appointments"
+                - img
+                - generic: Lịch hẹn
+              - link:
+                - /url: "#/queue"
+                - img
+                - generic: Hàng chờ
+          - generic:
+            - button:
+              - img
+              - generic: Nhà thuốc
+              - img
+            - generic:
+              - link:
+                - /url: "#/pharmacy/pending"
+                - img
+                - generic: Cấp phát chờ
+              - link:
+                - /url: "#/pharmacy/substitute"
+                - img
+                - generic: Đổi lô thuốc
+              - link:
+                - /url: "#/pharmacy/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/pharmacy/adjustments"
+                - img
+                - generic: Kiểm kê điều chỉnh
+              - link:
+                - /url: "#/pharmacy/purchase-in"
+                - img
+                - generic: Nhập hàng
+              - link:
+                - /url: "#/pharmacy/stocktake"
+                - img
+                - generic: Kiểm kê kho
+              - link:
+                - /url: "#/pharmacy/expiry"
+                - img
+                - generic: Xử lý hết hạn
+          - generic:
+            - button:
+              - img
+              - generic: Thanh toán
+              - img
+            - generic:
+              - link:
+                - /url: "#/billing/invoices"
+                - img
+                - generic: Hóa đơn
+          - generic:
+            - button:
+              - img
+              - generic: Báo cáo
+              - img
+            - generic:
+              - link:
+                - /url: "#/reports/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/reports/visit-volume"
+                - img
+                - generic: Lượt khám
+              - link:
+                - /url: "#/reports/prescriptions"
+                - img
+                - generic: Đơn thuốc
+          - link:
+            - /url: "#/notifications"
+            - img
+            - generic: Thông báo
+          - generic:
+            - button:
+              - img
+              - generic: Nhân sự
+              - img
+            - generic:
+              - link:
+                - /url: "#/hr/schedule"
+                - img
+                - generic: Lịch ca
+              - link:
+                - /url: "#/hr/me/timelog"
+                - img
+                - generic: Chấm công
+              - link:
+                - /url: "#/hr/leave/new"
+                - img
+                - generic: Nghỉ phép
+          - generic:
+            - button:
+              - img
+              - generic: Quản trị
+              - img
+            - generic:
+              - link:
+                - /url: "#/admin/medicines"
+                - img
+                - generic: Danh mục thuốc
+          - link:
+            - /url: "#/settings"
+            - img
+            - generic: Cài đặt
+        - generic:
+          - button:
+            - generic: Thu nhỏ menu
+            - img
+      - generic:
+        - banner:
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic: Phong kham MediZen Demo
+          - button:
+            - img
+            - generic: Tìm kiếm
+            - generic: ⌘K
+          - generic:
+            - status "Online":
+              - generic: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context."': (!)
+            - generic:
+              - button:
+                - img
+            - button: VI
+            - button:
+              - img
+            - button:
+              - img
+            - button:
+              - generic: DN
+              - generic: Dược sĩ
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+          - generic:
+            - img
+            - link:
+              - /url: "#/admin"
+              - text: Quản trị
+          - generic:
+            - img
+            - generic: Thuốc
+        - main:
+          - generic:
+            - generic:
+              - generic:
+                - heading [level=1]: Danh mục thuốc
+              - generic:
+                - button:
+                  - img
+                  - text: Nhập từ CSV
+                - button:
+                  - img
+                  - text: Thêm thuốc
+            - generic:
+              - generic:
+                - img
+                - textbox:
+                  - /placeholder: Tìm kiếm thuốc...
+            - generic:
+              - table:
+                - rowgroup:
+                  - row:
+                    - columnheader: Mã thuốc
+                    - columnheader: Tên thuốc
+                    - columnheader: Hoạt chất
+                    - columnheader: Dạng bào chế
+                    - columnheader: Hàm lượng
+                    - columnheader: Thuốc nội
+                    - columnheader: Kích hoạt
+                    - columnheader: Tags
+                    - columnheader: Thao tác
+                - rowgroup:
+                  - row:
+                    - cell: ACETYLCYS
+                    - cell: Acetylcysteine 200mg (gói sủi)
+                    - cell: Acetylcysteine
+                    - cell: medicines.form.dosageForms.effervescent
+                    - cell: 200mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: FOLIC5
+                    - cell: Acid Folic 5mg
+                    - cell: Folic Acid
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ACYCLOVIR5
+                    - cell: Acyclovir 5% cream (tuýp)
+                    - cell: Acyclovir
+                    - cell: Kem
+                    - cell: 5%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AMITRIPT25
+                    - cell: Amitriptyline 25mg (viên)
+                    - cell: Amitriptyline
+                    - cell: Viên nén
+                    - cell: 25mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AMLO10
+                    - cell: Amlodipine 10mg (viên)
+                    - cell: Amlodipine
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AMLOD5
+                    - cell: Amlodipine 5mg
+                    - cell: Amlodipine
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AMLO5
+                    - cell: Amlodipine 5mg (viên)
+                    - cell: Amlodipine
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AMOX500
+                    - cell: Amoxicillin 500mg
+                    - cell: Amoxicillin
+                    - cell: Viên nang
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ASPIRIN81
+                    - cell: Aspirin 81mg
+                    - cell: Aspirin
+                    - cell: Viên nén
+                    - cell: 81mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ATENO50
+                    - cell: Atenolol 50mg
+                    - cell: Atenolol
+                    - cell: Viên nén
+                    - cell: 50mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AUGMENT625
+                    - cell: Augmentin 625mg (viên)
+                    - cell: Amoxicillin+Clavulanate
+                    - cell: Viên nén
+                    - cell: 625mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: AZITHRO500
+                    - cell: Azithromycin 500mg (viên)
+                    - cell: Azithromycin
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: BERBERIN
+                    - cell: Berberin 100mg (viên)
+                    - cell: Berberine
+                    - cell: Viên nén
+                    - cell: 100mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: BETAMETH
+                    - cell: Betamethasone 0.1% cream (tuýp)
+                    - cell: Betamethasone
+                    - cell: Kem
+                    - cell: 0.1%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: BISACODYL
+                    - cell: Bisacodyl 5mg
+                    - cell: Bisacodyl
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: BROMHEX8
+                    - cell: Bromhexine 8mg (viên)
+                    - cell: Bromhexine
+                    - cell: Viên nén
+                    - cell: 8mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CALCIDOL
+                    - cell: Calcium + Vitamin D3
+                    - cell: Calcium Carbonate
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CALCIDVIT
+                    - cell: Calcium + Vitamin D3 500mg (viên)
+                    - cell: Calcium carbonate+D3
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CEFUROX500
+                    - cell: Cefuroxime 500mg (viên)
+                    - cell: Cefuroxime
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CEPHALEX500
+                    - cell: Cephalexin 500mg (viên nang)
+                    - cell: Cephalexin
+                    - cell: Viên nang
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CETIRIZ10
+                    - cell: Cetirizine 10mg
+                    - cell: Cetirizine
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CHLORAMP1
+                    - cell: Chloramphenicol 1% nhỏ mắt (lọ)
+                    - cell: Chloramphenicol
+                    - cell: medicines.form.dosageForms.eye_drop
+                    - cell: 1%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CIPRO500
+                    - cell: Ciprofloxacin 500mg
+                    - cell: Ciprofloxacin
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CLOPIDO75
+                    - cell: Clopidogrel 75mg
+                    - cell: Clopidogrel
+                    - cell: Viên nén
+                    - cell: 75mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CLOTRIM1
+                    - cell: Clotrimazole 1% cream (tuýp)
+                    - cell: Clotrimazole
+                    - cell: Kem
+                    - cell: 1%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: COTRIM480
+                    - cell: Co-trimoxazole 480mg (viên)
+                    - cell: Trimethoprim+Sulfamethoxazole
+                    - cell: Viên nén
+                    - cell: 480mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DEXA05
+                    - cell: Dexamethasone 0.5mg
+                    - cell: Dexamethasone
+                    - cell: Viên nén
+                    - cell: 0.5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DEXA4
+                    - cell: Dexamethasone 4mg inj
+                    - cell: Dexamethasone
+                    - cell: Tiêm
+                    - cell: 4mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DEXA4INJ
+                    - cell: Dexamethasone 4mg/ml (ống tiêm)
+                    - cell: Dexamethasone
+                    - cell: Tiêm
+                    - cell: 4mg/ml
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DIAZEPAM5
+                    - cell: Diazepam 5mg (viên)
+                    - cell: Diazepam
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DICLO50
+                    - cell: Diclofenac 50mg (viên)
+                    - cell: Diclofenac sodium
+                    - cell: Viên nén
+                    - cell: 50mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: MOTILI10
+                    - cell: Domperidone 10mg
+                    - cell: Domperidone
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DOMPER10
+                    - cell: Domperidone 10mg (viên)
+                    - cell: Domperidone
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DOXYCYC100
+                    - cell: Doxycycline 100mg (viên nang)
+                    - cell: Doxycycline
+                    - cell: Viên nang
+                    - cell: 100mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: EFFERAGAN500
+                    - cell: Efferalgan 500mg sủi
+                    - cell: Paracetamol
+                    - cell: medicines.form.dosageForms.effervescent
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ENALAPRIL5
+                    - cell: Enalapril 5mg (viên)
+                    - cell: Enalapril
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ERYTHRO500
+                    - cell: Erythromycin 500mg
+                    - cell: Erythromycin
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: FESOMAT
+                    - cell: Ferrous sulfate 300mg (viên)
+                    - cell: Ferrous sulfate
+                    - cell: Viên nén
+                    - cell: 300mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DUP481466
+                    - cell: First Medicine
+                    - cell: First
+                    - cell: medicines.form.dosageForms.null
+                    - cell: —
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DUP149982
+                    - cell: First Medicine
+                    - cell: First
+                    - cell: medicines.form.dosageForms.null
+                    - cell: —
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DUP759734
+                    - cell: First Medicine
+                    - cell: First
+                    - cell: medicines.form.dosageForms.null
+                    - cell: —
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DUP862827
+                    - cell: First Medicine
+                    - cell: First
+                    - cell: medicines.form.dosageForms.null
+                    - cell: —
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: DUP117310
+                    - cell: First Medicine
+                    - cell: First
+                    - cell: medicines.form.dosageForms.null
+                    - cell: —
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: FUROSE40
+                    - cell: Furosemide 40mg
+                    - cell: Furosemide
+                    - cell: Viên nén
+                    - cell: 40mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: GLIBEN5
+                    - cell: Glibenclamide 5mg
+                    - cell: Glibenclamide
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: GLICLA80
+                    - cell: Gliclazide 80mg (viên)
+                    - cell: Gliclazide
+                    - cell: Viên nén
+                    - cell: 80mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: GLUCOSEI5
+                    - cell: Glucose 5% 500ml (chai truyền)
+                    - cell: Glucose
+                    - cell: medicines.form.dosageForms.infusion
+                    - cell: 5%/500ml
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: IBUP400
+                    - cell: Ibuprofen 400mg
+                    - cell: Ibuprofen
+                    - cell: Viên nén
+                    - cell: 400mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: INSULIN
+                    - cell: Insulin Regular 100UI/ml
+                    - cell: Insulin
+                    - cell: Tiêm
+                    - cell: 100UI/ml
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: LORA10
+                    - cell: Loratadine 10mg
+                    - cell: Loratadine
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: LOSART50
+                    - cell: Losartan 50mg (viên)
+                    - cell: Losartan
+                    - cell: Viên nén
+                    - cell: 50mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: MELO7.5
+                    - cell: Meloxicam 7.5mg (viên)
+                    - cell: Meloxicam
+                    - cell: Viên nén
+                    - cell: 7.5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: METFOR500
+                    - cell: Metformin 500mg
+                    - cell: Metformin
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: METFORM500
+                    - cell: Metformin 500mg (viên)
+                    - cell: Metformin
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: METFORM850
+                    - cell: Metformin 850mg (viên)
+                    - cell: Metformin
+                    - cell: Viên nén
+                    - cell: 850mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: METRO400
+                    - cell: Metronidazole 400mg
+                    - cell: Metronidazole
+                    - cell: Viên nén
+                    - cell: 400mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: NAPROX250
+                    - cell: Naproxen 250mg (viên)
+                    - cell: Naproxen
+                    - cell: Viên nén
+                    - cell: 250mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: NACL09500
+                    - cell: Natri Clorid 0.9% 500ml (chai truyền)
+                    - cell: Sodium chloride
+                    - cell: medicines.form.dosageForms.infusion
+                    - cell: 0.9%/500ml
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: NATRICL09
+                    - cell: Natri Clorid 0.9% nước muối sinh lý (lọ)
+                    - cell: Sodium chloride
+                    - cell: medicines.form.dosageForms.solution
+                    - cell: 0.9%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: NEOMYCIN
+                    - cell: Neomycin + Bacitracin mỡ (tuýp)
+                    - cell: Neomycin+Bacitracin
+                    - cell: medicines.form.dosageForms.ointment
+                    - cell: complex
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: NORFLOX400
+                    - cell: Norfloxacin 400mg
+                    - cell: Norfloxacin
+                    - cell: Viên nén
+                    - cell: 400mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: OMEP20
+                    - cell: Omeprazole 20mg
+                    - cell: Omeprazole
+                    - cell: Viên nang
+                    - cell: 20mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ORS
+                    - cell: Oresol (gói pha uống)
+                    - cell: ORS
+                    - cell: medicines.form.dosageForms.powder
+                    - cell: 27.9g
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: PANTOPRA40
+                    - cell: Pantoprazole 40mg (viên)
+                    - cell: Pantoprazole
+                    - cell: Viên nén
+                    - cell: 40mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: PARA325
+                    - cell: Paracetamol 325mg trẻ em (viên)
+                    - cell: Paracetamol
+                    - cell: Viên nén
+                    - cell: 325mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: PARA500
+                    - cell: Paracetamol 500mg
+                    - cell: Paracetamol
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: PARACOD
+                    - cell: Paracetamol 500mg + Codein 30mg
+                    - cell: Paracetamol+Codeine
+                    - cell: Viên nén
+                    - cell: 500/30mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: PRED5
+                    - cell: Prednisolone 5mg (viên)
+                    - cell: Prednisolone
+                    - cell: Viên nén
+                    - cell: 5mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: RANTID150
+                    - cell: Ranitidine 150mg
+                    - cell: Ranitidine
+                    - cell: Viên nén
+                    - cell: 150mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: RINGER
+                    - cell: Ringer lactate 500ml (chai truyền)
+                    - cell: Ringer lactate
+                    - cell: medicines.form.dosageForms.infusion
+                    - cell: 500ml
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SALBUTAN
+                    - cell: Salbutamol 100mcg
+                    - cell: Salbutamol
+                    - cell: Hít
+                    - cell: 100mcg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SALBUT100
+                    - cell: Salbutamol MDI 100mcg (bình xịt)
+                    - cell: Salbutamol
+                    - cell: Hít
+                    - cell: 100mcg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SMECTA
+                    - cell: Smecta 3g (gói bột)
+                    - cell: Diosmectite
+                    - cell: medicines.form.dosageForms.powder
+                    - cell: 3g
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SPIROLAC25
+                    - cell: Spironolactone 25mg
+                    - cell: Spironolactone
+                    - cell: Viên nén
+                    - cell: 25mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TST149282
+                    - cell: Test Medicine Regression
+                    - cell: Test Generic
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TST481053
+                    - cell: Test Medicine Regression
+                    - cell: Test Generic
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TST862097
+                    - cell: Test Medicine Regression
+                    - cell: Test Generic
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TST116623
+                    - cell: Test Medicine Regression
+                    - cell: Test Generic
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TST759063
+                    - cell: Test Medicine Regression
+                    - cell: Test Generic
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TEST069
+                    - cell: Test Medicine TASK-069
+                    - cell: TestIngredient
+                    - cell: Viên nén
+                    - cell
+                    - cell: —
+                    - cell: ✓
+                    - cell:
+                      - generic:
+                        - generic: antibiotic
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TOBRAMYCEYE
+                    - cell: Tobramycin 0.3% nhỏ mắt (lọ)
+                    - cell: Tobramycin
+                    - cell: medicines.form.dosageForms.eye_drop
+                    - cell: 0.3%
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITB-COMPLEX
+                    - cell: Vitamin B-Complex (viên)
+                    - cell: B1+B6+B12
+                    - cell: Viên nén
+                    - cell: complex
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITB1
+                    - cell: Vitamin B1 100mg
+                    - cell: Thiamine
+                    - cell: Viên nén
+                    - cell: 100mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITB12
+                    - cell: Vitamin B12 1000mcg
+                    - cell: Cyanocobalamin
+                    - cell: Tiêm
+                    - cell: 1000mcg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITB12INJ
+                    - cell: Vitamin B12 1000mcg (ống tiêm)
+                    - cell: Cyanocobalamin
+                    - cell: Tiêm
+                    - cell: 1000mcg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITB6
+                    - cell: Vitamin B6 10mg (viên)
+                    - cell: Pyridoxine
+                    - cell: Viên nén
+                    - cell: 10mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VITC500
+                    - cell: Vitamin C 500mg
+                    - cell: Ascorbic Acid
+                    - cell: Viên nén
+                    - cell: 500mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ZINCSULFAT
+                    - cell: Zinc sulfate 20mg (viên/gói)
+                    - cell: Zinc sulfate
+                    - cell: Viên nén
+                    - cell: 20mg
+                    - cell: ✓
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+    - region "Notifications alt+T"
+  - generic: "0"
+  - dialog "Chỉnh sửa thuốc" [ref=e3863]:
+    - heading "Chỉnh sửa thuốc" [level=2] [ref=e3865]
+    - generic [ref=e3866]:
+      - generic [ref=e3867]:
+        - generic [ref=e3868]:
+          - text: Mã thuốc
+          - textbox [disabled] [ref=e3869]: TEST069
+        - generic [ref=e3870]:
+          - text: Dạng bào chế
+          - combobox [active] [ref=e3871]:
+            - option "Viên nén" [selected]
+            - option "Viên nang"
+            - option "Siro"
+            - option "Tiêm"
+            - option "Kem"
+            - option "Nhỏ giọt"
+            - option "Hít"
+            - option "Khác"
+      - generic [ref=e3872]:
+        - text: Tên thuốc
+        - textbox [ref=e3873]: Test Medicine TASK-069
+      - generic [ref=e3874]:
+        - text: Tên hoạt chất
+        - textbox [ref=e3875]: TestIngredient
+      - generic [ref=e3876]:
+        - generic [ref=e3877]:
+          - text: Tên thương mại
+          - textbox [ref=e3878]
+        - generic [ref=e3879]:
+          - text: Hàm lượng
+          - textbox "500mg" [ref=e3880]
+      - generic [ref=e3881]:
+        - generic [ref=e3882]:
+          - text: Đơn vị tính
+          - textbox "viên" [ref=e3883]
+        - generic [ref=e3884]:
+          - text: Số lượng/hộp
+          - spinbutton [ref=e3885]: "1"
+      - generic [ref=e3886]:
+        - generic [ref=e3887] [cursor=pointer]:
+          - checkbox "Thuốc nội viện" [ref=e3888]
+          - checkbox
+          - generic [ref=e3889]: Thuốc nội viện
+        - generic [ref=e3890] [cursor=pointer]:
+          - checkbox "Kích hoạt" [ref=e3891]
+          - checkbox
+          - generic [ref=e3892]: Kích hoạt
+      - generic [ref=e3893]:
+        - button "Hủy" [ref=e3894] [cursor=pointer]
+        - button "Lưu" [ref=e3895] [cursor=pointer]
+    - button "Close" [ref=e3896] [cursor=pointer]:
+      - img [ref=e3897]
+      - generic [ref=e3900]: Close

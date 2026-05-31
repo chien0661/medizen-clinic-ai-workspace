@@ -1,0 +1,506 @@
+{
+  "timestamp": "2026-05-31T01:23:37.537234",
+  "base_url": "http://localhost:8001/api/v1",
+  "passed": 51,
+  "bugs": 11,
+  "skipped": 0,
+  "elapsed_s": 3.6,
+  "results": [
+    {
+      "sc": "SC-HP-01",
+      "step": "1",
+      "status": "BUG",
+      "msg": "Tạo visit → err",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-HP-02",
+      "step": "1",
+      "status": "BUG",
+      "msg": "Tạo visit → err",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-HP-03",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Visit assigned cho dr_nguyen: 3d99990d-668f-4dca-adb2-fbcc124b4090",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-03",
+      "step": "3",
+      "status": "PASS",
+      "msg": "call-next → visit ? (assigned=3d99990d-668f-4dca-adb2-fbcc124b4090, unassigned=None)",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-04",
+      "step": "2",
+      "status": "PASS",
+      "msg": "priority=5 lưu đúng ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-04",
+      "step": "3",
+      "status": "PASS",
+      "msg": "Queue sort đúng: đầu priority=10 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-05",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-012 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-05",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-05",
+      "step": "4b",
+      "status": "PASS",
+      "msg": "Invoice tạo via /visits/.../invoices: a13033e4-ff94-467d-845a-1b6902c6f563",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-HP-05",
+      "step": "5",
+      "status": "BUG",
+      "msg": "Payment 1 → err",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-VAR-01",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Tạo BN: 5d2635cb-7ca7-4b42-a14d-f10dd9b65c96",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-01",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Tìm đúng 1 BN, không trùng ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-01",
+      "step": "3",
+      "status": "PASS",
+      "msg": "Visit tái khám: is_follow_up=False",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-01",
+      "step": "4",
+      "status": "PASS",
+      "msg": "Bác sĩ xem hồ sơ BN OK ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-03",
+      "step": "1",
+      "status": "PASS",
+      "msg": "priority=10 lưu đúng ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-03",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Cấp cứu đứng đầu hàng đợi ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-04",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-015 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-04",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-04",
+      "step": "3",
+      "status": "BUG",
+      "msg": "Reassign exception",
+      "detail": "",
+      "severity": "P2"
+    },
+    {
+      "sc": "SC-VAR-05",
+      "step": "1",
+      "status": "BUG",
+      "msg": "Tạo appointment → err",
+      "detail": "",
+      "severity": "P2"
+    },
+    {
+      "sc": "SC-VAR-06",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-016 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-06",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-06",
+      "step": "3",
+      "status": "PASS",
+      "msg": "Prescription ngoại viện → err (route cần xác nhận)",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-07",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-017 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-07",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-VAR-07",
+      "step": "4",
+      "status": "PASS",
+      "msg": "GET /patients với clinic context đúng → 200 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-01",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-018 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-01",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-01",
+      "step": "4b",
+      "status": "PASS",
+      "msg": "Invoice tạo via /visits/.../invoices: 0d148e62-d3e7-426c-aaf6-a25779173b72",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-02",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-019 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-02",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-02",
+      "step": "3",
+      "status": "PASS",
+      "msg": "Hủy visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-02",
+      "step": "4",
+      "status": "BUG",
+      "msg": "Sau hủy, status = IN_PROGRESS",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-EXC-03",
+      "step": "1",
+      "status": "BUG",
+      "msg": "Tạo appointment → err",
+      "detail": "",
+      "severity": "P2"
+    },
+    {
+      "sc": "SC-EXC-04",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Stock status accessible: 77 items",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-05",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-020 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-05",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-06",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-021 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-06",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-06",
+      "step": "4b",
+      "status": "PASS",
+      "msg": "Invoice tạo via /visits/.../invoices: 5d201218-32a5-431c-91a0-29e967ccecb9",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-06",
+      "step": "5",
+      "status": "BUG",
+      "msg": "Partial pay → err",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-EXC-07",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-022 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-07",
+      "step": "2",
+      "status": "PASS",
+      "msg": "Start visit → 200",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-07",
+      "step": "4b",
+      "status": "PASS",
+      "msg": "Invoice tạo via /visits/.../invoices: 00e6d347-660c-492d-8218-32add1d795f9",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-07",
+      "step": "5",
+      "status": "PASS",
+      "msg": "Giảm giá 20k → OK",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-08",
+      "step": "1",
+      "status": "PASS",
+      "msg": "Visit 20260530-023 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-EXC-08",
+      "step": "2",
+      "status": "BUG",
+      "msg": "Nhập vital → err (thử 4 format)",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-EXC-08",
+      "step": "3",
+      "status": "BUG",
+      "msg": "Nhập vital → err (thử 4 format)",
+      "detail": "",
+      "severity": "P1"
+    },
+    {
+      "sc": "SC-EXC-08",
+      "step": "4",
+      "status": "PASS",
+      "msg": "Lấy vitals của visit: 0 bản ghi",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /patients → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /visits → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /invoices → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /pharmacy/pending-dispense → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /visits/queue → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /reports/revenue → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /users → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-NO-TOKEN",
+      "step": "-",
+      "status": "PASS",
+      "msg": "GET /roles → 401 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC",
+      "step": "setup",
+      "status": "PASS",
+      "msg": "Visit 20260530-024 status=WAITING",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-09",
+      "step": "09",
+      "status": "BUG",
+      "msg": "Bác sĩ xem revenue → 200 KHÔNG bị chặn!",
+      "detail": "{\"clinic_id\":\"a0000000-0000-0000-0000-000000000001\",\"start\":\"2026-01-01\",\"end\":\"2026-05-31\",\"granularity\":\"daily\",\"rows\":[],\"summary\":{\"total_gross_re",
+      "severity": "P0"
+    },
+    {
+      "sc": "SC-RBAC-13a",
+      "step": "13a",
+      "status": "PASS",
+      "msg": "Lễ tân xem BN (trong clinic mình) → 200 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-13",
+      "step": "13",
+      "status": "PASS",
+      "msg": "RLS: GET /patients trong clinic mình → 200 ✓",
+      "detail": "",
+      "severity": ""
+    },
+    {
+      "sc": "SC-RBAC-13",
+      "step": "13b",
+      "status": "PASS",
+      "msg": "RLS: chỉ có 1 clinic demo — không test cross-tenant (cần seed clinic B)",
+      "detail": "",
+      "severity": ""
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Quản trị — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Dashboard Quản trị — MediZen</strong></span>
+    <span>ID: 0107aedca56b4e86a10034239dbee630</span>
+    <span>3040×2722 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col z-40 w-[240px] h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-all duration-200 ease-in-out">
+<div class="p-6">
+<div class="flex items-center gap-2">
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-indigo-600 text-xl">MediZen</span>
+</div>
+<p class="text-xs text-slate-400 mt-1 font-medium">Modern EMR</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Active Tab: Tổng quan -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border-r-2 border-indigo-600 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-50 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cấu hình hệ thống</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-50 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span>Nhân viên &amp; Phân quyền</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-50 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Báo cáo</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-indigo-50 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-medium text-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">history</span>
+<span>Audit log</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-100">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-500 hover:bg-slate-50 font-medium text-sm transition-all mb-4" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Trợ giúp</span>
+</a>
+<div class="flex items-center gap-3 p-2 bg-slate-50 rounded-xl">
+<img alt="QT. Vũ Phương Anh" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="A professional close-up headshot of a Vietnamese female hospital administrator with a gentle smile and professional attire. The background is a clean, bright clinic hallway with soft out-of-focus medical equipment and glass partitions. The lighting is warm and flattering, consistent with a high-end modern EMR dashboard interface style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ4uToXL3Bt-xjD1WGA46MEW4eJyJFfPNXmrsx3JuNRMy4NngaBkuBinrZ5Ndms-Ak9mzCHRnOFX2f6QDLCQiQWb8Qp-TLCzkeHvaTHjVNj0-_sO4iR4KizSxI9f0qUfGir6LOvcYRC6gtHhSN581gBNDumS1zkeguqL0b-NL1g39zMdj50JtgsQBhZ2yBZRXM4zhgWoqwwxTDcGs4xQEsILuB6zQ-DONWwgiOsJLUCWknbRvIetEyHI9Y3q_Jt-Ry_OahWZCZKgM"/>
+<div class="flex flex-col overflow-hidden">
+<span class="text-xs font-bold text-slate-800 truncate">QT. Vũ Phương Anh</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-100 text-indigo-700 w-fit">🏷️ Quản trị</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[240px] min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="flex justify-between items-center px-6 w-full fixed top-0 z-50 h-14 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="flex items-center gap-4">
+<nav class="flex text-xs font-medium text-slate-400 items-center gap-2">
+<span>Home</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-indigo-600 font-bold">Tổng quan</span>
+</nav>
+</div>
+<div class="flex-1 max-w-md mx-8 relative">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-lg">search</span>
+</div>
+<input class="w-full bg-slate-100 border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Tìm kiếm bệnh nhân, thuốc, tính năng..." type="text"/>
+<div class="absolute inset-y-0 right-3 flex items-center">
+<kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-semibold text-slate-500 bg-white border border-slate-200 rounded">⌘K</kbd>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative cursor-pointer hover:bg-slate-50 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-danger text-white text-[10px] flex items-center justify-center rounded-full font-bold">3</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 hover:bg-slate-100 rounded-lg cursor-pointer transition-colors border border-slate-100">
+<span class="material-symbols-outlined text-indigo-600 text-sm">business_center</span>
+<span class="text-xs font-bold text-slate-700">PK Hồng Đức</span>
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_more</span>
+</div>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-slate-200" data-alt="Small circular profile avatar of a healthcare professional in a clean laboratory coat. The image is bright and high-contrast, fitting into a clean medical software user interface. The background is a soft blue-grey gradient, giving a professional and focused atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8YyWcywca1Kw0a73Uh6JWqIM4nhiWzBoowPBThsk8IeC4kwv528oUpfaIxB57nMs1wSke9kyUicjmZOIku_q54eDqd-QFbKJRJ8k_tZtgRHLUraOtVPEWkqOo5dhgwm9SceM4wIWEhE1wHo562LlQrlbdrXfI2pcjtRZZcfJoW2oLBPirTnOcsG2O2ZIW-YgZPK9jBQULyzEs-GQzBAY-q9tsQXY1PDgtYVNkVK3czrGVAs-djPhiMKnje9SCjAaHAuhExw65jZQ"/>
+</div>
+</header>
+<div class="pt-20 px-8 pb-12">
+<!-- Greeting & Header -->
+<div class="mb-8">
+<h1 class="text-2xl font-bold text-slate-900 font-headline">Chào QT. Anh — Tổng quan PK Hồng Đức</h1>
+<p class="text-slate-500 text-sm mt-1">Dưới đây là tóm tắt hoạt động hệ thống trong ngày hôm nay.</p>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<span class="text-tertiary text-xs font-bold flex items-center bg-emerald-50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px] mr-1">trending_up</span> +12%
+                        </span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Doanh thu hôm nay</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">₫85.4M</h3>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-sky-50 text-sky-600 rounded-lg">
+<span class="material-symbols-outlined">person_search</span>
+</div>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Lượt khám tháng</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">18,624</h3>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-amber-50 text-amber-600 rounded-lg">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="bg-red-50 text-red-600 text-[10px] font-extrabold px-2 py-0.5 rounded-full">HIGH PRIORITY</span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Cảnh báo hệ thống</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">03</h3>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-[0_4_20px_rgba(99,102,241,0.05)]">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-slate-100 text-slate-600 rounded-lg">
+<span class="material-symbols-outlined">group</span>
+</div>
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 bg-tertiary rounded-full"></span>
+<span class="text-[10px] font-bold text-tertiary">Live</span>
+</span>
+</div>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-wider">Active users</p>
+<h3 class="text-2xl font-bold text-slate-900 mt-1">27</h3>
+</div>
+</div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Main Charts & Tables -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Revenue Chart Area -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">show_chart</span>
+                                Xu hướng doanh thu (30 ngày)
+                            </h3>
+<select class="text-xs bg-slate-50 border-slate-200 rounded-lg font-medium text-slate-600 py-1 pl-3 pr-8 focus:ring-indigo-500">
+<option>Tháng này</option>
+<option>Tháng trước</option>
+</select>
+</div>
+<div class="h-64 flex items-end gap-1 px-2 overflow-hidden">
+<!-- Visual placeholder for a bar/line chart -->
+<div class="flex-1 bg-indigo-50 rounded-t-sm h-[30%]"></div>
+<div class="flex-1 bg-indigo-100 rounded-t-sm h-[45%]"></div>
+<div class="flex-1 bg-indigo-50 rounded-t-sm h-[40%]"></div>
+<div class="flex-1 bg-indigo-200 rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-indigo-100 rounded-t-sm h-[55%]"></div>
+<div class="flex-1 bg-indigo-300 rounded-t-sm h-[75%]"></div>
+<div class="flex-1 bg-indigo-600 rounded-t-sm h-[90%] shadow-[0_0_15px_rgba(99,102,241,0.3)]"></div>
+<div class="flex-1 bg-indigo-300 rounded-t-sm h-[70%]"></div>
+<div class="flex-1 bg-indigo-100 rounded-t-sm h-[50%]"></div>
+<div class="flex-1 bg-indigo-50 rounded-t-sm h-[35%]"></div>
+<div class="flex-1 bg-indigo-200 rounded-t-sm h-[65%]"></div>
+<div class="flex-1 bg-indigo-400 rounded-t-sm h-[80%]"></div>
+</div>
+</div>
+<!-- Top Doctors Performance -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<div class="p-6 border-b border-slate-100 flex justify-between items-center">
+<h3 class="font-bold text-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">workspace_premium</span>
+                                Top 5 Bác sĩ hiệu suất cao
+                            </h3>
+<button class="text-xs font-bold text-indigo-600 hover:underline">Tất cả BS</button>
+</div>
+<table class="w-full text-left text-sm border-collapse">
+<thead>
+<tr class="bg-slate-50 text-slate-500">
+<th class="px-6 py-3 font-semibold">Bác sĩ</th>
+<th class="px-6 py-3 font-semibold">Chuyên khoa</th>
+<th class="px-6 py-3 font-semibold text-right">Lượt khám</th>
+<th class="px-6 py-3 font-semibold text-right">Doanh thu</th>
+<th class="px-6 py-3 font-semibold text-center">Đánh giá</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">TH</div>
+<span class="font-semibold text-slate-700">BS. Trần Hùng</span>
+</td>
+<td class="px-6 py-4 text-slate-500">Nội tổng quát</td>
+<td class="px-6 py-4 text-right font-medium">1,240</td>
+<td class="px-6 py-4 text-right font-bold text-slate-700">₫340M</td>
+<td class="px-6 py-4 text-center">
+<span class="text-amber-500 font-bold">4.9</span><span class="text-slate-300 text-xs ml-1">★</span>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-xs">LM</div>
+<span class="font-semibold text-slate-700">BS. Lê Minh</span>
+</td>
+<td class="px-6 py-4 text-slate-500">Tai Mũi Họng</td>
+<td class="px-6 py-4 text-right font-medium">1,020</td>
+<td class="px-6 py-4 text-right font-bold text-slate-700">₫215M</td>
+<td class="px-6 py-4 text-center">
+<span class="text-amber-500 font-bold">4.8</span><span class="text-slate-300 text-xs ml-1">★</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column: System & Activity -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- System Status Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<h3 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">dns</span>
+                            Trạng thái hệ thống
+                        </h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></div>
+<span class="text-sm font-semibold text-slate-700">API Gateway</span>
+</div>
+<span class="text-xs font-medium text-slate-400">99.9% Up</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-tertiary rounded-full"></div>
+<span class="text-sm font-semibold text-slate-700">Main Database</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Stable</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-tertiary rounded-full"></div>
+<span class="text-sm font-semibold text-slate-700">Redis Cache</span>
+</div>
+<span class="text-xs font-medium text-slate-400">2ms latency</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 bg-tertiary rounded-full"></div>
+<span class="text-sm font-semibold text-slate-700">VSS Integration</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Connected</span>
+</div>
+</div>
+</div>
+<!-- Audit Alerts Card -->
+<div class="bg-indigo-900 text-white rounded-xl p-6 shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+<h3 class="font-bold text-indigo-100 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">security</span>
+                            Cảnh báo bảo mật (Audit)
+                        </h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 bg-white/10 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-amber-400">edit_attributes</span>
+<div>
+<p class="text-xs font-bold">Thay đổi cấu hình BH</p>
+<p class="text-[10px] text-indigo-200 mt-1">10 phút trước • Admin.Nam</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 bg-white/10 rounded-lg backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sky-400">admin_panel_settings</span>
+<div>
+<p class="text-xs font-bold">Cấp quyền BS. Phẫu thuật</p>
+<p class="text-[10px] text-indigo-200 mt-1">1 giờ trước • SuperAdmin</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 bg-red-500/20 rounded-lg backdrop-blur-sm border border-red-500/20 hover:bg-red-500/30 transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-red-400">cloud_download</span>
+<div>
+<p class="text-xs font-bold">Xuất dữ liệu hàng loạt (Mass)</p>
+<p class="text-[10px] text-indigo-200 mt-1">2 giờ trước • Unknown IP</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Timeline -->
+<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-[0_4px_20px_rgba(99,102,241,0.05)]">
+<h3 class="font-bold text-slate-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">timeline</span>
+                            Hoạt động nhân viên 24h
+                        </h3>
+<div class="relative space-y-6 before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-white border-4 border-indigo-500 z-10"></div>
+<div>
+<p class="text-sm font-bold text-slate-700">Tiếp nhận BN mới #2401</p>
+<p class="text-xs text-slate-400 mt-0.5">Lễ tân Lan • 08:45 AM</p>
+</div>
+</div>
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-white border-4 border-sky-400 z-10"></div>
+<div>
+<p class="text-sm font-bold text-slate-700">Kê đơn thuốc điều trị nội</p>
+<p class="text-xs text-slate-400 mt-0.5">BS. Hùng • 09:12 AM</p>
+</div>
+</div>
+<div class="relative flex gap-4 pl-8">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-white border-4 border-amber-400 z-10"></div>
+<div>
+<p class="text-sm font-bold text-slate-700">Hoàn tất thanh toán viện phí</p>
+<p class="text-xs text-slate-400 mt-0.5">Thu ngân Vy • 09:30 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Bar -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur-md border border-slate-200 p-2 rounded-2xl shadow-2xl z-40">
+<button class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors font-bold text-sm">
+<span class="material-symbols-outlined text-lg">settings</span>
+                    Cấu hình
+                </button>
+<div class="w-[1px] h-6 bg-slate-200"></div>
+<button class="flex items-center gap-2 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">admin_panel_settings</span>
+                    Phân quyền
+                </button>
+<button class="flex items-center gap-2 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">description</span>
+                    Báo cáo
+                </button>
+<button class="flex items-center gap-2 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-lg">history</span>
+                    Audit log
+                </button>
+</div>
+</div>
+</main>
+
+</body>
+</html>

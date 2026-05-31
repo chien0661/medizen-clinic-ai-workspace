@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e11568]:
+      - complementary [ref=e11569]:
+        - generic [ref=e11570]:
+          - img [ref=e11572]
+          - generic [ref=e11573]: MediZen
+        - generic [ref=e11574]:
+          - heading [level=2] [ref=e11575]: Đăng nhập hệ thống
+          - paragraph [ref=e11576]: Quản lý phòng khám
+        - generic [ref=e11577]:
+          - generic [ref=e11578]:
+            - img [ref=e11579]
+            - generic [ref=e11582]: Patient-first
+          - generic [ref=e11583]:
+            - img [ref=e11584]
+            - generic [ref=e11586]: Real-time queue
+          - generic [ref=e11587]:
+            - img [ref=e11588]
+            - generic [ref=e11590]: RBAC + audit
+      - main [ref=e11591]:
+        - generic [ref=e11592]:
+          - generic [ref=e11593]:
+            - heading "Đăng nhập hệ thống" [level=1] [ref=e11594]
+            - paragraph [ref=e11595]: Quản lý phòng khám
+          - generic [ref=e11596]:
+            - generic [ref=e11597]:
+              - text: Tên đăng nhập
+              - generic [ref=e11598]:
+                - img
+                - textbox "Tên đăng nhập" [ref=e11599]:
+                  - /placeholder: Nhập tên đăng nhập
+            - generic [ref=e11600]:
+              - generic [ref=e11601]:
+                - generic [ref=e11602]: Mật khẩu
+                - button "Quên mật khẩu?" [ref=e11603] [cursor=pointer]
+              - generic [ref=e11604]:
+                - img
+                - textbox "Mật khẩu" [ref=e11605]:
+                  - /placeholder: Nhập mật khẩu
+                - button "Show password" [ref=e11606] [cursor=pointer]:
+                  - img [ref=e11607]
+            - generic [ref=e11610]:
+              - checkbox "Ghi nhớ đăng nhập" [ref=e11611] [cursor=pointer]
+              - checkbox
+              - generic [ref=e11612] [cursor=pointer]: Ghi nhớ đăng nhập
+            - button "Đăng nhập" [ref=e11613] [cursor=pointer]
+          - paragraph [ref=e11614]: © 2026 MediZen · v0.1.0
+    - region "Notifications alt+T"
+  - generic [ref=e7814]: "0.25"

@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Lịch hẹn</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #EEF2FF;
+    --primary-mid: #C7D2FE;
+    --secondary: #7C3AED;
+    --secondary-light: #EDE9FE;
+    --accent: #EC4899;
+    --accent-light: #FCE7F3;
+    --emerald: #059669;
+    --emerald-light: #D1FAE5;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --border: #E8E4F3;
+    --border-light: #F0ECFB;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --sidebar-w: 240px;
+    --topbar-h: 56px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    width: 1920px;
+    overflow-x: auto;
+  }
+
+  /* ==================== SIDEBAR ==================== */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: 2px 0 12px rgba(79,70,229,0.06);
+  }
+
+  .sidebar-logo {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar-logo .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(79,70,229,0.3);
+  }
+
+  .sidebar-logo .logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+  }
+
+  .sidebar-logo .logo-version {
+    font-size: 10px;
+    color: var(--primary);
+    background: var(--primary-light);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 600;
+    margin-left: 2px;
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 12px 0;
+    overflow-y: auto;
+  }
+
+  .nav-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 8px 20px 4px;
+    margin-top: 4px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    margin: 1px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .nav-item:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+  }
+
+  .nav-item.active {
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    color: var(--primary);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.12);
+  }
+
+  .nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+
+  .nav-badge {
+    margin-left: auto;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 1px 6px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .sidebar-footer {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .user-card:hover { background: var(--primary-light); }
+
+  .user-avatar {
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), #F59E0B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .user-info .user-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .user-info .user-role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ==================== TOPBAR ==================== */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: var(--sidebar-w);
+    right: 0;
+    height: var(--topbar-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    z-index: 90;
+    gap: 16px;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.05);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .topbar-breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .topbar-search {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px 14px;
+    gap: 8px;
+    width: 280px;
+    transition: border-color 0.15s;
+  }
+
+  .topbar-search:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .topbar-search input {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    outline: none;
+    width: 100%;
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .topbar-btn {
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .topbar-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary-mid);
+  }
+
+  .topbar-btn .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 1.5px solid white;
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+
+  .topbar-user:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-mid);
+  }
+
+  .topbar-user .t-avatar {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), #F59E0B);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .topbar-user .t-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* ==================== MAIN LAYOUT ==================== */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: var(--topbar-h);
+    padding: 24px 28px;
+    min-height: calc(100vh - var(--topbar-h));
+    display: flex;
+    gap: 24px;
+  }
+
+  .main-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ==================== PAGE HEADER ==================== */
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .page-title-block h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+  }
+
+  .page-title-block .subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .week-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 8px;
+  }
+
+  .week-nav-btn {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    font-weight: 600;
+  }
+
+  .week-nav-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .week-label {
+    padding: 6px 16px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .btn-new-appt {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .btn-new-appt:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79,70,229,0.4);
+  }
+
+  /* ==================== TOOLBAR ==================== */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .view-toggle {
+    display: flex;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .view-btn {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .view-btn.active {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(79,70,229,0.3);
+  }
+
+  .filter-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .doctor-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .chip {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-light);
+  }
+
+  .chip.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(79,70,229,0.25);
+  }
+
+  .chip.chip-violet.active { background: var(--secondary); border-color: var(--secondary); }
+  .chip.chip-emerald.active { background: var(--emerald); border-color: var(--emerald); }
+
+  /* ==================== CALENDAR GRID ==================== */
+  .calendar-card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(79,70,229,0.06);
+    flex: 1;
+  }
+
+  .calendar-inner {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 260px);
+  }
+
+  .cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+  }
+
+  /* Header row */
+  .cal-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .cal-header th {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0;
+    font-weight: 600;
+  }
+
+  .time-header {
+    width: 72px;
+    min-width: 72px;
+    border-right: 1.5px solid var(--border);
+    background: var(--bg);
+  }
+
+  .day-header-cell {
+    min-width: 145px;
+    border-right: 1px solid var(--border-light);
+  }
+
+  .day-header-cell:last-child { border-right: none; }
+
+  .day-header-inner {
+    padding: 12px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .day-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .day-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .day-month {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .day-appt-count {
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 1px 6px;
+    margin-top: 2px;
+  }
+
+  /* Today highlighting */
+  .day-header-cell.today .day-header-inner {
+    background: linear-gradient(160deg, #EEF2FF, #EDE9FE);
+  }
+
+  .day-header-cell.today .day-label { color: var(--primary); }
+
+  .day-header-cell.today .day-number {
+    width: 34px; height: 34px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 10px rgba(79,70,229,0.4);
+  }
+
+  .day-header-cell.today .day-appt-count {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* Body rows */
+  .cal-body tr {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .cal-body tr:hover .time-cell {
+    background: #FAFAFE;
+  }
+
+  .time-cell {
+    background: var(--bg);
+    border-right: 1.5px solid var(--border);
+    padding: 0 8px;
+    text-align: right;
+    vertical-align: top;
+    padding-top: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    height: 50px;
+    min-width: 72px;
+  }
+
+  .time-cell.half { color: #C4BBE8; font-weight: 400; font-size: 10.5px; }
+
+  .slot-cell {
+    vertical-align: top;
+    border-right: 1px solid var(--border-light);
+    padding: 2px 3px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+
+  .slot-cell:last-child { border-right: none; }
+
+  .slot-cell:hover { background: #FAFAFE; }
+
+  .slot-cell.today-col {
+    background: rgba(238,242,255,0.4);
+  }
+
+  .slot-cell.today-col:hover { background: rgba(238,242,255,0.7); }
+
+  /* Appointment cards */
+  .appt-card {
+    border-radius: 7px;
+    padding: 4px 7px;
+    margin: 1px 1px;
+    font-size: 11.5px;
+    line-height: 1.35;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+    min-height: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .appt-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .appt-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 5;
+  }
+
+  .appt-card .appt-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .appt-card .appt-type {
+    font-size: 10.5px;
+    opacity: 0.8;
+  }
+
+  .appt-card .appt-doctor {
+    font-size: 10px;
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  /* Indigo = BS.Minh */
+  .appt-indigo {
+    background: linear-gradient(135deg, #EEF2FF, #E0E7FF);
+    color: #3730A3;
+    border: 1px solid #C7D2FE;
+  }
+  .appt-indigo::before { background: var(--primary); }
+
+  /* Violet = BS.Lan */
+  .appt-violet {
+    background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
+    color: #5B21B6;
+    border: 1px solid #C4B5FD;
+  }
+  .appt-violet::before { background: var(--secondary); }
+
+  /* Emerald = BS.Đức */
+  .appt-emerald {
+    background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
+    color: #064E3B;
+    border: 1px solid #6EE7B7;
+  }
+  .appt-emerald::before { background: var(--emerald); }
+
+  /* Tall appointments spanning 2 slots */
+  .appt-tall {
+    min-height: 96px;
+    position: absolute;
+    left: 3px; right: 3px;
+    top: 2px;
+    z-index: 2;
+  }
+
+  /* ==================== SIDE PANEL ==================== */
+  .side-panel {
+    width: 320px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .panel-card {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 4px 20px rgba(79,70,229,0.06);
+    overflow: hidden;
+  }
+
+  .panel-header {
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #EEF2FF, #EDE9FE);
+  }
+
+  .panel-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .panel-date {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+    background: white;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--primary-mid);
+  }
+
+  .panel-body {
+    padding: 8px 0;
+    max-height: 560px;
+    overflow-y: auto;
+  }
+
+  .appt-item {
+    padding: 10px 16px;
+    display: flex;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.12s;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .appt-item:last-child { border-bottom: none; }
+
+  .appt-item:hover { background: var(--bg); }
+
+  .appt-time-block {
+    min-width: 50px;
+    text-align: center;
+    padding: 5px 6px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+  }
+
+  .appt-time-block .time-val {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .appt-time-block .time-dur {
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .appt-details { flex: 1; }
+
+  .appt-patient-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .appt-meta {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .appt-status-chip {
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin-top: 4px;
+    display: inline-block;
+  }
+
+  .status-waiting {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+  }
+
+  .status-confirmed {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--primary-mid);
+  }
+
+  .status-done {
+    background: var(--emerald-light);
+    color: var(--emerald);
+    border: 1px solid #6EE7B7;
+  }
+
+  .status-inroom {
+    background: #FCE7F3;
+    color: #9D174D;
+    border: 1px solid #FBCFE8;
+  }
+
+  /* Stats mini cards */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .stat-mini {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.05);
+  }
+
+  .stat-mini .stat-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .stat-mini .stat-lbl {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-weight: 500;
+  }
+
+  /* Quick actions */
+  .quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 16px;
+  }
+
+  .quick-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .quick-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary-mid);
+  }
+
+  .quick-btn .qb-icon { font-size: 16px; }
+
+  /* Doctor Legend */
+  .legend {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 8px 18px;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+  }
+
+  .dot-indigo { background: var(--primary); }
+  .dot-violet { background: var(--secondary); }
+  .dot-emerald { background: var(--emerald); }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C7D2FE; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  /* Current time indicator */
+  .current-time-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 8;
+  }
+
+  .current-time-dot {
+    position: absolute;
+    left: -4px;
+    top: -4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px rgba(236,72,153,0.6);
+  }
+
+  .lunch-break {
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 4px,
+      rgba(0,0,0,0.02) 4px,
+      rgba(0,0,0,0.02) 8px
+    );
+  }
+
+  .empty-slot-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: transparent;
+    transition: color 0.15s;
+  }
+
+  .slot-cell:hover .empty-slot-hint { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar">
+  <a class="sidebar-logo" href="index.html" style="text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div>
+      <div class="logo-text">MediZen <span class="logo-version">v2.0</span></div>
+    </div>
+  </a>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Tổng quan</div>
+    <a class="nav-item" href="04-dashboard-le-tan.html">
+      <span class="nav-icon">🏠</span> Tổng quan
+    </a>
+
+    <div class="nav-section-label">Quản lý</div>
+    <a class="nav-item active" href="14-lich-hen.html">
+      <span class="nav-icon">📅</span> Lịch hẹn
+      <span class="nav-badge">12</span>
+    </a>
+    <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+      <span class="nav-icon">👥</span> Bệnh nhân
+    </a>
+    <a class="nav-item" href="13-phong-cho-queue.html">
+      <span class="nav-icon">🕐</span> Phòng chờ
+    </a>
+    <a class="nav-item" href="15-emr-sinh-hieu.html">
+      <span class="nav-icon">🩺</span> Khám bệnh
+    </a>
+    <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+      <span class="nav-icon">💊</span> Dược
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🔬</span> Xét nghiệm
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🏨</span> Nội trú
+    </a>
+
+    <div class="nav-section-label">Tài chính</div>
+    <a class="nav-item" href="24-thanh-toan.html">
+      <span class="nav-icon">💰</span> Thanh toán
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">📋</span> Hóa đơn
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">📊</span> Báo cáo
+    </a>
+
+    <div class="nav-section-label">Hệ thống</div>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">⚙️</span> Cấu hình
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🔔</span> Thông báo
+      <span class="nav-badge" style="background:#F59E0B;">3</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">LH</div>
+      <div class="user-info">
+        <div class="user-name">Lê Thị Hoa</div>
+        <div class="user-role">Lễ tân · Phòng khám A</div>
+      </div>
+      <span style="margin-left:auto;font-size:14px;color:var(--text-muted);">⋮</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ==================== TOPBAR ==================== -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span>Trang chủ</span>
+    <span>›</span>
+    <span class="current">Lịch hẹn</span>
+  </div>
+  <div class="topbar-search">
+    <span style="font-size:14px;color:var(--text-muted);">🔍</span>
+    <input type="text" placeholder="Tìm bệnh nhân, bác sĩ...">
+    <span style="font-size:11px;color:var(--text-muted);background:var(--border);padding:1px 5px;border-radius:4px;">⌘K</span>
+  </div>
+  <div class="topbar-actions">
+    <div class="topbar-btn" title="Thông báo">
+      🔔
+      <span class="notif-dot"></span>
+    </div>
+    <div class="topbar-btn" title="Tin nhắn">💬</div>
+    <div class="topbar-btn" title="Trợ giúp">❓</div>
+    <div class="topbar-user">
+      <div class="t-avatar">LH</div>
+      <span class="t-name">Lê Thị Hoa</span>
+      <span style="font-size:12px;color:var(--text-muted);">▾</span>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MAIN ==================== -->
+<main class="main">
+  <div class="main-content">
+
+    <!-- Page header -->
+    <div class="page-header">
+      <div class="page-title-block">
+        <h1>📅 Lịch hẹn</h1>
+        <div class="subtitle">Quản lý và theo dõi lịch hẹn bệnh nhân</div>
+      </div>
+
+      <div class="week-nav">
+        <button class="week-nav-btn" title="Tuần trước">‹</button>
+        <span class="week-label">📆 Tuần 26 – 31 / 05 / 2026</span>
+        <button class="week-nav-btn" title="Tuần sau">›</button>
+      </div>
+
+      <a href="12-tiep-nhan-bn.html" class="btn-new-appt" style="text-decoration:none;">
+        ➕ Đặt lịch mới
+      </a>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="view-toggle">
+        <button class="view-btn active">📅 Tuần</button>
+        <button class="view-btn">📆 Ngày</button>
+        <button class="view-btn">🗓️ Tháng</button>
+      </div>
+
+      <span class="filter-label">Bác sĩ:</span>
+      <div class="doctor-chips">
+        <span class="chip active">Tất cả ●</span>
+        <span class="chip">👨‍⚕️ BS. Minh</span>
+        <span class="chip chip-violet">👩‍⚕️ BS. Lan</span>
+        <span class="chip chip-emerald">👨‍⚕️ BS. Đức</span>
+      </div>
+    </div>
+
+    <!-- Calendar card -->
+    <div class="calendar-card">
+      <div class="legend">
+        <span style="font-size:11.5px;font-weight:600;color:var(--text-secondary);">Chú thích:</span>
+        <div class="legend-item"><div class="legend-dot dot-indigo"></div> BS. Nguyễn Minh</div>
+        <div class="legend-item"><div class="legend-dot dot-violet"></div> BS. Trần Thị Lan</div>
+        <div class="legend-item"><div class="legend-dot dot-emerald"></div> BS. Lê Văn Đức</div>
+        <span style="margin-left:auto;font-size:11.5px;color:var(--text-muted);">💡 Click vào ô để tạo lịch hẹn mới</span>
+      </div>
+
+      <div class="calendar-inner">
+        <table class="cal-table">
+          <thead class="cal-header">
+            <tr>
+              <th class="time-header">
+                <div style="padding:10px 8px;text-align:center;font-size:10px;color:var(--text-muted);">GIỜ</div>
+              </th>
+              <th class="day-header-cell">
+                <div class="day-header-inner">
+                  <div class="day-label">T2</div>
+                  <div class="day-number">26</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">4 lịch hẹn</div>
+                </div>
+              </th>
+              <th class="day-header-cell">
+                <div class="day-header-inner">
+                  <div class="day-label">T3</div>
+                  <div class="day-number">27</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">3 lịch hẹn</div>
+                </div>
+              </th>
+              <th class="day-header-cell">
+                <div class="day-header-inner">
+                  <div class="day-label">T4</div>
+                  <div class="day-number">28</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">2 lịch hẹn</div>
+                </div>
+              </th>
+              <th class="day-header-cell">
+                <div class="day-header-inner">
+                  <div class="day-label">T5</div>
+                  <div class="day-number">29</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">3 lịch hẹn</div>
+                </div>
+              </th>
+              <th class="day-header-cell">
+                <div class="day-header-inner">
+                  <div class="day-label">T6</div>
+                  <div class="day-number">30</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">2 lịch hẹn</div>
+                </div>
+              </th>
+              <th class="day-header-cell today">
+                <div class="day-header-inner">
+                  <div class="day-label">T7 · Hôm nay</div>
+                  <div class="day-number">31</div>
+                  <div class="day-month">tháng 5</div>
+                  <div class="day-appt-count">5 lịch hẹn</div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="cal-body">
+            <!-- 8:00 -->
+            <tr>
+              <td class="time-cell">8:00</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Hoàng Thị Mai</div>
+                  <div class="appt-type">📋 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 8:30 -->
+            <tr>
+              <td class="time-cell half">8:30</td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Nguyễn Văn An</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Lý Văn Thịnh</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 9:00 -->
+            <tr>
+              <td class="time-cell">9:00</td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Trần Thị Bích</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Võ Thị Dung</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Đỗ Minh Khoa</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Bùi Thị Nga</div>
+                  <div class="appt-type">💉 Tiêm chủng</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 9:30 -->
+            <tr>
+              <td class="time-cell half">9:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Ngô Thị Hằng</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Phan Văn Hùng</div>
+                  <div class="appt-type">🔬 Tư vấn</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 10:00 -->
+            <tr>
+              <td class="time-cell">10:00</td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Lê Hoàng Nam</div>
+                  <div class="appt-type">🔬 Xét nghiệm</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Phạm Minh Tuấn</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Trần Quốc Bảo</div>
+                  <div class="appt-type">💊 Kê đơn</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Đinh Thị Thu</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 10:30 -->
+            <tr>
+              <td class="time-cell half">10:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Huỳnh Văn Tài</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Cao Thị Liên</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 11:00 -->
+            <tr>
+              <td class="time-cell">11:00</td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Vũ Thị Kim Anh</div>
+                  <div class="appt-type">🔬 Tư vấn</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Lưu Văn Phúc</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 11:30 -->
+            <tr>
+              <td class="time-cell half">11:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 12:00 - Lunch -->
+            <tr style="height:36px;">
+              <td class="time-cell" style="background:#FFF9F0;color:#D97706;font-size:10px;font-weight:700;">12:00<br><span style="font-size:9px;">Nghỉ trưa</span></td>
+              <td colspan="6" style="background:repeating-linear-gradient(45deg,#FFFBEB,#FFFBEB 6px,#FEF3C7 6px,#FEF3C7 12px);text-align:center;vertical-align:middle;">
+                <span style="font-size:11px;color:#D97706;font-weight:600;">🌙 Nghỉ trưa 12:00 – 13:30</span>
+              </td>
+            </tr>
+            <tr style="height:36px;">
+              <td class="time-cell" style="background:#FFF9F0;color:#D97706;font-size:10px;font-weight:700;">12:30</td>
+              <td colspan="6" style="background:repeating-linear-gradient(45deg,#FFFBEB,#FFFBEB 6px,#FEF3C7 6px,#FEF3C7 12px);"></td>
+            </tr>
+            <tr style="height:36px;">
+              <td class="time-cell" style="background:#FFF9F0;color:#D97706;font-size:10px;font-weight:700;">13:00</td>
+              <td colspan="6" style="background:repeating-linear-gradient(45deg,#FFFBEB,#FFFBEB 6px,#FEF3C7 6px,#FEF3C7 12px);"></td>
+            </tr>
+            <!-- 13:30 -->
+            <tr>
+              <td class="time-cell half">13:30</td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Nguyễn Thị Phương</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Trịnh Văn Hải</div>
+                  <div class="appt-type">💊 Kê đơn</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Kiều Thị Loan</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Trần Thị Cẩm</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 14:00 -->
+            <tr>
+              <td class="time-cell">14:00</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Lê Thị Thu Hương</div>
+                  <div class="appt-type">🆕 Khám mới</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-indigo">
+                  <div class="appt-name">Nguyễn Hữu Tân</div>
+                  <div class="appt-type">🔬 Siêu âm</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Minh</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 14:30 -->
+            <tr>
+              <td class="time-cell half">14:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-violet">
+                  <div class="appt-name">Bùi Văn Minh</div>
+                  <div class="appt-type">🔄 Tái khám</div>
+                  <div class="appt-doctor">👩‍⚕️ BS. Lan</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Phạm Thị Vân</div>
+                  <div class="appt-type">💉 Tiêm ngừa</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+            </tr>
+            <!-- 15:00 -->
+            <tr>
+              <td class="time-cell">15:00</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 15:30 -->
+            <tr>
+              <td class="time-cell half">15:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell">
+                <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;display:block;">
+                <div class="appt-card appt-emerald">
+                  <div class="appt-name">Dương Văn Quốc</div>
+                  <div class="appt-type">🔬 Xét nghiệm</div>
+                  <div class="appt-doctor">👨‍⚕️ BS. Đức</div>
+                </div>
+                </a>
+              </td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 16:00 -->
+            <tr>
+              <td class="time-cell">16:00</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 16:30 -->
+            <tr>
+              <td class="time-cell half">16:30</td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell"><div class="empty-slot-hint">+</div></td>
+              <td class="slot-cell today-col"><div class="empty-slot-hint">+</div></td>
+            </tr>
+            <!-- 17:00 -->
+            <tr>
+              <td class="time-cell" style="color:#EF4444;font-weight:700;">17:00</td>
+              <td colspan="6" style="background:linear-gradient(180deg,transparent,rgba(243,244,246,0.5));text-align:center;vertical-align:middle;font-size:11px;color:var(--text-muted);padding:8px;">
+                🔒 Hết giờ làm việc
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== SIDE PANEL ==================== -->
+  <div class="side-panel">
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-mini">
+        <div class="stat-num" style="color:var(--primary);">19</div>
+        <div class="stat-lbl">Tuần này</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-num" style="color:var(--emerald);">5</div>
+        <div class="stat-lbl">Hôm nay</div>
+      </div>
+      <div class="stat-mini">
+        <div class="stat-num" style="color:var(--accent);">3</div>
+        <div class="stat-lbl">Chờ xác nhận</div>
+      </div>
+    </div>
+
+    <!-- Today's appointments -->
+    <div class="panel-card">
+      <div class="panel-header">
+        <div class="panel-title">📋 Hôm nay 31/05</div>
+        <span class="panel-date">T7 · 2026</span>
+      </div>
+      <div class="panel-body">
+
+        <!-- Item 1 -->
+        <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="appt-item">
+          <div class="appt-time-block" style="background:#EEF2FF;border-color:#C7D2FE;">
+            <div class="time-val" style="color:var(--primary);">8:00</div>
+            <div class="time-dur">30 phút</div>
+          </div>
+          <div class="appt-details">
+            <div class="appt-patient-name">Hoàng Thị Mai</div>
+            <div class="appt-meta">👨‍⚕️ BS. Minh · 🔄 Tái khám</div>
+            <span class="appt-status-chip status-done">✅ Hoàn thành</span>
+          </div>
+        </div>
+        </a>
+
+        <!-- Item 2 -->
+        <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="appt-item">
+          <div class="appt-time-block" style="background:#EDE9FE;border-color:#C4B5FD;">
+            <div class="time-val" style="color:var(--secondary);">8:30</div>
+            <div class="time-dur">30 phút</div>
+          </div>
+          <div class="appt-details">
+            <div class="appt-patient-name">Lý Văn Thịnh</div>
+            <div class="appt-meta">👩‍⚕️ BS. Lan · 🆕 Khám mới</div>
+            <span class="appt-status-chip status-inroom">🏥 Đang khám</span>
+          </div>
+        </div>
+        </a>
+
+        <!-- Item 3 -->
+        <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="appt-item">
+          <div class="appt-time-block" style="background:#D1FAE5;border-color:#6EE7B7;">
+            <div class="time-val" style="color:var(--emerald);">9:00</div>
+            <div class="time-dur">30 phút</div>
+          </div>
+          <div class="appt-details">
+            <div class="appt-patient-name">Bùi Thị Nga</div>
+            <div class="appt-meta">👨‍⚕️ BS. Đức · 💉 Tiêm chủng</div>
+            <span class="appt-status-chip status-waiting">⏳ Chờ khám</span>
+          </div>
+        </div>
+        </a>
+
+        <!-- Item 4 -->
+        <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="appt-item">
+          <div class="appt-time-block" style="background:#EDE9FE;border-color:#C4B5FD;">
+            <div class="time-val" style="color:var(--secondary);">10:00</div>
+            <div class="time-dur">45 phút</div>
+          </div>
+          <div class="appt-details">
+            <div class="appt-patient-name">Đinh Thị Thu</div>
+            <div class="appt-meta">👩‍⚕️ BS. Lan · 🆕 Khám mới</div>
+            <span class="appt-status-chip status-confirmed">📌 Đã xác nhận</span>
+          </div>
+        </div>
+        </a>
+
+        <!-- Item 5 -->
+        <a href="11-ho-so-benh-nhan.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="appt-item">
+          <div class="appt-time-block" style="background:#EEF2FF;border-color:#C7D2FE;">
+            <div class="time-val" style="color:var(--primary);">13:30</div>
+            <div class="time-dur">30 phút</div>
+          </div>
+          <div class="appt-details">
+            <div class="appt-patient-name">Trần Thị Cẩm</div>
+            <div class="appt-meta">👨‍⚕️ BS. Minh · 🔄 Tái khám</div>
+            <span class="appt-status-chip status-confirmed">📌 Đã xác nhận</span>
+          </div>
+        </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="panel-card">
+      <div style="padding:12px 16px 8px;border-bottom:1px solid var(--border-light);">
+        <div class="panel-title" style="font-size:13px;">⚡ Thao tác nhanh</div>
+      </div>
+      <div class="quick-actions">
+        <a href="12-tiep-nhan-bn.html" class="quick-btn" style="text-decoration:none;">
+          <span class="qb-icon">➕</span>
+          Đặt lịch hẹn mới
+        </a>
+        <button class="quick-btn">
+          <span class="qb-icon">🔍</span>
+          Tìm bệnh nhân
+        </button>
+        <button class="quick-btn">
+          <span class="qb-icon">📤</span>
+          Xuất lịch hẹn PDF
+        </button>
+        <button class="quick-btn">
+          <span class="qb-icon">📊</span>
+          Báo cáo tuần
+        </button>
+        <button class="quick-btn">
+          <span class="qb-icon">🔔</span>
+          Nhắc lịch bệnh nhân
+        </button>
+      </div>
+    </div>
+
+    <!-- Mini week summary -->
+    <div class="panel-card">
+      <div style="padding:12px 16px 8px;border-bottom:1px solid var(--border-light);">
+        <div class="panel-title" style="font-size:13px;">📊 Thống kê tuần</div>
+      </div>
+      <div style="padding:12px 16px;">
+        <div style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:12px;color:var(--text-secondary);">👨‍⚕️ BS. Nguyễn Minh</span>
+            <span style="font-size:12px;font-weight:600;color:var(--primary);">8 lịch</span>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+            <div style="width:67%;height:100%;background:var(--primary);border-radius:3px;"></div>
+          </div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:12px;color:var(--text-secondary);">👩‍⚕️ BS. Trần Thị Lan</span>
+            <span style="font-size:12px;font-weight:600;color:var(--secondary);">7 lịch</span>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+            <div style="width:58%;height:100%;background:var(--secondary);border-radius:3px;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:12px;color:var(--text-secondary);">👨‍⚕️ BS. Lê Văn Đức</span>
+            <span style="font-size:12px;font-weight:600;color:var(--emerald);">6 lịch</span>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+            <div style="width:50%;height:100%;background:var(--emerald);border-radius:3px;"></div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11.5px;color:var(--text-muted);">Tổng cộng tuần này</span>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--primary);">21</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

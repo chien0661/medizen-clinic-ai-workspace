@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <title>MediZen v2.0 — Đăng nhập</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Design Tokens ─── */
+    :root {
+      --primary:       #4F46E5;
+      --primary-dark:  #4338CA;
+      --primary-light: #818CF8;
+      --secondary:     #7C3AED;
+      --accent:        #EC4899;
+      --bg:            #F5F3FF;
+      --surface:       #FFFFFF;
+      --border:        #E8E4F3;
+      --text-heading:  #1E1B4B;
+      --text-body:     #374151;
+      --text-muted:    #6B7280;
+      --text-subtle:   #9CA3AF;
+      --radius-sm:     4px;
+      --radius-md:     8px;
+      --radius-lg:     12px;
+      --radius-xl:     16px;
+      --radius-2xl:    24px;
+      --shadow-sm:     0 1px 3px rgba(79,70,229,.08), 0 1px 2px rgba(79,70,229,.04);
+      --shadow-md:     0 4px 16px rgba(79,70,229,.12), 0 2px 6px rgba(79,70,229,.06);
+      --shadow-lg:     0 12px 40px rgba(79,70,229,.18), 0 4px 16px rgba(79,70,229,.08);
+      --shadow-focus:  0 0 0 3px rgba(79,70,229,.25);
+    }
+
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1920px;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── Layout ─── */
+    .page {
+      display: flex;
+      width: 1920px;
+      min-height: 100vh;
+    }
+
+    /* ══════════════════════════════════════════
+       LEFT PANEL
+    ══════════════════════════════════════════ */
+    .left-panel {
+      flex: 0 0 960px;
+      width: 960px;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4F46E5 0%, #6D35EC 45%, #7C3AED 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Decorative orbs */
+    .left-panel::before {
+      content: '';
+      position: absolute;
+      top: -180px;
+      right: -180px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .left-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -200px;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grid dots overlay */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* ─── Logo ─── */
+    .logo-wrap {
+      position: relative;
+      z-index: 10;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,.2);
+      border: 1.5px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+    .logo-version {
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      color: rgba(255,255,255,.9);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 4px;
+      align-self: center;
+    }
+
+    /* ─── Hero Content ─── */
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 80px 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 20px;
+      padding: 6px 16px;
+      color: rgba(255,255,255,.95);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: rgba(255,255,255,.72);
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      margin-bottom: 56px;
+    }
+
+    /* ─── Glass Cards ─── */
+    .glass-cards {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-xl);
+      padding: 24px 28px;
+      min-width: 200px;
+      text-align: center;
+      transition: transform .25s ease, background .25s ease;
+      cursor: default;
+    }
+    .glass-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,.18);
+    }
+
+    .glass-card-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .glass-card-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .glass-card-value {
+      font-size: 28px;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .glass-card-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.6);
+    }
+
+    /* ─── Stats Row ─── */
+    .stats-row {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      justify-content: center;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #fff;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      margin-top: 2px;
+    }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,.2);
+    }
+
+    /* ─── Bottom ─── */
+    .left-footer {
+      position: relative;
+      z-index: 10;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .left-footer-text {
+      font-size: 13px;
+      color: rgba(255,255,255,.45);
+    }
+    .left-footer-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+    }
+    .footer-dot.active {
+      background: rgba(255,255,255,.75);
+      width: 18px;
+      border-radius: 3px;
+    }
+
+
+    /* ══════════════════════════════════════════
+       RIGHT PANEL
+    ══════════════════════════════════════════ */
+    .right-panel {
+      flex: 0 0 960px;
+      width: 960px;
+      min-height: 100vh;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 60px 40px;
+    }
+
+    /* Subtle top-right decoration */
+    .right-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle at top right, rgba(79,70,229,.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .right-panel::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at bottom left, rgba(236,72,153,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── Form Card ─── */
+    .form-card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* ─── Form Header ─── */
+    .form-header {
+      margin-bottom: 36px;
+      text-align: left;
+    }
+
+    .form-greeting {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 30px;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .form-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ─── Quick Access Tabs ─── */
+    .role-tabs {
+      display: flex;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 4px;
+      margin-bottom: 28px;
+      gap: 2px;
+    }
+    .role-tab {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+    }
+    .role-tab.active {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      font-weight: 600;
+    }
+    .role-tab:hover:not(.active) {
+      color: var(--text-body);
+    }
+
+    /* ─── Form Fields ─── */
+    .field-group {
+      margin-bottom: 18px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+      margin-bottom: 6px;
+      letter-spacing: 0.1px;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+      transition: color .2s;
+    }
+
+    .field-input {
+      width: 100%;
+      height: 48px;
+      padding: 0 44px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-family: 'Inter', sans-serif;
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--text-body);
+      background: var(--surface);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none;
+    }
+    .field-input::placeholder {
+      color: var(--text-subtle);
+      font-weight: 400;
+    }
+    .field-input:focus {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-focus);
+    }
+    .field-input:focus + .input-icon-right,
+    .input-wrap:focus-within .input-icon {
+      color: var(--primary);
+    }
+
+    .input-icon-right {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: color .2s;
+    }
+    .input-icon-right:hover {
+      color: var(--primary);
+    }
+
+    /* ─── Options Row ─── */
+    .options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .checkbox-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .checkbox-wrap input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .checkbox-label {
+      font-size: 13.5px;
+      color: var(--text-body);
+      font-weight: 400;
+    }
+
+    .forgot-link {
+      font-size: 13.5px;
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .forgot-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    /* ─── Submit Button ─── */
+    .btn-login {
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: opacity .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(79,70,229,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-login::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .btn-login:hover {
+      opacity: .92;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79,70,229,.45);
+    }
+    .btn-login:active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 24px 0;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider-text {
+      font-size: 12px;
+      color: var(--text-subtle);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ─── Alt Login ─── */
+    .alt-login-row {
+      display: flex;
+      gap: 12px;
+    }
+    .btn-alt {
+      flex: 1;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-body);
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-alt:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      background: var(--bg);
+    }
+
+    /* ─── Right Footer ─── */
+    .right-footer {
+      position: absolute;
+      bottom: 28px;
+      left: 0; right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--text-subtle);
+    }
+    .ssl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 20px;
+      padding: 2px 10px;
+      color: #16A34A;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+
+    /* ─── Top nav hint ─── */
+    .right-top-nav {
+      position: absolute;
+      top: 32px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 10;
+    }
+    .nav-hint {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .nav-link {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-link:hover { text-decoration: underline; }
+
+    /* ─── Alert (info) ─── */
+    .info-alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 22px;
+    }
+    .info-alert-icon {
+      font-size: 15px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+    .info-alert-text {
+      font-size: 12.5px;
+      color: #4338CA;
+      line-height: 1.5;
+    }
+    .info-alert-text strong {
+      font-weight: 600;
+    }
+
+    /* ─── Input active indicator ─── */
+    .field-input.has-value {
+      border-color: #C7D2FE;
+      background: #FAFAFA;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════ LEFT PANEL ═══════════════ -->
+  <div class="left-panel">
+    <div class="grid-overlay"></div>
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <rect x="8.5" y="2" width="5" height="18" rx="2" fill="white"/>
+          <rect x="2" y="8.5" width="18" height="5" rx="2" fill="white"/>
+        </svg>
+      </div>
+      <span class="logo-text">MediZen</span>
+      <span class="logo-version">v2.0</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span>✨</span>
+        <span>Hệ thống quản lý phòng khám thế hệ mới</span>
+      </div>
+
+      <h1 class="hero-title">Quản lý phòng khám<br/>thông minh</h1>
+      <p class="hero-subtitle">Hiện đại &nbsp;·&nbsp; Nhanh chóng &nbsp;·&nbsp; Tin cậy</p>
+
+      <!-- Glass Cards -->
+      <div class="glass-cards">
+        <div class="glass-card">
+          <span class="glass-card-icon">📅</span>
+          <div class="glass-card-value">48</div>
+          <div class="glass-card-label">Lịch hẹn hôm nay</div>
+          <div class="glass-card-sub">+12% so với hôm qua</div>
+        </div>
+        <div class="glass-card">
+          <span class="glass-card-icon">👥</span>
+          <div class="glass-card-value">1.2K</div>
+          <div class="glass-card-label">Bệnh nhân</div>
+          <div class="glass-card-sub">Đang điều trị tích cực</div>
+        </div>
+        <div class="glass-card">
+          <span class="glass-card-icon">📊</span>
+          <div class="glass-card-value">96%</div>
+          <div class="glass-card-label">Báo cáo</div>
+          <div class="glass-card-sub">Hoàn thành tháng này</div>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Hỗ trợ trực tuyến</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">99.9%</div>
+          <div class="stat-label">Uptime đảm bảo</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">250+</div>
+          <div class="stat-label">Phòng khám tin dùng</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-num">HIPAA</div>
+          <div class="stat-label">Bảo mật chuẩn quốc tế</div>
+        </div>
+      </div>
+
+    </div><!-- /hero-content -->
+
+    <!-- Footer -->
+    <div class="left-footer">
+      <span class="left-footer-text">© 2026 MediZen &nbsp;·&nbsp; v2.0.1</span>
+      <div class="left-footer-dots">
+        <div class="footer-dot active"></div>
+        <div class="footer-dot"></div>
+        <div class="footer-dot"></div>
+      </div>
+    </div>
+
+  </div><!-- /left-panel -->
+
+
+  <!-- ═══════════════ RIGHT PANEL ═══════════════ -->
+  <div class="right-panel">
+
+    <!-- Top nav hint -->
+    <div class="right-top-nav">
+      <span class="nav-hint">Chưa có tài khoản?</span>
+      <a class="nav-link">Liên hệ quản trị viên →</a>
+    </div>
+
+    <div class="form-card">
+
+      <!-- Header -->
+      <div class="form-header">
+        <h1 class="form-greeting">Chào mừng trở lại 👋</h1>
+        <p class="form-subtitle">Đăng nhập để tiếp tục làm việc trên MediZen v2.0</p>
+      </div>
+
+      <!-- Role tabs -->
+      <div class="role-tabs">
+        <button class="role-tab active">🩺 Bác sĩ</button>
+        <button class="role-tab">👩‍⚕️ Y tá / Điều dưỡng</button>
+        <button class="role-tab">🏥 Quản trị viên</button>
+      </div>
+
+      <!-- Info alert -->
+      <div class="info-alert">
+        <span class="info-alert-icon">ℹ️</span>
+        <div class="info-alert-text">
+          <strong>Phiên đăng nhập trước:</strong> Hôm nay lúc 07:32 — Phòng khám Hoàn Mỹ, Chi nhánh Q.3
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="field-group">
+        <label class="field-label" for="email">Địa chỉ Email</label>
+        <div class="input-wrap">
+          <span class="input-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M2.5 15c0-3.314 2.91-6 6.5-6s6.5 2.686 6.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <input
+            id="email"
+            type="email"
+            class="field-input has-value"
+            value="bsminh@hoanmy.vn"
+            placeholder="ten@phongkham.vn"
+            autocomplete="email"
+          />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field-group">
+        <label class="field-label" for="password">Mật khẩu</label>
+        <div class="input-wrap">
+          <span class="input-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="3" y="8" width="12" height="8" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M6 8V6a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="9" cy="12" r="1.25" fill="currentColor"/>
+            </svg>
+          </span>
+          <input
+            id="password"
+            type="password"
+            class="field-input has-value"
+            value="Demo@1234"
+            placeholder="Nhập mật khẩu..."
+            autocomplete="current-password"
+          />
+          <span class="input-icon-right" onclick="togglePassword()" title="Hiện / Ẩn mật khẩu">
+            <svg id="eye-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M1 9s2.8-5 8-5 8 5 8 5-2.8 5-8 5-8-5-8-5z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Remember / Forgot -->
+      <div class="options-row">
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="remember" checked />
+          <span class="checkbox-label">Ghi nhớ đăng nhập</span>
+        </label>
+        <a href="03-quen-mat-khau.html" class="forgot-link">Quên mật khẩu?</a>
+      </div>
+
+      <!-- Submit -->
+      <a href="02-chon-phong-kham.html" style="display:block;text-decoration:none;">
+      <button class="btn-login" onclick="handleLogin()" style="width:100%;">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9h12M10 4l5 5-5 5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Đăng nhập
+      </button>
+      </a>
+
+      <!-- Divider -->
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-text">hoặc đăng nhập bằng</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Alt login -->
+      <div class="alt-login-row">
+        <button class="btn-alt">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect width="18" height="18" rx="4" fill="#4285F4"/>
+            <path d="M9.18 7.36v2.2h3.07c-.13.7-.52 1.29-1.1 1.69l1.76 1.37c1.03-.95 1.62-2.35 1.62-4.01 0-.39-.04-.76-.1-1.12H9.18z" fill="white"/>
+            <path d="M4.5 10.72l-.4.32-1.42 1.1C3.64 13.94 6.23 15.5 9.18 15.5c1.84 0 3.38-.6 4.51-1.64l-1.76-1.37c-.61.4-1.39.64-2.75.64-2.11 0-3.9-1.43-4.55-3.34l-.13-.07z" fill="white"/>
+            <path d="M2.68 5.86A6.32 6.32 0 002.5 7.5c0 .57.08 1.13.22 1.64l2.06-1.6A3.78 3.78 0 014.63 7.5c0-.19.02-.38.05-.56L2.68 5.86z" fill="white"/>
+            <path d="M9.18 4.5c1.05 0 1.99.36 2.73 1.06L13.7 3.76C12.56 2.73 11.02 2.1 9.18 2.1c-2.95 0-5.54 1.56-6.5 3.76l2.06 1.6C5.28 5.93 7.07 4.5 9.18 4.5z" fill="white"/>
+          </svg>
+          Google SSO
+        </button>
+        <button class="btn-alt">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <rect width="18" height="18" rx="4" fill="#0A66C2"/>
+            <text x="4" y="13" font-size="10" font-weight="700" fill="white" font-family="sans-serif">in</text>
+          </svg>
+          Thẻ CCID
+        </button>
+        <button class="btn-alt">
+          <span style="font-size:16px">🏥</span>
+          VNPT Health
+        </button>
+      </div>
+
+    </div><!-- /form-card -->
+
+    <!-- Footer -->
+    <div class="right-footer">
+      <span>© 2026 MediZen</span>
+      <span style="color:#D1D5DB">·</span>
+      <div class="ssl-badge">🔒 Bảo mật SSL 256-bit</div>
+      <span style="color:#D1D5DB">·</span>
+      <span>Phiên bản 2.0.1</span>
+    </div>
+
+  </div><!-- /right-panel -->
+
+</div><!-- /page -->
+
+<script>
+  function togglePassword() {
+    const input = document.getElementById('password');
+    const icon  = document.getElementById('eye-icon');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.innerHTML = `
+        <path d="M1 9s2.8-5 8-5 8 5 8 5-2.8 5-8 5-8-5-8-5z" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="2" y1="2" x2="16" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>`;
+    } else {
+      input.type = 'password';
+      icon.innerHTML = `
+        <path d="M1 9s2.8-5 8-5 8 5 8 5-2.8 5-8 5-8-5-8-5z" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="1.5"/>`;
+    }
+  }
+
+  function handleLogin() {
+    const btn = document.querySelector('.btn-login');
+    btn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="animation:spin .8s linear infinite">
+        <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,.3)" stroke-width="2.5"/>
+        <path d="M12 2a10 10 0 019.5 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      Đang xác thực...`;
+    btn.style.opacity = '.85';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M3 9l4.5 4.5 7.5-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Đăng nhập thành công!`;
+      btn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+      btn.style.boxShadow  = '0 4px 14px rgba(16,185,129,.4)';
+      btn.style.opacity = '1';
+    }, 1800);
+  }
+
+  /* Role tab switch */
+  document.querySelectorAll('.role-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+</body>
+</html>

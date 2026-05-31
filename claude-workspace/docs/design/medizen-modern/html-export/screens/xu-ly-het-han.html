@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xử lý hết hạn — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .table-row-hover:hover { background-color: rgba(99, 102, 241, 0.04); }
+        .glass-panel { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.9); }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Xử lý hết hạn — MediZen</strong></span>
+    <span>ID: 9c07546bdc214e499f3af5db011b2249</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Sidebar: SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-[240px] z-40 bg-white border-r border-slate-200 flex flex-col p-4 gap-2">
+<div class="flex items-center gap-3 px-2 py-4 mb-4">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 font-['Plus_Jakarta_Sans'] leading-tight">MediZen Modern</h2>
+<p class="text-[10px] uppercase tracking-wider font-bold text-slate-400">Pharma Central</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span>Inventory</span>
+</a>
+<!-- Active Tab: Pharmacy -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-indigo-50 text-indigo-600 transition-all duration-300 rounded-xl font-bold text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">medication</span>
+<span>Pharmacy</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span>Patients</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span>Billing</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Reports</span>
+</a>
+</nav>
+<div class="pt-4 mt-4 border-t border-slate-100 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 transition-all duration-300 rounded-xl font-medium text-sm group" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="flex-1 ml-[240px] flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-white/90 backdrop-blur-xl border-b border-slate-200 h-14 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm shadow-indigo-500/5">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-xs font-medium text-slate-400 gap-2">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Dược</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-slate-600">Xử lý hết hạn</span>
+</nav>
+</div>
+<div class="flex-1 max-w-xl px-12">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full h-9 pl-10 pr-4 bg-slate-100 border-none rounded-lg text-sm focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all" placeholder="Tìm kiếm thuốc, bệnh nhân hoặc tính năng (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 flex items-center justify-center text-slate-500 hover:bg-slate-50 rounded-lg transition-transform active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="px-4 h-9 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-all active:scale-95 shadow-lg shadow-indigo-500/20">
+                    Add Entry
+                </button>
+<div class="h-8 w-[1px] bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<div class="w-8 h-8 rounded-full bg-indigo-100 border-2 border-white shadow-sm flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional pharmacist wearing a clean white clinical coat and a stethoscope. He has a friendly, expert expression and is standing in a bright, contemporary pharmacy setting with soft, ambient lighting and high-end medical equipment in the background. The aesthetic is clean, medical, and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK8phNQh8tK10NYHTR3o5SkLsJ12j7Qzjf1TPlvmJz4RRP5VpOrHBwoAezyPJHPaWEEh_kIoIuk1IdspAzejc7JjeJSrA1qzsIHf9USge6DQkH9whKgv8Bj-0phgqO-ltoMLpMdrYGQIhuRX3dTFix8wHlZ7Z2drJMzJ79iyWYtuJVPmntcgkALQVihStzRag00nF76i_-vow6TJpBv7uLz5wp8d-utvtWSgEfx-k72bYPjz96oPQzr9UeJZDMLU8-otRdZfBQkp0"/>
+</div>
+<span class="text-sm font-bold font-headline text-slate-700 group-hover:text-indigo-600 transition-colors">DS. Minh Tuấn</span>
+</div>
+</div>
+</header>
+<!-- Page Body Layout -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Table Canvas -->
+<div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+<!-- Header Section -->
+<div>
+<h1 class="text-2xl font-extrabold font-headline tracking-tight text-slate-900">Xử lý thuốc hết hạn</h1>
+<p class="text-slate-500 mt-1 font-medium">
+<span class="text-red-500 font-bold">12 thuốc</span> cần xử lý trong 30 ngày · 
+                        <span class="text-slate-900 font-bold">₫24M</span> giá trị · 
+                        <span class="text-slate-400">67 thuốc trong 6 tháng</span>
+</p>
+</div>
+<!-- Tab Strip & Filter Bar -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex gap-1 bg-slate-100 p-1 rounded-xl">
+<button class="px-4 py-2 bg-white text-indigo-600 shadow-sm rounded-lg text-sm font-bold flex items-center gap-2">
+                                30 ngày tới (12) <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors">60 ngày (24)</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors">90 ngày (35)</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors">Đã hết hạn (8)</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-medium transition-colors">Lịch sử disposal</button>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-500/20 hover:bg-indigo-700 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                            Tạo phiếu disposal
+                        </button>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:border-slate-300">
+                            Nhóm <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:border-slate-300">
+                            NCC <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+<div class="flex-1"></div>
+<span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sắp xếp theo:</span>
+<button class="flex items-center gap-2 px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-900 hover:border-slate-300">
+                            Ngày HSD <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+<!-- Main Table -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm shadow-indigo-500/5">
+<table class="w-full text-left text-sm border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200">
+<th class="py-3 px-4 w-10 text-center"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Mã</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Tên thuốc</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Lô</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest text-center">HSD (Time)</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Tồn</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Giá vốn</th>
+<th class="py-3 px-4 font-bold text-slate-600 uppercase text-[10px] tracking-widest">Đề xuất hành động</th>
+<th class="py-3 px-4 text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="table-row-hover transition-colors group">
+<td class="py-3 px-4 text-center"><input checked="" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-031</td>
+<td class="py-3 px-4">
+<div class="font-bold text-slate-800">Insulin Mix 30/70</div>
+<div class="text-[10px] text-slate-400">Stada</div>
+</td>
+<td class="py-3 px-4 text-slate-600">240416</td>
+<td class="py-3 px-4">
+<div class="text-center">
+<div class="font-bold text-slate-800">30/05/2026</div>
+<div class="text-[10px] font-bold text-amber-500">(29d)</div>
+</div>
+</td>
+<td class="py-3 px-4 font-semibold text-slate-700">5 lọ</td>
+<td class="py-3 px-4 font-medium text-slate-500">₫2.8M</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-700 border border-amber-200">
+                                        Giảm giá 30% gấp
+                                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded-lg hover:bg-indigo-100 transition-colors opacity-0 group-hover:opacity-100">Áp dụng</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="table-row-hover transition-colors group">
+<td class="py-3 px-4 text-center"><input checked="" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-014</td>
+<td class="py-3 px-4">
+<div class="font-bold text-slate-800">Mirtazapine 15mg</div>
+<div class="text-[10px] text-slate-400">Stada</div>
+</td>
+<td class="py-3 px-4 text-slate-600">240118</td>
+<td class="py-3 px-4">
+<div class="text-center">
+<div class="font-bold text-slate-800">25/05/2026</div>
+<div class="text-[10px] font-bold text-red-500">(24d)</div>
+</div>
+</td>
+<td class="py-3 px-4 font-semibold text-slate-700">12v</td>
+<td class="py-3 px-4 font-medium text-slate-500">₫96k</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-100 text-red-700 border border-red-200">
+                                        Trả NCC
+                                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded-lg hover:bg-indigo-100 transition-colors opacity-0 group-hover:opacity-100">Áp dụng</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="table-row-hover transition-colors group bg-red-50/20">
+<td class="py-3 px-4 text-center"><input checked="" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-167</td>
+<td class="py-3 px-4">
+<div class="font-bold text-slate-800">Vitamin K 10mg</div>
+<div class="text-[10px] text-slate-400">Pymepharco</div>
+</td>
+<td class="py-3 px-4 text-slate-600">240115</td>
+<td class="py-3 px-4">
+<div class="text-center">
+<div class="font-bold text-slate-800">20/05/2026</div>
+<div class="text-[10px] font-bold text-red-600">(19d)</div>
+</div>
+</td>
+<td class="py-3 px-4 font-semibold text-slate-700">86 ống</td>
+<td class="py-3 px-4 font-medium text-slate-500">₫1.2M</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-600 text-white shadow-sm">
+                                        Disposal
+                                    </span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded-lg hover:bg-indigo-100 transition-colors opacity-0 group-hover:opacity-100">Áp dụng</button>
+</td>
+</tr>
+<!-- Row 12 (Critical) -->
+<tr class="table-row-hover transition-colors group bg-red-50">
+<td class="py-3 px-4 text-center"><input checked="" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-256</td>
+<td class="py-3 px-4">
+<div class="font-bold text-red-700">Clarithromycin 500mg</div>
+<div class="text-[10px] text-red-400">Stada</div>
+</td>
+<td class="py-3 px-4 text-slate-600">240128</td>
+<td class="py-3 px-4">
+<div class="text-center">
+<div class="font-bold text-red-800">02/05/2026</div>
+<div class="text-[10px] font-black text-red-700 animate-pulse">(1d)</div>
+</div>
+</td>
+<td class="py-3 px-4 font-bold text-red-700">24v</td>
+<td class="py-3 px-4 font-medium text-slate-500">₫240k</td>
+<td class="py-3 px-4">
+<div class="flex flex-col">
+<span class="text-[11px] font-extrabold text-red-600 uppercase tracking-tighter">🚨 QUÁ HẠN MAI</span>
+<span class="text-[10px] font-bold text-red-500">disposal NGAY</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-lg hover:bg-red-700 transition-colors">Áp dụng</button>
+</td>
+</tr>
+<!-- Remaining rows for density effect -->
+<tr class="table-row-hover transition-colors group opacity-70">
+<td class="py-3 px-4 text-center"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-022</td>
+<td class="py-3 px-4"><div class="font-bold text-slate-800">Cefuroxime 500mg</div></td>
+<td class="py-3 px-4 text-slate-600">240312</td>
+<td class="py-3 px-4"><div class="text-center font-bold">22/05/2026</div></td>
+<td class="py-3 px-4">48v</td>
+<td class="py-3 px-4">₫336k</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] bg-slate-100 text-slate-600">Chương trình BV bạn</span></td>
+<td class="py-3 px-4 text-right"><button class="px-3 py-1 opacity-0 group-hover:opacity-100">Áp dụng</button></td>
+</tr>
+<tr class="table-row-hover transition-colors group opacity-70">
+<td class="py-3 px-4 text-center"><input class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/></td>
+<td class="py-3 px-4 font-mono text-xs text-slate-500">MED-098</td>
+<td class="py-3 px-4"><div class="font-bold text-slate-800">Lansoprazole 30mg</div></td>
+<td class="py-3 px-4 text-slate-600">240210</td>
+<td class="py-3 px-4"><div class="text-center font-bold">18/05/2026</div></td>
+<td class="py-3 px-4">168v</td>
+<td class="py-3 px-4">₫1.07M</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full text-[10px] bg-amber-50 text-amber-600">Giảm giá 40%</span></td>
+<td class="py-3 px-4 text-right"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Panel: Hành động bulk -->
+<aside class="w-[320px] bg-white border-l border-slate-200 flex flex-col p-6 shadow-[-10px_0_30px_rgba(0,0,0,0.02)]">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-bold font-headline text-slate-900">Hành động bulk</h3>
+<span class="px-2 py-1 bg-indigo-100 text-indigo-600 rounded-lg text-xs font-bold">Đã chọn 8</span>
+</div>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-3 border-2 border-amber-200 bg-amber-50 rounded-xl hover:bg-amber-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber-600">percent</span>
+<span class="text-sm font-bold text-amber-700">Giảm giá 30-40%</span>
+</div>
+<span class="material-symbols-outlined text-amber-400 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 border border-red-100 bg-red-50 rounded-xl hover:bg-red-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-600">delete_sweep</span>
+<span class="text-sm font-bold text-red-700">Disposal</span>
+</div>
+<span class="material-symbols-outlined text-red-400 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 border border-slate-100 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-600">package_2</span>
+<span class="text-sm font-bold text-slate-700">Trả NCC</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 border border-slate-100 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-600">volunteer_activism</span>
+<span class="text-sm font-bold text-emerald-700">Donate hospital</span>
+</div>
+<span class="material-symbols-outlined text-slate-400 group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+<div class="mt-auto pt-6 space-y-4">
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Disposal Cost Q2</p>
+<p class="text-lg font-extrabold text-slate-900">₫18.6M</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-bold text-red-500 uppercase tracking-widest mb-1">Tỉ lệ</p>
+<p class="text-lg font-extrabold text-red-600">2.1%</p>
+</div>
+</div>
+<div class="mt-3 w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+<div class="h-full bg-red-500 w-[85%] rounded-full"></div>
+</div>
+<p class="mt-2 text-[10px] text-slate-400 italic">Target KPI: ≤ 2% · Vượt định mức 5%</p>
+</div>
+<div class="relative h-24 w-full rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A clean, highly organized pharmaceutical storage facility with stainless steel shelves and medicine boxes. The lighting is crisp and cool-toned, emphasizing professional pharmaceutical standards. The environment is sterile and professional, with blue and white tones predominating, creating a focused, high-end laboratory or pharmacy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfosI8rX-1DxdOxsJ9GO9Is3S2KWjkSy4hO3DvbepEwudkS8jT5GJ_7pTonhVIoLjYKOZwlD1X1og6wbZvLiWDxtEdAuyzUpmQktpCb_oh-27LrxIMiyC7Oe9pFPhagJo-ozNhUL_MogDCWQsBZueqrMoZfRE5G3dNf6Dp2V6vagtfvZ5yBIxQ8p8fmRQh6YbTE9SMX4bNdjzGJdzkEjbG9FaGTrHoxWJP-IsMwXulxtsSdNuAdKB6fFTXWwSW1BRMGP9r5HPYstM"/>
+<div class="absolute inset-0 bg-indigo-900/40 backdrop-blur-[2px] p-3 flex flex-col justify-end">
+<p class="text-[10px] text-white/80 font-bold">Optimization Suggestion</p>
+<p class="text-xs text-white font-medium leading-tight">Review inventory turnover for Insulin items to reduce future waste.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Global Command Palette (Hidden) -->
+<div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-start justify-center pt-32">
+<div class="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+<div class="p-4 border-b border-slate-100 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">search</span>
+<input class="flex-1 border-none focus:ring-0 text-lg" placeholder="Search pharmacy data..." type="text"/>
+<kbd class="px-2 py-1 bg-slate-100 rounded text-[10px] text-slate-400">ESC</kbd>
+</div>
+<div class="p-2">
+<div class="text-[10px] font-bold text-slate-400 px-3 py-2 uppercase tracking-widest">Recent actions</div>
+<div class="px-3 py-2 hover:bg-indigo-50 rounded-lg cursor-pointer flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-slate-400 text-[18px]">history</span>
+<span>View disposal history of May 2024</span>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

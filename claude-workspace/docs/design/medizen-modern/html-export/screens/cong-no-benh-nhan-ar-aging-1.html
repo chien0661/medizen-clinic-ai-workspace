@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công nợ Bệnh nhân (AR Aging) — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Công nợ Bệnh nhân (AR Aging) — MediZen</strong></span>
+    <span>ID: 3195cd63b43c4130bc79caaae0707e15</span>
+    <span>2560×3680 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[240px] z-50 bg-indigo-600 border-r border-indigo-500/20 shadow-xl flex flex-col gap-2 p-4">
+<div class="flex items-center gap-2 mb-8 px-2">
+<div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-600 shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h2 class="text-white font-h2 text-xl leading-tight font-bold">MediZen</h2>
+<p class="text-indigo-100/60 text-[10px] font-medium tracking-wider uppercase">Clinical Management</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Bệnh nhân</span>
+</a>
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Lịch hẹn</span>
+</a>
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Hoá đơn</span>
+</a>
+<!-- Active State: Công nợ -->
+<a class="bg-indigo-700/50 text-white font-semibold rounded-lg px-4 py-2.5 flex items-center gap-3 border-l-4 border-emerald-400 font-['Plus_Jakarta_Sans'] text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span>Công nợ</span>
+</a>
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Báo cáo</span>
+</a>
+<a class="text-indigo-100/70 hover:bg-indigo-500/30 rounded-lg px-4 py-2.5 flex items-center gap-3 transition-colors duration-150 font-['Plus_Jakarta_Sans'] text-sm font-medium mt-auto" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cấu hình</span>
+</a>
+</nav>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-240px)] h-14 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm flex items-center justify-between px-6">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg group-focus-within:text-indigo-600 transition-colors">search</span>
+<input class="w-full bg-slate-50 border-none rounded-full pl-10 pr-4 py-1.5 text-sm focus:ring-2 focus:ring-indigo-100 focus:bg-white transition-all" placeholder="Tìm kiếm bệnh nhân, hồ sơ..." type="text"/>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<div class="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full border border-emerald-100 cursor-pointer hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined text-[18px]">store</span>
+<span class="text-xs font-semibold">PK Hồng Đức Trung Tâm</span>
+<span class="material-symbols-outlined text-[16px]">keyboard_arrow_down</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-white text-[10px] flex items-center justify-center rounded-full font-bold">3</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">BS. An</p>
+<p class="text-[10px] text-slate-500">Quản trị viên</p>
+</div>
+<div class="w-9 h-9 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden border border-slate-200">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly Vietnamese male doctor wearing a white clinical coat and a stethoscope. He has a warm, confident expression and is positioned in a bright, modern clinic office with soft, high-key lighting. The background is clean and slightly blurred to maintain focus on the physician, embodying a sense of trust, medical professionalism, and clinical authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbbpNbCxUBgaQK1ku-COvMtvvGBKR279xmwoeiP3uGAVAvdGzkegqWXOb7GtaR3DbOGp3WtexMJgL9nDLWnufNKRXpBPLmYABCgc1KE1HefJeAN2tjFBvvrEUzPUQ42EHCftIJgElPw816kx3IcSzAUwCGuwGzCj1P6Ezg0polBtjEo_KKb7lbAJ51ngkrADswWOSORbvSDgGiTgNKQQZPehbKl-xz_n_UCmDZQ6GGQiGXXkryiSzvzEQIA8QV4VlZ9fIwWGBmYJw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] pt-14 p-8 min-h-screen">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-caption text-slate-500 mb-2">
+<span>Quản trị</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Hoá đơn</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Công nợ</span>
+</nav>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="font-h1 text-h1 text-on-background">Công nợ phải thu (AR Aging)</h1>
+<p class="font-body-md text-on-surface-variant">Theo dõi nợ khách hàng theo bucket tuổi nợ và lịch sử thanh toán</p>
+</div>
+<button class="bg-primary text-white px-5 py-2.5 rounded-xl font-label-md flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-md">download</span>
+                Xuất báo cáo
+            </button>
+</div>
+<!-- Stat Cards -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-gutter mb-8">
+<div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-3">
+<span class="p-2 bg-slate-100 text-slate-600 rounded-lg material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Tổng nợ</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">128.5tr</h3>
+<p class="text-[11px] text-slate-500 font-medium">VND (Toàn bộ hệ thống)</p>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl shadow-sm border border-emerald-100 flex flex-col justify-between border-b-4 border-b-emerald-500">
+<div class="flex items-center justify-between mb-3">
+<span class="p-2 bg-emerald-50 text-emerald-600 rounded-lg material-symbols-outlined">schedule</span>
+<span class="text-[10px] font-bold text-emerald-600 uppercase tracking-tighter">0 - 30 Ngày</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">78.2tr</h3>
+<p class="text-[11px] text-emerald-600 font-semibold">Bình thường</p>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl shadow-sm border border-amber-100 flex flex-col justify-between border-b-4 border-b-amber-400">
+<div class="flex items-center justify-between mb-3">
+<span class="p-2 bg-amber-50 text-amber-600 rounded-lg material-symbols-outlined">warning</span>
+<span class="text-[10px] font-bold text-amber-600 uppercase tracking-tighter">31 - 60 Ngày</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">32.4tr</h3>
+<p class="text-[11px] text-amber-600 font-semibold">Cần theo dõi</p>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl shadow-sm border border-orange-100 flex flex-col justify-between border-b-4 border-b-orange-500">
+<div class="flex items-center justify-between mb-3">
+<span class="p-2 bg-orange-50 text-orange-600 rounded-lg material-symbols-outlined">priority_high</span>
+<span class="text-[10px] font-bold text-orange-600 uppercase tracking-tighter">61 - 90 Ngày</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">12.8tr</h3>
+<p class="text-[11px] text-orange-600 font-semibold">Cảnh báo cao</p>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl shadow-sm border border-red-100 flex flex-col justify-between border-b-4 border-b-red-500">
+<div class="flex items-center justify-between mb-3">
+<span class="p-2 bg-red-50 text-red-600 rounded-lg material-symbols-outlined">dangerous</span>
+<span class="text-[10px] font-bold text-red-600 uppercase tracking-tighter">&gt; 90 Ngày</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 text-on-surface">5.1tr</h3>
+<p class="text-[11px] text-red-600 font-semibold">Nợ xấu/Khó đòi</p>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-6 flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[200px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2 text-sm focus:border-primary focus:ring-0" placeholder="Tên BN hoặc SĐT..." type="text"/>
+</div>
+<div class="w-44">
+<select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-primary focus:ring-0">
+<option>Tất cả Bucket</option>
+<option>0-30 ngày</option>
+<option>31-60 ngày</option>
+<option>61-90 ngày</option>
+<option>&gt; 90 ngày</option>
+</select>
+</div>
+<div class="w-40 relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">VND &gt;</span>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-14 pr-3 py-2 text-sm focus:border-primary focus:ring-0" placeholder="Tiền nợ tối thiểu" type="number"/>
+</div>
+<div class="w-40">
+<select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-primary focus:ring-0">
+<option>Loại BHYT</option>
+<option>Nhà nước</option>
+<option>Tư nhân (PVI/BaoViet)</option>
+<option>Không có</option>
+</select>
+</div>
+<div class="w-48">
+<select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:border-primary focus:ring-0">
+<option>Sắp xếp: Nợ giảm dần</option>
+<option>Sắp xếp: Tên A-Z</option>
+<option>Sắp xếp: Ngày khám gần nhất</option>
+</select>
+</div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<!-- AR Aging Table -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-slate-50/50 border-b border-slate-100">
+<tr>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mã BN</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Họ &amp; Tên</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">SĐT</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider">Lần KCB cuối</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Tổng nợ</th>
+<th class="px-4 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center bg-emerald-50/30">0-30d</th>
+<th class="px-4 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center bg-amber-50/30">31-60d</th>
+<th class="px-4 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center bg-orange-50/30">61-90d</th>
+<th class="px-4 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center bg-red-50/30">&gt;90d</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-center">Trạng thái</th>
+<th class="px-6 py-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider text-right">Hành động</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-001</td>
+<td class="px-6 py-4"><a class="text-primary font-bold hover:underline" href="#">Nguyễn Văn An</a></td>
+<td class="px-6 py-4 text-sm text-slate-600">0903 123 456</td>
+<td class="px-6 py-4 text-sm text-slate-600">12/10/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">15,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-emerald-700 font-medium">15,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20 text-slate-300">-</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 uppercase">Bình thường</span>
+</td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="border border-primary text-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5">
+<span class="material-symbols-outlined text-sm">sms</span> Nhắc
+                                </button>
+<button class="text-primary p-2 hover:bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-012</td>
+<td class="px-6 py-4"><a class="text-primary font-bold hover:underline" href="#">Trần Thị Bình</a></td>
+<td class="px-6 py-4 text-sm text-slate-600">0912 888 999</td>
+<td class="px-6 py-4 text-sm text-slate-600">05/08/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">8,450,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-amber-700 font-medium">8,450,000</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20 text-slate-300">-</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 uppercase">Theo dõi</span>
+</td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="border border-primary text-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5">
+<span class="material-symbols-outlined text-sm">sms</span> Nhắc
+                                </button>
+<button class="text-primary p-2 hover:bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 (High Overdue) -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-045</td>
+<td class="px-6 py-4"><a class="text-primary font-bold hover:underline" href="#">Lê Hà Vy</a></td>
+<td class="px-6 py-4 text-sm text-slate-600">0389 777 666</td>
+<td class="px-6 py-4 text-sm text-slate-600">20/06/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">2,100,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20 text-orange-700 font-medium">2,100,000</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20 text-slate-300">-</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded-full text-[10px] font-bold bg-orange-100 text-orange-700 uppercase">Cảnh báo</span>
+</td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="border border-primary text-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5">
+<span class="material-symbols-outlined text-sm">sms</span> Nhắc
+                                </button>
+<button class="text-primary p-2 hover:bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 (Bad Debt) -->
+<tr class="hover:bg-slate-50/80 transition-colors bg-red-50/5">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-098</td>
+<td class="px-6 py-4"><a class="text-primary font-bold hover:underline" href="#">Phạm Minh Tuấn</a></td>
+<td class="px-6 py-4 text-sm text-slate-600">0844 555 444</td>
+<td class="px-6 py-4 text-sm text-slate-600">15/03/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right text-red-600">3,400,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20 text-red-700 font-bold">3,400,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded-full text-[10px] font-bold bg-red-100 text-red-700 uppercase">Bad Debt</span>
+</td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="border border-red-200 text-red-600 px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-red-50">
+<span class="material-symbols-outlined text-sm">sms</span> Nhắc
+                                </button>
+<button class="text-red-600 p-2 hover:bg-red-50 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Additional Row for >90 days -->
+<tr class="hover:bg-slate-50/80 transition-colors bg-red-50/5">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-102</td>
+<td class="px-6 py-4"><a class="text-primary font-bold hover:underline" href="#">Hoàng Gia Bảo</a></td>
+<td class="px-6 py-4 text-sm text-slate-600">0966 222 111</td>
+<td class="px-6 py-4 text-sm text-slate-600">02/01/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right text-red-600">1,700,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20 text-slate-300">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20 text-red-700 font-bold">1,700,000</td>
+<td class="px-6 py-4 text-center">
+<span class="px-2 py-1 rounded-full text-[10px] font-bold bg-red-100 text-red-700 uppercase">Bad Debt</span>
+</td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="border border-red-200 text-red-600 px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-red-50">
+<span class="material-symbols-outlined text-sm">sms</span> Nhắc
+                                </button>
+<button class="text-red-600 p-2 hover:bg-red-50 rounded-lg">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Repeat filler rows (simplified) -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-115</td>
+<td class="px-6 py-4 text-primary font-bold">Đỗ Thùy Linh</td>
+<td class="px-6 py-4 text-sm text-slate-600">0903 000 001</td>
+<td class="px-6 py-4 text-sm text-slate-600">10/11/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">4,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-emerald-700">4,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20">-</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 uppercase">Bình thường</span></td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="text-primary border border-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5"><span class="material-symbols-outlined text-sm">sms</span> Nhắc</button>
+</td>
+</tr>
+<!-- Fill remaining 6 rows similarly to show data density -->
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-121</td>
+<td class="px-6 py-4 text-primary font-bold">Võ Minh Quân</td>
+<td class="px-6 py-4 text-sm text-slate-600">0908 123 789</td>
+<td class="px-6 py-4 text-sm text-slate-600">02/11/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">1,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20 text-emerald-700">1,200,000</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20">-</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 uppercase">Bình thường</span></td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="text-primary border border-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5"><span class="material-symbols-outlined text-sm">sms</span> Nhắc</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-4 font-mono text-xs text-slate-400">BN-130</td>
+<td class="px-6 py-4 text-primary font-bold">Mai Tuyết Nhung</td>
+<td class="px-6 py-4 text-sm text-slate-600">0933 456 123</td>
+<td class="px-6 py-4 text-sm text-slate-600">25/09/2023</td>
+<td class="px-6 py-4 text-sm font-bold text-right">5,900,000</td>
+<td class="px-4 py-4 text-sm text-center bg-emerald-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-amber-50/20 text-amber-700">5,900,000</td>
+<td class="px-4 py-4 text-sm text-center bg-orange-50/20">-</td>
+<td class="px-4 py-4 text-sm text-center bg-red-50/20">-</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 uppercase">Theo dõi</span></td>
+<td class="px-6 py-4 text-right flex items-center justify-end gap-2">
+<button class="text-primary border border-primary px-3 py-1 rounded-lg text-xs font-bold flex items-center gap-1 hover:bg-primary/5"><span class="material-symbols-outlined text-sm">sms</span> Nhắc</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 border-t border-slate-100 flex items-center justify-between bg-slate-50/30">
+<p class="text-sm text-slate-500 font-medium">
+<span class="font-bold text-on-surface">12</span> / 87 BN có công nợ
+                </p>
+<div class="flex items-center gap-4">
+<p class="text-sm text-slate-500">Trang <span class="font-bold text-on-surface">1</span>/8</p>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg border border-slate-200 text-slate-400 hover:bg-white transition-colors" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-1.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-white hover:border-primary hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Insights: Bento Section -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 bg-white rounded-xl p-6 border border-slate-100 shadow-sm relative overflow-hidden group">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-h3 text-h3 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">trending_up</span>
+                        Xu hướng thu hồi nợ (30 ngày qua)
+                    </h3>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-emerald-50 text-emerald-600 rounded text-[10px] font-bold">Thanh toán: +12%</span>
+</div>
+</div>
+<div class="h-48 w-full bg-slate-50 rounded-lg flex items-end justify-between px-8 py-4 gap-4">
+<!-- Fake Chart Bars -->
+<div class="w-full bg-indigo-100 rounded-t-sm h-[30%] relative group/bar">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover/bar:opacity-100 transition-opacity">12tr</div>
+</div>
+<div class="w-full bg-indigo-200 rounded-t-sm h-[50%]"></div>
+<div class="w-full bg-indigo-300 rounded-t-sm h-[45%]"></div>
+<div class="w-full bg-indigo-400 rounded-t-sm h-[70%]"></div>
+<div class="w-full bg-indigo-500 rounded-t-sm h-[65%]"></div>
+<div class="w-full bg-indigo-600 rounded-t-sm h-[90%]"></div>
+<div class="w-full bg-indigo-700 rounded-t-sm h-[85%]"></div>
+</div>
+<div class="mt-4 flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4">
+<span>Tuần 1</span>
+<span>Tuần 2</span>
+<span>Tuần 3</span>
+<span>Tuần 4</span>
+</div>
+</div>
+<div class="bg-indigo-600 rounded-xl p-6 text-white shadow-xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-indigo-500/20 rounded-full"></div>
+<div>
+<h3 class="font-h3 text-xl mb-1">Mẹo thu hồi nợ</h3>
+<p class="text-indigo-100/80 text-sm leading-relaxed">Sử dụng tính năng 'Nhắc nợ tự động' qua SMS/Zalo cho các khoản nợ từ 15-30 ngày để giảm tỉ lệ quá hạn lên đến 24%.</p>
+</div>
+<div class="mt-6">
+<button class="w-full bg-white text-indigo-600 font-bold py-2.5 rounded-lg text-sm hover:bg-indigo-50 transition-colors">Thiết lập tự động</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Only for AR screen) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-emerald-500 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+
+</body>
+</html>

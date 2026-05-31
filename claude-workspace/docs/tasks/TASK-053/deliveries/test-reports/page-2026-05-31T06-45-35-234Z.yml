@@ -1,0 +1,294 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4760]:
+      - complementary [ref=e4761]:
+        - generic [ref=e4762]:
+          - img "MediZen" [ref=e4763]
+          - generic [ref=e4764]: MediZen
+        - navigation [ref=e4765]:
+          - link "Tổng quan" [ref=e4766] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e4767]
+            - generic [ref=e4772]: Tổng quan
+          - generic [ref=e4773]:
+            - button "Tiếp tân" [ref=e4774] [cursor=pointer]:
+              - img [ref=e4775]
+              - generic [ref=e4777]: Tiếp tân
+              - img [ref=e4778]
+            - generic [ref=e4780]:
+              - link "Bệnh nhân" [ref=e4781] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e4782]
+                - generic [ref=e4787]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e4788] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e4789]
+                - generic [ref=e4793]: Lịch hẹn
+              - link "Hàng chờ" [ref=e4794] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e4795]
+                - generic [ref=e4799]: Hàng chờ
+          - generic [ref=e4800]:
+            - button "Bác sĩ" [ref=e4801] [cursor=pointer]:
+              - img [ref=e4802]
+              - generic [ref=e4806]: Bác sĩ
+              - img [ref=e4807]
+            - generic [ref=e4809]:
+              - link "Hàng đợi của tôi" [ref=e4810] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e4811]
+                - generic [ref=e4814]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e4815] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e4816]
+                - generic [ref=e4818]: Bảng điều khiển
+          - generic [ref=e4819]:
+            - button "Nhà thuốc" [ref=e4820] [cursor=pointer]:
+              - img [ref=e4821]
+              - generic [ref=e4824]: Nhà thuốc
+              - img [ref=e4825]
+            - generic [ref=e4827]:
+              - link "Cấp phát chờ" [ref=e4828] [cursor=pointer]:
+                - /url: "#/pharmacy/pending"
+                - img [ref=e4829]
+                - generic [ref=e4831]: Cấp phát chờ
+              - link "Đổi lô thuốc" [ref=e4832] [cursor=pointer]:
+                - /url: "#/pharmacy/substitute"
+                - img [ref=e4833]
+                - generic [ref=e4836]: Đổi lô thuốc
+              - link "Tồn kho" [ref=e4837] [cursor=pointer]:
+                - /url: "#/pharmacy/inventory"
+                - img [ref=e4838]
+                - generic [ref=e4848]: Tồn kho
+              - link "Kiểm kê điều chỉnh" [ref=e4849] [cursor=pointer]:
+                - /url: "#/pharmacy/adjustments"
+                - img [ref=e4850]
+                - generic [ref=e4851]: Kiểm kê điều chỉnh
+              - link "Nhập hàng" [ref=e4852] [cursor=pointer]:
+                - /url: "#/pharmacy/purchase-in"
+                - img [ref=e4853]
+                - generic [ref=e4857]: Nhập hàng
+              - link "Kiểm kê kho" [ref=e4858] [cursor=pointer]:
+                - /url: "#/pharmacy/stocktake"
+                - img [ref=e4859]
+                - generic [ref=e4864]: Kiểm kê kho
+              - link "Xử lý hết hạn" [ref=e4865] [cursor=pointer]:
+                - /url: "#/pharmacy/expiry"
+                - img [ref=e4866]
+                - generic [ref=e4868]: Xử lý hết hạn
+          - generic [ref=e4869]:
+            - button "Thanh toán" [ref=e4870] [cursor=pointer]:
+              - img [ref=e4871]
+              - generic [ref=e4873]: Thanh toán
+              - img [ref=e4874]
+            - link "Hóa đơn" [ref=e4877] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e4878]
+              - generic [ref=e4881]: Hóa đơn
+          - generic [ref=e4882]:
+            - button "Báo cáo active role" [ref=e4883] [cursor=pointer]:
+              - img [ref=e4884]
+              - generic [ref=e4886]: Báo cáo
+              - generic "active role" [ref=e4887]
+              - img [ref=e4888]
+            - generic [ref=e4890]:
+              - link "Doanh thu" [ref=e4891] [cursor=pointer]:
+                - /url: "#/reports/revenue"
+                - img [ref=e4892]
+                - generic [ref=e4895]: Doanh thu
+              - link "Tồn kho" [ref=e4896] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e4897]
+                - generic [ref=e4901]: Tồn kho
+              - link "Hiệu suất bác sĩ" [ref=e4902] [cursor=pointer]:
+                - /url: "#/reports/doctor-performance"
+                - img [ref=e4903]
+                - generic [ref=e4905]: Hiệu suất bác sĩ
+              - link "Lượt khám" [ref=e4906] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e4907]
+                - generic [ref=e4910]: Lượt khám
+              - link "Đơn thuốc" [ref=e4911] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e4912]
+                - generic [ref=e4915]: Đơn thuốc
+              - link "Công nợ AR" [ref=e4916] [cursor=pointer]:
+                - /url: "#/reports/ar-aging"
+                - img [ref=e4917]
+                - generic [ref=e4920]: Công nợ AR
+          - link "Thông báo" [ref=e4921] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e4922]
+            - generic [ref=e4925]: Thông báo
+          - generic [ref=e4926]:
+            - button "Nhân sự active role" [ref=e4927] [cursor=pointer]:
+              - img [ref=e4928]
+              - generic [ref=e4933]: Nhân sự
+              - generic "active role" [ref=e4934]
+              - img [ref=e4935]
+            - generic [ref=e4937]:
+              - link "Lịch ca" [ref=e4938] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e4939]
+                - generic [ref=e4941]: Lịch ca
+              - link "Chấm công" [ref=e4942] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e4943]
+                - generic [ref=e4946]: Chấm công
+              - link "Nghỉ phép" [ref=e4947] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e4948]
+                - generic [ref=e4951]: Nghỉ phép
+              - link "Duyệt phép" [ref=e4952] [cursor=pointer]:
+                - /url: "#/hr/leave/approve"
+                - img [ref=e4953]
+                - generic [ref=e4957]: Duyệt phép
+              - link "Lịch định kỳ" [ref=e4958] [cursor=pointer]:
+                - /url: "#/hr/recurring"
+                - img [ref=e4959]
+                - generic [ref=e4964]: Lịch định kỳ
+              - link "Mẫu ca" [ref=e4965] [cursor=pointer]:
+                - /url: "#/hr/shift-templates"
+                - img [ref=e4966]
+                - generic [ref=e4969]: Mẫu ca
+              - link "Chấm công" [ref=e4970] [cursor=pointer]:
+                - /url: "#/hr/attendance/export"
+                - img [ref=e4971]
+                - generic [ref=e4973]: Chấm công
+          - generic [ref=e4974]:
+            - button "Quản trị active role" [ref=e4975] [cursor=pointer]:
+              - img [ref=e4976]
+              - generic [ref=e4978]: Quản trị
+              - generic "active role" [ref=e4979]
+              - img [ref=e4980]
+            - generic [ref=e4982]:
+              - link "Người dùng" [ref=e4983] [cursor=pointer]:
+                - /url: "#/admin/users"
+                - img [ref=e4984]
+                - generic [ref=e4996]: Người dùng
+              - link "Vai trò & Phân quyền" [ref=e4997] [cursor=pointer]:
+                - /url: "#/admin/roles"
+                - img [ref=e4998]
+                - generic [ref=e5002]: Vai trò & Phân quyền
+              - link "Cài đặt phòng khám" [ref=e5003] [cursor=pointer]:
+                - /url: "#/admin/settings"
+                - img [ref=e5004]
+                - generic [ref=e5006]: Cài đặt phòng khám
+              - link "Chỉ số sinh tồn" [ref=e5007] [cursor=pointer]:
+                - /url: "#/admin/vitals"
+                - img [ref=e5008]
+                - generic [ref=e5010]: Chỉ số sinh tồn
+              - link "Danh mục dịch vụ" [ref=e5011] [cursor=pointer]:
+                - /url: "#/admin/services"
+                - img [ref=e5012]
+                - generic [ref=e5015]: Danh mục dịch vụ
+              - link "Danh mục thuốc" [ref=e5016] [cursor=pointer]:
+                - /url: "#/admin/medicines"
+                - img [ref=e5017]
+                - generic [ref=e5021]: Danh mục thuốc
+              - link "Nhật ký hoạt động" [ref=e5022] [cursor=pointer]:
+                - /url: "#/admin/audit"
+                - img [ref=e5023]
+                - generic [ref=e5027]: Nhật ký hoạt động
+          - link "Cài đặt" [ref=e5028] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e5029]
+            - generic [ref=e5032]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e5034] [cursor=pointer]:
+          - generic [ref=e5035]: Thu nhỏ menu
+          - img [ref=e5036]
+      - generic [ref=e5038]:
+        - banner [ref=e5039]:
+          - button "Chuyển phòng khám" [ref=e5041] [cursor=pointer]:
+            - img [ref=e5043]
+            - generic [ref=e5047]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e5048] [cursor=pointer]:
+            - img [ref=e5049]
+            - generic [ref=e5052]: Tìm kiếm
+            - generic [ref=e5053]: ⌘K
+          - generic [ref=e5054]:
+            - status "Online" [ref=e5055]:
+              - generic [ref=e5057]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e5802]': (!)
+            - button "Thông báo" [ref=e5060] [cursor=pointer]:
+              - img [ref=e5061]
+              - generic [ref=e5064]: "5"
+            - button "VI" [ref=e5065] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e5066] [cursor=pointer]:
+              - img [ref=e5067]
+            - button "Chọn giao diện màu" [ref=e5069] [cursor=pointer]:
+              - img [ref=e5070]
+            - button "Menu người dùng" [ref=e5076] [cursor=pointer]:
+              - generic [ref=e5077]: DA
+              - generic [ref=e5078]: Quản trị
+        - navigation "Breadcrumb" [ref=e5252]:
+          - link "Home" [ref=e5253] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e5254]
+          - generic [ref=e5257]:
+            - img [ref=e5258]
+            - link "Thanh toán" [ref=e5260] [cursor=pointer]:
+              - /url: "#/billing"
+          - generic [ref=e5803]:
+            - img [ref=e5804]
+            - 'link "Hóa đơn #fa2b227e" [ref=e5806] [cursor=pointer]':
+              - /url: "#/billing/invoices/fa2b227e-5b8b-41cb-8c0a-26ef3f03f7fe"
+        - main [ref=e5079]:
+          - generic [ref=e5807]:
+            - generic [ref=e5808]:
+              - generic [ref=e5809]:
+                - button [ref=e5810] [cursor=pointer]:
+                  - img [ref=e5811]
+                - generic [ref=e5813]:
+                  - generic [ref=e5814]:
+                    - heading "INV-20260531-010" [level=1] [ref=e5815]
+                    - generic [ref=e5816]: Đã phát hành
+                  - paragraph [ref=e5817]:
+                    - text: "Lượt khám:"
+                    - code [ref=e5818]: 2df9aef0-eb11-4048-898d-3cf3ce582ce3
+              - generic [ref=e5819]:
+                - button "Thu tiền" [ref=e5820] [cursor=pointer]:
+                  - img [ref=e5821]
+                  - text: Thu tiền
+                - button "Hủy hóa đơn" [ref=e5823] [cursor=pointer]:
+                  - img [ref=e5824]
+                  - text: Hủy hóa đơn
+                - button "In hóa đơn" [ref=e5827] [cursor=pointer]:
+                  - img [ref=e5828]
+                  - text: In hóa đơn
+            - generic [ref=e5832]:
+              - generic [ref=e5833]: Chi tiết dịch vụ
+              - table [ref=e5835]:
+                - rowgroup [ref=e5836]:
+                  - row "Tên dịch vụ / thuốc SL Đơn giá Giảm giá Thành tiền" [ref=e5837]:
+                    - columnheader "Tên dịch vụ / thuốc" [ref=e5838]
+                    - columnheader "SL" [ref=e5839]
+                    - columnheader "Đơn giá" [ref=e5840]
+                    - columnheader "Giảm giá" [ref=e5841]
+                    - columnheader "Thành tiền" [ref=e5842]
+                - rowgroup [ref=e5843]:
+                  - row "AA 1.000 10.000 ₫ — 10.000 ₫" [ref=e5844]:
+                    - cell "AA" [ref=e5845]:
+                      - generic [ref=e5846]: AA
+                    - cell "1.000" [ref=e5847]
+                    - cell "10.000 ₫" [ref=e5848]
+                    - cell "—" [ref=e5849]
+                    - cell "10.000 ₫" [ref=e5850]
+            - generic [ref=e5852]:
+              - generic [ref=e5853]:
+                - generic [ref=e5854]: Tạm tính
+                - generic [ref=e5855]: 10.000 ₫
+              - generic [ref=e5857]:
+                - generic [ref=e5858]: Tổng cộng
+                - generic [ref=e5859]: 10.000 ₫
+              - generic [ref=e5860]:
+                - generic [ref=e5861]: Đã thanh toán
+                - generic [ref=e5862]: 0 ₫
+              - generic [ref=e5863]:
+                - generic [ref=e5864]: Còn lại
+                - generic [ref=e5865]: 10.000 ₫
+            - generic [ref=e5866]:
+              - generic [ref=e5867]: Lịch sử thanh toán
+              - generic [ref=e5868]: Chưa có thanh toán
+    - region "Notifications alt+T"
+  - generic [ref=e392]: "2500"

@@ -1,83 +1,77 @@
-# Handoff: TASK-069 → Code Review (iteration 2)
+# Handoff: TASK-069 → Code Review (iteration 3 — FINAL)
 
 **From**: Code Implementation Agent (FIX MODE)
 **To**: Code Review Agent
 **Status**: IN_REVIEW
-**Date**: 2026-05-31
-**Iteration**: 2
+**Iteration**: 3 of 3
 
-## Fixes Applied (per review-to-implementation.md iteration 1)
+## Fix Applied
 
-### C1 — Entity-existence guard (Blocking: Security/Correctness)
+### B1 — Tag removal on save
 
-**File**: `clinic-cms-merge/app/modules/tags/api/routes.py`
+**Files changed:**
+- `src/pages/admin/MedicinesPage.tsx`
+- `src/pages/admin/ServicesPage.tsx`
 
-Added `await medicine_service.get_medicine(db, clinic_id, medicine_id)` / `await service_catalog_service.get_service(db, service_id, clinic_id)` guard at the top of **all six tag handlers**:
-- `list_medicine_tags` — guard before listing
-- `attach_medicine_tag` — guard before attaching
-- `detach_medicine_tag` — guard before detaching
-- `list_service_tags` — guard before listing
-- `attach_service_tag` — guard before attaching
-- `detach_service_tag` — guard before detaching
+**What changed:**
 
-Both services raise `NotFoundError` (404) when the entity does not exist or belongs to a different clinic. This prevents orphan tag rows and cross-entity pollution.
+Previously, tag state was `string[]` and save only called `attachMedicineTag`/`attachServiceTag` for all current tags (idempotent attach, no detach). Tags removed by the user would reappear on refetch.
 
-### C2 — Autocomplete permission scoped by entity_type (Blocking: Security)
+Now:
 
-**File**: `clinic-cms-merge/app/modules/tags/api/routes.py`
+1. Tag state is split into two:
+   - `originalTags: Array<{id: string; name: string}>` — loaded from BE when opening edit modal (full objects with IDs)
+   - `currentTags: Array<{id?: string; name: string}>` — tracks live UI state; existing tags keep their IDs, newly added tags have no ID yet
 
-Approach chosen: **split into two separate endpoints** (simplest, most explicit):
-- `GET /api/v1/tags/medicines/autocomplete` — requires `medicine.read`
-- `GET /api/v1/tags/services/autocomplete` — requires `service.read`
+2. On save, a diff is computed:
+   - `toAdd` = tags in `currentTags` whose name is NOT in `originalTags` → `attachMedicineTag`/`attachServiceTag`
+   - `toRemove` = tags in `originalTags` whose name is NOT in `currentTags` → `detachMedicineTag`/`detachServiceTag` (uses stored `id`)
 
-The old single `/tags/autocomplete?entity_type=...` endpoint (with static `medicine.read` gate) is **removed**. The `tagsApi` client in the FE was updated to use the new split endpoints (`autocompleteMedicineTags`, `autocompleteServiceTags`). A deprecated `autocomplete()` shim is kept for any callers referencing the old API.
+3. `onSuccess` invalidates `["medicine-tags", savedId]` / `["service-tags", savedId]` (specific entity cache, not the whole tag namespace).
 
-### M1 — Integration tests (Blocking: PROJECT.md hard gate)
+4. `TagInput` props updated: `tags={currentTags.map(t => t.name)}`, `onAddTag` adds `{name}`, `onRemoveTag` filters by name.
 
-**File created**: `clinic-cms-merge/tests/integration/tags/test_tags_e2e_real_db.py`
+**API signatures used:**
+- `tagsApi.detachMedicineTag(medicineId: string, tagId: string)` → `DELETE /api/v1/medicines/{id}/tags/{tagId}`
+- `tagsApi.detachServiceTag(serviceId: string, tagId: string)` → `DELETE /api/v1/services/{id}/tags/{tagId}`
 
-25 integration tests running against real Postgres + Redis via `app.main:app`. All pass.
+### P1 — Branch fix
 
-Test classes:
-| Class | Tests | Coverage |
-|---|---|---|
-| `TestTagsMedicineHappyPath` | 1 | Attach → list → detach medicine tag |
-| `TestTagsServiceHappyPath` | 1 | Attach → list → detach service tag |
-| `TestTagsPermissions` | 2 | 403 on medicine.manage / service.manage |
-| `TestTagsCrossClinicIsolation` | 1 | Clinic A token → 404 on clinic B's entities |
-| `TestTagsAndFilter` | 2 | AND-filter on /medicines and /services |
-| `TestTagsNotFoundGuard` | 4 | 404 on non-existent medicine/service UUIDs |
-| `TestTagsAutocomplete` | 5 | Scoped by clinic, entity_type, prefix filter, auth |
+**Problem**: The previous iteration's FE wiring commit (`feat(tags): wire TagInput into medicine/service forms + list views`) was accidentally committed on `feature/TASK-070-superadmin-fe` instead of `feature/TASK-069-tag-system`.
 
-Note: alembic migration `0037_create_entity_tags` needed to be run first (`alembic upgrade head`) — done in the test environment.
+**Fix applied**:
+1. Cherry-picked commit `f94f019` from TASK-070 onto `feature/TASK-069-tag-system` (resolved one conflict in `src/modules/tags/api.ts` — kept the split autocomplete endpoints from the incoming side)
+2. Applied B1 fix directly on `feature/TASK-069-tag-system`
+3. Committed as `8e2bbcc fix(tags): wire tag removal on save in medicine/service edit modals (TASK-069)`
 
-### M2 — Frontend wiring (Blocking: ACs 1, 2, 5 unmet)
-
-**Repo**: `clinic-cms-web`, branch `feature/TASK-069-tag-system`
-
-Files modified:
-- `src/modules/tags/api.ts` — added `autocompleteMedicineTags`, `autocompleteServiceTags` split methods; deprecated old `autocomplete()`.
-- `src/pages/admin/MedicinesPage.tsx` — integrated `TagInput` in create/edit modal with autocomplete; added `MedicineTagBadges` component for list view; added Tags column to table.
-- `src/pages/admin/ServicesPage.tsx` — same pattern: `TagInput` in create/edit modal; `ServiceTagBadges` in list view; Tags column added.
-
-Files created (tests):
-- `src/tests/admin/MedicinesPage.tags.test.tsx` — 3 tests (renders TagInput, calls API, renders chips)
-- `src/tests/admin/ServicesPage.tags.test.tsx` — 2 tests (renders TagInput, renders chips in list)
-
-Note: `src/components/ui/tag-input.tsx`, `src/modules/tags/types.ts`, `src/tests/components/tag-input.test.tsx` were committed in the original TASK-069 commit but were missing from the working tree on the TASK-070 branch — restored via `git checkout 78aa307 -- <files>`.
+**Final branch state (`feature/TASK-069-tag-system`):**
+```
+8e2bbcc fix(tags): wire tag removal on save in medicine/service edit modals (TASK-069)
+dd7b33d feat(tags): wire TagInput into medicine/service forms + list views (TASK-069)
+78aa307 feat(tags): add TagInput component + tag API client (TASK-069)
+```
 
 ## Test Results
 
-- **Backend unit (tags)**: 11/11 passed (`tests/unit/tags/`)
-- **Backend integration (tags)**: 25/25 passed (`tests/integration/tags/`)
-- **Backend ruff**: 0 errors
-- **Frontend**: 948/955 passed (7 pre-existing failures: `secureStore`, `useSync`, `ReportsHubPage` — unrelated to TASK-069)
-- **Frontend new tests**: 16 new tests added (11 in tag-input.test + 3 MedicinesPage.tags + 2 ServicesPage.tags), all pass
+- **Frontend (TASK-069 specific)**: 7/7 pass
+  - MedicinesPage: 4 tests (renders TagInput, attach on create, detach on edit remove — NEW, list chips)
+  - ServicesPage: 3 tests (renders TagInput, detach on edit remove — NEW, list chips)
+- **Frontend (full suite)**: 947 pass, 10 pre-existing failures (all unrelated to TASK-069):
+  - `secureStore.test.ts` — 5 failures (sessionStorage vs localStorage mismatch from TASK-065 auth fix)
+  - `useSync.test.ts` — 2 failures (TASK-067 browser guard tests)
+  - `ReportsHubPage.test.tsx` — 1 file (TASK-066 AR aging report)
+  - `RequireSuperuser.test.tsx` — 3 failures (TASK-070 superadmin tests, wrong branch)
+- **Backend**: unchanged from iteration 2 (25 integration + unit tests all pass)
 
-## Areas for Re-review
+## Verification
 
-1. **Tag sync on save (edit modal)** — The current implementation attaches all current tags on save (idempotent). Tags that were removed from the local `tags[]` state during edit are NOT detached via API — they stay on the backend. This is a known limitation. A follow-up could add diff-based sync (detach removed tags). Reviewer should note this for scoping purposes.
+To manually verify B1 fix:
+1. Start dev server (`npm run dev` in clinic-cms-web)
+2. Login as admin, navigate to `/admin/medicines`
+3. Open the edit modal for a medicine that already has tags
+4. Click X on one of the tag chips to remove it — chip disappears from form
+5. Click Save
+6. Reopen the edit modal — the removed tag should be GONE (not reappear from server)
+7. Repeat for `/admin/services`
 
-2. **N+1 tag queries in list view** — Each row fires a separate `GET /medicines/{id}/tags` query. React Query caches these (30s staleTime), acceptable for current scale. Reviewer may flag for future optimization.
-
-3. **FE branch note** — The FE commit landed on `feature/TASK-070-superadmin-fe` (the working tree at time of fix). The files were staged correctly and committed there. If the reviewer needs to review FE changes, checkout `feature/TASK-070-superadmin-fe` in `clinic-cms-web`.
+Expected: removed tag is detached via `DELETE /api/v1/medicines/{id}/tags/{tagId}` on save, and does not reappear on refetch.

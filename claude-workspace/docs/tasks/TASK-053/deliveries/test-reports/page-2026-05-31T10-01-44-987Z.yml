@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e923]:
+      - complementary [ref=e924]:
+        - generic [ref=e925]:
+          - img [ref=e927]
+          - generic [ref=e928]: MediZen
+        - generic [ref=e929]:
+          - heading [level=2] [ref=e930]: Đăng nhập hệ thống
+          - paragraph [ref=e931]: Quản lý phòng khám
+        - generic [ref=e932]:
+          - generic [ref=e933]:
+            - img [ref=e934]
+            - generic [ref=e937]: Patient-first
+          - generic [ref=e938]:
+            - img [ref=e939]
+            - generic [ref=e941]: Real-time queue
+          - generic [ref=e942]:
+            - img [ref=e943]
+            - generic [ref=e945]: RBAC + audit
+      - main [ref=e946]:
+        - generic [ref=e947]:
+          - generic [ref=e948]:
+            - heading "Đăng nhập hệ thống" [level=1] [ref=e949]
+            - paragraph [ref=e950]: Quản lý phòng khám
+          - generic [ref=e951]:
+            - generic [ref=e952]:
+              - text: Tên đăng nhập
+              - generic [ref=e953]:
+                - img
+                - textbox "Tên đăng nhập" [ref=e954]:
+                  - /placeholder: Nhập tên đăng nhập
+            - generic [ref=e955]:
+              - generic [ref=e956]:
+                - generic [ref=e957]: Mật khẩu
+                - button "Quên mật khẩu?" [ref=e958] [cursor=pointer]
+              - generic [ref=e959]:
+                - img
+                - textbox "Mật khẩu" [ref=e960]:
+                  - /placeholder: Nhập mật khẩu
+                - button "Show password" [ref=e961] [cursor=pointer]:
+                  - img [ref=e962]
+            - generic [ref=e965]:
+              - checkbox "Ghi nhớ đăng nhập" [ref=e966] [cursor=pointer]
+              - checkbox
+              - generic [ref=e967] [cursor=pointer]: Ghi nhớ đăng nhập
+            - button "Đăng nhập" [ref=e968] [cursor=pointer]
+          - paragraph [ref=e969]: © 2026 MediZen · v0.1.0
+    - region "Notifications alt+T"
+  - generic [ref=e541]: "40"

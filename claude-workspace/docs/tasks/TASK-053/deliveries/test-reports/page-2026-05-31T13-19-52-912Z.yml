@@ -1,0 +1,779 @@
+- generic:
+  - generic:
+    - generic:
+      - complementary:
+        - generic:
+          - img
+          - generic: MediZen
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+            - generic: Tổng quan
+          - generic:
+            - button:
+              - img
+              - generic: Tiếp tân
+              - img
+            - generic:
+              - link:
+                - /url: "#/patients"
+                - img
+                - generic: Bệnh nhân
+              - link:
+                - /url: "#/appointments"
+                - img
+                - generic: Lịch hẹn
+              - link:
+                - /url: "#/queue"
+                - img
+                - generic: Hàng chờ
+          - generic:
+            - button:
+              - img
+              - generic: Bác sĩ
+              - img
+            - generic:
+              - link:
+                - /url: "#/doctor/queue"
+                - img
+                - generic: Hàng đợi của tôi
+              - link:
+                - /url: "#/doctor/dashboard"
+                - img
+                - generic: Bảng điều khiển
+          - generic:
+            - button:
+              - img
+              - generic: Nhà thuốc
+              - img
+            - generic:
+              - link:
+                - /url: "#/pharmacy/pending"
+                - img
+                - generic: Cấp phát chờ
+              - link:
+                - /url: "#/pharmacy/substitute"
+                - img
+                - generic: Đổi lô thuốc
+              - link:
+                - /url: "#/pharmacy/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/pharmacy/adjustments"
+                - img
+                - generic: Kiểm kê điều chỉnh
+              - link:
+                - /url: "#/pharmacy/purchase-in"
+                - img
+                - generic: Nhập hàng
+              - link:
+                - /url: "#/pharmacy/stocktake"
+                - img
+                - generic: Kiểm kê kho
+              - link:
+                - /url: "#/pharmacy/expiry"
+                - img
+                - generic: Xử lý hết hạn
+          - generic:
+            - button:
+              - img
+              - generic: Thanh toán
+              - img
+            - generic:
+              - link:
+                - /url: "#/billing/invoices"
+                - img
+                - generic: Hóa đơn
+          - generic:
+            - button:
+              - img
+              - generic: Báo cáo
+              - img
+            - generic:
+              - link:
+                - /url: "#/reports/revenue"
+                - img
+                - generic: Doanh thu
+              - link:
+                - /url: "#/reports/inventory"
+                - img
+                - generic: Tồn kho
+              - link:
+                - /url: "#/reports/doctor-performance"
+                - img
+                - generic: Hiệu suất bác sĩ
+              - link:
+                - /url: "#/reports/visit-volume"
+                - img
+                - generic: Lượt khám
+              - link:
+                - /url: "#/reports/prescriptions"
+                - img
+                - generic: Đơn thuốc
+              - link:
+                - /url: "#/reports/ar-aging"
+                - img
+                - generic: Công nợ AR
+          - link:
+            - /url: "#/notifications"
+            - img
+            - generic: Thông báo
+          - generic:
+            - button:
+              - img
+              - generic: Nhân sự
+              - img
+            - generic:
+              - link:
+                - /url: "#/hr/schedule"
+                - img
+                - generic: Lịch ca
+              - link:
+                - /url: "#/hr/me/timelog"
+                - img
+                - generic: Chấm công
+              - link:
+                - /url: "#/hr/leave/new"
+                - img
+                - generic: Nghỉ phép
+              - link:
+                - /url: "#/hr/leave/approve"
+                - img
+                - generic: Duyệt phép
+              - link:
+                - /url: "#/hr/recurring"
+                - img
+                - generic: Lịch định kỳ
+              - link:
+                - /url: "#/hr/shift-templates"
+                - img
+                - generic: Mẫu ca
+              - link:
+                - /url: "#/hr/attendance/export"
+                - img
+                - generic: Chấm công
+          - generic:
+            - button:
+              - img
+              - generic: Quản trị
+              - img
+            - generic:
+              - link:
+                - /url: "#/admin/users"
+                - img
+                - generic: Người dùng
+              - link:
+                - /url: "#/admin/roles"
+                - img
+                - generic: Vai trò & Phân quyền
+              - link:
+                - /url: "#/admin/settings"
+                - img
+                - generic: Cài đặt phòng khám
+              - link:
+                - /url: "#/admin/vitals"
+                - img
+                - generic: Chỉ số sinh tồn
+              - link:
+                - /url: "#/admin/services"
+                - img
+                - generic: Danh mục dịch vụ
+              - link:
+                - /url: "#/admin/medicines"
+                - img
+                - generic: Danh mục thuốc
+              - link:
+                - /url: "#/admin/audit"
+                - img
+                - generic: Nhật ký hoạt động
+          - link:
+            - /url: "#/settings"
+            - img
+            - generic: Cài đặt
+        - generic:
+          - button:
+            - generic: Thu nhỏ menu
+            - img
+      - generic:
+        - banner:
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic: Phong kham MediZen Demo
+          - button:
+            - img
+            - generic: Tìm kiếm
+            - generic: ⌘K
+          - generic:
+            - status "Online":
+              - generic: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context."': (!)
+            - generic:
+              - button:
+                - img
+            - button: VI
+            - button:
+              - img
+            - button:
+              - img
+            - button:
+              - generic: DA
+              - generic: Quản trị
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+          - generic:
+            - img
+            - link:
+              - /url: "#/admin"
+              - text: Quản trị
+          - generic:
+            - img
+            - generic: Dịch vụ
+        - main:
+          - generic:
+            - generic:
+              - heading [level=1]: Danh mục dịch vụ
+              - generic:
+                - button:
+                  - img
+                  - text: Nhập từ CSV
+                - button:
+                  - img
+                  - text: Thêm dịch vụ
+            - generic:
+              - img
+              - textbox:
+                - /placeholder: Tìm kiếm dịch vụ...
+            - generic:
+              - table:
+                - rowgroup:
+                  - row:
+                    - columnheader: Mã DV
+                    - columnheader: Tên dịch vụ
+                    - columnheader: Danh mục
+                    - columnheader: Giá
+                    - columnheader: Thời gian (phút)
+                    - columnheader: Kích hoạt
+                    - columnheader: Tags
+                    - columnheader: Thao tác
+                - rowgroup:
+                  - row:
+                    - cell: AA
+                    - cell: AA
+                    - cell: AA
+                    - cell: 10.000 ₫
+                    - cell: "0"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: CHETHU01
+                    - cell: Thu thuat nho
+                    - cell: procedure
+                    - cell: 100.000 ₫
+                    - cell: "10"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ECG
+                    - cell: Điện tim (ECG 12 chuyển đạo)
+                    - cell: cardiology
+                    - cell: 120.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: ECGCT
+                    - cell: Dien tim ECG
+                    - cell: cardiology
+                    - cell: 120.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-DINH-KY
+                    - cell: Khám sức khỏe định kỳ tổng quát
+                    - cell: consultation
+                    - cell: 500.000 ₫
+                    - cell: "60"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-DL
+                    - cell: Khám chuyên khoa Da liễu
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "25"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-NGOAI
+                    - cell: Khám chuyên khoa Ngoại
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-NHI
+                    - cell: Khám chuyên khoa Nhi
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-NOI
+                    - cell: Khám chuyên khoa Nội
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-RHM
+                    - cell: Khám chuyên khoa Răng hàm mặt
+                    - cell: consultation
+                    - cell: 200.000 ₫
+                    - cell: "25"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-SAN
+                    - cell: Khám chuyên khoa Sản phụ khoa
+                    - cell: consultation
+                    - cell: 300.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-TK
+                    - cell: Khám chuyên khoa Thần kinh
+                    - cell: consultation
+                    - cell: 300.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-NK-TMH
+                    - cell: Khám chuyên khoa Tai mũi họng
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "25"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAM-TQ
+                    - cell: Khám tổng quát
+                    - cell: consultation
+                    - cell: 150.000 ₫
+                    - cell: "20"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAMCK
+                    - cell: Kham chuyen khoa
+                    - cell: consultation
+                    - cell: 250.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: KHAMTQ
+                    - cell: Kham tong quat
+                    - cell: consultation
+                    - cell: 150.000 ₫
+                    - cell: "20"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SA-BUNG-TQ
+                    - cell: Siêu âm bụng tổng quát
+                    - cell: imaging
+                    - cell: 350.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SA-TIM
+                    - cell: Siêu âm tim (Echocardiography)
+                    - cell: imaging
+                    - cell: 550.000 ₫
+                    - cell: "45"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SA-TUYEN-GIAC
+                    - cell: Siêu âm tuyến giáp
+                    - cell: imaging
+                    - cell: 250.000 ₫
+                    - cell: "20"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: SIEUMTB
+                    - cell: Sieu am tong bung
+                    - cell: imaging
+                    - cell: 350.000 ₫
+                    - cell: "30"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TAMCHUNG
+                    - cell: Tu van tam ly chuan
+                    - cell: consultation
+                    - cell: 400.000 ₫
+                    - cell: "45"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: THU-THUAT-NH
+                    - cell: Tiểu thủ thuật thông thường
+                    - cell: procedure
+                    - cell: 150.000 ₫
+                    - cell: "20"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: TIEM-VACCINE
+                    - cell: Tiêm vaccine dịch vụ
+                    - cell: preventive
+                    - cell: 100.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: VACCINE01
+                    - cell: Tiem vaccine dich vu
+                    - cell: preventive
+                    - cell: 500.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XN-HBA1C
+                    - cell: Xét nghiệm HbA1c
+                    - cell: lab
+                    - cell: 180.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XN-LIPID
+                    - cell: Xét nghiệm bộ mỡ máu (Lipid profile)
+                    - cell: lab
+                    - cell: 250.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XN-MAU-CBC
+                    - cell: Xét nghiệm máu tổng quát (CBC)
+                    - cell: lab
+                    - cell: 150.000 ₫
+                    - cell: "10"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XN-NUOC-TIEU
+                    - cell: Tổng phân tích nước tiểu 10 thông số
+                    - cell: lab
+                    - cell: 80.000 ₫
+                    - cell: "10"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XN-SINH-HOA
+                    - cell: Xét nghiệm sinh hóa máu cơ bản
+                    - cell: lab
+                    - cell: 300.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XNMAU
+                    - cell: Xet nghiem mau tong quat
+                    - cell: lab
+                    - cell: 200.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XNNUTIEU
+                    - cell: Xet nghiem nuoc tieu
+                    - cell: lab
+                    - cell: 80.000 ₫
+                    - cell: "10"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XQUANG-CXS
+                    - cell: X-quang cột sống thắt lưng
+                    - cell: imaging
+                    - cell: 250.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XQUANG-PHOI
+                    - cell: X-quang phổi thẳng
+                    - cell: imaging
+                    - cell: 200.000 ₫
+                    - cell: "15"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                  - row:
+                    - cell: XRAYPHOI
+                    - cell: X-quang phoi
+                    - cell: imaging
+                    - cell: 300.000 ₫
+                    - cell: "20"
+                    - cell: ✓
+                    - cell: —
+                    - cell:
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+    - region "Notifications alt+T"
+  - dialog "Thêm dịch vụ mới" [ref=e976]:
+    - heading "Thêm dịch vụ mới" [level=2] [ref=e978]
+    - generic [ref=e979]:
+      - generic [ref=e980]:
+        - generic [ref=e981]:
+          - text: Mã dịch vụ
+          - textbox [ref=e982]: TEST069SVC
+        - generic [ref=e983]:
+          - text: Danh mục
+          - textbox [ref=e984]: consultation
+      - generic [ref=e985]:
+        - text: Tên dịch vụ
+        - textbox [ref=e986]: Test Service TASK-069
+      - generic [ref=e987]:
+        - generic [ref=e988]:
+          - text: Giá mặc định (VND)
+          - spinbutton [ref=e989]: "100000"
+        - generic [ref=e990]:
+          - text: Thời gian (phút)
+          - spinbutton [active] [ref=e991]: "30"
+      - generic [ref=e992]:
+        - text: Thứ tự hiển thị
+        - spinbutton [ref=e993]: "0"
+      - generic [ref=e994]:
+        - text: Tags
+        - generic [ref=e996]:
+          - generic [ref=e1006]:
+            - text: cardiology
+            - button "Remove tag cardiology" [ref=e1007] [cursor=pointer]:
+              - img [ref=e1008]
+          - textbox "Tag input" [ref=e997]:
+            - /placeholder: ""
+      - generic [ref=e998]:
+        - button "Hủy" [ref=e999] [cursor=pointer]
+        - button "Tạo mới" [ref=e1000] [cursor=pointer]
+    - button "Close" [ref=e1001] [cursor=pointer]:
+      - img [ref=e1002]
+      - generic [ref=e1005]: Close

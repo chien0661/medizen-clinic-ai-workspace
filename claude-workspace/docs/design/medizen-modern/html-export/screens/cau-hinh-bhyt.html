@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cấu hình BHYT — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        .glass-panel { backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.8); }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Cấu hình BHYT — MediZen</strong></span>
+    <span>ID: f208b29370b54e749fc136ca2d5d049b</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Sidebar Navigation -->
+<aside class="flex flex-col h-screen fixed left-0 top-0 py-4 px-3 z-50 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-[240px]">
+<div class="flex items-center gap-3 px-3 mb-8">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+<span class="material-symbols-outlined text-white text-xl">health_metrics</span>
+</div>
+<div>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-indigo-600 dark:text-indigo-400 leading-none">MediZen Modern</h1>
+<p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider mt-1">Clinical EMR</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 custom-scrollbar overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 transition-colors font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 transition-colors font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+                Patient Queue
+            </a>
+<div class="pt-4 pb-1 px-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest">Configuration</div>
+<a class="flex items-center gap-3 px-3 py-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300 font-semibold rounded-lg text-[13px] scale-[0.98] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                BHYT Config
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 transition-colors font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                Medical Supplies
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 transition-colors font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+                Reporting
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 transition-colors font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 rounded-lg font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-red-500 hover:bg-red-50 rounded-lg font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+                Log Out
+            </a>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="flex items-center justify-between px-6 w-[calc(100%-240px)] ml-[240px] sticky top-0 z-40 bg-white dark:bg-slate-900 h-14 border-b border-slate-200 dark:border-slate-800 shadow-sm shadow-indigo-500/5">
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-2 text-[13px] font-medium text-slate-400">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span>Cấu hình</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-indigo-600 font-semibold">BHYT</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<div class="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-[20px] text-slate-400">search</span>
+</div>
+<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Search (Cmd+K)" type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-1"></div>
+<div class="flex items-center gap-3 pl-2 group cursor-pointer">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-700 dark:text-slate-200 leading-none">QT. Anh</p>
+<p class="text-[10px] text-indigo-600 font-bold uppercase mt-1">Administrator</p>
+</div>
+<img alt="User profile" class="w-9 h-9 rounded-full border-2 border-indigo-100 group-hover:border-indigo-300 transition-all" data-alt="A professional portrait of a medical administrator in their 30s with a clean, focused expression, wearing a minimalist white medical coat. The lighting is bright and high-key, emphasizing a clean and modern clinic setting in the background. The aesthetic is professional, modern, and high-quality, aligned with the soft minimalism of the MediZen brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxQ_l9avhv1Pz-R5dinlD55tm8S9o6pFO2scdNf0utEMmF4UwlBmoXsE4E-DNBXW-qmRb4MraRMIRnIqh_nYjzgkDXksWyOAqV1fnpVDewZk6zOdezPEVm_swK2tiDur4sSxEFwXW8fFdPNv0Dv0msE33YCQaOWfq3kEHyB5dey5j9n_UL6cNr55-8vdDcPkwtcYUb6jE-RQ-e-jmakGDsfdpHv7nMZ47rj-7JQw5jFWiS9bn7j8l3lbxVsLbPW41R5t1xzVX4jmg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] h-[calc(100vh-56px)] overflow-y-auto custom-scrollbar bg-slate-50">
+<div class="max-w-[1440px] mx-auto p-6 flex gap-6">
+<!-- Left Main Content Area -->
+<div class="flex-1 space-y-6">
+<!-- Page Header -->
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h1 class="text-2xl font-bold text-slate-900 tracking-tight">Bảo hiểm Y tế</h1>
+<span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full uppercase tracking-wide flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                                BHYT đang BẬT
+                            </span>
+</div>
+<p class="text-slate-500 text-sm font-medium flex items-center gap-2">
+                            Đồng bộ Bộ Y tế <span class="text-slate-300">|</span> Cập nhật mới nhất 28/04/2026 <span class="text-slate-300">|</span> 1.247 mục
+                        </p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                            Lịch sử phiên bản
+                        </button>
+</div>
+</div>
+<!-- Section Tabs -->
+<div class="flex items-center border-b border-slate-200 gap-8">
+<button class="pb-3 text-indigo-600 font-bold border-b-2 border-indigo-600 text-sm relative">
+                        Mức hưởng
+                        <span class="absolute -top-1 -right-2 w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+</button>
+<button class="pb-3 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors">Danh mục</button>
+<button class="pb-3 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors">Lý do từ chối</button>
+<button class="pb-3 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors">Lịch sử đồng bộ</button>
+</div>
+<!-- Filter Bar -->
+<div class="flex items-center justify-between gap-4">
+<div class="flex items-center gap-3 flex-1">
+<div class="w-48">
+<select class="w-full bg-white border-slate-200 rounded-lg text-sm font-medium focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
+<option>Đối tượng: Tất cả</option>
+<option>Cựu chiến binh</option>
+<option>Hộ nghèo</option>
+<option>Trẻ em &lt; 6 tuổi</option>
+</select>
+</div>
+<div class="w-40">
+<select class="w-full bg-white border-slate-200 rounded-lg text-sm font-medium focus:ring-indigo-500/20 focus:border-indigo-500 transition-all">
+<option>Tuyến: Tất cả</option>
+<option>Đúng tuyến</option>
+<option>Trái tuyến</option>
+</select>
+</div>
+<div class="relative flex-1 max-w-xs">
+<span class="material-symbols-outlined absolute left-3 top-2 text-[18px] text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border-slate-200 rounded-lg text-sm focus:ring-indigo-500/20 focus:border-indigo-500 transition-all" placeholder="Tìm kiếm nhóm đối tượng..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Matrix Table -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200">
+<th class="px-6 py-4 text-[12px] font-bold text-slate-500 uppercase tracking-widest w-[320px]">Nhóm BN × Loại hình</th>
+<th class="px-6 py-4 text-[12px] font-bold text-slate-500 uppercase tracking-widest text-center">Đúng tuyến</th>
+<th class="px-6 py-4 text-[12px] font-bold text-slate-500 uppercase tracking-widest text-center">Trái tuyến</th>
+<th class="px-6 py-4 text-[12px] font-bold text-slate-500 uppercase tracking-widest text-center">Cấp cứu</th>
+<th class="px-6 py-4 text-[12px] font-bold text-slate-500 uppercase tracking-widest text-center">Chuyển tuyến HL</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Group 1: Người có công -->
+<tr class="bg-indigo-50/30">
+<td class="px-6 py-2 text-[11px] font-bold text-indigo-600 uppercase tracking-wider" colspan="5">Người có công + Hộ nghèo</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Chiến sĩ cách mạng (CC, CK)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Hộ nghèo (HN)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Cận nghèo (CN)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600 flex items-center justify-center gap-1">
+                                    95% <span class="material-symbols-outlined text-[14px] opacity-0 group-hover:opacity-100 cursor-pointer">edit</span>
+</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">60%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">95%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">95%</td>
+</tr>
+<!-- Group 2: Trẻ em -->
+<tr class="bg-indigo-50/30">
+<td class="px-6 py-2 text-[11px] font-bold text-indigo-600 uppercase tracking-wider" colspan="5">Trẻ em + Người cao tuổi</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Trẻ &lt;6 tuổi (TE)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Người &gt;70 tuổi</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">100%</td>
+</tr>
+<!-- Group 3: BN Bệnh nặng -->
+<tr class="bg-indigo-50/30">
+<td class="px-6 py-2 text-[11px] font-bold text-indigo-600 uppercase tracking-wider" colspan="5">BN bệnh nặng/đặc biệt</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Ung thư, HIV/AIDS, Lao...</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-emerald-600">100%</td>
+</tr>
+<!-- Group 4: Phổ biến -->
+<tr class="bg-indigo-50/30">
+<td class="px-6 py-2 text-[11px] font-bold text-indigo-600 uppercase tracking-wider" colspan="5">Nhóm phổ biến</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Lao động (DN, HX)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">60%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+</tr>
+<tr class="group hover:bg-slate-50/80 transition-colors">
+<td class="px-6 py-3.5 text-sm font-semibold text-slate-700">Hộ gia đình (GD)</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">40%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+<td class="px-6 py-3.5 text-center text-sm font-bold text-slate-700 group-hover:text-indigo-600">80%</td>
+</tr>
+</tbody>
+</table>
+<div class="px-6 py-4 bg-slate-50 flex items-center justify-between border-t border-slate-200">
+<p class="text-xs text-slate-400 font-medium italic">Cập nhật lần cuối từ BYT: 25/04/2026</p>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-sky-50 text-sky-700 rounded-lg text-xs font-bold hover:bg-sky-100 transition-all">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+                            Đồng bộ ngay với VSS
+                        </button>
+</div>
+</div>
+<!-- Alert Banner -->
+<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-4">
+<div class="p-2 bg-amber-100 text-amber-600 rounded-lg">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-amber-800">Thông báo thay đổi chính sách</h4>
+<p class="text-sm text-amber-700 mt-1 leading-relaxed">Có 12 mức hưởng sẽ thay đổi từ 01/06/2026 theo thông tư mới nhất của Bảo hiểm Xã hội Việt Nam. Vui lòng rà soát danh sách trước khi áp dụng chính thức.</p>
+<button class="mt-2 text-xs font-bold text-amber-800 underline underline-offset-2">Xem chi tiết các thay đổi</button>
+</div>
+</div>
+</div>
+<!-- Right Info Sidebar (280px) -->
+<aside class="w-[280px] space-y-6">
+<!-- Info Card -->
+<div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm shadow-indigo-500/5">
+<h3 class="font-bold text-slate-800 text-sm mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500 text-[20px]">info</span>
+                        Mức hưởng tham khảo
+                    </h3>
+<div class="space-y-4">
+<div class="p-3 bg-slate-50 rounded-lg">
+<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Mức trần thanh toán</p>
+<p class="text-lg font-bold text-indigo-600">46.8M <span class="text-xs text-slate-400">/đợt điều trị</span></p>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-[18px]">check_circle</span>
+<p class="text-xs text-slate-600 leading-normal">Bao gồm 100% chi phí khám chữa bệnh tại tuyến xã.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-[18px]">check_circle</span>
+<p class="text-xs text-slate-600 leading-normal">Giới hạn 15% lương cơ sở cho danh mục kỹ thuật cao.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-amber-500 text-[18px]">info</span>
+<p class="text-xs text-slate-600 leading-normal font-medium italic">Lưu ý: BN tự chi trả 5% cho các dịch vụ ngoài danh mục cơ bản.</p>
+</div>
+</div>
+<a class="block text-center py-2 border-t border-slate-100 text-indigo-600 text-[11px] font-bold uppercase tracking-wide hover:text-indigo-700 mt-2" href="#">
+                            Xem nghị định 146/2018/NĐ-CP
+                        </a>
+</div>
+</div>
+<!-- Action Card -->
+<div class="bg-gradient-to-br from-indigo-600 to-violet-700 rounded-xl p-5 text-white relative overflow-hidden shadow-xl shadow-indigo-500/20">
+<div class="relative z-10">
+<h4 class="font-bold text-sm mb-2">Trợ giúp cấu hình</h4>
+<p class="text-xs text-white/80 leading-relaxed mb-4">Cần hỗ trợ về cách thiết lập danh mục BHYT cho phòng khám đa khoa?</p>
+<button class="w-full py-2 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+                            Liên hệ hỗ trợ 24/7
+                        </button>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Sticky Footer Actions -->
+<footer class="fixed bottom-0 left-[240px] right-0 h-16 bg-white border-t border-slate-200 px-6 flex items-center justify-between z-40">
+<div class="flex items-center gap-4">
+<span class="text-xs text-slate-400 flex items-center gap-2">
+<span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                Trạng thái hệ thống: Ổn định
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2 text-slate-500 text-sm font-semibold hover:text-slate-700 transition-colors">Hủy</button>
+<button class="px-5 py-2 flex items-center gap-2 bg-transparent text-slate-600 border border-slate-200 rounded-lg text-sm font-semibold hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+                Xuất Excel mức hưởng
+            </button>
+<button class="px-6 py-2.5 flex items-center gap-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-lg shadow-indigo-500/20 hover:bg-indigo-700 transition-all">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">save</span>
+                💾 Lưu thay đổi
+            </button>
+</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e970]:
+      - complementary [ref=e971]:
+        - generic [ref=e972]:
+          - img "MediZen" [ref=e973]
+          - generic [ref=e974]: MediZen
+        - navigation [ref=e975]:
+          - link "Tổng quan" [ref=e976] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e977]
+            - generic [ref=e982]: Tổng quan
+          - generic [ref=e983]:
+            - button "Tiếp tân" [ref=e984] [cursor=pointer]:
+              - img [ref=e985]
+              - generic [ref=e987]: Tiếp tân
+              - img [ref=e988]
+            - generic [ref=e990]:
+              - link "Bệnh nhân" [ref=e991] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e992]
+                - generic [ref=e997]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e998] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e999]
+                - generic [ref=e1003]: Lịch hẹn
+              - link "Hàng chờ" [ref=e1004] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e1005]
+                - generic [ref=e1009]: Hàng chờ
+          - button "Nhà thuốc" [ref=e1011] [cursor=pointer]:
+            - img [ref=e1012]
+            - generic [ref=e1015]: Nhà thuốc
+            - img [ref=e1016]
+          - button "Thanh toán" [ref=e1019] [cursor=pointer]:
+            - img [ref=e1020]
+            - generic [ref=e1022]: Thanh toán
+            - img [ref=e1023]
+          - generic [ref=e1025]:
+            - button "Báo cáo" [ref=e1026] [cursor=pointer]:
+              - img [ref=e1027]
+              - generic [ref=e1029]: Báo cáo
+              - img [ref=e1030]
+            - generic [ref=e1032]:
+              - link "Doanh thu" [ref=e1033] [cursor=pointer]:
+                - /url: "#/reports/revenue"
+                - img [ref=e1034]
+                - generic [ref=e1037]: Doanh thu
+              - link "Tồn kho" [ref=e1038] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e1039]
+                - generic [ref=e1043]: Tồn kho
+              - link "Hiệu suất bác sĩ" [ref=e1044] [cursor=pointer]:
+                - /url: "#/reports/doctor-performance"
+                - img [ref=e1045]
+                - generic [ref=e1047]: Hiệu suất bác sĩ
+              - link "Lượt khám" [ref=e1048] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e1049]
+                - generic [ref=e1052]: Lượt khám
+              - link "Đơn thuốc" [ref=e1053] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e1054]
+                - generic [ref=e1057]: Đơn thuốc
+              - link "Công nợ AR" [ref=e1058] [cursor=pointer]:
+                - /url: "#/reports/ar-aging"
+                - img [ref=e1059]
+                - generic [ref=e1062]: Công nợ AR
+          - link "Thông báo" [ref=e1063] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e1064]
+            - generic [ref=e1067]: Thông báo
+          - generic [ref=e1068]:
+            - button "Nhân sự" [ref=e1069] [cursor=pointer]:
+              - img [ref=e1070]
+              - generic [ref=e1075]: Nhân sự
+              - img [ref=e1076]
+            - generic [ref=e1078]:
+              - link "Lịch ca" [ref=e1079] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e1080]
+                - generic [ref=e1082]: Lịch ca
+              - link "Chấm công" [ref=e1083] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e1084]
+                - generic [ref=e1087]: Chấm công
+              - link "Nghỉ phép" [ref=e1088] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e1089]
+                - generic [ref=e1092]: Nghỉ phép
+          - generic [ref=e1093]:
+            - button "Quản trị" [ref=e1094] [cursor=pointer]:
+              - img [ref=e1095]
+              - generic [ref=e1097]: Quản trị
+              - img [ref=e1098]
+            - generic [ref=e1100]:
+              - link "Người dùng" [ref=e1101] [cursor=pointer]:
+                - /url: "#/admin/users"
+                - img [ref=e1102]
+                - generic [ref=e1114]: Người dùng
+              - link "Vai trò & Phân quyền" [ref=e1115] [cursor=pointer]:
+                - /url: "#/admin/roles"
+                - img [ref=e1116]
+                - generic [ref=e1120]: Vai trò & Phân quyền
+              - link "Cài đặt phòng khám" [ref=e1121] [cursor=pointer]:
+                - /url: "#/admin/settings"
+                - img [ref=e1122]
+                - generic [ref=e1124]: Cài đặt phòng khám
+              - link "Nhật ký hoạt động" [ref=e1125] [cursor=pointer]:
+                - /url: "#/admin/audit"
+                - img [ref=e1126]
+                - generic [ref=e1130]: Nhật ký hoạt động
+          - link "Cài đặt" [ref=e1131] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e1132]
+            - generic [ref=e1135]: Cài đặt
+          - generic [ref=e1136]:
+            - generic [ref=e1139]: Super Admin
+            - link "Tổng quan" [ref=e1141] [cursor=pointer]:
+              - /url: "#/superadmin"
+              - img [ref=e1142]
+              - generic [ref=e1144]: Tổng quan
+            - link "Phòng khám" [ref=e1145] [cursor=pointer]:
+              - /url: "#/superadmin/clinics"
+              - img [ref=e1146]
+              - generic [ref=e1150]: Phòng khám
+            - link "Tài khoản" [ref=e1151] [cursor=pointer]:
+              - /url: "#/superadmin/accounts"
+              - img [ref=e1152]
+              - generic [ref=e1157]: Tài khoản
+            - link "Audit Logs" [ref=e1158] [cursor=pointer]:
+              - /url: "#/superadmin/audit-logs"
+              - img [ref=e1159]
+              - generic [ref=e1162]: Audit Logs
+        - button "Thu nhỏ menu" [ref=e1164] [cursor=pointer]:
+          - generic [ref=e1165]: Thu nhỏ menu
+          - img [ref=e1166]
+      - generic [ref=e1168]:
+        - banner [ref=e1169]:
+          - button "Chuyển phòng khám" [ref=e1171] [cursor=pointer]:
+            - img [ref=e1173]
+            - generic [ref=e1177]: Platform System
+          - button "Open quick search (Ctrl+K)" [ref=e1178] [cursor=pointer]:
+            - img [ref=e1179]
+            - generic [ref=e1182]: Tìm kiếm
+            - generic [ref=e1183]: ⌘K
+          - generic [ref=e1184]:
+            - status "Online" [ref=e1185]:
+              - generic [ref=e1187]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e1354]': (!)
+            - button "Thông báo" [ref=e1190] [cursor=pointer]:
+              - img [ref=e1191]
+            - button "VI" [ref=e1194] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e1195] [cursor=pointer]:
+              - img [ref=e1196]
+            - button "Chọn giao diện màu" [ref=e1198] [cursor=pointer]:
+              - img [ref=e1199]
+            - button "Menu người dùng" [ref=e1205] [cursor=pointer]:
+              - generic [ref=e1206]: SA
+              - generic [ref=e1207]: super_admin
+        - navigation "Breadcrumb" [ref=e1343]:
+          - link "Home" [ref=e1344] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e1345]
+          - generic [ref=e1348]:
+            - img [ref=e1349]
+            - generic [ref=e1351]: Superadmin
+        - main [ref=e1208]:
+          - generic [ref=e1355]:
+            - generic [ref=e1356]:
+              - heading "Super Admin — Tổng quan hệ thống" [level=1] [ref=e1357]
+              - paragraph [ref=e1358]: Quản lý toàn bộ phòng khám và tài khoản trên nền tảng
+            - generic [ref=e1359]:
+              - generic [ref=e1360]:
+                - img [ref=e1362]
+                - generic [ref=e1366]:
+                  - paragraph [ref=e1367]: Tổng phòng khám
+                  - paragraph [ref=e1368]: "1283"
+              - generic [ref=e1369]:
+                - img [ref=e1371]
+                - generic [ref=e1376]:
+                  - paragraph [ref=e1377]: Tổng tài khoản
+                  - paragraph [ref=e1378]: "1832"
+              - generic [ref=e1379]:
+                - img [ref=e1381]
+                - generic [ref=e1383]:
+                  - paragraph [ref=e1384]: Đang hoạt động
+                  - paragraph [ref=e1385]: "1832"
+              - generic [ref=e1386]:
+                - img [ref=e1388]
+                - generic [ref=e1391]:
+                  - paragraph [ref=e1392]: Tài khoản bị khóa
+                  - paragraph [ref=e1393]: "1"
+            - generic [ref=e1394]:
+              - generic [ref=e1395]:
+                - img [ref=e1396]
+                - generic [ref=e1398]: Cảnh báo hệ thống
+              - list [ref=e1399]:
+                - listitem [ref=e1400]:
+                  - text: 1 phòng khám không hoạt động —
+                  - link "Xem danh sách" [ref=e1401] [cursor=pointer]:
+                    - /url: "#/superadmin/clinics"
+                - listitem [ref=e1402]:
+                  - text: 1 tài khoản bị khóa —
+                  - link "Xem danh sách" [ref=e1403] [cursor=pointer]:
+                    - /url: "#/superadmin/accounts"
+            - generic [ref=e1404]:
+              - heading "5 phòng khám mới nhất" [level=2] [ref=e1405]
+              - table [ref=e1407]:
+                - rowgroup [ref=e1408]:
+                  - row "Tên phòng khám Mã Chuyên khoa Trạng thái Ngày tạo" [ref=e1409]:
+                    - columnheader "Tên phòng khám" [ref=e1410]
+                    - columnheader "Mã" [ref=e1411]
+                    - columnheader "Chuyên khoa" [ref=e1412]
+                    - columnheader "Trạng thái" [ref=e1413]
+                    - columnheader "Ngày tạo" [ref=e1414]
+                - rowgroup [ref=e1415]:
+                  - row "Tag E2E Clinic F66E88 TAGF66E88 general Hoạt động 31/05/2026" [ref=e1416]:
+                    - cell "Tag E2E Clinic F66E88" [ref=e1417]
+                    - cell "TAGF66E88" [ref=e1418]
+                    - cell "general" [ref=e1419]
+                    - cell "Hoạt động" [ref=e1420]:
+                      - generic [ref=e1421]: Hoạt động
+                    - cell "31/05/2026" [ref=e1422]
+                  - row "Tag E2E Clinic 44ADB1 TAG44ADB1 general Hoạt động 31/05/2026" [ref=e1423]:
+                    - cell "Tag E2E Clinic 44ADB1" [ref=e1424]
+                    - cell "TAG44ADB1" [ref=e1425]
+                    - cell "general" [ref=e1426]
+                    - cell "Hoạt động" [ref=e1427]:
+                      - generic [ref=e1428]: Hoạt động
+                    - cell "31/05/2026" [ref=e1429]
+                  - row "Tag E2E Clinic 837566 TAG837566 general Hoạt động 31/05/2026" [ref=e1430]:
+                    - cell "Tag E2E Clinic 837566" [ref=e1431]
+                    - cell "TAG837566" [ref=e1432]
+                    - cell "general" [ref=e1433]
+                    - cell "Hoạt động" [ref=e1434]:
+                      - generic [ref=e1435]: Hoạt động
+                    - cell "31/05/2026" [ref=e1436]
+                  - row "Tag E2E Clinic 50882A TAG50882A general Hoạt động 31/05/2026" [ref=e1437]:
+                    - cell "Tag E2E Clinic 50882A" [ref=e1438]
+                    - cell "TAG50882A" [ref=e1439]
+                    - cell "general" [ref=e1440]
+                    - cell "Hoạt động" [ref=e1441]:
+                      - generic [ref=e1442]: Hoạt động
+                    - cell "31/05/2026" [ref=e1443]
+                  - row "Tag E2E Clinic 49021F TAG49021F general Hoạt động 31/05/2026" [ref=e1444]:
+                    - cell "Tag E2E Clinic 49021F" [ref=e1445]
+                    - cell "TAG49021F" [ref=e1446]
+                    - cell "general" [ref=e1447]
+                    - cell "Hoạt động" [ref=e1448]:
+                      - generic [ref=e1449]: Hoạt động
+                    - cell "31/05/2026" [ref=e1450]
+    - region "Notifications alt+T"
+  - generic [ref=e541]: "40"

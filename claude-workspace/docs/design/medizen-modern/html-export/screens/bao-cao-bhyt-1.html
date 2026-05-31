@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo BHYT — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid #E2E8F0;
+        }
+        .funnel-step::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 0;
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 20px solid currentColor;
+            z-index: 10;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Báo cáo BHYT — MediZen</strong></span>
+    <span>ID: 0b6214575af0401a8f8b96402e3c0d70</span>
+    <span>2560×3646 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col fixed left-0 top-0 h-full py-4 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-[240px] z-50 transition-all duration-200 ease-in-out font-['Inter'] text-sm font-medium">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 bg-gradient-to-tr from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-200">
+<span class="material-symbols-outlined text-white text-xl">medical_services</span>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold text-indigo-600 dark:text-indigo-400 text-xl tracking-tight">MediZen</span>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>BHYT Claims</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Patient Queue</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-indigo-600 bg-indigo-50/50 border-r-4 border-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Reporting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-indigo-600 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-indigo-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-md shadow-indigo-100 hover:bg-indigo-700 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Claim
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="ml-[240px] min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-6 sticky top-0 z-40 h-14 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm shadow-indigo-500/5 font-['Plus_Jakarta_Sans'] text-base font-semibold">
+<div class="flex items-center gap-4">
+<div class="text-slate-400 font-normal flex items-center gap-2">
+<span>Báo cáo</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-indigo-600 font-semibold">BHYT</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-50 border-transparent rounded-full text-sm w-64 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white border focus:border-indigo-200 transition-all outline-none" placeholder="Tìm kiếm (⌘K)" type="text"/>
+</div>
+<div class="flex items-center gap-4 text-slate-500">
+<button class="hover:text-indigo-600 transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-indigo-600 transition-colors"><span class="material-symbols-outlined">help</span></button>
+<button class="hover:text-indigo-600 transition-colors"><span class="material-symbols-outlined">apps</span></button>
+<div class="h-8 w-px bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<img class="w-8 h-8 rounded-full border border-slate-200" data-alt="A professional headshot of a Vietnamese doctor named Dr. Nguyen, wearing a clean white lab coat and a stethoscope. He has a friendly, trustworthy expression. The background is a blurred, bright clinical office with soft lighting and a modern, high-key aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuJ3sKGIogGN6NskeO59JjS7FIrr31-1Gd8w3H8P7q9YAIJeou_owPdgzgxhlf4Muue1itupPk1zUA5VvrDU18_Oxj4NmAdXOMx-S5G5AdB7PiXpo_s26sGxIT8xeHTPbaPyuaRNEIQdOVZ8lAFSIjRlfZHHwzb3db1Z63CLtq_WpYy4t9yTwdrBZLUloGN7npy-O9J-FrTl1e03EzPAummQJKGW7q7fdfghb9VtVLFdrA5f3h9IvpI9ffchQiktCXBpC0kr-O8zg"/>
+<div class="flex flex-col items-start leading-none">
+<span class="text-sm font-bold text-slate-800 group-hover:text-indigo-600">Dr. Nguyen</span>
+<span class="text-[10px] text-slate-400 font-medium">Phòng khám A</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Filter Bar -->
+<div class="bg-white border-b border-slate-200 px-6 py-3 flex items-center justify-between sticky top-14 z-30">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 rounded-lg border border-slate-200 text-sm font-medium cursor-pointer hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-indigo-600 text-lg">calendar_today</span>
+<span>Tháng 4/2026</span>
+</div>
+<select class="bg-slate-50 border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:ring-indigo-500/20 border transition-all cursor-pointer">
+<option>Đối tượng BHYT</option>
+<option>Công nhân viên</option>
+<option>Trẻ em</option>
+<option>Hưu trí</option>
+</select>
+<select class="bg-slate-50 border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:ring-indigo-500/20 border transition-all cursor-pointer">
+<option>Tuyến</option>
+<option>Đúng tuyến</option>
+<option>Trái tuyến</option>
+</select>
+<select class="bg-slate-50 border-slate-200 rounded-lg text-sm px-3 py-1.5 focus:ring-indigo-500/20 border transition-all cursor-pointer">
+<option>Status</option>
+<option>Đã duyệt</option>
+<option>Từ chối</option>
+<option>Chờ xử lý</option>
+</select>
+</div>
+<button class="flex items-center gap-2 px-4 py-1.5 bg-white border border-indigo-200 text-indigo-600 rounded-lg text-sm font-semibold hover:bg-indigo-50 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg">download</span>
+                Xuất Excel
+            </button>
+</div>
+<!-- Tab Strip -->
+<div class="px-6 bg-white border-b border-slate-200 overflow-x-auto whitespace-nowrap">
+<div class="flex gap-8">
+<button class="py-3 text-slate-500 font-semibold border-b-2 border-transparent hover:text-slate-800 transition-all">Tổng quan</button>
+<button class="py-3 text-slate-500 font-semibold border-b-2 border-transparent hover:text-slate-800 transition-all">Tài chính</button>
+<button class="py-3 text-slate-500 font-semibold border-b-2 border-transparent hover:text-slate-800 transition-all">Lâm sàng</button>
+<button class="py-3 text-slate-500 font-semibold border-b-2 border-transparent hover:text-slate-800 transition-all">Vận hành</button>
+<button class="py-3 text-slate-500 font-semibold border-b-2 border-transparent hover:text-slate-800 transition-all">Dược</button>
+<button class="py-3 text-indigo-600 font-bold border-b-2 border-indigo-600 relative">
+                    BHYT
+                    <span class="absolute -top-1 -right-2 w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+</button>
+</div>
+</div>
+<!-- Dashboard Canvas -->
+<main class="p-6 space-y-6">
+<!-- KPI Row -->
+<div class="grid grid-cols-4 gap-6">
+<!-- KPI 1 -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-clinical">
+<div class="flex justify-between items-start mb-2">
+<span class="text-sm font-medium text-slate-500">Tỉ lệ duyệt VSS</span>
+<span class="text-xs font-bold text-success flex items-center bg-success/10 px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs">trending_up</span> 1.2%
+                        </span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-3xl font-bold font-jakarta">94.6%</div>
+<div class="w-24 h-6 mt-2">
+<svg class="w-full h-full stroke-indigo-500 fill-none stroke-[2]" viewbox="0 0 100 20">
+<path d="M0,15 L10,12 L20,18 L30,10 L40,14 L50,8 L60,11 L70,5 L80,9 L90,3 L100,6"></path>
+</svg>
+</div>
+</div>
+<div class="text-xs text-slate-400">vs Tháng 3</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-clinical">
+<div class="flex justify-between items-start mb-2">
+<span class="text-sm font-medium text-slate-500">Avg time to approve</span>
+<span class="material-symbols-outlined text-success text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-3xl font-bold font-jakarta">2.8 ngày</div>
+<div class="text-xs text-slate-400 mt-2">Target ≤ 3.0 ngày</div>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-clinical">
+<div class="flex justify-between items-start mb-2">
+<span class="text-sm font-medium text-slate-500">Tổng tiền BHYT chi trả</span>
+<span class="text-xs font-bold text-success flex items-center bg-success/10 px-1.5 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs">trending_up</span> 12.4%
+                        </span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-2xl font-bold font-jakarta leading-tight">₫848.4M</div>
+<div class="text-xs text-slate-400 mt-2">Tổng quyết toán tháng</div>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-clinical border-l-4 border-l-danger">
+<div class="flex justify-between items-start mb-2">
+<span class="text-sm font-medium text-slate-500">Đơn pending VSS</span>
+<span class="text-[10px] font-bold text-white bg-danger px-2 py-0.5 rounded-full">8 quá hạn 7 ngày</span>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-3xl font-bold font-jakarta">47 đơn</div>
+<div class="text-xs text-slate-400 mt-2">Đang chờ cổng BHXH</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Funnel Section -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-clinical overflow-hidden relative">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-lg font-bold font-jakarta">Funnel duyệt hồ sơ BHYT</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-amber-400"></span>
+<span class="text-xs font-semibold text-slate-600">Rejected: 222</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-sky-400"></span>
+<span class="text-xs font-semibold text-slate-600">Pending: 47</span>
+</div>
+</div>
+</div>
+<div class="flex w-full gap-1 h-32 items-center">
+<!-- Stage 1 -->
+<div class="flex-1 bg-indigo-500 text-white p-4 h-full flex flex-col justify-center relative clip-funnel-start" style="clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);">
+<span class="text-[10px] opacity-80 font-bold uppercase tracking-wider">Submit</span>
+<span class="text-xl font-bold">100%</span>
+<span class="text-xs">4.124 đơn</span>
+</div>
+<!-- Stage 2 -->
+<div class="flex-1 bg-indigo-400 text-white p-4 h-full flex flex-col justify-center relative -ml-4 pl-8" style="clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);">
+<span class="text-[10px] opacity-80 font-bold uppercase tracking-wider">Validation pass</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-bold">96.8%</span>
+<span class="text-[10px] text-indigo-100">(-3.2% lỗi)</span>
+</div>
+<span class="text-xs">3.992 đơn</span>
+</div>
+<!-- Stage 3 -->
+<div class="flex-1 bg-indigo-300 text-indigo-900 p-4 h-full flex flex-col justify-center relative -ml-4 pl-8" style="clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);">
+<span class="text-[10px] opacity-60 font-bold uppercase tracking-wider">Pending VSS</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-bold">96.5%</span>
+<span class="text-[10px] text-indigo-700">(-0.3% drop)</span>
+</div>
+<span class="text-xs">3.981 đơn</span>
+</div>
+<!-- Stage 4 -->
+<div class="flex-1 bg-emerald-500 text-white p-4 h-full flex flex-col justify-center -ml-4 pl-8 rounded-r-xl" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
+<span class="text-[10px] opacity-80 font-bold uppercase tracking-wider">Approved</span>
+<div class="flex items-baseline gap-2">
+<span class="text-xl font-bold">94.6%</span>
+<span class="text-[10px] text-emerald-100">(-1.9% reject)</span>
+</div>
+<span class="text-xs">3.902 đơn</span>
+</div>
+</div>
+</div>
+<!-- Charts Row 1 -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-clinical">
+<h3 class="text-base font-bold font-jakarta mb-6">Top 10 lý do từ chối</h3>
+<div class="space-y-4">
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-semibold">
+<span>Thẻ hết hạn</span>
+<span class="text-indigo-600">28%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-semibold">
+<span>Sai tuyến</span>
+<span class="text-indigo-600">22%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-semibold">
+<span>Mã ICD không khớp</span>
+<span class="text-indigo-600">18%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 18%"></div>
+</div>
+</div>
+<div class="space-y-1.5">
+<div class="flex justify-between text-xs font-semibold">
+<span>Trùng đơn</span>
+<span class="text-indigo-600">12%</span>
+</div>
+<div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-clinical flex flex-col">
+<h3 class="text-base font-bold font-jakarta mb-6">Trend tỉ lệ duyệt 12 tháng</h3>
+<div class="flex-1 relative mt-4">
+<!-- Chart Mockup SVG -->
+<svg class="w-full h-full overflow-visible" viewbox="0 0 400 150">
+<!-- Target Line -->
+<line stroke="#EF4444" stroke-dasharray="4,4" stroke-width="1" x1="0" x2="400" y1="30" y2="30"></line>
+<text fill="#EF4444" font-size="10" font-weight="bold" x="360" y="25">Target 95%</text>
+<!-- Area/Line Chart -->
+<path d="M0,130 L40,110 L80,115 L120,105 L160,95 L200,85 L240,90 L280,75 L320,65 L360,55 L400,45" fill="none" stroke="#6366F1" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="400" cy="45" fill="#6366F1" r="4"></circle>
+<!-- Highlight Gap -->
+<rect fill="#EF4444" fill-opacity="0.1" height="15" width="15" x="385" y="30"></rect>
+<!-- X Axis -->
+<g class="text-[8px] fill-slate-400">
+<text x="0" y="145">T5/25</text>
+<text x="100" y="145">T8/25</text>
+<text x="200" y="145">T11/25</text>
+<text x="300" y="145">T2/26</text>
+<text x="375" y="145">T4/26</text>
+</g>
+</svg>
+</div>
+<div class="mt-4 flex items-center justify-center gap-4">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-indigo-500"></span>
+<span class="text-[10px] font-semibold text-slate-500 uppercase">Thực tế</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 border-t border-dashed border-danger"></span>
+<span class="text-[10px] font-semibold text-slate-500 uppercase">Mục tiêu</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Row 2 -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Donut Chart Area -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-clinical flex flex-col">
+<h3 class="text-base font-bold font-jakarta mb-6">Phân bố mức hưởng</h3>
+<div class="flex items-center gap-8 py-4">
+<div class="relative w-40 h-40">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#E2E8F0" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#10B981" stroke-dasharray="45 251" stroke-dashoffset="0" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#6366F1" stroke-dasharray="55 251" stroke-dashoffset="-45" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#0EA5E9" stroke-dasharray="140 251" stroke-dashoffset="-100" stroke-width="12"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#F59E0B" stroke-dasharray="11 251" stroke-dashoffset="-240" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-2xl font-bold font-jakarta">100%</span>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Tổng hồ sơ</span>
+</div>
+</div>
+<div class="flex-1 space-y-3">
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> 100%</div>
+<span class="font-bold">18%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> 95%</div>
+<span class="font-bold">22%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> 80%</div>
+<span class="font-bold">56%</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> 60% trái tuyến</div>
+<span class="font-bold">4%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pyramid/Stacked Chart -->
+<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-clinical">
+<h3 class="text-base font-bold font-jakarta mb-6">Phân tích BN BHYT theo nhóm</h3>
+<div class="space-y-6 mt-4">
+<div class="relative">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-slate-600">Đúng tuyến</span>
+<span>88% / 3,632 BN</span>
+</div>
+<div class="h-6 bg-indigo-500 rounded-lg flex items-center px-3">
+<div class="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white" style="width: 88%"></div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="flex justify-between text-xs font-bold mb-2">
+<span class="text-slate-600">Trái tuyến hợp lệ</span>
+<span>8% / 328 BN</span>
+</div>
+<div class="h-6 bg-indigo-400 rounded-lg flex items-center px-3">
+<div class="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white" style="width: 40%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Cấp cứu</span>
+<div class="text-lg font-bold">3% (124)</div>
+</div>
+<div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Chuyển viện</span>
+<div class="text-lg font-bold">1% (40)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tables Row -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Pending Table -->
+<div class="bg-white rounded-2xl border border-slate-200 shadow-clinical overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+<h3 class="text-base font-bold font-jakarta">Đơn pending &gt;7 ngày</h3>
+<span class="bg-danger/10 text-danger text-[10px] font-bold px-2 py-0.5 rounded-full">Cần xử lý ngay</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 text-slate-500 font-semibold border-b border-slate-100">
+<tr>
+<th class="px-6 py-3">Mã đơn</th>
+<th class="px-6 py-3">BN</th>
+<th class="px-6 py-3">Ngày</th>
+<th class="px-6 py-3">Tiền</th>
+<th class="px-6 py-3">PK</th>
+<th class="px-6 py-3">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 font-bold text-indigo-600">CL-2026-0892</td>
+<td class="px-6 py-4">Lê Hoàng</td>
+<td class="px-6 py-4">21/04</td>
+<td class="px-6 py-4 font-semibold">₫1.2M</td>
+<td class="px-6 py-4">P. Nội</td>
+<td class="px-6 py-4 text-danger font-bold cursor-pointer hover:underline">Liên hệ VSS</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 font-bold text-indigo-600">CL-2026-0856</td>
+<td class="px-6 py-4">Trần Thu</td>
+<td class="px-6 py-4">22/04</td>
+<td class="px-6 py-4 font-semibold">₫860k</td>
+<td class="px-6 py-4">P. Nhi</td>
+<td class="px-6 py-4 text-warning font-bold cursor-pointer hover:underline">Bổ sung CCCD</td>
+</tr>
+<!-- Dummy Rows -->
+<tr class="hover:bg-indigo-50/30 transition-colors opacity-80">
+<td class="px-6 py-3 font-bold text-indigo-600">CL-2026-0741</td>
+<td class="px-6 py-3">Phan Mỹ</td>
+<td class="px-6 py-3">20/04</td>
+<td class="px-6 py-3">₫450k</td>
+<td class="px-6 py-3">Nha khoa</td>
+<td class="px-6 py-3 text-slate-400 font-bold">Re-syncing</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors opacity-80">
+<td class="px-6 py-3 font-bold text-indigo-600">CL-2026-0712</td>
+<td class="px-6 py-3">Ngô Văn</td>
+<td class="px-6 py-3">19/04</td>
+<td class="px-6 py-3">₫2.1M</td>
+<td class="px-6 py-3">X-Quang</td>
+<td class="px-6 py-3 text-danger font-bold">Liên hệ VSS</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Rejected Table -->
+<div class="bg-white rounded-2xl border border-slate-200 shadow-clinical overflow-hidden">
+<div class="px-6 py-4 border-b border-slate-100">
+<h3 class="text-base font-bold font-jakarta">Đơn rejected gần đây</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 text-slate-500 font-semibold border-b border-slate-100">
+<tr>
+<th class="px-6 py-3">Mã đơn</th>
+<th class="px-6 py-3">BN</th>
+<th class="px-6 py-3">Tiền</th>
+<th class="px-6 py-3">Lý do</th>
+<th class="px-6 py-3">Xử lý</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 font-bold text-indigo-600">CL-0945</td>
+<td class="px-6 py-4">Nguyễn Hà</td>
+<td class="px-6 py-4 font-semibold">₫564k</td>
+<td class="px-6 py-4 text-xs text-danger font-medium">Thẻ BHYT hết hạn 28/03</td>
+<td class="px-6 py-4 text-indigo-600 text-[11px] font-bold">Tư vấn gia hạn</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors">
+<td class="px-6 py-4 font-bold text-indigo-600">CL-0932</td>
+<td class="px-6 py-4">Vũ Tùng</td>
+<td class="px-6 py-4 font-semibold">₫120k</td>
+<td class="px-6 py-4 text-xs text-danger font-medium">Sai mã định danh thuốc</td>
+<td class="px-6 py-4 text-indigo-600 text-[11px] font-bold">Update Master Data</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors opacity-80">
+<td class="px-6 py-3 font-bold text-indigo-600">CL-0911</td>
+<td class="px-6 py-3">Đỗ Mai</td>
+<td class="px-6 py-3">₫98k</td>
+<td class="px-6 py-3 text-xs text-danger font-medium">Trùng lặp kỹ thuật</td>
+<td class="px-6 py-3 text-indigo-600 text-[11px] font-bold">Xóa hồ sơ lỗi</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 transition-colors opacity-80">
+<td class="px-6 py-3 font-bold text-indigo-600">CL-0899</td>
+<td class="px-6 py-3">Lê Bình</td>
+<td class="px-6 py-3">₫3.4M</td>
+<td class="px-6 py-3 text-xs text-danger font-medium">Sai quy trình cấp cứu</td>
+<td class="px-6 py-3 text-indigo-600 text-[11px] font-bold">Review lâm sàng</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Info Bar -->
+<footer class="bg-indigo-900 text-indigo-100 px-6 py-2 flex justify-between items-center text-xs font-medium">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-emerald-400">sync</span>
+<span>Sync history với VSS API: <strong class="text-white">09:48 hôm nay</strong></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>287 records synced (0 conflicts)</span>
+</div>
+<div class="flex items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-sm">update</span>
+<span>Next: 10:48</span>
+</div>
+</div>
+<a class="flex items-center gap-1 hover:text-white transition-colors" href="#">
+                Xem full sync log
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</footer>
+</div>
+
+</body>
+</html>

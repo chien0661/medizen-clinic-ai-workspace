@@ -1,0 +1,552 @@
+- generic:
+  - generic:
+    - generic:
+      - complementary:
+        - generic:
+          - img
+          - generic: MediZen
+        - navigation:
+          - generic:
+            - generic:
+              - generic: Super Admin
+            - link:
+              - /url: "#/superadmin"
+              - img
+              - generic: Tổng quan
+            - link:
+              - /url: "#/superadmin/analytics"
+              - img
+              - generic: Thống kê
+            - link:
+              - /url: "#/superadmin/clinics"
+              - img
+              - generic: Phòng khám
+            - link:
+              - /url: "#/superadmin/accounts"
+              - img
+              - generic: Tài khoản
+            - link:
+              - /url: "#/superadmin/audit-logs"
+              - img
+              - generic: Audit Logs
+        - generic:
+          - button:
+            - generic: Thu nhỏ menu
+            - img
+      - generic:
+        - banner:
+          - generic:
+            - button:
+              - generic:
+                - img
+              - generic: Platform System
+          - button:
+            - img
+            - generic: Tìm kiếm
+            - generic: ⌘K
+          - generic:
+            - status "Online":
+              - generic: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context."': (!)
+            - generic:
+              - button:
+                - img
+            - button: VI
+            - button:
+              - img
+            - button:
+              - img
+            - button [expanded]:
+              - generic: SA
+              - generic: super_admin
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+          - generic:
+            - img
+            - link:
+              - /url: "#/superadmin"
+              - text: Superadmin
+          - generic:
+            - img
+            - generic: Analytics
+        - main:
+          - generic:
+            - generic:
+              - heading [level=1]: Thống kê phòng khám
+              - paragraph: Xem chỉ số hoạt động theo thời gian — toàn hệ thống hoặc từng phòng khám
+            - generic:
+              - generic:
+                - generic: Phòng khám
+                - combobox
+              - generic:
+                - generic: Bộ lọc nhanh
+                - generic:
+                  - button: Hôm nay
+                  - button: 7 ngày
+                  - button: 30 ngày
+                  - button: Tháng này
+                  - button: Năm này
+              - generic:
+                - generic: Từ ngày
+                - textbox: 2026-05-02
+              - generic:
+                - generic: Đến ngày
+                - textbox: 2026-05-31
+              - generic:
+                - generic: Granularity
+                - generic:
+                  - button: Ngày
+                  - button: Tuần
+                  - button: Tháng
+                  - button: Năm
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Tổng lượt khám
+                  - paragraph: "7"
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Tổng doanh thu
+                  - paragraph: 25.008.909.975 ₫
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Lượt khám TB/ngày
+                  - paragraph: "0"
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Lượt khám TB/tháng
+                  - paragraph: "7"
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Bệnh nhân mới
+                  - paragraph: "314"
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Bệnh nhân tái khám
+                  - paragraph: "0"
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: Doanh thu TB/lượt khám
+                  - paragraph: 3.572.701.425 ₫
+            - generic:
+              - generic:
+                - heading [level=2]: Xu hướng theo thời gian
+                - generic:
+                  - button: Lượt khám
+                  - button: Doanh thu
+              - generic:
+                - generic:
+                  - generic:
+                    - application:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic: 2026-05-30
+                        - generic:
+                          - generic:
+                            - generic: "0"
+                          - generic:
+                            - generic: "2"
+                          - generic:
+                            - generic: "4"
+                          - generic:
+                            - generic: "6"
+                          - generic:
+                            - generic: "8"
+            - generic:
+              - heading [level=2]: So sánh phòng khám
+              - generic:
+                - table:
+                  - rowgroup:
+                    - row:
+                      - columnheader: Phòng khám
+                      - columnheader:
+                        - text: Lượt khám
+                        - img
+                      - columnheader: Doanh thu
+                      - columnheader: TB/ngày
+                      - columnheader: TB/tuần
+                      - columnheader: DT TB/tháng
+                  - rowgroup:
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 30916C
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 904190
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 449F65
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic DA4EFF
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 7F7B5A
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 732B07
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic A3CCDD
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 7D8FEF
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 18169E
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 009251
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Other Clinic
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic 3B56DD
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: AR Test Clinic D7B64A
+                      - cell: "0"
+                      - cell: 999.999.999 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 999.999.999 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 00C979
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 6AF011
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic BA1AC1
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic A64E62
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 80399D
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 0FD3D5
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 0EEB68
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 8E5F7C
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 71BB68
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Billing E2E Clinic 96ED3B
+                      - cell: "0"
+                      - cell: 500.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 500.000 ₫
+                    - row:
+                      - cell: Report Test Clinic B43018
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 2A5588
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 8D6B65
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic C895D4
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 09D098
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 6B4D00
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 32B2E1
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 65842D
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 84929F
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic C5EB54
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic FD866B
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 8C43B2
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Report Test Clinic 032326
+                      - cell: "0"
+                      - cell: 300.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 300.000 ₫
+                    - row:
+                      - cell: Phong kham MediZen Demo
+                      - cell: "0"
+                      - cell: 10.000 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 10.000 ₫
+                    - row:
+                      - cell: Gen-from-visit Clinic D1E923
+                      - cell: "0"
+                      - cell: 0 ₫
+                      - cell: "0.0"
+                      - cell: "0.0"
+                      - cell: 0 ₫
+    - region "Notifications alt+T"
+  - generic: "0"
+  - menu "Menu người dùng" [active] [ref=e1782]:
+    - paragraph [ref=e1785]: Super Admin
+    - separator [ref=e1786]
+    - menuitem "Thông tin cá nhân" [ref=e1787]:
+      - img [ref=e1788]
+      - text: Thông tin cá nhân
+    - menuitem "Đổi mật khẩu" [ref=e1791]:
+      - img [ref=e1792]
+      - text: Đổi mật khẩu
+    - separator [ref=e1795]
+    - menuitem "Đăng xuất" [ref=e1796]:
+      - img [ref=e1797]
+      - text: Đăng xuất

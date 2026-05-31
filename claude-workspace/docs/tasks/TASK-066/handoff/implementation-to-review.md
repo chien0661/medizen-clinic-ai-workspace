@@ -1,3 +1,52 @@
+# Handoff: TASK-066 → Code Review (Round 3 — BUG-066-001 Fix)
+
+**From**: Code Implementation Agent (FIX MODE)
+**To**: Code Review Agent
+**Status**: IN_REVIEW
+**Date**: 2026-05-31
+
+---
+
+## Round 3: BUG-066-001 Test Fixes Applied
+
+Fixed 2 stale FE unit tests from BUG-066-001. **Test-only changes — no production files touched.**
+
+### What Was Fixed
+
+File: `clinic-cms-web/src/tests/reports/ARAgingReportPage.test.tsx`
+
+**Root cause (3 interacting issues):**
+1. `vi.clearAllMocks()` in `beforeEach` cleared the module-level `mockRejectedValue`, leaving `api.get` returning `undefined` instead of a rejected Promise — query never settled.
+2. Component has `retry: 1` per-query which overrides `QueryClient.defaultOptions.retry: false`; React Query's default 1000ms retry delay exceeded `waitFor`'s 1000ms default timeout.
+3. Original test assertions tested old MOCK_DATA fallback behavior.
+
+**Fixes applied:**
+- `beforeEach`: now async; restores `api.get.mockRejectedValue(new Error("BE not available"))` after `clearAllMocks()`
+- `createQC()`: added `retryDelay: 0` to `defaultOptions.queries`
+- Test 1 renamed to `shows error state when BE unavailable`: asserts `data-testid="ar-aging-error"` visible, patient table NOT visible; `waitFor` timeout raised to 5000ms to accommodate `retry: 1`
+- Test 2 renamed to `renders patient data in table when API succeeds`: mocks `api.get.mockResolvedValueOnce` with fixture data; asserts patient name visible
+
+### Commit
+
+```
+fix(TASK-066): update ARAgingReportPage tests to expect error state instead of mock fallback
+```
+Branch: `feature/TASK-066-remove-mock-data` | Commit: `8269f5c`
+
+### Test Results
+
+```
+Test Files  88 passed (88)   [was: 1 failed | 87 passed]
+      Tests  914 passed (914) [was: 2 failed | 912 passed]
+```
+
+### Review Focus
+
+- `{ timeout: 5000 }` on the error-state `waitFor` — acceptable given component's built-in `retry: 1` with 1000ms backoff?
+- No production files were modified.
+
+---
+
 # Handoff: TASK-066 → Code Review (Re-submission after CHANGES_REQUESTED)
 
 **From**: Code Implementation Agent

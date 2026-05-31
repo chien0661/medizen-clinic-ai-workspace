@@ -1,0 +1,239 @@
+- generic:
+  - generic:
+    - generic:
+      - complementary:
+        - generic:
+          - img
+          - generic: MediZen
+        - navigation:
+          - link:
+            - /url: "#/dashboard"
+            - img
+            - generic: Tổng quan
+          - generic:
+            - button:
+              - img
+              - generic: Tiếp tân
+              - img
+            - generic:
+              - link:
+                - /url: "#/patients"
+                - img
+                - generic: Bệnh nhân
+              - link:
+                - /url: "#/appointments"
+                - img
+                - generic: Lịch hẹn
+              - link:
+                - /url: "#/queue"
+                - img
+                - generic: Hàng chờ
+          - generic:
+            - button:
+              - img
+              - generic: Nhà thuốc
+              - img
+          - generic:
+            - button:
+              - img
+              - generic: Thanh toán
+              - img
+          - generic:
+            - button:
+              - img
+              - generic: Báo cáo
+              - img
+          - link:
+            - /url: "#/notifications"
+            - img
+            - generic: Thông báo
+          - generic:
+            - button:
+              - img
+              - generic: Nhân sự
+              - img
+            - generic:
+              - link:
+                - /url: "#/hr/schedule"
+                - img
+                - generic: Lịch ca
+              - link:
+                - /url: "#/hr/me/timelog"
+                - img
+                - generic: Chấm công
+              - link:
+                - /url: "#/hr/leave/new"
+                - img
+                - generic: Nghỉ phép
+          - generic:
+            - button:
+              - img
+              - generic: Quản trị
+              - img
+          - link:
+            - /url: "#/settings"
+            - img
+            - generic: Cài đặt
+        - generic:
+          - button:
+            - generic: Thu nhỏ menu
+            - img
+      - generic:
+        - banner:
+          - button:
+            - img
+            - generic: Tìm kiếm
+            - generic: ⌘K
+          - generic:
+            - status "Online":
+              - generic: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context."': (!)
+            - generic:
+              - button:
+                - img
+            - button: VI
+            - button:
+              - img
+            - button [expanded]:
+              - img
+            - button:
+              - generic: "?"
+        - main:
+          - generic:
+            - generic:
+              - heading [level=1]: Tổng quan
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Lượt khám hôm nay
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+                  - generic:
+                    - img
+                    - text: —
+                - generic: so với hôm qua
+              - generic:
+                - generic:
+                  - generic: Doanh thu hôm nay
+                  - generic:
+                    - img
+                - generic:
+                  - generic: 0 ₫
+              - generic:
+                - generic:
+                  - generic: Chờ cấp phát
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+              - generic:
+                - generic:
+                  - generic: Cảnh báo kho
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+                - generic: "Tồn kho thấp: 0 · Sắp hết hạn: 0"
+              - generic:
+                - generic:
+                  - generic: Thông báo chưa đọc
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Hóa đơn chờ
+                  - generic:
+                    - img
+                - generic:
+                  - generic: "0"
+            - generic:
+              - heading [level=2]: Thao tác nhanh
+              - generic:
+                - button:
+                  - img
+                  - text: Khám mới (walk-in)
+                - button:
+                  - img
+                  - text: Đặt lịch
+                - button:
+                  - img
+                  - text: Tra cứu bệnh nhân
+            - generic:
+              - generic:
+                - heading [level=2]: Doanh thu 7 ngày
+                - generic:
+                  - generic:
+                    - generic:
+                      - application
+              - generic:
+                - heading [level=2]: Lượt khám theo giờ
+                - generic:
+                  - generic:
+                    - generic:
+                      - application
+            - generic:
+              - heading [level=2]: Chấm công
+              - generic:
+                - paragraph: Ca hôm nay
+                - paragraph: Không có ca hôm nay
+              - generic:
+                - button:
+                  - img
+                  - text: Thủ công
+                - button:
+                  - generic: PIN
+                  - text: Mã PIN
+                - button:
+                  - img
+                  - text: QR Code
+                - button:
+                  - img
+                  - text: Sinh trắc học
+              - generic:
+                - button:
+                  - img
+                  - text: Check-in
+    - region "Notifications alt+T"
+  - menu "Chọn giao diện màu" [active] [ref=e330]:
+    - generic [ref=e331]: Chọn giao diện
+    - listbox "Theme presets" [ref=e332]:
+      - option "Medical Blue Navy blue professional" [selected] [ref=e333] [cursor=pointer]:
+        - generic [ref=e338]:
+          - paragraph [ref=e339]: Medical Blue
+          - paragraph [ref=e340]: Navy blue professional
+        - img [ref=e341]
+      - option "Emerald Health Fresh green, health vibes" [ref=e343] [cursor=pointer]:
+        - generic [ref=e348]:
+          - paragraph [ref=e349]: Emerald Health
+          - paragraph [ref=e350]: Fresh green, health vibes
+      - option "Soft Lavender Soft purple, elegant clinics" [ref=e351] [cursor=pointer]:
+        - generic [ref=e356]:
+          - paragraph [ref=e357]: Soft Lavender
+          - paragraph [ref=e358]: Soft purple, elegant clinics
+      - option "Warm Coral Warm orange-pink, friendly" [ref=e359] [cursor=pointer]:
+        - generic [ref=e364]:
+          - paragraph [ref=e365]: Warm Coral
+          - paragraph [ref=e366]: Warm orange-pink, friendly
+      - option "Midnight Dark Dark mode, eye-friendly" [ref=e367] [cursor=pointer]:
+        - generic [ref=e372]:
+          - paragraph [ref=e373]: Midnight Dark
+          - paragraph [ref=e374]: Dark mode, eye-friendly
+      - option "Slate Professional Neutral blue-gray, formal" [ref=e375] [cursor=pointer]:
+        - generic [ref=e380]:
+          - paragraph [ref=e381]: Slate Professional
+          - paragraph [ref=e382]: Neutral blue-gray, formal
+    - separator [ref=e383]
+    - generic [ref=e384]:
+      - paragraph [ref=e385]: Màu chủ đạo tuỳ chỉnh
+      - generic [ref=e386]:
+        - textbox "Custom primary color" [ref=e387] [cursor=pointer]: "#00685f"
+        - generic [ref=e388]: Mặc định
+    - separator [ref=e389]
+    - button "Đặt lại mặc định" [ref=e390] [cursor=pointer]:
+      - img [ref=e391]
+      - text: Đặt lại mặc định

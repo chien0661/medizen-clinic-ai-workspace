@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 — Thanh toán hoá đơn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-dark: #3730A3;
+    --primary-light: #818CF8;
+    --secondary: #7C3AED;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --sidebar-bg: #1E1B4B;
+    --sidebar-active: #4F46E5;
+    --topbar-bg: #FFFFFF;
+    --border: #E5E7EB;
+    --border-light: #EDE9FE;
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --amber: #F59E0B;
+    --amber-dark: #D97706;
+    --amber-light: #FEF3C7;
+    --green: #10B981;
+    --green-light: #D1FAE5;
+    --red: #EF4444;
+    --red-light: #FEE2E2;
+    --indigo: #4F46E5;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+  }
+
+  html, body {
+    width: 1920px;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 240px;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.4);
+  }
+
+  .logo-text {
+    display: flex; flex-direction: column;
+  }
+
+  .logo-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-version {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-section {
+    padding: 16px 12px 8px;
+  }
+
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 8px;
+    margin-bottom: 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  .nav-item:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-item.active {
+    background: var(--sidebar-active);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  }
+
+  .nav-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nav-label {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+    flex: 1;
+  }
+
+  .nav-item.active .nav-label {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  .nav-item:hover .nav-label { color: rgba(255,255,255,0.9); }
+
+  .nav-badge {
+    background: var(--amber);
+    color: #FFF;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 20px;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  .nav-item.active .nav-badge { background: rgba(255,255,255,0.25); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .sidebar-user:hover { background: rgba(255,255,255,0.06); }
+
+  .user-avatar-sm {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EC4899, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    color: #FFF;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .user-info-sm {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .user-name-sm {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-role-sm {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    position: fixed;
+    left: 240px; right: 0; top: 0;
+    height: 56px;
+    background: var(--topbar-bg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 16px;
+    z-index: 90;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .breadcrumb-item {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .breadcrumb-sep { color: var(--text-muted); font-size: 12px; }
+
+  .breadcrumb-current {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar-date {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    background: var(--bg);
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid var(--border-light);
+  }
+
+  .topbar-btn {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .topbar-btn:hover { background: var(--bg); border-color: var(--border-light); }
+
+  .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 7px; height: 7px;
+    background: var(--red);
+    border-radius: 50%;
+    border: 1.5px solid #FFF;
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px 5px 5px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .topbar-user:hover { border-color: var(--primary-light); background: #F8F7FF; }
+
+  .user-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EC4899, #8B5CF6);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    color: #FFF;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .topbar-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .topbar-user-role {
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main-content {
+    margin-left: 240px;
+    margin-top: 56px;
+    padding: 28px;
+    min-height: calc(100vh - 56px);
+    background: var(--bg);
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .page-title-group {}
+
+  .page-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .page-subtitle {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .page-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .btn-outline {
+    background: var(--surface);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-outline:hover { border-color: var(--primary-light); color: var(--primary); background: #F8F7FF; }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #FFF;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.25);
+  }
+
+  .btn-primary:hover { background: var(--primary-dark); box-shadow: 0 4px 16px rgba(79,70,229,0.35); }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.15s;
+  }
+
+  .stat-card:hover { box-shadow: var(--shadow); transform: translateY(-1px); }
+
+  .stat-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.waiting { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
+  .stat-icon.paid { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); }
+  .stat-icon.revenue { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
+
+  .stat-body { flex: 1; }
+
+  .stat-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .stat-value.revenue-val { color: var(--primary); }
+
+  .stat-label {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  .stat-trend {
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .trend-up { background: var(--green-light); color: var(--green); }
+  .trend-amber { background: var(--amber-light); color: var(--amber-dark); }
+  .trend-indigo { background: #EDE9FE; color: var(--primary); }
+
+  /* ── 2-COL LAYOUT ── */
+  .billing-grid {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 18px 22px 14px;
+    border-bottom: 1px solid #F3F4F6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: #EDE9FE;
+    color: var(--primary);
+  }
+
+  .card-body { padding: 16px 22px; }
+
+  /* ── SEARCH & FILTER ── */
+  .search-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 11px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 9px 12px 9px 34px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: #FAFAFA;
+    transition: all 0.15s;
+    outline: none;
+  }
+
+  .search-input:focus {
+    border-color: var(--primary-light);
+    background: var(--surface);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.08);
+  }
+
+  .search-input::placeholder { color: var(--text-muted); }
+
+  .filter-chips {
+    display: flex;
+    gap: 6px;
+  }
+
+  .chip {
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .chip:hover { border-color: var(--primary-light); color: var(--primary); }
+
+  .chip.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #FFF;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.25);
+  }
+
+  /* ── PATIENT QUEUE LIST ── */
+  .patient-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .patient-card {
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .patient-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--border);
+    border-radius: 0 2px 2px 0;
+    transition: background 0.15s;
+  }
+
+  .patient-card:hover {
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(2px);
+  }
+
+  .patient-card:hover::before { background: var(--primary-light); }
+
+  .patient-card.selected {
+    border-color: var(--primary);
+    background: #F8F7FF;
+    box-shadow: 0 0 0 2px rgba(79,70,229,0.12);
+  }
+
+  .patient-card.selected::before { background: var(--primary); }
+
+  .patient-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 9px;
+  }
+
+  .patient-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .patient-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFF;
+    flex-shrink: 0;
+  }
+
+  .av-blue { background: linear-gradient(135deg, #3B82F6, #6366F1); }
+  .av-pink { background: linear-gradient(135deg, #EC4899, #F43F5E); }
+  .av-green { background: linear-gradient(135deg, #10B981, #059669); }
+  .av-orange { background: linear-gradient(135deg, #F59E0B, #EF4444); }
+  .av-purple { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+
+  .patient-name-group {}
+
+  .patient-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .patient-visit-time {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .visit-id { color: var(--primary); font-weight: 600; }
+
+  .patient-amount-wrap {
+    text-align: right;
+  }
+
+  .patient-amount {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.3px;
+  }
+
+  .patient-amount-label {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .patient-services {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .service-tag {
+    background: #F3F4F6;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: #4B5563;
+  }
+
+  .patient-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .insurance-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .insurance-bhyt {
+    background: #DBEAFE;
+    color: #1D4ED8;
+  }
+
+  .insurance-self {
+    background: #FEF3C7;
+    color: #92400E;
+  }
+
+  .btn-pay {
+    background: linear-gradient(135deg, var(--amber), #F97316);
+    color: #FFF;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 2px 8px rgba(245,158,11,0.3);
+  }
+
+  .btn-pay:hover {
+    background: linear-gradient(135deg, var(--amber-dark), #EA580C);
+    box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+    transform: translateY(-1px);
+  }
+
+  /* ── RIGHT PANEL ── */
+  .detail-panel {}
+
+  .detail-header {
+    background: linear-gradient(135deg, #F8F7FF, #EDE9FE);
+    border-bottom: 1px solid var(--border-light);
+    padding: 18px 22px 16px;
+  }
+
+  .detail-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .detail-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .detail-subtitle { color: var(--primary); font-weight: 600; }
+
+  .detail-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--amber-light);
+    color: var(--amber-dark);
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid #FDE68A;
+  }
+
+  .visit-info-strip {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .visit-info-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .visit-info-item strong { color: var(--text-primary); font-weight: 600; }
+
+  /* ── BILL TABLE ── */
+  .bill-section {
+    padding: 18px 22px 0;
+  }
+
+  .bill-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+  }
+
+  .bill-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+  }
+
+  .bill-table th {
+    padding: 9px 10px;
+    text-align: left;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #FAFAFA;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bill-table th:last-child { text-align: right; }
+  .bill-table td { padding: 10px 10px; border-bottom: 1px solid #F3F4F6; vertical-align: middle; }
+  .bill-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  .bill-table tr:last-child td { border-bottom: none; }
+
+  .bill-table tr:hover td { background: #FAFAFA; }
+
+  .service-name { font-weight: 600; color: var(--text-primary); }
+  .service-subtext { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  .amount-text { font-weight: 600; color: var(--text-primary); }
+  .amount-discount { color: var(--green); font-weight: 600; }
+  .amount-total { color: var(--primary); font-weight: 800; font-size: 14.5px; }
+
+  .bill-divider {
+    border: none;
+    border-top: 1.5px dashed var(--border-light);
+    margin: 4px 0;
+  }
+
+  .bill-subtotal-row td {
+    background: #F8F7FF !important;
+    border-top: 1.5px solid var(--border-light);
+    border-bottom: none !important;
+    padding: 11px 10px;
+  }
+
+  .bill-total-row td {
+    background: linear-gradient(135deg, #EDE9FE, #E0E7FF) !important;
+    border-top: 2px solid var(--primary-light);
+    padding: 13px 10px;
+  }
+
+  .bill-total-label {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary-dark);
+  }
+
+  .bill-total-amount {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.3px;
+  }
+
+  /* ── PAYMENT METHOD ── */
+  .payment-section {
+    padding: 16px 22px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .payment-method-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .pay-method {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+    background: var(--surface);
+  }
+
+  .pay-method:hover { border-color: var(--primary-light); }
+
+  .pay-method.selected {
+    border-color: var(--primary);
+    background: #F8F7FF;
+    box-shadow: 0 0 0 2px rgba(79,70,229,0.1);
+  }
+
+  .radio-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+
+  .pay-method.selected .radio-dot { border-color: var(--primary); }
+
+  .radio-inner {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    display: none;
+  }
+
+  .pay-method.selected .radio-inner { display: block; }
+
+  .pay-method-icon { font-size: 18px; }
+
+  .pay-method-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .pay-method.selected .pay-method-label { color: var(--primary); }
+
+  /* ── AMOUNT INPUT ── */
+  .amount-input-section {
+    background: #FAFAFA;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-light);
+  }
+
+  .amount-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .amount-input-wrap {
+    flex: 1;
+  }
+
+  .amount-input-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+  }
+
+  .amount-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--primary-light);
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--surface);
+    outline: none;
+    text-align: right;
+    transition: all 0.15s;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.06);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .amount-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.12);
+  }
+
+  .change-arrow {
+    font-size: 22px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .change-wrap {
+    flex: 1;
+    background: var(--green-light);
+    border-radius: 9px;
+    padding: 10px 14px;
+    border: 1.5px solid #A7F3D0;
+  }
+
+  .change-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #065F46;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .change-amount {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--green);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── CONFIRM BUTTON ── */
+  .confirm-btn-wrap {
+    padding: 0 22px 20px;
+  }
+
+  .btn-confirm {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #FFF;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 20px rgba(79,70,229,0.3);
+    letter-spacing: 0.2px;
+  }
+
+  .btn-confirm:hover {
+    background: linear-gradient(135deg, var(--primary-dark), #6D28D9);
+    box-shadow: 0 8px 24px rgba(79,70,229,0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-confirm:active { transform: translateY(0); }
+
+  /* ── NOTE STRIP ── */
+  .note-strip {
+    margin: 0 22px 16px;
+    padding: 10px 14px;
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #92400E;
+    font-weight: 500;
+  }
+
+  .note-strip-icon { font-size: 14px; flex-shrink: 0; margin-top: 0.5px; }
+
+  /* ── SCROLLABLE LIST ── */
+  .patient-list-scroll {
+    max-height: 610px;
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+
+  .patient-list-scroll::-webkit-scrollbar { width: 5px; }
+  .patient-list-scroll::-webkit-scrollbar-track { background: transparent; }
+  .patient-list-scroll::-webkit-scrollbar-thumb { background: #DDD6FE; border-radius: 10px; }
+
+  /* ── RIGHT SCROLL ── */
+  .detail-scroll {
+    max-height: calc(100vh - 56px - 56px - 130px);
+    overflow-y: auto;
+  }
+
+  .detail-scroll::-webkit-scrollbar { width: 5px; }
+  .detail-scroll::-webkit-scrollbar-track { background: transparent; }
+  .detail-scroll::-webkit-scrollbar-thumb { background: #DDD6FE; border-radius: 10px; }
+
+  /* ── SEPARATOR ── */
+  .sep {
+    color: var(--text-muted);
+    font-size: 11px;
+    padding: 0 2px;
+  }
+
+  /* qty cell */
+  .qty-cell { color: var(--text-secondary); font-weight: 500; text-align: center !important; }
+
+  /* bill table th center */
+  .bill-table th.center { text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" class="logo-brand" style="text-decoration:none;">
+      <div class="logo-icon">🏥</div>
+      <div class="logo-text">
+        <span class="logo-name">MediZen</span>
+        <span class="logo-version">VERSION 2.0</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Tổng quan</div>
+    <a class="nav-item" href="04-dashboard-le-tan.html">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Tổng quan</span>
+    </a>
+    <a class="nav-item" href="14-lich-hen.html">
+      <span class="nav-icon">📅</span>
+      <span class="nav-label">Lịch hẹn hôm nay</span>
+      <span class="nav-badge">12</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Khám bệnh</div>
+    <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Bệnh nhân</span>
+    </a>
+    <a class="nav-item" href="13-phong-cho-queue.html">
+      <span class="nav-icon">🕐</span>
+      <span class="nav-label">Phòng chờ</span>
+    </a>
+    <a class="nav-item" href="15-emr-sinh-hieu.html">
+      <span class="nav-icon">🩺</span>
+      <span class="nav-label">Khám bệnh</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🔬</span>
+      <span class="nav-label">Xét nghiệm &amp; CĐHA</span>
+    </a>
+    <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+      <span class="nav-icon">💊</span>
+      <span class="nav-label">Dược</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Vận hành</div>
+    <a class="nav-item active" href="24-thanh-toan.html">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">Thanh toán</span>
+      <span class="nav-badge">8</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🏪</span>
+      <span class="nav-label">Dược phẩm</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">📦</span>
+      <span class="nav-label">Kho vật tư</span>
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Báo cáo</span>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Hệ thống</div>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Quản lý người dùng</span>
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Cấu hình</span>
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar-sm">H</div>
+      <div class="user-info-sm">
+        <div class="user-name-sm">Lê Thị Hoa</div>
+        <div class="user-role-sm">Lễ tân</div>
+      </div>
+      <span style="font-size:14px; color:rgba(255,255,255,0.3);">⚙️</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════════════════ TOPBAR -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span class="breadcrumb-item">🏥 MediZen</span>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-item">Vận hành</span>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">💳 Thanh toán hoá đơn</span>
+  </div>
+  <div class="topbar-actions">
+    <div class="topbar-date">📅 Thứ Bảy, 31/05/2026</div>
+    <div class="topbar-btn">
+      🔔
+      <div class="notif-dot"></div>
+    </div>
+    <div class="topbar-btn">❓</div>
+    <div class="topbar-user">
+      <div class="user-avatar">H</div>
+      <div>
+        <div class="topbar-user-name">Lê Thị Hoa</div>
+        <div class="topbar-user-role">Lễ tân · Ca sáng</div>
+      </div>
+      <span style="font-size:12px; color:var(--text-muted); margin-left:4px;">▾</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════ MAIN -->
+<main class="main-content">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title-group">
+      <h1 class="page-title">
+        💳 Thanh toán hoá đơn
+        <span style="font-size:13px; font-weight:600; color:var(--primary); background:#EDE9FE; padding:4px 12px; border-radius:20px; margin-left:4px;">Ca sáng · 08:00 – 12:00</span>
+      </h1>
+      <p class="page-subtitle">Quản lý và xử lý thanh toán bệnh nhân theo lượt khám · Hôm nay: 31/05/2026</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-outline">📤 Xuất báo cáo</button>
+      <button class="btn btn-outline">🖨️ In danh sách</button>
+      <button class="btn btn-primary">📊 Doanh thu ngày</button>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-card">
+      <div class="stat-icon waiting">⏳</div>
+      <div class="stat-body">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Chờ thanh toán</div>
+      </div>
+      <div class="stat-trend trend-amber">⚡ Ưu tiên</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon paid">✅</div>
+      <div class="stat-body">
+        <div class="stat-value">35</div>
+        <div class="stat-label">Đã thanh toán hôm nay</div>
+      </div>
+      <div class="stat-trend trend-up">▲ +4 so hôm qua</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon revenue">💰</div>
+      <div class="stat-body">
+        <div class="stat-value revenue-val">12,5M₫</div>
+        <div class="stat-label">Tổng thu hôm nay</div>
+      </div>
+      <div class="stat-trend trend-indigo">▲ +8,3%</div>
+    </div>
+  </div>
+
+  <!-- 2-COL BILLING GRID -->
+  <div class="billing-grid">
+
+    <!-- ══════════════════ LEFT — WAITING LIST -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          🧾 Danh sách chờ thanh toán
+          <span class="card-badge">8 lượt</span>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); font-weight:500;">Cập nhật: 11:47</div>
+      </div>
+
+      <div class="card-body">
+        <!-- SEARCH + FILTER -->
+        <div class="search-filter-bar">
+          <div class="search-wrap">
+            <span class="search-icon">🔍</span>
+            <input class="search-input" type="text" placeholder="Tìm theo tên, mã lượt khám, CCCD...">
+          </div>
+          <div class="filter-chips">
+            <div class="chip active">Tất cả</div>
+            <div class="chip">🏥 BHYT</div>
+            <div class="chip">💵 Tự túc</div>
+          </div>
+        </div>
+
+        <!-- PATIENT LIST -->
+        <div class="patient-list-scroll">
+          <div class="patient-list">
+
+            <!-- Card 1 — selected -->
+            <div class="patient-card selected">
+              <div class="patient-card-top">
+                <div class="patient-meta">
+                  <div class="patient-avatar av-blue">AN</div>
+                  <div class="patient-name-group">
+                    <a class="patient-name" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Nguyễn Văn An</a>
+                    <div class="patient-visit-time">
+                      <span class="visit-id">LK20260531-001</span>
+                      <span class="sep">·</span>
+                      <span>⏰ 10:30</span>
+                      <span class="sep">·</span>
+                      <span>BS. Minh</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="patient-amount-wrap">
+                  <div class="patient-amount">128.200₫</div>
+                  <div class="patient-amount-label">BN thanh toán</div>
+                </div>
+              </div>
+              <div class="patient-services">
+                <span class="service-tag">🩺 Khám bệnh</span>
+                <span class="service-tag">❤️ ECG 12 chuyển đạo</span>
+                <span class="service-tag">🫁 X-quang TP</span>
+                <span class="service-tag">💊 Thuốc 2 loại</span>
+              </div>
+              <div class="patient-card-bottom">
+                <div class="insurance-badge insurance-bhyt">🏥 BHYT 80%</div>
+                <a href="25-lich-su-hoa-don.html"><button class="btn-pay">⚡ Thanh toán ngay</button></a>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="patient-card">
+              <div class="patient-card-top">
+                <div class="patient-meta">
+                  <div class="patient-avatar av-pink">BT</div>
+                  <div class="patient-name-group">
+                    <a class="patient-name" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Trần Thị Bích</a>
+                    <div class="patient-visit-time">
+                      <span class="visit-id">LK20260531-002</span>
+                      <span class="sep">·</span>
+                      <span>⏰ 11:00</span>
+                      <span class="sep">·</span>
+                      <span>BS. Lan</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="patient-amount-wrap">
+                  <div class="patient-amount">250.000₫</div>
+                  <div class="patient-amount-label">Tổng cộng</div>
+                </div>
+              </div>
+              <div class="patient-services">
+                <span class="service-tag">🩺 Khám bệnh</span>
+                <span class="service-tag">💊 Thuốc 3 loại</span>
+              </div>
+              <div class="patient-card-bottom">
+                <div class="insurance-badge insurance-self">💵 Tự túc</div>
+                <a href="25-lich-su-hoa-don.html"><button class="btn-pay">⚡ Thanh toán ngay</button></a>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="patient-card">
+              <div class="patient-card-top">
+                <div class="patient-meta">
+                  <div class="patient-avatar av-green">PH</div>
+                  <div class="patient-name-group">
+                    <a class="patient-name" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Phạm Hoàng Giang</a>
+                    <div class="patient-visit-time">
+                      <span class="visit-id">LK20260531-003</span>
+                      <span class="sep">·</span>
+                      <span>⏰ 11:15</span>
+                      <span class="sep">·</span>
+                      <span>BS. Đức</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="patient-amount-wrap">
+                  <div class="patient-amount">95.400₫</div>
+                  <div class="patient-amount-label">BN thanh toán</div>
+                </div>
+              </div>
+              <div class="patient-services">
+                <span class="service-tag">🩺 Khám bệnh</span>
+                <span class="service-tag">🧪 Xét nghiệm máu</span>
+                <span class="service-tag">💊 Thuốc 1 loại</span>
+              </div>
+              <div class="patient-card-bottom">
+                <div class="insurance-badge insurance-bhyt">🏥 BHYT 80%</div>
+                <a href="25-lich-su-hoa-don.html"><button class="btn-pay">⚡ Thanh toán ngay</button></a>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="patient-card">
+              <div class="patient-card-top">
+                <div class="patient-meta">
+                  <div class="patient-avatar av-orange">HN</div>
+                  <div class="patient-name-group">
+                    <a class="patient-name" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Hoàng Thị Ngọc</a>
+                    <div class="patient-visit-time">
+                      <span class="visit-id">LK20260531-004</span>
+                      <span class="sep">·</span>
+                      <span>⏰ 11:30</span>
+                      <span class="sep">·</span>
+                      <span>BS. Minh</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="patient-amount-wrap">
+                  <div class="patient-amount">420.000₫</div>
+                  <div class="patient-amount-label">Tổng cộng</div>
+                </div>
+              </div>
+              <div class="patient-services">
+                <span class="service-tag">🩺 Khám bệnh</span>
+                <span class="service-tag">🫁 X-quang TP</span>
+                <span class="service-tag">🔬 Siêu âm bụng</span>
+                <span class="service-tag">💊 Thuốc 4 loại</span>
+              </div>
+              <div class="patient-card-bottom">
+                <div class="insurance-badge insurance-self">💵 Tự túc</div>
+                <a href="25-lich-su-hoa-don.html"><button class="btn-pay">⚡ Thanh toán ngay</button></a>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="patient-card">
+              <div class="patient-card-top">
+                <div class="patient-meta">
+                  <div class="patient-avatar av-purple">LM</div>
+                  <div class="patient-name-group">
+                    <a class="patient-name" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Lê Minh Tuấn</a>
+                    <div class="patient-visit-time">
+                      <span class="visit-id">LK20260531-007</span>
+                      <span class="sep">·</span>
+                      <span>⏰ 11:45</span>
+                      <span class="sep">·</span>
+                      <span>BS. Lan</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="patient-amount-wrap">
+                  <div class="patient-amount">56.000₫</div>
+                  <div class="patient-amount-label">BN thanh toán</div>
+                </div>
+              </div>
+              <div class="patient-services">
+                <span class="service-tag">🩺 Khám bệnh</span>
+                <span class="service-tag">💊 Thuốc 2 loại</span>
+              </div>
+              <div class="patient-card-bottom">
+                <div class="insurance-badge insurance-bhyt">🏥 BHYT 80%</div>
+                <a href="25-lich-su-hoa-don.html"><button class="btn-pay">⚡ Thanh toán ngay</button></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- end scroll -->
+
+        <!-- MORE INDICATOR -->
+        <div style="text-align:center; padding:12px 0 0; border-top:1px dashed var(--border-light); margin-top:12px;">
+          <span style="font-size:12px; color:var(--text-muted); font-weight:500;">
+            Hiển thị 5 / 8 bệnh nhân &nbsp;·&nbsp;
+            <span style="color:var(--primary); font-weight:600; cursor:pointer;">Xem tất cả ▾</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ RIGHT — PAYMENT DETAIL -->
+    <div class="card">
+      <!-- DETAIL HEADER -->
+      <div class="detail-header">
+        <div class="detail-title-row">
+          <div class="detail-title">
+            📄 Chi tiết thanh toán &mdash;
+            <span class="detail-subtitle">Nguyễn Văn An</span>
+          </div>
+          <div class="detail-status-badge">⏳ Chờ thanh toán</div>
+        </div>
+        <div class="visit-info-strip">
+          <div class="visit-info-item">
+            🆔 <span style="color:var(--primary); font-weight:700;">LK20260531-001</span>
+          </div>
+          <div class="visit-info-item">
+            🩺 <strong>BS. Nguyễn Văn Minh</strong>
+          </div>
+          <div class="visit-info-item">
+            📅 <strong>31/05/2026</strong>
+          </div>
+          <div class="visit-info-item">
+            🏥 <span style="background:#DBEAFE; color:#1D4ED8; padding:2px 7px; border-radius:5px; font-size:11.5px; font-weight:700;">BHYT 80%</span>
+          </div>
+          <div class="visit-info-item">
+            👤 <strong>Nam, 47 tuổi</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-scroll">
+
+        <!-- BILL TABLE -->
+        <div class="bill-section">
+          <div class="bill-section-title">🧾 Chi tiết dịch vụ &amp; thuốc</div>
+
+          <table class="bill-table">
+            <thead>
+              <tr>
+                <th style="width:42%;">Tên dịch vụ / Thuốc</th>
+                <th class="center" style="width:14%;">SL</th>
+                <th style="width:20%; text-align:right;">Đơn giá</th>
+                <th style="width:24%; text-align:right;">Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Services -->
+              <tr>
+                <td>
+                  <div class="service-name">🩺 Khám bệnh thông thường</div>
+                  <div class="service-subtext">Mã DV: KCB-001</div>
+                </td>
+                <td class="qty-cell">1 lần</td>
+                <td style="text-align:right;"><span class="amount-text">200.000₫</span></td>
+                <td><span class="amount-text">200.000₫</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="service-name">❤️ ECG 12 chuyển đạo</div>
+                  <div class="service-subtext">Mã DV: TM-ECG-012</div>
+                </td>
+                <td class="qty-cell">1 lần</td>
+                <td style="text-align:right;"><span class="amount-text">150.000₫</span></td>
+                <td><span class="amount-text">150.000₫</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="service-name">🫁 X-quang tim phổi thẳng</div>
+                  <div class="service-subtext">Mã DV: CLS-XQ-TP</div>
+                </td>
+                <td class="qty-cell">1 lần</td>
+                <td style="text-align:right;"><span class="amount-text">180.000₫</span></td>
+                <td><span class="amount-text">180.000₫</span></td>
+              </tr>
+              <!-- Drugs -->
+              <tr style="background:#FEFBFF;">
+                <td>
+                  <div class="service-name">💊 Amlodipine 5mg</div>
+                  <div class="service-subtext">Liều 1 viên/ngày × 30 ngày</div>
+                </td>
+                <td class="qty-cell">30 viên</td>
+                <td style="text-align:right;"><span class="amount-text" style="color:var(--text-secondary);">2.500₫</span></td>
+                <td><span class="amount-text">75.000₫</span></td>
+              </tr>
+              <tr style="background:#FEFBFF;">
+                <td>
+                  <div class="service-name">💊 Aspirin 81mg (Bayer)</div>
+                  <div class="service-subtext">Liều 1 viên/ngày × 30 ngày</div>
+                </td>
+                <td class="qty-cell">30 viên</td>
+                <td style="text-align:right;"><span class="amount-text" style="color:var(--text-secondary);">1.200₫</span></td>
+                <td><span class="amount-text">36.000₫</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- TOTALS -->
+          <table class="bill-table" style="margin-top:0;">
+            <tbody>
+              <tr class="bill-subtotal-row">
+                <td colspan="3">
+                  <span style="font-size:13px; font-weight:600; color:var(--text-secondary);">📋 Cộng phụ (trước BHYT)</span>
+                </td>
+                <td><span style="font-weight:700; color:var(--text-primary);">641.000₫</span></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <span style="font-size:13px; font-weight:600; color:#1D4ED8;">🏥 BHYT chi trả (80%)</span>
+                </td>
+                <td><span class="amount-discount">–512.800₫</span></td>
+              </tr>
+              <tr class="bill-total-row">
+                <td colspan="3">
+                  <span class="bill-total-label">💳 Bệnh nhân thanh toán</span>
+                </td>
+                <td><span class="bill-total-amount">128.200₫</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- NOTE -->
+        <div class="note-strip" style="margin: 14px 22px 0;">
+          <span class="note-strip-icon">ℹ️</span>
+          <span>BHYT hạng <strong>II</strong> · Mã thẻ <strong>DN4 5080 0123 456 7</strong> · Hạn: 31/12/2026 · Đúng tuyến khám bệnh</span>
+        </div>
+
+        <!-- PAYMENT METHOD -->
+        <div class="payment-section">
+          <div class="bill-section-title" style="margin-bottom:10px;">💳 Phương thức thanh toán</div>
+          <div class="payment-method-group">
+            <div class="pay-method selected">
+              <div class="radio-dot"><div class="radio-inner"></div></div>
+              <span class="pay-method-icon">💵</span>
+              <span class="pay-method-label">Tiền mặt</span>
+            </div>
+            <div class="pay-method">
+              <div class="radio-dot"></div>
+              <span class="pay-method-icon">📲</span>
+              <span class="pay-method-label">Chuyển khoản</span>
+            </div>
+            <div class="pay-method">
+              <div class="radio-dot"></div>
+              <span class="pay-method-icon">💳</span>
+              <span class="pay-method-label">Thẻ ngân hàng</span>
+            </div>
+          </div>
+
+          <!-- AMOUNT INPUT + CHANGE -->
+          <div class="amount-input-section">
+            <div class="amount-row">
+              <div class="amount-input-wrap">
+                <div class="amount-input-label">💵 Khách đưa</div>
+                <input class="amount-input" type="text" value="150.000₫">
+              </div>
+              <div class="change-arrow">→</div>
+              <div class="change-wrap" style="flex:1;">
+                <div class="change-label">🔄 Tiền thối lại</div>
+                <div class="change-amount">21.800₫</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:10px; padding-top:10px; border-top:1px dashed var(--border-light);">
+              <span style="font-size:12px; color:var(--text-secondary); font-weight:500;">Cần thanh toán:</span>
+              <span style="font-size:15px; font-weight:800; color:var(--primary);">128.200₫</span>
+            </div>
+          </div>
+
+          <!-- QUICK AMOUNT BUTTONS -->
+          <div style="display:flex; gap:8px; margin-bottom:14px;">
+            <div style="font-size:11.5px; color:var(--text-muted); font-weight:500; align-self:center; white-space:nowrap; margin-right:2px;">Nhanh:</div>
+            <button style="flex:1; padding:7px 8px; background:#F3F4F6; border:1.5px solid var(--border); border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-secondary); transition:all 0.15s;">130.000₫</button>
+            <button style="flex:1; padding:7px 8px; background:#F3F4F6; border:1.5px solid var(--border); border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-secondary); transition:all 0.15s;">150.000₫</button>
+            <button style="flex:1; padding:7px 8px; background:#F3F4F6; border:1.5px solid var(--border); border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-secondary); transition:all 0.15s;">200.000₫</button>
+            <button style="flex:1; padding:7px 8px; background:#EDE9FE; border:1.5px solid var(--primary-light); border-radius:8px; font-size:12px; font-weight:700; cursor:pointer; font-family:inherit; color:var(--primary);">Đúng tiền</button>
+          </div>
+        </div>
+
+      </div><!-- end detail-scroll -->
+
+      <!-- NOTE STRIP -->
+      <div class="note-strip" style="margin:0 22px 14px;">
+        <span class="note-strip-icon">⚠️</span>
+        <span>Hóa đơn sẽ được in tự động sau khi xác nhận. Vui lòng kiểm tra thông tin trước khi thanh toán.</span>
+      </div>
+
+      <!-- CONFIRM BUTTON -->
+      <div class="confirm-btn-wrap">
+        <a href="25-lich-su-hoa-don.html" style="text-decoration:none; display:block;">
+        <button class="btn-confirm">
+          ✅ Xác nhận thanh toán &amp; In hóa đơn
+        </button>
+        </a>
+        <div style="display:flex; gap:8px; margin-top:10px;">
+          <button style="flex:1; padding:10px; background:var(--surface); border:1.5px solid var(--border); border-radius:10px; font-size:12.5px; font-weight:600; cursor:pointer; font-family:inherit; color:var(--text-secondary); display:flex; align-items:center; justify-content:center; gap:6px;">
+            🖨️ Chỉ in hóa đơn
+          </button>
+          <button style="flex:1; padding:10px; background:#FEF2F2; border:1.5px solid #FECACA; border-radius:10px; font-size:12.5px; font-weight:600; cursor:pointer; font-family:inherit; color:#DC2626; display:flex; align-items:center; justify-content:center; gap:6px;">
+            ❌ Hủy lượt khám
+          </button>
+        </div>
+      </div>
+
+    </div><!-- end right card -->
+
+  </div><!-- end billing-grid -->
+
+</main>
+
+</body>
+</html>

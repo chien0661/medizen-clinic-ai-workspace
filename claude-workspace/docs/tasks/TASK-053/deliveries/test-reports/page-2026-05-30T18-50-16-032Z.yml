@@ -1,0 +1,699 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e2039]:
+      - complementary [ref=e2040]:
+        - generic [ref=e2041]:
+          - img "MediZen" [ref=e2042]
+          - generic [ref=e2043]: MediZen
+        - navigation [ref=e2044]:
+          - link "Tổng quan" [ref=e2045] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e2046]
+            - generic [ref=e2051]: Tổng quan
+          - generic [ref=e2052]:
+            - button "Tiếp tân" [ref=e2053] [cursor=pointer]:
+              - img [ref=e2054]
+              - generic [ref=e2056]: Tiếp tân
+              - img [ref=e2057]
+            - generic [ref=e2059]:
+              - link "Bệnh nhân" [ref=e2060] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e2061]
+                - generic [ref=e2066]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e2067] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e2068]
+                - generic [ref=e2072]: Lịch hẹn
+              - link "Hàng chờ" [ref=e2073] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e2074]
+                - generic [ref=e2078]: Hàng chờ
+          - generic [ref=e2079]:
+            - button "Bác sĩ active role" [ref=e2080] [cursor=pointer]:
+              - img [ref=e2081]
+              - generic [ref=e2085]: Bác sĩ
+              - generic "active role" [ref=e2086]
+              - img [ref=e2087]
+            - generic [ref=e2089]:
+              - link "Hàng đợi của tôi" [ref=e2090] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e2091]
+                - generic [ref=e2094]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e2095] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e2096]
+                - generic [ref=e2098]: Bảng điều khiển
+          - generic [ref=e2099]:
+            - button "Nhà thuốc" [ref=e2100] [cursor=pointer]:
+              - img [ref=e2101]
+              - generic [ref=e2104]: Nhà thuốc
+              - img [ref=e2105]
+            - link "Tồn kho" [ref=e2108] [cursor=pointer]:
+              - /url: "#/pharmacy/inventory"
+              - img [ref=e2109]
+              - generic [ref=e2119]: Tồn kho
+          - generic [ref=e2120]:
+            - button "Thanh toán" [ref=e2121] [cursor=pointer]:
+              - img [ref=e2122]
+              - generic [ref=e2124]: Thanh toán
+              - img [ref=e2125]
+            - link "Hóa đơn" [ref=e2128] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e2129]
+              - generic [ref=e2132]: Hóa đơn
+          - generic [ref=e2133]:
+            - button "Báo cáo" [ref=e2134] [cursor=pointer]:
+              - img [ref=e2135]
+              - generic [ref=e2137]: Báo cáo
+              - img [ref=e2138]
+            - generic [ref=e2140]:
+              - link "Tồn kho" [ref=e2141] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e2142]
+                - generic [ref=e2146]: Tồn kho
+              - link "Lượt khám" [ref=e2147] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e2148]
+                - generic [ref=e2151]: Lượt khám
+              - link "Đơn thuốc" [ref=e2152] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e2153]
+                - generic [ref=e2156]: Đơn thuốc
+          - link "Thông báo" [ref=e2157] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e2158]
+            - generic [ref=e2161]: Thông báo
+          - generic [ref=e2162]:
+            - button "Nhân sự" [ref=e2163] [cursor=pointer]:
+              - img [ref=e2164]
+              - generic [ref=e2169]: Nhân sự
+              - img [ref=e2170]
+            - generic [ref=e2172]:
+              - link "Lịch ca" [ref=e2173] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e2174]
+                - generic [ref=e2176]: Lịch ca
+              - link "Chấm công" [ref=e2177] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e2178]
+                - generic [ref=e2181]: Chấm công
+              - link "Nghỉ phép" [ref=e2182] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e2183]
+                - generic [ref=e2186]: Nghỉ phép
+          - button "Quản trị" [ref=e2188] [cursor=pointer]:
+            - img [ref=e2189]
+            - generic [ref=e2191]: Quản trị
+            - img [ref=e2192]
+          - link "Cài đặt" [ref=e2194] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e2195]
+            - generic [ref=e2198]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e2200] [cursor=pointer]:
+          - generic [ref=e2201]: Thu nhỏ menu
+          - img [ref=e2202]
+      - generic [ref=e2204]:
+        - banner [ref=e2205]:
+          - button "Chuyển phòng khám" [ref=e2207] [cursor=pointer]:
+            - img [ref=e2209]
+            - generic [ref=e2213]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e2214] [cursor=pointer]:
+            - img [ref=e2215]
+            - generic [ref=e2218]: Tìm kiếm
+            - generic [ref=e2219]: ⌘K
+          - generic [ref=e2220]:
+            - status "Online" [ref=e2221]:
+              - generic [ref=e2223]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e2387]': (!)
+            - button "Thông báo" [ref=e2226] [cursor=pointer]:
+              - img [ref=e2227]
+              - generic [ref=e2230]: "2"
+            - button "VI" [ref=e2231] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e2232] [cursor=pointer]:
+              - img [ref=e2233]
+            - button "Menu người dùng" [ref=e2235] [cursor=pointer]:
+              - generic [ref=e2236]: ĐN
+              - generic [ref=e2237]: Y tá
+        - navigation "Breadcrumb" [ref=e2388]:
+          - link "Home" [ref=e2389] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e2390]
+          - generic [ref=e2393]:
+            - img [ref=e2394]
+            - generic [ref=e2396]: Hàng chờ
+        - main [ref=e2238]:
+          - generic [ref=e2397]:
+            - generic [ref=e2398]:
+              - heading "Hàng chờ khám" [level=1] [ref=e2399]
+              - generic [ref=e2400]:
+                - generic [ref=e2401]: "Cập nhật: 01:47:56"
+                - button "Làm mới" [ref=e2402] [cursor=pointer]:
+                  - img [ref=e2403]
+                - button "Toàn màn hình" [ref=e2408] [cursor=pointer]:
+                  - img [ref=e2409]
+            - generic [ref=e2414]:
+              - generic [ref=e2415]:
+                - generic [ref=e2416]:
+                  - heading "Đăng ký" [level=2] [ref=e2418]
+                  - generic [ref=e2419]: "0"
+                - paragraph [ref=e2421]: Không có bệnh nhân trong hàng chờ
+              - generic [ref=e2422]:
+                - generic [ref=e2423]:
+                  - heading "Chờ khám" [level=2] [ref=e2425]
+                  - generic [ref=e2426]: "74"
+                - generic [ref=e2427]:
+                  - generic [ref=e2428]:
+                    - generic [ref=e2429]: 20260530-014
+                    - generic [ref=e2430]:
+                      - generic [ref=e2431]: Khẩn cấp
+                      - button "In phiếu khám" [ref=e2432] [cursor=pointer]:
+                        - img [ref=e2433]
+                    - paragraph [ref=e2437]: 01:23
+                  - generic [ref=e2438]:
+                    - generic [ref=e2439]: 20260530-003
+                    - generic [ref=e2440]:
+                      - generic [ref=e2441]: Ưu tiên
+                      - button "In phiếu khám" [ref=e2442] [cursor=pointer]:
+                        - img [ref=e2443]
+                    - paragraph [ref=e2447]: 01:06
+                  - generic [ref=e2448]:
+                    - generic [ref=e2449]: 20260530-011
+                    - generic [ref=e2450]:
+                      - generic [ref=e2451]: Ưu tiên
+                      - button "In phiếu khám" [ref=e2452] [cursor=pointer]:
+                        - img [ref=e2453]
+                    - paragraph [ref=e2457]: 01:23
+                  - generic [ref=e2458]:
+                    - generic [ref=e2459]: 20260504-001
+                    - generic [ref=e2460]:
+                      - generic [ref=e2461]: Tái khám
+                      - button "In phiếu khám" [ref=e2462] [cursor=pointer]:
+                        - img [ref=e2463]
+                    - paragraph [ref=e2467]: 14:35
+                  - generic [ref=e2468]:
+                    - generic [ref=e2469]: 20260504-002
+                    - button "In phiếu khám" [ref=e2471] [cursor=pointer]:
+                      - img [ref=e2472]
+                    - paragraph [ref=e2476]: Đau đầu, sốt nhẹ 2 ngày
+                    - paragraph [ref=e2477]: 14:47
+                  - generic [ref=e2478]:
+                    - generic [ref=e2479]: 20260518-001
+                    - button "In phiếu khám" [ref=e2481] [cursor=pointer]:
+                      - img [ref=e2482]
+                    - paragraph [ref=e2486]: Billing regression
+                    - paragraph [ref=e2487]: 23:35
+                  - generic [ref=e2488]:
+                    - generic [ref=e2489]: 20260518-003
+                    - button "In phiếu khám" [ref=e2491] [cursor=pointer]:
+                      - img [ref=e2492]
+                    - paragraph [ref=e2496]: Regression test visit
+                    - paragraph [ref=e2497]: 23:35
+                  - generic [ref=e2498]:
+                    - generic [ref=e2499]: 20260518-004
+                    - button "In phiếu khám" [ref=e2501] [cursor=pointer]:
+                      - img [ref=e2502]
+                    - paragraph [ref=e2506]: Vitals regression test
+                    - paragraph [ref=e2507]: 23:35
+                  - generic [ref=e2508]:
+                    - generic [ref=e2509]: 20260518-005
+                    - button "In phiếu khám" [ref=e2511] [cursor=pointer]:
+                      - img [ref=e2512]
+                    - paragraph [ref=e2516]: Regression test visit
+                    - paragraph [ref=e2517]: 23:35
+                  - generic [ref=e2518]:
+                    - generic [ref=e2519]: 20260518-006
+                    - button "In phiếu khám" [ref=e2521] [cursor=pointer]:
+                      - img [ref=e2522]
+                    - paragraph [ref=e2526]: Regression test visit
+                    - paragraph [ref=e2527]: 23:35
+                  - generic [ref=e2528]:
+                    - generic [ref=e2529]: 20260518-007
+                    - button "In phiếu khám" [ref=e2531] [cursor=pointer]:
+                      - img [ref=e2532]
+                    - paragraph [ref=e2536]: Regression test visit
+                    - paragraph [ref=e2537]: 23:35
+                  - generic [ref=e2538]:
+                    - generic [ref=e2539]: 20260518-008
+                    - button "In phiếu khám" [ref=e2541] [cursor=pointer]:
+                      - img [ref=e2542]
+                    - paragraph [ref=e2546]: Regression test visit
+                    - paragraph [ref=e2547]: 23:35
+                  - generic [ref=e2548]:
+                    - generic [ref=e2549]: 20260518-009
+                    - button "In phiếu khám" [ref=e2551] [cursor=pointer]:
+                      - img [ref=e2552]
+                    - paragraph [ref=e2556]: Regression test visit
+                    - paragraph [ref=e2557]: 23:35
+                  - generic [ref=e2558]:
+                    - generic [ref=e2559]: 20260518-010
+                    - button "In phiếu khám" [ref=e2561] [cursor=pointer]:
+                      - img [ref=e2562]
+                    - paragraph [ref=e2566]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2567]: 23:36
+                  - generic [ref=e2568]:
+                    - generic [ref=e2569]: 20260518-011
+                    - button "In phiếu khám" [ref=e2571] [cursor=pointer]:
+                      - img [ref=e2572]
+                    - paragraph [ref=e2576]: Cashier invoice smoke test
+                    - paragraph [ref=e2577]: 23:36
+                  - generic [ref=e2578]:
+                    - generic [ref=e2579]: 20260518-013
+                    - button "In phiếu khám" [ref=e2581] [cursor=pointer]:
+                      - img [ref=e2582]
+                    - paragraph [ref=e2586]: Billing regression
+                    - paragraph [ref=e2587]: 23:51
+                  - generic [ref=e2588]:
+                    - generic [ref=e2589]: 20260518-016
+                    - button "In phiếu khám" [ref=e2591] [cursor=pointer]:
+                      - img [ref=e2592]
+                    - paragraph [ref=e2596]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2597]: 23:52
+                  - generic [ref=e2598]:
+                    - generic [ref=e2599]: 20260518-017
+                    - button "In phiếu khám" [ref=e2601] [cursor=pointer]:
+                      - img [ref=e2602]
+                    - paragraph [ref=e2606]: Vitals regression test
+                    - paragraph [ref=e2607]: 23:53
+                  - generic [ref=e2608]:
+                    - generic [ref=e2609]: 20260518-018
+                    - button "In phiếu khám" [ref=e2611] [cursor=pointer]:
+                      - img [ref=e2612]
+                    - paragraph [ref=e2616]: Regression test visit
+                    - paragraph [ref=e2617]: 23:53
+                  - generic [ref=e2618]:
+                    - generic [ref=e2619]: 20260518-019
+                    - button "In phiếu khám" [ref=e2621] [cursor=pointer]:
+                      - img [ref=e2622]
+                    - paragraph [ref=e2626]: Cashier invoice smoke test
+                    - paragraph [ref=e2627]: 23:53
+                  - generic [ref=e2628]:
+                    - generic [ref=e2629]: 20260518-020
+                    - button "In phiếu khám" [ref=e2631] [cursor=pointer]:
+                      - img [ref=e2632]
+                    - paragraph [ref=e2636]: Regression test visit
+                    - paragraph [ref=e2637]: 23:53
+                  - generic [ref=e2638]:
+                    - generic [ref=e2639]: 20260518-021
+                    - button "In phiếu khám" [ref=e2641] [cursor=pointer]:
+                      - img [ref=e2642]
+                    - paragraph [ref=e2646]: Regression test visit
+                    - paragraph [ref=e2647]: 23:53
+                  - generic [ref=e2648]:
+                    - generic [ref=e2649]: 20260518-022
+                    - button "In phiếu khám" [ref=e2651] [cursor=pointer]:
+                      - img [ref=e2652]
+                    - paragraph [ref=e2656]: Regression test visit
+                    - paragraph [ref=e2657]: 23:53
+                  - generic [ref=e2658]:
+                    - generic [ref=e2659]: 20260518-023
+                    - button "In phiếu khám" [ref=e2661] [cursor=pointer]:
+                      - img [ref=e2662]
+                    - paragraph [ref=e2666]: Regression test visit
+                    - paragraph [ref=e2667]: 23:53
+                  - generic [ref=e2668]:
+                    - generic [ref=e2669]: 20260518-024
+                    - button "In phiếu khám" [ref=e2671] [cursor=pointer]:
+                      - img [ref=e2672]
+                    - paragraph [ref=e2676]: Regression test visit
+                    - paragraph [ref=e2677]: 23:53
+                  - generic [ref=e2678]:
+                    - generic [ref=e2679]: 20260518-025
+                    - button "In phiếu khám" [ref=e2681] [cursor=pointer]:
+                      - img [ref=e2682]
+                    - paragraph [ref=e2686]: Billing regression
+                    - paragraph [ref=e2687]: 00:02
+                  - generic [ref=e2688]:
+                    - generic [ref=e2689]: 20260518-027
+                    - button "In phiếu khám" [ref=e2691] [cursor=pointer]:
+                      - img [ref=e2692]
+                    - paragraph [ref=e2696]: Regression test visit
+                    - paragraph [ref=e2697]: 00:02
+                  - generic [ref=e2698]:
+                    - generic [ref=e2699]: 20260518-028
+                    - button "In phiếu khám" [ref=e2701] [cursor=pointer]:
+                      - img [ref=e2702]
+                    - paragraph [ref=e2706]: Vitals regression test
+                    - paragraph [ref=e2707]: 00:02
+                  - generic [ref=e2708]:
+                    - generic [ref=e2709]: 20260518-029
+                    - button "In phiếu khám" [ref=e2711] [cursor=pointer]:
+                      - img [ref=e2712]
+                    - paragraph [ref=e2716]: Regression test visit
+                    - paragraph [ref=e2717]: 00:02
+                  - generic [ref=e2718]:
+                    - generic [ref=e2719]: 20260518-030
+                    - button "In phiếu khám" [ref=e2721] [cursor=pointer]:
+                      - img [ref=e2722]
+                    - paragraph [ref=e2726]: Regression test visit
+                    - paragraph [ref=e2727]: 00:02
+                  - generic [ref=e2728]:
+                    - generic [ref=e2729]: 20260518-031
+                    - button "In phiếu khám" [ref=e2731] [cursor=pointer]:
+                      - img [ref=e2732]
+                    - paragraph [ref=e2736]: Regression test visit
+                    - paragraph [ref=e2737]: 00:02
+                  - generic [ref=e2738]:
+                    - generic [ref=e2739]: 20260518-032
+                    - button "In phiếu khám" [ref=e2741] [cursor=pointer]:
+                      - img [ref=e2742]
+                    - paragraph [ref=e2746]: Regression test visit
+                    - paragraph [ref=e2747]: 00:02
+                  - generic [ref=e2748]:
+                    - generic [ref=e2749]: 20260518-034
+                    - button "In phiếu khám" [ref=e2751] [cursor=pointer]:
+                      - img [ref=e2752]
+                    - paragraph [ref=e2756]: Regression test visit
+                    - paragraph [ref=e2757]: 00:02
+                  - generic [ref=e2758]:
+                    - generic [ref=e2759]: 20260518-035
+                    - button "In phiếu khám" [ref=e2761] [cursor=pointer]:
+                      - img [ref=e2762]
+                    - paragraph [ref=e2766]: Cashier invoice smoke test
+                    - paragraph [ref=e2767]: 00:02
+                  - generic [ref=e2768]:
+                    - generic [ref=e2769]: 20260518-036
+                    - button "In phiếu khám" [ref=e2771] [cursor=pointer]:
+                      - img [ref=e2772]
+                    - paragraph [ref=e2776]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2777]: 00:02
+                  - generic [ref=e2778]:
+                    - generic [ref=e2779]: 20260518-037
+                    - button "In phiếu khám" [ref=e2781] [cursor=pointer]:
+                      - img [ref=e2782]
+                    - paragraph [ref=e2786]: Billing regression
+                    - paragraph [ref=e2787]: 00:20
+                  - generic [ref=e2788]:
+                    - generic [ref=e2789]: 20260518-039
+                    - button "In phiếu khám" [ref=e2791] [cursor=pointer]:
+                      - img [ref=e2792]
+                    - paragraph [ref=e2796]: Vitals regression test
+                    - paragraph [ref=e2797]: 00:21
+                  - generic [ref=e2798]:
+                    - generic [ref=e2799]: 20260518-040
+                    - button "In phiếu khám" [ref=e2801] [cursor=pointer]:
+                      - img [ref=e2802]
+                    - paragraph [ref=e2806]: Regression test visit
+                    - paragraph [ref=e2807]: 00:21
+                  - generic [ref=e2808]:
+                    - generic [ref=e2809]: 20260518-041
+                    - button "In phiếu khám" [ref=e2811] [cursor=pointer]:
+                      - img [ref=e2812]
+                    - paragraph [ref=e2816]: Regression test visit
+                    - paragraph [ref=e2817]: 00:21
+                  - generic [ref=e2818]:
+                    - generic [ref=e2819]: 20260518-042
+                    - button "In phiếu khám" [ref=e2821] [cursor=pointer]:
+                      - img [ref=e2822]
+                    - paragraph [ref=e2826]: Regression test visit
+                    - paragraph [ref=e2827]: 00:21
+                  - generic [ref=e2828]:
+                    - generic [ref=e2829]: 20260518-043
+                    - button "In phiếu khám" [ref=e2831] [cursor=pointer]:
+                      - img [ref=e2832]
+                    - paragraph [ref=e2836]: Regression test visit
+                    - paragraph [ref=e2837]: 00:21
+                  - generic [ref=e2838]:
+                    - generic [ref=e2839]: 20260518-044
+                    - button "In phiếu khám" [ref=e2841] [cursor=pointer]:
+                      - img [ref=e2842]
+                    - paragraph [ref=e2846]: Regression test visit
+                    - paragraph [ref=e2847]: 00:21
+                  - generic [ref=e2848]:
+                    - generic [ref=e2849]: 20260518-045
+                    - button "In phiếu khám" [ref=e2851] [cursor=pointer]:
+                      - img [ref=e2852]
+                    - paragraph [ref=e2856]: Regression test visit
+                    - paragraph [ref=e2857]: 00:21
+                  - generic [ref=e2858]:
+                    - generic [ref=e2859]: 20260518-047
+                    - button "In phiếu khám" [ref=e2861] [cursor=pointer]:
+                      - img [ref=e2862]
+                    - paragraph [ref=e2866]: Cashier invoice smoke test
+                    - paragraph [ref=e2867]: 00:21
+                  - generic [ref=e2868]:
+                    - generic [ref=e2869]: 20260518-048
+                    - button "In phiếu khám" [ref=e2871] [cursor=pointer]:
+                      - img [ref=e2872]
+                    - paragraph [ref=e2876]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2877]: 00:21
+                  - generic [ref=e2878]:
+                    - generic [ref=e2879]: 20260518-049
+                    - button "In phiếu khám" [ref=e2881] [cursor=pointer]:
+                      - img [ref=e2882]
+                    - paragraph [ref=e2886]: Billing regression
+                    - paragraph [ref=e2887]: 00:31
+                  - generic [ref=e2888]:
+                    - generic [ref=e2889]: 20260518-051
+                    - button "In phiếu khám" [ref=e2891] [cursor=pointer]:
+                      - img [ref=e2892]
+                    - paragraph [ref=e2896]: Regression test visit
+                    - paragraph [ref=e2897]: 00:31
+                  - generic [ref=e2898]:
+                    - generic [ref=e2899]: 20260518-052
+                    - button "In phiếu khám" [ref=e2901] [cursor=pointer]:
+                      - img [ref=e2902]
+                    - paragraph [ref=e2906]: Regression test visit
+                    - paragraph [ref=e2907]: 00:31
+                  - generic [ref=e2908]:
+                    - generic [ref=e2909]: 20260518-053
+                    - button "In phiếu khám" [ref=e2911] [cursor=pointer]:
+                      - img [ref=e2912]
+                    - paragraph [ref=e2916]: Vitals regression test
+                    - paragraph [ref=e2917]: 00:31
+                  - generic [ref=e2918]:
+                    - generic [ref=e2919]: 20260518-054
+                    - button "In phiếu khám" [ref=e2921] [cursor=pointer]:
+                      - img [ref=e2922]
+                    - paragraph [ref=e2926]: Regression test visit
+                    - paragraph [ref=e2927]: 00:31
+                  - generic [ref=e2928]:
+                    - generic [ref=e2929]: 20260518-055
+                    - button "In phiếu khám" [ref=e2931] [cursor=pointer]:
+                      - img [ref=e2932]
+                    - paragraph [ref=e2936]: Regression test visit
+                    - paragraph [ref=e2937]: 00:31
+                  - generic [ref=e2938]:
+                    - generic [ref=e2939]: 20260518-056
+                    - button "In phiếu khám" [ref=e2941] [cursor=pointer]:
+                      - img [ref=e2942]
+                    - paragraph [ref=e2946]: Regression test visit
+                    - paragraph [ref=e2947]: 00:31
+                  - generic [ref=e2948]:
+                    - generic [ref=e2949]: 20260518-057
+                    - button "In phiếu khám" [ref=e2951] [cursor=pointer]:
+                      - img [ref=e2952]
+                    - paragraph [ref=e2956]: Regression test visit
+                    - paragraph [ref=e2957]: 00:31
+                  - generic [ref=e2958]:
+                    - generic [ref=e2959]: 20260518-059
+                    - button "In phiếu khám" [ref=e2961] [cursor=pointer]:
+                      - img [ref=e2962]
+                    - paragraph [ref=e2966]: Cashier invoice smoke test
+                    - paragraph [ref=e2967]: 00:31
+                  - generic [ref=e2968]:
+                    - generic [ref=e2969]: 20260518-060
+                    - button "In phiếu khám" [ref=e2971] [cursor=pointer]:
+                      - img [ref=e2972]
+                    - paragraph [ref=e2976]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2977]: 00:31
+                  - generic [ref=e2978]:
+                    - generic [ref=e2979]: 20260529-001
+                    - button "In phiếu khám" [ref=e2981] [cursor=pointer]:
+                      - img [ref=e2982]
+                    - paragraph [ref=e2986]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2987]: 23:06
+                  - generic [ref=e2988]:
+                    - generic [ref=e2989]: 20260529-002
+                    - button "In phiếu khám" [ref=e2991] [cursor=pointer]:
+                      - img [ref=e2992]
+                    - paragraph [ref=e2996]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e2997]: 23:06
+                  - generic [ref=e2998]:
+                    - generic [ref=e2999]: 20260529-003
+                    - button "In phiếu khám" [ref=e3001] [cursor=pointer]:
+                      - img [ref=e3002]
+                    - paragraph [ref=e3006]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e3007]: 23:52
+                  - generic [ref=e3008]:
+                    - generic [ref=e3009]: 20260529-004
+                    - button "In phiếu khám" [ref=e3011] [cursor=pointer]:
+                      - img [ref=e3012]
+                    - paragraph [ref=e3016]: Khám tổng quát — Smoke Test
+                    - paragraph [ref=e3017]: 23:52
+                  - generic [ref=e3018]:
+                    - generic [ref=e3019]: 20260529-005
+                    - button "In phiếu khám" [ref=e3021] [cursor=pointer]:
+                      - img [ref=e3022]
+                    - paragraph [ref=e3026]: 00:37
+                  - generic [ref=e3027]:
+                    - generic [ref=e3028]: 20260530-002
+                    - button "In phiếu khám" [ref=e3030] [cursor=pointer]:
+                      - img [ref=e3031]
+                    - paragraph [ref=e3035]: 01:06
+                  - generic [ref=e3036]:
+                    - generic [ref=e3037]: 20260530-005
+                    - button "In phiếu khám" [ref=e3039] [cursor=pointer]:
+                      - img [ref=e3040]
+                    - paragraph [ref=e3044]: 01:06
+                  - generic [ref=e3045]:
+                    - generic [ref=e3046]: 20260530-006
+                    - button "In phiếu khám" [ref=e3048] [cursor=pointer]:
+                      - img [ref=e3049]
+                    - paragraph [ref=e3053]: 01:06
+                  - generic [ref=e3054]:
+                    - generic [ref=e3055]: 20260530-007
+                    - button "In phiếu khám" [ref=e3057] [cursor=pointer]:
+                      - img [ref=e3058]
+                    - paragraph [ref=e3062]: 01:09
+                  - generic [ref=e3063]:
+                    - generic [ref=e3064]: 20260530-008
+                    - button "In phiếu khám" [ref=e3066] [cursor=pointer]:
+                      - img [ref=e3067]
+                    - paragraph [ref=e3071]: 01:09
+                  - generic [ref=e3072]:
+                    - generic [ref=e3073]: 20260530-009
+                    - button "In phiếu khám" [ref=e3075] [cursor=pointer]:
+                      - img [ref=e3076]
+                    - paragraph [ref=e3080]: 01:23
+                  - generic [ref=e3081]:
+                    - generic [ref=e3082]: 20260530-010
+                    - button "In phiếu khám" [ref=e3084] [cursor=pointer]:
+                      - img [ref=e3085]
+                    - paragraph [ref=e3089]: 01:23
+                  - generic [ref=e3090]:
+                    - generic [ref=e3091]: 20260530-013
+                    - button "In phiếu khám" [ref=e3093] [cursor=pointer]:
+                      - img [ref=e3094]
+                    - paragraph [ref=e3098]: 01:23
+                  - generic [ref=e3099]:
+                    - generic [ref=e3100]: 20260530-023
+                    - button "In phiếu khám" [ref=e3102] [cursor=pointer]:
+                      - img [ref=e3103]
+                    - paragraph [ref=e3107]: 01:23
+                  - generic [ref=e3108]:
+                    - generic [ref=e3109]: 20260530-024
+                    - button "In phiếu khám" [ref=e3111] [cursor=pointer]:
+                      - img [ref=e3112]
+                    - paragraph [ref=e3116]: 01:23
+                  - generic [ref=e3117]:
+                    - generic [ref=e3118]: 20260530-025
+                    - button "In phiếu khám" [ref=e3120] [cursor=pointer]:
+                      - img [ref=e3121]
+                    - paragraph [ref=e3125]: 01:24
+                  - generic [ref=e3126]:
+                    - generic [ref=e3127]: 20260530-026
+                    - button "In phiếu khám" [ref=e3129] [cursor=pointer]:
+                      - img [ref=e3130]
+                    - paragraph [ref=e3134]: 01:30
+                  - generic [ref=e3135]:
+                    - generic [ref=e3136]: 20260530-027
+                    - button "In phiếu khám" [ref=e3138] [cursor=pointer]:
+                      - img [ref=e3139]
+                    - paragraph [ref=e3143]: 01:30
+                  - generic [ref=e3144]:
+                    - generic [ref=e3145]: 20260530-028
+                    - button "In phiếu khám" [ref=e3147] [cursor=pointer]:
+                      - img [ref=e3148]
+                    - paragraph [ref=e3152]: Đau đầu, sốt nhẹ - SC-HP-01 Test
+                    - paragraph [ref=e3153]: 01:44
+              - generic [ref=e3154]:
+                - generic [ref=e3155]:
+                  - heading "Đang khám" [level=2] [ref=e3157]
+                  - generic [ref=e3158]: "24"
+                - generic [ref=e3159]:
+                  - generic [ref=e3160]:
+                    - generic [ref=e3161]: 20260530-004
+                    - generic [ref=e3163]: Khẩn cấp
+                    - paragraph [ref=e3164]: 01:06
+                  - generic [ref=e3165]:
+                    - generic [ref=e3166]: 20260503-001
+                    - paragraph [ref=e3167]: 23:42
+                  - generic [ref=e3168]:
+                    - generic [ref=e3169]: 20260503-002
+                    - paragraph [ref=e3170]: 23:43
+                  - generic [ref=e3171]:
+                    - generic [ref=e3172]: 20260503-003
+                    - paragraph [ref=e3173]: 23:55
+                  - generic [ref=e3174]:
+                    - generic [ref=e3175]: 20260504-003
+                    - paragraph [ref=e3176]: E2E re-verify after main merge
+                    - paragraph [ref=e3177]: 01:11
+                  - generic [ref=e3178]:
+                    - generic [ref=e3179]: 20260518-002
+                    - paragraph [ref=e3180]: Prescription regression test
+                    - paragraph [ref=e3181]: 23:35
+                  - generic [ref=e3182]:
+                    - generic [ref=e3183]: 20260518-012
+                    - paragraph [ref=e3184]: Doctor consultation smoke test
+                    - paragraph [ref=e3185]: 23:36
+                  - generic [ref=e3186]:
+                    - generic [ref=e3187]: 20260518-014
+                    - paragraph [ref=e3188]: Prescription regression test
+                    - paragraph [ref=e3189]: 23:52
+                  - generic [ref=e3190]:
+                    - generic [ref=e3191]: 20260518-015
+                    - paragraph [ref=e3192]: Doctor consultation smoke test
+                    - paragraph [ref=e3193]: 23:52
+                  - generic [ref=e3194]:
+                    - generic [ref=e3195]: 20260518-026
+                    - paragraph [ref=e3196]: Prescription regression test
+                    - paragraph [ref=e3197]: 00:02
+                  - generic [ref=e3198]:
+                    - generic [ref=e3199]: 20260518-033
+                    - paragraph [ref=e3200]: Doctor consultation smoke test
+                    - paragraph [ref=e3201]: 00:02
+                  - generic [ref=e3202]:
+                    - generic [ref=e3203]: 20260518-038
+                    - paragraph [ref=e3204]: Prescription regression test
+                    - paragraph [ref=e3205]: 00:21
+                  - generic [ref=e3206]:
+                    - generic [ref=e3207]: 20260518-046
+                    - paragraph [ref=e3208]: Doctor consultation smoke test
+                    - paragraph [ref=e3209]: 00:21
+                  - generic [ref=e3210]:
+                    - generic [ref=e3211]: 20260518-050
+                    - paragraph [ref=e3212]: Prescription regression test
+                    - paragraph [ref=e3213]: 00:31
+                  - generic [ref=e3214]:
+                    - generic [ref=e3215]: 20260518-058
+                    - paragraph [ref=e3216]: Doctor consultation smoke test
+                    - paragraph [ref=e3217]: 00:31
+                  - generic [ref=e3218]:
+                    - generic [ref=e3219]: 20260530-001
+                    - paragraph [ref=e3220]: 00:18
+                  - generic [ref=e3221]:
+                    - generic [ref=e3222]: 20260530-015
+                    - paragraph [ref=e3223]: 01:23
+                  - generic [ref=e3224]:
+                    - generic [ref=e3225]: 20260530-016
+                    - paragraph [ref=e3226]: 01:23
+                  - generic [ref=e3227]:
+                    - generic [ref=e3228]: 20260530-017
+                    - paragraph [ref=e3229]: 01:23
+                  - generic [ref=e3230]:
+                    - generic [ref=e3231]: 20260530-018
+                    - paragraph [ref=e3232]: 01:23
+                  - generic [ref=e3233]:
+                    - generic [ref=e3234]: 20260530-019
+                    - paragraph [ref=e3235]: 01:23
+                  - generic [ref=e3236]:
+                    - generic [ref=e3237]: 20260530-020
+                    - paragraph [ref=e3238]: 01:23
+                  - generic [ref=e3239]:
+                    - generic [ref=e3240]: 20260530-021
+                    - paragraph [ref=e3241]: 01:23
+                  - generic [ref=e3242]:
+                    - generic [ref=e3243]: 20260530-022
+                    - paragraph [ref=e3244]: 01:23
+              - generic [ref=e3245]:
+                - generic [ref=e3246]:
+                  - heading "Chờ thanh toán" [level=2] [ref=e3248]
+                  - generic [ref=e3249]: "0"
+                - paragraph [ref=e3251]: Không có bệnh nhân trong hàng chờ
+              - generic [ref=e3252]:
+                - generic [ref=e3253]:
+                  - heading "Hoàn tất" [level=2] [ref=e3255]
+                  - generic [ref=e3256]: "0"
+                - paragraph [ref=e3258]: Không có bệnh nhân trong hàng chờ
+    - region "Notifications alt+T"
+  - generic [ref=e385]: "0"

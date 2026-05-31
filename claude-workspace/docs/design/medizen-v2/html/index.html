@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 — Design Preview Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F5F3FF;color:#374151;padding:40px}
+h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:700;color:#1E1B4B;margin-bottom:4px}
+.subtitle{color:#6B7280;font-size:14px;margin-bottom:40px}
+.section{margin-bottom:36px}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#4F46E5;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-title::after{content:'';flex:1;height:1px;background:#E8E4F3}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.card{background:#fff;border-radius:12px;border:1px solid #E8E4F3;padding:16px 18px;text-decoration:none;color:inherit;transition:all .15s;display:block;box-shadow:0 1px 3px rgba(79,70,229,.06)}
+.card:hover{box-shadow:0 4px 16px rgba(79,70,229,.14);border-color:#4F46E5;transform:translateY(-2px)}
+.card-num{font-size:11px;color:#4F46E5;font-weight:600;margin-bottom:4px}
+.card-name{font-size:14px;font-weight:600;color:#1E1B4B}
+.card-size{font-size:11px;color:#9CA3AF;margin-top:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:500}
+.b-auth{background:#EDE9FE;color:#7C3AED}
+.b-dash{background:#EEF2FF;color:#4F46E5}
+.b-clin{background:#D1FAE5;color:#059669}
+.b-emr{background:#FEF3C7;color:#D97706}
+.b-pharm{background:#FFE4E6;color:#E11D48}
+</style>
+</head>
+<body>
+<h1>MediZen v2.0 — Design Preview</h1>
+<p class="subtitle">Indigo Premium · Plus Jakarta Sans + Inter · 1920px · 25 screens</p>
+
+<div class="section">
+  <div class="section-title">🔐 Auth &amp; Onboarding</div>
+  <div class="grid">
+    <a class="card" href="01-login.html" target="_blank"><div class="card-num">01 <span class="badge b-auth">Auth</span></div><div class="card-name">Đăng nhập</div><div class="card-size">Login · Split hero layout</div></a>
+    <a class="card" href="02-chon-phong-kham.html" target="_blank"><div class="card-num">02 <span class="badge b-auth">Auth</span></div><div class="card-name">Chọn phòng khám</div><div class="card-size">Multi-clinic selector</div></a>
+    <a class="card" href="03-quen-mat-khau.html" target="_blank"><div class="card-num">03 <span class="badge b-auth">Auth</span></div><div class="card-name">Quên mật khẩu</div><div class="card-size">3-step password reset</div></a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🏠 Dashboards (5 vai trò)</div>
+  <div class="grid">
+    <a class="card" href="04-dashboard-le-tan.html" target="_blank"><div class="card-num">04 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Lễ tân</div><div class="card-size">Queue · Appointments · Quick actions</div></a>
+    <a class="card" href="05-dashboard-dieu-duong.html" target="_blank"><div class="card-num">05 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Điều dưỡng</div><div class="card-size">Sinh hiệu · Checklist nhiệm vụ</div></a>
+    <a class="card" href="06-dashboard-bac-si.html" target="_blank"><div class="card-num">06 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Bác sĩ</div><div class="card-size">Patient list · BN đang khám</div></a>
+    <a class="card" href="07-dashboard-duoc-si.html" target="_blank"><div class="card-num">07 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Dược sĩ</div><div class="card-size">Đơn thuốc · Cảnh báo tồn kho</div></a>
+    <a class="card" href="08-dashboard-quan-tri.html" target="_blank"><div class="card-num">08 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Quản trị</div><div class="card-size">KPI · Charts · Audit log</div></a>
+    <a class="card" href="09-dashboard-multi-role.html" target="_blank"><div class="card-num">09 <span class="badge b-dash">Dashboard</span></div><div class="card-name">Dashboard Multi-role</div><div class="card-size">Tổng quan đa vai trò</div></a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">👥 Clinical Workflow</div>
+  <div class="grid">
+    <a class="card" href="10-danh-sach-benh-nhan.html" target="_blank"><div class="card-num">10 <span class="badge b-clin">Workflow</span></div><div class="card-name">Danh sách bệnh nhân</div><div class="card-size">Search · Filter · Table 1.248 BN</div></a>
+    <a class="card" href="11-ho-so-benh-nhan.html" target="_blank"><div class="card-num">11 <span class="badge b-clin">Workflow</span></div><div class="card-name">Hồ sơ bệnh nhân</div><div class="card-size">Profile · Lịch sử khám · Tabs</div></a>
+    <a class="card" href="12-tiep-nhan-bn.html" target="_blank"><div class="card-num">12 <span class="badge b-clin">Workflow</span></div><div class="card-name">Tiếp nhận bệnh nhân</div><div class="card-size">Registration form · Queue status</div></a>
+    <a class="card" href="13-phong-cho-queue.html" target="_blank"><div class="card-num">13 <span class="badge b-clin">Workflow</span></div><div class="card-name">Phòng chờ / Queue</div><div class="card-size">Kanban 3 cột · Realtime</div></a>
+    <a class="card" href="14-lich-hen.html" target="_blank"><div class="card-num">14 <span class="badge b-clin">Workflow</span></div><div class="card-name">Lịch hẹn</div><div class="card-size">Weekly calendar · Doctor filter</div></a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">🩺 EMR — Khám bệnh (6 tabs)</div>
+  <div class="grid">
+    <a class="card" href="15-emr-sinh-hieu.html" target="_blank"><div class="card-num">15 <span class="badge b-emr">EMR</span></div><div class="card-name">① Sinh hiệu</div><div class="card-size">Vital signs · History chart</div></a>
+    <a class="card" href="16-emr-kham-lam-sang.html" target="_blank"><div class="card-num">16 <span class="badge b-emr">EMR</span></div><div class="card-name">② Khám lâm sàng</div><div class="card-size">SOAP notes · Templates</div></a>
+    <a class="card" href="17-emr-chan-doan.html" target="_blank"><div class="card-num">17 <span class="badge b-emr">EMR</span></div><div class="card-name">③ Chẩn đoán</div><div class="card-size">ICD-10 search · Multi-diagnosis</div></a>
+    <a class="card" href="18-emr-ke-don.html" target="_blank"><div class="card-num">18 <span class="badge b-emr">EMR</span></div><div class="card-name">④ Kê đơn thuốc</div><div class="card-size">Drug table · BHYT · Print</div></a>
+    <a class="card" href="19-emr-can-lam-sang.html" target="_blank"><div class="card-num">19 <span class="badge b-emr">EMR</span></div><div class="card-name">⑤ Cận lâm sàng</div><div class="card-size">Lab orders · Results table</div></a>
+    <a class="card" href="20-emr-tom-tat.html" target="_blank"><div class="card-num">20 <span class="badge b-emr">EMR</span></div><div class="card-name">⑥ Tóm tắt &amp; Hoàn tất</div><div class="card-size">Visit summary · Complete flow</div></a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">💊 Dược &amp; 💰 Thanh toán</div>
+  <div class="grid">
+    <a class="card" href="21-cap-phat-don-thuoc.html" target="_blank"><div class="card-num">21 <span class="badge b-pharm">Dược</span></div><div class="card-name">Cấp phát đơn thuốc</div><div class="card-size">Prescription list · Dispensing</div></a>
+    <a class="card" href="22-danh-muc-thuoc.html" target="_blank"><div class="card-num">22 <span class="badge b-pharm">Dược</span></div><div class="card-name">Danh mục thuốc</div><div class="card-size">Drug catalog · Stock levels</div></a>
+    <a class="card" href="23-nhap-kho.html" target="_blank"><div class="card-num">23 <span class="badge b-pharm">Dược</span></div><div class="card-name">Nhập kho</div><div class="card-size">Stock receipt form · Batch</div></a>
+    <a class="card" href="24-thanh-toan.html" target="_blank"><div class="card-num">24 <span class="badge b-pharm">Billing</span></div><div class="card-name">Thanh toán hoá đơn</div><div class="card-size">Bill detail · BHYT · Payment</div></a>
+    <a class="card" href="25-lich-su-hoa-don.html" target="_blank"><div class="card-num">25 <span class="badge b-pharm">Billing</span></div><div class="card-name">Lịch sử hoá đơn</div><div class="card-size">Invoice history · Export</div></a>
+  </div>
+</div>
+
+<p style="text-align:center;color:#9CA3AF;font-size:12px;margin-top:48px">MediZen v2.0 · Indigo Premium · Generated 2026-05-31</p>
+</body>
+</html>

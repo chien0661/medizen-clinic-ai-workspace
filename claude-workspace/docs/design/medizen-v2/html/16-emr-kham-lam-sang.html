@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediZen v2.0 - Khám Lâm Sàng</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+    --secondary: #7C3AED;
+    --accent: #EC4899;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --sidebar-bg: #1E1B4B;
+    --sidebar-hover: #2E2A5E;
+    --sidebar-active: #4F46E5;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+  }
+
+  html, body {
+    width: 1920px;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  /* ───── SIDEBAR ───── */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.4);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .logo-version {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-section {
+    padding: 12px 12px 4px;
+  }
+
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 8px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+
+  .sidebar-item:hover {
+    background: var(--sidebar-hover);
+    color: rgba(255,255,255,0.9);
+  }
+
+  .sidebar-item.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  }
+
+  .sidebar-item .icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar-item .label {
+    flex: 1;
+  }
+
+  .sidebar-item .badge {
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+    margin: 8px 12px;
+  }
+
+  .sidebar-bottom {
+    margin-top: auto;
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .user-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .user-card:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EC4899, #8B5CF6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .user-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .user-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-role {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+  }
+
+  /* ───── TOPBAR ───── */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 240px;
+    right: 0;
+    height: 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 16px;
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .breadcrumb-item {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .breadcrumb-sep {
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
+  .breadcrumb-item.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .topbar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .topbar-btn:hover {
+    background: var(--bg);
+    border-color: var(--primary);
+  }
+
+  .topbar-btn .notif-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 1.5px solid var(--surface);
+  }
+
+  .topbar-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border);
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.15s;
+  }
+
+  .topbar-user:hover {
+    background: var(--bg);
+  }
+
+  .topbar-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .topbar-user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .topbar-user-role {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .online-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    border: 1.5px solid var(--surface);
+    margin-left: -6px;
+    margin-top: -6px;
+  }
+
+  /* ───── MAIN CONTENT ───── */
+  .main-content {
+    margin-left: 240px;
+    margin-top: 56px;
+    min-height: calc(100vh - 56px);
+    background: var(--bg);
+    padding: 20px 24px 100px;
+  }
+
+  /* ───── PATIENT BANNER ───── */
+  .patient-banner {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .patient-banner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+  }
+
+  .patient-avatar-lg {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3B82F6, #6366F1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+  }
+
+  .patient-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .patient-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .patient-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .patient-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 2px;
+    flex-wrap: wrap;
+  }
+
+  .patient-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .tag-primary { background: #EEF2FF; color: var(--primary); }
+  .tag-warning { background: #FEF3C7; color: #D97706; }
+  .tag-danger  { background: #FEE2E2; color: var(--danger); }
+  .tag-success { background: #D1FAE5; color: #059669; }
+  .tag-info    { background: #DBEAFE; color: #1D4ED8; }
+  .tag-purple  { background: #EDE9FE; color: var(--secondary); }
+
+  .patient-vitals-row {
+    display: flex;
+    gap: 0;
+    margin-left: auto;
+    background: var(--bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .vital-cell {
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid var(--border);
+    min-width: 80px;
+  }
+
+  .vital-cell:last-child { border-right: none; }
+
+  .vital-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .vital-value {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .vital-unit {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .vital-value.warning { color: var(--warning); }
+  .vital-value.danger  { color: var(--danger); }
+  .vital-value.normal  { color: var(--success); }
+
+  .visit-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    color: #fff;
+    border-radius: var(--radius);
+    min-width: 150px;
+    margin-left: 12px;
+  }
+
+  .visit-id {
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.85;
+    letter-spacing: 0.3px;
+  }
+
+  .visit-date {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .visit-doctor {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .visit-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 2px;
+    background: rgba(255,255,255,0.2);
+    padding: 2px 8px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+
+  /* ───── EMR TABS ───── */
+  .emr-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 4px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+  }
+
+  .emr-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .emr-tab:hover {
+    background: var(--bg);
+    color: var(--text-secondary);
+  }
+
+  .emr-tab.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  }
+
+  .emr-tab .tab-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .emr-tab.active .tab-num {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+  }
+
+  .emr-tab:not(.active) .tab-num {
+    background: var(--bg);
+    color: var(--text-muted);
+  }
+
+  .emr-tab.done::after {
+    content: '✓';
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 9px;
+    color: var(--success);
+    font-weight: 800;
+  }
+
+  .emr-tab.done { color: var(--success); }
+
+  /* ───── MAIN GRID ───── */
+  .soap-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  /* ───── CARD ───── */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.04), rgba(124,58,237,0.04));
+  }
+
+  .card-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .card-icon.purple { background: #EDE9FE; }
+  .card-icon.blue   { background: #DBEAFE; }
+  .card-icon.green  { background: #D1FAE5; }
+  .card-icon.pink   { background: #FCE7F3; }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .card-subtitle {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .card-body {
+    padding: 16px 18px;
+  }
+
+  /* ───── SOAP SECTION ───── */
+  .soap-section {
+    margin-bottom: 18px;
+  }
+
+  .soap-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .soap-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .soap-badge {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    letter-spacing: -0.5px;
+  }
+
+  .badge-S { background: linear-gradient(135deg, #3B82F6, #6366F1); color: #fff; }
+  .badge-O { background: linear-gradient(135deg, #10B981, #059669); color: #fff; }
+  .badge-A { background: linear-gradient(135deg, #F59E0B, #D97706); color: #fff; }
+  .badge-P { background: linear-gradient(135deg, #EC4899, #BE185D); color: #fff; }
+
+  .soap-label-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .soap-letter {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .soap-desc {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .soap-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .soap-status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+
+  .status-filled   { background: #D1FAE5; color: #059669; }
+  .status-required { background: #FEE2E2; color: var(--danger); }
+  .status-optional { background: var(--bg); color: var(--text-muted); }
+
+  .soap-textarea {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.6;
+    resize: vertical;
+    background: #FAFAFA;
+    transition: all 0.2s;
+    outline: none;
+  }
+
+  .soap-textarea:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .soap-textarea::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ───── OBJECTIVE CHECKBOXES ───── */
+  .systems-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .system-check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .system-check.checked {
+    border-color: var(--primary);
+    background: #EEF2FF;
+    color: var(--primary);
+  }
+
+  .system-check .check-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 800;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+
+  .system-check.checked .check-icon {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  /* ───── ASSESSMENT TAGS ───── */
+  .assessment-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .assessment-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid;
+    background: #fff;
+  }
+
+  .assessment-item.primary-dx {
+    border-color: #C7D2FE;
+    background: #EEF2FF;
+  }
+
+  .assessment-item.secondary-dx {
+    border-color: #FDE68A;
+    background: #FFFBEB;
+  }
+
+  .dx-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .primary-dx .dx-num {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .secondary-dx .dx-num {
+    background: var(--warning);
+    color: #fff;
+  }
+
+  .dx-info {
+    flex: 1;
+  }
+
+  .dx-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .dx-icd {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .dx-confidence {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+
+  .confidence-high   { background: #D1FAE5; color: #059669; }
+  .confidence-medium { background: #FEF3C7; color: #D97706; }
+
+  .dx-edit-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+
+  .dx-edit-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .add-dx-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: var(--radius);
+    border: 1.5px dashed var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    width: 100%;
+  }
+
+  .add-dx-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: #EEF2FF;
+  }
+
+  /* ───── SECTION DIVIDER ───── */
+  .section-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 14px 0;
+  }
+
+  /* ───── RIGHT PANEL ───── */
+  .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* ───── QUICK FILL ───── */
+  .quick-fill-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .quick-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+    width: 100%;
+  }
+
+  .quick-btn:hover {
+    border-color: var(--primary);
+    background: #EEF2FF;
+    transform: translateX(2px);
+  }
+
+  .quick-btn .btn-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .quick-btn .btn-info {
+    flex: 1;
+  }
+
+  .quick-btn .btn-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .quick-btn .btn-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .quick-btn .btn-arrow {
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: all 0.15s;
+  }
+
+  .quick-btn:hover .btn-arrow {
+    color: var(--primary);
+    transform: translateX(2px);
+  }
+
+  /* ───── NOTES ───── */
+  .notes-area {
+    width: 100%;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.6;
+    resize: vertical;
+    background: #FAFAFA;
+    transition: all 0.2s;
+    outline: none;
+    min-height: 90px;
+  }
+
+  .notes-area:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .notes-area::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ───── PREVIOUS VISIT ───── */
+  .prev-visit-card {
+    background: linear-gradient(135deg, #F5F3FF, #EEF2FF);
+    border: 1.5px solid #C7D2FE;
+    border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+
+  .prev-visit-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .prev-visit-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    flex: 1;
+  }
+
+  .prev-visit-date {
+    font-size: 11px;
+    color: var(--primary);
+    font-weight: 600;
+    background: #EEF2FF;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .prev-visit-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    align-items: flex-start;
+  }
+
+  .prev-row-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    min-width: 60px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .prev-row-value {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* ───── SOAP CHARS COUNTER ───── */
+  .char-counter {
+    text-align: right;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  /* ───── OBJECTIVE INLINE INFO ───── */
+  .objective-inline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin: 10px 0;
+  }
+
+  .objective-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .objective-field label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .objective-field input {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: #FAFAFA;
+    transition: all 0.2s;
+    outline: none;
+    text-align: center;
+  }
+
+  .objective-field input:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(79,70,229,0.1);
+  }
+
+  .objective-field input.abnormal {
+    border-color: var(--warning);
+    color: var(--warning);
+    background: #FFFBEB;
+  }
+
+  /* ───── BOTTOM NAV ───── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 240px;
+    right: 0;
+    height: 64px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 80;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.06);
+  }
+
+  .bottom-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bottom-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    outline: none;
+  }
+
+  .nav-btn.secondary {
+    background: var(--surface);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+  }
+
+  .nav-btn.secondary:hover {
+    background: var(--bg);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .nav-btn.primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.35);
+  }
+
+  .nav-btn.primary:hover {
+    box-shadow: 0 6px 16px rgba(79,70,229,0.5);
+    transform: translateY(-1px);
+  }
+
+  .nav-btn.save {
+    background: var(--success);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+  }
+
+  .nav-btn.save:hover {
+    background: #059669;
+    box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+    transform: translateY(-1px);
+  }
+
+  .nav-btn.danger {
+    background: #FEE2E2;
+    color: var(--danger);
+    border: 1.5px solid #FCA5A5;
+  }
+
+  .nav-btn.danger:hover {
+    background: var(--danger);
+    color: #fff;
+  }
+
+  .bottom-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+
+  .progress-bar {
+    width: 160px;
+    height: 6px;
+    background: var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 20px;
+    width: 40%;
+  }
+
+  /* ───── MISC HELPERS ───── */
+  .flex-row { display: flex; align-items: center; gap: 8px; }
+  .flex-col  { display: flex; flex-direction: column; gap: 4px; }
+  .mt-2  { margin-top: 8px; }
+  .mt-3  { margin-top: 12px; }
+  .ml-auto { margin-left: auto; }
+
+  .info-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: var(--bg);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .separator { color: var(--text-muted); }
+
+  .sub-section-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .alert-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    background: #FEF3C7;
+    border: 1px solid #FDE68A;
+    margin-bottom: 12px;
+  }
+
+  .alert-banner .alert-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .alert-banner .alert-text {
+    font-size: 12px;
+    color: #92400E;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .toolbar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 6px 8px;
+    background: var(--bg);
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+  }
+
+  .toolbar-btn {
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .toolbar-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .toolbar-sep {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+  }
+
+  /* ───── SCROLLBAR ───── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9CA3AF; }
+
+  .vital-value.danger-bp {
+    color: #DC2626;
+    font-weight: 900;
+  }
+
+  .soap-section-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ SIDEBAR ═══════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div class="logo-text">
+      <span class="logo-name">MediZen</span>
+      <span class="logo-version">v2.0 EMR SYSTEM</span>
+    </div>
+    </a>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Chính</div>
+    <a class="sidebar-item" href="04-dashboard-le-tan.html">
+      <span class="icon">🏠</span>
+      <span class="label">Tổng quan</span>
+    </a>
+    <a class="sidebar-item" href="14-lich-hen.html">
+      <span class="icon">📅</span>
+      <span class="label">Lịch hẹn</span>
+    </a>
+    <a class="sidebar-item" href="13-phong-cho-queue.html">
+      <span class="icon">🕐</span>
+      <span class="label">Phòng chờ</span>
+    </a>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Lâm sàng</div>
+    <a class="sidebar-item active" href="15-emr-sinh-hieu.html">
+      <span class="icon">🩺</span>
+      <span class="label">Khám bệnh</span>
+    </a>
+    <a class="sidebar-item" href="21-cap-phat-don-thuoc.html">
+      <span class="icon">💊</span>
+      <span class="label">Dược</span>
+    </a>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Quản lý</div>
+    <a class="sidebar-item" href="10-danh-sach-benh-nhan.html">
+      <span class="icon">👥</span>
+      <span class="label">Bệnh nhân</span>
+    </a>
+    <a class="sidebar-item" href="24-thanh-toan.html">
+      <span class="icon">💰</span>
+      <span class="label">Thanh toán</span>
+    </a>
+    <a class="sidebar-item" href="index.html">
+      <span class="icon">📊</span>
+      <span class="label">Báo cáo</span>
+    </a>
+    <a class="sidebar-item" href="index.html">
+      <span class="icon">⚙️</span>
+      <span class="label">Cấu hình</span>
+    </a>
+  </div>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="user-avatar">BT</div>
+      <div class="user-info">
+        <div class="user-name">BS. Trần Minh Bảo</div>
+        <div class="user-role">Bác sĩ nội khoa</div>
+      </div>
+      <span style="font-size:12px; color:rgba(255,255,255,0.3)">⋯</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════ TOPBAR ═══════════════════════ -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span class="breadcrumb-item">🏥 Hồ sơ bệnh án</span>
+    <span class="breadcrumb-sep">›</span>
+    <a class="breadcrumb-item" href="11-ho-so-benh-nhan.html" style="text-decoration:none; color:inherit;">Nguyễn Văn An</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-item active">🩺 Khám lâm sàng (S.O.A.P.)</span>
+  </div>
+
+  <div class="topbar-actions">
+    <div class="topbar-btn" title="Tìm kiếm">🔍</div>
+    <div class="topbar-btn" title="Thông báo">
+      🔔
+      <span class="notif-dot"></span>
+    </div>
+    <div class="topbar-btn" title="Trợ giúp AI">🤖</div>
+    <div class="topbar-divider"></div>
+    <div class="topbar-user">
+      <div style="position:relative; display:flex;">
+        <div class="topbar-user-avatar">BT</div>
+        <div class="online-indicator"></div>
+      </div>
+      <div class="topbar-user-info">
+        <span class="topbar-user-name">BS. Trần Minh Bảo</span>
+        <span class="topbar-user-role">Nội khoa · Phòng 3</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+<main class="main-content">
+
+  <!-- PATIENT BANNER -->
+  <div class="patient-banner">
+    <div class="patient-avatar-lg">AN</div>
+    <div class="patient-main-info">
+      <div class="patient-name">Nguyễn Văn An</div>
+      <div class="patient-sub">Mã BN: BN-2026-04521 &nbsp;•&nbsp; Nam &nbsp;•&nbsp; 45 tuổi (12/03/1981) &nbsp;•&nbsp; BHYT: 4030.1.AA.2408624 (Còn hạn: 31/12/2026)</div>
+      <div class="patient-tags">
+        <span class="patient-tag tag-danger">⚠️ Tăng huyết áp</span>
+        <span class="patient-tag tag-warning">💊 Đang dùng thuốc</span>
+        <span class="patient-tag tag-info">🩸 Nhóm máu A+</span>
+        <span class="patient-tag tag-purple">📍 Q. Hoàng Mai, Hà Nội</span>
+        <span class="patient-tag tag-success">✅ BHYT hợp lệ</span>
+      </div>
+    </div>
+
+    <div class="patient-vitals-row">
+      <div class="vital-cell">
+        <span class="vital-label">Mạch</span>
+        <span class="vital-value normal">88</span>
+        <span class="vital-unit">lần/phút</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">Huyết áp</span>
+        <span class="vital-value danger-bp">148/92</span>
+        <span class="vital-unit">mmHg</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">Nhiệt độ</span>
+        <span class="vital-value normal">36.8</span>
+        <span class="vital-unit">°C</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">SpO₂</span>
+        <span class="vital-value normal">97%</span>
+        <span class="vital-unit">oxy máu</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">Nhịp thở</span>
+        <span class="vital-value normal">18</span>
+        <span class="vital-unit">lần/phút</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">Cân nặng</span>
+        <span class="vital-value">72</span>
+        <span class="vital-unit">kg / 1.70m</span>
+      </div>
+      <div class="vital-cell">
+        <span class="vital-label">BMI</span>
+        <span class="vital-value warning">24.9</span>
+        <span class="vital-unit">kg/m²</span>
+      </div>
+    </div>
+
+    <div class="visit-info">
+      <span class="visit-id">📋 Lượt khám #LK-2026-08842</span>
+      <span class="visit-date">🗓️ 31/05/2026 — 09:22</span>
+      <span class="visit-doctor">👨‍⚕️ BS. Trần Minh Bảo</span>
+      <span class="visit-status-badge">🟢 Đang khám</span>
+    </div>
+  </div>
+
+  <!-- EMR TABS -->
+  <div class="emr-tabs">
+    <a class="emr-tab done" href="15-emr-sinh-hieu.html" style="text-decoration:none;">
+      <span class="tab-num">①</span>
+      🩺 Sinh hiệu
+    </a>
+    <a class="emr-tab active" href="16-emr-kham-lam-sang.html" style="text-decoration:none;">
+      <span class="tab-num">②</span>
+      📝 Khám lâm sàng
+    </a>
+    <a class="emr-tab" href="17-emr-chan-doan.html" style="text-decoration:none;">
+      <span class="tab-num">③</span>
+      🔍 Chẩn đoán
+    </a>
+    <a class="emr-tab" href="18-emr-ke-don.html" style="text-decoration:none;">
+      <span class="tab-num">④</span>
+      💊 Kê đơn
+    </a>
+    <a class="emr-tab" href="19-emr-can-lam-sang.html" style="text-decoration:none;">
+      <span class="tab-num">⑤</span>
+      🧪 Cận lâm sàng
+    </a>
+    <a class="emr-tab" href="20-emr-tom-tat.html" style="text-decoration:none;">
+      <span class="tab-num">⑥</span>
+      📄 Tóm tắt &amp; Hoàn tất
+    </a>
+  </div>
+
+  <!-- MAIN SOAP GRID -->
+  <div class="soap-grid">
+
+    <!-- ─── LEFT: SOAP FORM ─── -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon purple">📝</div>
+        <div>
+          <div class="card-title">Ghi chép lâm sàng — S.O.A.P.</div>
+          <div class="card-subtitle">Structured clinical note — Hồ sơ khám bệnh chuẩn hóa</div>
+        </div>
+        <div class="ml-auto flex-row" style="gap: 8px;">
+          <span class="info-chip">🤖 AI hỗ trợ gợi ý</span>
+          <span class="info-chip">⏱️ Cập nhật 09:22</span>
+          <div style="padding: 5px 12px; background: #EEF2FF; border-radius: 6px; font-size: 12px; font-weight: 700; color: var(--primary); cursor: pointer; border: 1.5px solid #C7D2FE;">
+            🔄 Tự động lưu
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- ALERT -->
+        <div class="alert-banner">
+          <span class="alert-icon">⚠️</span>
+          <div class="alert-text">
+            <strong>Lưu ý lâm sàng:</strong> Bệnh nhân có tiền sử tăng huyết áp — HA đo được 148/92 mmHg (cao hơn bình thường). Vui lòng đánh giá kỹ các triệu chứng tim mạch. Thuốc hiện dùng: Amlodipine 5mg.
+          </div>
+        </div>
+
+        <!-- ─── S: SUBJECTIVE ─── -->
+        <div class="soap-section">
+          <div class="soap-label">
+            <div class="soap-badge badge-S">S</div>
+            <div class="soap-label-text">
+              <span class="soap-letter">SUBJECTIVE — Chủ quan</span>
+              <span class="soap-desc">Bệnh nhân khai / Lý do đến khám</span>
+            </div>
+            <div class="soap-divider"></div>
+            <span class="soap-status status-filled">✓ Đã điền</span>
+          </div>
+
+          <div class="soap-section-inner">
+            <div class="toolbar-row">
+              <button class="toolbar-btn">Đau ngực</button>
+              <button class="toolbar-btn">Khó thở</button>
+              <button class="toolbar-btn">Đau đầu</button>
+              <button class="toolbar-btn">Sốt</button>
+              <button class="toolbar-btn">Mệt mỏi</button>
+              <div class="toolbar-sep"></div>
+              <button class="toolbar-btn">Mẫu có sẵn</button>
+              <button class="toolbar-btn">Nhập giọng nói 🎤</button>
+            </div>
+            <textarea class="soap-textarea" rows="4">Bệnh nhân nam 45 tuổi đến khám vì đau ngực trái âm ỉ 2 ngày, kèm khó thở nhẹ khi gắng sức. Không sốt, không ho. Tiền sử tăng huyết áp đang điều trị Amlodipine 5mg/ngày. Đau không lan, không kèm vã mồ hôi. Giảm nhẹ khi nghỉ ngơi. VAS đau: 4/10.</textarea>
+            <div class="char-counter">218 / 1000 ký tự &nbsp;•&nbsp; Đã lưu tự động</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ─── O: OBJECTIVE ─── -->
+        <div class="soap-section">
+          <div class="soap-label">
+            <div class="soap-badge badge-O">O</div>
+            <div class="soap-label-text">
+              <span class="soap-letter">OBJECTIVE — Khách quan</span>
+              <span class="soap-desc">Bác sĩ khám / Kết quả thực thể</span>
+            </div>
+            <div class="soap-divider"></div>
+            <span class="soap-status status-filled">✓ Đã điền</span>
+          </div>
+
+          <div class="soap-section-inner">
+            <!-- Objective inline vitals -->
+            <div class="objective-inline-grid">
+              <div class="objective-field">
+                <label>🫀 Tiếng tim</label>
+                <input type="text" value="Đều, T1-T2 rõ" />
+              </div>
+              <div class="objective-field">
+                <label>🫁 Phổi</label>
+                <input type="text" value="Trong, không ran" />
+              </div>
+              <div class="objective-field">
+                <label>🤲 Da, niêm mạc</label>
+                <input type="text" value="Hồng hào, không phù" />
+              </div>
+              <div class="objective-field">
+                <label>🧠 Thần kinh</label>
+                <input type="text" value="Tỉnh, tiếp xúc tốt" />
+              </div>
+              <div class="objective-field">
+                <label>🍽️ Bụng</label>
+                <input type="text" value="Mềm, không điểm đau" />
+              </div>
+              <div class="objective-field">
+                <label>💪 Tứ chi</label>
+                <input type="text" value="Không phù, mạch đủ" />
+              </div>
+            </div>
+
+            <div class="toolbar-row">
+              <button class="toolbar-btn">Mẫu khám tim mạch</button>
+              <button class="toolbar-btn">Mẫu khám hô hấp</button>
+              <button class="toolbar-btn">Mẫu tổng quát</button>
+              <div class="toolbar-sep"></div>
+              <button class="toolbar-btn">Sơ đồ cơ thể 🗺️</button>
+            </div>
+
+            <textarea class="soap-textarea" rows="4">Bệnh nhân tỉnh táo, tiếp xúc tốt. Da hồng hào, không phù. Tim đều, tần số 88 lần/phút, không nghe âm thổi bất thường. T1-T2 rõ. Phổi thông khí đều, không nghe ran. Bụng mềm, không có điểm đau khu trú, gan lách không to. Không dấu hiệu phù ngoại biên.</textarea>
+            <div class="char-counter">245 / 1000 ký tự</div>
+
+            <!-- Systems checkboxes -->
+            <div class="sub-section-title">
+              <span>🔎</span> Cơ quan / hệ thống đã khám
+            </div>
+            <div class="systems-grid">
+              <div class="system-check checked">
+                <div class="check-icon">✓</div>
+                ❤️ Tim mạch
+              </div>
+              <div class="system-check checked">
+                <div class="check-icon">✓</div>
+                🫁 Hô hấp
+              </div>
+              <div class="system-check">
+                <div class="check-icon"></div>
+                🍽️ Tiêu hóa
+              </div>
+              <div class="system-check">
+                <div class="check-icon"></div>
+                🧠 Thần kinh
+              </div>
+              <div class="system-check">
+                <div class="check-icon"></div>
+                🦴 Cơ xương khớp
+              </div>
+              <div class="system-check">
+                <div class="check-icon"></div>
+                🩺 Nội tiết
+              </div>
+              <div class="system-check">
+                <div class="check-icon"></div>
+                🔬 Tiết niệu
+              </div>
+              <div class="system-check checked">
+                <div class="check-icon">✓</div>
+                🩸 Huyết học
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ─── A: ASSESSMENT ─── -->
+        <div class="soap-section">
+          <div class="soap-label">
+            <div class="soap-badge badge-A">A</div>
+            <div class="soap-label-text">
+              <span class="soap-letter">ASSESSMENT — Đánh giá</span>
+              <span class="soap-desc">Chẩn đoán sơ bộ / Vấn đề lâm sàng</span>
+            </div>
+            <div class="soap-divider"></div>
+            <span class="soap-status status-filled">✓ Đã điền</span>
+          </div>
+
+          <div class="assessment-items">
+
+            <div class="assessment-item primary-dx">
+              <span class="dx-num">1</span>
+              <div class="dx-info">
+                <div class="dx-name">🔴 Hội chứng đau ngực không điển hình — Theo dõi bệnh động mạch vành</div>
+                <div class="dx-icd">ICD-10: R07.9 — Đau ngực, chưa xác định &nbsp;•&nbsp; <strong>Chẩn đoán chính (Sơ bộ)</strong></div>
+              </div>
+              <span class="dx-confidence confidence-medium">Theo dõi</span>
+              <div class="dx-edit-btn">✏️</div>
+            </div>
+
+            <div class="assessment-item secondary-dx">
+              <span class="dx-num">2</span>
+              <div class="dx-info">
+                <div class="dx-name">🟡 Tăng huyết áp độ I — Đang điều trị</div>
+                <div class="dx-icd">ICD-10: I10 — Tăng huyết áp nguyên phát &nbsp;•&nbsp; <strong>Bệnh kèm theo</strong></div>
+              </div>
+              <span class="dx-confidence confidence-high">Xác định</span>
+              <div class="dx-edit-btn">✏️</div>
+            </div>
+
+            <button class="add-dx-btn">
+              <span>➕</span>
+              Thêm chẩn đoán / vấn đề lâm sàng...
+            </button>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ─── P: PLAN ─── -->
+        <div class="soap-section">
+          <div class="soap-label">
+            <div class="soap-badge badge-P">P</div>
+            <div class="soap-label-text">
+              <span class="soap-letter">PLAN — Kế hoạch xử trí</span>
+              <span class="soap-desc">Xét nghiệm / Điều trị / Tái khám</span>
+            </div>
+            <div class="soap-divider"></div>
+            <span class="soap-status status-filled">✓ Đã điền</span>
+          </div>
+
+          <div class="soap-section-inner">
+            <div class="toolbar-row">
+              <button class="toolbar-btn">📋 Chỉ định XN</button>
+              <button class="toolbar-btn">📸 Chỉ định CĐHA</button>
+              <button class="toolbar-btn">💊 Kê đơn thuốc</button>
+              <button class="toolbar-btn">📅 Hẹn tái khám</button>
+              <div class="toolbar-sep"></div>
+              <button class="toolbar-btn">🤖 Gợi ý AI</button>
+            </div>
+            <textarea class="soap-textarea" rows="5">Chỉ định cận lâm sàng:
+  • ECG 12 chuyển đạo — loại trừ thiếu máu cơ tim, rối loạn nhịp
+  • Men tim: Troponin I, CK-MB — đánh giá tổn thương cơ tim
+  • X-quang tim phổi thẳng — đánh giá bóng tim, phổi
+  • Xét nghiệm máu: CTM, Glucose, Lipid máu, Creatinin, Ure
+
+Điều trị và theo dõi:
+  • Tiếp tục Amlodipine 5mg/ngày, đánh giá lại kiểm soát HA
+  • Nghỉ ngơi, hạn chế gắng sức cho đến khi có kết quả ECG
+  • Nhập viện theo dõi nếu Troponin (+) hoặc ECG bất thường
+  • Tái khám sau 1 tuần nếu triệu chứng không giảm, hoặc ngay khi đau tăng</textarea>
+            <div class="char-counter">572 / 2000 ký tự &nbsp;•&nbsp; 4 chỉ định đã tạo</div>
+
+            <!-- Plan actions row -->
+            <div class="flex-row mt-2" style="flex-wrap: wrap; gap: 8px;">
+              <span class="info-chip">🧪 3 xét nghiệm đã chỉ định</span>
+              <span class="info-chip">📸 1 CĐHA đã chỉ định</span>
+              <span class="info-chip">💊 Đơn thuốc chờ tạo</span>
+              <span class="info-chip">📅 Tái khám: 07/06/2026</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── RIGHT PANEL ─── -->
+    <div class="right-panel">
+
+      <!-- Quick Fill -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon pink">⚡</div>
+          <div>
+            <div class="card-title">Điền nhanh &amp; Mẫu</div>
+            <div class="card-subtitle">Template ghi chép lâm sàng</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="quick-fill-grid">
+            <button class="quick-btn">
+              <span class="btn-icon">🩺</span>
+              <div class="btn-info">
+                <div class="btn-title">Khám thông thường</div>
+                <div class="btn-desc">Khám định kỳ, bệnh nhân ổn định</div>
+              </div>
+              <span class="btn-arrow">›</span>
+            </button>
+            <button class="quick-btn">
+              <span class="btn-icon">🔄</span>
+              <div class="btn-info">
+                <div class="btn-title">Tái khám ổn định</div>
+                <div class="btn-desc">Theo dõi, không có thay đổi lớn</div>
+              </div>
+              <span class="btn-arrow">›</span>
+            </button>
+            <button class="quick-btn">
+              <span class="btn-icon">🚨</span>
+              <div class="btn-info">
+                <div class="btn-title">Cấp cứu nhẹ</div>
+                <div class="btn-desc">Bệnh nhân cần xử trí nhanh</div>
+              </div>
+              <span class="btn-arrow">›</span>
+            </button>
+            <button class="quick-btn">
+              <span class="btn-icon">❤️</span>
+              <div class="btn-info">
+                <div class="btn-title">Khám Tim mạch</div>
+                <div class="btn-desc">Template chuyên khoa tim mạch</div>
+              </div>
+              <span class="btn-arrow">›</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Notes -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon blue">📌</div>
+          <div>
+            <div class="card-title">Ghi chú thêm</div>
+            <div class="card-subtitle">Lưu ý riêng cho lượt khám này</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <textarea class="notes-area" placeholder="Ghi chú riêng của bác sĩ, không in ra bệnh nhân...&#10;&#10;VD: BN lo lắng nhiều, cần tư vấn tâm lý. Kiểm tra lại HA sau 30 phút...">BN tỏ ra lo lắng về triệu chứng đau ngực. Đã giải thích cần làm ECG để loại trừ bệnh lý mạch vành. Cần tư vấn kỹ về lối sống sau khi có kết quả.</textarea>
+          <div class="flex-row mt-2" style="gap: 6px; flex-wrap: wrap;">
+            <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;">Nhãn nhanh:</span>
+            <span style="font-size: 11px; font-weight: 600; padding: 2px 8px; background: #FEF3C7; color: #92400E; border-radius: 20px; cursor: pointer;">⚠️ Theo dõi sát</span>
+            <span style="font-size: 11px; font-weight: 600; padding: 2px 8px; background: #DBEAFE; color: #1D4ED8; border-radius: 20px; cursor: pointer;">🔔 Cần liên hệ lại</span>
+            <span style="font-size: 11px; font-weight: 600; padding: 2px 8px; background: #D1FAE5; color: #059669; border-radius: 20px; cursor: pointer;">✅ Ổn định</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Previous Visit -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon green">🕐</div>
+          <div>
+            <div class="card-title">Lượt khám trước</div>
+            <div class="card-subtitle">Lịch sử khám bệnh của bệnh nhân</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="prev-visit-card">
+            <div class="prev-visit-header">
+              <span style="font-size:16px">📋</span>
+              <span class="prev-visit-title">Lượt khám #LK-2026-07124</span>
+              <span class="prev-visit-date">18/04/2026</span>
+            </div>
+            <div class="prev-visit-row">
+              <span class="prev-row-label">Lý do</span>
+              <span class="prev-row-value">Tái khám theo dõi tăng huyết áp, không có triệu chứng mới</span>
+            </div>
+            <div class="prev-visit-row">
+              <span class="prev-row-label">Sinh hiệu</span>
+              <span class="prev-row-value">HA: 142/88 · Mạch: 82 · SpO₂: 98% · Nhiệt: 36.5°C</span>
+            </div>
+            <div class="prev-visit-row">
+              <span class="prev-row-label">Chẩn đoán</span>
+              <span class="prev-row-value">Tăng huyết áp độ I (I10) — kiểm soát chưa đạt mục tiêu</span>
+            </div>
+            <div class="prev-visit-row">
+              <span class="prev-row-label">Điều trị</span>
+              <span class="prev-row-value">Tiếp tục Amlodipine 5mg/ngày. Tư vấn chế độ ăn giảm muối, tăng vận động.</span>
+            </div>
+            <div class="prev-visit-row">
+              <span class="prev-row-label">Bác sĩ</span>
+              <span class="prev-row-value">BS. Trần Minh Bảo</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; padding: 8px 12px; background: var(--bg); border-radius: 6px; border: 1px solid var(--border-light);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">Tổng số lần khám: 8 lần</div>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <span class="info-chip">2026: 3 lần</span>
+              <span class="info-chip">2025: 4 lần</span>
+              <span class="info-chip">2024: 1 lần</span>
+              <span style="font-size: 11px; font-weight: 600; color: var(--primary); cursor: pointer; padding: 3px 8px; border-radius: 20px; background: #EEF2FF; border: 1px solid #C7D2FE;">Xem toàn bộ →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Suggestion Box -->
+      <div class="card" style="border: 1.5px solid #C7D2FE;">
+        <div class="card-header" style="background: linear-gradient(135deg, #EEF2FF, #EDE9FE);">
+          <div class="card-icon purple">🤖</div>
+          <div>
+            <div class="card-title">Gợi ý lâm sàng AI</div>
+            <div class="card-subtitle">Dựa trên triệu chứng &amp; tiền sử</div>
+          </div>
+          <div class="ml-auto">
+            <span style="font-size: 10px; font-weight: 700; padding: 2px 8px; background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #fff; border-radius: 20px;">BETA</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="padding: 10px 12px; border-radius: 8px; background: #FEF3C7; border: 1px solid #FDE68A;">
+              <div style="font-size: 11px; font-weight: 800; color: #92400E; margin-bottom: 4px;">⚠️ Cần loại trừ</div>
+              <div style="font-size: 12px; color: #78350F; font-weight: 600; line-height: 1.5;">Hội chứng vành cấp (ACS) — Troponin &amp; ECG ưu tiên cấp</div>
+            </div>
+            <div style="padding: 10px 12px; border-radius: 8px; background: #DBEAFE; border: 1px solid #BFDBFE;">
+              <div style="font-size: 11px; font-weight: 800; color: #1D4ED8; margin-bottom: 4px;">💡 Gợi ý xét nghiệm thêm</div>
+              <div style="font-size: 12px; color: #1E40AF; font-weight: 500; line-height: 1.5;">• Pro-BNP nếu nghi ngờ suy tim<br>• Echocardiography nếu ECG bất thường<br>• Holter 24h nếu nghi rối loạn nhịp</div>
+            </div>
+            <div style="padding: 10px 12px; border-radius: 8px; background: #D1FAE5; border: 1px solid #A7F3D0;">
+              <div style="font-size: 11px; font-weight: 800; color: #065F46; margin-bottom: 4px;">📊 Điểm nguy cơ HEART</div>
+              <div style="font-size: 12px; color: #047857; font-weight: 600; line-height: 1.5;">Score ước tính: 4/10 — Nguy cơ trung bình. Khuyến nghị theo dõi nội trú ít nhất 6 giờ.</div>
+            </div>
+          </div>
+          <div style="margin-top: 10px; font-size: 10px; color: var(--text-muted); font-style: italic; text-align: center;">
+            ⚠️ AI chỉ hỗ trợ tham khảo — Quyết định lâm sàng thuộc trách nhiệm bác sĩ
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- END RIGHT PANEL -->
+
+  </div>
+  <!-- END SOAP GRID -->
+
+</main>
+
+<!-- ═══════════════════════ BOTTOM NAV ═══════════════════════ -->
+<div class="bottom-nav">
+  <div class="bottom-nav-left">
+    <a href="15-emr-sinh-hieu.html" class="nav-btn secondary" style="text-decoration:none;">
+      ← Sinh hiệu
+    </a>
+    <button class="nav-btn danger">
+      🗑️ Xóa ghi chép
+    </button>
+    <div class="bottom-progress">
+      <span>Tiến độ:</span>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <span>Bước 2/6</span>
+    </div>
+  </div>
+
+  <div class="bottom-nav-right">
+    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 1px; margin-right: 4px;">
+      <span style="font-size: 11px; font-weight: 700; color: var(--text-secondary);">Lưu lần cuối: 09:22:14</span>
+      <span style="font-size: 10px; color: var(--text-muted);">Bởi BS. Trần Minh Bảo</span>
+    </div>
+    <button class="nav-btn secondary">
+      🖨️ In phiếu khám
+    </button>
+    <a href="17-emr-chan-doan.html" class="nav-btn save" style="text-decoration:none;">
+      💾 Lưu ghi chép
+    </a>
+    <a href="17-emr-chan-doan.html" class="nav-btn primary" style="text-decoration:none;">
+      Chẩn đoán →
+    </a>
+  </div>
+</div>
+
+</body>
+</html>

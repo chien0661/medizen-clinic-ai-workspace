@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cấu hình Tích hợp (VSS Disabled) — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { backdrop-filter: blur(12px); }
+        .custom-shadow { box-shadow: 0 4px 20px rgba(99, 102, 241, 0.05); }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Cấu hình Tích hợp (VSS Disabled) — MediZen</strong></span>
+    <span>ID: e59bef8bee744926ae5654f6b26ef25e</span>
+    <span>2560×2912 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 flex flex-col py-6 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 w-[240px] z-50 font-['Inter'] text-sm antialiased">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white font-bold">M</div>
+<div>
+<div class="font-['Plus_Jakarta_Sans'] font-bold text-indigo-600 leading-tight">MediZen Modern</div>
+<div class="text-[10px] text-slate-400 uppercase tracking-wider">Hệ thống EMR</div>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">person_book</span>
+<span>Bệnh nhân</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>Lịch hẹn</span>
+</a>
+<!-- Active State for Tích hợp -->
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border-r-4 border-indigo-600 font-bold transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span>Tích hợp</span>
+</a>
+<div class="pl-10 pr-3 py-1 space-y-1">
+<a class="block py-1.5 text-indigo-600 font-medium text-[13px]" href="#">Cổng BHYT VSS</a>
+<a class="block py-1.5 text-slate-500 hover:text-indigo-600 text-[13px]" href="#">Máy xét nghiệm</a>
+<a class="block py-1.5 text-slate-500 hover:text-indigo-600 text-[13px]" href="#">Hệ thống PACS</a>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">pill</span>
+<span>Kho dược</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">settings_suggest</span>
+<span>Cấu hình</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-2.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold hover:bg-indigo-50 hover:text-indigo-600 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">contact_support</span>
+                Hỗ trợ kỹ thuật
+            </button>
+</div>
+</aside>
+<!-- Main Wrapper -->
+<div class="flex-1 ml-[240px] flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 left-[240px] right-0 z-40 flex justify-between items-center h-14 px-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm font-['Plus_Jakarta_Sans'] font-semibold">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-xs text-slate-400 font-medium">
+<span>Cấu hình</span>
+<span class="material-symbols-outlined text-[16px] mx-1">chevron_right</span>
+<span class="text-slate-600">Tích hợp</span>
+</nav>
+</div>
+<div class="flex-1 max-w-md mx-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[20px]">search</span>
+<input class="w-full h-9 pl-10 pr-4 bg-slate-100 border-none rounded-full text-sm focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Tìm kiếm tính năng... (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 flex items-center justify-center text-slate-500 hover:bg-slate-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-2 pl-2">
+<div class="text-right hidden sm:block">
+<div class="text-xs font-bold text-slate-900 leading-none">BS. Lê Minh</div>
+<div class="text-[10px] text-slate-500">Quản trị viên</div>
+</div>
+<img class="w-8 h-8 rounded-full border border-indigo-100 object-cover" data-alt="A professional headshot of a middle-aged male doctor with a warm smile, wearing a white laboratory coat and a stethoscope around his neck. The background is a blurred medical office with soft, natural lighting that emphasizes his friendly and trustworthy demeanor. The overall aesthetic is clean, professional, and consistent with a high-end medical software interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqJkwe6P7CfDt7xbil5j9VfCzCV5SxlWPj0xsxfqHNM1APy_oYuzOpic14Lt7H8bK_JLQruzXkVbIHgTaNNIHNCBHZaE4xqu3XypG0jBMqptAdbOrhjELFMVmUy-lesri6X0WyPNQTkl5TKyNltIq2kM8IJWX7-N3HlQRQ0bFH6n9bXM5tYOUZlZtZIRYJkwFvEBmd35K8-9RSAD0fu6iORfxxuiFHYXRxNCe9m6Ulw6U726cs_neVHiVBMWRHQ83KzWZEOq-m_d0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="mt-14 p-8 flex-1 flex gap-8">
+<!-- Canvas -->
+<div class="flex-1 space-y-6">
+<!-- Header Section -->
+<div>
+<h1 class="text-2xl font-extrabold tracking-tight text-slate-900">Tích hợp hệ thống</h1>
+<p class="text-slate-500 mt-1 flex items-center gap-3">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> 5 hệ thống</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-amber-500"></span> 1 cảnh báo</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> uptime 99.7%</span>
+</p>
+</div>
+<!-- Tabs -->
+<div class="flex items-center gap-1 border-b border-slate-200">
+<button class="px-4 py-2 border-b-2 border-indigo-600 text-indigo-600 font-bold text-sm">VSS BHYT</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium text-sm">HL7 LIS</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium text-sm">DICOM PACS</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium text-sm">SMS/Email</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium text-sm">Webhook</button>
+<button class="px-4 py-2 text-slate-500 hover:text-slate-700 font-medium text-sm">Logs</button>
+</div>
+<!-- Warning Banner -->
+<div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl flex items-center justify-between">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-amber-600 mt-0.5">warning</span>
+<div>
+<p class="font-bold text-amber-800 text-sm leading-none">Cần bật BHYT trước khi cấu hình VSS</p>
+<p class="text-amber-700 text-xs mt-1">Tính năng BHYT hiện đang bị tắt trong cấu hình hệ thống. Vui lòng kích hoạt để bắt đầu kết nối cổng giám định.</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-white border border-amber-200 text-amber-700 rounded-lg text-xs font-bold hover:bg-amber-100 transition-colors">
+                        Mở Cấu hình Phòng khám
+                    </button>
+</div>
+<!-- Grid Layout (2 columns) -->
+<div class="grid grid-cols-2 gap-4">
+<!-- VSS Card (Disabled) -->
+<div class="relative bg-white border border-slate-200 rounded-xl p-5 opacity-50 overflow-hidden">
+<div class="absolute inset-0 bg-slate-50/50 backdrop-blur-[1px] z-10 flex items-center justify-center">
+<div class="bg-slate-900/80 text-white px-3 py-1.5 rounded-full text-[11px] font-bold tracking-tight">Tắt - Cần bật BHYT trước</div>
+</div>
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">account_balance</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">CHƯA KẾT NỐI</span>
+</div>
+<h3 class="font-bold text-slate-900">VSS BHYT</h3>
+<p class="text-xs text-slate-500 mt-1">Cổng giám định BHYT Quốc gia</p>
+</div>
+<!-- HL7 LIS Card -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 custom-shadow hover:border-indigo-200 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600">
+<span class="material-symbols-outlined">biotech</span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                                    Đang kết nối
+                                </span>
+<span class="text-[10px] text-slate-400 font-medium">Uptime: 100%</span>
+</div>
+</div>
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">HL7 LIS Integration</h3>
+<div class="mt-4 flex items-center gap-4 border-t border-slate-50 pt-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Quy mô</div>
+<div class="text-sm font-bold text-slate-700">4 máy xét nghiệm</div>
+</div>
+<div class="flex-1 text-right">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Lưu lượng</div>
+<div class="text-sm font-bold text-slate-700">2,156 KQ/ngày</div>
+</div>
+<button class="ml-2 w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+</div>
+</div>
+<!-- DICOM PACS Card -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 custom-shadow hover:border-indigo-200 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-sky-50 rounded-lg flex items-center justify-center text-sky-600">
+<span class="material-symbols-outlined">settings_overscan</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                                Hoạt động
+                            </span>
+</div>
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">DICOM PACS</h3>
+<div class="mt-4 flex items-center gap-4 border-t border-slate-50 pt-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Thiết bị</div>
+<div class="text-sm font-bold text-slate-700">3 máy chẩn đoán</div>
+</div>
+<div class="flex-1 text-right">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Dữ liệu</div>
+<div class="text-sm font-bold text-slate-700">87 ảnh/ngày</div>
+</div>
+<button class="ml-2 w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+</div>
+</div>
+<!-- SMS Twilio Card -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 custom-shadow hover:border-indigo-200 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-red-600">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">TWILIO API</span>
+</div>
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">SMS Twilio Gateway</h3>
+<div class="mt-4 flex items-center gap-4 border-t border-slate-50 pt-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-400 uppercase font-bold">24h qua</div>
+<div class="text-sm font-bold text-slate-700">1,247 tin nhắn</div>
+</div>
+<div class="flex-1 text-right">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Tạm tính</div>
+<div class="text-sm font-bold text-slate-700">₫2.4M/tháng</div>
+</div>
+<button class="ml-2 w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+</div>
+</div>
+<!-- Email SendGrid Card -->
+<div class="bg-white border border-slate-200 rounded-xl p-5 custom-shadow hover:border-indigo-200 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+<span class="text-[10px] font-bold text-slate-400">SENDGRID</span>
+</div>
+<h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">Email Service</h3>
+<div class="mt-4 flex items-center gap-4 border-t border-slate-50 pt-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Tỷ lệ mở</div>
+<div class="text-sm font-bold text-slate-700">64.2%</div>
+</div>
+<div class="flex-1 text-right">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Lưu lượng</div>
+<div class="text-sm font-bold text-slate-700">856 email/24h</div>
+</div>
+<button class="ml-2 w-8 h-8 rounded-lg bg-slate-50 text-slate-400 hover:bg-indigo-50 hover:text-indigo-600 flex items-center justify-center transition-all">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</button>
+</div>
+</div>
+<!-- Webhook Card (Amber) -->
+<div class="bg-white border-2 border-amber-100 rounded-xl p-5 custom-shadow hover:border-amber-200 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined">webhook</span>
+</div>
+<span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">error</span>
+                                3 endpoints failing
+                            </span>
+</div>
+<h3 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors">Webhooks Receiver</h3>
+<div class="mt-4 flex items-center gap-4 border-t border-slate-50 pt-4">
+<div class="flex-1">
+<div class="text-[10px] text-slate-400 uppercase font-bold">Active</div>
+<div class="text-sm font-bold text-slate-700">12 events/24h</div>
+</div>
+<button class="px-3 py-1.5 bg-amber-50 text-amber-700 rounded-lg text-xs font-bold hover:bg-amber-100 transition-colors">
+                                Xem logs
+                            </button>
+</div>
+</div>
+</div>
+<!-- Detail Panel (VSS Disabled Config) -->
+<div class="bg-slate-50/50 border border-slate-200 rounded-2xl p-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-800">Cấu hình Cổng giám định VSS</h2>
+<div class="text-xs text-slate-400 italic">Dữ liệu được mã hóa theo chuẩn AES-256</div>
+</div>
+<div class="grid grid-cols-2 gap-6 opacity-40 select-none">
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-600 uppercase tracking-wide">API key kết nối</label>
+<div class="relative">
+<input class="w-full bg-white border-slate-200 rounded-lg text-sm px-4 py-2.5 focus:ring-0" disabled="" type="password" value="************************"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-300">visibility</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-slate-600 uppercase tracking-wide">Mã cơ sở KCB</label>
+<input class="w-full bg-white border-slate-200 rounded-lg text-sm px-4 py-2.5" disabled="" type="text" value="79001"/>
+</div>
+<div class="col-span-2 space-y-2">
+<label class="text-xs font-bold text-slate-600 uppercase tracking-wide">Endpoint URL</label>
+<input class="w-full bg-white border-slate-200 rounded-lg text-sm px-4 py-2.5" disabled="" type="text" value="https://gdbhyt.baohiemxahoi.gov.vn/api/v1/sync"/>
+</div>
+<div class="col-span-2 flex items-center gap-3">
+<div class="w-5 h-5 border-2 border-slate-300 rounded"></div>
+<span class="text-sm font-medium text-slate-500">Tự động đồng bộ lịch sử khám chữa bệnh khi tiếp nhận</span>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-4 border-t border-slate-200">
+<button class="px-6 py-2.5 text-slate-500 font-bold text-sm hover:text-slate-900 transition-colors">Hủy</button>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 bg-slate-100 text-slate-600 font-bold rounded-xl text-sm hover:bg-slate-200 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                            Xuất config
+                        </button>
+<button class="px-10 py-2.5 bg-indigo-600 text-white font-bold rounded-xl text-sm shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:scale-95 transition-all">
+                            Lưu thay đổi
+                        </button>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Panel -->
+<aside class="w-[280px] shrink-0 space-y-6">
+<!-- Health Metrics Card -->
+<div class="bg-white border border-slate-200 rounded-2xl p-5 custom-shadow">
+<h3 class="text-sm font-bold text-slate-900 mb-4">Health metrics 24h</h3>
+<div class="space-y-4">
+<div class="flex items-end gap-1.5 h-16 px-1">
+<div class="flex-1 bg-indigo-100 rounded-t-sm h-[60%]"></div>
+<div class="flex-1 bg-indigo-200 rounded-t-sm h-[80%]"></div>
+<div class="flex-1 bg-indigo-500 rounded-t-sm h-[95%]"></div>
+<div class="flex-1 bg-indigo-400 rounded-t-sm h-[70%]"></div>
+<div class="flex-1 bg-indigo-600 rounded-t-sm h-[100%]"></div>
+<div class="flex-1 bg-indigo-300 rounded-t-sm h-[50%]"></div>
+<div class="flex-1 bg-indigo-200 rounded-t-sm h-[65%]"></div>
+<div class="flex-1 bg-indigo-100 rounded-t-sm h-[40%]"></div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500 font-medium">Latency</span>
+<span class="text-xs font-bold text-emerald-600">42ms</span>
+</div>
+<div class="w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-[85%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500 font-medium">Error Rate</span>
+<span class="text-xs font-bold text-amber-600">0.02%</span>
+</div>
+<div class="w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+<div class="bg-amber-500 h-full w-[5%]"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500 font-medium">Throughput</span>
+<span class="text-xs font-bold text-indigo-600">1.2GB/h</span>
+</div>
+<div class="w-full bg-slate-100 h-1 rounded-full overflow-hidden">
+<div class="bg-indigo-500 h-full w-[65%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Integration Logs Summary -->
+<div class="bg-slate-900 text-white rounded-2xl p-5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest text-slate-400">Recent Logs</h3>
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+</div>
+<div class="space-y-3 font-mono text-[10px]">
+<div class="flex gap-2">
+<span class="text-slate-500">14:22:01</span>
+<span class="text-emerald-400">[LIS]</span>
+<span class="text-slate-300">Push result successful - PID #1204</span>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-500">14:20:15</span>
+<span class="text-amber-400">[WEBHOOK]</span>
+<span class="text-slate-300">Retrying endpoint #3... (Attempt 2)</span>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-500">14:18:42</span>
+<span class="text-sky-400">[DICOM]</span>
+<span class="text-slate-300">Image fetch (CT-Scan) finished (4.2MB)</span>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-500">14:15:00</span>
+<span class="text-indigo-400">[SYS]</span>
+<span class="text-slate-300">Daily config backup completed</span>
+</div>
+</div>
+</div>
+<!-- Integration Image (Bento style) -->
+<div class="relative group rounded-2xl overflow-hidden h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, minimalist high-tech server room with glowing blue and indigo light cables running along the sides. The setting is modern and sophisticated, with a shallow depth of field focusing on the intricate data connections. The mood is calm and professional, reflecting the reliable and integrated nature of the MediZen EMR system's backend architecture. The lighting is soft and atmospheric, highlighting the precision of the technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArF4OBf7NnnTEXqCj7ndd9piqafoBS0_Ie4ep2LO3Kfld0YVzmL7JiWE50ZkD3idQboDQS08I4waIvVItUpa08DcrkKkGRSzHDfUQSn52fDgIGaO5Z1H1Ki6h3N3eYNCwAFMtK0FTZiBJoWcGNgQhCNTcFwBti7QwaEYUffFlMFoYhcw86M2oyjjzGQqA2cJ4Qq7GuaeYap3QHt-bCOQUXLmpNtd0bcoPJG-repiKJ-LIQQhD4EH6v8ZBvXbpZtDkJu3pUS0b6f8c"/>
+<div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent flex flex-col justify-end p-4">
+<div class="text-white text-xs font-bold">MediZen Cloud Sync</div>
+<div class="text-indigo-200 text-[10px]">Sẵn sàng kết nối hạ tầng mới</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+<!-- Command Palette Hint (Fixed Bottom Left) -->
+<div class="fixed bottom-6 left-[256px] glass bg-white/40 border border-white/40 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-[16px]">keyboard_command_key</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">CMD + K để tìm nhanh</span>
+</div>
+
+</body>
+</html>

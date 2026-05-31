@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phòng chờ — Queue Board — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sidebar-active {
+            @apply text-indigo-600 dark:text-indigo-400 font-bold border-r-2 border-indigo-600 bg-indigo-50/50;
+        }
+        .kanban-column {
+            min-width: 300px;
+            width: 300px;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Phòng chờ — Queue Board — MediZen</strong></span>
+    <span>ID: eccd3ef35d544f0abf15694f8ea382cd</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar -->
+<aside class="w-[240px] h-screen border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col py-6 flex-shrink-0 z-50">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="text-xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent font-headline leading-none">MediZen</h1>
+<p class="text-[10px] text-slate-400 font-medium tracking-widest mt-1">MODERN EMR</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 font-medium hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-headline text-sm">Bảng điều khiển</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-indigo-600 font-bold border-r-2 border-indigo-600 bg-indigo-50/50 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">queue</span>
+<span class="font-headline text-sm">Phòng chờ</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 font-medium hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-headline text-sm">Bệnh nhân</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 font-medium hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-headline text-sm">Lịch hẹn</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 font-medium hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-headline text-sm">Kho dược</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 font-medium hover:bg-slate-50 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-headline text-sm">Cấu hình</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-md shadow-indigo-200 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+                Tiếp nhận BN
+            </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-14 w-full sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 flex justify-between items-center shadow-sm shadow-indigo-500/5">
+<div class="flex items-center gap-4 text-xs font-medium text-slate-400">
+<span>Hệ thống</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-indigo-600 font-semibold">Phòng chờ</span>
+</div>
+<div class="flex-1 max-w-md px-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg group-focus-within:text-indigo-500">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-slate-100 border-transparent focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 rounded-lg text-sm transition-all outline-none" placeholder="Tìm kiếm bệnh nhân, thuốc... (Cmd+K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-700 leading-none">BS. Lê Minh</p>
+<p class="text-[10px] text-slate-500 mt-1">Nội khoa</p>
+</div>
+<img alt="Doctor Avatar" class="w-9 h-9 rounded-full object-cover border-2 border-indigo-100 shadow-sm" data-alt="A professional medical headshot of a friendly Southeast Asian doctor in his late 30s wearing a clean white lab coat and a stethoscope around his neck. The portrait is taken against a soft, bright clinical background with high-key lighting, maintaining a modern and trustworthy MediZen brand aesthetic with cool blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfkuch9LvQ9N3X4yP-RR6ZXLl_adZNn6ajpYv6rh3vlp8y5JGI6JIWxqcJNbLP9qNa-ndu52OOx6aP3gMgcQTLUUMJ4muBRPnOkpRfDokAts1i6uK6qv4ieATt_k6v1E_9O2KeNK7TT7MRP6papcEhw6QjkMc7XaKo7pqlJZBRxSJMv9Zh4YR0uhtFvfamdPjEcJ_p-19oiXKqL0_vyxtnloeiTaS3CLNSdb6VcqQjSZgukrPAkCpipst36CPaihR1KqtR4zHfKMI"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 overflow-hidden flex flex-col">
+<!-- Board Header -->
+<div class="px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<h2 class="text-2xl font-bold font-headline text-slate-800">Phòng chờ</h2>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            27 BN đang chờ
+                        </span>
+<span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">bolt</span>
+                            1 cấp cứu
+                        </span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-white border border-slate-200 rounded-lg p-1">
+<button class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-md flex items-center gap-1">
+                            Khoa ▾
+                        </button>
+<div class="w-[1px] h-4 bg-slate-200"></div>
+<button class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded-md flex items-center gap-1">
+                            BS ▾
+                        </button>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 text-indigo-600 rounded-lg text-xs font-medium border border-indigo-100">
+<span class="material-symbols-outlined text-sm animate-spin-slow">sync</span>
+                        Tự cập nhật mỗi 30s
+                    </div>
+<button class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-md shadow-indigo-100 hover:bg-indigo-700 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                        Tiếp nhận BN
+                    </button>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="flex-1 overflow-x-auto px-6 pb-4 flex gap-4 hide-scrollbar">
+<!-- Column 1 -->
+<div class="kanban-column flex flex-col gap-3">
+<div class="flex items-center justify-between px-1 py-2 border-b-2 border-slate-400">
+<h3 class="font-headline font-bold text-slate-600 text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">hourglass_empty</span>
+                            Chờ tiếp nhận
+                        </h3>
+<span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">5</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-3 pr-1 hide-scrollbar">
+<!-- Patient Card -->
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5 hover:border-indigo-300 transition-all cursor-pointer group">
+<div class="flex items-center gap-3 mb-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A detailed digital avatar of a young Vietnamese woman with long dark hair, wearing casual neat clothing. The image is a professional portrait against a soft clinical grey background, consistent with a modern healthcare application interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwXChOuqWPzJeH-K_ScuD4zPU13OipOU1iDnpIElR8mOxicUWUsEKawGW2bcGqe0yWyZjp6w3qlI5ZCsOxqwZFVG4nR16SMATT5H3TvOeiujSLNYK4Pn3mt37A4k6q1CR3qGW9G8SI2cNSwsDShYWKesMC2Zm-vgNY2n1vXt-VETHzD6cQMjLGaT_oAMynLkiSyfkhIydiAMNJ857s7z5OukIl6nj4_DuXMzQZjXZJlAUQLB1VIW4tbvygPgVUGO9ecsU7qnt7bH4"/>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Lê Hà Vy</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-wider">Hẹn trước</p>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">timer</span> ⏱2ph
+                                </span>
+</div>
+<div class="flex items-center gap-2 mt-3 pt-2 border-t border-slate-50">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-md">ID: 8821</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded-md ml-auto">P. Thủ tục</span>
+</div>
+</div>
+<!-- More cards... -->
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm opacity-90">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">VB</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Trần Văn B</p>
+<p class="text-[10px] text-slate-400 mt-1 uppercase font-bold tracking-wider">Vãng lai</p>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">⏱5ph</span>
+</div>
+</div>
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm opacity-80">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">PM</div>
+<div class="flex-1"><p class="text-sm font-bold text-slate-800 leading-none">Phạm Mai</p></div>
+<span class="text-[10px] font-bold text-emerald-600 flex items-center gap-1">⏱6ph</span>
+</div>
+</div>
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm opacity-70">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">HL</div>
+<div class="flex-1"><p class="text-sm font-bold text-slate-800 leading-none">Hoàng Lan</p></div>
+<span class="text-[10px] font-bold text-amber-600 flex items-center gap-1">⏱8ph</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="kanban-column flex flex-col gap-3">
+<div class="flex items-center justify-between px-1 py-2 border-b-2 border-secondary">
+<h3 class="font-headline font-bold text-secondary text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">medical_information</span>
+                            Chờ sinh hiệu
+                        </h3>
+<span class="text-[10px] font-bold text-white bg-secondary px-2 py-0.5 rounded-full">8</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-3 pr-1 hide-scrollbar">
+<!-- EMERGENCY CARD -->
+<div class="bg-red-50 p-3 rounded-xl border-2 border-red-500 shadow-lg shadow-red-100 animate-pulse-slow">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white font-bold text-xs">🚨</div>
+<div class="flex-1">
+<p class="text-sm font-extrabold text-red-800 leading-none">Trần Văn B</p>
+<span class="mt-1 inline-block px-2 py-0.5 bg-red-600 text-white text-[9px] font-black rounded-sm uppercase tracking-tighter">CẤP CỨU</span>
+</div>
+<span class="text-[10px] font-bold text-red-700 bg-red-100 px-1.5 py-0.5 rounded">⏱0ph</span>
+</div>
+<p class="text-[11px] font-bold text-red-700 mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+                                Đau ngực dữ dội
+                            </p>
+</div>
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">VA</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Vũ Anh</p>
+<p class="text-[10px] text-slate-400 mt-1 font-bold">P. ECG</p>
+</div>
+<span class="text-[10px] font-bold text-emerald-600">⏱5ph</span>
+</div>
+</div>
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">LV</div>
+<div class="flex-1"><p class="text-sm font-bold text-slate-800 leading-none">Lê Việt</p></div>
+<span class="text-[10px] font-bold text-amber-600">⏱8ph</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="kanban-column flex flex-col gap-3">
+<div class="flex items-center justify-between px-1 py-2 border-b-2 border-indigo-500">
+<h3 class="font-headline font-bold text-indigo-600 text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">stethoscope</span>
+                            Chờ bác sĩ
+                        </h3>
+<span class="text-[10px] font-bold text-white bg-indigo-500 px-2 py-0.5 rounded-full">9</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-3 pr-1 hide-scrollbar">
+<!-- OVERDUE CARD -->
+<div class="bg-white p-3 rounded-xl border-2 border-red-200 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-12 h-12 -mr-6 -mt-6 bg-red-500 rotate-45 flex items-end justify-center pb-1">
+<span class="text-[8px] font-black text-white -rotate-45">LÂU</span>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">HV</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Hoàng V</p>
+<p class="text-[10px] text-slate-500 mt-1 font-bold">BS. An</p>
+</div>
+<span class="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">⏱32ph</span>
+</div>
+<div class="mt-2 text-[10px] font-medium text-slate-400 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-red-100 text-red-700 rounded-full font-black uppercase text-[8px]">Trễ target</span>
+</div>
+</div>
+<!-- OVERDUE CARD 2 -->
+<div class="bg-white p-3 rounded-xl border-2 border-red-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">NH</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Nguyễn Hà</p>
+<p class="text-[10px] text-slate-500 mt-1 font-bold">BS. Bình</p>
+</div>
+<span class="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded">⏱35ph</span>
+</div>
+</div>
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">HV</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Hà Văn Vỹ</p>
+<p class="text-[10px] text-slate-500 mt-1 font-bold">BS. An</p>
+</div>
+<span class="text-[10px] font-bold text-amber-600">⏱12ph</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 4 -->
+<div class="kanban-column flex flex-col gap-3">
+<div class="flex items-center justify-between px-1 py-2 border-b-2 border-warning">
+<h3 class="font-headline font-bold text-warning text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">edit_note</span>
+                            Đang khám
+                        </h3>
+<span class="text-[10px] font-bold text-white bg-warning px-2 py-0.5 rounded-full">4</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-3 pr-1 hide-scrollbar">
+<div class="bg-white p-3 rounded-xl border-l-4 border-l-warning border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">LV</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Lê Hà Vy</p>
+<p class="text-[10px] text-slate-500 mt-1 font-bold">BS. An • P201</p>
+</div>
+<span class="text-[10px] font-bold text-slate-400">⏱12/30</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-2">
+<div class="bg-warning h-full w-[40%]"></div>
+</div>
+</div>
+<div class="bg-white p-3 rounded-xl border-l-4 border-l-warning border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">TT</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-slate-800 leading-none">Trần Thu</p>
+<p class="text-[10px] text-slate-500 mt-1 font-bold">BS. Bình • P202</p>
+</div>
+<span class="text-[10px] font-bold text-slate-400">⏱8/20</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 5 -->
+<div class="kanban-column flex flex-col gap-3">
+<div class="flex items-center justify-between px-1 py-2 border-b-2 border-tertiary">
+<h3 class="font-headline font-bold text-tertiary text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">payments</span>
+                            Chờ thanh toán
+                        </h3>
+<span class="text-[10px] font-bold text-white bg-tertiary px-2 py-0.5 rounded-full">3</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-3 pr-1 hide-scrollbar">
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm border-t-2 border-t-tertiary">
+<div class="flex items-center justify-between mb-3">
+<p class="text-sm font-bold text-slate-800">Phạm Mai</p>
+<span class="text-xs font-bold text-tertiary">₫253k</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-500">LT</div>
+<p class="text-[10px] text-slate-500 font-medium">LT Lan đang xử lý...</p>
+<span class="text-[10px] font-bold text-emerald-600 ml-auto">⏱4ph</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Strip -->
+<footer class="h-10 bg-white border-t border-slate-200 px-6 flex items-center justify-between text-xs">
+<div class="flex items-center gap-4">
+<p class="text-red-600 font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm animate-pulse">error</span>
+                    Cảnh báo: 2 BN đợi &gt;30 phút (Hoàng V, Nguyễn Hà) — đề xuất paging BS
+                </p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-slate-400">Avg wait time hôm nay:</span>
+<span class="text-slate-700 font-bold">14.2 phút</span>
+<span class="text-emerald-600 font-bold">(target ≤15p ✓)</span>
+</div>
+<div class="h-4 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Hệ thống ổn định
+                </div>
+</div>
+</footer>
+</main>
+<!-- Global Command Palette Hint -->
+<div class="fixed bottom-14 right-6 pointer-events-none">
+<div class="bg-slate-900/90 text-white px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-2 backdrop-blur-sm border border-slate-700 shadow-2xl">
+<span class="bg-slate-700 px-1 py-0.5 rounded">CMD</span>
+<span>+</span>
+<span class="bg-slate-700 px-1 py-0.5 rounded">K</span>
+<span class="text-slate-400 font-medium">Tìm nhanh mọi thứ</span>
+</div>
+</div>
+
+</body>
+</html>

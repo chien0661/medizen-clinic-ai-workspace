@@ -1,0 +1,358 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - img "MediZen" [ref=e6]
+        - generic [ref=e7]: MediZen
+      - navigation [ref=e8]:
+        - link "Tổng quan" [ref=e9] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e10]
+          - generic [ref=e15]: Tổng quan
+        - generic [ref=e16]:
+          - button "Tiếp tân" [ref=e17] [cursor=pointer]:
+            - img [ref=e18]
+            - generic [ref=e20]: Tiếp tân
+            - img [ref=e21]
+          - generic [ref=e23]:
+            - link "Bệnh nhân" [ref=e24] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e25]
+              - generic [ref=e30]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e31] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e32]
+              - generic [ref=e36]: Lịch hẹn
+            - link "Hàng chờ" [ref=e37] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e38]
+              - generic [ref=e42]: Hàng chờ
+        - generic [ref=e43]:
+          - button "Bác sĩ active role" [ref=e44] [cursor=pointer]:
+            - img [ref=e45]
+            - generic [ref=e49]: Bác sĩ
+            - generic "active role" [ref=e50]
+            - img [ref=e51]
+          - generic [ref=e53]:
+            - link "Hàng đợi của tôi" [ref=e54] [cursor=pointer]:
+              - /url: "#/doctor/queue"
+              - img [ref=e55]
+              - generic [ref=e58]: Hàng đợi của tôi
+            - link "Bảng điều khiển" [ref=e59] [cursor=pointer]:
+              - /url: "#/doctor/dashboard"
+              - img [ref=e60]
+              - generic [ref=e62]: Bảng điều khiển
+        - generic [ref=e63]:
+          - button "Nhà thuốc" [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+            - generic [ref=e68]: Nhà thuốc
+            - img [ref=e69]
+          - link "Tồn kho" [ref=e72] [cursor=pointer]:
+            - /url: "#/pharmacy/inventory"
+            - img [ref=e73]
+            - generic [ref=e83]: Tồn kho
+        - generic [ref=e84]:
+          - button "Thanh toán" [ref=e85] [cursor=pointer]:
+            - img [ref=e86]
+            - generic [ref=e88]: Thanh toán
+            - img [ref=e89]
+          - link "Hóa đơn" [ref=e92] [cursor=pointer]:
+            - /url: "#/billing/invoices"
+            - img [ref=e93]
+            - generic [ref=e96]: Hóa đơn
+        - generic [ref=e97]:
+          - button "Báo cáo" [ref=e98] [cursor=pointer]:
+            - img [ref=e99]
+            - generic [ref=e101]: Báo cáo
+            - img [ref=e102]
+          - generic [ref=e104]:
+            - link "Doanh thu" [ref=e105] [cursor=pointer]:
+              - /url: "#/reports/revenue"
+              - img [ref=e106]
+              - generic [ref=e109]: Doanh thu
+            - link "Tồn kho" [ref=e110] [cursor=pointer]:
+              - /url: "#/reports/inventory"
+              - img [ref=e111]
+              - generic [ref=e115]: Tồn kho
+            - link "Hiệu suất bác sĩ" [ref=e116] [cursor=pointer]:
+              - /url: "#/reports/doctor-performance"
+              - img [ref=e117]
+              - generic [ref=e119]: Hiệu suất bác sĩ
+            - link "Lượt khám" [ref=e120] [cursor=pointer]:
+              - /url: "#/reports/visit-volume"
+              - img [ref=e121]
+              - generic [ref=e124]: Lượt khám
+            - link "Đơn thuốc" [ref=e125] [cursor=pointer]:
+              - /url: "#/reports/prescriptions"
+              - img [ref=e126]
+              - generic [ref=e129]: Đơn thuốc
+            - link "Công nợ AR" [ref=e130] [cursor=pointer]:
+              - /url: "#/reports/ar-aging"
+              - img [ref=e131]
+              - generic [ref=e134]: Công nợ AR
+        - link "Thông báo" [ref=e135] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e136]
+          - generic [ref=e139]: Thông báo
+        - generic [ref=e140]:
+          - button "Nhân sự" [ref=e141] [cursor=pointer]:
+            - img [ref=e142]
+            - generic [ref=e147]: Nhân sự
+            - img [ref=e148]
+          - generic [ref=e150]:
+            - link "Lịch ca" [ref=e151] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e152]
+              - generic [ref=e154]: Lịch ca
+            - link "Chấm công" [ref=e155] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e156]
+              - generic [ref=e159]: Chấm công
+            - link "Nghỉ phép" [ref=e160] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e161]
+              - generic [ref=e164]: Nghỉ phép
+        - button "Quản trị" [ref=e166] [cursor=pointer]:
+          - img [ref=e167]
+          - generic [ref=e169]: Quản trị
+          - img [ref=e170]
+        - link "Cài đặt" [ref=e172] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e173]
+          - generic [ref=e176]: Cài đặt
+      - button "Thu nhỏ menu" [ref=e178] [cursor=pointer]:
+        - generic [ref=e179]: Thu nhỏ menu
+        - img [ref=e180]
+    - generic [ref=e182]:
+      - banner [ref=e183]:
+        - button "Chuyển phòng khám" [ref=e185] [cursor=pointer]:
+          - img [ref=e187]
+          - generic [ref=e191]: Phong kham MediZen Demo
+        - button "Open quick search (Ctrl+K)" [ref=e192] [cursor=pointer]:
+          - img [ref=e193]
+          - generic [ref=e196]: Tìm kiếm
+          - generic [ref=e197]: ⌘K
+        - generic [ref=e198]:
+          - status "Online" [ref=e199]:
+            - generic [ref=e201]: Online
+            - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e432]': (!)
+          - button "Thông báo" [ref=e204] [cursor=pointer]:
+            - img [ref=e205]
+            - generic [ref=e238]: "2"
+          - button "VI" [ref=e208] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e209] [cursor=pointer]:
+            - img [ref=e210]
+          - button "Chọn giao diện màu" [ref=e212] [cursor=pointer]:
+            - img [ref=e213]
+          - button "Menu người dùng" [ref=e219] [cursor=pointer]:
+            - generic [ref=e220]: BN
+            - generic [ref=e221]: Bác sĩ
+      - navigation "Breadcrumb" [ref=e222]:
+        - link "Home" [ref=e223] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e224]
+        - generic [ref=e227]:
+          - img [ref=e228]
+          - link "Thanh toán" [ref=e230] [cursor=pointer]:
+            - /url: "#/billing"
+        - generic [ref=e231]:
+          - img [ref=e232]
+          - generic [ref=e234]: Hóa đơn
+      - main [ref=e235]:
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - generic [ref=e241]:
+              - img [ref=e242]
+              - heading "Danh sách hóa đơn" [level=1] [ref=e245]
+            - button "Tạo hóa đơn" [ref=e246] [cursor=pointer]:
+              - img [ref=e247]
+              - text: Tạo hóa đơn
+          - generic [ref=e248]:
+            - combobox "Tất cả trạng thái" [ref=e249]:
+              - option "Tất cả trạng thái" [selected]
+              - option "Nháp"
+              - option "Đã phát hành"
+              - option "Thanh toán một phần"
+              - option "Đã thanh toán"
+              - option "Đã hủy"
+              - option "Đã hoàn tiền"
+            - textbox "Tìm bệnh nhân..." [ref=e250]
+          - table [ref=e253]:
+            - rowgroup [ref=e254]:
+              - row "Số hóa đơn Lượt khám Trạng thái Tổng tiền Còn lại Ngày lập" [ref=e255]:
+                - columnheader "Số hóa đơn" [ref=e256]
+                - columnheader "Lượt khám" [ref=e257]
+                - columnheader "Trạng thái" [ref=e258]
+                - columnheader "Tổng tiền" [ref=e259]
+                - columnheader "Còn lại" [ref=e260]
+                - columnheader "Ngày lập" [ref=e261]
+            - rowgroup [ref=e262]:
+              - 'row "Nháp #2b5d2848 Nháp 0 ₫ 0 ₫ —" [ref=e263] [cursor=pointer]':
+                - cell "Nháp" [ref=e264]
+                - cell "#2b5d2848" [ref=e265]
+                - cell "Nháp" [ref=e266]:
+                  - generic [ref=e267]: Nháp
+                - cell "0 ₫" [ref=e268]
+                - cell "0 ₫" [ref=e269]
+                - cell "—" [ref=e270]
+              - 'row "Nháp #0d1a1f59 Nháp 0 ₫ 0 ₫ —" [ref=e271] [cursor=pointer]':
+                - cell "Nháp" [ref=e272]
+                - cell "#0d1a1f59" [ref=e273]
+                - cell "Nháp" [ref=e274]:
+                  - generic [ref=e275]: Nháp
+                - cell "0 ₫" [ref=e276]
+                - cell "0 ₫" [ref=e277]
+                - cell "—" [ref=e278]
+              - 'row "Nháp #ff5df9ac Nháp 0 ₫ 0 ₫ —" [ref=e279] [cursor=pointer]':
+                - cell "Nháp" [ref=e280]
+                - cell "#ff5df9ac" [ref=e281]
+                - cell "Nháp" [ref=e282]:
+                  - generic [ref=e283]: Nháp
+                - cell "0 ₫" [ref=e284]
+                - cell "0 ₫" [ref=e285]
+                - cell "—" [ref=e286]
+              - 'row "Nháp #8ee99361 Nháp 0 ₫ 0 ₫ —" [ref=e287] [cursor=pointer]':
+                - cell "Nháp" [ref=e288]
+                - cell "#8ee99361" [ref=e289]
+                - cell "Nháp" [ref=e290]:
+                  - generic [ref=e291]: Nháp
+                - cell "0 ₫" [ref=e292]
+                - cell "0 ₫" [ref=e293]
+                - cell "—" [ref=e294]
+              - 'row "INV-20260531-001 #57a2be1e Đã phát hành 10.000 ₫ 10.000 ₫ 31/5/2026" [ref=e295] [cursor=pointer]':
+                - cell "INV-20260531-001" [ref=e296]
+                - cell "#57a2be1e" [ref=e297]
+                - cell "Đã phát hành" [ref=e298]:
+                  - generic [ref=e299]: Đã phát hành
+                - cell "10.000 ₫" [ref=e300]
+                - cell "10.000 ₫" [ref=e301]
+                - cell "31/5/2026" [ref=e302]
+              - 'row "Nháp #8dddbbb0 Nháp 10.000 ₫ 10.000 ₫ —" [ref=e303] [cursor=pointer]':
+                - cell "Nháp" [ref=e304]
+                - cell "#8dddbbb0" [ref=e305]
+                - cell "Nháp" [ref=e306]:
+                  - generic [ref=e307]: Nháp
+                - cell "10.000 ₫" [ref=e308]
+                - cell "10.000 ₫" [ref=e309]
+                - cell "—" [ref=e310]
+              - 'row "Nháp #60a8b5fe Nháp 0 ₫ 0 ₫ —" [ref=e311] [cursor=pointer]':
+                - cell "Nháp" [ref=e312]
+                - cell "#60a8b5fe" [ref=e313]
+                - cell "Nháp" [ref=e314]:
+                  - generic [ref=e315]: Nháp
+                - cell "0 ₫" [ref=e316]
+                - cell "0 ₫" [ref=e317]
+                - cell "—" [ref=e318]
+              - 'row "Nháp #7876f4cf Nháp 0 ₫ 0 ₫ —" [ref=e319] [cursor=pointer]':
+                - cell "Nháp" [ref=e320]
+                - cell "#7876f4cf" [ref=e321]
+                - cell "Nháp" [ref=e322]:
+                  - generic [ref=e323]: Nháp
+                - cell "0 ₫" [ref=e324]
+                - cell "0 ₫" [ref=e325]
+                - cell "—" [ref=e326]
+              - 'row "Nháp #bf799c12 Nháp 0 ₫ 0 ₫ —" [ref=e327] [cursor=pointer]':
+                - cell "Nháp" [ref=e328]
+                - cell "#bf799c12" [ref=e329]
+                - cell "Nháp" [ref=e330]:
+                  - generic [ref=e331]: Nháp
+                - cell "0 ₫" [ref=e332]
+                - cell "0 ₫" [ref=e333]
+                - cell "—" [ref=e334]
+              - 'row "Nháp #49e79774 Nháp 0 ₫ 0 ₫ —" [ref=e335] [cursor=pointer]':
+                - cell "Nháp" [ref=e336]
+                - cell "#49e79774" [ref=e337]
+                - cell "Nháp" [ref=e338]:
+                  - generic [ref=e339]: Nháp
+                - cell "0 ₫" [ref=e340]
+                - cell "0 ₫" [ref=e341]
+                - cell "—" [ref=e342]
+              - 'row "Nháp #93de08f4 Nháp 0 ₫ 0 ₫ —" [ref=e343] [cursor=pointer]':
+                - cell "Nháp" [ref=e344]
+                - cell "#93de08f4" [ref=e345]
+                - cell "Nháp" [ref=e346]:
+                  - generic [ref=e347]: Nháp
+                - cell "0 ₫" [ref=e348]
+                - cell "0 ₫" [ref=e349]
+                - cell "—" [ref=e350]
+              - 'row "Nháp #4843d6c5 Nháp 0 ₫ 0 ₫ —" [ref=e351] [cursor=pointer]':
+                - cell "Nháp" [ref=e352]
+                - cell "#4843d6c5" [ref=e353]
+                - cell "Nháp" [ref=e354]:
+                  - generic [ref=e355]: Nháp
+                - cell "0 ₫" [ref=e356]
+                - cell "0 ₫" [ref=e357]
+                - cell "—" [ref=e358]
+              - 'row "Nháp #609acc42 Nháp 0 ₫ 0 ₫ —" [ref=e359] [cursor=pointer]':
+                - cell "Nháp" [ref=e360]
+                - cell "#609acc42" [ref=e361]
+                - cell "Nháp" [ref=e362]:
+                  - generic [ref=e363]: Nháp
+                - cell "0 ₫" [ref=e364]
+                - cell "0 ₫" [ref=e365]
+                - cell "—" [ref=e366]
+              - 'row "Nháp #88e5122c Nháp 0 ₫ 0 ₫ —" [ref=e367] [cursor=pointer]':
+                - cell "Nháp" [ref=e368]
+                - cell "#88e5122c" [ref=e369]
+                - cell "Nháp" [ref=e370]:
+                  - generic [ref=e371]: Nháp
+                - cell "0 ₫" [ref=e372]
+                - cell "0 ₫" [ref=e373]
+                - cell "—" [ref=e374]
+              - 'row "Nháp #60861af7 Nháp 0 ₫ 0 ₫ —" [ref=e375] [cursor=pointer]':
+                - cell "Nháp" [ref=e376]
+                - cell "#60861af7" [ref=e377]
+                - cell "Nháp" [ref=e378]:
+                  - generic [ref=e379]: Nháp
+                - cell "0 ₫" [ref=e380]
+                - cell "0 ₫" [ref=e381]
+                - cell "—" [ref=e382]
+              - 'row "Nháp #c55d3e28 Nháp 0 ₫ 0 ₫ —" [ref=e383] [cursor=pointer]':
+                - cell "Nháp" [ref=e384]
+                - cell "#c55d3e28" [ref=e385]
+                - cell "Nháp" [ref=e386]:
+                  - generic [ref=e387]: Nháp
+                - cell "0 ₫" [ref=e388]
+                - cell "0 ₫" [ref=e389]
+                - cell "—" [ref=e390]
+              - 'row "Nháp #7c47d652 Nháp 0 ₫ 0 ₫ —" [ref=e391] [cursor=pointer]':
+                - cell "Nháp" [ref=e392]
+                - cell "#7c47d652" [ref=e393]
+                - cell "Nháp" [ref=e394]:
+                  - generic [ref=e395]: Nháp
+                - cell "0 ₫" [ref=e396]
+                - cell "0 ₫" [ref=e397]
+                - cell "—" [ref=e398]
+              - 'row "Nháp #9a99ec38 Nháp 0 ₫ 0 ₫ —" [ref=e399] [cursor=pointer]':
+                - cell "Nháp" [ref=e400]
+                - cell "#9a99ec38" [ref=e401]
+                - cell "Nháp" [ref=e402]:
+                  - generic [ref=e403]: Nháp
+                - cell "0 ₫" [ref=e404]
+                - cell "0 ₫" [ref=e405]
+                - cell "—" [ref=e406]
+              - 'row "Nháp #ed00c466 Nháp 0 ₫ 0 ₫ —" [ref=e407] [cursor=pointer]':
+                - cell "Nháp" [ref=e408]
+                - cell "#ed00c466" [ref=e409]
+                - cell "Nháp" [ref=e410]:
+                  - generic [ref=e411]: Nháp
+                - cell "0 ₫" [ref=e412]
+                - cell "0 ₫" [ref=e413]
+                - cell "—" [ref=e414]
+              - 'row "Nháp #bd158d92 Nháp 0 ₫ 0 ₫ —" [ref=e415] [cursor=pointer]':
+                - cell "Nháp" [ref=e416]
+                - cell "#bd158d92" [ref=e417]
+                - cell "Nháp" [ref=e418]:
+                  - generic [ref=e419]: Nháp
+                - cell "0 ₫" [ref=e420]
+                - cell "0 ₫" [ref=e421]
+                - cell "—" [ref=e422]
+              - 'row "Nháp #3d05fd54 Nháp 0 ₫ 0 ₫ —" [ref=e423] [cursor=pointer]':
+                - cell "Nháp" [ref=e424]
+                - cell "#3d05fd54" [ref=e425]
+                - cell "Nháp" [ref=e426]:
+                  - generic [ref=e427]: Nháp
+                - cell "0 ₫" [ref=e428]
+                - cell "0 ₫" [ref=e429]
+                - cell "—" [ref=e430]
+  - region "Notifications alt+T"

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tạo phiếu nhập kho — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid #E2E8F0; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Tạo phiếu nhập kho — MediZen</strong></span>
+    <span>ID: 3cb03ffce4ea4f739cbe1f82576b349b</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] flex flex-col py-4 z-50 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 font-['Plus_Jakarta_Sans'] font-semibold text-sm">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-violet-500 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="font-bold text-xl text-indigo-600 leading-none">MediZen</h1>
+<p class="text-[10px] text-slate-400 tracking-widest uppercase mt-1">Clinical EMR</p>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1 overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-640 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="grid_view">grid_view</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-640 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="personal_injury">personal_injury</span>
+<span>Khám bệnh</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-300 border-r-2 border-indigo-600 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="inventory_2">inventory_2</span>
+<span>Dược &amp; Kho</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-640 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="receipt_long">receipt_long</span>
+<span>Hóa đơn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-640 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="monitoring">monitoring</span>
+<span>Báo cáo</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-640 dark:text-slate-400 hover:text-indigo-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="settings">settings</span>
+<span>Cấu hình</span>
+</a>
+</nav>
+<div class="px-3 pt-4 border-t border-slate-100 dark:border-slate-800 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/20 active:scale-95 transition-transform mb-4">
+<span class="material-symbols-outlined text-sm">add_circle</span>
+<span>Tạo phiếu nhập</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-500 hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Trợ giúp</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-danger-500 hover:bg-danger-50 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 ml-[240px] flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center h-14 px-6 w-full sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm shadow-indigo-500/5 font-['Inter'] text-sm tracking-tight">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-slate-400">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-xs mx-2">chevron_right</span>
+<span>Dược</span>
+<span class="material-symbols-outlined text-xs mx-2">chevron_right</span>
+<span class="text-indigo-600 font-semibold">Nhập kho</span>
+</nav>
+</div>
+<div class="flex-1 max-w-md mx-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-slate-100 border-none rounded-full py-1.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all" placeholder="Tìm kiếm nhanh (⌘K)..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 border-r border-slate-200 pr-3 mr-1">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-danger-500 border-2 border-white rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="font-semibold text-slate-800 leading-none">DS. Trần Minh</p>
+<p class="text-[10px] text-slate-400 mt-0.5">Cơ sở 1</p>
+</div>
+<img alt="Avatar bác sĩ" class="w-8 h-8 rounded-full border border-slate-200" data-alt="A professional headshot of a friendly Vietnamese male pharmacist wearing a white lab coat and glasses. He is smiling warmly in a bright, modern clinic setting with soft, high-key lighting. The background features blurred apothecary jars and clean, white surfaces, maintaining a professional and clinical aesthetic aligned with the indigo and slate color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGvVX6-kxtLwzclWbGE6vgKzC165ivJr6GpzQO0aEJgfVDSK47OCFThLKxeUrpL1bWzveLWrPT4PEtEh2tpXciB5cV5Zvb6hYNWw4uoRorsbnzNZQqv4O0LHeP096YMknR2SIBoE5uafOEYOWTWcKZn6SITWJqbmDqrv1wF8vrlyfaYmLRrYDsueMi0RUTVrMmfnwzKhj6CNz1WgdCWez5rb-TUW17IQO7837CfNY9uos_RFrIr0f8kUyeECyywTbAbhMZc8xl8yE"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Header Section -->
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<h2 class="text-2xl font-bold font-headline text-slate-900 tracking-tight">Tạo phiếu nhập kho</h2>
+<p class="text-slate-500 flex items-center gap-2">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-xs font-mono">PO-2026-04-0042</span>
+<span class="text-indigo-400">•</span>
+<span class="font-medium">Draft</span>
+<span class="text-indigo-400">•</span>
+<span>Tạo lúc 09:48 by DS. Trần Minh</span>
+</p>
+</div>
+</div>
+<!-- Validation Banner -->
+<div class="bg-success-50 border border-success-100 rounded-xl p-4 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-success-100 flex items-center justify-center text-success-700 flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1 py-1">
+<p class="text-success-700 font-medium leading-relaxed">
+                        ✓ Tất cả lô đã có HSD &gt; 12 tháng · <span class="bg-warning-100 px-1.5 py-0.5 rounded text-warning-700 text-sm">1 thuốc Insulin có HSD &lt; 1 năm</span> — duyệt riêng
+                    </p>
+</div>
+</div>
+<!-- 2-Column Grid -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- Left: Form Controls (40%) -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5 p-6 overflow-hidden">
+<h3 class="text-lg font-bold font-headline mb-5 text-slate-800 flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500">info</span>
+                            Thông tin phiếu
+                        </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-1 space-y-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Số PO</label>
+<input class="w-full bg-slate-50 border-slate-200 rounded-lg text-slate-500 focus:ring-0 cursor-not-allowed" readonly="" type="text" value="PO-2026-04-0042"/>
+</div>
+<div class="col-span-1 space-y-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ngày nhập</label>
+<div class="relative">
+<input class="w-full border-slate-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 pl-9" type="text" value="01/05/2026"/>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">calendar_month</span>
+</div>
+</div>
+<div class="col-span-2 space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Nhà cung cấp</label>
+<button class="text-indigo-600 text-[11px] font-bold hover:underline">+ Thêm NCC mới</button>
+</div>
+<div class="relative">
+<input class="w-full border-slate-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 pl-9 font-medium" type="text" value="Stada Việt Nam"/>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">store</span>
+</div>
+</div>
+<div class="col-span-2 space-y-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Số chứng từ NCC</label>
+<input class="w-full border-slate-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" value="INV-STADA-04-2026-0123"/>
+</div>
+<div class="col-span-1 space-y-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Người nhập</label>
+<input class="w-full bg-slate-50 border-slate-200 rounded-lg text-slate-500 focus:ring-0" readonly="" type="text" value="DS. Trần Minh"/>
+</div>
+<div class="col-span-1 space-y-1.5">
+<label class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Phòng kho</label>
+<select class="w-full border-slate-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
+<option>Kho chính</option>
+<option>Kho lẻ</option>
+<option>Kho BHYT</option>
+</select>
+</div>
+</div>
+<!-- Summary Section -->
+<div class="mt-8 pt-6 border-t border-dashed border-slate-200 space-y-3">
+<div class="flex justify-between text-sm text-slate-500">
+<span>Tạm tính</span>
+<span class="font-medium text-slate-800">₫24,560,000</span>
+</div>
+<div class="flex justify-between text-sm text-slate-500">
+<span>VAT (8%)</span>
+<span class="font-medium text-slate-800">₫1,964,800</span>
+</div>
+<div class="flex justify-between items-center pt-3 border-t border-slate-100">
+<span class="font-bold text-slate-900">Tổng cộng</span>
+<span class="text-2xl font-bold text-indigo-600">₫26,524,800</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-3">
+<button class="py-3 px-4 border border-slate-200 text-slate-600 font-semibold rounded-xl hover:bg-slate-50 active:scale-95 transition-all">Lưu nháp</button>
+<button class="py-3 px-4 bg-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/20 hover:bg-indigo-700 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                                Xác nhận nhập kho
+                            </button>
+</div>
+</div>
+<!-- Side Note / Assistant -->
+<div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-4 flex gap-3">
+<span class="material-symbols-outlined text-indigo-500">lightbulb</span>
+<p class="text-xs text-indigo-700/80 leading-relaxed">
+                            Mẹo: Bạn có thể nhập nhanh tên thuốc bằng cách nhấn <kbd class="px-1.5 py-0.5 bg-white border border-indigo-100 rounded text-[10px] font-bold">F2</kbd> khi đang ở cột Mã thuốc.
+                        </p>
+</div>
+</div>
+<!-- Right: Line Items Table (60%) -->
+<div class="col-span-12 lg:col-span-7 bg-white rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5 overflow-hidden flex flex-col min-h-[600px]">
+<div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center bg-slate-50/30">
+<h3 class="font-bold font-headline text-slate-800">Danh mục thuốc nhập</h3>
+<button class="flex items-center gap-2 px-3 py-1.5 bg-white border border-slate-200 text-indigo-600 text-sm font-bold rounded-lg hover:bg-indigo-50 transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+                            Thêm dòng
+                        </button>
+</div>
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 text-slate-500 text-[11px] uppercase tracking-wider font-bold">
+<th class="px-4 py-3 border-b border-slate-200">Mã / Tên thuốc</th>
+<th class="px-4 py-3 border-b border-slate-200">Số lô / HSD</th>
+<th class="px-4 py-3 border-b border-slate-200 text-right">S.Lượng</th>
+<th class="px-4 py-3 border-b border-slate-200 text-right">Đơn giá</th>
+<th class="px-4 py-3 border-b border-slate-200 text-right">Thành tiền</th>
+<th class="px-4 py-3 border-b border-slate-200"></th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-slate-100">
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-001</p>
+<p class="font-semibold text-slate-800">Amlodipine 5mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240425</p>
+<p class="text-[11px] text-success-600 font-medium">04/2027</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">200</span> <span class="text-slate-400 text-xs">viên</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫2,500/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫500,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-001</p>
+<p class="font-semibold text-slate-800">Amlodipine 5mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240310</p>
+<p class="text-[11px] text-success-600 font-medium">03/2027</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">100</span> <span class="text-slate-400 text-xs">viên</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫2,500/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫250,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-022</p>
+<p class="font-semibold text-slate-800">Cefuroxime 500mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240312</p>
+<p class="text-[11px] text-success-600 font-medium">09/2027</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">60</span> <span class="text-slate-400 text-xs">viên</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫7,000/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫420,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="bg-warning-50/40 hover:bg-warning-50 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-031</p>
+<p class="font-semibold text-slate-800">Insulin Mix 30/70</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240416</p>
+<p class="text-[11px] text-warning-600 font-bold">04/2026 (Sắp hết hạn)</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">20</span> <span class="text-slate-400 text-xs">lọ</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫560,000/lọ</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫11,200,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-045</p>
+<p class="font-semibold text-slate-800">Paracetamol 500mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240228</p>
+<p class="text-[11px] text-success-600 font-medium">02/2028</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">5,000</span> <span class="text-slate-400 text-xs">v</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫700/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫3,500,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-067</p>
+<p class="font-semibold text-slate-800">Metformin 500mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240315</p>
+<p class="text-[11px] text-success-600 font-medium">03/2027</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">1,000</span> <span class="text-slate-400 text-xs">v</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫1,100/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫1,100,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-indigo-50/30 group transition-colors">
+<td class="px-4 py-3">
+<p class="font-mono text-xs text-slate-400">MED-014</p>
+<p class="font-semibold text-slate-800">Mirtazapine 15mg</p>
+</td>
+<td class="px-4 py-3">
+<p class="text-slate-600">240118</p>
+<p class="text-[11px] text-success-600 font-medium">01/2027</p>
+</td>
+<td class="px-4 py-3 text-right">
+<span class="font-bold text-slate-800">200</span> <span class="text-slate-400 text-xs">v</span>
+</td>
+<td class="px-4 py-3 text-right text-slate-600">₫7,500/v</td>
+<td class="px-4 py-3 text-right font-bold text-slate-900">₫1,500,000</td>
+<td class="px-4 py-3 text-center">
+<button class="p-1 text-slate-300 hover:text-danger-500 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 border-t border-slate-100 flex justify-center bg-slate-50/20">
+<button class="flex items-center gap-2 py-3 px-6 border-2 border-dashed border-slate-200 text-slate-400 hover:border-indigo-400 hover:text-indigo-600 rounded-xl transition-all group w-full justify-center">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">add_circle</span>
+<span class="font-bold uppercase tracking-widest text-xs">Thêm thuốc mới vào danh sách</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+</body>
+</html>

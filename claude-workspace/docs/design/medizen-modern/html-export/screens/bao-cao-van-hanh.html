@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo Vận hành — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+        }
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 4px;
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Báo cáo Vận hành — MediZen</strong></span>
+    <span>ID: e3fdaab8c9514a0291c2e1ee0c7945bd</span>
+    <span>2560×5580 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col w-[240px] bg-white border-r border-slate-200 z-50 font-['Plus_Jakarta_Sans'] antialiased">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-violet-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<span class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">MediZen</span>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center px-3 py-2.5 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Tổng quan</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Lịch hẹn</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="groups">groups</span>
+<span class="text-sm font-medium">Bệnh nhân</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="medical_services">medical_services</span>
+<span class="text-sm font-medium">Khám bệnh</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="medication">medication</span>
+<span class="text-sm font-medium">Dược phẩm</span>
+</a>
+<a class="flex items-center px-3 py-2.5 text-indigo-600 font-semibold border-r-4 border-indigo-600 bg-indigo-50/50 transition-colors rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-sm font-medium">Báo cáo</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100">
+<button class="w-full py-3 bg-indigo-600 text-white rounded-xl font-semibold flex items-center justify-center gap-2 active:scale-95 duration-150 shadow-lg shadow-indigo-200">
+<span class="material-symbols-outlined text-lg">add</span>
+<span>Tiếp nhận mới</span>
+</button>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-[240px] z-40 flex justify-between items-center px-6 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 font-['Inter'] text-sm font-medium">
+<div class="flex items-center gap-4 text-slate-400">
+<span class="flex items-center">Báo cáo <span class="material-symbols-outlined mx-2 text-xs">chevron_right</span> <span class="text-slate-900 font-bold">Vận hành</span></span>
+<div class="relative ml-8">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-lg w-64 text-xs focus:ring-2 focus:ring-indigo-500/20" placeholder="Tìm kiếm (Cmd+K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-3 pr-4 border-r border-slate-200">
+<button class="p-1.5 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-1.5 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined">help</span></button>
+<button class="p-1.5 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined">settings</span></button>
+</div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900">Dr. Nguyen An</p>
+<p class="text-[10px] text-slate-500">Bác sĩ phụ trách</p>
+</div>
+<img class="w-8 h-8 rounded-full border border-slate-200 object-cover" data-alt="A professional portrait of a Vietnamese doctor wearing a white medical coat and a stethoscope, set against a clean, blurred clinical background with soft morning light. The doctor has a friendly and confident expression, representing trust and expertise in a modern healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApPze6XjrxLzg2mmvw8Sb4HneuDhR8LsLoVU4LCQR9DMlkOrHotCxv_2PwatpGYNFrQC7lYoDZlTaoWzm3waQrGuI198uUe0jBxpHqxRCRnBc2H4FjuhxyHU5WBaFQTJ6xyvYn-546M8XnLPhasabXq0vwp95AzvvUxBYR0Lndb5MeQNStqbSygZny-mtf1FxXfpZbGdKnWifPHbLZONGOKW9k6nYOP6A11uXX54V-ov1eHDrCfHCziY0-7C3brrwoiim_YiyYgF0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-14 p-6 space-y-6 max-w-[1440px] mx-auto">
+<!-- Filter Bar -->
+<section class="flex flex-wrap items-center justify-between gap-4 p-4 bg-white border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-500 text-lg">calendar_month</span>
+<span class="text-sm font-medium">Tháng 4/2026</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-500 text-lg">home_health</span>
+<span class="text-sm font-medium">HD-01 Trung Tâm</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-500 text-lg">location_on</span>
+<span class="text-sm font-medium">Khu vực TP.HCM</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 text-slate-600 font-medium transition-colors">
+<span class="material-symbols-outlined text-lg">file_download</span>
+<span>Xuất báo cáo</span>
+</button>
+</section>
+<!-- Tab Strip -->
+<div class="flex border-b border-slate-200 gap-8">
+<button class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span> Tổng quan
+            </button>
+<button class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span> Tài chính
+            </button>
+<button class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span> Lâm sàng
+            </button>
+<button class="pb-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Vận hành
+            </button>
+<button class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span> Dược
+            </button>
+<button class="pb-3 text-sm font-medium text-slate-400 hover:text-slate-600 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full border border-slate-300"></span> BHYT
+            </button>
+</div>
+<!-- KPI Cards Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Thời gian chờ trung bình</p>
+<div class="flex items-baseline gap-2 mb-2">
+<h3 class="text-2xl font-bold text-slate-900">14.2 phút</h3>
+<span class="text-xs font-bold text-emerald-600">↓ 2.8 (tốt)</span>
+</div>
+<div class="h-12 flex items-end gap-1">
+<div class="flex-1 bg-indigo-50 h-[40%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-100 h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-200 h-[45%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-400 h-[80%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-500 h-[30%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-600 h-[20%] rounded-sm"></div>
+<div class="flex-1 bg-indigo-300 h-[50%] rounded-sm"></div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Tỷ lệ No-show</p>
+<div class="flex items-baseline gap-2 mb-2">
+<h3 class="text-2xl font-bold text-slate-900">6.4%</h3>
+<span class="text-xs font-bold text-emerald-600">↓ 1.2 (tốt)</span>
+</div>
+<div class="h-12 flex items-center">
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="w-[6.4%] bg-emerald-500 h-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Tỷ lệ Huỷ hẹn</p>
+<div class="flex items-baseline gap-2 mb-2">
+<h3 class="text-2xl font-bold text-slate-900">8.1%</h3>
+<span class="text-xs font-bold text-red-500">↑ 0.4 (xấu nhẹ)</span>
+</div>
+<div class="h-12 flex items-center">
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="w-[8.1%] bg-amber-500 h-full"></div>
+</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Hiệu suất sử dụng phòng</p>
+<div class="flex items-baseline gap-2 mb-2">
+<h3 class="text-2xl font-bold text-slate-900">78.6%</h3>
+<span class="text-xs font-bold text-emerald-600">↑ 4.2 (tốt)</span>
+</div>
+<div class="h-12 flex items-center">
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="w-[78.6%] bg-indigo-500 h-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Charts Row 1 -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Heatmap (2/3) -->
+<div class="lg:col-span-2 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-slate-900">Heatmap thời gian chờ theo giờ × ngày trong tuần</h3>
+<div class="flex items-center gap-4 text-[10px] font-bold text-slate-400">
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-slate-100"></span> &lt; 5m</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-amber-200"></span> 15m</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-amber-500"></span> 30m</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-sm bg-red-500"></span> 40m+</div>
+</div>
+</div>
+<div class="flex">
+<div class="w-12 pr-4 flex flex-col justify-between text-[10px] text-slate-400 font-bold py-2">
+<span>07h</span><span>09h</span><span>11h</span><span>13h</span><span>15h</span><span>17h</span><span>19h</span><span>21h</span>
+</div>
+<div class="flex-1">
+<div class="grid grid-cols-7 gap-1 mb-2 text-center text-[10px] font-bold text-slate-400">
+<span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span>
+</div>
+<div class="heatmap-grid">
+<!-- Generation logic: Mocking 15 rows (hours) x 7 cols (days) -->
+<!-- Row 09-11h T2 (red) -->
+<!-- Row 14-16h T6 (amber) -->
+<script>
+                                const grid = document.querySelector('.heatmap-grid');
+                                for(let i=0; i<15*7; i++) {
+                                    const cell = document.createElement('div');
+                                    cell.className = 'heatmap-cell';
+                                    let color = 'bg-slate-100';
+                                    const row = Math.floor(i/7);
+                                    const col = i % 7;
+                                    
+                                    // T2 is col 0
+                                    if(col === 0 && (row >= 2 && row <= 4)) color = 'bg-red-500';
+                                    // T6 is col 4
+                                    else if(col === 4 && (row >= 7 && row <= 9)) color = 'bg-amber-500';
+                                    else if(Math.random() > 0.8) color = 'bg-amber-200';
+                                    else if(Math.random() > 0.6) color = 'bg-slate-200';
+                                    
+                                    cell.classList.add(color);
+                                    grid.appendChild(cell);
+                                }
+                            </script>
+</div>
+</div>
+</div>
+</div>
+<!-- Donut Chart (1/3) -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h3 class="font-bold text-slate-900 mb-6">Lý do No-show</h3>
+<div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-indigo-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="38, 100" stroke-width="6"></path>
+<path class="text-sky-400" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="24, 100" stroke-dashoffset="-38" stroke-width="6"></path>
+<path class="text-slate-300" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="38, 100" stroke-dashoffset="-62" stroke-width="6"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-bold text-slate-900">292</span>
+<span class="text-[10px] text-slate-400 font-bold">CA HỦY</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Quên hẹn</div>
+<span class="font-bold">38%</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-400"></span> Bận đột xuất</div>
+<span class="font-bold">24%</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-400"></span> Đến trễ</div>
+<span class="font-bold">18%</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-200"></span> Khác</div>
+<span class="font-bold">12%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Funnel Section -->
+<section class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-bold text-slate-900 text-lg">Phễu hành trình bệnh nhân (Patient Journey Funnel)</h3>
+<p class="text-slate-500 text-sm">Dữ liệu tổng hợp từ 01/04 - 30/04/2026</p>
+</div>
+<div class="px-4 py-2 bg-red-50 border border-red-100 text-red-600 rounded-lg flex items-center gap-2 text-sm font-bold animate-pulse">
+<span class="material-symbols-outlined text-sm">report</span>
+                    Bottleneck Sinh hiệu — đề xuất tăng ĐD ca sáng
+                </div>
+</div>
+<div class="relative overflow-x-auto pb-4">
+<div class="min-w-[1000px] flex items-stretch">
+<!-- Funnel Stage 1 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-600 h-24 rounded-l-xl relative flex items-center justify-center text-white font-bold">
+                            1. Hẹn (100%)
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-600 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">4,562</p>
+<p class="text-xs text-slate-400 font-medium">Bắt đầu</p>
+</div>
+</div>
+<!-- Transition Wait Time -->
+<div class="w-16 flex flex-col items-center justify-center mt-[-3rem]">
+<span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-1">0m</span>
+</div>
+<!-- Funnel Stage 2 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-500 h-24 relative flex items-center justify-center text-white font-bold">
+                            2. Check-in
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-500 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">4,316</p>
+<p class="text-xs text-slate-400 font-medium">94.6%</p>
+</div>
+</div>
+<!-- Transition Wait Time -->
+<div class="w-16 flex flex-col items-center justify-center mt-[-3rem]">
+<span class="text-[10px] font-bold text-red-500 bg-red-50 px-1 border border-red-100 rounded">8ph</span>
+<div class="h-px w-full bg-slate-200"></div>
+</div>
+<!-- Funnel Stage 3 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-400 h-24 relative flex items-center justify-center text-white font-bold">
+                            3. Sinh hiệu
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-400 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">4,238</p>
+<p class="text-xs text-slate-400 font-medium">98.2%</p>
+</div>
+</div>
+<!-- Transition Wait Time -->
+<div class="w-16 flex flex-col items-center justify-center mt-[-3rem]">
+<span class="text-[10px] font-bold text-amber-500 bg-amber-50 px-1">12ph</span>
+<div class="h-px w-full bg-slate-200"></div>
+</div>
+<!-- Funnel Stage 4 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-300 h-24 relative flex items-center justify-center text-white font-bold">
+                            4. Khám
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-300 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">4,217</p>
+<p class="text-xs text-slate-400 font-medium">99.5%</p>
+</div>
+</div>
+<!-- Transition Wait Time -->
+<div class="w-16 flex flex-col items-center justify-center mt-[-3rem]">
+<span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-1">6ph</span>
+<div class="h-px w-full bg-slate-200"></div>
+</div>
+<!-- Funnel Stage 5 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-200 h-24 relative flex items-center justify-center text-indigo-900 font-bold">
+                            5. Thanh toán
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-200 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">3,754</p>
+<p class="text-xs text-slate-400 font-medium">89%</p>
+</div>
+</div>
+<!-- Transition Wait Time -->
+<div class="w-16 flex flex-col items-center justify-center mt-[-3rem]">
+<span class="text-[10px] font-bold text-slate-400 bg-slate-50 px-1">4ph</span>
+<div class="h-px w-full bg-slate-200"></div>
+</div>
+<!-- Funnel Stage 6 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-indigo-100 h-24 relative flex items-center justify-center text-indigo-800 font-bold">
+                            6. Cấp thuốc
+                            <div class="absolute -right-4 border-y-[48px] border-y-transparent border-l-[16px] border-l-indigo-100 z-10"></div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">3,544</p>
+<p class="text-xs text-slate-400 font-medium">84%</p>
+</div>
+</div>
+<!-- Funnel Stage 7 -->
+<div class="flex-1 flex flex-col items-center">
+<div class="w-full bg-emerald-500 h-24 rounded-r-xl flex items-center justify-center text-white font-bold">
+                            7. Hoàn tất ✓
+                        </div>
+<div class="mt-4 text-center">
+<p class="text-lg font-bold">3,544</p>
+<p class="text-xs text-slate-400 font-medium">84%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Utilization Section -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Room Util -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h3 class="font-bold text-slate-900 mb-6">Hiệu suất sử dụng Phòng/Thiết bị</h3>
+<div class="space-y-4">
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold"><span class="text-slate-600">P201 - Khám Tổng quát</span> <span>92%</span></div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="w-[92%] bg-indigo-500 h-full"></div></div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold"><span class="text-slate-600">P. Siêu âm 1</span> <span class="text-red-500">95% ALERT</span></div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="w-[95%] bg-red-500 h-full"></div></div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold"><span class="text-slate-600">P305 - Nhi khoa</span> <span>88%</span></div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="w-[88%] bg-indigo-500 h-full"></div></div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold"><span class="text-slate-600">P. Siêu âm 2</span> <span>65%</span></div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="w-[65%] bg-slate-300 h-full"></div></div>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between text-xs font-bold"><span class="text-slate-600">P. X-quang</span> <span>72%</span></div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="w-[72%] bg-indigo-300 h-full"></div></div>
+</div>
+</div>
+</div>
+<!-- Staff Util -->
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h3 class="font-bold text-slate-900 mb-6">Hiệu suất Nhân sự (Giờ làm vs Idle)</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-100 object-cover" data-alt="A professional medical headshot of a female nurse in clinical scrubs, focusing on a friendly yet busy look in a bright hospital hallway. High-key lighting highlights the soft, professional medical aesthetic of the clinic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4iK_nlvASc3UJd0dvPPhwk0zVUIh9g1f3vg15UsHnddLKYTC9KThasvGga-hBtc3a9MGA8hrIeyQsAGNFthrRvj8mlkbAQLak8h7Ns4DWtB3Ajq72onCUe1Rkfu71q2BfT5od5dtuit_Od-qrAYk-CyccTbv6oZXgwzbJ6PO7lJ2gpHjcNOKiYf9YAZ228_v0o0jXoKRobAMKnW7M-ToYrD2uL2F8jENBPOvOJkkwnfo-8yrsT2ftmaZPaofaLwRFtiKLNTM598w"/>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-bold mb-1"><span class="text-slate-600">ĐD Lê Mai</span> <span class="text-red-500">96%</span></div>
+<div class="flex h-2 rounded-full overflow-hidden">
+<div class="w-[96%] bg-indigo-600"></div>
+<div class="w-[4%] bg-slate-100"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-slate-100 object-cover" data-alt="A portrait of a male clinic staff member wearing professional medical attire, with a warm and approachable expression. The background is a clean, modern clinic lobby with natural daylight and soft blue accents, emphasizing the reliable and focused nature of the medical team." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGLDRroIck89hFjP0x0qdYGfkhQ4jt_xVUqP6ekztAQZ7Ely8dA2JymjkK4o66yIrNcqAhA6g6-qNkNRXKCbcjAiSBJgu-FnAHnODKrHlhdwgFbhQp8ss4lJTmsR1PIXQnxrYLsefSMRmli6PqREHvo72aOqMsEn8__F29spZWj6MIaamX_frSWG8ki4wtJcfB5JB3dqHoJG2tPWBpaGmocceabuiyJYjU45LQ2y8PRm3554-_sHpj9xdhUmVKZaCKKJW6GBWQUVA"/>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-bold mb-1"><span class="text-slate-600">BS Trần Quý</span> <span>82%</span></div>
+<div class="flex h-2 rounded-full overflow-hidden">
+<div class="w-[82%] bg-indigo-500"></div>
+<div class="w-[18%] bg-slate-100"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-60">
+<img class="w-8 h-8 rounded-full border border-slate-100 object-cover" data-alt="A professional headshot of a healthcare administrator in a clinical setting, showcasing efficiency and organizational skill. The lighting is soft and professional, and the background reflects a modern, well-structured hospital environment with clean lines and soft white surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuGOHYdKkK_9W7VfatUkDniRfOjwy4PSRemDd3WvfKkp-DfPSY-j6oTLpKKJf38vYP0eZd-vC2YstJEdOi3AE8IjPzDlUZYZ3o7u-cDB__AAgxsrS7bznlS7S10BNQtqr7RsAW5or6QTtaRs0e324O-EpCwXcZBmzDZCAA6szg7TXNXp5eOaflyaf4Q_Zf8uB60X9DmujKp0_EyaeC-wDP-tYAcj7enW2qkUeH_-DIEGR3SJd_GJqlZctSrvIEmtVyq8WiOK35zYI"/>
+<div class="flex-1">
+<div class="flex justify-between text-xs font-bold mb-1"><span class="text-slate-600">TN Nguyễn Hải</span> <span>45%</span></div>
+<div class="flex h-2 rounded-full overflow-hidden">
+<div class="w-[45%] bg-indigo-300"></div>
+<div class="w-[55%] bg-slate-100"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Bottleneck -->
+<section class="bg-indigo-900 text-white p-8 rounded-xl relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10">
+<svg class="w-full h-full text-white" fill="currentColor" viewbox="0 0 200 200">
+<path d="M 0,100 C 0,50 50,0 100,0 C 150,0 200,50 200,100 C 200,150 150,200 100,200 C 50,200 0,150 0,100"></path>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="max-w-xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-1 bg-white/20 rounded text-[10px] font-bold uppercase tracking-widest">Phân tích điểm nghẽn (Bottleneck Analysis)</span>
+</div>
+<h2 class="text-3xl font-bold mb-4">Dòng chảy bệnh nhân đang chậm nhất tại khu vực Khám.</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/10">
+<p class="text-[10px] text-indigo-200 font-bold mb-1">SINH HIỆU</p>
+<p class="text-xl font-bold">8.4ph</p>
+<p class="text-[10px] text-red-300 font-bold">↑ 15% delay</p>
+</div>
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/20 ring-1 ring-white/30">
+<p class="text-[10px] text-indigo-200 font-bold mb-1">KHÁM</p>
+<p class="text-xl font-bold">12.2ph</p>
+<p class="text-[10px] text-red-300 font-bold">Cao nhất</p>
+</div>
+<div class="bg-white/10 p-3 rounded-lg backdrop-blur-sm border border-white/10">
+<p class="text-[10px] text-indigo-200 font-bold mb-1">THANH TOÁN</p>
+<p class="text-xl font-bold">6.1ph</p>
+<p class="text-[10px] text-emerald-300 font-bold">↓ 4% tốt</p>
+</div>
+</div>
+<button class="px-6 py-3 bg-white text-indigo-900 rounded-xl font-bold flex items-center gap-3 shadow-xl hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        Xem đề xuất tối ưu (MediZen AI)
+                    </button>
+</div>
+<div class="hidden lg:block w-64 h-64 bg-gradient-to-tr from-white/20 to-transparent rounded-full border border-white/10 p-8">
+<div class="w-full h-full rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl opacity-50">troubleshoot</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+</body>
+</html>

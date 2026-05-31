@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920" />
+  <title>MediZen v2.0 – Quên mật khẩu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM TOKENS
+    ============================================================ */
+    :root {
+      /* Colors */
+      --color-primary:        #4F46E5;
+      --color-primary-hover:  #4338CA;
+      --color-primary-light:  #EEF2FF;
+      --color-primary-100:    #E0E7FF;
+      --color-primary-200:    #C7D2FE;
+      --color-secondary:      #7C3AED;
+      --color-accent:         #EC4899;
+      --color-bg:             #F5F3FF;
+      --color-surface:        #FFFFFF;
+      --color-border:         #E8E4F3;
+      --color-border-focus:   #A5B4FC;
+
+      --color-text-primary:   #1E1B4B;
+      --color-text-secondary: #4B5563;
+      --color-text-muted:     #9CA3AF;
+      --color-text-link:      #4F46E5;
+
+      --color-success:        #10B981;
+      --color-warning:        #F59E0B;
+      --color-error:          #EF4444;
+
+      /* Gradients */
+      --gradient-brand: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+      --gradient-bg:    linear-gradient(160deg, #F5F3FF 0%, #EDE9FE 40%, #FDF4FF 100%);
+
+      /* Typography */
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      /* Spacing (8px grid) */
+      --space-1:  4px;
+      --space-2:  8px;
+      --space-3:  12px;
+      --space-4:  16px;
+      --space-5:  20px;
+      --space-6:  24px;
+      --space-8:  32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+
+      /* Radius */
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  16px;
+      --radius-xl:  24px;
+      --radius-full: 9999px;
+
+      /* Shadow */
+      --shadow-card: 0 4px 6px -1px rgba(79,70,229,0.06),
+                     0 20px 50px -12px rgba(79,70,229,0.15),
+                     0 0 0 1px rgba(79,70,229,0.04);
+      --shadow-input: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-btn:   0 4px 14px rgba(79,70,229,0.35);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--gradient-bg);
+      min-height: 100vh;
+      width: 1920px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ============================================================
+       DECORATIVE BACKGROUND ORBS
+    ============================================================ */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .bg-orb--1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(79,70,229,0.08) 0%, transparent 70%);
+      top: -200px; left: -200px;
+    }
+    .bg-orb--2 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+      bottom: -150px; right: 200px;
+    }
+    .bg-orb--3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 70%);
+      top: 50%; right: -100px;
+      transform: translateY(-50%);
+    }
+
+    /* Subtle dot pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(79,70,229,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ============================================================
+       PAGE WRAPPER
+    ============================================================ */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: var(--space-10) var(--space-4);
+    }
+
+    /* ============================================================
+       TOP-LEFT BRAND WATERMARK
+    ============================================================ */
+    .brand-watermark {
+      position: fixed;
+      top: var(--space-6);
+      left: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      z-index: 10;
+    }
+    .brand-watermark__icon {
+      width: 36px; height: 36px;
+      background: var(--gradient-brand);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+    }
+    .brand-watermark__name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--color-primary);
+      letter-spacing: -0.3px;
+    }
+    .brand-watermark__version {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      margin-left: 2px;
+    }
+
+    /* ============================================================
+       MAIN CARD
+    ============================================================ */
+    .auth-card {
+      width: 440px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: var(--space-8) var(--space-8) var(--space-10);
+      position: relative;
+      border: 1px solid rgba(232,228,243,0.8);
+      backdrop-filter: blur(20px);
+    }
+
+    /* subtle top accent line */
+    .auth-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-brand);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    /* ============================================================
+       BACK LINK
+    ============================================================ */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-link);
+      text-decoration: none;
+      margin-bottom: var(--space-6);
+      padding: var(--space-1) var(--space-2);
+      margin-left: -var(--space-2);
+      border-radius: var(--radius-sm);
+      transition: all 0.18s ease;
+      width: fit-content;
+    }
+    .back-link:hover {
+      background: var(--color-primary-light);
+      color: var(--color-primary-hover);
+      gap: calc(var(--space-2) + 2px);
+    }
+    .back-link__arrow {
+      font-size: 15px;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+    .back-link:hover .back-link__arrow {
+      transform: translateX(-2px);
+    }
+
+    /* ============================================================
+       CARD LOGO
+    ============================================================ */
+    .card-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+      text-decoration: none;
+    }
+    .card-logo__icon {
+      width: 34px; height: 34px;
+      background: var(--gradient-brand);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+      box-shadow: 0 3px 10px rgba(79,70,229,0.28);
+    }
+    .card-logo__text {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--color-text-primary);
+      letter-spacing: -0.4px;
+    }
+    .card-logo__text span {
+      color: var(--color-primary);
+    }
+    .card-logo__badge {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-secondary);
+      background: #EDE9FE;
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.3px;
+    }
+
+    /* ============================================================
+       STEP PROGRESS BAR
+    ============================================================ */
+    .steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: var(--space-8);
+      width: 100%;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+      position: relative;
+    }
+
+    /* connector line */
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 13px;
+      left: calc(50% + 13px);
+      right: calc(-50% + 13px);
+      height: 2px;
+      background: var(--color-border);
+      z-index: 0;
+    }
+    .step--active:not(:last-child)::after,
+    .step--done:not(:last-child)::after {
+      background: linear-gradient(to right, var(--color-primary-200), var(--color-border));
+    }
+
+    .step__dot {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-heading);
+      position: relative;
+      z-index: 1;
+      transition: all 0.2s ease;
+    }
+    .step--inactive .step__dot {
+      background: #F3F4F6;
+      color: var(--color-text-muted);
+      border: 2px solid var(--color-border);
+    }
+    .step--active .step__dot {
+      background: var(--gradient-brand);
+      color: #fff;
+      border: 2px solid transparent;
+      box-shadow: 0 0 0 3px var(--color-primary-100), 0 4px 10px rgba(79,70,229,0.3);
+    }
+    .step--done .step__dot {
+      background: var(--color-success);
+      color: #fff;
+      border: 2px solid transparent;
+    }
+
+    .step__label {
+      font-size: 11px;
+      font-weight: 500;
+      font-family: var(--font-body);
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .step--inactive .step__label { color: var(--color-text-muted); }
+    .step--active   .step__label { color: var(--color-primary);     font-weight: 600; }
+    .step--done     .step__label { color: var(--color-success);     font-weight: 600; }
+
+    /* ============================================================
+       ENVELOPE ICON CIRCLE
+    ============================================================ */
+    .icon-circle {
+      width: 64px; height: 64px;
+      background: var(--color-primary-100);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto var(--space-5);
+      position: relative;
+    }
+    .icon-circle__emoji {
+      font-size: 28px;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(79,70,229,0.2));
+    }
+    /* animated ping ring */
+    .icon-circle::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(79,70,229,0.15);
+      animation: ping 2.5s ease-in-out infinite;
+    }
+    @keyframes ping {
+      0%, 100% { transform: scale(1);   opacity: 1;   }
+      50%       { transform: scale(1.08); opacity: 0.4; }
+    }
+
+    /* ============================================================
+       CARD HEADINGS & TEXT
+    ============================================================ */
+    .card-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--color-text-primary);
+      text-align: center;
+      margin-bottom: var(--space-2);
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+    }
+
+    .card-subtitle {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: var(--space-8);
+    }
+
+    /* ============================================================
+       FORM ELEMENTS
+    ============================================================ */
+    .form-group {
+      margin-bottom: var(--space-5);
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-2);
+      letter-spacing: 0.1px;
+    }
+    .form-label .required {
+      color: var(--color-error);
+      margin-left: 2px;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      font-size: 16px;
+      color: var(--color-text-muted);
+      pointer-events: none;
+      z-index: 1;
+      transition: color 0.2s;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 var(--space-4) 0 44px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-primary);
+      background: #FAFAFA;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-input);
+      outline: none;
+      transition: all 0.2s ease;
+      appearance: none;
+    }
+
+    .form-input::placeholder {
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    .form-input:hover {
+      border-color: var(--color-primary-200);
+      background: #FEFEFE;
+    }
+
+    .form-input:focus {
+      border-color: var(--color-primary);
+      background: var(--color-surface);
+      box-shadow: 0 0 0 3px rgba(79,70,229,0.10), var(--shadow-input);
+    }
+
+    .form-input:focus ~ .input-icon,
+    .input-wrapper:focus-within .input-icon {
+      color: var(--color-primary);
+    }
+
+    /* move icon so it doesn't overlap focus shadow - recalc */
+    .input-wrapper:focus-within .input-icon {
+      color: var(--color-primary);
+    }
+
+    /* ============================================================
+       SUBMIT BUTTON
+    ============================================================ */
+    .btn-primary {
+      width: 100%;
+      height: 44px;
+      background: var(--gradient-brand);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      box-shadow: var(--shadow-btn);
+      transition: all 0.2s ease;
+      margin-bottom: var(--space-4);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(79,70,229,0.45);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-primary__icon {
+      font-size: 16px;
+    }
+
+    /* ============================================================
+       SPAM NOTE
+    ============================================================ */
+    .spam-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-style: italic;
+      color: var(--color-text-muted);
+      text-align: center;
+      line-height: 1.5;
+      padding: var(--space-2) var(--space-3);
+      background: #FAFAFA;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-6);
+    }
+    .spam-note__icon { font-style: normal; font-size: 13px; }
+
+    /* ============================================================
+       DIVIDER
+    ============================================================ */
+    .card-divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .card-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .card-divider__text {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       FOOTER LINK
+    ============================================================ */
+    .card-footer {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+    .card-footer a {
+      color: var(--color-primary);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .card-footer a:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    /* ============================================================
+       SECURITY BADGES (bottom of page)
+    ============================================================ */
+    .security-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+      opacity: 0.7;
+    }
+    .security-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+    .security-badge__icon { font-size: 14px; }
+
+    /* ============================================================
+       COPYRIGHT
+    ============================================================ */
+    .copyright {
+      margin-top: var(--space-4);
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--color-text-muted);
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    /* ============================================================
+       FLOATING PARTICLES (decorative)
+    ============================================================ */
+    .particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: float linear infinite;
+      opacity: 0.5;
+    }
+    @keyframes float {
+      0%   { transform: translateY(0)   rotate(0deg);   }
+      100% { transform: translateY(-600px) rotate(360deg); }
+    }
+
+    /* ============================================================
+       HELPER: visually hidden
+    ============================================================ */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background orbs -->
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--3" aria-hidden="true"></div>
+
+  <!-- Floating particles -->
+  <div class="particle" style="width:6px;height:6px;background:#C7D2FE;left:8%;animation-duration:18s;animation-delay:0s;"></div>
+  <div class="particle" style="width:4px;height:4px;background:#DDD6FE;left:15%;animation-duration:24s;animation-delay:3s;bottom:0;"></div>
+  <div class="particle" style="width:5px;height:5px;background:#A5B4FC;left:75%;animation-duration:20s;animation-delay:6s;bottom:0;"></div>
+  <div class="particle" style="width:3px;height:3px;background:#FBCFE8;left:85%;animation-duration:16s;animation-delay:9s;bottom:0;"></div>
+  <div class="particle" style="width:7px;height:7px;background:#E0E7FF;left:60%;animation-duration:22s;animation-delay:1s;bottom:0;"></div>
+
+  <!-- Top-left brand watermark -->
+  <a href="#" class="brand-watermark" aria-label="MediZen v2.0 – Trang chủ">
+    <div class="brand-watermark__icon" aria-hidden="true">🏥</div>
+    <span class="brand-watermark__name">MediZen <span class="brand-watermark__version">v2.0</span></span>
+  </a>
+
+  <!-- Main page wrapper -->
+  <main class="page-wrapper" role="main">
+
+    <!-- AUTH CARD -->
+    <div class="auth-card" role="region" aria-label="Quên mật khẩu">
+
+      <!-- Back link -->
+      <a href="01-login.html" class="back-link" aria-label="Quay lại trang đăng nhập">
+        <span class="back-link__arrow" aria-hidden="true">←</span>
+        Quay lại đăng nhập
+      </a>
+
+      <!-- Card logo -->
+      <a href="#" class="card-logo" aria-label="MediZen">
+        <div class="card-logo__icon" aria-hidden="true">🏥</div>
+        <span class="card-logo__text">Medi<span>Zen</span></span>
+        <span class="card-logo__badge">v2.0</span>
+      </a>
+
+      <!-- Step progress bar -->
+      <nav class="steps" aria-label="Tiến trình khôi phục mật khẩu">
+
+        <!-- Step 1: active -->
+        <div class="step step--active" aria-current="step">
+          <div class="step__dot" aria-hidden="true">1</div>
+          <span class="step__label">Xác nhận email</span>
+        </div>
+
+        <!-- Step 2: inactive -->
+        <div class="step step--inactive">
+          <div class="step__dot" aria-hidden="true">2</div>
+          <span class="step__label">Mã xác nhận</span>
+        </div>
+
+        <!-- Step 3: inactive -->
+        <div class="step step--inactive">
+          <div class="step__dot" aria-hidden="true">3</div>
+          <span class="step__label">Mật khẩu mới</span>
+        </div>
+
+      </nav>
+
+      <!-- Envelope icon circle -->
+      <div class="icon-circle" aria-hidden="true">
+        <span class="icon-circle__emoji">✉️</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="card-title">Quên mật khẩu?</h1>
+
+      <!-- Subtitle -->
+      <p class="card-subtitle">
+        Nhập email đăng ký, chúng tôi sẽ gửi mã 6 số<br>
+        để xác nhận danh tính của bạn.
+      </p>
+
+      <!-- Form -->
+      <form novalidate aria-label="Biểu mẫu khôi phục mật khẩu">
+
+        <!-- Email field -->
+        <div class="form-group">
+          <label class="form-label" for="email-input">
+            Email đăng ký <span class="required" aria-label="bắt buộc">*</span>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon" aria-hidden="true">📧</span>
+            <input
+              id="email-input"
+              type="email"
+              class="form-input"
+              placeholder="email@phongkham.vn"
+              autocomplete="email"
+              inputmode="email"
+              aria-required="true"
+              aria-describedby="email-hint"
+            />
+          </div>
+          <p id="email-hint" class="sr-only">Nhập địa chỉ email bạn đã dùng khi đăng ký tài khoản MediZen.</p>
+        </div>
+
+        <!-- Submit button -->
+        <a href="01-login.html" class="btn-primary">
+          <span class="btn-primary__icon" aria-hidden="true">📩</span>
+          Gửi mã xác nhận
+        </a>
+
+        <!-- Spam note -->
+        <div class="spam-note" role="note" id="spam-note">
+          <span class="spam-note__icon" aria-hidden="true">💡</span>
+          Kiểm tra thư mục <strong>Spam</strong> hoặc <strong>Junk</strong> nếu không nhận được email
+        </div>
+
+      </form>
+
+      <!-- Divider -->
+      <div class="card-divider" aria-hidden="true">
+        <div class="card-divider__line"></div>
+        <span class="card-divider__text">hoặc</span>
+        <div class="card-divider__line"></div>
+      </div>
+
+      <!-- Footer link -->
+      <p class="card-footer">
+        Nhớ ra rồi? <a href="01-login.html">Đăng nhập ngay</a>
+      </p>
+
+    </div>
+    <!-- / AUTH CARD -->
+
+    <!-- Security badges -->
+    <div class="security-row" aria-label="Thông tin bảo mật">
+      <div class="security-badge">
+        <span class="security-badge__icon" aria-hidden="true">🔒</span>
+        Kết nối SSL an toàn
+      </div>
+      <div class="security-badge">
+        <span class="security-badge__icon" aria-hidden="true">🛡️</span>
+        Bảo mật HIPAA
+      </div>
+      <div class="security-badge">
+        <span class="security-badge__icon" aria-hidden="true">✅</span>
+        Mã hóa AES-256
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <p class="copyright">
+      © 2026 MediZen v2.0 · Phần mềm quản lý phòng khám · Bảo lưu mọi quyền
+    </p>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Log — MediZen Modern — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-size: 20px; vertical-align: middle; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Audit Log — MediZen Modern</strong></span>
+    <span>ID: c13abb5084b946e7ae1ba3ae56c32df2</span>
+    <span>3040×2494 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-4 w-[240px] border-r border-slate-200 bg-white z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="text-xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent font-headline">MediZen</h1>
+<p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Hệ thống EMR</p>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1 overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Bệnh nhân</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Lịch hẹn</span>
+</a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-[11px] font-bold text-slate-400 uppercase tracking-widest">Hệ thống</p>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span>Cấu hình</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-indigo-600 bg-indigo-50 border-r-2 border-indigo-600 font-['Plus_Jakarta_Sans'] font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span>Audit log</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 hover:bg-slate-50 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg group" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Cài đặt</span>
+</a>
+</nav>
+<div class="px-3 mt-auto space-y-1">
+<button class="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white py-2.5 rounded-xl font-semibold text-sm active:scale-95 transition-transform mb-4">
+<span class="material-symbols-outlined text-sm">add</span>
+                Thêm hồ sơ
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Trợ giúp</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:text-indigo-500 transition-colors font-['Plus_Jakarta_Sans'] font-semibold text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-[240px] z-40 flex items-center justify-between px-6 w-full h-14 border-b border-slate-200 bg-white/80 backdrop-blur-md font-['Inter'] text-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-slate-500">
+<span>Cấu hình</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="font-bold text-indigo-600">Audit log</span>
+</div>
+<div class="ml-8 relative group">
+<div class="flex items-center bg-slate-100 px-3 py-1.5 rounded-lg border border-transparent focus-within:border-indigo-400 focus-within:bg-white transition-all w-80">
+<span class="material-symbols-outlined text-slate-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full p-0" placeholder="Tìm kiếm tài liệu, BN..." type="text"/>
+<kbd class="text-[10px] bg-white border border-slate-200 px-1.5 py-0.5 rounded text-slate-400 font-sans ml-2">Cmd+K</kbd>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-indigo-600 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">QT. Anh</p>
+<p class="text-[10px] text-slate-400">Quản trị hệ thống</p>
+</div>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-slate-200 shadow-sm" data-alt="A professional close-up portrait of a male medical administrator with a friendly expression. He is wearing a crisp white shirt in a brightly lit modern office setting. The aesthetic is clean, medical, and minimalist with soft high-key lighting that emphasizes the bright white background and professional atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsLBLBGEsJ5DBsKg-gcEX05_MrY6o83QW7Iul5NAN0cGw33DNLTcv0LxtTa7nGkmjzv_UuzX3E-KvLY9ywPfaZ2P4-fMLTTd1vF23Vjsj7pMjMAFwpvxMjSqo4no6Jntf5cCA3zarg4ZPkeKEKQOjkLqhfyB0LBQZW87gTg7EWxG7pIvruXwgTW8lO4yhVJEurgkkLsQ_8RbFfoII0T3TLC-_6ZiPvMpC6Eot5pVL_340Row0LFznav0VYtK-Y_RICVXKjIHYJQLs"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-14 mr-[360px] p-8 min-h-screen overflow-y-auto">
+<!-- Header -->
+<header class="mb-8">
+<h1 class="text-3xl font-bold font-headline text-slate-900">Audit Log</h1>
+<p class="text-slate-500 mt-1 flex items-center gap-2">
+<span>Theo dõi mọi thay đổi quan trọng</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>90 ngày qua</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="font-medium text-slate-700">47,892 sự kiện</span>
+</p>
+</header>
+<!-- Stats Summary -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Total events 24h</p>
+<div class="flex items-end justify-between">
+<p class="text-2xl font-bold text-slate-900 font-headline">1,247</p>
+<span class="text-xs font-bold text-success flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        12%
+                    </span>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-red-50 rounded-bl-full flex items-start justify-end p-3">
+<span class="material-symbols-outlined text-red-500 text-lg">error</span>
+</div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Critical events</p>
+<p class="text-2xl font-bold text-red-600 font-headline">3</p>
+<div class="mt-2 h-1 w-full bg-slate-100 rounded-full">
+<div class="h-full bg-red-500 rounded-full w-1/4"></div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Failed logins</p>
+<div class="flex items-center gap-2">
+<p class="text-2xl font-bold text-amber-600 font-headline">12</p>
+<span class="text-xs font-medium text-amber-500 bg-amber-50 px-2 py-0.5 rounded-full">Warning</span>
+</div>
+<p class="text-[10px] text-slate-400 mt-2">Dấu hiệu brute-force tại IP 14.225.x.x</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Config changes</p>
+<p class="text-2xl font-bold text-indigo-600 font-headline">28</p>
+<p class="text-[10px] text-slate-400 mt-2">Tăng 5 thay đổi so với hôm qua</p>
+</div>
+</div>
+<!-- Sticky Filter Bar -->
+<div class="sticky top-0 z-30 bg-white border border-slate-200 rounded-xl p-3 mb-6 shadow-sm flex flex-wrap items-center gap-3">
+<button class="flex items-center gap-2 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+<span>29/04/2026 → 01/05/2026</span>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg p-1 gap-1">
+<div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2 py-0.5 rounded text-xs font-medium text-slate-700 shadow-sm">
+<span>BS. An</span>
+<span class="material-symbols-outlined text-[14px] text-slate-400 cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1.5 bg-white border border-slate-200 px-2 py-0.5 rounded text-xs font-medium text-slate-700 shadow-sm">
+<span>QT. Anh</span>
+<span class="material-symbols-outlined text-[14px] text-slate-400 cursor-pointer">close</span>
+</div>
+<button class="px-2 text-slate-400"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg p-1 gap-1">
+<div class="flex items-center gap-1.5 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded text-xs font-semibold text-indigo-600">
+<span>config.change</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1.5 bg-indigo-50 border border-indigo-100 px-2 py-0.5 rounded text-xs font-semibold text-indigo-600">
+<span>permission.update</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg p-1 gap-1">
+<div class="flex items-center gap-1.5 bg-amber-50 border border-amber-100 px-2 py-0.5 rounded text-xs font-semibold text-amber-700">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+<span>Warning</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1.5 bg-red-50 border border-red-100 px-2 py-0.5 rounded text-xs font-semibold text-red-700">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+<span>Critical</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</div>
+</div>
+</div>
+<div class="flex-1 min-w-[200px]">
+<div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-slate-400 text-sm mr-2">manage_search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full p-0" placeholder="Tìm ID hoặc IP..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2 border-l border-slate-200 pl-3 ml-2">
+<button class="text-xs font-bold text-slate-500 flex items-center gap-1 hover:text-slate-900">
+                    Recent admin changes
+                    <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+<button class="flex items-center gap-2 bg-indigo-50 text-indigo-600 px-4 py-1.5 rounded-lg text-sm font-bold active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">save</span>
+                    Lưu filter
+                </button>
+</div>
+</div>
+<!-- Audit Table (Dense) -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+<th class="px-4 py-3 w-32">Timestamp</th>
+<th class="px-4 py-3">User / Role</th>
+<th class="px-4 py-3">Action</th>
+<th class="px-4 py-3">Module</th>
+<th class="px-4 py-3">Resource / Details</th>
+<th class="px-4 py-3 text-center">Severity</th>
+<th class="px-4 py-3">IP Address</th>
+<th class="px-4 py-3">Device</th>
+</tr>
+</thead>
+<tbody class="text-sm font-['Inter'] divide-y divide-slate-100">
+<!-- Row 1: Active/Selected -->
+<tr class="bg-indigo-50/50 hover:bg-indigo-50 transition-colors cursor-pointer border-l-2 border-indigo-600">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:48:23</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<img alt="BS An Avatar" class="w-6 h-6 rounded-full" data-alt="A portrait of a male doctor in his 40s with a clean-shaven face and short dark hair, wearing a white medical coat and a stethoscope. The background is a soft-focus medical clinic setting with cool blue and white tones. Professional lighting and a clean clinical aesthetic define the image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3kxzFRZCZHJ7iQkMTGCe2i7HOBqrLuADVBjPnZ9_rypmYhpD9u0_4Oe4TFHBi_Sd5z13ZEwhY_f5-XfbpQI33PhScgB4GXQGAtw-QMr1-c3YxlWKgtkgCZlgm1pv90TT9ArR2lQ3hy37HA9NRIteclMygpv0neM47UF0bj-ALahZTI1mRR8sPMCXo77LGsA9D0E7Z359l_9YcpH1Z_8gKdzkdlohoQfnKqexqd_F14By7a34X2Vfy1SINMd6k78kBjNMty-d8zZw"/>
+<div>
+<p class="font-semibold text-slate-900 leading-none">BS. An</p>
+<p class="text-[10px] text-slate-400">BS + QT</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">config.update</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">pricing</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<span class="bg-slate-100 px-1.5 py-0.5 rounded text-xs text-slate-600 font-mono">DV-022</span>
+<span class="text-xs text-slate-400">Price changed</span>
+</div>
+</td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-amber-100 text-amber-700">Warning</span>
+</td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.15</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">desktop_windows</span></td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:46:01</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center text-[10px] font-bold text-indigo-600">AN</div>
+<div>
+<p class="font-semibold text-slate-900 leading-none">BS. An</p>
+<p class="text-[10px] text-slate-400">BS + QT</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">permission.grant</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">users</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600 truncate max-w-[200px]">perm.billing.read for U-045</span></td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-red-100 text-red-700">Critical</span>
+</td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.15</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">desktop_windows</span></td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:42:15</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<img alt="Avatar" class="w-6 h-6 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqKoyi8TbCo4L6yVG9hMyNZ4R5fykm0ZlEju_5g-2NpymSonnJhUKJdQhgOkgnJKXK-NuYsfOr78iOPHYtNsHKaIDgq-kajMGnwYj4cr20r7OSnnJqD9dH4lCL9O4ZdX1b_scgFszyPphCpRPXdfH3UVz1jST2jLkXXUtxSTK2wlXcFBcNWi0tWUvyxV67NqSBEK37tiLfpLOc7GPTVMUneHgqYOU_2xzacqnkZTL1l_RaJEP02zINSApTNv9zT92mR5mXmy5U-a4"/>
+<div>
+<p class="font-semibold text-slate-900 leading-none">QT. Anh</p>
+<p class="text-[10px] text-slate-400">System Admin</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">role.update</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">rbac</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600">role 'Bác sĩ' added patient.export</span></td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-red-100 text-red-700">Critical</span>
+</td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">116.104.22.8</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">laptop_mac</span></td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:38:09</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-600">LL</div>
+<div>
+<p class="font-semibold text-slate-900 leading-none">LT. Lan</p>
+<p class="text-[10px] text-slate-400">Lễ tân</p>
+</div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded">login.success</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">auth</td>
+<td class="px-4 py-2 text-xs text-slate-400 italic">Session initiated</td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-slate-100 text-slate-700">Info</span>
+</td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.42</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">tablet_mac</span></td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:35:44</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-600">LL</div>
+<div><p class="font-semibold text-slate-900 leading-none">LT. Lan</p><p class="text-[10px] text-slate-400">Lễ tân</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">billing.refund</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">billing</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600 font-medium">INV-2026-0892 <span class="text-red-500">₫450,000</span></span></td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-amber-100 text-amber-700">Warning</span>
+</td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.42</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">tablet_mac</span></td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:32:11</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-[10px] font-bold text-blue-600">TB</div>
+<div><p class="font-semibold text-slate-900 leading-none">BS. Trần B</p><p class="text-[10px] text-slate-400">Bác sĩ</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded">prescription.cancel</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">prescription</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600">RX-2026-1234</span></td>
+<td class="px-4 py-2 text-center"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Info</span></td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.88</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">laptop_mac</span></td>
+</tr>
+<!-- Row 7 -->
+<tr class="bg-amber-50/20 hover:bg-amber-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:28:55</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-500">?</div>
+<div><p class="font-bold text-red-500 leading-none">unknown</p><p class="text-[10px] text-slate-400">External</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-red-100 text-red-700 px-1.5 py-0.5 rounded">login.failed</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">auth</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600 font-bold">username 'admin'</span></td>
+<td class="px-4 py-2 text-center"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Warning</span></td>
+<td class="px-4 py-2 font-mono text-[11px] text-red-600 font-bold">14.225.78.92</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">language</span></td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:25:00</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">memory</span>
+<div><p class="font-bold text-slate-900 leading-none uppercase tracking-tighter">SYSTEM</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded">job.completed</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">arq</td>
+<td class="px-4 py-2 text-xs text-slate-600">daily-report-generator</td>
+<td class="px-4 py-2 text-center"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Info</span></td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">Internal</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">dns</span></td>
+</tr>
+<!-- Row 9 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:18:33</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-[10px] font-bold text-emerald-600">DM</div>
+<div><p class="font-semibold text-slate-900 leading-none">DS. Minh</p><p class="text-[10px] text-slate-400">Dược sĩ</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded">inventory.adjust</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">pharmacy</td>
+<td class="px-4 py-2"><span class="text-xs text-slate-600">MED-Amlodipine 5mg <span class="text-amber-600 font-bold">− 50 viên</span></span></td>
+<td class="px-4 py-2 text-center"><span class="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Warning</span></td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.102</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">desktop_windows</span></td>
+</tr>
+<!-- Row 10 -->
+<tr class="hover:bg-slate-50 transition-colors cursor-pointer">
+<td class="px-4 py-2 font-mono text-xs text-slate-500">09:15:21</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center text-[10px] font-bold text-indigo-600">AN</div>
+<div><p class="font-semibold text-slate-900 leading-none">BS. An</p><p class="text-[10px] text-slate-400">Bác sĩ</p></div>
+</div>
+</td>
+<td class="px-4 py-2"><span class="font-mono text-xs bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded">visit.complete</span></td>
+<td class="px-4 py-2 text-slate-500 font-medium">emr</td>
+<td class="px-4 py-2 text-xs text-slate-600">LK-20260430-0028</td>
+<td class="px-4 py-2 text-center"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Info</span></td>
+<td class="px-4 py-2 font-mono text-[11px] text-slate-400">192.168.1.15</td>
+<td class="px-4 py-2"><span class="material-symbols-outlined text-slate-300">desktop_windows</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<footer class="mt-6 flex items-center justify-between">
+<p class="text-sm text-slate-500">Đang hiển thị <span class="font-bold text-slate-900">1-25</span> trong <span class="font-bold text-slate-900">1,247</span> sự kiện</p>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-slate-50"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-indigo-600 text-white font-bold text-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-sm">3</button>
+<span class="text-slate-300 px-1">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-sm">50</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-slate-50"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">download</span>
+                Xuất CSV
+            </button>
+</footer>
+</main>
+<!-- Right Drawer (Audit Detail) -->
+<aside class="fixed top-0 right-0 h-full w-[360px] bg-white border-l border-slate-200 z-50 shadow-2xl flex flex-col">
+<header class="p-6 border-b border-slate-100 flex items-center justify-between">
+<div>
+<p class="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-1">Chi tiết sự kiện</p>
+<h2 class="text-xl font-bold font-headline text-slate-900">Sửa giá DV-022</h2>
+</div>
+<button class="p-2 hover:bg-slate-100 rounded-full text-slate-400 transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<div class="flex-1 overflow-y-auto p-6 custom-scrollbar space-y-8">
+<!-- Summary Info -->
+<div class="space-y-4">
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-400">Action</span>
+<span class="font-mono font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">config.update</span>
+</div>
+<div class="flex justify-between items-start text-sm">
+<span class="text-slate-400">User</span>
+<div class="text-right">
+<p class="font-bold">BS. An</p>
+<p class="text-[10px] text-slate-400 leading-tight">Quản trị áp dụng</p>
+</div>
+</div>
+<div class="flex justify-between items-start text-sm">
+<span class="text-slate-400">Resource</span>
+<div class="text-right">
+<p class="font-mono text-xs text-slate-700">pricing/services/022</p>
+<p class="text-[11px] font-medium text-slate-500">Khám tổng quát</p>
+</div>
+</div>
+</div>
+<!-- JSON Diff Visualization -->
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">difference</span>
+                    JSON Diff
+                </p>
+<div class="bg-slate-900 rounded-xl p-4 font-mono text-[11px] leading-relaxed overflow-hidden">
+<div class="flex gap-2">
+<span class="text-slate-500">1</span>
+<span class="text-white">{</span>
+</div>
+<div class="flex gap-2 bg-red-500/10 border-l-2 border-red-500 -mx-4 px-4">
+<span class="text-slate-500">2</span>
+<span class="text-red-400">- "price": 350000,</span>
+</div>
+<div class="flex gap-2 bg-emerald-500/10 border-l-2 border-emerald-500 -mx-4 px-4">
+<span class="text-slate-500">3</span>
+<span class="text-emerald-400">+ "price": 400000,</span>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-500">4</span>
+<span class="text-slate-400">  "bhyt_rate": 0.8,</span>
+</div>
+<div class="flex gap-2 bg-emerald-500/10 border-l-2 border-emerald-500 -mx-4 px-4">
+<span class="text-slate-500">5</span>
+<span class="text-emerald-400">+ "updated_by": "u-001"</span>
+</div>
+<div class="flex gap-2">
+<span class="text-slate-500">6</span>
+<span class="text-white">}</span>
+</div>
+</div>
+</div>
+<!-- Meta details -->
+<div class="space-y-6">
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase mb-2">Lý do thay đổi</p>
+<div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm italic text-slate-600">
+                        "Cập nhật theo bảng giá Q2/2026 — nghị định 146"
+                    </div>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-500 uppercase mb-2">Phê duyệt</p>
+<div class="flex items-center gap-2 text-success">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-sm font-bold">✓ Hợp lệ — đã có duyệt từ Giám đốc PK</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 border-t border-slate-100 grid grid-cols-2 gap-3">
+<button class="px-4 py-2 border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50">Xem User</button>
+<button class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700">Rollback</button>
+</div>
+</aside>
+
+</body>
+</html>

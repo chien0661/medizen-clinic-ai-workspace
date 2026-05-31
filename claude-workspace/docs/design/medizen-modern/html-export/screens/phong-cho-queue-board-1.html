@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phòng chờ — Queue Board — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
+        .kanban-column { min-width: 300px; width: 300px; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Phòng chờ — Queue Board — MediZen</strong></span>
+    <span>ID: 70fe170da19d4f26a82a5aa8e48df6ff</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 w-[240px] bg-white border-r border-slate-200 flex flex-col h-full py-6 px-4 z-50">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-violet-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-indigo-600 leading-tight">MediZen Modern</h1>
+<p class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Hệ thống EMR</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tổng quan</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Bệnh nhân</span>
+</a>
+<!-- Active Navigation -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-indigo-50 text-indigo-600 font-bold border-r-4 border-indigo-600 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Phòng chờ</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Lịch hẹn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Kho dược</span>
+</a>
+</nav>
+<div class="mt-auto space-y-6">
+<button class="w-full py-3 px-4 bg-indigo-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-md shadow-indigo-100 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>Đón tiếp mới</span>
+</button>
+<div class="pt-4 border-t border-slate-100 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Trợ giúp</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-xl text-slate-500 font-semibold hover:bg-slate-50 transition-all" href="#">
+<span class="material-symbols-outlined text-danger">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 right-0 left-[240px] h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-6 z-40 shadow-sm">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-slate-400 text-xs font-medium flex items-center gap-2">
+                Trang chủ <span class="material-symbols-outlined text-sm">chevron_right</span> <span class="text-slate-900">Phòng chờ</span>
+</div>
+<div class="relative max-w-sm w-full ml-8">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-slate-100 border-none rounded-lg py-1.5 pl-10 pr-4 text-sm focus:ring-2 focus:ring-indigo-500/20 transition-all" placeholder="Tìm kiếm bệnh nhân (⌘K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 bg-slate-100 px-3 py-1 rounded-full text-slate-700 text-xs font-semibold cursor-pointer hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-lg">domain</span>
+<span>Phòng khám số 1</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-1 text-slate-500 hover:text-indigo-600 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-red-500 border-2 border-white rounded-full"></span>
+</button>
+<button class="p-1 text-slate-500 hover:text-indigo-600 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200 ring-2 ring-indigo-500/10">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A professional medical professional portrait for a digital dashboard profile. The subject is a female doctor in a crisp white lab coat with a stethoscope around her neck, smiling warmly against a soft-focus clinical background. The lighting is bright and clean, reflecting a modern healthcare environment with a palette of whites, light blues, and soft greys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAowT2hV4zWRty6kBh3MbSUusJEJCdEmXV3zXBUNtR5XGclY2OMi9r6STQC1uYP_cnkXFXGSG_VXISEaBNCe0QlRE-pEhU24NALwF7QLhx7CGP2tN5IbzL_js8FQqjpey6mXexE1OoS7jkTsHY6KxqSBYgp_Hz64pZi6_TNrkm8f9ECbBuk10cnlBD8JVYg-QO-x-64RnzNNn5vp6NY9m2Fdpx8GMLhVQ7V3eaB5Vv7Dp6Kvw4rSiBrSkOqJlMIbbVGuCq5SLP-520"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[240px] pt-14 h-screen flex flex-col">
+<!-- Header Section -->
+<section class="p-6 pb-2">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-bold font-headline text-slate-900 tracking-tight">Phòng chờ</h2>
+<div class="flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full shadow-sm">
+<span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+<span class="text-xs font-semibold text-slate-600">27 BN đang chờ</span>
+<span class="text-slate-300">|</span>
+<span class="flex items-center gap-1 text-xs font-bold text-red-600">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            1 cấp cứu
+                        </span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-indigo-50 text-indigo-600 rounded-lg text-[10px] font-bold uppercase tracking-wider border border-indigo-100">
+<span class="material-symbols-outlined text-xs">sync</span>
+                        Tự cập nhật mỗi 30s
+                    </div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-2 py-1.5">
+<button class="flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-indigo-600">Khoa <span class="material-symbols-outlined text-sm">expand_more</span></button>
+<div class="w-px h-4 bg-slate-200"></div>
+<button class="flex items-center gap-1 text-xs font-semibold text-slate-600 hover:text-indigo-600">BS <span class="material-symbols-outlined text-sm">expand_more</span></button>
+</div>
+<button class="px-4 py-2 bg-indigo-600 text-white rounded-xl font-bold text-sm shadow-md shadow-indigo-100 hover:bg-indigo-700 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                        Tiếp nhận BN
+                    </button>
+</div>
+</div>
+</section>
+<!-- Kanban Board Area -->
+<section class="flex-1 overflow-x-auto p-6 pt-0 flex gap-4 custom-scrollbar">
+<!-- Column 1: Chờ tiếp nhận -->
+<div class="kanban-column flex flex-col h-full bg-slate-100/50 rounded-2xl p-3 border border-slate-200/50">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-6 bg-slate-400 rounded-full"></div>
+<h3 class="font-bold text-slate-700 text-sm font-headline">⏳ Chờ tiếp nhận</h3>
+<span class="text-xs font-bold text-slate-400 bg-white px-1.5 py-0.5 rounded-md border border-slate-200">5</span>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-indigo-600">more_horiz</button>
+</div>
+<div class="flex-1 space-y-3 overflow-y-auto custom-scrollbar pr-1">
+<!-- Card -->
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-lg object-cover" data-alt="A detailed headshot of a young Vietnamese woman with long dark hair, wearing a casual light green shirt. She has a gentle, professional appearance suitable for a medical app profile. The background is a clean, minimalist off-white office setting with soft, natural lighting that emphasizes clarity and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOe78s6tTZ7FbjcJNkx_YgrBW0nCT3nu00LJUkySQf96RpjHDpBwxpo35Q9UvKY8-GmVW7KOTn8e2diFW_9p8URQyNMz9-EMEmEDnUoDEy7i46b0pqXzrW9zzKl5j6a4lw-x5uuNlMtaygZecZPAeBUgr6f3xvKmout3ZTsR9ILv87XS5EkAnF_MabpOPkSx6FEqKubP1NQtVrN7RUQiOHYMLeFy-TZMd8ojkuWn8ZT5gYu-x1gmWvVF7YbDVUvw7159Rr9UAPAjA"/>
+<div>
+<h4 class="text-sm font-bold text-slate-900 group-hover:text-indigo-600">Lê Hà Vy</h4>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-md">Hẹn 09:00</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-500">5 ph</span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-slate-50">
+<span class="text-[10px] text-slate-400 font-medium">PK Nội • BS Bình</span>
+<div class="flex gap-2 text-slate-300">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+</div>
+</div>
+<!-- Card -->
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">TB</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Trần Văn B</h4>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-md">Walk-in</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-amber-500">18 ph</span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-slate-50">
+<span class="text-[10px] text-slate-400 font-medium">Sản phụ • BS Thủy</span>
+<div class="flex gap-2 text-slate-300">
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Chờ sinh hiệu -->
+<div class="kanban-column flex flex-col h-full bg-sky-50/50 rounded-2xl p-3 border border-sky-100">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-6 bg-sky-400 rounded-full"></div>
+<h3 class="font-bold text-slate-700 text-sm font-headline">🩺 Chờ sinh hiệu</h3>
+<span class="text-xs font-bold text-sky-400 bg-white px-1.5 py-0.5 rounded-md border border-sky-100">8</span>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-indigo-600">more_horiz</button>
+</div>
+<div class="flex-1 space-y-3 overflow-y-auto custom-scrollbar pr-1">
+<!-- Emergency Card -->
+<div class="bg-white p-3 rounded-xl border-2 border-red-200 shadow-sm ring-4 ring-red-500/5 hover:shadow-md transition-all cursor-pointer">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs">🚨</div>
+<div>
+<h4 class="text-sm font-extrabold text-red-700 uppercase tracking-tight">BN TRẦN VĂN B</h4>
+<span class="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded-md">CẤP CỨU</span>
+</div>
+</div>
+<span class="text-[10px] font-black text-red-600 animate-pulse">2 ph</span>
+</div>
+<p class="text-[11px] text-red-700 font-bold mt-1 bg-red-50 p-1.5 rounded-lg border border-red-100 italic">"Đau ngực dữ dội, khó thở"</p>
+</div>
+<!-- Card -->
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-lg object-cover" data-alt="A realistic close-up portrait of an elderly Vietnamese man with grey hair and a friendly, distinguished face. He is wearing a clean white shirt under a light blue sweater. The lighting is soft and even, highlighting the fine textures of age and wisdom in a modern medical setting. The overall style is calm and professional, consistent with a high-end digital interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPHNzOQFtwINObAanNXy991aYQP1gXXlwGgUxGRJfcuQVzjX6LG4bEdti-aRIpYjy_zHChVzx0zXX95qmh4TPjGOckWAzj0SMwDgHgCt0mhwmzF2nUKGEwpKWLk-sbPi_qT9t3oU-f7Awihii83B3FgcmQmexW_fItq94EZEzaAEdscYctH35Cpk96cdvbQNagamJN-zvGtM85KUMrM-pV_zZsBaarfVPAWeaS_yRMi-pcr2nIzMOyKfYsy7JOZtNRiCC9X44Vzi8"/>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Phạm Mai</h4>
+<span class="px-1.5 py-0.5 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-md">Tái khám</span>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-500">12 ph</span>
+</div>
+<div class="mt-3 pt-3 border-t border-slate-50 flex justify-between items-center">
+<span class="text-[10px] text-slate-400 font-medium">Huyết áp cao</span>
+<div class="flex gap-1">
+<span class="w-2 h-2 rounded-full bg-sky-400"></span>
+<span class="w-2 h-2 rounded-full bg-slate-200"></span>
+<span class="w-2 h-2 rounded-full bg-slate-200"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3: Chờ bác sĩ -->
+<div class="kanban-column flex flex-col h-full bg-indigo-50/50 rounded-2xl p-3 border border-indigo-100">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-6 bg-indigo-400 rounded-full"></div>
+<h3 class="font-bold text-slate-700 text-sm font-headline">👨‍⚕ Chờ bác sĩ</h3>
+<span class="text-xs font-bold text-indigo-400 bg-white px-1.5 py-0.5 rounded-md border border-indigo-100">9</span>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-indigo-600">more_horiz</button>
+</div>
+<div class="flex-1 space-y-3 overflow-y-auto custom-scrollbar pr-1">
+<!-- High Wait Card -->
+<div class="bg-white p-3 rounded-xl border border-amber-200 shadow-sm ring-4 ring-amber-500/5">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">HV</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Hoàng V</h4>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-md">ID: 1092</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-black text-red-600 px-1.5 py-0.5 bg-red-50 rounded-lg border border-red-100">32 ph</span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-slate-50">
+<span class="text-[10px] text-slate-600 font-bold">P.102 • BS Mạnh</span>
+<span class="material-symbols-outlined text-amber-500 text-sm">priority_high</span>
+</div>
+</div>
+<!-- Another High Wait Card -->
+<div class="bg-white p-3 rounded-xl border border-amber-200 shadow-sm ring-4 ring-amber-500/5">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">NH</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Nguyễn Hà</h4>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 bg-slate-100 text-slate-600 text-[10px] font-bold rounded-md">Tư vấn</span>
+</div>
+</div>
+</div>
+<span class="text-[10px] font-black text-red-600 px-1.5 py-0.5 bg-red-50 rounded-lg border border-red-100">35 ph</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 4: Đang khám -->
+<div class="kanban-column flex flex-col h-full bg-amber-50/50 rounded-2xl p-3 border border-amber-100">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-6 bg-amber-400 rounded-full"></div>
+<h3 class="font-bold text-slate-700 text-sm font-headline">📋 Đang khám</h3>
+<span class="text-xs font-bold text-amber-400 bg-white px-1.5 py-0.5 rounded-md border border-amber-100">4</span>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-indigo-600">more_horiz</button>
+</div>
+<div class="flex-1 space-y-3 overflow-y-auto custom-scrollbar pr-1">
+<div class="bg-white p-3 rounded-xl border-l-4 border-l-amber-400 border border-slate-200 shadow-sm">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-lg object-cover" data-alt="Close-up profile photo of a young adult Vietnamese woman with soft, natural makeup and neatly tied back hair. She has a calm and focused expression, dressed in a simple professional blouse. The environment is a brightly lit, clean medical clinic with blurred clinical equipment in the background. The aesthetic is modern and high-key, using a clean clinical color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVWOAWcJ1_xf1E2OKmBt1TJk1WYElQQNo5RZVnDy0yMvnYRJWRnuokcuNEhXjVioqo8MAyVNUZ3x_3r5dOCzh6xxnp56xGaENhzcOHDGqgkRgAkgNlRpbFqLtJEtXVWWkcOd6XEnb_lPNVCJs8Ob3OGsaanUotjGNJCrETkvv4sCfvqUJme0g0vP-oUe4PEh5SYkcsf2EGkauwF-B-VGsiW6L5q-xHMtHsqOi8NuWHlB3u_UtzD9b9Rtsfh-H84G_b_3pHyV5FgCU"/>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Lê Hà Vy</h4>
+<span class="text-[10px] font-bold text-amber-600">P201 • Đang siêu âm</span>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-500">12/30 ph</span>
+</div>
+<div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-3">
+<div class="bg-amber-400 h-full w-[40%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 5: Chờ thanh toán -->
+<div class="kanban-column flex flex-col h-full bg-emerald-50/50 rounded-2xl p-3 border border-emerald-100">
+<div class="flex items-center justify-between mb-3 px-1">
+<div class="flex items-center gap-2">
+<div class="w-2 h-6 bg-emerald-400 rounded-full"></div>
+<h3 class="font-bold text-slate-700 text-sm font-headline">💰 Chờ thanh toán</h3>
+<span class="text-xs font-bold text-emerald-400 bg-white px-1.5 py-0.5 rounded-md border border-emerald-100">3</span>
+</div>
+<button class="material-symbols-outlined text-slate-400 hover:text-indigo-600">more_horiz</button>
+</div>
+<div class="flex-1 space-y-3 overflow-y-auto custom-scrollbar pr-1">
+<div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm group hover:border-emerald-300 transition-colors">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xs">PM</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">Phạm Mai</h4>
+<span class="text-[10px] font-bold text-emerald-600">₫253.000</span>
+</div>
+</div>
+<span class="text-[10px] font-bold text-emerald-500">4 ph</span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-slate-50">
+<span class="text-[10px] text-slate-400 font-medium">PK Nội • 1 toa thuốc</span>
+<button class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-1 rounded-md active:scale-95 transition-transform">THU TIỀN</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Warning Strip -->
+<footer class="h-10 bg-white border-t border-slate-200 px-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 text-red-600 bg-red-50 px-2 py-0.5 rounded-lg border border-red-100 animate-pulse">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="text-[11px] font-bold">Cảnh báo: 2 BN đợi &gt;30 phút (Hoàng V, Nguyễn Hà) — đề xuất paging BS</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[11px] text-slate-500 font-medium">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-indigo-500">timer</span>
+<span>Avg wait time hôm nay: <span class="text-slate-900 font-bold">14.2 phút</span></span>
+<span class="text-emerald-600 font-bold">(target ≤15p ✓)</span>
+</div>
+<div class="w-px h-3 bg-slate-300"></div>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+<span>Hệ thống ổn định</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Global Command Palette Hint -->
+<div class="fixed bottom-6 right-6 z-50">
+<div class="bg-slate-900 text-white px-4 py-2 rounded-xl shadow-2xl flex items-center gap-3 opacity-90 backdrop-blur">
+<span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Quick Actions</span>
+<div class="flex gap-2">
+<kbd class="bg-slate-800 px-2 py-1 rounded border border-slate-700 text-[10px] font-mono">⌘</kbd>
+<kbd class="bg-slate-800 px-2 py-1 rounded border border-slate-700 text-[10px] font-mono">K</kbd>
+</div>
+</div>
+</div>
+
+</body>
+</html>

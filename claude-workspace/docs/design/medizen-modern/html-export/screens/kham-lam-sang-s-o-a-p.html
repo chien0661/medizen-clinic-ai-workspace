@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khám lâm sàng (S.O.A.P) — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-modal { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
+        .active-tab-dot::before { content: '●'; color: #10B981; margin-right: 4px; }
+        .inactive-tab-dot::before { content: '○'; color: #64748B; margin-right: 4px; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Khám lâm sàng (S.O.A.P) — MediZen</strong></span>
+    <span>ID: b65f72edaff34c588183ec43bcfa4020</span>
+    <span>2560×2048 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-60 z-50 bg-white border-r border-slate-200 flex flex-col py-4 overflow-y-auto transition-all duration-200 ease-in-out">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-indigo-600">MediZen Modern</h1>
+<p class="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Phòng khám Nội khoa</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-500">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Active State: Khám bệnh (Lịch hẹn) -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-indigo-50 text-indigo-600 border-r-4 border-indigo-600 rounded-lg transition-colors font-semibold" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-sm">Lịch hẹn</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-500">person</span>
+<span class="text-sm font-medium">Bệnh nhân</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-500">medical_services</span>
+<span class="text-sm font-medium">Kho dược</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-500">analytics</span>
+<span class="text-sm font-medium">Báo cáo</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-indigo-500">settings</span>
+<span class="text-sm font-medium">Cấu hình</span>
+</a>
+</nav>
+<div class="mt-auto px-3 pt-4 border-t border-slate-100">
+<button class="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white py-2.5 rounded-xl font-semibold shadow-md hover:bg-indigo-700 transition-all mb-4">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-sm">Tiếp nhận mới</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="text-sm font-medium">Hỗ trợ</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 hover:bg-slate-50 rounded-lg" href="#">
+<span class="material-symbols-outlined text-danger">logout</span>
+<span class="text-sm font-medium">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-60 h-14 bg-white border-b border-slate-200 z-40 flex items-center justify-between px-6">
+<div class="flex items-center gap-2 text-sm font-medium text-slate-500">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Khám bệnh</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 font-semibold">Lê Hà Vy</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative flex items-center bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 w-64">
+<span class="material-symbols-outlined text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-full ml-2" placeholder="Cmd+K Tìm BN, thuốc..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-lg relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-lg">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-1"></div>
+<div class="flex items-center gap-2 cursor-pointer">
+<img alt="Dr. Nguyen" class="w-8 h-8 rounded-lg object-cover border border-slate-200" data-alt="A professional headshot of a female doctor in her 40s wearing a clean white lab coat and a stethoscope. She is smiling warmly with a clean clinic interior background that has soft, natural daylighting and a high-end medical professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfEi-1dirCjQQWqgYfYs_R4vBLGOi_tFoyXuZd9ozQtK2P3WhMs2vDRzq4CgiY79GWKuDlAvd0dW0Bt0XimVUzxomjM5URh_U1lRdvw-y8n0tfOpEUJUIVdkXKJ9ix8NxMydQAP8A5gIvOPH0hEtGS3Hl_JCI8abhvYetLPrnMcGNBEzW-l3oUqlBBydSRjMOQowCcAzb51WruGX1SigyjrjaAEH9Z8c1qoa_L0eKb-F4wT4Fv16cS9KO7VGRDTHR8hih0mCz3mlM"/>
+<div class="hidden lg:block text-right">
+<p class="text-xs font-bold leading-tight">Dr. Nguyen</p>
+<p class="text-[10px] text-slate-500">Bác sĩ điều trị</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-60 pt-14 h-screen flex flex-col overflow-hidden">
+<!-- Patient Banner (Sticky) -->
+<div class="bg-white px-6 py-3 border-b border-slate-100 flex items-center justify-between shadow-sm z-30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-indigo-100">
+<img alt="Lê Hà Vy" class="w-full h-full object-cover" data-alt="A portrait of a 45-year-old Vietnamese woman with a gentle expression, wearing business casual clothing. The photograph has a soft-focus background of a clean modern lobby with neutral colors and professional medical clinic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-dJBwbnn8XD4kVSsB-G7KpsFUX7R5Lzl6rDZVx8fdTpa9emtAMpuHnFvVxkHsSjxwe8NnKpf5yguEZDLLDn2cnnQV99OU5d204Y4p8kQ5OEE4VbhTHWY-uyxbR4gePrJkXl0a_qfHPZIytg-ILgwiIeqDC8iWtb-S5kx15vS8hIWxUDUzY7VpOLr3CYylQVUgaYSQv1KwjARjabmy9JMzl4pCBXXHlz26zuqYs1QrGcpNl77UMDan1aekTmiNMGhGXxCmzSXQSA0"/>
+</div>
+<div>
+<h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        Lê Hà Vy 
+                        <span class="text-xs font-normal text-slate-500 px-2 py-0.5 bg-slate-100 rounded-full">Nữ 45</span>
+</h2>
+<div class="flex items-center gap-3 text-xs text-slate-500 mt-0.5">
+<span class="font-medium text-slate-700">BN-2026-00427</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-indigo-600 font-semibold px-1.5 py-0.5 bg-indigo-50 rounded">BHYT</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-amber-600 font-medium">Tăng HA</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>LK-20260430-0042</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold rounded-full border border-indigo-100 animate-pulse">
+<span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+                    Đang khám
+                </span>
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-lg">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Tab Strip -->
+<div class="bg-white px-6 border-b border-slate-200">
+<div class="flex items-center gap-8">
+<button class="py-3 text-sm font-medium flex items-center gap-2 text-slate-500 border-b-2 border-transparent">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Sinh hiệu
+                </button>
+<button class="py-3 text-sm font-bold flex items-center gap-2 text-indigo-600 border-b-2 border-indigo-600">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    Khám LS
+                </button>
+<button class="py-3 text-sm font-medium flex items-center gap-2 text-slate-400 border-b-2 border-transparent">
+<span class="material-symbols-outlined text-lg">radio_button_unchecked</span>
+                    Chẩn đoán
+                </button>
+<button class="py-3 text-sm font-medium flex items-center gap-2 text-slate-400 border-b-2 border-transparent">
+<span class="material-symbols-outlined text-lg">radio_button_unchecked</span>
+                    Kê đơn
+                </button>
+<button class="py-3 text-sm font-medium flex items-center gap-2 text-slate-400 border-b-2 border-transparent">
+<span class="material-symbols-outlined text-lg">radio_button_unchecked</span>
+                    CLS
+                </button>
+<button class="py-3 text-sm font-medium flex items-center gap-2 text-slate-400 border-b-2 border-transparent">
+<span class="material-symbols-outlined text-lg">radio_button_unchecked</span>
+                    Tóm tắt
+                </button>
+</div>
+</div>
+<!-- Scrollable Content Grid -->
+<div class="flex-1 overflow-hidden flex bg-page">
+<!-- LEFT COLUMN (Vital Signs Recap) -->
+<aside class="w-[280px] p-4 border-r border-slate-200 overflow-y-auto space-y-4">
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-card">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-slate-800">Sinh hiệu vừa đo</h3>
+<span class="text-[10px] text-slate-400">09:30</span>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-end mb-1">
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Huyết áp (mmHg)</p>
+<span class="text-[10px] px-1.5 py-0.5 bg-amber-50 text-amber-600 rounded font-bold">Tiền tăng HA</span>
+</div>
+<p class="text-xl font-bold text-slate-900 leading-none">138/89</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Mạch (bpm)</p>
+<p class="text-lg font-bold text-slate-900 leading-none">78</p>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">SpO2 (%)</p>
+<p class="text-lg font-bold text-slate-900 leading-none">98</p>
+</div>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Nhiệt độ (°C)</p>
+<p class="text-lg font-bold text-slate-900 leading-none">36.8</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-100">
+<a class="text-indigo-600 text-xs font-semibold flex items-center justify-center gap-1 hover:underline" href="#">
+                            Xem chi tiết Tab 1
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="bg-indigo-50/50 rounded-xl border border-indigo-100 p-4">
+<h3 class="text-xs font-bold text-indigo-700 mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">history</span>
+                        Lịch sử bệnh lý
+                    </h3>
+<p class="text-xs text-slate-600 leading-relaxed">Tăng HA (5 năm), Đái tháo đường Tuýp 2 (kiểm soát tốt).</p>
+</div>
+</aside>
+<!-- CENTER COLUMN (SOAP Form) -->
+<div class="flex-1 p-4 overflow-y-auto space-y-6">
+<!-- S - Subjective -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-card overflow-hidden">
+<div class="px-5 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">S</span>
+<h3 class="text-sm font-bold text-slate-800">Subjective (Lời kể bệnh nhân)</h3>
+</div>
+<div class="flex items-center gap-1 bg-white border border-slate-200 rounded-lg p-0.5">
+<button class="p-1.5 hover:bg-slate-50 rounded text-slate-500"><span class="material-symbols-outlined text-sm">format_bold</span></button>
+<button class="p-1.5 hover:bg-slate-50 rounded text-slate-500"><span class="material-symbols-outlined text-sm">format_italic</span></button>
+<button class="p-1.5 hover:bg-slate-50 rounded text-slate-500"><span class="material-symbols-outlined text-sm">format_underlined</span></button>
+<div class="w-[1px] h-4 bg-slate-200 mx-1"></div>
+<button class="p-1.5 hover:bg-slate-50 rounded text-slate-500"><span class="material-symbols-outlined text-sm">format_list_bulleted</span></button>
+<div class="w-[1px] h-4 bg-slate-200 mx-1"></div>
+<button class="flex items-center gap-1.5 px-2 py-1 text-xs font-semibold text-slate-600 hover:bg-slate-50 rounded">
+                                Template
+                                <span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+</div>
+</div>
+<div class="p-5 relative">
+<textarea class="w-full border-none focus:ring-0 text-sm text-slate-700 leading-relaxed resize-none p-0" placeholder="Nhập lời kể của bệnh nhân..." rows="4">BN tái khám tăng HA. Khó ngủ 1 tuần nay. Đau đầu vùng chẩm thoáng qua, không buồn nôn. Không đau ngực.</textarea>
+<button class="absolute bottom-5 right-5 w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">mic</span>
+</button>
+</div>
+<div class="px-5 py-2.5 border-t border-slate-100 flex items-center justify-between bg-slate-50/30 text-[10px] font-medium text-slate-400">
+<span>38 từ</span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs">check</span>
+                            Tự lưu lúc 09:48
+                        </span>
+</div>
+</section>
+<!-- O - Objective -->
+<section class="bg-white rounded-xl border border-slate-200 shadow-card overflow-hidden">
+<div class="px-5 py-3 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">O</span>
+<h3 class="text-sm font-bold text-slate-800">Objective (Khám thực thể)</h3>
+</div>
+<button class="text-xs font-semibold text-indigo-600 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">settings</span>
+                            Cấu hình khám
+                        </button>
+</div>
+<div class="divide-y divide-slate-100">
+<!-- Toàn thân (Expanded) -->
+<div class="group">
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_more</span>
+<span class="text-sm font-semibold text-slate-700">1. Toàn thân</span>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-full border border-emerald-100">Đã khám</span>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 px-2 py-1 bg-indigo-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">Bình thường (1-Click)</button>
+</div>
+<div class="px-12 pb-4 pt-1">
+<textarea class="w-full border-indigo-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 rounded-lg text-sm text-slate-700 leading-relaxed transition-all" rows="2">BN tỉnh, da niêm hồng, không hạch ngoại vi, BMI 24.8 thừa cân nhẹ</textarea>
+</div>
+</div>
+<!-- Đầu cổ (Collapsed) -->
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-sm font-medium text-slate-600">2. Đầu cổ mũi họng</span>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-full">Bình thường</span>
+</div>
+</div>
+<!-- Tim mạch (Expanded) -->
+<div class="bg-indigo-50/10">
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_more</span>
+<span class="text-sm font-semibold text-slate-700">3. Tim mạch</span>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-full border border-emerald-100">Đã khám</span>
+</div>
+</div>
+<div class="px-12 pb-4 pt-1">
+<textarea class="w-full border-indigo-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 rounded-lg text-sm text-slate-700 leading-relaxed transition-all" rows="2">T1 T2 đều rõ. Không tiếng thổi. Mạch ngoại vi đối xứng. Không phù chi</textarea>
+</div>
+</div>
+<!-- Hô hấp (Collapsed) -->
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-sm font-medium text-slate-600">4. Hô hấp</span>
+<span class="text-[10px] font-medium text-slate-400">Bình thường</span>
+</div>
+</div>
+<!-- Tiêu hóa (Collapsed) -->
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-sm font-medium text-slate-600">5. Tiêu hóa</span>
+<span class="px-2 py-0.5 bg-slate-100 text-slate-400 text-[10px] font-bold rounded-full">Chưa khám</span>
+</div>
+</div>
+<!-- Tiết niệu (Collapsed) -->
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+<span class="text-sm font-medium text-slate-400 italic">6. Tiết niệu sinh dục</span>
+<span class="text-[10px] font-medium text-slate-300">Không cần</span>
+</div>
+</div>
+<!-- Cơ xương khớp (Collapsed) -->
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-sm font-medium text-slate-600">7. Cơ xương khớp</span>
+<span class="text-[10px] font-medium text-slate-400">Bình thường</span>
+</div>
+</div>
+<!-- Thần kinh (Expanded) -->
+<div>
+<div class="flex items-center justify-between px-5 py-3 cursor-pointer hover:bg-slate-50/50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_more</span>
+<span class="text-sm font-semibold text-slate-700">8. Thần kinh</span>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-600 text-[10px] font-bold rounded-full border border-emerald-100">Đã khám</span>
+</div>
+</div>
+<div class="px-12 pb-4 pt-1">
+<textarea class="w-full border-indigo-100 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 rounded-lg text-sm text-slate-700 leading-relaxed transition-all" rows="2">Cảm giác - vận động bình thường, không liệt khu trú, phản xạ gân xương đối xứng</textarea>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN (Summary & Intelligence) -->
+<aside class="w-[380px] p-4 border-l border-slate-200 overflow-y-auto space-y-4 bg-slate-50/50">
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Triệu chứng đã ghi nhận</h3>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-2 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-lg border border-indigo-100">
+                            Khó ngủ
+                            <button class="material-symbols-outlined text-xs hover:text-indigo-900">close</button>
+</span>
+<span class="flex items-center gap-1.5 px-2 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-lg border border-indigo-100">
+                            Đau đầu
+                            <button class="material-symbols-outlined text-xs hover:text-indigo-900">close</button>
+</span>
+</div>
+</div>
+<div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+<h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">Bất thường khám phát hiện</h3>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-2 py-1 bg-amber-50 text-amber-700 text-xs font-semibold rounded-lg border border-amber-100">
+                            Thừa cân nhẹ
+                            <button class="material-symbols-outlined text-xs hover:text-amber-900">close</button>
+</span>
+</div>
+</div>
+<div class="bg-gradient-to-br from-indigo-500 to-indigo-700 rounded-xl p-4 shadow-lg text-white">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xs font-bold uppercase tracking-widest opacity-80">Template gợi ý</h3>
+<span class="text-[10px] px-1.5 py-0.5 bg-white/20 rounded-full font-bold">AI Suggestion</span>
+</div>
+<div class="space-y-3">
+<div class="bg-white/10 rounded-lg p-3 border border-white/20 cursor-pointer hover:bg-white/20 transition-colors">
+<div class="flex justify-between items-start">
+<p class="text-sm font-bold">Áp dụng "Tăng HA tái khám"</p>
+<span class="text-xs font-bold text-indigo-200">92%</span>
+</div>
+<p class="text-[10px] text-indigo-100 mt-1 leading-relaxed">Tự động điền chẩn đoán dự kiến I10 và các chỉ định CLS định kỳ.</p>
+</div>
+<button class="w-full py-2 bg-white text-indigo-600 text-xs font-bold rounded-lg shadow-md hover:bg-indigo-50 transition-colors">
+                            Áp dụng ngay
+                        </button>
+</div>
+</div>
+<div class="rounded-xl border-2 border-dashed border-slate-200 p-6 flex flex-col items-center justify-center text-center opacity-60">
+<span class="material-symbols-outlined text-slate-400 text-3xl mb-2">add_photo_alternate</span>
+<p class="text-xs font-medium text-slate-500">Kéo thả hình ảnh lâm sàng vào đây</p>
+</div>
+</aside>
+</div>
+<!-- Footer Actions Bar -->
+<footer class="h-16 bg-white border-t border-slate-200 flex items-center justify-between px-6 z-40">
+<button class="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-xl text-slate-600 font-semibold text-sm hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                Trở lại Sinh hiệu
+            </button>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-slate-500 font-semibold text-sm hover:bg-slate-50 rounded-xl transition-colors">
+                    Lưu nháp
+                </button>
+<button class="flex items-center gap-2 px-6 py-2.5 bg-indigo-600 text-white font-bold text-sm rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all active:scale-95">
+                    Tiếp Chẩn đoán
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Global Command Palette Hint -->
+<div class="fixed bottom-20 right-8 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-2xl z-50 flex items-center gap-2 opacity-50 hover:opacity-100 cursor-help transition-opacity">
+<span class="bg-white/20 px-1 rounded">Cmd+K</span>
+        Hỗ trợ nhập liệu thông minh
+    </div>
+
+</body>
+</html>

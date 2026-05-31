@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Danh sách bệnh nhân</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+    --primary-bg: #EEF2FF;
+    --secondary: #7C3AED;
+    --accent: #EC4899;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --border: #E8E4F3;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --sidebar-w: 240px;
+    --topbar-h: 56px;
+    --emerald: #059669;
+    --emerald-bg: #D1FAE5;
+    --gray-badge: #6B7280;
+    --gray-badge-bg: #F3F4F6;
+    --amber: #D97706;
+    --amber-bg: #FEF3C7;
+    --rose: #E11D48;
+    --rose-bg: #FFE4E6;
+    --blue: #2563EB;
+    --blue-bg: #DBEAFE;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-width: 1920px;
+    min-height: 100vh;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    box-shadow: 2px 0 12px rgba(79,70,229,0.06);
+  }
+
+  .sidebar-logo {
+    padding: 0 20px;
+    height: var(--topbar-h);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-version {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-top: 1px;
+  }
+
+  .sidebar-nav {
+    padding: 12px 0;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .nav-section-label {
+    padding: 8px 20px 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 20px;
+    margin: 1px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+
+  .nav-item:hover {
+    background: var(--bg);
+    color: var(--primary);
+  }
+
+  .nav-item.active {
+    background: var(--primary-bg);
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .nav-item .nav-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nav-item .nav-badge {
+    margin-left: auto;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .nav-item.active .nav-badge {
+    background: var(--primary);
+  }
+
+  .sidebar-footer {
+    padding: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: var(--bg);
+    cursor: pointer;
+  }
+
+  .user-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EC4899, #7C3AED);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .user-info-sm .user-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .user-info-sm .user-role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar {
+    position: fixed;
+    left: var(--sidebar-w);
+    top: 0;
+    right: 0;
+    height: var(--topbar-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 16px;
+    z-index: 90;
+    box-shadow: 0 1px 8px rgba(79,70,229,0.05);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .topbar-breadcrumb .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .topbar-spacer { flex: 1; }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .topbar-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .topbar-icon-btn:hover {
+    background: var(--bg);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 1.5px solid white;
+  }
+
+  .topbar-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border);
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+
+  .topbar-user:hover { background: var(--bg); }
+
+  .topbar-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EC4899, #7C3AED);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .topbar-user-info .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .topbar-user-info .role {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ============ MAIN CONTENT ============ */
+  .main-content {
+    margin-left: var(--sidebar-w);
+    margin-top: var(--topbar-h);
+    padding: 28px;
+    min-height: calc(100vh - var(--topbar-h));
+  }
+
+  /* ============ PAGE HEADER ============ */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .page-title-block h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+  }
+
+  .page-title-block p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79,70,229,0.45);
+  }
+
+  /* ============ STATS ROW ============ */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 6px rgba(79,70,229,0.05);
+  }
+
+  .stat-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.indigo { background: var(--primary-bg); }
+  .stat-icon.emerald { background: var(--emerald-bg); }
+  .stat-icon.blue { background: var(--blue-bg); }
+  .stat-icon.rose { background: var(--rose-bg); }
+
+  .stat-info .stat-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .stat-info .stat-label {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  /* ============ SEARCH + FILTER ============ */
+  .search-filter-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 6px rgba(79,70,229,0.05);
+  }
+
+  .search-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .search-input-wrap {
+    flex: 1;
+    position: relative;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 10px 14px 10px 42px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-input:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .search-input::placeholder { color: var(--text-muted); }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--surface);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  .chips-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chips-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-right: 4px;
+  }
+
+  .chip {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.15s;
+    background: var(--bg);
+    color: var(--text-secondary);
+    border-color: var(--border);
+  }
+
+  .chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  .chip.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+  }
+
+  .chip .chip-count {
+    background: rgba(255,255,255,0.25);
+    padding: 1px 5px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 4px;
+  }
+
+  .chip:not(.active) .chip-count {
+    background: var(--primary-bg);
+    color: var(--primary);
+  }
+
+  /* ============ TABLE CARD ============ */
+  .table-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(79,70,229,0.07);
+  }
+
+  .table-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .table-card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .table-card-subtitle {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-outline-sm:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    background: #FAFAFD;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  th.sortable {
+    cursor: pointer;
+  }
+
+  th.sortable:hover { color: var(--primary); }
+
+  th .sort-icon { margin-left: 4px; opacity: 0.5; }
+
+  tbody tr {
+    border-bottom: 1px solid #F3F0FB;
+    transition: background 0.12s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover { background: #FAFAFF; }
+
+  td {
+    padding: 13px 16px;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    vertical-align: middle;
+  }
+
+  .patient-id {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--primary);
+    background: var(--primary-bg);
+    padding: 3px 8px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  .patient-name {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 14px;
+  }
+
+  .patient-name-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .patient-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .avatar-indigo { background: linear-gradient(135deg, #4F46E5, #7C3AED); }
+  .avatar-rose { background: linear-gradient(135deg, #EC4899, #F43F5E); }
+  .avatar-emerald { background: linear-gradient(135deg, #059669, #10B981); }
+  .avatar-amber { background: linear-gradient(135deg, #D97706, #F59E0B); }
+  .avatar-blue { background: linear-gradient(135deg, #2563EB, #3B82F6); }
+  .avatar-purple { background: linear-gradient(135deg, #7C3AED, #A855F7); }
+  .avatar-teal { background: linear-gradient(135deg, #0D9488, #14B8A6); }
+  .avatar-orange { background: linear-gradient(135deg, #EA580C, #F97316); }
+
+  .gender-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .gender-male {
+    background: #DBEAFE;
+    color: #1D4ED8;
+  }
+
+  .gender-female {
+    background: #FCE7F3;
+    color: #BE185D;
+  }
+
+  .bhyt-yes {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--emerald);
+    background: var(--emerald-bg);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .bhyt-no {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--gray-badge);
+    background: var(--gray-badge-bg);
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .status-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-active {
+    background: var(--emerald-bg);
+    color: var(--emerald);
+  }
+
+  .status-active::before { background: var(--emerald); }
+
+  .status-done {
+    background: var(--gray-badge-bg);
+    color: var(--gray-badge);
+  }
+
+  .status-done::before { background: var(--gray-badge); }
+
+  .status-new {
+    background: var(--blue-bg);
+    color: var(--blue);
+  }
+
+  .status-new::before { background: var(--blue); }
+
+  .status-waiting {
+    background: var(--amber-bg);
+    color: var(--amber);
+  }
+
+  .status-waiting::before { background: var(--amber); }
+
+  .action-btns {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .action-btn-view {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  .action-btn-view:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  .action-btn-edit {
+    border-color: #D1D5DB;
+    color: var(--text-secondary);
+    background: #F9FAFB;
+  }
+
+  .action-btn-edit:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: var(--amber-bg);
+  }
+
+  /* ============ PAGINATION ============ */
+  .pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-top: 1px solid var(--border);
+    background: #FAFAFD;
+  }
+
+  .pagination-info {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+
+  .pagination-info strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .page-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.15s;
+  }
+
+  .page-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-bg);
+  }
+
+  .page-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+  }
+
+  .page-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .page-btn-wide {
+    width: auto;
+    padding: 0 12px;
+    gap: 4px;
+  }
+
+  .page-separator {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    padding: 0 4px;
+  }
+
+  /* ============ SCROLLBAR ============ */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C7D2FE; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }
+
+  /* ============ QUICK STATS INLINE ============ */
+  .quick-stat-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  .quick-stat-inline .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--emerald);
+  }
+
+  .trend-up {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--emerald);
+    background: var(--emerald-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .trend-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Date badge */
+  .date-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .phone-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Row number */
+  .row-num {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar">
+  <a class="sidebar-logo" href="index.html" style="text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div>
+      <div style="display:flex;align-items:baseline;gap:4px;">
+        <span class="logo-text">MediZen</span>
+        <span class="logo-version">v2.0</span>
+      </div>
+    </div>
+  </a>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Tổng quan</div>
+    <a class="nav-item" href="04-dashboard-le-tan.html">
+      <span class="nav-icon">🏠</span>
+      Bảng điều khiển
+    </a>
+
+    <div class="nav-section-label" style="margin-top:8px;">Phòng khám</div>
+    <a class="nav-item active" href="10-danh-sach-benh-nhan.html">
+      <span class="nav-icon">👥</span>
+      Bệnh nhân
+      <span class="nav-badge">1.248</span>
+    </a>
+    <a class="nav-item" href="14-lich-hen.html">
+      <span class="nav-icon">📅</span>
+      Lịch hẹn
+      <span class="nav-badge">8</span>
+    </a>
+    <a class="nav-item" href="13-phong-cho-queue.html">
+      <span class="nav-icon">🕐</span>
+      Phòng chờ
+    </a>
+    <a class="nav-item" href="15-emr-sinh-hieu.html">
+      <span class="nav-icon">🩺</span>
+      Khám bệnh
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">📋</span>
+      Hồ sơ bệnh án
+    </a>
+    <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+      <span class="nav-icon">💊</span>
+      Kê đơn thuốc
+    </a>
+
+    <div class="nav-section-label" style="margin-top:8px;">Quản lý</div>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🏪</span>
+      Kho dược
+    </a>
+    <a class="nav-item" href="24-thanh-toan.html">
+      <span class="nav-icon">💰</span>
+      Thanh toán
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">📊</span>
+      Báo cáo
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">🔬</span>
+      Xét nghiệm
+    </a>
+
+    <div class="nav-section-label" style="margin-top:8px;">Hệ thống</div>
+    <a class="nav-item" href="#">
+      <span class="nav-icon">👨‍⚕️</span>
+      Nhân viên
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">⚙️</span>
+      Cài đặt
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar-sm">LH</div>
+      <div class="user-info-sm">
+        <div class="user-name">Lê Thị Hoa</div>
+        <div class="user-role">Lễ tân • Ca sáng</div>
+      </div>
+      <span style="margin-left:auto;font-size:14px;color:var(--text-muted);">⚙️</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span>🏥</span>
+    <span>MediZen</span>
+    <span style="color:var(--border);">/</span>
+    <span class="current">Bệnh nhân</span>
+    <span style="color:var(--border);">/</span>
+    <span class="current">Danh sách</span>
+  </div>
+
+  <div class="topbar-spacer"></div>
+
+  <div class="topbar-actions">
+    <div style="font-size:12.5px;color:var(--text-muted);background:var(--bg);padding:5px 12px;border-radius:8px;border:1px solid var(--border);">
+      📅 Chủ nhật, 31/05/2026
+    </div>
+
+    <button class="topbar-icon-btn" title="Tìm kiếm nhanh">🔍</button>
+
+    <button class="topbar-icon-btn" title="Thông báo" style="position:relative;">
+      🔔
+      <span class="notif-dot"></span>
+    </button>
+
+    <button class="topbar-icon-btn" title="Trợ giúp">❓</button>
+
+    <div class="topbar-divider"></div>
+
+    <div class="topbar-user">
+      <div class="topbar-avatar">LH</div>
+      <div class="topbar-user-info">
+        <div class="name">Lê Thị Hoa</div>
+        <div class="role">Lễ tân</div>
+      </div>
+      <span style="font-size:13px;color:var(--text-muted);margin-left:4px;">▼</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main class="main-content">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-title-block">
+      <h1>👥 Danh sách bệnh nhân</h1>
+      <p>Quản lý toàn bộ hồ sơ bệnh nhân tại phòng khám — Cập nhật lúc 08:42</p>
+    </div>
+    <a class="btn-primary" href="12-tiep-nhan-bn.html">
+      ➕ Thêm bệnh nhân
+    </a>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon indigo">👥</div>
+      <div class="stat-info">
+        <div class="stat-value">1.248</div>
+        <div class="stat-label">Tổng bệnh nhân</div>
+        <div class="quick-stat-inline" style="margin-top:4px;">
+          <span class="trend-badge" style="background:#EEF2FF;color:#4F46E5;">↑ +12 tuần này</span>
+        </div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon emerald">🩺</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color:var(--emerald);">47</div>
+        <div class="stat-label">Đang điều trị</div>
+        <div class="quick-stat-inline" style="margin-top:4px;">
+          <div class="dot"></div>
+          <span style="font-size:12px;color:var(--emerald);font-weight:500;">Đang theo dõi</span>
+        </div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon blue">🏥</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color:var(--blue);">156</div>
+        <div class="stat-label">Có bảo hiểm BHYT</div>
+        <div class="quick-stat-inline" style="margin-top:4px;">
+          <span style="font-size:12px;color:var(--text-muted);">12.5% tổng số</span>
+        </div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon rose">🌟</div>
+      <div class="stat-info">
+        <div class="stat-value" style="color:var(--accent);">23</div>
+        <div class="stat-label">Mới trong tháng</div>
+        <div class="quick-stat-inline" style="margin-top:4px;">
+          <span class="trend-badge" style="background:#FCE7F3;color:#BE185D;">↑ +15% so tháng trước</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search + Filter -->
+  <div class="search-filter-block">
+    <div class="search-row">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" type="text" placeholder="Tìm theo tên bệnh nhân, mã BN, số điện thoại, CMND/CCCD...">
+      </div>
+      <button class="filter-btn">🎛️ Lọc nâng cao</button>
+      <button class="filter-btn">📅 Khoảng ngày</button>
+      <button class="filter-btn">📤 Xuất Excel</button>
+    </div>
+    <div class="chips-row">
+      <span class="chips-label">Lọc nhanh:</span>
+      <span class="chip active">Tất cả <span class="chip-count">1.248</span></span>
+      <span class="chip">Đang điều trị <span class="chip-count" style="background:var(--emerald-bg);color:var(--emerald);">47</span></span>
+      <span class="chip">Có BHYT <span class="chip-count" style="background:var(--blue-bg);color:var(--blue);">156</span></span>
+      <span class="chip">Mới trong tháng <span class="chip-count" style="background:#FCE7F3;color:#BE185D;">23</span></span>
+      <span class="chip">Hẹn tái khám</span>
+      <span class="chip">Chưa thanh toán</span>
+    </div>
+  </div>
+
+  <!-- Table Card -->
+  <div class="table-card">
+    <div class="table-card-header">
+      <div>
+        <div class="table-card-title">📋 Danh sách bệnh nhân</div>
+        <div class="table-card-subtitle">Tổng cộng 1.248 bệnh nhân — Đang hiển thị trang 1 / 84</div>
+      </div>
+      <div class="table-actions">
+        <button class="btn-outline-sm">📊 Cột hiển thị</button>
+        <button class="btn-outline-sm">🖨️ In danh sách</button>
+        <button class="btn-outline-sm">⬆️ Nhập từ file</button>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:40px;">#</th>
+          <th class="sortable" style="width:90px;">Mã BN <span class="sort-icon">⬆️</span></th>
+          <th class="sortable">Họ và tên <span class="sort-icon">↕️</span></th>
+          <th class="sortable" style="width:110px;">Ngày sinh <span class="sort-icon">↕️</span></th>
+          <th style="width:60px;">Giới</th>
+          <th style="width:120px;">Điện thoại</th>
+          <th style="width:80px;">BHYT</th>
+          <th class="sortable" style="width:120px;">Lần khám cuối <span class="sort-icon">↕️</span></th>
+          <th style="width:130px;">Trạng thái</th>
+          <th style="width:130px;text-align:center;">Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Row 1 -->
+        <tr>
+          <td><span class="row-num">1</span></td>
+          <td><span class="patient-id">BN001</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-indigo">NA</div>
+              <div>
+                <div class="patient-name">Nguyễn Văn An</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 036079001234</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">15/03/1979</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0901 234 567</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">29/05/2026</span></td>
+          <td><span class="status-badge status-active">Đang điều trị</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td><span class="row-num">2</span></td>
+          <td><span class="patient-id">BN002</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-rose">TB</div>
+              <div>
+                <div class="patient-name">Trần Thị Bích</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 080085005678</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">22/07/1985</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0912 345 678</span></td>
+          <td><span class="bhyt-no">— Không</span></td>
+          <td><span class="date-text">28/05/2026</span></td>
+          <td><span class="status-badge status-done">Hoàn thành</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td><span class="row-num">3</span></td>
+          <td><span class="patient-id">BN003</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-emerald">PH</div>
+              <div>
+                <div class="patient-name">Phạm Minh Hoàng</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 001092007891</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">08/11/1992</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0933 456 789</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">27/05/2026</span></td>
+          <td><span class="status-badge status-active">Đang điều trị</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td><span class="row-num">4</span></td>
+          <td><span class="patient-id">BN004</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-amber">LN</div>
+              <div>
+                <div class="patient-name">Lê Thị Ngọc</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 048070009012</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">30/04/1970</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0987 654 321</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">26/05/2026</span></td>
+          <td><span class="status-badge status-waiting">Chờ tái khám</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td><span class="row-num">5</span></td>
+          <td><span class="patient-id">BN005</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-blue">VD</div>
+              <div>
+                <div class="patient-name">Vũ Quốc Dũng</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 074088003456</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">14/09/1988</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0971 234 567</span></td>
+          <td><span class="bhyt-no">— Không</span></td>
+          <td><span class="date-text">25/05/2026</span></td>
+          <td><span class="status-badge status-done">Hoàn thành</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td><span class="row-num">6</span></td>
+          <td><span class="patient-id">BN006</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-purple">HM</div>
+              <div>
+                <div class="patient-name">Hoàng Thị Mai</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 064095006789</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">05/02/1995</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0908 765 432</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">24/05/2026</span></td>
+          <td><span class="status-badge status-new">Bệnh nhân mới</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td><span class="row-num">7</span></td>
+          <td><span class="patient-id">BN007</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-teal">DT</div>
+              <div>
+                <div class="patient-name">Đặng Văn Thành</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 024065001122</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">20/12/1965</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0946 321 654</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">23/05/2026</span></td>
+          <td><span class="status-badge status-active">Đang điều trị</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td><span class="row-num">8</span></td>
+          <td><span class="patient-id">BN008</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-rose">NP</div>
+              <div>
+                <div class="patient-name">Ngô Thị Phương</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 051098008877</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">11/06/1998</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0963 987 654</span></td>
+          <td><span class="bhyt-no">— Không</span></td>
+          <td><span class="date-text">22/05/2026</span></td>
+          <td><span class="status-badge status-new">Bệnh nhân mới</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 9 -->
+        <tr>
+          <td><span class="row-num">9</span></td>
+          <td><span class="patient-id">BN009</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-indigo">BL</div>
+              <div>
+                <div class="patient-name">Bùi Văn Long</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 036082004455</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">03/08/1982</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0918 543 210</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">21/05/2026</span></td>
+          <td><span class="status-badge status-done">Hoàn thành</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 10 -->
+        <tr>
+          <td><span class="row-num">10</span></td>
+          <td><span class="patient-id">BN010</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-amber">TH</div>
+              <div>
+                <div class="patient-name">Trương Thị Hằng</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 079075002233</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">27/01/1975</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0905 678 901</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">20/05/2026</span></td>
+          <td><span class="status-badge status-waiting">Chờ tái khám</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 11 -->
+        <tr>
+          <td><span class="row-num">11</span></td>
+          <td><span class="patient-id">BN011</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-blue">LD</div>
+              <div>
+                <div class="patient-name">Lâm Thanh Đức</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 092090005566</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">16/05/1990</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0977 112 233</span></td>
+          <td><span class="bhyt-no">— Không</span></td>
+          <td><span class="date-text">19/05/2026</span></td>
+          <td><span class="status-badge status-active">Đang điều trị</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 12 -->
+        <tr>
+          <td><span class="row-num">12</span></td>
+          <td><span class="patient-id">BN012</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-purple">NQ</div>
+              <div>
+                <div class="patient-name">Nguyễn Thị Quỳnh</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 001003007788</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">09/03/2003</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0348 901 234</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">18/05/2026</span></td>
+          <td><span class="status-badge status-new">Bệnh nhân mới</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 13 -->
+        <tr>
+          <td><span class="row-num">13</span></td>
+          <td><span class="patient-id">BN013</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-orange">DK</div>
+              <div>
+                <div class="patient-name">Đinh Văn Khoa</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 027068009900</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">25/10/1968</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0923 456 789</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">17/05/2026</span></td>
+          <td><span class="status-badge status-active">Đang điều trị</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 14 -->
+        <tr>
+          <td><span class="row-num">14</span></td>
+          <td><span class="patient-id">BN014</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-teal">PL</div>
+              <div>
+                <div class="patient-name">Phan Thị Lan</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 056086001199</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">12/07/1986</span></td>
+          <td><span class="gender-badge gender-female">♀ Nữ</span></td>
+          <td><span class="phone-text">0356 789 012</span></td>
+          <td><span class="bhyt-no">— Không</span></td>
+          <td><span class="date-text">16/05/2026</span></td>
+          <td><span class="status-badge status-done">Hoàn thành</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+        <!-- Row 15 -->
+        <tr>
+          <td><span class="row-num">15</span></td>
+          <td><span class="patient-id">BN015</span></td>
+          <td>
+            <div class="patient-name-wrap">
+              <div class="patient-avatar avatar-emerald">TT</div>
+              <div>
+                <div class="patient-name">Tống Quốc Tuấn</div>
+                <div style="font-size:11.5px;color:var(--text-muted);">CCCD: 034001003344</div>
+              </div>
+            </div>
+          </td>
+          <td><span class="date-text">01/01/2001</span></td>
+          <td><span class="gender-badge gender-male">♂ Nam</span></td>
+          <td><span class="phone-text">0385 234 567</span></td>
+          <td><span class="bhyt-yes">✅ Có</span></td>
+          <td><span class="date-text">15/05/2026</span></td>
+          <td><span class="status-badge status-waiting">Chờ tái khám</span></td>
+          <td>
+            <div class="action-btns" style="justify-content:center;">
+              <a class="action-btn action-btn-view" href="11-ho-so-benh-nhan.html">👁️ Xem</a>
+              <a class="action-btn action-btn-edit" href="11-ho-so-benh-nhan.html">✏️ Sửa</a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination-bar">
+      <div class="pagination-info">
+        Hiển thị <strong>1 – 15</strong> / <strong>1.248</strong> bệnh nhân &nbsp;·&nbsp;
+        Mỗi trang:
+        <select style="border:1.5px solid var(--border);border-radius:6px;padding:3px 8px;font-size:13px;color:var(--text-primary);background:white;cursor:pointer;outline:none;font-family:'Inter',sans-serif;">
+          <option>15</option>
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+      </div>
+      <div class="pagination-controls">
+        <button class="page-btn page-btn-wide disabled">← Trước</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <span class="page-separator">···</span>
+        <button class="page-btn">82</button>
+        <button class="page-btn">83</button>
+        <button class="page-btn">84</button>
+        <button class="page-btn page-btn-wide">Tiếp →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom spacer -->
+  <div style="height:20px;"></div>
+
+</main>
+
+</body>
+</html>

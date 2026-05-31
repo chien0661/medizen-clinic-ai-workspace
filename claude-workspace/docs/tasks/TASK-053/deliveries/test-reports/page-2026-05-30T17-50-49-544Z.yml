@@ -1,0 +1,48 @@
+- generic [ref=e2]:
+  - generic [ref=e192]:
+    - complementary [ref=e193]:
+      - generic [ref=e194]:
+        - img [ref=e196]
+        - generic [ref=e197]: MediZen
+      - generic [ref=e198]:
+        - heading [level=2] [ref=e199]: Đăng nhập hệ thống
+        - paragraph [ref=e200]: Quản lý phòng khám
+      - generic [ref=e201]:
+        - generic [ref=e202]:
+          - img [ref=e203]
+          - generic [ref=e206]: Patient-first
+        - generic [ref=e207]:
+          - img [ref=e208]
+          - generic [ref=e210]: Real-time queue
+        - generic [ref=e211]:
+          - img [ref=e212]
+          - generic [ref=e214]: RBAC + audit
+    - main [ref=e215]:
+      - generic [ref=e216]:
+        - generic [ref=e217]:
+          - heading "Đăng nhập hệ thống" [level=1] [ref=e218]
+          - paragraph [ref=e219]: Quản lý phòng khám
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - text: Tên đăng nhập
+            - generic [ref=e222]:
+              - img
+              - textbox "Tên đăng nhập" [ref=e223]:
+                - /placeholder: Nhập tên đăng nhập
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - generic [ref=e226]: Mật khẩu
+              - button "Quên mật khẩu?" [ref=e227] [cursor=pointer]
+            - generic [ref=e228]:
+              - img
+              - textbox "Mật khẩu" [ref=e229]:
+                - /placeholder: Nhập mật khẩu
+              - button "Show password" [ref=e230] [cursor=pointer]:
+                - img [ref=e231]
+          - generic [ref=e234]:
+            - checkbox "Ghi nhớ đăng nhập" [ref=e235] [cursor=pointer]
+            - checkbox
+            - generic [ref=e236] [cursor=pointer]: Ghi nhớ đăng nhập
+          - button "Đăng nhập" [ref=e237] [cursor=pointer]
+        - paragraph [ref=e238]: © 2026 MediZen · v0.1.0
+  - region "Notifications alt+T"

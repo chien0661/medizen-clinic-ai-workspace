@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảo mật & Mã hoá — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Bảo mật & Mã hoá — MediZen</strong></span>
+    <span>ID: c8547b82621c4c0ca4abb8a4e3a2f149</span>
+    <span>2560×3564 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar -->
+<aside class="flex flex-col fixed left-0 top-0 bottom-0 z-40 w-[240px] h-screen border-r border-slate-200 bg-white font-['Inter'] text-sm antialiased">
+<div class="p-6">
+<div class="font-['Plus_Jakarta_Sans'] font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-violet-500">
+                MediZen
+            </div>
+<p class="text-xs text-slate-500 mt-1 uppercase tracking-wider font-semibold">Phòng khám Đa khoa</p>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<div class="mb-4">
+<p class="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Chính</p>
+<a class="flex items-center px-3 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-slate-400 group-hover:text-indigo-600">dashboard</span>
+                    Bảng điều khiển
+                </a>
+<a class="flex items-center px-3 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-slate-400 group-hover:text-indigo-600">person</span>
+                    Bệnh nhân
+                </a>
+</div>
+<div>
+<p class="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Hệ thống</p>
+<a class="flex items-center px-3 py-2 text-slate-600 hover:bg-slate-50 transition-colors duration-200 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-slate-400">settings</span>
+                    Cấu hình hệ thống
+                </a>
+<a class="flex items-center px-3 py-2 text-indigo-600 font-semibold border-r-4 border-indigo-600 bg-indigo-50 transition-transform active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined mr-3 text-indigo-600">shield</span>
+                    Bảo mật &amp; Mã hoá
+                </a>
+</div>
+</nav>
+<div class="p-4 border-t border-slate-100">
+<a class="flex items-center px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+                Hỗ trợ
+            </a>
+<a class="flex items-center px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+                Đăng xuất
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-[240px] z-30 h-14 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-6 shadow-sm shadow-indigo-500/5">
+<div class="flex items-center gap-4">
+<nav class="flex items-center text-sm font-['Plus_Jakarta_Sans'] font-semibold">
+<span class="text-slate-500">Hệ thống</span>
+<span class="material-symbols-outlined text-slate-300 mx-2 text-sm">chevron_right</span>
+<span class="text-indigo-600 font-bold">Bảo mật &amp; Mã hoá</span>
+</nav>
+<div class="ml-8 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-indigo-500/20 outline-none" placeholder="Tìm kiếm (Cmd+K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-indigo-500 transition-all relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold text-slate-800">QT. Anh</p>
+<p class="text-[10px] text-slate-500">Bác sĩ Admin</p>
+</div>
+<img alt="Bác sĩ Admin" class="w-8 h-8 rounded-full bg-slate-200 object-cover border border-slate-100" data-alt="A professional headshot of a Vietnamese male doctor in a clean white medical coat with a blue stethoscope around his neck. He has a friendly yet authoritative expression. The background is a soft, out-of-focus modern medical clinic corridor with bright, natural daylight and indigo accents, maintaining the MediZen brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChlOB4wbS7bJmCI7vBF_bmjnGRLssXVv4m1D806a3gES75MnrEwy3YyW8uHp70nM67B9JWVa2W1J_EYuozDFYyxsyIoGsBwdYVUhRjmLgKsD20j9aJbIRd70oucnqNtbQGKrdo_NKhm3gN076cv8jE0GiwvICaryCnLum2-rsrp1c1oS6GLTk8gn9tZsmiiHcZVT105L6IXhkp4WKAmOmlTwWCWxeOzZPIYhyDov1ZuNbNCnjvoia4jyZOlUKLVlCWSiCtU2A-nfM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[240px] mt-14 p-8 max-w-[1440px]">
+<!-- Content Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-3xl font-bold text-slate-900 tracking-tight">Bảo mật &amp; Mã hoá</h1>
+<div class="flex items-center gap-3 mt-2">
+<p class="text-slate-500 font-medium italic">Compliance HIPAA + Nghị định 13/2023</p>
+<span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+                        ✓ Tuân thủ 14/15 mục
+                    </span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-sm font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50">Hủy</button>
+<button class="px-4 py-2 text-sm font-semibold text-indigo-600 bg-indigo-50 border border-indigo-100 rounded-lg hover:bg-indigo-100">Xuất báo cáo Compliance PDF</button>
+<button class="px-6 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg shadow-lg shadow-indigo-200 hover:bg-indigo-700 active:scale-95 transition-all">
+                    Lưu thay đổi
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column: Primary Config -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Bento Feature Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Feature 1: PII Inventory -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-indigo-500">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-indigo-600 p-2 bg-indigo-50 rounded-lg">inventory_2</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">PII Inventory</span>
+</div>
+<h3 class="font-bold text-slate-800 mb-1">Phân loại dữ liệu</h3>
+<p class="text-xs text-slate-500 mb-4 italic">87 columns được phân loại</p>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<div class="bg-slate-50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-400 uppercase font-bold">Public</p>
+<p class="text-lg font-bold text-slate-700">12</p>
+</div>
+<div class="bg-slate-50 p-2 rounded-lg">
+<p class="text-[10px] text-slate-400 uppercase font-bold">Internal</p>
+<p class="text-lg font-bold text-slate-700">45</p>
+</div>
+<div class="bg-indigo-50 p-2 rounded-lg">
+<p class="text-[10px] text-indigo-400 uppercase font-bold">PII</p>
+<p class="text-lg font-bold text-indigo-600">18</p>
+</div>
+<div class="bg-violet-50 p-2 rounded-lg">
+<p class="text-[10px] text-violet-400 uppercase font-bold">PHI</p>
+<p class="text-lg font-bold text-violet-600">12</p>
+</div>
+</div>
+<button class="w-full text-xs font-bold text-indigo-600 py-2 border border-indigo-100 rounded-lg hover:bg-indigo-50 transition-colors">Xem chi tiết phân loại →</button>
+</div>
+<!-- Feature 2: Anomaly -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-amber-500">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-amber-600 p-2 bg-amber-50 rounded-lg">security</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Anomaly Detection</span>
+</div>
+<h3 class="font-bold text-slate-800 mb-1">7 quy tắc bảo vệ</h3>
+<div class="space-y-1.5 mb-4 max-h-[140px] overflow-y-auto pr-1">
+<div class="flex items-center justify-between p-1.5 bg-slate-50 rounded border border-slate-100">
+<span class="text-[10px] text-slate-600 font-medium">Failed login burst</span>
+<span class="text-[8px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full font-bold">Đang chạy</span>
+</div>
+<div class="flex items-center justify-between p-1.5 bg-slate-50 rounded border border-slate-100">
+<span class="text-[10px] text-slate-600 font-medium">Mass PII reveal</span>
+<span class="text-[8px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full font-bold">Đang chạy</span>
+</div>
+<div class="flex items-center justify-between p-1.5 bg-slate-50 rounded border border-slate-100">
+<span class="text-[10px] text-slate-600 font-medium">Audit tamper detected</span>
+<span class="text-[8px] bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full font-bold">Đang chạy</span>
+</div>
+</div>
+<button class="w-full text-xs font-bold text-amber-600 py-2 border border-amber-100 rounded-lg hover:bg-amber-50 transition-colors">Xem log alerts →</button>
+</div>
+<!-- Feature 3: Audit Hash -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-emerald-500">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-emerald-600 p-2 bg-emerald-50 rounded-lg">history_edu</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Tamper Detection</span>
+</div>
+<h3 class="font-bold text-slate-800 mb-1">Audit Hash Chain</h3>
+<div class="space-y-2 mb-4">
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-400">Verified:</span>
+<span class="font-bold text-slate-600">09:48 hôm nay</span>
+</div>
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-400">Total entries:</span>
+<span class="font-bold text-slate-600">47,892</span>
+</div>
+<div class="flex justify-between text-[11px]">
+<span class="text-slate-400">Hash mismatches:</span>
+<span class="font-bold text-emerald-600">0 ✓</span>
+</div>
+<div class="mt-2 py-1.5 bg-emerald-50 border border-emerald-100 rounded-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-emerald-700">✓ Audit log toàn vẹn</span>
+</div>
+</div>
+<button class="w-full text-xs font-bold text-emerald-700 py-2 bg-emerald-100 rounded-lg hover:bg-emerald-200 transition-colors">Run verify now</button>
+</div>
+</div>
+<!-- Configuration Stack -->
+<div class="space-y-6">
+<!-- 1. Mật khẩu policy -->
+<section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+<span class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs text-slate-500">1</span>
+                                Mật khẩu policy
+                            </h2>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-bold rounded uppercase tracking-wider">OWASP ASVS L2</span>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-4">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Độ dài tối thiểu</label>
+<input class="w-full rounded-lg border-slate-200 focus:ring-2 focus:ring-indigo-500/20 text-sm" type="number" value="12"/>
+</div>
+<div class="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+<input checked="" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500" type="checkbox"/>
+<span class="text-sm font-medium text-slate-700 leading-tight">Yêu cầu độ phức tạp (Ký tự đặc biệt, hoa, số)</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Xoay vòng (Ngày)</label>
+<input class="w-full rounded-lg border-slate-200 focus:ring-2 focus:ring-indigo-500/20 text-sm" type="number" value="90"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Lịch sử (Lần)</label>
+<input class="w-full rounded-lg border-slate-200 focus:ring-2 focus:ring-indigo-500/20 text-sm" type="number" value="5"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Khóa tài khoản</label>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-400 font-medium whitespace-nowrap">Sau</span>
+<input class="w-16 rounded-lg border-slate-200 focus:ring-2 focus:ring-indigo-500/20 text-sm px-2" type="number" value="5"/>
+<span class="text-xs text-slate-400 font-medium whitespace-nowrap">lần sai trong 30p</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. MFA -->
+<section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+<span class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs text-slate-500">2</span>
+                                Multi-Factor Authentication (MFA)
+                            </h2>
+<div class="flex flex-col items-end">
+<span class="text-xs font-bold text-indigo-600">27/35 user (77%)</span>
+<div class="w-24 h-1.5 bg-slate-100 rounded-full mt-1">
+<div class="h-full bg-indigo-500 rounded-full" style="width: 77%"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="p-3 border border-indigo-200 bg-indigo-50 rounded-xl text-center">
+<p class="text-[10px] font-bold text-indigo-400 mb-1">ADMIN/BS</p>
+<span class="text-xs font-bold text-indigo-700">Mandatory</span>
+</div>
+<div class="p-3 border border-slate-200 bg-slate-50 rounded-xl text-center">
+<p class="text-[10px] font-bold text-slate-400 mb-1">DƯỢC SĨ</p>
+<span class="text-xs font-bold text-slate-700">Recommended</span>
+</div>
+<div class="p-3 border border-slate-200 bg-white rounded-xl text-center">
+<p class="text-[10px] font-bold text-slate-400 mb-1">NURSES</p>
+<span class="text-xs font-bold text-slate-500">Optional</span>
+</div>
+<div class="p-3 border border-slate-200 bg-white rounded-xl text-center">
+<p class="text-[10px] font-bold text-slate-400 mb-1">RECEPTION</p>
+<span class="text-xs font-bold text-slate-500">Optional</span>
+</div>
+</div>
+</section>
+<!-- 3. Session -->
+<section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+<span class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs text-slate-500">3</span>
+                                Session Management
+                            </h2>
+<span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+<span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                                Active 18 sessions
+                            </span>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Idle Timeout</label>
+<select class="w-full rounded-lg border-slate-200 text-sm focus:ring-2 focus:ring-indigo-500/20">
+<option>30 phút</option>
+<option>60 phút</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Absolute Lifetime</label>
+<select class="w-full rounded-lg border-slate-200 text-sm focus:ring-2 focus:ring-indigo-500/20">
+<option>8 giờ</option>
+<option>12 giờ</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Max Concurrent</label>
+<input class="w-full rounded-lg border-slate-200 text-sm focus:ring-2 focus:ring-indigo-500/20" type="number" value="2"/>
+</div>
+</div>
+</section>
+<!-- 4. Mã hoá dữ liệu -->
+<section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h2 class="text-lg font-bold text-slate-800 flex items-center gap-2 mb-6">
+<span class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs text-slate-500">4</span>
+                            Mã hoá dữ liệu
+                        </h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-500" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<p class="text-sm font-bold text-slate-700 leading-none">Database AES-256</p>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-semibold">Encryption at rest</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-500" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<div>
+<p class="text-sm font-bold text-slate-700 leading-none">TLS 1.3 / HSTS</p>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-semibold">In transit protection</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-500" style="font-variation-settings: 'FILL' 1;">key</span>
+<div>
+<p class="text-sm font-bold text-slate-700 leading-none">JWT Signing</p>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-semibold">Rotated 28 days</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-slate-50 rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-indigo-500" style="font-variation-settings: 'FILL' 1;">backup</span>
+<div>
+<p class="text-sm font-bold text-slate-700 leading-none">Backup AES-256</p>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-semibold">Immutable backups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-emerald-500">check_circle</span>
+</div>
+</div>
+</section>
+<!-- 5. PII handling -->
+<section class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<h2 class="text-lg font-bold text-slate-800 flex items-center gap-2 mb-6">
+<span class="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs text-slate-500">5</span>
+                            PII handling
+                        </h2>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">Redaction List (Tự động ẩn thông tin)</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-slate-100 border border-slate-200 text-xs font-bold text-slate-600 rounded-full flex items-center gap-2">
+                                        Số điện thoại
+                                        <button class="material-symbols-outlined text-sm">close</button>
+</span>
+<span class="px-3 py-1.5 bg-slate-100 border border-slate-200 text-xs font-bold text-slate-600 rounded-full flex items-center gap-2">
+                                        Email cá nhân
+                                        <button class="material-symbols-outlined text-sm">close</button>
+</span>
+<span class="px-3 py-1.5 bg-slate-100 border border-slate-200 text-xs font-bold text-slate-600 rounded-full flex items-center gap-2">
+                                        Số CCCD/ID
+                                        <button class="material-symbols-outlined text-sm">close</button>
+</span>
+<button class="px-3 py-1.5 border border-dashed border-slate-300 text-xs font-bold text-indigo-600 rounded-full hover:bg-indigo-50 transition-colors">+ Thêm trường</button>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">Retention Policy (Lưu trữ dữ liệu)</label>
+<div class="p-4 bg-slate-50 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">calendar_month</span>
+<span class="text-sm font-semibold text-slate-700">Hồ sơ bệnh án &amp; PII</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-400">Thời gian:</span>
+<span class="px-3 py-1 bg-white border border-slate-200 rounded-lg text-sm font-bold">10 năm</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Column: Sticky Compliance & Info -->
+<div class="col-span-12 lg:col-span-4 sticky top-20">
+<div class="space-y-6">
+<!-- Compliance Checklist -->
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<div class="p-4 bg-indigo-50 border-b border-indigo-100">
+<h3 class="font-bold text-indigo-900 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+                                Compliance checklist
+                            </h3>
+</div>
+<div class="p-6 space-y-6">
+<!-- HIPAA Section -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">HIPAA Compliance</p>
+<span class="text-[10px] font-bold text-emerald-600">10/10 items</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm mt-0.5">check_circle</span>
+<span class="text-xs text-slate-600 font-medium">Privacy Rule — Admin Safeguards</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm mt-0.5">check_circle</span>
+<span class="text-xs text-slate-600 font-medium">Security Rule — Technical Safeguards</span>
+</div>
+</div>
+</div>
+<!-- ND 13 Section -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Nghị định 13/2023</p>
+<span class="text-[10px] font-bold text-amber-600">4/5 items</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm mt-0.5">check_circle</span>
+<span class="text-xs text-slate-600 font-medium">Cơ chế BN Consent (Đồng ý xử lý)</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm mt-0.5">check_circle</span>
+<span class="text-xs text-slate-600 font-medium">Minh bạch mục đích sử dụng</span>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-500 text-sm mt-0.5">check_circle</span>
+<span class="text-xs text-slate-600 font-medium">Quyền Truy cập/Sửa/Xóa</span>
+</div>
+<div class="flex items-start gap-2 p-3 bg-red-50 border border-red-100 rounded-lg">
+<span class="material-symbols-outlined text-red-500 text-sm mt-0.5">warning</span>
+<div>
+<p class="text-[11px] text-red-700 font-bold leading-tight">Quyền chuyển dữ liệu (chưa có UI export đầy đủ)</p>
+<a class="text-[10px] text-red-600 underline font-semibold mt-1 inline-block" href="#">Khắc phục ngay →</a>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-100">
+<div class="flex items-center gap-3">
+<input checked="" class="rounded border-slate-300 text-emerald-600" type="checkbox"/>
+<span class="text-xs font-bold text-slate-700">Thông báo xâm phạm &lt; 72h</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Review Schedule -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-slate-400">event_repeat</span>
+<h3 class="font-bold text-slate-800 text-sm">Audit Schedule</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Last review:</span>
+<span class="text-xs font-bold text-slate-700">28/03/2026</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Next review:</span>
+<span class="text-xs font-bold text-indigo-600">28/06/2026</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-slate-50 text-center">
+<p class="text-[10px] font-bold text-slate-400 uppercase leading-relaxed">System Health Status</p>
+<img class="w-full h-12 object-contain mt-2" data-alt="A clean, minimalist vector line graph showing consistent system health stability. The line is a smooth, glowing emerald green pulse against a stark white background with subtle slate-50 grid lines. The aesthetic is clinical, modern, and reassuring, reflecting a secure environment within the MediZen Modern health platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTZTLlKTrM5uQ1R9Q6o0dmkFfAZ7UxxjPK1lZ6pFJ-HF_ez5wZCbG5DXNVzDSKcDRf4N1qgaEmgRYQvB_CxENj5KJDRCy6tdtKs-ruEK0z6xDzE_ibB3QeYVSSGp6GgXUrU0NOJ_vLbW4womhGVcS2Ov6ehkJhDdckTD7bnD_Xm0FYc2WZQrC3hUOr4A3j9nP1ayIFJaumTw3rIGUnlvaBtl7NJiZ8i1OE_ZoshRdu40EA5fE4RGkf2sVS48BRMEomHwlNFpLcSl0"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-1/2 bg-gradient-to-bl from-indigo-50/50 to-transparent pointer-events-none"></div>
+
+</body>
+</html>

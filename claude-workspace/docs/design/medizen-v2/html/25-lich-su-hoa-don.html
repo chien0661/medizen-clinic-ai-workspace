@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Lịch sử hoá đơn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-dark: #3730A3;
+    --primary-light: #818CF8;
+    --secondary: #7C3AED;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --sidebar-w: 240px;
+    --topbar-h: 56px;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-light: #F3F4F6;
+    --emerald: #059669;
+    --emerald-bg: #D1FAE5;
+    --emerald-light: #ECFDF5;
+    --amber: #D97706;
+    --amber-bg: #FEF3C7;
+    --amber-light: #FFFBEB;
+    --rose: #E11D48;
+    --rose-bg: #FFE4E6;
+    --rose-light: #FFF1F2;
+    --indigo: #4338CA;
+    --indigo-bg: #E0E7FF;
+    --violet: #7C3AED;
+    --violet-bg: #EDE9FE;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 28px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+  }
+
+  html, body {
+    width: 1920px;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: linear-gradient(180deg, #1E1B4B 0%, #312E81 40%, #3730A3 100%);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sidebar-logo {
+    padding: 18px 20px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #818CF8, #A78BFA);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+    flex-shrink: 0;
+  }
+
+  .logo-text { flex: 1; }
+  .logo-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .logo-version {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-section-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding: 14px 20px 6px;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    margin: 1px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav-item:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-item.active {
+    background: linear-gradient(135deg, rgba(99,102,241,0.35) 0%, rgba(139,92,246,0.25) 100%);
+    border: 1px solid rgba(129,140,248,0.3);
+  }
+
+  .nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%; transform: translateY(-50%);
+    width: 3px; height: 20px;
+    background: linear-gradient(180deg, #818CF8, #A78BFA);
+    border-radius: 2px;
+  }
+
+  .nav-icon {
+    font-size: 16px;
+    width: 22px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nav-label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.72);
+    flex: 1;
+  }
+
+  .nav-item.active .nav-label {
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  .nav-badge {
+    background: #EF4444;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 20px;
+    min-width: 16px;
+    text-align: center;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 12px 12px 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.07);
+    cursor: pointer;
+  }
+
+  .user-avatar-sm {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #818CF8, #A78BFA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .user-info-sm { flex: 1; min-width: 0; }
+  .user-name-sm {
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .user-role-sm {
+    font-size: 10px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    position: fixed;
+    left: var(--sidebar-w);
+    top: 0;
+    right: 0;
+    height: var(--topbar-h);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 16px;
+    z-index: 90;
+    box-shadow: 0 1px 4px rgba(79,70,229,0.06);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .breadcrumb-item {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb-sep {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .breadcrumb-current {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .topbar-btn {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .topbar-btn:hover { background: #EDE9FE; border-color: var(--primary-light); }
+
+  .notif-dot {
+    position: absolute;
+    top: 6px; right: 6px;
+    width: 7px; height: 7px;
+    background: #EF4444;
+    border-radius: 50%;
+    border: 1.5px solid white;
+  }
+
+  .topbar-divider {
+    width: 1px; height: 28px;
+    background: var(--border);
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .topbar-user:hover { background: var(--bg); }
+
+  .topbar-avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #818CF8, #A78BFA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .topbar-uname {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .topbar-urole {
+    font-size: 10.5px;
+    color: var(--text-muted);
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .main {
+    margin-left: var(--sidebar-w);
+    margin-top: var(--topbar-h);
+    min-height: calc(100vh - var(--topbar-h));
+    padding: 24px 28px 32px;
+    background: var(--bg);
+  }
+
+  /* ===== PAGE HEADER ===== */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+
+  .page-title-group {}
+
+  .page-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+  }
+
+  .page-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    border: none;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79,70,229,0.45);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--primary);
+    border: 1.5px solid var(--primary-light);
+  }
+
+  .btn-secondary:hover {
+    background: #EEF2FF;
+  }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(255,255,255,0.8);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    opacity: 0.07;
+    transform: translate(30%, -30%);
+  }
+
+  .stat-card.emerald::after { background: var(--emerald); }
+  .stat-card.indigo::after { background: var(--indigo); }
+  .stat-card.violet::after { background: var(--violet); }
+  .stat-card.amber::after { background: var(--amber); }
+
+  .stat-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .stat-card.emerald .stat-icon-wrap { background: var(--emerald-light); }
+  .stat-card.indigo .stat-icon-wrap { background: #EEF2FF; }
+  .stat-card.violet .stat-icon-wrap { background: var(--violet-bg); }
+  .stat-card.amber .stat-icon-wrap { background: var(--amber-light); }
+
+  .stat-body { flex: 1; }
+
+  .stat-label {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .stat-value {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .stat-card.emerald .stat-value { color: var(--emerald); }
+  .stat-card.indigo .stat-value { color: var(--indigo); }
+  .stat-card.violet .stat-value { color: var(--violet); }
+  .stat-card.amber .stat-value { color: var(--amber); }
+
+  .stat-change {
+    font-size: 10.5px;
+    font-weight: 600;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .stat-change.up { color: var(--emerald); }
+  .stat-change.neutral { color: var(--text-muted); }
+
+  /* ===== FILTER ROW ===== */
+  .filter-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+    margin-bottom: 14px;
+  }
+
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .filter-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .filter-input {
+    height: 34px;
+    padding: 0 12px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--bg);
+    outline: none;
+    transition: border 0.15s;
+    width: 130px;
+  }
+
+  .filter-input:focus {
+    border-color: var(--primary-light);
+    background: white;
+  }
+
+  .filter-input.wide { width: 200px; }
+  .filter-input.search-input { width: 220px; }
+
+  .filter-sep {
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  .filter-select {
+    height: 34px;
+    padding: 0 10px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 12.5px;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--bg);
+    outline: none;
+    cursor: pointer;
+    width: 160px;
+  }
+
+  .filter-select:focus { border-color: var(--primary-light); }
+
+  .filter-chips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1.5px solid transparent;
+  }
+
+  .chip.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .chip:not(.active) {
+    background: white;
+    color: var(--text-secondary);
+    border-color: var(--border);
+  }
+
+  .chip:not(.active):hover {
+    border-color: var(--primary-light);
+    color: var(--primary);
+  }
+
+  .chip-count {
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.25);
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .chip.active .chip-count { background: rgba(255,255,255,0.22); color: white; }
+  .chip:not(.active) .chip-count { background: var(--bg); color: var(--text-secondary); }
+
+  /* ===== TABLE CARD ===== */
+  .table-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+  }
+
+  .table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 14px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .table-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .table-meta {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .table-tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    width: 32px; height: 32px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.15s;
+  }
+
+  .icon-btn:hover { background: #EDE9FE; border-color: var(--primary-light); }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    padding: 11px 14px;
+    background: #FAFAFA;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1.5px solid var(--border);
+    white-space: nowrap;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  thead th:first-child { padding-left: 20px; }
+  thead th:last-child { padding-right: 20px; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: background 0.12s;
+    cursor: default;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover { background: #FAFAFF; }
+
+  tbody td {
+    padding: 12px 14px;
+    font-size: 12.5px;
+    color: var(--text-primary);
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  tbody td:first-child { padding-left: 20px; }
+  tbody td:last-child { padding-right: 20px; }
+
+  .invoice-code {
+    font-family: 'Inter', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    background: #EEF2FF;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+
+  .patient-name {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .patient-id {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .doctor-name {
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .doctor-spec {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .service-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #F3F4F6;
+    color: #374151;
+  }
+
+  .amount {
+    font-family: 'Inter', monospace;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .amount.total { color: var(--text-primary); }
+  .amount.bhyt { color: var(--indigo); }
+  .amount.patient { color: var(--emerald); font-weight: 700; }
+  .amount.zero { color: var(--text-muted); font-weight: 500; }
+
+  .payment-method {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .pm-cash { background: #FEF3C7; color: #92400E; }
+  .pm-transfer { background: #DBEAFE; color: #1D4ED8; }
+  .pm-card { background: #F3E8FF; color: #7E22CE; }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .status-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .status-paid {
+    background: var(--emerald-bg);
+    color: var(--emerald);
+  }
+  .status-paid::before { background: var(--emerald); }
+
+  .status-pending {
+    background: var(--amber-bg);
+    color: var(--amber);
+  }
+  .status-pending::before { background: var(--amber); }
+
+  .status-refund {
+    background: var(--rose-bg);
+    color: var(--rose);
+  }
+  .status-refund::before { background: var(--rose); }
+
+  .action-btns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .act-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .act-view {
+    background: #EEF2FF;
+    color: var(--primary);
+    border-color: #C7D2FE;
+  }
+  .act-view:hover { background: #E0E7FF; }
+
+  .act-print {
+    background: #F0FDF4;
+    color: var(--emerald);
+    border-color: #A7F3D0;
+  }
+  .act-print:hover { background: #DCFCE7; }
+
+  .act-refund {
+    background: #FFF1F2;
+    color: var(--rose);
+    border-color: #FECDD3;
+  }
+  .act-refund:hover { background: #FFE4E6; }
+
+  .act-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* ===== PAGINATION ===== */
+  .pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-top: 1.5px solid var(--border-light);
+    background: #FAFAFA;
+  }
+
+  .pagination-info {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .pagination-info strong {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .page-btn {
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    background: white;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    font-family: inherit;
+    color: var(--text-secondary);
+  }
+
+  .page-btn:hover { border-color: var(--primary-light); color: var(--primary); }
+
+  .page-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* ===== SUMMARY FOOTER ===== */
+  .summary-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-light);
+  }
+
+  .summary-items {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 24px;
+    border-right: 1px solid var(--border);
+  }
+
+  .summary-item:first-child { padding-left: 0; }
+  .summary-item:last-child { border-right: none; }
+
+  .summary-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .summary-value {
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Inter', monospace;
+    letter-spacing: -0.3px;
+  }
+
+  .summary-value.total { color: var(--text-primary); }
+  .summary-value.bhyt { color: var(--indigo); }
+  .summary-value.patient { color: var(--emerald); }
+
+  .summary-note {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* ===== DATE BADGE ===== */
+  .date-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: 'Inter', monospace;
+  }
+
+  .date-time {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar">
+  <a href="index.html" class="sidebar-logo" style="text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div class="logo-text">
+      <div class="logo-name">MediZen</div>
+      <div class="logo-version">v2.0 — CLINIC CMS</div>
+    </div>
+  </a>
+
+  <div class="sidebar-section-label">Tổng quan</div>
+  <a class="nav-item" href="04-dashboard-le-tan.html">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Tổng quan</span>
+  </a>
+
+  <div class="sidebar-section-label">Khám bệnh</div>
+  <a class="nav-item" href="14-lich-hen.html">
+    <span class="nav-icon">📅</span>
+    <span class="nav-label">Lịch hẹn</span>
+    <span class="nav-badge">7</span>
+  </a>
+  <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+    <span class="nav-icon">👥</span>
+    <span class="nav-label">Bệnh nhân</span>
+  </a>
+  <a class="nav-item" href="13-phong-cho-queue.html">
+    <span class="nav-icon">🕐</span>
+    <span class="nav-label">Phòng chờ</span>
+  </a>
+  <a class="nav-item" href="15-emr-sinh-hieu.html">
+    <span class="nav-icon">🩺</span>
+    <span class="nav-label">Khám bệnh</span>
+  </a>
+  <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+    <span class="nav-icon">💊</span>
+    <span class="nav-label">Dược</span>
+    <span class="nav-badge">3</span>
+  </a>
+
+  <div class="sidebar-section-label">Tài chính</div>
+  <a class="nav-item" href="24-thanh-toan.html">
+    <span class="nav-icon">💰</span>
+    <span class="nav-label">Thanh toán</span>
+  </a>
+  <a class="nav-item active" href="#">
+    <span class="nav-icon">🧾</span>
+    <span class="nav-label">Lịch sử hoá đơn</span>
+  </a>
+  <a class="nav-item" href="index.html">
+    <span class="nav-icon">📊</span>
+    <span class="nav-label">Báo cáo</span>
+  </a>
+
+  <div class="sidebar-section-label">Hệ thống</div>
+  <a class="nav-item" href="index.html">
+    <span class="nav-icon">⚙️</span>
+    <span class="nav-label">Cấu hình</span>
+  </a>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar-sm">LH</div>
+      <div class="user-info-sm">
+        <div class="user-name-sm">Lê Thị Hoa</div>
+        <div class="user-role-sm">Lễ tân · Phòng khám A</div>
+      </div>
+      <span style="color:rgba(255,255,255,0.4);font-size:13px;">⋯</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== TOPBAR ===== -->
+<header class="topbar">
+  <div class="topbar-breadcrumb">
+    <span class="breadcrumb-item">🏠 Trang chủ</span>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-item">Tài chính</span>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Lịch sử hoá đơn</span>
+  </div>
+  <div class="topbar-right">
+    <button class="topbar-btn" title="Tìm kiếm nhanh">🔍</button>
+    <button class="topbar-btn" title="Thông báo">
+      🔔
+      <span class="notif-dot"></span>
+    </button>
+    <button class="topbar-btn" title="Trợ giúp">❓</button>
+    <div class="topbar-divider"></div>
+    <div class="topbar-user">
+      <div class="topbar-avatar">LH</div>
+      <div>
+        <div class="topbar-uname">Lê Thị Hoa</div>
+        <div class="topbar-urole">Lễ tân</div>
+      </div>
+      <span style="font-size:11px;color:var(--text-muted);margin-left:4px;">▾</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title-group">
+      <h1 class="page-title">🧾 Lịch sử hoá đơn</h1>
+      <p class="page-subtitle">Tháng 5/2026 · Phòng khám A · Cập nhật lúc 14:32, 31/05/2026</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-secondary">📥 Nhập hoá đơn</button>
+      <a href="#" class="btn btn-primary">📤 Xuất báo cáo</a>
+    </div>
+  </div>
+
+  <!-- STATS ROW -->
+  <div class="stats-row">
+    <div class="stat-card emerald">
+      <div class="stat-icon-wrap">💰</div>
+      <div class="stat-body">
+        <div class="stat-label">Tổng thu hôm nay</div>
+        <div class="stat-value">12,5M₫</div>
+        <div class="stat-change up">↑ +8.4% so hôm qua</div>
+      </div>
+    </div>
+    <div class="stat-card indigo">
+      <div class="stat-icon-wrap">📅</div>
+      <div class="stat-body">
+        <div class="stat-label">Tuần này (25–31/5)</div>
+        <div class="stat-value">87,3M₫</div>
+        <div class="stat-change up">↑ +12.1% tuần trước</div>
+      </div>
+    </div>
+    <div class="stat-card violet">
+      <div class="stat-icon-wrap">🗓️</div>
+      <div class="stat-body">
+        <div class="stat-label">Tháng 5/2026</div>
+        <div class="stat-value">380M₫</div>
+        <div class="stat-change up">↑ +5.7% tháng 4</div>
+      </div>
+    </div>
+    <div class="stat-card amber">
+      <div class="stat-icon-wrap">🏥</div>
+      <div class="stat-body">
+        <div class="stat-label">BHYT tháng này</div>
+        <div class="stat-value">45%</div>
+        <div class="stat-change neutral">→ Không đổi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER CARD -->
+  <div class="filter-card">
+    <div class="filter-row">
+      <div class="filter-group">
+        <span class="filter-label">📆 Từ ngày</span>
+        <input type="text" class="filter-input" value="01/05/2026" readonly>
+        <span class="filter-sep">đến</span>
+        <input type="text" class="filter-input" value="31/05/2026" readonly>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">🔍 Bệnh nhân</span>
+        <input type="text" class="filter-input search-input" placeholder="Tên hoặc mã bệnh nhân...">
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">📋 Trạng thái</span>
+        <select class="filter-select">
+          <option>Tất cả trạng thái</option>
+          <option>Đã thanh toán</option>
+          <option>Chờ thanh toán</option>
+          <option>Hoàn tiền</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">👨‍⚕️ Bác sĩ</span>
+        <select class="filter-select">
+          <option>Tất cả bác sĩ</option>
+          <option>BS. Nguyễn Văn An</option>
+          <option>BS. Trần Thị Mai</option>
+          <option>BS. Lê Hoàng Việt</option>
+          <option>BS. Phạm Minh Châu</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" style="padding:8px 16px;font-size:12.5px;margin-left:auto;">🔍 Tìm kiếm</button>
+      <button class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;">↺ Đặt lại</button>
+    </div>
+    <div class="filter-chips">
+      <span style="font-size:11.5px;font-weight:600;color:var(--text-muted);margin-right:4px;">Lọc nhanh:</span>
+      <span class="chip active">Tất cả <span class="chip-count">245</span></span>
+      <span class="chip">Đã thanh toán <span class="chip-count">198</span></span>
+      <span class="chip">Chờ thanh toán <span class="chip-count">32</span></span>
+      <span class="chip">Hoàn tiền <span class="chip-count">15</span></span>
+    </div>
+  </div>
+
+  <!-- TABLE CARD -->
+  <div class="table-card">
+    <div class="table-header">
+      <div>
+        <div class="table-title">Danh sách hoá đơn</div>
+        <div class="table-meta">Tháng 5/2026 · 245 hoá đơn · Hiển thị 1–15</div>
+      </div>
+      <div class="table-tools">
+        <button class="icon-btn" title="Làm mới">🔄</button>
+        <button class="icon-btn" title="Xuất Excel">📊</button>
+        <button class="icon-btn" title="In danh sách">🖨️</button>
+        <button class="icon-btn" title="Cài đặt cột">⚙️</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>MÃ HĐ</th>
+            <th>NGÀY</th>
+            <th>BỆNH NHÂN</th>
+            <th>BÁC SĨ</th>
+            <th>DỊCH VỤ</th>
+            <th>TỔNG TIỀN</th>
+            <th>BHYT</th>
+            <th>BN ĐÓNG</th>
+            <th>PT THANH TOÁN</th>
+            <th>TRẠNG THÁI</th>
+            <th>THAO TÁC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605001</span></td>
+            <td>
+              <div class="date-text">31/05/2026</div>
+              <div class="date-time">08:15</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Nguyễn Thị Bích Ngọc</a>
+              <div class="patient-id">BN-004821</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Nguyễn Văn An</div>
+              <div class="doctor-spec">Nội tổng quát</div>
+            </td>
+            <td><span class="service-tag">🩺 Khám tổng quát</span></td>
+            <td><span class="amount total">350.000₫</span></td>
+            <td><span class="amount bhyt">157.500₫</span></td>
+            <td><span class="amount patient">192.500₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 2 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605002</span></td>
+            <td>
+              <div class="date-text">31/05/2026</div>
+              <div class="date-time">09:02</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Trần Quốc Hùng</a>
+              <div class="patient-id">BN-001245</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Trần Thị Mai</div>
+              <div class="doctor-spec">Tim mạch</div>
+            </td>
+            <td><span class="service-tag">💊 Mua thuốc</span></td>
+            <td><span class="amount total">185.000₫</span></td>
+            <td><span class="amount zero">—</span></td>
+            <td><span class="amount patient">185.000₫</span></td>
+            <td><span class="payment-method pm-transfer">🏦 Chuyển khoản</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 3 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605003</span></td>
+            <td>
+              <div class="date-text">31/05/2026</div>
+              <div class="date-time">09:48</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Lê Thị Thanh Xuân</a>
+              <div class="patient-id">BN-007634</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Lê Hoàng Việt</div>
+              <div class="doctor-spec">Nhi khoa</div>
+            </td>
+            <td><span class="service-tag">🔬 Xét nghiệm máu</span></td>
+            <td><span class="amount total">480.000₫</span></td>
+            <td><span class="amount bhyt">288.000₫</span></td>
+            <td><span class="amount patient">192.000₫</span></td>
+            <td><span class="payment-method pm-card">💳 Thẻ</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 4 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605004</span></td>
+            <td>
+              <div class="date-text">31/05/2026</div>
+              <div class="date-time">10:15</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Phạm Đình Phúc</a>
+              <div class="patient-id">BN-003318</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Phạm Minh Châu</div>
+              <div class="doctor-spec">Da liễu</div>
+            </td>
+            <td><span class="service-tag">💊 Tiêm vaccine</span></td>
+            <td><span class="amount total">250.000₫</span></td>
+            <td><span class="amount zero">—</span></td>
+            <td><span class="amount patient">250.000₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-pending">Chờ thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <button class="act-btn act-refund" disabled>↩️ Hoàn</button>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 5 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605005</span></td>
+            <td>
+              <div class="date-text">30/05/2026</div>
+              <div class="date-time">14:22</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Võ Thị Kim Anh</a>
+              <div class="patient-id">BN-009021</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Nguyễn Văn An</div>
+              <div class="doctor-spec">Nội tổng quát</div>
+            </td>
+            <td><span class="service-tag">🩻 Siêu âm bụng</span></td>
+            <td><span class="amount total">320.000₫</span></td>
+            <td><span class="amount bhyt">192.000₫</span></td>
+            <td><span class="amount patient">128.000₫</span></td>
+            <td><span class="payment-method pm-transfer">🏦 Chuyển khoản</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 6 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605006</span></td>
+            <td>
+              <div class="date-text">30/05/2026</div>
+              <div class="date-time">15:05</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Hoàng Minh Tuấn</a>
+              <div class="patient-id">BN-002567</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Trần Thị Mai</div>
+              <div class="doctor-spec">Tim mạch</div>
+            </td>
+            <td><span class="service-tag">❤️ Điện tâm đồ</span></td>
+            <td><span class="amount total">150.000₫</span></td>
+            <td><span class="amount bhyt">90.000₫</span></td>
+            <td><span class="amount patient">60.000₫</span></td>
+            <td><span class="payment-method pm-card">💳 Thẻ</span></td>
+            <td><span class="status-badge status-refund">Hoàn tiền</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <button class="act-btn act-refund" disabled>↩️ Hoàn</button>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 7 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605007</span></td>
+            <td>
+              <div class="date-text">30/05/2026</div>
+              <div class="date-time">16:30</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Nguyễn Hữu Đạt</a>
+              <div class="patient-id">BN-005510</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Lê Hoàng Việt</div>
+              <div class="doctor-spec">Nhi khoa</div>
+            </td>
+            <td><span class="service-tag">🧒 Khám nhi</span></td>
+            <td><span class="amount total">200.000₫</span></td>
+            <td><span class="amount bhyt">120.000₫</span></td>
+            <td><span class="amount patient">80.000₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 8 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605008</span></td>
+            <td>
+              <div class="date-text">29/05/2026</div>
+              <div class="date-time">08:55</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Bùi Thị Lan Phương</a>
+              <div class="patient-id">BN-008832</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Phạm Minh Châu</div>
+              <div class="doctor-spec">Da liễu</div>
+            </td>
+            <td><span class="service-tag">🧴 Khám da liễu</span></td>
+            <td><span class="amount total">500.000₫</span></td>
+            <td><span class="amount zero">—</span></td>
+            <td><span class="amount patient">500.000₫</span></td>
+            <td><span class="payment-method pm-transfer">🏦 Chuyển khoản</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 9 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605009</span></td>
+            <td>
+              <div class="date-text">29/05/2026</div>
+              <div class="date-time">10:40</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Đặng Văn Khoa</a>
+              <div class="patient-id">BN-006105</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Nguyễn Văn An</div>
+              <div class="doctor-spec">Nội tổng quát</div>
+            </td>
+            <td><span class="service-tag">💊 Mua thuốc</span></td>
+            <td><span class="amount total">95.000₫</span></td>
+            <td><span class="amount bhyt">57.000₫</span></td>
+            <td><span class="amount patient">38.000₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-pending">Chờ thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <button class="act-btn act-refund" disabled>↩️ Hoàn</button>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 10 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605010</span></td>
+            <td>
+              <div class="date-text">29/05/2026</div>
+              <div class="date-time">11:18</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Phan Thị Mỹ Dung</a>
+              <div class="patient-id">BN-003894</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Trần Thị Mai</div>
+              <div class="doctor-spec">Tim mạch</div>
+            </td>
+            <td><span class="service-tag">🩺 Tái khám</span></td>
+            <td><span class="amount total">130.000₫</span></td>
+            <td><span class="amount bhyt">78.000₫</span></td>
+            <td><span class="amount patient">52.000₫</span></td>
+            <td><span class="payment-method pm-card">💳 Thẻ</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 11 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605011</span></td>
+            <td>
+              <div class="date-text">28/05/2026</div>
+              <div class="date-time">13:45</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Lương Công Vinh</a>
+              <div class="patient-id">BN-010234</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Lê Hoàng Việt</div>
+              <div class="doctor-spec">Nhi khoa</div>
+            </td>
+            <td><span class="service-tag">🔬 Xét nghiệm nước tiểu</span></td>
+            <td><span class="amount total">75.000₫</span></td>
+            <td><span class="amount zero">—</span></td>
+            <td><span class="amount patient">75.000₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 12 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605012</span></td>
+            <td>
+              <div class="date-text">28/05/2026</div>
+              <div class="date-time">14:50</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Mai Thị Thu Hà</a>
+              <div class="patient-id">BN-007156</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Phạm Minh Châu</div>
+              <div class="doctor-spec">Da liễu</div>
+            </td>
+            <td><span class="service-tag">🧴 Liệu pháp laser</span></td>
+            <td><span class="amount total">450.000₫</span></td>
+            <td><span class="amount bhyt">270.000₫</span></td>
+            <td><span class="amount patient">180.000₫</span></td>
+            <td><span class="payment-method pm-transfer">🏦 Chuyển khoản</span></td>
+            <td><span class="status-badge status-refund">Hoàn tiền</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <button class="act-btn act-refund" disabled>↩️ Hoàn</button>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 13 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605013</span></td>
+            <td>
+              <div class="date-text">28/05/2026</div>
+              <div class="date-time">15:33</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Đinh Thế Sơn</a>
+              <div class="patient-id">BN-001988</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Nguyễn Văn An</div>
+              <div class="doctor-spec">Nội tổng quát</div>
+            </td>
+            <td><span class="service-tag">💊 Mua thuốc mãn tính</span></td>
+            <td><span class="amount total">280.000₫</span></td>
+            <td><span class="amount bhyt">168.000₫</span></td>
+            <td><span class="amount patient">112.000₫</span></td>
+            <td><span class="payment-method pm-card">💳 Thẻ</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 14 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605014</span></td>
+            <td>
+              <div class="date-text">27/05/2026</div>
+              <div class="date-time">09:20</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Cao Thị Ngọc Hân</a>
+              <div class="patient-id">BN-004477</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Trần Thị Mai</div>
+              <div class="doctor-spec">Tim mạch</div>
+            </td>
+            <td><span class="service-tag">🩺 Khám tổng quát</span></td>
+            <td><span class="amount total">350.000₫</span></td>
+            <td><span class="amount bhyt">210.000₫</span></td>
+            <td><span class="amount patient">140.000₫</span></td>
+            <td><span class="payment-method pm-cash">💵 Tiền mặt</span></td>
+            <td><span class="status-badge status-pending">Chờ thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <button class="act-btn act-refund" disabled>↩️ Hoàn</button>
+              </div>
+            </td>
+          </tr>
+          <!-- Row 15 -->
+          <tr>
+            <td><span class="invoice-code">HD-2605015</span></td>
+            <td>
+              <div class="date-text">27/05/2026</div>
+              <div class="date-time">10:55</div>
+            </td>
+            <td>
+              <a href="11-ho-so-benh-nhan.html" class="patient-name" style="text-decoration:none;color:inherit;">Trương Minh Khải</a>
+              <div class="patient-id">BN-009654</div>
+            </td>
+            <td>
+              <div class="doctor-name">BS. Lê Hoàng Việt</div>
+              <div class="doctor-spec">Nhi khoa</div>
+            </td>
+            <td><span class="service-tag">🩻 X-quang ngực</span></td>
+            <td><span class="amount total">180.000₫</span></td>
+            <td><span class="amount bhyt">108.000₫</span></td>
+            <td><span class="amount patient">72.000₫</span></td>
+            <td><span class="payment-method pm-transfer">🏦 Chuyển khoản</span></td>
+            <td><span class="status-badge status-paid">Đã thanh toán</span></td>
+            <td>
+              <div class="action-btns">
+                <a href="24-thanh-toan.html" class="act-btn act-view">👁️ Xem</a>
+                <button class="act-btn act-print">🖨️ In</button>
+                <a href="24-thanh-toan.html" class="act-btn act-refund">↩️ Hoàn</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination-bar">
+      <div class="pagination-info">
+        Hiển thị <strong>1–15</strong> trong <strong>245</strong> hóa đơn &nbsp;·&nbsp;
+        Trang <strong>1</strong> / 17
+      </div>
+      <div class="pagination-controls">
+        <button class="page-btn" disabled>«</button>
+        <button class="page-btn" disabled>‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <span style="font-size:12px;color:var(--text-muted);padding:0 4px;">…</span>
+        <button class="page-btn">17</button>
+        <button class="page-btn">›</button>
+        <button class="page-btn">»</button>
+        <div style="margin-left:12px;display:flex;align-items:center;gap:6px;">
+          <span style="font-size:12px;color:var(--text-secondary);">Hiển thị:</span>
+          <select style="height:30px;padding:0 8px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;background:white;cursor:pointer;outline:none;">
+            <option>15</option>
+            <option>25</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY FOOTER -->
+  <div class="summary-footer">
+    <div class="summary-items">
+      <div class="summary-item">
+        <span class="summary-label">Tổng hiển thị</span>
+        <span class="summary-value total">3.245.000₫</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">BHYT chi trả</span>
+        <span class="summary-value bhyt">1.870.000₫</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Bệnh nhân đóng</span>
+        <span class="summary-value patient">1.375.000₫</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Đã thanh toán</span>
+        <span class="summary-value" style="color:var(--emerald);">11 HĐ</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Chờ thanh toán</span>
+        <span class="summary-value" style="color:var(--amber);">3 HĐ</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Hoàn tiền</span>
+        <span class="summary-value" style="color:var(--rose);">2 HĐ</span>
+      </div>
+    </div>
+    <div class="summary-note">
+      📌 Dữ liệu cập nhật tự động mỗi 5 phút &nbsp;·&nbsp; Xuất cuối: 14:30, 31/05/2026
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

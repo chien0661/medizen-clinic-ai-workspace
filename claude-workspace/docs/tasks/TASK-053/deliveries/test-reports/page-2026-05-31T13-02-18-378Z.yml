@@ -1,0 +1,737 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3975]:
+      - complementary [ref=e3976]:
+        - generic [ref=e3977]:
+          - img "MediZen" [ref=e3978]
+          - generic [ref=e3979]: MediZen
+        - navigation [ref=e3980]:
+          - link "Tổng quan" [ref=e3981] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e3982]
+            - generic [ref=e3987]: Tổng quan
+          - generic [ref=e3988]:
+            - button "Tiếp tân" [ref=e3989] [cursor=pointer]:
+              - img [ref=e3990]
+              - generic [ref=e3992]: Tiếp tân
+              - img [ref=e3993]
+            - generic [ref=e3995]:
+              - link "Bệnh nhân" [ref=e3996] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e3997]
+                - generic [ref=e4002]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e4003] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e4004]
+                - generic [ref=e4008]: Lịch hẹn
+              - link "Hàng chờ" [ref=e4009] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e4010]
+                - generic [ref=e4014]: Hàng chờ
+          - generic [ref=e4015]:
+            - button "Bác sĩ" [ref=e4016] [cursor=pointer]:
+              - img [ref=e4017]
+              - generic [ref=e4021]: Bác sĩ
+              - img [ref=e4022]
+            - generic [ref=e4024]:
+              - link "Hàng đợi của tôi" [ref=e4025] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e4026]
+                - generic [ref=e4029]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e4030] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e4031]
+                - generic [ref=e4033]: Bảng điều khiển
+          - generic [ref=e4034]:
+            - button "Nhà thuốc" [ref=e4035] [cursor=pointer]:
+              - img [ref=e4036]
+              - generic [ref=e4039]: Nhà thuốc
+              - img [ref=e4040]
+            - generic [ref=e4042]:
+              - link "Cấp phát chờ" [ref=e4043] [cursor=pointer]:
+                - /url: "#/pharmacy/pending"
+                - img [ref=e4044]
+                - generic [ref=e4046]: Cấp phát chờ
+              - link "Đổi lô thuốc" [ref=e4047] [cursor=pointer]:
+                - /url: "#/pharmacy/substitute"
+                - img [ref=e4048]
+                - generic [ref=e4051]: Đổi lô thuốc
+              - link "Tồn kho" [ref=e4052] [cursor=pointer]:
+                - /url: "#/pharmacy/inventory"
+                - img [ref=e4053]
+                - generic [ref=e4063]: Tồn kho
+              - link "Kiểm kê điều chỉnh" [ref=e4064] [cursor=pointer]:
+                - /url: "#/pharmacy/adjustments"
+                - img [ref=e4065]
+                - generic [ref=e4066]: Kiểm kê điều chỉnh
+              - link "Nhập hàng" [ref=e4067] [cursor=pointer]:
+                - /url: "#/pharmacy/purchase-in"
+                - img [ref=e4068]
+                - generic [ref=e4072]: Nhập hàng
+              - link "Kiểm kê kho" [ref=e4073] [cursor=pointer]:
+                - /url: "#/pharmacy/stocktake"
+                - img [ref=e4074]
+                - generic [ref=e4079]: Kiểm kê kho
+              - link "Xử lý hết hạn" [ref=e4080] [cursor=pointer]:
+                - /url: "#/pharmacy/expiry"
+                - img [ref=e4081]
+                - generic [ref=e4083]: Xử lý hết hạn
+          - generic [ref=e4084]:
+            - button "Thanh toán" [ref=e4085] [cursor=pointer]:
+              - img [ref=e4086]
+              - generic [ref=e4088]: Thanh toán
+              - img [ref=e4089]
+            - link "Hóa đơn" [ref=e4092] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e4093]
+              - generic [ref=e4096]: Hóa đơn
+          - generic [ref=e4097]:
+            - button "Báo cáo active role" [ref=e4098] [cursor=pointer]:
+              - img [ref=e4099]
+              - generic [ref=e4101]: Báo cáo
+              - generic "active role" [ref=e4102]
+              - img [ref=e4103]
+            - generic [ref=e4105]:
+              - link "Doanh thu" [ref=e4106] [cursor=pointer]:
+                - /url: "#/reports/revenue"
+                - img [ref=e4107]
+                - generic [ref=e4110]: Doanh thu
+              - link "Tồn kho" [ref=e4111] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e4112]
+                - generic [ref=e4116]: Tồn kho
+              - link "Hiệu suất bác sĩ" [ref=e4117] [cursor=pointer]:
+                - /url: "#/reports/doctor-performance"
+                - img [ref=e4118]
+                - generic [ref=e4120]: Hiệu suất bác sĩ
+              - link "Lượt khám" [ref=e4121] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e4122]
+                - generic [ref=e4125]: Lượt khám
+              - link "Đơn thuốc" [ref=e4126] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e4127]
+                - generic [ref=e4130]: Đơn thuốc
+              - link "Công nợ AR" [ref=e4131] [cursor=pointer]:
+                - /url: "#/reports/ar-aging"
+                - img [ref=e4132]
+                - generic [ref=e4135]: Công nợ AR
+          - link "Thông báo" [ref=e4136] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e4137]
+            - generic [ref=e4140]: Thông báo
+          - generic [ref=e4141]:
+            - button "Nhân sự active role" [ref=e4142] [cursor=pointer]:
+              - img [ref=e4143]
+              - generic [ref=e4148]: Nhân sự
+              - generic "active role" [ref=e4149]
+              - img [ref=e4150]
+            - generic [ref=e4152]:
+              - link "Lịch ca" [ref=e4153] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e4154]
+                - generic [ref=e4156]: Lịch ca
+              - link "Chấm công" [ref=e4157] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e4158]
+                - generic [ref=e4161]: Chấm công
+              - link "Nghỉ phép" [ref=e4162] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e4163]
+                - generic [ref=e4166]: Nghỉ phép
+              - link "Duyệt phép" [ref=e4167] [cursor=pointer]:
+                - /url: "#/hr/leave/approve"
+                - img [ref=e4168]
+                - generic [ref=e4172]: Duyệt phép
+              - link "Lịch định kỳ" [ref=e4173] [cursor=pointer]:
+                - /url: "#/hr/recurring"
+                - img [ref=e4174]
+                - generic [ref=e4179]: Lịch định kỳ
+              - link "Mẫu ca" [ref=e4180] [cursor=pointer]:
+                - /url: "#/hr/shift-templates"
+                - img [ref=e4181]
+                - generic [ref=e4184]: Mẫu ca
+              - link "Chấm công" [ref=e4185] [cursor=pointer]:
+                - /url: "#/hr/attendance/export"
+                - img [ref=e4186]
+                - generic [ref=e4188]: Chấm công
+          - generic [ref=e4189]:
+            - button "Quản trị active role" [ref=e4190] [cursor=pointer]:
+              - img [ref=e4191]
+              - generic [ref=e4193]: Quản trị
+              - generic "active role" [ref=e4194]
+              - img [ref=e4195]
+            - generic [ref=e4197]:
+              - link "Người dùng" [ref=e4198] [cursor=pointer]:
+                - /url: "#/admin/users"
+                - img [ref=e4199]
+                - generic [ref=e4211]: Người dùng
+              - link "Vai trò & Phân quyền" [ref=e4212] [cursor=pointer]:
+                - /url: "#/admin/roles"
+                - img [ref=e4213]
+                - generic [ref=e4217]: Vai trò & Phân quyền
+              - link "Cài đặt phòng khám" [ref=e4218] [cursor=pointer]:
+                - /url: "#/admin/settings"
+                - img [ref=e4219]
+                - generic [ref=e4221]: Cài đặt phòng khám
+              - link "Chỉ số sinh tồn" [ref=e4222] [cursor=pointer]:
+                - /url: "#/admin/vitals"
+                - img [ref=e4223]
+                - generic [ref=e4225]: Chỉ số sinh tồn
+              - link "Danh mục dịch vụ" [ref=e4226] [cursor=pointer]:
+                - /url: "#/admin/services"
+                - img [ref=e4227]
+                - generic [ref=e4230]: Danh mục dịch vụ
+              - link "Danh mục thuốc" [ref=e4231] [cursor=pointer]:
+                - /url: "#/admin/medicines"
+                - img [ref=e4232]
+                - generic [ref=e4236]: Danh mục thuốc
+              - link "Nhật ký hoạt động" [ref=e4237] [cursor=pointer]:
+                - /url: "#/admin/audit"
+                - img [ref=e4238]
+                - generic [ref=e4242]: Nhật ký hoạt động
+          - link "Cài đặt" [ref=e4243] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e4244]
+            - generic [ref=e4247]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e4249] [cursor=pointer]:
+          - generic [ref=e4250]: Thu nhỏ menu
+          - img [ref=e4251]
+      - generic [ref=e4253]:
+        - banner [ref=e4254]:
+          - button "Chuyển phòng khám" [ref=e4256] [cursor=pointer]:
+            - img [ref=e4258]
+            - generic [ref=e4262]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e4263] [cursor=pointer]:
+            - img [ref=e4264]
+            - generic [ref=e4267]: Tìm kiếm
+            - generic [ref=e4268]: ⌘K
+          - generic [ref=e4269]:
+            - status "Online" [ref=e4270]:
+              - generic [ref=e4272]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e4496]': (!)
+            - button "Thông báo" [ref=e4275] [cursor=pointer]:
+              - img [ref=e4276]
+            - button "VI" [ref=e4279] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e4280] [cursor=pointer]:
+              - img [ref=e4281]
+            - button "Chọn giao diện màu" [ref=e4283] [cursor=pointer]:
+              - img [ref=e4284]
+            - button "Menu người dùng" [ref=e4290] [cursor=pointer]:
+              - generic [ref=e4291]: DA
+              - generic [ref=e4292]: Quản trị
+        - navigation "Breadcrumb" [ref=e4466]:
+          - link "Home" [ref=e4467] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e4468]
+          - generic [ref=e4471]:
+            - img [ref=e4472]
+            - link "Quản trị" [ref=e4474] [cursor=pointer]:
+              - /url: "#/admin"
+          - generic [ref=e4475]:
+            - img [ref=e4476]
+            - generic [ref=e4478]: Dịch vụ
+        - main [ref=e4293]:
+          - generic [ref=e4479]:
+            - generic [ref=e4480]:
+              - heading "Danh mục dịch vụ" [level=1] [ref=e4481]
+              - generic [ref=e4482]:
+                - button "Nhập từ CSV" [ref=e4483] [cursor=pointer]:
+                  - img [ref=e4484]
+                  - text: Nhập từ CSV
+                - button "Thêm dịch vụ" [ref=e4487] [cursor=pointer]:
+                  - img [ref=e4488]
+                  - text: Thêm dịch vụ
+            - generic [ref=e4489]:
+              - img [ref=e4490]
+              - textbox "Tìm kiếm dịch vụ..." [ref=e4493]
+            - table [ref=e4497]:
+              - rowgroup [ref=e4498]:
+                - row "Mã DV Tên dịch vụ Danh mục Giá Thời gian (phút) Kích hoạt Tags Thao tác" [ref=e4499]:
+                  - columnheader "Mã DV" [ref=e4500]
+                  - columnheader "Tên dịch vụ" [ref=e4501]
+                  - columnheader "Danh mục" [ref=e4502]
+                  - columnheader "Giá" [ref=e4503]
+                  - columnheader "Thời gian (phút)" [ref=e4504]
+                  - columnheader "Kích hoạt" [ref=e4505]
+                  - columnheader "Tags" [ref=e4506]
+                  - columnheader "Thao tác" [ref=e4507]
+              - rowgroup [ref=e4508]:
+                - row "AA AA AA 10.000 ₫ 0 ✓ —" [ref=e4509]:
+                  - cell "AA" [ref=e4510]
+                  - cell "AA" [ref=e4511]
+                  - cell "AA" [ref=e4512]
+                  - cell "10.000 ₫" [ref=e4513]
+                  - cell "0" [ref=e4514]
+                  - cell "✓" [ref=e4515]
+                  - cell "—" [ref=e4516]
+                  - cell [ref=e4517]:
+                    - generic [ref=e4518]:
+                      - button [ref=e4519] [cursor=pointer]:
+                        - img [ref=e4520]
+                      - button [ref=e4523] [cursor=pointer]:
+                        - img [ref=e4524]
+                - row "CHETHU01 Thu thuat nho procedure 100.000 ₫ 10 ✓ —" [ref=e4527]:
+                  - cell "CHETHU01" [ref=e4528]
+                  - cell "Thu thuat nho" [ref=e4529]
+                  - cell "procedure" [ref=e4530]
+                  - cell "100.000 ₫" [ref=e4531]
+                  - cell "10" [ref=e4532]
+                  - cell "✓" [ref=e4533]
+                  - cell "—" [ref=e4534]
+                  - cell [ref=e4535]:
+                    - generic [ref=e4536]:
+                      - button [ref=e4537] [cursor=pointer]:
+                        - img [ref=e4538]
+                      - button [ref=e4541] [cursor=pointer]:
+                        - img [ref=e4542]
+                - row "ECG Điện tim (ECG 12 chuyển đạo) cardiology 120.000 ₫ 15 ✓ —" [ref=e4545]:
+                  - cell "ECG" [ref=e4546]
+                  - cell "Điện tim (ECG 12 chuyển đạo)" [ref=e4547]
+                  - cell "cardiology" [ref=e4548]
+                  - cell "120.000 ₫" [ref=e4549]
+                  - cell "15" [ref=e4550]
+                  - cell "✓" [ref=e4551]
+                  - cell "—" [ref=e4552]
+                  - cell [ref=e4553]:
+                    - generic [ref=e4554]:
+                      - button [ref=e4555] [cursor=pointer]:
+                        - img [ref=e4556]
+                      - button [ref=e4559] [cursor=pointer]:
+                        - img [ref=e4560]
+                - row "ECGCT Dien tim ECG cardiology 120.000 ₫ 15 ✓ —" [ref=e4563]:
+                  - cell "ECGCT" [ref=e4564]
+                  - cell "Dien tim ECG" [ref=e4565]
+                  - cell "cardiology" [ref=e4566]
+                  - cell "120.000 ₫" [ref=e4567]
+                  - cell "15" [ref=e4568]
+                  - cell "✓" [ref=e4569]
+                  - cell "—" [ref=e4570]
+                  - cell [ref=e4571]:
+                    - generic [ref=e4572]:
+                      - button [ref=e4573] [cursor=pointer]:
+                        - img [ref=e4574]
+                      - button [ref=e4577] [cursor=pointer]:
+                        - img [ref=e4578]
+                - row "KHAM-DINH-KY Khám sức khỏe định kỳ tổng quát consultation 500.000 ₫ 60 ✓ —" [ref=e4581]:
+                  - cell "KHAM-DINH-KY" [ref=e4582]
+                  - cell "Khám sức khỏe định kỳ tổng quát" [ref=e4583]
+                  - cell "consultation" [ref=e4584]
+                  - cell "500.000 ₫" [ref=e4585]
+                  - cell "60" [ref=e4586]
+                  - cell "✓" [ref=e4587]
+                  - cell "—" [ref=e4588]
+                  - cell [ref=e4589]:
+                    - generic [ref=e4590]:
+                      - button [ref=e4591] [cursor=pointer]:
+                        - img [ref=e4592]
+                      - button [ref=e4595] [cursor=pointer]:
+                        - img [ref=e4596]
+                - row "KHAM-NK-DL Khám chuyên khoa Da liễu consultation 250.000 ₫ 25 ✓ —" [ref=e4599]:
+                  - cell "KHAM-NK-DL" [ref=e4600]
+                  - cell "Khám chuyên khoa Da liễu" [ref=e4601]
+                  - cell "consultation" [ref=e4602]
+                  - cell "250.000 ₫" [ref=e4603]
+                  - cell "25" [ref=e4604]
+                  - cell "✓" [ref=e4605]
+                  - cell "—" [ref=e4606]
+                  - cell [ref=e4607]:
+                    - generic [ref=e4608]:
+                      - button [ref=e4609] [cursor=pointer]:
+                        - img [ref=e4610]
+                      - button [ref=e4613] [cursor=pointer]:
+                        - img [ref=e4614]
+                - row "KHAM-NK-NGOAI Khám chuyên khoa Ngoại consultation 250.000 ₫ 30 ✓ —" [ref=e4617]:
+                  - cell "KHAM-NK-NGOAI" [ref=e4618]
+                  - cell "Khám chuyên khoa Ngoại" [ref=e4619]
+                  - cell "consultation" [ref=e4620]
+                  - cell "250.000 ₫" [ref=e4621]
+                  - cell "30" [ref=e4622]
+                  - cell "✓" [ref=e4623]
+                  - cell "—" [ref=e4624]
+                  - cell [ref=e4625]:
+                    - generic [ref=e4626]:
+                      - button [ref=e4627] [cursor=pointer]:
+                        - img [ref=e4628]
+                      - button [ref=e4631] [cursor=pointer]:
+                        - img [ref=e4632]
+                - row "KHAM-NK-NHI Khám chuyên khoa Nhi consultation 250.000 ₫ 30 ✓ —" [ref=e4635]:
+                  - cell "KHAM-NK-NHI" [ref=e4636]
+                  - cell "Khám chuyên khoa Nhi" [ref=e4637]
+                  - cell "consultation" [ref=e4638]
+                  - cell "250.000 ₫" [ref=e4639]
+                  - cell "30" [ref=e4640]
+                  - cell "✓" [ref=e4641]
+                  - cell "—" [ref=e4642]
+                  - cell [ref=e4643]:
+                    - generic [ref=e4644]:
+                      - button [ref=e4645] [cursor=pointer]:
+                        - img [ref=e4646]
+                      - button [ref=e4649] [cursor=pointer]:
+                        - img [ref=e4650]
+                - row "KHAM-NK-NOI Khám chuyên khoa Nội consultation 250.000 ₫ 30 ✓ —" [ref=e4653]:
+                  - cell "KHAM-NK-NOI" [ref=e4654]
+                  - cell "Khám chuyên khoa Nội" [ref=e4655]
+                  - cell "consultation" [ref=e4656]
+                  - cell "250.000 ₫" [ref=e4657]
+                  - cell "30" [ref=e4658]
+                  - cell "✓" [ref=e4659]
+                  - cell "—" [ref=e4660]
+                  - cell [ref=e4661]:
+                    - generic [ref=e4662]:
+                      - button [ref=e4663] [cursor=pointer]:
+                        - img [ref=e4664]
+                      - button [ref=e4667] [cursor=pointer]:
+                        - img [ref=e4668]
+                - row "KHAM-NK-RHM Khám chuyên khoa Răng hàm mặt consultation 200.000 ₫ 25 ✓ —" [ref=e4671]:
+                  - cell "KHAM-NK-RHM" [ref=e4672]
+                  - cell "Khám chuyên khoa Răng hàm mặt" [ref=e4673]
+                  - cell "consultation" [ref=e4674]
+                  - cell "200.000 ₫" [ref=e4675]
+                  - cell "25" [ref=e4676]
+                  - cell "✓" [ref=e4677]
+                  - cell "—" [ref=e4678]
+                  - cell [ref=e4679]:
+                    - generic [ref=e4680]:
+                      - button [ref=e4681] [cursor=pointer]:
+                        - img [ref=e4682]
+                      - button [ref=e4685] [cursor=pointer]:
+                        - img [ref=e4686]
+                - row "KHAM-NK-SAN Khám chuyên khoa Sản phụ khoa consultation 300.000 ₫ 30 ✓ —" [ref=e4689]:
+                  - cell "KHAM-NK-SAN" [ref=e4690]
+                  - cell "Khám chuyên khoa Sản phụ khoa" [ref=e4691]
+                  - cell "consultation" [ref=e4692]
+                  - cell "300.000 ₫" [ref=e4693]
+                  - cell "30" [ref=e4694]
+                  - cell "✓" [ref=e4695]
+                  - cell "—" [ref=e4696]
+                  - cell [ref=e4697]:
+                    - generic [ref=e4698]:
+                      - button [ref=e4699] [cursor=pointer]:
+                        - img [ref=e4700]
+                      - button [ref=e4703] [cursor=pointer]:
+                        - img [ref=e4704]
+                - row "KHAM-NK-TK Khám chuyên khoa Thần kinh consultation 300.000 ₫ 30 ✓ —" [ref=e4707]:
+                  - cell "KHAM-NK-TK" [ref=e4708]
+                  - cell "Khám chuyên khoa Thần kinh" [ref=e4709]
+                  - cell "consultation" [ref=e4710]
+                  - cell "300.000 ₫" [ref=e4711]
+                  - cell "30" [ref=e4712]
+                  - cell "✓" [ref=e4713]
+                  - cell "—" [ref=e4714]
+                  - cell [ref=e4715]:
+                    - generic [ref=e4716]:
+                      - button [ref=e4717] [cursor=pointer]:
+                        - img [ref=e4718]
+                      - button [ref=e4721] [cursor=pointer]:
+                        - img [ref=e4722]
+                - row "KHAM-NK-TMH Khám chuyên khoa Tai mũi họng consultation 250.000 ₫ 25 ✓ —" [ref=e4725]:
+                  - cell "KHAM-NK-TMH" [ref=e4726]
+                  - cell "Khám chuyên khoa Tai mũi họng" [ref=e4727]
+                  - cell "consultation" [ref=e4728]
+                  - cell "250.000 ₫" [ref=e4729]
+                  - cell "25" [ref=e4730]
+                  - cell "✓" [ref=e4731]
+                  - cell "—" [ref=e4732]
+                  - cell [ref=e4733]:
+                    - generic [ref=e4734]:
+                      - button [ref=e4735] [cursor=pointer]:
+                        - img [ref=e4736]
+                      - button [ref=e4739] [cursor=pointer]:
+                        - img [ref=e4740]
+                - row "KHAM-TQ Khám tổng quát consultation 150.000 ₫ 20 ✓ —" [ref=e4743]:
+                  - cell "KHAM-TQ" [ref=e4744]
+                  - cell "Khám tổng quát" [ref=e4745]
+                  - cell "consultation" [ref=e4746]
+                  - cell "150.000 ₫" [ref=e4747]
+                  - cell "20" [ref=e4748]
+                  - cell "✓" [ref=e4749]
+                  - cell "—" [ref=e4750]
+                  - cell [ref=e4751]:
+                    - generic [ref=e4752]:
+                      - button [ref=e4753] [cursor=pointer]:
+                        - img [ref=e4754]
+                      - button [ref=e4757] [cursor=pointer]:
+                        - img [ref=e4758]
+                - row "KHAMCK Kham chuyen khoa consultation 250.000 ₫ 30 ✓ —" [ref=e4761]:
+                  - cell "KHAMCK" [ref=e4762]
+                  - cell "Kham chuyen khoa" [ref=e4763]
+                  - cell "consultation" [ref=e4764]
+                  - cell "250.000 ₫" [ref=e4765]
+                  - cell "30" [ref=e4766]
+                  - cell "✓" [ref=e4767]
+                  - cell "—" [ref=e4768]
+                  - cell [ref=e4769]:
+                    - generic [ref=e4770]:
+                      - button [ref=e4771] [cursor=pointer]:
+                        - img [ref=e4772]
+                      - button [ref=e4775] [cursor=pointer]:
+                        - img [ref=e4776]
+                - row "KHAMTQ Kham tong quat consultation 150.000 ₫ 20 ✓ —" [ref=e4779]:
+                  - cell "KHAMTQ" [ref=e4780]
+                  - cell "Kham tong quat" [ref=e4781]
+                  - cell "consultation" [ref=e4782]
+                  - cell "150.000 ₫" [ref=e4783]
+                  - cell "20" [ref=e4784]
+                  - cell "✓" [ref=e4785]
+                  - cell "—" [ref=e4786]
+                  - cell [ref=e4787]:
+                    - generic [ref=e4788]:
+                      - button [ref=e4789] [cursor=pointer]:
+                        - img [ref=e4790]
+                      - button [ref=e4793] [cursor=pointer]:
+                        - img [ref=e4794]
+                - row "SA-BUNG-TQ Siêu âm bụng tổng quát imaging 350.000 ₫ 30 ✓ —" [ref=e4797]:
+                  - cell "SA-BUNG-TQ" [ref=e4798]
+                  - cell "Siêu âm bụng tổng quát" [ref=e4799]
+                  - cell "imaging" [ref=e4800]
+                  - cell "350.000 ₫" [ref=e4801]
+                  - cell "30" [ref=e4802]
+                  - cell "✓" [ref=e4803]
+                  - cell "—" [ref=e4804]
+                  - cell [ref=e4805]:
+                    - generic [ref=e4806]:
+                      - button [ref=e4807] [cursor=pointer]:
+                        - img [ref=e4808]
+                      - button [ref=e4811] [cursor=pointer]:
+                        - img [ref=e4812]
+                - row "SA-TIM Siêu âm tim (Echocardiography) imaging 550.000 ₫ 45 ✓ —" [ref=e4815]:
+                  - cell "SA-TIM" [ref=e4816]
+                  - cell "Siêu âm tim (Echocardiography)" [ref=e4817]
+                  - cell "imaging" [ref=e4818]
+                  - cell "550.000 ₫" [ref=e4819]
+                  - cell "45" [ref=e4820]
+                  - cell "✓" [ref=e4821]
+                  - cell "—" [ref=e4822]
+                  - cell [ref=e4823]:
+                    - generic [ref=e4824]:
+                      - button [ref=e4825] [cursor=pointer]:
+                        - img [ref=e4826]
+                      - button [ref=e4829] [cursor=pointer]:
+                        - img [ref=e4830]
+                - row "SA-TUYEN-GIAC Siêu âm tuyến giáp imaging 250.000 ₫ 20 ✓ —" [ref=e4833]:
+                  - cell "SA-TUYEN-GIAC" [ref=e4834]
+                  - cell "Siêu âm tuyến giáp" [ref=e4835]
+                  - cell "imaging" [ref=e4836]
+                  - cell "250.000 ₫" [ref=e4837]
+                  - cell "20" [ref=e4838]
+                  - cell "✓" [ref=e4839]
+                  - cell "—" [ref=e4840]
+                  - cell [ref=e4841]:
+                    - generic [ref=e4842]:
+                      - button [ref=e4843] [cursor=pointer]:
+                        - img [ref=e4844]
+                      - button [ref=e4847] [cursor=pointer]:
+                        - img [ref=e4848]
+                - row "SIEUMTB Sieu am tong bung imaging 350.000 ₫ 30 ✓ —" [ref=e4851]:
+                  - cell "SIEUMTB" [ref=e4852]
+                  - cell "Sieu am tong bung" [ref=e4853]
+                  - cell "imaging" [ref=e4854]
+                  - cell "350.000 ₫" [ref=e4855]
+                  - cell "30" [ref=e4856]
+                  - cell "✓" [ref=e4857]
+                  - cell "—" [ref=e4858]
+                  - cell [ref=e4859]:
+                    - generic [ref=e4860]:
+                      - button [ref=e4861] [cursor=pointer]:
+                        - img [ref=e4862]
+                      - button [ref=e4865] [cursor=pointer]:
+                        - img [ref=e4866]
+                - row "TAMCHUNG Tu van tam ly chuan consultation 400.000 ₫ 45 ✓ —" [ref=e4869]:
+                  - cell "TAMCHUNG" [ref=e4870]
+                  - cell "Tu van tam ly chuan" [ref=e4871]
+                  - cell "consultation" [ref=e4872]
+                  - cell "400.000 ₫" [ref=e4873]
+                  - cell "45" [ref=e4874]
+                  - cell "✓" [ref=e4875]
+                  - cell "—" [ref=e4876]
+                  - cell [ref=e4877]:
+                    - generic [ref=e4878]:
+                      - button [ref=e4879] [cursor=pointer]:
+                        - img [ref=e4880]
+                      - button [ref=e4883] [cursor=pointer]:
+                        - img [ref=e4884]
+                - row "THU-THUAT-NH Tiểu thủ thuật thông thường procedure 150.000 ₫ 20 ✓ —" [ref=e4887]:
+                  - cell "THU-THUAT-NH" [ref=e4888]
+                  - cell "Tiểu thủ thuật thông thường" [ref=e4889]
+                  - cell "procedure" [ref=e4890]
+                  - cell "150.000 ₫" [ref=e4891]
+                  - cell "20" [ref=e4892]
+                  - cell "✓" [ref=e4893]
+                  - cell "—" [ref=e4894]
+                  - cell [ref=e4895]:
+                    - generic [ref=e4896]:
+                      - button [ref=e4897] [cursor=pointer]:
+                        - img [ref=e4898]
+                      - button [ref=e4901] [cursor=pointer]:
+                        - img [ref=e4902]
+                - row "TIEM-VACCINE Tiêm vaccine dịch vụ preventive 100.000 ₫ 15 ✓ —" [ref=e4905]:
+                  - cell "TIEM-VACCINE" [ref=e4906]
+                  - cell "Tiêm vaccine dịch vụ" [ref=e4907]
+                  - cell "preventive" [ref=e4908]
+                  - cell "100.000 ₫" [ref=e4909]
+                  - cell "15" [ref=e4910]
+                  - cell "✓" [ref=e4911]
+                  - cell "—" [ref=e4912]
+                  - cell [ref=e4913]:
+                    - generic [ref=e4914]:
+                      - button [ref=e4915] [cursor=pointer]:
+                        - img [ref=e4916]
+                      - button [ref=e4919] [cursor=pointer]:
+                        - img [ref=e4920]
+                - row "VACCINE01 Tiem vaccine dich vu preventive 500.000 ₫ 15 ✓ —" [ref=e4923]:
+                  - cell "VACCINE01" [ref=e4924]
+                  - cell "Tiem vaccine dich vu" [ref=e4925]
+                  - cell "preventive" [ref=e4926]
+                  - cell "500.000 ₫" [ref=e4927]
+                  - cell "15" [ref=e4928]
+                  - cell "✓" [ref=e4929]
+                  - cell "—" [ref=e4930]
+                  - cell [ref=e4931]:
+                    - generic [ref=e4932]:
+                      - button [ref=e4933] [cursor=pointer]:
+                        - img [ref=e4934]
+                      - button [ref=e4937] [cursor=pointer]:
+                        - img [ref=e4938]
+                - row "XN-HBA1C Xét nghiệm HbA1c lab 180.000 ₫ 15 ✓ —" [ref=e4941]:
+                  - cell "XN-HBA1C" [ref=e4942]
+                  - cell "Xét nghiệm HbA1c" [ref=e4943]
+                  - cell "lab" [ref=e4944]
+                  - cell "180.000 ₫" [ref=e4945]
+                  - cell "15" [ref=e4946]
+                  - cell "✓" [ref=e4947]
+                  - cell "—" [ref=e4948]
+                  - cell [ref=e4949]:
+                    - generic [ref=e4950]:
+                      - button [ref=e4951] [cursor=pointer]:
+                        - img [ref=e4952]
+                      - button [ref=e4955] [cursor=pointer]:
+                        - img [ref=e4956]
+                - row "XN-LIPID Xét nghiệm bộ mỡ máu (Lipid profile) lab 250.000 ₫ 15 ✓ —" [ref=e4959]:
+                  - cell "XN-LIPID" [ref=e4960]
+                  - cell "Xét nghiệm bộ mỡ máu (Lipid profile)" [ref=e4961]
+                  - cell "lab" [ref=e4962]
+                  - cell "250.000 ₫" [ref=e4963]
+                  - cell "15" [ref=e4964]
+                  - cell "✓" [ref=e4965]
+                  - cell "—" [ref=e4966]
+                  - cell [ref=e4967]:
+                    - generic [ref=e4968]:
+                      - button [ref=e4969] [cursor=pointer]:
+                        - img [ref=e4970]
+                      - button [ref=e4973] [cursor=pointer]:
+                        - img [ref=e4974]
+                - row "XN-MAU-CBC Xét nghiệm máu tổng quát (CBC) lab 150.000 ₫ 10 ✓ —" [ref=e4977]:
+                  - cell "XN-MAU-CBC" [ref=e4978]
+                  - cell "Xét nghiệm máu tổng quát (CBC)" [ref=e4979]
+                  - cell "lab" [ref=e4980]
+                  - cell "150.000 ₫" [ref=e4981]
+                  - cell "10" [ref=e4982]
+                  - cell "✓" [ref=e4983]
+                  - cell "—" [ref=e4984]
+                  - cell [ref=e4985]:
+                    - generic [ref=e4986]:
+                      - button [ref=e4987] [cursor=pointer]:
+                        - img [ref=e4988]
+                      - button [ref=e4991] [cursor=pointer]:
+                        - img [ref=e4992]
+                - row "XN-NUOC-TIEU Tổng phân tích nước tiểu 10 thông số lab 80.000 ₫ 10 ✓ —" [ref=e4995]:
+                  - cell "XN-NUOC-TIEU" [ref=e4996]
+                  - cell "Tổng phân tích nước tiểu 10 thông số" [ref=e4997]
+                  - cell "lab" [ref=e4998]
+                  - cell "80.000 ₫" [ref=e4999]
+                  - cell "10" [ref=e5000]
+                  - cell "✓" [ref=e5001]
+                  - cell "—" [ref=e5002]
+                  - cell [ref=e5003]:
+                    - generic [ref=e5004]:
+                      - button [ref=e5005] [cursor=pointer]:
+                        - img [ref=e5006]
+                      - button [ref=e5009] [cursor=pointer]:
+                        - img [ref=e5010]
+                - row "XN-SINH-HOA Xét nghiệm sinh hóa máu cơ bản lab 300.000 ₫ 15 ✓ —" [ref=e5013]:
+                  - cell "XN-SINH-HOA" [ref=e5014]
+                  - cell "Xét nghiệm sinh hóa máu cơ bản" [ref=e5015]
+                  - cell "lab" [ref=e5016]
+                  - cell "300.000 ₫" [ref=e5017]
+                  - cell "15" [ref=e5018]
+                  - cell "✓" [ref=e5019]
+                  - cell "—" [ref=e5020]
+                  - cell [ref=e5021]:
+                    - generic [ref=e5022]:
+                      - button [ref=e5023] [cursor=pointer]:
+                        - img [ref=e5024]
+                      - button [ref=e5027] [cursor=pointer]:
+                        - img [ref=e5028]
+                - row "XNMAU Xet nghiem mau tong quat lab 200.000 ₫ 15 ✓ —" [ref=e5031]:
+                  - cell "XNMAU" [ref=e5032]
+                  - cell "Xet nghiem mau tong quat" [ref=e5033]
+                  - cell "lab" [ref=e5034]
+                  - cell "200.000 ₫" [ref=e5035]
+                  - cell "15" [ref=e5036]
+                  - cell "✓" [ref=e5037]
+                  - cell "—" [ref=e5038]
+                  - cell [ref=e5039]:
+                    - generic [ref=e5040]:
+                      - button [ref=e5041] [cursor=pointer]:
+                        - img [ref=e5042]
+                      - button [ref=e5045] [cursor=pointer]:
+                        - img [ref=e5046]
+                - row "XNNUTIEU Xet nghiem nuoc tieu lab 80.000 ₫ 10 ✓ —" [ref=e5049]:
+                  - cell "XNNUTIEU" [ref=e5050]
+                  - cell "Xet nghiem nuoc tieu" [ref=e5051]
+                  - cell "lab" [ref=e5052]
+                  - cell "80.000 ₫" [ref=e5053]
+                  - cell "10" [ref=e5054]
+                  - cell "✓" [ref=e5055]
+                  - cell "—" [ref=e5056]
+                  - cell [ref=e5057]:
+                    - generic [ref=e5058]:
+                      - button [ref=e5059] [cursor=pointer]:
+                        - img [ref=e5060]
+                      - button [ref=e5063] [cursor=pointer]:
+                        - img [ref=e5064]
+                - row "XQUANG-CXS X-quang cột sống thắt lưng imaging 250.000 ₫ 15 ✓ —" [ref=e5067]:
+                  - cell "XQUANG-CXS" [ref=e5068]
+                  - cell "X-quang cột sống thắt lưng" [ref=e5069]
+                  - cell "imaging" [ref=e5070]
+                  - cell "250.000 ₫" [ref=e5071]
+                  - cell "15" [ref=e5072]
+                  - cell "✓" [ref=e5073]
+                  - cell "—" [ref=e5074]
+                  - cell [ref=e5075]:
+                    - generic [ref=e5076]:
+                      - button [ref=e5077] [cursor=pointer]:
+                        - img [ref=e5078]
+                      - button [ref=e5081] [cursor=pointer]:
+                        - img [ref=e5082]
+                - row "XQUANG-PHOI X-quang phổi thẳng imaging 200.000 ₫ 15 ✓ —" [ref=e5085]:
+                  - cell "XQUANG-PHOI" [ref=e5086]
+                  - cell "X-quang phổi thẳng" [ref=e5087]
+                  - cell "imaging" [ref=e5088]
+                  - cell "200.000 ₫" [ref=e5089]
+                  - cell "15" [ref=e5090]
+                  - cell "✓" [ref=e5091]
+                  - cell "—" [ref=e5092]
+                  - cell [ref=e5093]:
+                    - generic [ref=e5094]:
+                      - button [ref=e5095] [cursor=pointer]:
+                        - img [ref=e5096]
+                      - button [ref=e5099] [cursor=pointer]:
+                        - img [ref=e5100]
+                - row "XRAYPHOI X-quang phoi imaging 300.000 ₫ 20 ✓ —" [ref=e5103]:
+                  - cell "XRAYPHOI" [ref=e5104]
+                  - cell "X-quang phoi" [ref=e5105]
+                  - cell "imaging" [ref=e5106]
+                  - cell "300.000 ₫" [ref=e5107]
+                  - cell "20" [ref=e5108]
+                  - cell "✓" [ref=e5109]
+                  - cell "—" [ref=e5110]
+                  - cell [ref=e5111]:
+                    - generic [ref=e5112]:
+                      - button [ref=e5113] [cursor=pointer]:
+                        - img [ref=e5114]
+                      - button [ref=e5117] [cursor=pointer]:
+                        - img [ref=e5118]
+    - region "Notifications alt+T"
+  - generic [ref=e2141]: "2500"

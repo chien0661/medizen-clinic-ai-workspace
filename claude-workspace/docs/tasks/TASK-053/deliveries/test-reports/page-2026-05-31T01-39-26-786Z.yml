@@ -1,0 +1,436 @@
+- generic [ref=e2]:
+  - generic [ref=e50]:
+    - complementary [ref=e51]:
+      - generic [ref=e52]:
+        - img "MediZen" [ref=e53]
+        - generic [ref=e54]: MediZen
+      - navigation [ref=e55]:
+        - link "Tổng quan" [ref=e56] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e57]
+          - generic [ref=e62]: Tổng quan
+        - generic [ref=e63]:
+          - button "Tiếp tân" [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+            - generic [ref=e67]: Tiếp tân
+            - img [ref=e68]
+          - generic [ref=e70]:
+            - link "Bệnh nhân" [ref=e71] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e72]
+              - generic [ref=e77]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e78] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e79]
+              - generic [ref=e83]: Lịch hẹn
+            - link "Hàng chờ" [ref=e84] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e85]
+              - generic [ref=e89]: Hàng chờ
+        - generic [ref=e90]:
+          - button "Bác sĩ" [ref=e91] [cursor=pointer]:
+            - img [ref=e92]
+            - generic [ref=e96]: Bác sĩ
+            - img [ref=e97]
+          - generic [ref=e99]:
+            - link "Hàng đợi của tôi" [ref=e100] [cursor=pointer]:
+              - /url: "#/doctor/queue"
+              - img [ref=e101]
+              - generic [ref=e104]: Hàng đợi của tôi
+            - link "Bảng điều khiển" [ref=e105] [cursor=pointer]:
+              - /url: "#/doctor/dashboard"
+              - img [ref=e106]
+              - generic [ref=e108]: Bảng điều khiển
+        - generic [ref=e109]:
+          - button "Nhà thuốc" [ref=e110] [cursor=pointer]:
+            - img [ref=e111]
+            - generic [ref=e114]: Nhà thuốc
+            - img [ref=e115]
+          - generic [ref=e117]:
+            - link "Cấp phát chờ" [ref=e118] [cursor=pointer]:
+              - /url: "#/pharmacy/pending"
+              - img [ref=e119]
+              - generic [ref=e121]: Cấp phát chờ
+            - link "Đổi lô thuốc" [ref=e122] [cursor=pointer]:
+              - /url: "#/pharmacy/substitute"
+              - img [ref=e123]
+              - generic [ref=e126]: Đổi lô thuốc
+            - link "Tồn kho" [ref=e127] [cursor=pointer]:
+              - /url: "#/pharmacy/inventory"
+              - img [ref=e128]
+              - generic [ref=e138]: Tồn kho
+            - link "Kiểm kê điều chỉnh" [ref=e139] [cursor=pointer]:
+              - /url: "#/pharmacy/adjustments"
+              - img [ref=e140]
+              - generic [ref=e141]: Kiểm kê điều chỉnh
+            - link "Nhập hàng" [ref=e142] [cursor=pointer]:
+              - /url: "#/pharmacy/purchase-in"
+              - img [ref=e143]
+              - generic [ref=e147]: Nhập hàng
+            - link "Kiểm kê kho" [ref=e148] [cursor=pointer]:
+              - /url: "#/pharmacy/stocktake"
+              - img [ref=e149]
+              - generic [ref=e154]: Kiểm kê kho
+            - link "Xử lý hết hạn" [ref=e155] [cursor=pointer]:
+              - /url: "#/pharmacy/expiry"
+              - img [ref=e156]
+              - generic [ref=e158]: Xử lý hết hạn
+        - generic [ref=e159]:
+          - button "Thanh toán" [ref=e160] [cursor=pointer]:
+            - img [ref=e161]
+            - generic [ref=e163]: Thanh toán
+            - img [ref=e164]
+          - link "Hóa đơn" [ref=e167] [cursor=pointer]:
+            - /url: "#/billing/invoices"
+            - img [ref=e168]
+            - generic [ref=e171]: Hóa đơn
+        - generic [ref=e172]:
+          - button "Báo cáo active role" [ref=e173] [cursor=pointer]:
+            - img [ref=e174]
+            - generic [ref=e176]: Báo cáo
+            - generic "active role" [ref=e177]
+            - img [ref=e178]
+          - generic [ref=e180]:
+            - link "Doanh thu" [ref=e181] [cursor=pointer]:
+              - /url: "#/reports/revenue"
+              - img [ref=e182]
+              - generic [ref=e185]: Doanh thu
+            - link "Tồn kho" [ref=e186] [cursor=pointer]:
+              - /url: "#/reports/inventory"
+              - img [ref=e187]
+              - generic [ref=e191]: Tồn kho
+            - link "Hiệu suất bác sĩ" [ref=e192] [cursor=pointer]:
+              - /url: "#/reports/doctor-performance"
+              - img [ref=e193]
+              - generic [ref=e195]: Hiệu suất bác sĩ
+            - link "Lượt khám" [ref=e196] [cursor=pointer]:
+              - /url: "#/reports/visit-volume"
+              - img [ref=e197]
+              - generic [ref=e200]: Lượt khám
+            - link "Đơn thuốc" [ref=e201] [cursor=pointer]:
+              - /url: "#/reports/prescriptions"
+              - img [ref=e202]
+              - generic [ref=e205]: Đơn thuốc
+            - link "Công nợ AR" [ref=e206] [cursor=pointer]:
+              - /url: "#/reports/ar-aging"
+              - img [ref=e207]
+              - generic [ref=e210]: Công nợ AR
+        - link "Thông báo" [ref=e211] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e212]
+          - generic [ref=e215]: Thông báo
+        - generic [ref=e216]:
+          - button "Nhân sự active role" [ref=e217] [cursor=pointer]:
+            - img [ref=e218]
+            - generic [ref=e223]: Nhân sự
+            - generic "active role" [ref=e224]
+            - img [ref=e225]
+          - generic [ref=e227]:
+            - link "Lịch ca" [ref=e228] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e229]
+              - generic [ref=e231]: Lịch ca
+            - link "Chấm công" [ref=e232] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e233]
+              - generic [ref=e236]: Chấm công
+            - link "Nghỉ phép" [ref=e237] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e238]
+              - generic [ref=e241]: Nghỉ phép
+            - link "Duyệt phép" [ref=e242] [cursor=pointer]:
+              - /url: "#/hr/leave/approve"
+              - img [ref=e243]
+              - generic [ref=e247]: Duyệt phép
+            - link "Lịch định kỳ" [ref=e248] [cursor=pointer]:
+              - /url: "#/hr/recurring"
+              - img [ref=e249]
+              - generic [ref=e254]: Lịch định kỳ
+            - link "Mẫu ca" [ref=e255] [cursor=pointer]:
+              - /url: "#/hr/shift-templates"
+              - img [ref=e256]
+              - generic [ref=e259]: Mẫu ca
+            - link "Chấm công" [ref=e260] [cursor=pointer]:
+              - /url: "#/hr/attendance/export"
+              - img [ref=e261]
+              - generic [ref=e263]: Chấm công
+        - generic [ref=e264]:
+          - button "Quản trị active role" [ref=e265] [cursor=pointer]:
+            - img [ref=e266]
+            - generic [ref=e268]: Quản trị
+            - generic "active role" [ref=e269]
+            - img [ref=e270]
+          - generic [ref=e272]:
+            - link "Người dùng" [ref=e273] [cursor=pointer]:
+              - /url: "#/admin/users"
+              - img [ref=e274]
+              - generic [ref=e286]: Người dùng
+            - link "Vai trò & Phân quyền" [ref=e287] [cursor=pointer]:
+              - /url: "#/admin/roles"
+              - img [ref=e288]
+              - generic [ref=e292]: Vai trò & Phân quyền
+            - link "Cài đặt phòng khám" [ref=e293] [cursor=pointer]:
+              - /url: "#/admin/settings"
+              - img [ref=e294]
+              - generic [ref=e296]: Cài đặt phòng khám
+            - link "Chỉ số sinh tồn" [ref=e297] [cursor=pointer]:
+              - /url: "#/admin/vitals"
+              - img [ref=e298]
+              - generic [ref=e300]: Chỉ số sinh tồn
+            - link "Danh mục dịch vụ" [ref=e301] [cursor=pointer]:
+              - /url: "#/admin/services"
+              - img [ref=e302]
+              - generic [ref=e305]: Danh mục dịch vụ
+            - link "Danh mục thuốc" [ref=e306] [cursor=pointer]:
+              - /url: "#/admin/medicines"
+              - img [ref=e307]
+              - generic [ref=e311]: Danh mục thuốc
+            - link "Nhật ký hoạt động" [ref=e312] [cursor=pointer]:
+              - /url: "#/admin/audit"
+              - img [ref=e313]
+              - generic [ref=e317]: Nhật ký hoạt động
+            - link "Bảo mật & Mã hoá" [ref=e318] [cursor=pointer]:
+              - /url: "#/admin/security"
+              - img [ref=e319]
+              - generic [ref=e321]: Bảo mật & Mã hoá
+        - link "Cài đặt" [ref=e322] [cursor=pointer]:
+          - /url: "#/admin/settings"
+          - img [ref=e323]
+          - generic [ref=e326]: Cài đặt
+      - button "Thu nhỏ menu" [ref=e328] [cursor=pointer]:
+        - generic [ref=e329]: Thu nhỏ menu
+        - img [ref=e330]
+    - generic [ref=e332]:
+      - banner [ref=e333]:
+        - button "Chuyển phòng khám" [ref=e335] [cursor=pointer]:
+          - img [ref=e337]
+          - generic [ref=e341]: Phong kham MediZen Demo
+        - button "Open quick search (Ctrl+K)" [ref=e342] [cursor=pointer]:
+          - img [ref=e343]
+          - generic [ref=e346]: Tìm kiếm
+          - generic [ref=e347]: ⌘K
+        - generic [ref=e348]:
+          - status "Online" [ref=e349]:
+            - generic [ref=e351]: Online
+          - button "Thông báo" [ref=e353] [cursor=pointer]:
+            - img [ref=e354]
+            - generic [ref=e357]: "2"
+          - button "VI" [ref=e358] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e359] [cursor=pointer]:
+            - img [ref=e360]
+          - button "Chọn giao diện màu" [ref=e362] [cursor=pointer]:
+            - img [ref=e363]
+          - button "Menu người dùng" [ref=e369] [cursor=pointer]:
+            - generic [ref=e370]: DA
+            - generic [ref=e371]: Quản trị
+      - navigation "Breadcrumb" [ref=e372]:
+        - link "Home" [ref=e373] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e374]
+        - generic [ref=e377]:
+          - img [ref=e378]
+          - link "Quản trị" [ref=e380] [cursor=pointer]:
+            - /url: "#/admin"
+        - generic [ref=e381]:
+          - img [ref=e382]
+          - generic [ref=e384]: Security
+      - main [ref=e385]:
+        - generic [ref=e386]:
+          - generic [ref=e387]:
+            - img [ref=e389]
+            - generic [ref=e391]:
+              - heading "Bảo mật & Mã hoá" [level=1] [ref=e392]
+              - paragraph [ref=e393]: Quản lý xác thực 2 yếu tố, phiên đăng nhập và cài đặt bảo mật.
+          - generic [ref=e394]:
+            - generic [ref=e396]:
+              - generic [ref=e397]:
+                - img [ref=e399]
+                - generic [ref=e401]:
+                  - heading "Xác thực hai yếu tố (2FA)" [level=3] [ref=e402]
+                  - paragraph [ref=e403]: Tăng cường bảo mật bằng cách yêu cầu mã xác thực khi đăng nhập.
+                  - generic [ref=e404]: Chưa bật
+              - button "Bật 2FA" [ref=e406] [cursor=pointer]:
+                - img [ref=e407]
+                - text: Bật 2FA
+            - generic [ref=e409]:
+              - generic [ref=e410]:
+                - img [ref=e412]
+                - heading "Lịch sử đăng nhập gần đây" [level=3] [ref=e414]
+              - generic [ref=e415]:
+                - generic [ref=e416]:
+                  - generic [ref=e417]:
+                    - generic [ref=e418]:
+                      - img [ref=e419]
+                      - text: 172.18.0.1
+                    - generic [ref=e421]:
+                      - img [ref=e422]
+                      - text: "Không xác định · Số lần: 7"
+                  - generic [ref=e425]:
+                    - img [ref=e426]
+                    - text: just now
+                - generic [ref=e429]:
+                  - generic [ref=e430]:
+                    - generic [ref=e431]:
+                      - img [ref=e432]
+                      - text: 172.18.0.1
+                    - generic [ref=e434]:
+                      - img [ref=e435]
+                      - text: "Không xác định · Số lần: 37"
+                  - generic [ref=e438]:
+                    - img [ref=e439]
+                    - text: 2h ago
+                - generic [ref=e442]:
+                  - generic [ref=e443]:
+                    - generic [ref=e444]:
+                      - img [ref=e445]
+                      - text: 127.0.0.1
+                    - generic [ref=e447]:
+                      - img [ref=e448]
+                      - text: "Không xác định · Số lần: 3"
+                  - generic [ref=e451]:
+                    - img [ref=e452]
+                    - text: 3h ago
+                - generic [ref=e455]:
+                  - generic [ref=e456]:
+                    - generic [ref=e457]:
+                      - img [ref=e458]
+                      - text: 172.18.0.1
+                    - generic [ref=e460]:
+                      - img [ref=e461]
+                      - text: "Không xác định · Số lần: 4"
+                  - generic [ref=e464]:
+                    - img [ref=e465]
+                    - text: 5h ago
+                - generic [ref=e468]:
+                  - generic [ref=e469]:
+                    - generic [ref=e470]:
+                      - img [ref=e471]
+                      - text: 172.18.0.1
+                    - generic [ref=e473]:
+                      - img [ref=e474]
+                      - text: "Không xác định · Số lần: 2"
+                  - generic [ref=e477]:
+                    - img [ref=e478]
+                    - text: 14h ago
+                - generic [ref=e481]:
+                  - generic [ref=e482]:
+                    - generic [ref=e483]:
+                      - img [ref=e484]
+                      - text: 172.18.0.1
+                    - generic [ref=e486]:
+                      - img [ref=e487]
+                      - text: "Không xác định · Số lần: 114"
+                  - generic [ref=e490]:
+                    - img [ref=e491]
+                    - text: 1d ago
+                - generic [ref=e494]:
+                  - generic [ref=e495]:
+                    - generic [ref=e496]:
+                      - img [ref=e497]
+                      - text: 172.18.0.1
+                    - generic [ref=e499]:
+                      - img [ref=e500]
+                      - text: "Không xác định · Số lần: 3"
+                  - generic [ref=e503]:
+                    - img [ref=e504]
+                    - text: 1d ago
+                - generic [ref=e507]:
+                  - generic [ref=e508]:
+                    - generic [ref=e509]:
+                      - img [ref=e510]
+                      - text: 127.0.0.1
+                    - generic [ref=e512]:
+                      - img [ref=e513]
+                      - text: "Không xác định · Số lần: 1"
+                  - generic [ref=e516]:
+                    - img [ref=e517]
+                    - text: 1d ago
+                - generic [ref=e520]:
+                  - generic [ref=e521]:
+                    - generic [ref=e522]:
+                      - img [ref=e523]
+                      - text: 172.18.0.1
+                    - generic [ref=e525]:
+                      - img [ref=e526]
+                      - text: "Không xác định · Số lần: 18"
+                  - generic [ref=e529]:
+                    - img [ref=e530]
+                    - text: 26d ago
+                - generic [ref=e533]:
+                  - generic [ref=e534]:
+                    - generic [ref=e535]:
+                      - img [ref=e536]
+                      - text: 172.18.0.1
+                    - generic [ref=e538]:
+                      - img [ref=e539]
+                      - text: "Không xác định · Số lần: 9"
+                  - generic [ref=e542]:
+                    - img [ref=e543]
+                    - text: 26d ago
+                - generic [ref=e546]:
+                  - generic [ref=e547]:
+                    - generic [ref=e548]:
+                      - img [ref=e549]
+                      - text: 210.245.74.43
+                    - generic [ref=e551]:
+                      - img [ref=e552]
+                      - text: "Không xác định · Số lần: 1"
+                  - generic [ref=e555]:
+                    - img [ref=e556]
+                    - text: 26d ago
+                - generic [ref=e559]:
+                  - generic [ref=e560]:
+                    - generic [ref=e561]:
+                      - img [ref=e562]
+                      - text: 210.245.74.43
+                    - generic [ref=e564]:
+                      - img [ref=e565]
+                      - text: "Không xác định · Số lần: 35"
+                  - generic [ref=e568]:
+                    - img [ref=e569]
+                    - text: 27d ago
+                - generic [ref=e572]:
+                  - generic [ref=e573]:
+                    - generic [ref=e574]:
+                      - img [ref=e575]
+                      - text: 118.71.104.207
+                    - generic [ref=e577]:
+                      - img [ref=e578]
+                      - text: "Không xác định · Số lần: 6"
+                  - generic [ref=e581]:
+                    - img [ref=e582]
+                    - text: 27d ago
+                - generic [ref=e585]:
+                  - generic [ref=e586]:
+                    - generic [ref=e587]:
+                      - img [ref=e588]
+                      - text: 210.245.74.43
+                    - generic [ref=e590]:
+                      - img [ref=e591]
+                      - text: "Không xác định · Số lần: 20"
+                  - generic [ref=e594]:
+                    - img [ref=e595]
+                    - text: 27d ago
+                - generic [ref=e598]:
+                  - generic [ref=e599]:
+                    - generic [ref=e600]:
+                      - img [ref=e601]
+                      - text: 210.245.74.43
+                    - generic [ref=e603]:
+                      - img [ref=e604]
+                      - text: "Không xác định · Số lần: 2"
+                  - generic [ref=e607]:
+                    - img [ref=e608]
+                    - text: 27d ago
+                - generic [ref=e611]:
+                  - generic [ref=e612]:
+                    - generic [ref=e613]:
+                      - img [ref=e614]
+                      - text: 127.0.0.1
+                    - generic [ref=e616]:
+                      - img [ref=e617]
+                      - text: "Không xác định · Số lần: 1"
+                  - generic [ref=e620]:
+                    - img [ref=e621]
+                    - text: 27d ago
+  - region "Notifications alt+T"

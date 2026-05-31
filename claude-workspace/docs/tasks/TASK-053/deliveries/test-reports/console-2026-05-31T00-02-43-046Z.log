@@ -1,0 +1,1079 @@
+[   26164ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[   56145ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[   86192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  116151ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  146161ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  176149ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  206148ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  236142ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  266169ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  296154ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  326156ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  356142ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  386155ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  416147ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  446145ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  476137ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  506168ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  536153ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  566184ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  596145ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  626170ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  656157ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  686148ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  686475ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:21550
+[  686530ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  686530ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  716583ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  746582ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  776588ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  806576ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  836597ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  843199ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:21550
+[  843252ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  843253ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  873287ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  903292ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  909566ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:21550
+[  909632ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  909633ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  939700ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[  941116ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:21550
+[  941166ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  941167ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:1420/node_modules/.vite/deps/react-router-dom.js?v=ad504370:4435
+[  971207ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1001213ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1031213ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1061203ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1091211ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1121197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1151210ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1181209ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1211209ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1241214ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1271194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1301204ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1331211ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1361207ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1391197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1421194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1451210ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1481206ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1511193ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1541197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1571195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1601204ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1631196ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1661197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1691199ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1721210ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1751209ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1781214ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1811200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1841196ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1871195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1901213ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1931211ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1961194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 1991192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2021205ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2051190ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2081191ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2111198ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2141191ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2171193ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2201189ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2231200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2261195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2291192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2321193ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2351201ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2381203ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2411197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2441192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2471189ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2501198ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2531189ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2561195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2591202ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2621200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2651204ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2681189ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2711205ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2741194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2771208ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2801198ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2831187ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2861199ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2891201ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2921201ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2951188ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 2981197ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3011207ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3041189ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3071183ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3101198ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3131198ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3161195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3191196ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3221199ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3251194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3281194ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3311191ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3341185ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3371200ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3401195ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3431193ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3461186ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3491182ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3521186ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3551192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3581199ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3611201ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3641188ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3671192ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts:22:22 @ http://localhost:1420/src/hooks/useSync.ts:37
+[ 3737477ms] [ERROR] [useSync] Sync error: Error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context.
+    at getDb (http://localhost:1420/src/sync/database.ts:96:11)
+    at async getPendingRecords (http://localhost:1420/src/sync/database.ts:102:14)
+    at async pushChanges (http://localhost:1420/src/sync/engine.ts:125:21)
+    at async syncAll (http://localhost:1420/src/sync/engine.ts:195:18)
+    at async http://localhost:1420/src/hooks/useSync.ts?t=1780189470388:27:22 @ http://localhost:1420/src/hooks/useSync.ts?t=1780189470388:42
+[ 3874024ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189636756:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at updateFunctionComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14582:28)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3874028ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189636756:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at updateFunctionComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14582:28)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15924:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3874030ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189636756:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 3874030ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189636756:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at updateFunctionComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14582:28)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15924:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189636756:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 3911491ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3911493ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3911493ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 3911493ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 3945159ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3945161ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 3945164ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 3945165ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189674310:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189576679:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 4056830ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4056832ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4056841ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189819728:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 4056841ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189819728:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 4138233ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4138235ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4138241ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 4138241ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189708035:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 4208080ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4208081ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4208089ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 4208089ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13
+[ 4236531ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4236532ms] ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at HTMLUnknownElement.callCallback2 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3674:22)
+    at Object.invokeGuardedCallbackDev (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3699:24)
+    at invokeGuardedCallback (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:3733:39)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19765:15)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+[ 4236540ms] [ERROR] The above error occurred in the <AppRouter> component:
+
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary. @ http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14031
+[ 4236540ms] [ERROR] [ErrorBoundary] Caught render error: ReferenceError: BhytConfigPage is not defined
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at renderWithHooks (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:11548:26)
+    at mountIndeterminateComponent (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:14926:21)
+    at beginWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:15914:22)
+    at beginWork$1 (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19753:22)
+    at performUnitOfWork (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19198:20)
+    at workLoopSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19137:13)
+    at renderRootSync (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:19116:15)
+    at recoverFromConcurrentError (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18736:28)
+    at performSyncWorkOnRoot (http://localhost:1420/node_modules/.vite/deps/chunk-276SZO74.js?v=b5481f11:18879:28) 
+    at AppRouter (http://localhost:1420/src/router/index.tsx?t=1780189971013:1549:58)
+    at AppContent (http://localhost:1420/src/App.tsx?t=1780189901162:46:31)
+    at QueryClientProvider (http://localhost:1420/node_modules/.vite/deps/@tanstack_react-query.js?v=97fb89ca:3235:3)
+    at ErrorBoundary (http://localhost:1420/src/components/error/ErrorBoundary.tsx:7:5)
+    at App @ http://localhost:1420/src/components/error/ErrorBoundary.tsx:13

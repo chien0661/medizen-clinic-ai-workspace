@@ -1,0 +1,620 @@
+- generic [ref=e2]:
+  - generic [ref=e50]:
+    - complementary [ref=e51]:
+      - generic [ref=e52]:
+        - img "MediZen" [ref=e53]
+        - generic [ref=e54]: MediZen
+      - navigation [ref=e55]:
+        - link "Tổng quan" [ref=e56] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e57]
+          - generic [ref=e62]: Tổng quan
+        - generic [ref=e63]:
+          - button "Tiếp tân" [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+            - generic [ref=e67]: Tiếp tân
+            - img [ref=e68]
+          - generic [ref=e70]:
+            - link "Bệnh nhân" [ref=e71] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e72]
+              - generic [ref=e77]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e78] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e79]
+              - generic [ref=e83]: Lịch hẹn
+            - link "Hàng chờ" [ref=e84] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e85]
+              - generic [ref=e89]: Hàng chờ
+        - generic [ref=e90]:
+          - button "Bác sĩ" [ref=e91] [cursor=pointer]:
+            - img [ref=e92]
+            - generic [ref=e96]: Bác sĩ
+            - img [ref=e97]
+          - generic [ref=e99]:
+            - link "Hàng đợi của tôi" [ref=e100] [cursor=pointer]:
+              - /url: "#/doctor/queue"
+              - img [ref=e101]
+              - generic [ref=e104]: Hàng đợi của tôi
+            - link "Bảng điều khiển" [ref=e105] [cursor=pointer]:
+              - /url: "#/doctor/dashboard"
+              - img [ref=e106]
+              - generic [ref=e108]: Bảng điều khiển
+        - generic [ref=e109]:
+          - button "Nhà thuốc" [ref=e110] [cursor=pointer]:
+            - img [ref=e111]
+            - generic [ref=e114]: Nhà thuốc
+            - img [ref=e115]
+          - generic [ref=e117]:
+            - link "Cấp phát chờ" [ref=e118] [cursor=pointer]:
+              - /url: "#/pharmacy/pending"
+              - img [ref=e119]
+              - generic [ref=e121]: Cấp phát chờ
+            - link "Đổi lô thuốc" [ref=e122] [cursor=pointer]:
+              - /url: "#/pharmacy/substitute"
+              - img [ref=e123]
+              - generic [ref=e126]: Đổi lô thuốc
+            - link "Tồn kho" [ref=e127] [cursor=pointer]:
+              - /url: "#/pharmacy/inventory"
+              - img [ref=e128]
+              - generic [ref=e138]: Tồn kho
+            - link "Kiểm kê điều chỉnh" [ref=e139] [cursor=pointer]:
+              - /url: "#/pharmacy/adjustments"
+              - img [ref=e140]
+              - generic [ref=e141]: Kiểm kê điều chỉnh
+            - link "Nhập hàng" [ref=e142] [cursor=pointer]:
+              - /url: "#/pharmacy/purchase-in"
+              - img [ref=e143]
+              - generic [ref=e147]: Nhập hàng
+            - link "Kiểm kê kho" [ref=e148] [cursor=pointer]:
+              - /url: "#/pharmacy/stocktake"
+              - img [ref=e149]
+              - generic [ref=e154]: Kiểm kê kho
+            - link "Xử lý hết hạn" [ref=e155] [cursor=pointer]:
+              - /url: "#/pharmacy/expiry"
+              - img [ref=e156]
+              - generic [ref=e158]: Xử lý hết hạn
+        - generic [ref=e159]:
+          - button "Thanh toán" [ref=e160] [cursor=pointer]:
+            - img [ref=e161]
+            - generic [ref=e163]: Thanh toán
+            - img [ref=e164]
+          - link "Hóa đơn" [ref=e167] [cursor=pointer]:
+            - /url: "#/billing/invoices"
+            - img [ref=e168]
+            - generic [ref=e171]: Hóa đơn
+        - generic [ref=e172]:
+          - button "Báo cáo active role" [ref=e173] [cursor=pointer]:
+            - img [ref=e174]
+            - generic [ref=e176]: Báo cáo
+            - generic "active role" [ref=e177]
+            - img [ref=e178]
+          - generic [ref=e180]:
+            - link "Doanh thu" [ref=e181] [cursor=pointer]:
+              - /url: "#/reports/revenue"
+              - img [ref=e182]
+              - generic [ref=e185]: Doanh thu
+            - link "Tồn kho" [ref=e186] [cursor=pointer]:
+              - /url: "#/reports/inventory"
+              - img [ref=e187]
+              - generic [ref=e191]: Tồn kho
+            - link "Hiệu suất bác sĩ" [ref=e192] [cursor=pointer]:
+              - /url: "#/reports/doctor-performance"
+              - img [ref=e193]
+              - generic [ref=e195]: Hiệu suất bác sĩ
+            - link "Lượt khám" [ref=e196] [cursor=pointer]:
+              - /url: "#/reports/visit-volume"
+              - img [ref=e197]
+              - generic [ref=e200]: Lượt khám
+            - link "Đơn thuốc" [ref=e201] [cursor=pointer]:
+              - /url: "#/reports/prescriptions"
+              - img [ref=e202]
+              - generic [ref=e205]: Đơn thuốc
+            - link "Công nợ AR" [ref=e206] [cursor=pointer]:
+              - /url: "#/reports/ar-aging"
+              - img [ref=e207]
+              - generic [ref=e210]: Công nợ AR
+        - link "Thông báo" [ref=e211] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e212]
+          - generic [ref=e215]: Thông báo
+        - generic [ref=e216]:
+          - button "Nhân sự active role" [ref=e217] [cursor=pointer]:
+            - img [ref=e218]
+            - generic [ref=e223]: Nhân sự
+            - generic "active role" [ref=e224]
+            - img [ref=e225]
+          - generic [ref=e227]:
+            - link "Lịch ca" [ref=e228] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e229]
+              - generic [ref=e231]: Lịch ca
+            - link "Chấm công" [ref=e232] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e233]
+              - generic [ref=e236]: Chấm công
+            - link "Nghỉ phép" [ref=e237] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e238]
+              - generic [ref=e241]: Nghỉ phép
+            - link "Duyệt phép" [ref=e242] [cursor=pointer]:
+              - /url: "#/hr/leave/approve"
+              - img [ref=e243]
+              - generic [ref=e247]: Duyệt phép
+            - link "Lịch định kỳ" [ref=e248] [cursor=pointer]:
+              - /url: "#/hr/recurring"
+              - img [ref=e249]
+              - generic [ref=e254]: Lịch định kỳ
+            - link "Mẫu ca" [ref=e255] [cursor=pointer]:
+              - /url: "#/hr/shift-templates"
+              - img [ref=e256]
+              - generic [ref=e259]: Mẫu ca
+            - link "Chấm công" [ref=e260] [cursor=pointer]:
+              - /url: "#/hr/attendance/export"
+              - img [ref=e261]
+              - generic [ref=e263]: Chấm công
+        - generic [ref=e264]:
+          - button "Quản trị active role" [ref=e265] [cursor=pointer]:
+            - img [ref=e266]
+            - generic [ref=e268]: Quản trị
+            - generic "active role" [ref=e269]
+            - img [ref=e270]
+          - generic [ref=e272]:
+            - link "Người dùng" [ref=e273] [cursor=pointer]:
+              - /url: "#/admin/users"
+              - img [ref=e274]
+              - generic [ref=e286]: Người dùng
+            - link "Vai trò & Phân quyền" [ref=e287] [cursor=pointer]:
+              - /url: "#/admin/roles"
+              - img [ref=e288]
+              - generic [ref=e292]: Vai trò & Phân quyền
+            - link "Cài đặt phòng khám" [ref=e293] [cursor=pointer]:
+              - /url: "#/admin/settings"
+              - img [ref=e294]
+              - generic [ref=e296]: Cài đặt phòng khám
+            - link "Chỉ số sinh tồn" [ref=e297] [cursor=pointer]:
+              - /url: "#/admin/vitals"
+              - img [ref=e298]
+              - generic [ref=e300]: Chỉ số sinh tồn
+            - link "Danh mục dịch vụ" [ref=e301] [cursor=pointer]:
+              - /url: "#/admin/services"
+              - img [ref=e302]
+              - generic [ref=e305]: Danh mục dịch vụ
+            - link "Danh mục thuốc" [ref=e306] [cursor=pointer]:
+              - /url: "#/admin/medicines"
+              - img [ref=e307]
+              - generic [ref=e311]: Danh mục thuốc
+            - link "Nhật ký hoạt động" [ref=e312] [cursor=pointer]:
+              - /url: "#/admin/audit"
+              - img [ref=e313]
+              - generic [ref=e317]: Nhật ký hoạt động
+        - link "Cài đặt" [ref=e318] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e319]
+          - generic [ref=e322]: Cài đặt
+      - button "Thu nhỏ menu" [ref=e324] [cursor=pointer]:
+        - generic [ref=e325]: Thu nhỏ menu
+        - img [ref=e326]
+    - generic [ref=e328]:
+      - banner [ref=e329]:
+        - button "Chuyển phòng khám" [ref=e331] [cursor=pointer]:
+          - img [ref=e333]
+          - generic [ref=e337]: Phong kham MediZen Demo
+        - button "Open quick search (Ctrl+K)" [ref=e338] [cursor=pointer]:
+          - img [ref=e339]
+          - generic [ref=e342]: Tìm kiếm
+          - generic [ref=e343]: ⌘K
+        - generic [ref=e344]:
+          - status "Online" [ref=e345]:
+            - generic [ref=e347]: Online
+          - button "Thông báo" [ref=e349] [cursor=pointer]:
+            - img [ref=e350]
+            - generic [ref=e353]: "5"
+          - button "VI" [ref=e354] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e355] [cursor=pointer]:
+            - img [ref=e356]
+          - button "Chọn giao diện màu" [ref=e358] [cursor=pointer]:
+            - img [ref=e359]
+          - button "Menu người dùng" [ref=e365] [cursor=pointer]:
+            - generic [ref=e366]: DA
+            - generic [ref=e367]: Quản trị
+      - navigation "Breadcrumb" [ref=e368]:
+        - link "Home" [ref=e369] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e370]
+        - generic [ref=e373]:
+          - img [ref=e374]
+          - link "Quản trị" [ref=e376] [cursor=pointer]:
+            - /url: "#/admin"
+        - generic [ref=e377]:
+          - img [ref=e378]
+          - generic [ref=e380]: Người dùng
+      - main [ref=e381]:
+        - generic [ref=e382]:
+          - generic [ref=e383]:
+            - heading "Quản lý người dùng" [level=1] [ref=e384]
+            - button "Thêm người dùng" [ref=e385] [cursor=pointer]:
+              - img [ref=e386]
+              - text: Thêm người dùng
+          - generic [ref=e387]:
+            - generic [ref=e388]:
+              - img [ref=e389]
+              - textbox "Tìm kiếm theo tên, username..." [ref=e392]
+            - combobox [ref=e393]:
+              - option "Tất cả vai trò" [selected]
+              - option "Administrator"
+              - option "Doctor"
+              - option "Nurse"
+              - option "Pharmacist"
+              - option "Receptionist"
+              - option "nurse"
+              - option "receptionist"
+              - option "pharmacist"
+              - option "cashier"
+              - option "admin"
+              - option "doctor"
+              - option "Cashier"
+              - option "Super Admin"
+            - combobox [ref=e394]:
+              - option "Tất cả trạng thái" [selected]
+              - option "Đang hoạt động"
+              - option "Bị vô hiệu"
+          - table [ref=e396]:
+            - rowgroup [ref=e397]:
+              - row "Tên đăng nhập Họ và tên Email Vai trò Trạng thái Đăng nhập lần cuối Thao tác" [ref=e398]:
+                - columnheader [ref=e399]:
+                  - checkbox [ref=e400] [cursor=pointer]
+                - columnheader "Tên đăng nhập" [ref=e401]
+                - columnheader "Họ và tên" [ref=e402]
+                - columnheader "Email" [ref=e403]
+                - columnheader "Vai trò" [ref=e404]
+                - columnheader "Trạng thái" [ref=e405]
+                - columnheader "Đăng nhập lần cuối" [ref=e406]
+                - columnheader "Thao tác" [ref=e407]
+            - rowgroup [ref=e408]:
+              - row "dr_le BS. Lê Thị Mai le@demo.clinic doctor Đang hoạt động Chưa đăng nhập" [ref=e409]:
+                - cell [ref=e410]:
+                  - checkbox [ref=e411] [cursor=pointer]
+                - cell "dr_le" [ref=e412]
+                - cell "BS. Lê Thị Mai" [ref=e413]
+                - cell "le@demo.clinic" [ref=e414]
+                - cell "doctor" [ref=e415]:
+                  - generic [ref=e417]: doctor
+                - cell "Đang hoạt động" [ref=e418]:
+                  - generic [ref=e419]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e420]
+                - cell [ref=e421]:
+                  - generic [ref=e422]:
+                    - button "Chỉnh sửa" [ref=e423] [cursor=pointer]:
+                      - img [ref=e424]
+                    - button "Đặt lại mật khẩu" [ref=e427] [cursor=pointer]:
+                      - img [ref=e428]
+                    - button "Khóa tài khoản" [ref=e432] [cursor=pointer]:
+                      - img [ref=e433]
+                    - button "Phân vai trò" [ref=e436] [cursor=pointer]:
+                      - img [ref=e437]
+                    - button "Phân quyền bổ sung" [ref=e439] [cursor=pointer]:
+                      - img [ref=e440]
+              - row "dr_tran BS. Trần Minh Khoa tran@demo.clinic doctor Đang hoạt động Chưa đăng nhập" [ref=e452]:
+                - cell [ref=e453]:
+                  - checkbox [ref=e454] [cursor=pointer]
+                - cell "dr_tran" [ref=e455]
+                - cell "BS. Trần Minh Khoa" [ref=e456]
+                - cell "tran@demo.clinic" [ref=e457]
+                - cell "doctor" [ref=e458]:
+                  - generic [ref=e460]: doctor
+                - cell "Đang hoạt động" [ref=e461]:
+                  - generic [ref=e462]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e463]
+                - cell [ref=e464]:
+                  - generic [ref=e465]:
+                    - button "Chỉnh sửa" [ref=e466] [cursor=pointer]:
+                      - img [ref=e467]
+                    - button "Đặt lại mật khẩu" [ref=e470] [cursor=pointer]:
+                      - img [ref=e471]
+                    - button "Khóa tài khoản" [ref=e475] [cursor=pointer]:
+                      - img [ref=e476]
+                    - button "Phân vai trò" [ref=e479] [cursor=pointer]:
+                      - img [ref=e480]
+                    - button "Phân quyền bổ sung" [ref=e482] [cursor=pointer]:
+                      - img [ref=e483]
+              - row "dr_pham BS. Phạm Thị Hoa pham@demo.clinic doctor Đang hoạt động Chưa đăng nhập" [ref=e495]:
+                - cell [ref=e496]:
+                  - checkbox [ref=e497] [cursor=pointer]
+                - cell "dr_pham" [ref=e498]
+                - cell "BS. Phạm Thị Hoa" [ref=e499]
+                - cell "pham@demo.clinic" [ref=e500]
+                - cell "doctor" [ref=e501]:
+                  - generic [ref=e503]: doctor
+                - cell "Đang hoạt động" [ref=e504]:
+                  - generic [ref=e505]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e506]
+                - cell [ref=e507]:
+                  - generic [ref=e508]:
+                    - button "Chỉnh sửa" [ref=e509] [cursor=pointer]:
+                      - img [ref=e510]
+                    - button "Đặt lại mật khẩu" [ref=e513] [cursor=pointer]:
+                      - img [ref=e514]
+                    - button "Khóa tài khoản" [ref=e518] [cursor=pointer]:
+                      - img [ref=e519]
+                    - button "Phân vai trò" [ref=e522] [cursor=pointer]:
+                      - img [ref=e523]
+                    - button "Phân quyền bổ sung" [ref=e525] [cursor=pointer]:
+                      - img [ref=e526]
+              - row "dr_hoang BS. Hoàng Đức Long hoang@demo.clinic doctor Đang hoạt động Chưa đăng nhập" [ref=e538]:
+                - cell [ref=e539]:
+                  - checkbox [ref=e540] [cursor=pointer]
+                - cell "dr_hoang" [ref=e541]
+                - cell "BS. Hoàng Đức Long" [ref=e542]
+                - cell "hoang@demo.clinic" [ref=e543]
+                - cell "doctor" [ref=e544]:
+                  - generic [ref=e546]: doctor
+                - cell "Đang hoạt động" [ref=e547]:
+                  - generic [ref=e548]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e549]
+                - cell [ref=e550]:
+                  - generic [ref=e551]:
+                    - button "Chỉnh sửa" [ref=e552] [cursor=pointer]:
+                      - img [ref=e553]
+                    - button "Đặt lại mật khẩu" [ref=e556] [cursor=pointer]:
+                      - img [ref=e557]
+                    - button "Khóa tài khoản" [ref=e561] [cursor=pointer]:
+                      - img [ref=e562]
+                    - button "Phân vai trò" [ref=e565] [cursor=pointer]:
+                      - img [ref=e566]
+                    - button "Phân quyền bổ sung" [ref=e568] [cursor=pointer]:
+                      - img [ref=e569]
+              - row "nurse_lan ĐD. Nguyễn Thị Lan lan@demo.clinic nurse Đang hoạt động Chưa đăng nhập" [ref=e581]:
+                - cell [ref=e582]:
+                  - checkbox [ref=e583] [cursor=pointer]
+                - cell "nurse_lan" [ref=e584]
+                - cell "ĐD. Nguyễn Thị Lan" [ref=e585]
+                - cell "lan@demo.clinic" [ref=e586]
+                - cell "nurse" [ref=e587]:
+                  - generic [ref=e589]: nurse
+                - cell "Đang hoạt động" [ref=e590]:
+                  - generic [ref=e591]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e592]
+                - cell [ref=e593]:
+                  - generic [ref=e594]:
+                    - button "Chỉnh sửa" [ref=e595] [cursor=pointer]:
+                      - img [ref=e596]
+                    - button "Đặt lại mật khẩu" [ref=e599] [cursor=pointer]:
+                      - img [ref=e600]
+                    - button "Khóa tài khoản" [ref=e604] [cursor=pointer]:
+                      - img [ref=e605]
+                    - button "Phân vai trò" [ref=e608] [cursor=pointer]:
+                      - img [ref=e609]
+                    - button "Phân quyền bổ sung" [ref=e611] [cursor=pointer]:
+                      - img [ref=e612]
+              - row "nurse_huong ĐD. Trần Thị Hương huong@demo.clinic nurse Đang hoạt động Chưa đăng nhập" [ref=e624]:
+                - cell [ref=e625]:
+                  - checkbox [ref=e626] [cursor=pointer]
+                - cell "nurse_huong" [ref=e627]
+                - cell "ĐD. Trần Thị Hương" [ref=e628]
+                - cell "huong@demo.clinic" [ref=e629]
+                - cell "nurse" [ref=e630]:
+                  - generic [ref=e632]: nurse
+                - cell "Đang hoạt động" [ref=e633]:
+                  - generic [ref=e634]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e635]
+                - cell [ref=e636]:
+                  - generic [ref=e637]:
+                    - button "Chỉnh sửa" [ref=e638] [cursor=pointer]:
+                      - img [ref=e639]
+                    - button "Đặt lại mật khẩu" [ref=e642] [cursor=pointer]:
+                      - img [ref=e643]
+                    - button "Khóa tài khoản" [ref=e647] [cursor=pointer]:
+                      - img [ref=e648]
+                    - button "Phân vai trò" [ref=e651] [cursor=pointer]:
+                      - img [ref=e652]
+                    - button "Phân quyền bổ sung" [ref=e654] [cursor=pointer]:
+                      - img [ref=e655]
+              - row "nurse_linh ĐD. Lê Thị Linh linh@demo.clinic nurse Đang hoạt động Chưa đăng nhập" [ref=e667]:
+                - cell [ref=e668]:
+                  - checkbox [ref=e669] [cursor=pointer]
+                - cell "nurse_linh" [ref=e670]
+                - cell "ĐD. Lê Thị Linh" [ref=e671]
+                - cell "linh@demo.clinic" [ref=e672]
+                - cell "nurse" [ref=e673]:
+                  - generic [ref=e675]: nurse
+                - cell "Đang hoạt động" [ref=e676]:
+                  - generic [ref=e677]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e678]
+                - cell [ref=e679]:
+                  - generic [ref=e680]:
+                    - button "Chỉnh sửa" [ref=e681] [cursor=pointer]:
+                      - img [ref=e682]
+                    - button "Đặt lại mật khẩu" [ref=e685] [cursor=pointer]:
+                      - img [ref=e686]
+                    - button "Khóa tài khoản" [ref=e690] [cursor=pointer]:
+                      - img [ref=e691]
+                    - button "Phân vai trò" [ref=e694] [cursor=pointer]:
+                      - img [ref=e695]
+                    - button "Phân quyền bổ sung" [ref=e697] [cursor=pointer]:
+                      - img [ref=e698]
+              - row "recept_anh LT. Đặng Thị Anh anh@demo.clinic receptionist Đang hoạt động Chưa đăng nhập" [ref=e710]:
+                - cell [ref=e711]:
+                  - checkbox [ref=e712] [cursor=pointer]
+                - cell "recept_anh" [ref=e713]
+                - cell "LT. Đặng Thị Anh" [ref=e714]
+                - cell "anh@demo.clinic" [ref=e715]
+                - cell "receptionist" [ref=e716]:
+                  - generic [ref=e718]: receptionist
+                - cell "Đang hoạt động" [ref=e719]:
+                  - generic [ref=e720]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e721]
+                - cell [ref=e722]:
+                  - generic [ref=e723]:
+                    - button "Chỉnh sửa" [ref=e724] [cursor=pointer]:
+                      - img [ref=e725]
+                    - button "Đặt lại mật khẩu" [ref=e728] [cursor=pointer]:
+                      - img [ref=e729]
+                    - button "Khóa tài khoản" [ref=e733] [cursor=pointer]:
+                      - img [ref=e734]
+                    - button "Phân vai trò" [ref=e737] [cursor=pointer]:
+                      - img [ref=e738]
+                    - button "Phân quyền bổ sung" [ref=e740] [cursor=pointer]:
+                      - img [ref=e741]
+              - row "recept_binh LT. Vũ Văn Bình binh@demo.clinic receptionist Đang hoạt động Chưa đăng nhập" [ref=e753]:
+                - cell [ref=e754]:
+                  - checkbox [ref=e755] [cursor=pointer]
+                - cell "recept_binh" [ref=e756]
+                - cell "LT. Vũ Văn Bình" [ref=e757]
+                - cell "binh@demo.clinic" [ref=e758]
+                - cell "receptionist" [ref=e759]:
+                  - generic [ref=e761]: receptionist
+                - cell "Đang hoạt động" [ref=e762]:
+                  - generic [ref=e763]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e764]
+                - cell [ref=e765]:
+                  - generic [ref=e766]:
+                    - button "Chỉnh sửa" [ref=e767] [cursor=pointer]:
+                      - img [ref=e768]
+                    - button "Đặt lại mật khẩu" [ref=e771] [cursor=pointer]:
+                      - img [ref=e772]
+                    - button "Khóa tài khoản" [ref=e776] [cursor=pointer]:
+                      - img [ref=e777]
+                    - button "Phân vai trò" [ref=e780] [cursor=pointer]:
+                      - img [ref=e781]
+                    - button "Phân quyền bổ sung" [ref=e783] [cursor=pointer]:
+                      - img [ref=e784]
+              - row "pharm_cuong DS. Nguyễn Minh Cường cuong@demo.clinic pharmacist Đang hoạt động Chưa đăng nhập" [ref=e796]:
+                - cell [ref=e797]:
+                  - checkbox [ref=e798] [cursor=pointer]
+                - cell "pharm_cuong" [ref=e799]
+                - cell "DS. Nguyễn Minh Cường" [ref=e800]
+                - cell "cuong@demo.clinic" [ref=e801]
+                - cell "pharmacist" [ref=e802]:
+                  - generic [ref=e804]: pharmacist
+                - cell "Đang hoạt động" [ref=e805]:
+                  - generic [ref=e806]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e807]
+                - cell [ref=e808]:
+                  - generic [ref=e809]:
+                    - button "Chỉnh sửa" [ref=e810] [cursor=pointer]:
+                      - img [ref=e811]
+                    - button "Đặt lại mật khẩu" [ref=e814] [cursor=pointer]:
+                      - img [ref=e815]
+                    - button "Khóa tài khoản" [ref=e819] [cursor=pointer]:
+                      - img [ref=e820]
+                    - button "Phân vai trò" [ref=e823] [cursor=pointer]:
+                      - img [ref=e824]
+                    - button "Phân quyền bổ sung" [ref=e826] [cursor=pointer]:
+                      - img [ref=e827]
+              - row "pharm_dung DS. Lê Thị Dung dung@demo.clinic pharmacist Đang hoạt động Chưa đăng nhập" [ref=e839]:
+                - cell [ref=e840]:
+                  - checkbox [ref=e841] [cursor=pointer]
+                - cell "pharm_dung" [ref=e842]
+                - cell "DS. Lê Thị Dung" [ref=e843]
+                - cell "dung@demo.clinic" [ref=e844]
+                - cell "pharmacist" [ref=e845]:
+                  - generic [ref=e847]: pharmacist
+                - cell "Đang hoạt động" [ref=e848]:
+                  - generic [ref=e849]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e850]
+                - cell [ref=e851]:
+                  - generic [ref=e852]:
+                    - button "Chỉnh sửa" [ref=e853] [cursor=pointer]:
+                      - img [ref=e854]
+                    - button "Đặt lại mật khẩu" [ref=e857] [cursor=pointer]:
+                      - img [ref=e858]
+                    - button "Khóa tài khoản" [ref=e862] [cursor=pointer]:
+                      - img [ref=e863]
+                    - button "Phân vai trò" [ref=e866] [cursor=pointer]:
+                      - img [ref=e867]
+                    - button "Phân quyền bổ sung" [ref=e869] [cursor=pointer]:
+                      - img [ref=e870]
+              - row "cashier_em TN. Phạm Thị Em em@demo.clinic cashier Đang hoạt động Chưa đăng nhập" [ref=e882]:
+                - cell [ref=e883]:
+                  - checkbox [ref=e884] [cursor=pointer]
+                - cell "cashier_em" [ref=e885]
+                - cell "TN. Phạm Thị Em" [ref=e886]
+                - cell "em@demo.clinic" [ref=e887]
+                - cell "cashier" [ref=e888]:
+                  - generic [ref=e890]: cashier
+                - cell "Đang hoạt động" [ref=e891]:
+                  - generic [ref=e892]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e893]
+                - cell [ref=e894]:
+                  - generic [ref=e895]:
+                    - button "Chỉnh sửa" [ref=e896] [cursor=pointer]:
+                      - img [ref=e897]
+                    - button "Đặt lại mật khẩu" [ref=e900] [cursor=pointer]:
+                      - img [ref=e901]
+                    - button "Khóa tài khoản" [ref=e905] [cursor=pointer]:
+                      - img [ref=e906]
+                    - button "Phân vai trò" [ref=e909] [cursor=pointer]:
+                      - img [ref=e910]
+                    - button "Phân quyền bổ sung" [ref=e912] [cursor=pointer]:
+                      - img [ref=e913]
+              - row "test_e2e_dr Test E2E Doctor (TASK-049) test_e2e_dr@demo.clinic Đang hoạt động Chưa đăng nhập" [ref=e925]:
+                - cell [ref=e926]:
+                  - checkbox [ref=e927] [cursor=pointer]
+                - cell "test_e2e_dr" [ref=e928]
+                - cell "Test E2E Doctor (TASK-049)" [ref=e929]
+                - cell "test_e2e_dr@demo.clinic" [ref=e930]
+                - cell [ref=e931]
+                - cell "Đang hoạt động" [ref=e932]:
+                  - generic [ref=e933]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e934]
+                - cell [ref=e935]:
+                  - generic [ref=e936]:
+                    - button "Chỉnh sửa" [ref=e937] [cursor=pointer]:
+                      - img [ref=e938]
+                    - button "Đặt lại mật khẩu" [ref=e941] [cursor=pointer]:
+                      - img [ref=e942]
+                    - button "Khóa tài khoản" [ref=e946] [cursor=pointer]:
+                      - img [ref=e947]
+                    - button "Phân vai trò" [ref=e950] [cursor=pointer]:
+                      - img [ref=e951]
+                    - button "Phân quyền bổ sung" [ref=e953] [cursor=pointer]:
+                      - img [ref=e954]
+              - row "dr_nguyen BS. Nguyễn Văn Hùng nguyen@demo.clinic doctor Đang hoạt động Chưa đăng nhập" [ref=e966]:
+                - cell [ref=e967]:
+                  - checkbox [ref=e968] [cursor=pointer]
+                - cell "dr_nguyen" [ref=e969]
+                - cell "BS. Nguyễn Văn Hùng" [ref=e970]
+                - cell "nguyen@demo.clinic" [ref=e971]
+                - cell "doctor" [ref=e972]:
+                  - generic [ref=e974]: doctor
+                - cell "Đang hoạt động" [ref=e975]:
+                  - generic [ref=e976]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e977]
+                - cell [ref=e978]:
+                  - generic [ref=e979]:
+                    - button "Chỉnh sửa" [ref=e980] [cursor=pointer]:
+                      - img [ref=e981]
+                    - button "Đặt lại mật khẩu" [ref=e984] [cursor=pointer]:
+                      - img [ref=e985]
+                    - button "Khóa tài khoản" [ref=e989] [cursor=pointer]:
+                      - img [ref=e990]
+                    - button "Phân vai trò" [ref=e993] [cursor=pointer]:
+                      - img [ref=e994]
+                    - button "Phân quyền bổ sung" [ref=e996] [cursor=pointer]:
+                      - img [ref=e997]
+              - row "admin Demo Admin admin@demo.clinic admin Đang hoạt động Chưa đăng nhập" [ref=e1009]:
+                - cell [ref=e1010]:
+                  - checkbox [ref=e1011] [cursor=pointer]
+                - cell "admin" [ref=e1012]
+                - cell "Demo Admin" [ref=e1013]
+                - cell "admin@demo.clinic" [ref=e1014]
+                - cell "admin" [ref=e1015]:
+                  - generic [ref=e1017]: admin
+                - cell "Đang hoạt động" [ref=e1018]:
+                  - generic [ref=e1019]: Đang hoạt động
+                - cell "Chưa đăng nhập" [ref=e1020]
+                - cell [ref=e1021]:
+                  - generic [ref=e1022]:
+                    - button "Chỉnh sửa" [ref=e1023] [cursor=pointer]:
+                      - img [ref=e1024]
+                    - button "Đặt lại mật khẩu" [ref=e1027] [cursor=pointer]:
+                      - img [ref=e1028]
+                    - button "Khóa tài khoản" [ref=e1032] [cursor=pointer]:
+                      - img [ref=e1033]
+                    - button "Phân vai trò" [ref=e1036] [cursor=pointer]:
+                      - img [ref=e1037]
+                    - button "Phân quyền bổ sung" [ref=e1039] [cursor=pointer]:
+                      - img [ref=e1040]
+  - region "Notifications alt+T"

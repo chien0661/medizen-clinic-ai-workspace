@@ -1,0 +1,693 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e9404]:
+      - complementary [ref=e9405]:
+        - generic [ref=e9406]:
+          - img "MediZen" [ref=e9407]
+          - generic [ref=e9408]: MediZen
+        - navigation [ref=e9409]:
+          - link "Tổng quan" [ref=e9410] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e9411]
+            - generic [ref=e9416]: Tổng quan
+          - generic [ref=e9417]:
+            - button "Tiếp tân" [ref=e9418] [cursor=pointer]:
+              - img [ref=e9419]
+              - generic [ref=e9421]: Tiếp tân
+              - img [ref=e9422]
+            - generic [ref=e9424]:
+              - link "Bệnh nhân" [ref=e9425] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e9426]
+                - generic [ref=e9431]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e9432] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e9433]
+                - generic [ref=e9437]: Lịch hẹn
+              - link "Hàng chờ" [ref=e9438] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e9439]
+                - generic [ref=e9443]: Hàng chờ
+          - generic [ref=e9444]:
+            - button "Bác sĩ active role" [ref=e9445] [cursor=pointer]:
+              - img [ref=e9446]
+              - generic [ref=e9450]: Bác sĩ
+              - generic "active role" [ref=e9451]
+              - img [ref=e9452]
+            - generic [ref=e9454]:
+              - link "Hàng đợi của tôi" [ref=e9455] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e9456]
+                - generic [ref=e9459]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e9460] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e9461]
+                - generic [ref=e9463]: Bảng điều khiển
+          - generic [ref=e9464]:
+            - button "Nhà thuốc" [ref=e9465] [cursor=pointer]:
+              - img [ref=e9466]
+              - generic [ref=e9469]: Nhà thuốc
+              - img [ref=e9470]
+            - link "Tồn kho" [ref=e9473] [cursor=pointer]:
+              - /url: "#/pharmacy/inventory"
+              - img [ref=e9474]
+              - generic [ref=e9484]: Tồn kho
+          - generic [ref=e9485]:
+            - button "Thanh toán" [ref=e9486] [cursor=pointer]:
+              - img [ref=e9487]
+              - generic [ref=e9489]: Thanh toán
+              - img [ref=e9490]
+            - link "Hóa đơn" [ref=e9493] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e9494]
+              - generic [ref=e9497]: Hóa đơn
+          - generic [ref=e9498]:
+            - button "Báo cáo" [ref=e9499] [cursor=pointer]:
+              - img [ref=e9500]
+              - generic [ref=e9502]: Báo cáo
+              - img [ref=e9503]
+            - generic [ref=e9505]:
+              - link "Doanh thu" [ref=e9506] [cursor=pointer]:
+                - /url: "#/reports/revenue"
+                - img [ref=e9507]
+                - generic [ref=e9510]: Doanh thu
+              - link "Tồn kho" [ref=e9511] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e9512]
+                - generic [ref=e9516]: Tồn kho
+              - link "Hiệu suất bác sĩ" [ref=e9517] [cursor=pointer]:
+                - /url: "#/reports/doctor-performance"
+                - img [ref=e9518]
+                - generic [ref=e9520]: Hiệu suất bác sĩ
+              - link "Lượt khám" [ref=e9521] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e9522]
+                - generic [ref=e9525]: Lượt khám
+              - link "Đơn thuốc" [ref=e9526] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e9527]
+                - generic [ref=e9530]: Đơn thuốc
+              - link "Công nợ AR" [ref=e9531] [cursor=pointer]:
+                - /url: "#/reports/ar-aging"
+                - img [ref=e9532]
+                - generic [ref=e9535]: Công nợ AR
+          - link "Thông báo" [ref=e9536] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e9537]
+            - generic [ref=e9540]: Thông báo
+          - generic [ref=e9541]:
+            - button "Nhân sự" [ref=e9542] [cursor=pointer]:
+              - img [ref=e9543]
+              - generic [ref=e9548]: Nhân sự
+              - img [ref=e9549]
+            - generic [ref=e9551]:
+              - link "Lịch ca" [ref=e9552] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e9553]
+                - generic [ref=e9555]: Lịch ca
+              - link "Chấm công" [ref=e9556] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e9557]
+                - generic [ref=e9560]: Chấm công
+              - link "Nghỉ phép" [ref=e9561] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e9562]
+                - generic [ref=e9565]: Nghỉ phép
+          - button "Quản trị" [ref=e9567] [cursor=pointer]:
+            - img [ref=e9568]
+            - generic [ref=e9570]: Quản trị
+            - img [ref=e9571]
+          - link "Cài đặt" [ref=e9573] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e9574]
+            - generic [ref=e9577]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e9579] [cursor=pointer]:
+          - generic [ref=e9580]: Thu nhỏ menu
+          - img [ref=e9581]
+      - generic [ref=e9583]:
+        - banner [ref=e9584]:
+          - button "Chuyển phòng khám" [ref=e9586] [cursor=pointer]:
+            - img [ref=e9588]
+            - generic [ref=e9592]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e9593] [cursor=pointer]:
+            - img [ref=e9594]
+            - generic [ref=e9597]: Tìm kiếm
+            - generic [ref=e9598]: ⌘K
+          - generic [ref=e9599]:
+            - status "Online" [ref=e9600]:
+              - generic [ref=e9602]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e9795]': (!)
+            - button "Thông báo" [ref=e9605] [cursor=pointer]:
+              - img [ref=e9606]
+              - generic [ref=e9609]: "1"
+            - button "VI" [ref=e9610] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e9611] [cursor=pointer]:
+              - img [ref=e9612]
+            - button "Menu người dùng" [ref=e9614] [cursor=pointer]:
+              - generic [ref=e9615]: BN
+              - generic [ref=e9616]: Bác sĩ
+        - navigation "Breadcrumb" [ref=e9749]:
+          - link "Home" [ref=e9750] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e9751]
+          - generic [ref=e9796]:
+            - img [ref=e9797]
+            - generic [ref=e9799]: Bệnh nhân
+        - main [ref=e9617]:
+          - generic [ref=e9800]:
+            - generic [ref=e9801]:
+              - heading "Quản lý bệnh nhân" [level=1] [ref=e9802]
+              - button "Đăng ký mới" [ref=e9803] [cursor=pointer]:
+                - img [ref=e9804]
+                - text: Đăng ký mới
+            - generic [ref=e9807]:
+              - img [ref=e9808]
+              - textbox "Tìm kiếm bệnh nhân" [ref=e9811]:
+                - /placeholder: Tìm theo SĐT, tên hoặc mã BN...
+            - table [ref=e9814]:
+              - rowgroup [ref=e9815]:
+                - row "Mã BN Họ tên Ngày sinh / Tuổi Điện thoại Actions" [ref=e9816]:
+                  - columnheader "Mã BN" [ref=e9817]
+                  - columnheader "Họ tên" [ref=e9818]
+                  - columnheader "Ngày sinh / Tuổi" [ref=e9819]
+                  - columnheader "Điện thoại" [ref=e9820]
+                  - columnheader "Actions" [ref=e9821]
+              - rowgroup [ref=e9822]:
+                - row "BN0001 Nguyen Van An 1985-03-15(41 tuổi) 0901000001 Khám ngay" [ref=e9823]:
+                  - cell "BN0001" [ref=e9824]
+                  - cell "Nguyen Van An" [ref=e9825]:
+                    - button "Nguyen Van An" [ref=e9826] [cursor=pointer]
+                  - cell "1985-03-15(41 tuổi)" [ref=e9827]:
+                    - text: 1985-03-15
+                    - generic [ref=e9828]: (41 tuổi)
+                  - cell "0901000001" [ref=e9829]
+                  - cell "Khám ngay" [ref=e9830]:
+                    - button "Khám ngay" [ref=e9831] [cursor=pointer]:
+                      - img [ref=e9832]
+                      - text: Khám ngay
+                - row "BN0002 Tran Thi Binh 1992-07-22(33 tuổi) 0901000002 Khám ngay" [ref=e9836]:
+                  - cell "BN0002" [ref=e9837]
+                  - cell "Tran Thi Binh" [ref=e9838]:
+                    - button "Tran Thi Binh" [ref=e9839] [cursor=pointer]
+                  - cell "1992-07-22(33 tuổi)" [ref=e9840]:
+                    - text: 1992-07-22
+                    - generic [ref=e9841]: (33 tuổi)
+                  - cell "0901000002" [ref=e9842]
+                  - cell "Khám ngay" [ref=e9843]:
+                    - button "Khám ngay" [ref=e9844] [cursor=pointer]:
+                      - img [ref=e9845]
+                      - text: Khám ngay
+                - row "BN0003 Le Van Cuong 1978-11-08(47 tuổi) 0901000003 Khám ngay" [ref=e9849]:
+                  - cell "BN0003" [ref=e9850]
+                  - cell "Le Van Cuong" [ref=e9851]:
+                    - button "Le Van Cuong" [ref=e9852] [cursor=pointer]
+                  - cell "1978-11-08(47 tuổi)" [ref=e9853]:
+                    - text: 1978-11-08
+                    - generic [ref=e9854]: (47 tuổi)
+                  - cell "0901000003" [ref=e9855]
+                  - cell "Khám ngay" [ref=e9856]:
+                    - button "Khám ngay" [ref=e9857] [cursor=pointer]:
+                      - img [ref=e9858]
+                      - text: Khám ngay
+                - row "BN0004 Pham Thi Dung 2001-04-30(25 tuổi) 0901000004 Khám ngay" [ref=e9862]:
+                  - cell "BN0004" [ref=e9863]
+                  - cell "Pham Thi Dung" [ref=e9864]:
+                    - button "Pham Thi Dung" [ref=e9865] [cursor=pointer]
+                  - cell "2001-04-30(25 tuổi)" [ref=e9866]:
+                    - text: 2001-04-30
+                    - generic [ref=e9867]: (25 tuổi)
+                  - cell "0901000004" [ref=e9868]
+                  - cell "Khám ngay" [ref=e9869]:
+                    - button "Khám ngay" [ref=e9870] [cursor=pointer]:
+                      - img [ref=e9871]
+                      - text: Khám ngay
+                - row "BN0005 Vu Thi Phuong 1990-01-18(36 tuổi) 0901000006 Khám ngay" [ref=e9875]:
+                  - cell "BN0005" [ref=e9876]
+                  - cell "Vu Thi Phuong" [ref=e9877]:
+                    - button "Vu Thi Phuong" [ref=e9878] [cursor=pointer]
+                  - cell "1990-01-18(36 tuổi)" [ref=e9879]:
+                    - text: 1990-01-18
+                    - generic [ref=e9880]: (36 tuổi)
+                  - cell "0901000006" [ref=e9881]
+                  - cell "Khám ngay" [ref=e9882]:
+                    - button "Khám ngay" [ref=e9883] [cursor=pointer]:
+                      - img [ref=e9884]
+                      - text: Khám ngay
+                - row "BN0006 Bui Thi Hoa 1997-12-25(28 tuổi) 0901000008 Khám ngay" [ref=e9888]:
+                  - cell "BN0006" [ref=e9889]
+                  - cell "Bui Thi Hoa" [ref=e9890]:
+                    - button "Bui Thi Hoa" [ref=e9891] [cursor=pointer]
+                  - cell "1997-12-25(28 tuổi)" [ref=e9892]:
+                    - text: 1997-12-25
+                    - generic [ref=e9893]: (28 tuổi)
+                  - cell "0901000008" [ref=e9894]
+                  - cell "Khám ngay" [ref=e9895]:
+                    - button "Khám ngay" [ref=e9896] [cursor=pointer]:
+                      - img [ref=e9897]
+                      - text: Khám ngay
+                - row "BN0007 Ngo Van Hai 1972-08-14(53 tuổi) 0901000009 Khám ngay" [ref=e9901]:
+                  - cell "BN0007" [ref=e9902]
+                  - cell "Ngo Van Hai" [ref=e9903]:
+                    - button "Ngo Van Hai" [ref=e9904] [cursor=pointer]
+                  - cell "1972-08-14(53 tuổi)" [ref=e9905]:
+                    - text: 1972-08-14
+                    - generic [ref=e9906]: (53 tuổi)
+                  - cell "0901000009" [ref=e9907]
+                  - cell "Khám ngay" [ref=e9908]:
+                    - button "Khám ngay" [ref=e9909] [cursor=pointer]:
+                      - img [ref=e9910]
+                      - text: Khám ngay
+                - row "BN0008 Duong Thi Kieu 2005-02-28(21 tuổi) 0901000010 Khám ngay" [ref=e9914]:
+                  - cell "BN0008" [ref=e9915]
+                  - cell "Duong Thi Kieu" [ref=e9916]:
+                    - button "Duong Thi Kieu" [ref=e9917] [cursor=pointer]
+                  - cell "2005-02-28(21 tuổi)" [ref=e9918]:
+                    - text: 2005-02-28
+                    - generic [ref=e9919]: (21 tuổi)
+                  - cell "0901000010" [ref=e9920]
+                  - cell "Khám ngay" [ref=e9921]:
+                    - button "Khám ngay" [ref=e9922] [cursor=pointer]:
+                      - img [ref=e9923]
+                      - text: Khám ngay
+                - row "BN0009 Truong Van Lam 1968-10-03(57 tuổi) 0901000011 Khám ngay" [ref=e9927]:
+                  - cell "BN0009" [ref=e9928]
+                  - cell "Truong Van Lam" [ref=e9929]:
+                    - button "Truong Van Lam" [ref=e9930] [cursor=pointer]
+                  - cell "1968-10-03(57 tuổi)" [ref=e9931]:
+                    - text: 1968-10-03
+                    - generic [ref=e9932]: (57 tuổi)
+                  - cell "0901000011" [ref=e9933]
+                  - cell "Khám ngay" [ref=e9934]:
+                    - button "Khám ngay" [ref=e9935] [cursor=pointer]:
+                      - img [ref=e9936]
+                      - text: Khám ngay
+                - row "BN0010 Dinh Thi My 1988-05-17(38 tuổi) 0901000012 Khám ngay" [ref=e9940]:
+                  - cell "BN0010" [ref=e9941]
+                  - cell "Dinh Thi My" [ref=e9942]:
+                    - button "Dinh Thi My" [ref=e9943] [cursor=pointer]
+                  - cell "1988-05-17(38 tuổi)" [ref=e9944]:
+                    - text: 1988-05-17
+                    - generic [ref=e9945]: (38 tuổi)
+                  - cell "0901000012" [ref=e9946]
+                  - cell "Khám ngay" [ref=e9947]:
+                    - button "Khám ngay" [ref=e9948] [cursor=pointer]:
+                      - img [ref=e9949]
+                      - text: Khám ngay
+                - row "BN0011 Ly Van Nam 1995-09-09(30 tuổi) 0901000013 Khám ngay" [ref=e9953]:
+                  - cell "BN0011" [ref=e9954]
+                  - cell "Ly Van Nam" [ref=e9955]:
+                    - button "Ly Van Nam" [ref=e9956] [cursor=pointer]
+                  - cell "1995-09-09(30 tuổi)" [ref=e9957]:
+                    - text: 1995-09-09
+                    - generic [ref=e9958]: (30 tuổi)
+                  - cell "0901000013" [ref=e9959]
+                  - cell "Khám ngay" [ref=e9960]:
+                    - button "Khám ngay" [ref=e9961] [cursor=pointer]:
+                      - img [ref=e9962]
+                      - text: Khám ngay
+                - row "BN0012 To Thi Oanh 1980-03-21(46 tuổi) 0901000014 Khám ngay" [ref=e9966]:
+                  - cell "BN0012" [ref=e9967]
+                  - cell "To Thi Oanh" [ref=e9968]:
+                    - button "To Thi Oanh" [ref=e9969] [cursor=pointer]
+                  - cell "1980-03-21(46 tuổi)" [ref=e9970]:
+                    - text: 1980-03-21
+                    - generic [ref=e9971]: (46 tuổi)
+                  - cell "0901000014" [ref=e9972]
+                  - cell "Khám ngay" [ref=e9973]:
+                    - button "Khám ngay" [ref=e9974] [cursor=pointer]:
+                      - img [ref=e9975]
+                      - text: Khám ngay
+                - row "BN0013 Chau Van Phuc 1975-07-16(50 tuổi) 0901000015 Khám ngay" [ref=e9979]:
+                  - cell "BN0013" [ref=e9980]
+                  - cell "Chau Van Phuc" [ref=e9981]:
+                    - button "Chau Van Phuc" [ref=e9982] [cursor=pointer]
+                  - cell "1975-07-16(50 tuổi)" [ref=e9983]:
+                    - text: 1975-07-16
+                    - generic [ref=e9984]: (50 tuổi)
+                  - cell "0901000015" [ref=e9985]
+                  - cell "Khám ngay" [ref=e9986]:
+                    - button "Khám ngay" [ref=e9987] [cursor=pointer]:
+                      - img [ref=e9988]
+                      - text: Khám ngay
+                - row "BN0014 Mai Thi Quynh 2010-11-11(15 tuổi) 0901000016 Khám ngay" [ref=e9992]:
+                  - cell "BN0014" [ref=e9993]
+                  - cell "Mai Thi Quynh" [ref=e9994]:
+                    - button "Mai Thi Quynh" [ref=e9995] [cursor=pointer]
+                  - cell "2010-11-11(15 tuổi)" [ref=e9996]:
+                    - text: 2010-11-11
+                    - generic [ref=e9997]: (15 tuổi)
+                  - cell "0901000016" [ref=e9998]
+                  - cell "Khám ngay" [ref=e9999]:
+                    - button "Khám ngay" [ref=e10000] [cursor=pointer]:
+                      - img [ref=e10001]
+                      - text: Khám ngay
+                - row "BN0015 Phan Van Son 1960-04-04(66 tuổi) 0901000017 Khám ngay" [ref=e10005]:
+                  - cell "BN0015" [ref=e10006]
+                  - cell "Phan Van Son" [ref=e10007]:
+                    - button "Phan Van Son" [ref=e10008] [cursor=pointer]
+                  - cell "1960-04-04(66 tuổi)" [ref=e10009]:
+                    - text: 1960-04-04
+                    - generic [ref=e10010]: (66 tuổi)
+                  - cell "0901000017" [ref=e10011]
+                  - cell "Khám ngay" [ref=e10012]:
+                    - button "Khám ngay" [ref=e10013] [cursor=pointer]:
+                      - img [ref=e10014]
+                      - text: Khám ngay
+                - row "BN0016 Vo Thi Thanh 1993-06-27(32 tuổi) 0901000018 Khám ngay" [ref=e10018]:
+                  - cell "BN0016" [ref=e10019]
+                  - cell "Vo Thi Thanh" [ref=e10020]:
+                    - button "Vo Thi Thanh" [ref=e10021] [cursor=pointer]
+                  - cell "1993-06-27(32 tuổi)" [ref=e10022]:
+                    - text: 1993-06-27
+                    - generic [ref=e10023]: (32 tuổi)
+                  - cell "0901000018" [ref=e10024]
+                  - cell "Khám ngay" [ref=e10025]:
+                    - button "Khám ngay" [ref=e10026] [cursor=pointer]:
+                      - img [ref=e10027]
+                      - text: Khám ngay
+                - row "BN0017 Luu Van Uy 1987-08-08(38 tuổi) 0901000019 Khám ngay" [ref=e10031]:
+                  - cell "BN0017" [ref=e10032]
+                  - cell "Luu Van Uy" [ref=e10033]:
+                    - button "Luu Van Uy" [ref=e10034] [cursor=pointer]
+                  - cell "1987-08-08(38 tuổi)" [ref=e10035]:
+                    - text: 1987-08-08
+                    - generic [ref=e10036]: (38 tuổi)
+                  - cell "0901000019" [ref=e10037]
+                  - cell "Khám ngay" [ref=e10038]:
+                    - button "Khám ngay" [ref=e10039] [cursor=pointer]:
+                      - img [ref=e10040]
+                      - text: Khám ngay
+                - row "BN0018 Ho Thi Van 2000-01-01(26 tuổi) 0901000020 Khám ngay" [ref=e10044]:
+                  - cell "BN0018" [ref=e10045]
+                  - cell "Ho Thi Van" [ref=e10046]:
+                    - button "Ho Thi Van" [ref=e10047] [cursor=pointer]
+                  - cell "2000-01-01(26 tuổi)" [ref=e10048]:
+                    - text: 2000-01-01
+                    - generic [ref=e10049]: (26 tuổi)
+                  - cell "0901000020" [ref=e10050]
+                  - cell "Khám ngay" [ref=e10051]:
+                    - button "Khám ngay" [ref=e10052] [cursor=pointer]:
+                      - img [ref=e10053]
+                      - text: Khám ngay
+                - row "BN0019 Đỗ Văn CHiển 1999(27 tuổi) 0987654321 Khám ngay" [ref=e10057]:
+                  - cell "BN0019" [ref=e10058]
+                  - cell "Đỗ Văn CHiển" [ref=e10059]:
+                    - button "Đỗ Văn CHiển" [ref=e10060] [cursor=pointer]
+                  - cell "1999(27 tuổi)" [ref=e10061]:
+                    - text: "1999"
+                    - generic [ref=e10062]: (27 tuổi)
+                  - cell "0987654321" [ref=e10063]
+                  - cell "Khám ngay" [ref=e10064]:
+                    - button "Khám ngay" [ref=e10065] [cursor=pointer]:
+                      - img [ref=e10066]
+                      - text: Khám ngay
+                - row "BN0020 Nguyễn Văn E2E Test 1985(41 tuổi) 0987654321 Khám ngay" [ref=e10070]:
+                  - cell "BN0020" [ref=e10071]
+                  - cell "Nguyễn Văn E2E Test" [ref=e10072]:
+                    - button "Nguyễn Văn E2E Test" [ref=e10073] [cursor=pointer]
+                  - cell "1985(41 tuổi)" [ref=e10074]:
+                    - text: "1985"
+                    - generic [ref=e10075]: (41 tuổi)
+                  - cell "0987654321" [ref=e10076]
+                  - cell "Khám ngay" [ref=e10077]:
+                    - button "Khám ngay" [ref=e10078] [cursor=pointer]:
+                      - img [ref=e10079]
+                      - text: Khám ngay
+                - row "BN0021 chiển 1999(27 tuổi) — Khám ngay" [ref=e10083]:
+                  - cell "BN0021" [ref=e10084]
+                  - cell "chiển" [ref=e10085]:
+                    - button "chiển" [ref=e10086] [cursor=pointer]
+                  - cell "1999(27 tuổi)" [ref=e10087]:
+                    - text: "1999"
+                    - generic [ref=e10088]: (27 tuổi)
+                  - cell "—" [ref=e10089]
+                  - cell "Khám ngay" [ref=e10090]:
+                    - button "Khám ngay" [ref=e10091] [cursor=pointer]:
+                      - img [ref=e10092]
+                      - text: Khám ngay
+                - row "BN0022 Nguyễn Thị Ánh Hồng 1988-03-14(38 tuổi) 0922150072 Khám ngay" [ref=e10096]:
+                  - cell "BN0022" [ref=e10097]
+                  - cell "Nguyễn Thị Ánh Hồng" [ref=e10098]:
+                    - button "Nguyễn Thị Ánh Hồng" [ref=e10099] [cursor=pointer]
+                  - cell "1988-03-14(38 tuổi)" [ref=e10100]:
+                    - text: 1988-03-14
+                    - generic [ref=e10101]: (38 tuổi)
+                  - cell "0922150072" [ref=e10102]
+                  - cell "Khám ngay" [ref=e10103]:
+                    - button "Khám ngay" [ref=e10104] [cursor=pointer]:
+                      - img [ref=e10105]
+                      - text: Khám ngay
+                - row "BN0023 Duplicate Phone Patient 1990-01-01(36 tuổi) 0922150072 Khám ngay" [ref=e10109]:
+                  - cell "BN0023" [ref=e10110]
+                  - cell "Duplicate Phone Patient" [ref=e10111]:
+                    - button "Duplicate Phone Patient" [ref=e10112] [cursor=pointer]
+                  - cell "1990-01-01(36 tuổi)" [ref=e10113]:
+                    - text: 1990-01-01
+                    - generic [ref=e10114]: (36 tuổi)
+                  - cell "0922150072" [ref=e10115]
+                  - cell "Khám ngay" [ref=e10116]:
+                    - button "Khám ngay" [ref=e10117] [cursor=pointer]:
+                      - img [ref=e10118]
+                      - text: Khám ngay
+                - row "BN0025 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0922207916 Khám ngay" [ref=e10122]:
+                  - cell "BN0025" [ref=e10123]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10124]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10125] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10126]:
+                    - text: 1990-06-15
+                    - generic [ref=e10127]: (35 tuổi)
+                  - cell "0922207916" [ref=e10128]
+                  - cell "Khám ngay" [ref=e10129]:
+                    - button "Khám ngay" [ref=e10130] [cursor=pointer]:
+                      - img [ref=e10131]
+                      - text: Khám ngay
+                - row "BN0026 Nguyễn Thị Ánh Hồng 1988-03-14(38 tuổi) 0923118653 Khám ngay" [ref=e10135]:
+                  - cell "BN0026" [ref=e10136]
+                  - cell "Nguyễn Thị Ánh Hồng" [ref=e10137]:
+                    - button "Nguyễn Thị Ánh Hồng" [ref=e10138] [cursor=pointer]
+                  - cell "1988-03-14(38 tuổi)" [ref=e10139]:
+                    - text: 1988-03-14
+                    - generic [ref=e10140]: (38 tuổi)
+                  - cell "0923118653" [ref=e10141]
+                  - cell "Khám ngay" [ref=e10142]:
+                    - button "Khám ngay" [ref=e10143] [cursor=pointer]:
+                      - img [ref=e10144]
+                      - text: Khám ngay
+                - row "BN0027 Duplicate Phone Patient 1990-01-01(36 tuổi) 0923118653 Khám ngay" [ref=e10148]:
+                  - cell "BN0027" [ref=e10149]
+                  - cell "Duplicate Phone Patient" [ref=e10150]:
+                    - button "Duplicate Phone Patient" [ref=e10151] [cursor=pointer]
+                  - cell "1990-01-01(36 tuổi)" [ref=e10152]:
+                    - text: 1990-01-01
+                    - generic [ref=e10153]: (36 tuổi)
+                  - cell "0923118653" [ref=e10154]
+                  - cell "Khám ngay" [ref=e10155]:
+                    - button "Khám ngay" [ref=e10156] [cursor=pointer]:
+                      - img [ref=e10157]
+                      - text: Khám ngay
+                - row "BN0029 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0923178489 Khám ngay" [ref=e10161]:
+                  - cell "BN0029" [ref=e10162]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10163]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10164] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10165]:
+                    - text: 1990-06-15
+                    - generic [ref=e10166]: (35 tuổi)
+                  - cell "0923178489" [ref=e10167]
+                  - cell "Khám ngay" [ref=e10168]:
+                    - button "Khám ngay" [ref=e10169] [cursor=pointer]:
+                      - img [ref=e10170]
+                      - text: Khám ngay
+                - row "BN0030 Nguyễn Thị Ánh Hồng 1988-03-14(38 tuổi) 0923761866 Khám ngay" [ref=e10174]:
+                  - cell "BN0030" [ref=e10175]
+                  - cell "Nguyễn Thị Ánh Hồng" [ref=e10176]:
+                    - button "Nguyễn Thị Ánh Hồng" [ref=e10177] [cursor=pointer]
+                  - cell "1988-03-14(38 tuổi)" [ref=e10178]:
+                    - text: 1988-03-14
+                    - generic [ref=e10179]: (38 tuổi)
+                  - cell "0923761866" [ref=e10180]
+                  - cell "Khám ngay" [ref=e10181]:
+                    - button "Khám ngay" [ref=e10182] [cursor=pointer]:
+                      - img [ref=e10183]
+                      - text: Khám ngay
+                - row "BN0031 Duplicate Phone Patient 1990-01-01(36 tuổi) 0923761866 Khám ngay" [ref=e10187]:
+                  - cell "BN0031" [ref=e10188]
+                  - cell "Duplicate Phone Patient" [ref=e10189]:
+                    - button "Duplicate Phone Patient" [ref=e10190] [cursor=pointer]
+                  - cell "1990-01-01(36 tuổi)" [ref=e10191]:
+                    - text: 1990-01-01
+                    - generic [ref=e10192]: (36 tuổi)
+                  - cell "0923761866" [ref=e10193]
+                  - cell "Khám ngay" [ref=e10194]:
+                    - button "Khám ngay" [ref=e10195] [cursor=pointer]:
+                      - img [ref=e10196]
+                      - text: Khám ngay
+                - row "BN0033 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0923770031 Khám ngay" [ref=e10200]:
+                  - cell "BN0033" [ref=e10201]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10202]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10203] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10204]:
+                    - text: 1990-06-15
+                    - generic [ref=e10205]: (35 tuổi)
+                  - cell "0923770031" [ref=e10206]
+                  - cell "Khám ngay" [ref=e10207]:
+                    - button "Khám ngay" [ref=e10208] [cursor=pointer]:
+                      - img [ref=e10209]
+                      - text: Khám ngay
+                - row "BN0034 Nguyễn Thị Ánh Hồng 1988-03-14(38 tuổi) 0924863963 Khám ngay" [ref=e10213]:
+                  - cell "BN0034" [ref=e10214]
+                  - cell "Nguyễn Thị Ánh Hồng" [ref=e10215]:
+                    - button "Nguyễn Thị Ánh Hồng" [ref=e10216] [cursor=pointer]
+                  - cell "1988-03-14(38 tuổi)" [ref=e10217]:
+                    - text: 1988-03-14
+                    - generic [ref=e10218]: (38 tuổi)
+                  - cell "0924863963" [ref=e10219]
+                  - cell "Khám ngay" [ref=e10220]:
+                    - button "Khám ngay" [ref=e10221] [cursor=pointer]:
+                      - img [ref=e10222]
+                      - text: Khám ngay
+                - row "BN0035 Duplicate Phone Patient 1990-01-01(36 tuổi) 0924863963 Khám ngay" [ref=e10226]:
+                  - cell "BN0035" [ref=e10227]
+                  - cell "Duplicate Phone Patient" [ref=e10228]:
+                    - button "Duplicate Phone Patient" [ref=e10229] [cursor=pointer]
+                  - cell "1990-01-01(36 tuổi)" [ref=e10230]:
+                    - text: 1990-01-01
+                    - generic [ref=e10231]: (36 tuổi)
+                  - cell "0924863963" [ref=e10232]
+                  - cell "Khám ngay" [ref=e10233]:
+                    - button "Khám ngay" [ref=e10234] [cursor=pointer]:
+                      - img [ref=e10235]
+                      - text: Khám ngay
+                - row "BN0037 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0924873809 Khám ngay" [ref=e10239]:
+                  - cell "BN0037" [ref=e10240]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10241]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10242] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10243]:
+                    - text: 1990-06-15
+                    - generic [ref=e10244]: (35 tuổi)
+                  - cell "0924873809" [ref=e10245]
+                  - cell "Khám ngay" [ref=e10246]:
+                    - button "Khám ngay" [ref=e10247] [cursor=pointer]:
+                      - img [ref=e10248]
+                      - text: Khám ngay
+                - row "BN0038 Nguyễn Thị Ánh Hồng 1988-03-14(38 tuổi) 0925482720 Khám ngay" [ref=e10252]:
+                  - cell "BN0038" [ref=e10253]
+                  - cell "Nguyễn Thị Ánh Hồng" [ref=e10254]:
+                    - button "Nguyễn Thị Ánh Hồng" [ref=e10255] [cursor=pointer]
+                  - cell "1988-03-14(38 tuổi)" [ref=e10256]:
+                    - text: 1988-03-14
+                    - generic [ref=e10257]: (38 tuổi)
+                  - cell "0925482720" [ref=e10258]
+                  - cell "Khám ngay" [ref=e10259]:
+                    - button "Khám ngay" [ref=e10260] [cursor=pointer]:
+                      - img [ref=e10261]
+                      - text: Khám ngay
+                - row "BN0039 Duplicate Phone Patient 1990-01-01(36 tuổi) 0925482720 Khám ngay" [ref=e10265]:
+                  - cell "BN0039" [ref=e10266]
+                  - cell "Duplicate Phone Patient" [ref=e10267]:
+                    - button "Duplicate Phone Patient" [ref=e10268] [cursor=pointer]
+                  - cell "1990-01-01(36 tuổi)" [ref=e10269]:
+                    - text: 1990-01-01
+                    - generic [ref=e10270]: (36 tuổi)
+                  - cell "0925482720" [ref=e10271]
+                  - cell "Khám ngay" [ref=e10272]:
+                    - button "Khám ngay" [ref=e10273] [cursor=pointer]:
+                      - img [ref=e10274]
+                      - text: Khám ngay
+                - row "BN0041 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0925487995 Khám ngay" [ref=e10278]:
+                  - cell "BN0041" [ref=e10279]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10280]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10281] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10282]:
+                    - text: 1990-06-15
+                    - generic [ref=e10283]: (35 tuổi)
+                  - cell "0925487995" [ref=e10284]
+                  - cell "Khám ngay" [ref=e10285]:
+                    - button "Khám ngay" [ref=e10286] [cursor=pointer]:
+                      - img [ref=e10287]
+                      - text: Khám ngay
+                - row "BN0042 Hoang Van Em 1965-09-12(60 tuổi) 0901000005 Khám ngay" [ref=e10291]:
+                  - cell "BN0042" [ref=e10292]
+                  - cell "Hoang Van Em" [ref=e10293]:
+                    - button "Hoang Van Em" [ref=e10294] [cursor=pointer]
+                  - cell "1965-09-12(60 tuổi)" [ref=e10295]:
+                    - text: 1965-09-12
+                    - generic [ref=e10296]: (60 tuổi)
+                  - cell "0901000005" [ref=e10297]
+                  - cell "Khám ngay" [ref=e10298]:
+                    - button "Khám ngay" [ref=e10299] [cursor=pointer]:
+                      - img [ref=e10300]
+                      - text: Khám ngay
+                - row "BN0043 Dang Minh Quan 1983-06-05(42 tuổi) 0901000007 Khám ngay" [ref=e10304]:
+                  - cell "BN0043" [ref=e10305]
+                  - cell "Dang Minh Quan" [ref=e10306]:
+                    - button "Dang Minh Quan" [ref=e10307] [cursor=pointer]
+                  - cell "1983-06-05(42 tuổi)" [ref=e10308]:
+                    - text: 1983-06-05
+                    - generic [ref=e10309]: (42 tuổi)
+                  - cell "0901000007" [ref=e10310]
+                  - cell "Khám ngay" [ref=e10311]:
+                    - button "Khám ngay" [ref=e10312] [cursor=pointer]:
+                      - img [ref=e10313]
+                      - text: Khám ngay
+                - row "BN0044 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0970799504 Khám ngay" [ref=e10317]:
+                  - cell "BN0044" [ref=e10318]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10319]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10320] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10321]:
+                    - text: 1990-06-15
+                    - generic [ref=e10322]: (35 tuổi)
+                  - cell "0970799504" [ref=e10323]
+                  - cell "Khám ngay" [ref=e10324]:
+                    - button "Khám ngay" [ref=e10325] [cursor=pointer]:
+                      - img [ref=e10326]
+                      - text: Khám ngay
+                - row "BN0045 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0970810246 Khám ngay" [ref=e10330]:
+                  - cell "BN0045" [ref=e10331]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10332]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10333] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10334]:
+                    - text: 1990-06-15
+                    - generic [ref=e10335]: (35 tuổi)
+                  - cell "0970810246" [ref=e10336]
+                  - cell "Khám ngay" [ref=e10337]:
+                    - button "Khám ngay" [ref=e10338] [cursor=pointer]:
+                      - img [ref=e10339]
+                      - text: Khám ngay
+                - row "BN0046 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0973562640 Khám ngay" [ref=e10343]:
+                  - cell "BN0046" [ref=e10344]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10345]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10346] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10347]:
+                    - text: 1990-06-15
+                    - generic [ref=e10348]: (35 tuổi)
+                  - cell "0973562640" [ref=e10349]
+                  - cell "Khám ngay" [ref=e10350]:
+                    - button "Khám ngay" [ref=e10351] [cursor=pointer]:
+                      - img [ref=e10352]
+                      - text: Khám ngay
+                - row "BN0047 Bệnh Nhân Smoke Test 1990-06-15(35 tuổi) 0973562657 Khám ngay" [ref=e10356]:
+                  - cell "BN0047" [ref=e10357]
+                  - cell "Bệnh Nhân Smoke Test" [ref=e10358]:
+                    - button "Bệnh Nhân Smoke Test" [ref=e10359] [cursor=pointer]
+                  - cell "1990-06-15(35 tuổi)" [ref=e10360]:
+                    - text: 1990-06-15
+                    - generic [ref=e10361]: (35 tuổi)
+                  - cell "0973562657" [ref=e10362]
+                  - cell "Khám ngay" [ref=e10363]:
+                    - button "Khám ngay" [ref=e10364] [cursor=pointer]:
+                      - img [ref=e10365]
+                      - text: Khám ngay
+                - row "BN0048 BN Kiểm Thử E2E 0530 1990(36 tuổi) 0938050301 Khám ngay" [ref=e10369]:
+                  - cell "BN0048" [ref=e10370]
+                  - cell "BN Kiểm Thử E2E 0530" [ref=e10371]:
+                    - button "BN Kiểm Thử E2E 0530" [ref=e10372] [cursor=pointer]
+                  - cell "1990(36 tuổi)" [ref=e10373]:
+                    - text: "1990"
+                    - generic [ref=e10374]: (36 tuổi)
+                  - cell "0938050301" [ref=e10375]
+                  - cell "Khám ngay" [ref=e10376]:
+                    - button "Khám ngay" [ref=e10377] [cursor=pointer]:
+                      - img [ref=e10378]
+                      - text: Khám ngay
+    - region "Notifications alt+T"
+  - generic [ref=e7814]: Acetylcysteine 200mg

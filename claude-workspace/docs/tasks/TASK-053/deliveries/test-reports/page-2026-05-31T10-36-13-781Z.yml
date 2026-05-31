@@ -1,0 +1,172 @@
+- generic [ref=e2]:
+  - generic [ref=e50]:
+    - complementary [ref=e51]:
+      - generic [ref=e52]:
+        - img "MediZen" [ref=e53]
+        - generic [ref=e54]: MediZen
+      - navigation [ref=e55]:
+        - link "Tổng quan" [ref=e56] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e57]
+          - generic [ref=e62]: Tổng quan
+        - generic [ref=e63]:
+          - button "Tiếp tân" [ref=e64] [cursor=pointer]:
+            - img [ref=e65]
+            - generic [ref=e67]: Tiếp tân
+            - img [ref=e68]
+          - generic [ref=e70]:
+            - link "Bệnh nhân" [ref=e71] [cursor=pointer]:
+              - /url: "#/patients"
+              - img [ref=e72]
+              - generic [ref=e77]: Bệnh nhân
+            - link "Lịch hẹn" [ref=e78] [cursor=pointer]:
+              - /url: "#/appointments"
+              - img [ref=e79]
+              - generic [ref=e83]: Lịch hẹn
+            - link "Hàng chờ" [ref=e84] [cursor=pointer]:
+              - /url: "#/queue"
+              - img [ref=e85]
+              - generic [ref=e89]: Hàng chờ
+        - button "Nhà thuốc" [ref=e91] [cursor=pointer]:
+          - img [ref=e92]
+          - generic [ref=e95]: Nhà thuốc
+          - img [ref=e96]
+        - button "Thanh toán" [ref=e99] [cursor=pointer]:
+          - img [ref=e100]
+          - generic [ref=e102]: Thanh toán
+          - img [ref=e103]
+        - generic [ref=e105]:
+          - button "Báo cáo" [ref=e106] [cursor=pointer]:
+            - img [ref=e107]
+            - generic [ref=e109]: Báo cáo
+            - img [ref=e110]
+          - generic [ref=e112]:
+            - link "Doanh thu" [ref=e113] [cursor=pointer]:
+              - /url: "#/reports/revenue"
+              - img [ref=e114]
+              - generic [ref=e117]: Doanh thu
+            - link "Tồn kho" [ref=e118] [cursor=pointer]:
+              - /url: "#/reports/inventory"
+              - img [ref=e119]
+              - generic [ref=e123]: Tồn kho
+            - link "Hiệu suất bác sĩ" [ref=e124] [cursor=pointer]:
+              - /url: "#/reports/doctor-performance"
+              - img [ref=e125]
+              - generic [ref=e127]: Hiệu suất bác sĩ
+            - link "Lượt khám" [ref=e128] [cursor=pointer]:
+              - /url: "#/reports/visit-volume"
+              - img [ref=e129]
+              - generic [ref=e132]: Lượt khám
+            - link "Đơn thuốc" [ref=e133] [cursor=pointer]:
+              - /url: "#/reports/prescriptions"
+              - img [ref=e134]
+              - generic [ref=e137]: Đơn thuốc
+            - link "Công nợ AR" [ref=e138] [cursor=pointer]:
+              - /url: "#/reports/ar-aging"
+              - img [ref=e139]
+              - generic [ref=e142]: Công nợ AR
+        - link "Thông báo" [ref=e143] [cursor=pointer]:
+          - /url: "#/notifications"
+          - img [ref=e144]
+          - generic [ref=e147]: Thông báo
+        - generic [ref=e148]:
+          - button "Nhân sự" [ref=e149] [cursor=pointer]:
+            - img [ref=e150]
+            - generic [ref=e155]: Nhân sự
+            - img [ref=e156]
+          - generic [ref=e158]:
+            - link "Lịch ca" [ref=e159] [cursor=pointer]:
+              - /url: "#/hr/schedule"
+              - img [ref=e160]
+              - generic [ref=e162]: Lịch ca
+            - link "Chấm công" [ref=e163] [cursor=pointer]:
+              - /url: "#/hr/me/timelog"
+              - img [ref=e164]
+              - generic [ref=e167]: Chấm công
+            - link "Nghỉ phép" [ref=e168] [cursor=pointer]:
+              - /url: "#/hr/leave/new"
+              - img [ref=e169]
+              - generic [ref=e172]: Nghỉ phép
+        - generic [ref=e173]:
+          - button "Quản trị" [ref=e174] [cursor=pointer]:
+            - img [ref=e175]
+            - generic [ref=e177]: Quản trị
+            - img [ref=e178]
+          - generic [ref=e180]:
+            - link "Người dùng" [ref=e181] [cursor=pointer]:
+              - /url: "#/admin/users"
+              - img [ref=e182]
+              - generic [ref=e194]: Người dùng
+            - link "Vai trò & Phân quyền" [ref=e195] [cursor=pointer]:
+              - /url: "#/admin/roles"
+              - img [ref=e196]
+              - generic [ref=e200]: Vai trò & Phân quyền
+            - link "Cài đặt phòng khám" [ref=e201] [cursor=pointer]:
+              - /url: "#/admin/settings"
+              - img [ref=e202]
+              - generic [ref=e204]: Cài đặt phòng khám
+            - link "Nhật ký hoạt động" [ref=e205] [cursor=pointer]:
+              - /url: "#/admin/audit"
+              - img [ref=e206]
+              - generic [ref=e210]: Nhật ký hoạt động
+        - link "Cài đặt" [ref=e211] [cursor=pointer]:
+          - /url: "#/settings"
+          - img [ref=e212]
+          - generic [ref=e215]: Cài đặt
+        - generic [ref=e216]:
+          - generic [ref=e219]: Super Admin
+          - link "Tổng quan" [ref=e221] [cursor=pointer]:
+            - /url: "#/superadmin"
+            - img [ref=e222]
+            - generic [ref=e224]: Tổng quan
+          - link "Phòng khám" [ref=e225] [cursor=pointer]:
+            - /url: "#/superadmin/clinics"
+            - img [ref=e226]
+            - generic [ref=e230]: Phòng khám
+          - link "Tài khoản" [ref=e231] [cursor=pointer]:
+            - /url: "#/superadmin/accounts"
+            - img [ref=e232]
+            - generic [ref=e237]: Tài khoản
+          - link "Audit Logs" [ref=e238] [cursor=pointer]:
+            - /url: "#/superadmin/audit-logs"
+            - img [ref=e239]
+            - generic [ref=e242]: Audit Logs
+      - button "Thu nhỏ menu" [ref=e244] [cursor=pointer]:
+        - generic [ref=e245]: Thu nhỏ menu
+        - img [ref=e246]
+    - generic [ref=e248]:
+      - banner [ref=e249]:
+        - button "Chuyển phòng khám" [ref=e251] [cursor=pointer]:
+          - img [ref=e253]
+          - generic [ref=e257]: Platform System
+        - button "Open quick search (Ctrl+K)" [ref=e258] [cursor=pointer]:
+          - img [ref=e259]
+          - generic [ref=e262]: Tìm kiếm
+          - generic [ref=e263]: ⌘K
+        - generic [ref=e264]:
+          - status "Online" [ref=e265]:
+            - generic [ref=e267]: Online
+            - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e18290]': (!)
+          - button "Thông báo" [ref=e270] [cursor=pointer]:
+            - img [ref=e271]
+          - button "VI" [ref=e274] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e275] [cursor=pointer]:
+            - img [ref=e276]
+          - button "Chọn giao diện màu" [ref=e278] [cursor=pointer]:
+            - img [ref=e279]
+          - button "Menu người dùng" [ref=e285] [cursor=pointer]:
+            - generic [ref=e286]: SA
+            - generic [ref=e287]: super_admin
+      - navigation "Breadcrumb" [ref=e288]:
+        - link "Home" [ref=e289] [cursor=pointer]:
+          - /url: "#/dashboard"
+          - img [ref=e290]
+        - generic [ref=e293]:
+          - img [ref=e294]
+          - link "Superadmin" [ref=e296] [cursor=pointer]:
+            - /url: "#/superadmin"
+        - generic [ref=e18291]:
+          - img [ref=e18292]
+          - generic [ref=e18294]: Accounts
+      - main [ref=e301]
+  - region "Notifications alt+T"

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch sử hoá đơn — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .table-row-compact { height: 32px; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Lịch sử hoá đơn — MediZen</strong></span>
+    <span>ID: e4089713951341d18ca200d33e2bbc66</span>
+    <span>2560×2628 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 bottom-0 z-40 flex flex-col w-[240px] bg-white border-r border-slate-200">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+<span class="material-symbols-outlined text-lg">medical_services</span>
+</div>
+<span class="text-xl font-bold bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent font-headline">MediZen</span>
+</div>
+<p class="text-xs text-slate-400 mt-1 font-medium px-0.5">Clinic Management</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Tổng quan
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+                Bệnh nhân
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                Lịch hẹn
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-indigo-600 bg-indigo-50/50 font-semibold text-sm rounded-lg border-r-2 border-indigo-600" href="#">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+                Hóa đơn
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">medication</span>
+                Kho dược
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+                Báo cáo
+            </a>
+</nav>
+<div class="p-4 border-t border-slate-100 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Cài đặt
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-colors rounded-lg font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Hỗ trợ
+            </a>
+</div>
+</aside>
+<!-- Top Navigation -->
+<header class="fixed top-0 right-0 left-[240px] h-14 flex justify-between items-center px-6 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-2 text-sm">
+<span class="text-slate-400">Trang chủ</span>
+<span class="text-slate-300 text-[10px]">/</span>
+<span class="text-slate-400">Thanh toán</span>
+<span class="text-slate-300 text-[10px]">/</span>
+<span class="text-indigo-600 font-bold">Lịch sử</span>
+</nav>
+<div class="h-4 w-px bg-slate-200 mx-2"></div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-slate-100 border-none rounded-full text-xs w-64 focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all" placeholder="Tìm kiếm hóa đơn..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-indigo-600 text-white px-4 py-1.5 rounded-lg text-xs font-semibold hover:bg-indigo-700 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                Tạo hóa đơn mới
+            </button>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-lg transition-colors relative">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3 ml-2 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-xs font-bold leading-none">LT. Lan</p>
+<p class="text-[10px] text-slate-400 mt-1">Receptionist</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-indigo-50">
+<img class="w-full h-full object-cover" data-alt="Professional female medical receptionist wearing a clean white clinical uniform in a bright modern clinic setting. Soft high-key lighting creates a warm and trustworthy atmosphere, highlighting her friendly expression and the organized medical office background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJeqQ08u_ROTvbWsfqSJ0qiZc47K9tgV4x4yT4vmuxdtszLFV5nNLzR9B-qGwQ3zKQ3i5WWmq0Bng1nRIfuTlzKt5v-ZUVYfHrD5FVweRXA24ABLeRfAlRf4yJ3KIvklIl8fi5Li-gUxP7PkOyqpuulU0BVAaGbGhjvEGjMtDfmngzQwNi942HpDldqOJXcsu5PrgQqJEn_yudzVCf546fQQNcc7FyRWgX83EW7EhPNqFm75Y8yYC6vGV0ARxH83MEZWpCTRhjNUc"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-[240px] pt-14 pb-10 min-h-screen">
+<div class="p-8 max-w-[1440px] mx-auto">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="text-3xl font-extrabold font-headline tracking-tight text-slate-900">Lịch sử hoá đơn</h1>
+<p class="text-slate-500 mt-1 font-medium flex items-center gap-2">
+<span class="font-semibold text-indigo-600">1,247 hoá đơn tháng 4</span>
+<span class="text-slate-300">·</span>
+<span>₫1.247B doanh thu</span>
+<span class="text-slate-300">·</span>
+<span class="text-red-500">24 hoàn tiền</span>
+</p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Đã thanh toán</p>
+<h3 class="text-2xl font-bold mt-1">1,156</h3>
+<p class="text-sm font-semibold text-success mt-1">₫1.18B</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Pending</p>
+<h3 class="text-2xl font-bold mt-1">47</h3>
+<p class="text-sm font-semibold text-warning mt-1">₫186M</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+<span class="material-symbols-outlined">pending</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Void</p>
+<h3 class="text-2xl font-bold mt-1">12</h3>
+<p class="text-sm font-semibold text-slate-400 mt-1">Hủy/Lỗi</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center">
+<span class="material-symbols-outlined">cancel</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm shadow-indigo-500/5">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Refund</p>
+<h3 class="text-2xl font-bold mt-1">32</h3>
+<p class="text-sm font-semibold text-red-500 mt-1">−₫24M</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center">
+<span class="material-symbols-outlined">keyboard_return</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Filter Bar -->
+<div class="sticky top-14 z-20 bg-white/90 backdrop-blur-md border border-slate-200 rounded-xl p-4 mb-6 flex flex-wrap items-center gap-4 shadow-sm">
+<div class="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+<span class="material-symbols-outlined text-slate-400 text-lg">calendar_month</span>
+<span class="text-xs font-bold text-slate-700">01/04 - 30/04/2026</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full text-xs font-bold">Tất cả</span>
+<span class="px-3 py-1 hover:bg-slate-50 text-slate-500 border border-slate-200 rounded-full text-xs font-medium cursor-pointer">Thành công</span>
+<span class="px-3 py-1 hover:bg-slate-50 text-slate-500 border border-slate-200 rounded-full text-xs font-medium cursor-pointer">Pending</span>
+</div>
+<div class="h-6 w-px bg-slate-200"></div>
+<select class="text-xs font-medium border-slate-200 rounded-lg py-1.5 focus:ring-indigo-500 focus:border-indigo-500 bg-slate-50">
+<option>Phương thức</option>
+<option>Tiền mặt</option>
+<option>Chuyển khoản</option>
+<option>POS</option>
+<option>QR</option>
+</select>
+<div class="flex-1 min-w-[150px] relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 border-slate-200 rounded-lg text-xs focus:ring-indigo-500 focus:border-indigo-500 bg-slate-50" placeholder="Tìm BN/Bác sĩ" type="text"/>
+</div>
+<div class="flex items-center gap-4 px-2">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Giá</span>
+<input class="w-24 accent-indigo-600" type="range"/>
+</div>
+<button class="ml-auto flex items-center gap-2 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Xuất Excel
+                </button>
+</div>
+<!-- Invoice Table -->
+<div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-slate-200">
+<th class="p-3 w-10"><input class="rounded text-indigo-600 focus:ring-indigo-500 border-slate-300" type="checkbox"/></th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Mã HĐ</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Ngày</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Bệnh nhân</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Bác sĩ</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Tổng tiền</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center">BHYT</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">BN Trả</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">PTTT</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">Trạng thái</th>
+<th class="px-4 py-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider text-right"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<!-- Row 1 -->
+<tr class="hover:bg-indigo-50/30 transition-colors table-row-compact group">
+<td class="p-3"><input class="rounded text-indigo-600 border-slate-300" type="checkbox"/></td>
+<td class="px-4 text-xs font-bold text-indigo-600">INV-2026-0892</td>
+<td class="px-4 text-[11px] text-slate-500">14/04 • 10:20</td>
+<td class="px-4 text-xs font-bold">Lê Hà Vy</td>
+<td class="px-4 text-xs text-slate-600">BS. An</td>
+<td class="px-4 text-xs font-semibold">₫1,268,000</td>
+<td class="px-4 text-center">
+<span class="w-4 h-4 inline-flex items-center justify-center bg-emerald-100 text-emerald-700 rounded-full"><span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span></span>
+</td>
+<td class="px-4 text-xs font-bold text-slate-900">₫253,600</td>
+<td class="px-4">
+<div class="flex items-center gap-1 text-slate-600">
+<span class="text-xs">💵CK</span>
+</div>
+</td>
+<td class="px-4">
+<span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold">Đã thanh toán</span>
+</td>
+<td class="px-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">print</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-indigo-50/30 transition-colors table-row-compact group">
+<td class="p-3"><input class="rounded text-indigo-600 border-slate-300" type="checkbox"/></td>
+<td class="px-4 text-xs font-bold text-indigo-600">INV-2026-0889</td>
+<td class="px-4 text-[11px] text-slate-500">14/04 • 09:45</td>
+<td class="px-4 text-xs font-bold">Hoàng Lan</td>
+<td class="px-4 text-xs text-slate-600">BS. An</td>
+<td class="px-4 text-xs font-semibold">₫4,560,000</td>
+<td class="px-4 text-center">
+<span class="w-4 h-4 inline-flex items-center justify-center bg-emerald-100 text-emerald-700 rounded-full"><span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span></span>
+</td>
+<td class="px-4 text-xs font-bold text-slate-900">₫912,000</td>
+<td class="px-4">
+<div class="flex items-center gap-1 text-slate-600">
+<span class="text-xs">💵+💳</span>
+</div>
+</td>
+<td class="px-4">
+<span class="px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full text-[10px] font-bold">Pending</span>
+</td>
+<td class="px-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">print</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-indigo-50/30 transition-colors table-row-compact group">
+<td class="p-3"><input class="rounded text-indigo-600 border-slate-300" type="checkbox"/></td>
+<td class="px-4 text-xs font-bold text-indigo-600">INV-2026-0884</td>
+<td class="px-4 text-[11px] text-slate-500">14/04 • 09:12</td>
+<td class="px-4 text-xs font-bold">Hoàng Khoa</td>
+<td class="px-4 text-xs text-slate-600">BS. Hùng</td>
+<td class="px-4 text-xs font-semibold">₫560,000</td>
+<td class="px-4 text-center">
+<span class="w-4 h-4 inline-flex items-center justify-center bg-emerald-100 text-emerald-700 rounded-full"><span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span></span>
+</td>
+<td class="px-4 text-xs font-bold text-slate-900">₫112,000</td>
+<td class="px-4">
+<div class="flex items-center gap-1 text-slate-600">
+<span class="text-xs">💳</span>
+</div>
+</td>
+<td class="px-4">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-full text-[10px] font-bold">Void</span>
+</td>
+<td class="px-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">print</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-indigo-50/30 transition-colors table-row-compact group">
+<td class="p-3"><input class="rounded text-indigo-600 border-slate-300" type="checkbox"/></td>
+<td class="px-4 text-xs font-bold text-indigo-600">INV-2026-0883</td>
+<td class="px-4 text-[11px] text-slate-500">14/04 • 08:30</td>
+<td class="px-4 text-xs font-bold">Lê Phong</td>
+<td class="px-4 text-xs text-slate-600">BS. An</td>
+<td class="px-4 text-xs font-semibold">₫890,000</td>
+<td class="px-4 text-center">
+<span class="w-4 h-4 inline-flex items-center justify-center bg-slate-100 text-slate-300 rounded-full"><span class="material-symbols-outlined text-[10px]">close</span></span>
+</td>
+<td class="px-4 text-xs font-bold text-red-600">₫890,000</td>
+<td class="px-4">
+<div class="flex items-center gap-1 text-slate-600">
+<span class="text-xs">💵</span>
+</div>
+</td>
+<td class="px-4">
+<span class="px-2 py-0.5 bg-red-100 text-red-700 rounded-full text-[10px] font-bold">Refund −₫890k</span>
+</td>
+<td class="px-4 text-right">
+<div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">visibility</span></button>
+<button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">print</span></button>
+</div>
+</td>
+</tr>
+<!-- Dummy rows to fill 14 -->
+<script>
+                                for(let i=5; i<=14; i++) {
+                                    document.write(`
+                                        <tr class="hover:bg-indigo-50/30 transition-colors table-row-compact group border-t border-slate-100">
+                                            <td class="p-3"><input type="checkbox" class="rounded text-indigo-600 border-slate-300"></td>
+                                            <td class="px-4 text-xs font-bold text-indigo-600">INV-2026-08${80-i}</td>
+                                            <td class="px-4 text-[11px] text-slate-500">13/04 • 16:${10+i}</td>
+                                            <td class="px-4 text-xs font-bold">Bệnh nhân #${i+100}</td>
+                                            <td class="px-4 text-xs text-slate-600">BS. Hùng</td>
+                                            <td class="px-4 text-xs font-semibold">₫1,200,000</td>
+                                            <td class="px-4 text-center">
+                                                <span class="w-4 h-4 inline-flex items-center justify-center bg-emerald-100 text-emerald-700 rounded-full"><span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span></span>
+                                            </td>
+                                            <td class="px-4 text-xs font-bold text-slate-900">₫240,000</td>
+                                            <td class="px-4"><span class="text-xs">💳</span></td>
+                                            <td class="px-4"><span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold">Đã thanh toán</span></td>
+                                            <td class="px-4 text-right">
+                                                <div class="flex justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">visibility</span></button>
+                                                    <button class="p-1 hover:bg-white rounded border border-transparent hover:border-slate-200 text-slate-400 hover:text-indigo-600"><span class="material-symbols-outlined text-sm">print</span></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    `);
+                                }
+                            </script>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer / Sticky Bulk Actions -->
+<footer class="fixed bottom-0 right-0 left-[240px] h-12 bg-white/95 backdrop-blur-md border-t border-slate-200 z-40 px-6 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-xs font-bold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-sm">check_box</span>
+                Đã chọn: 0
+            </div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 text-xs font-bold text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors">Nhắc nợ</button>
+<button class="px-3 py-1 text-xs font-bold text-red-600 hover:bg-red-50 rounded-lg transition-colors">Huỷ</button>
+<button class="px-3 py-1 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">Xuất chọn</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<p class="text-xs text-slate-500 font-medium italic">© 2024 MediZen Modern EMR • Hệ thống Quản lý Y tế</p>
+<div class="flex items-center gap-3 ml-4">
+<span class="text-[11px] text-slate-400 font-bold">Hàng mỗi trang: 25</span>
+<div class="flex items-center border border-slate-200 rounded overflow-hidden">
+<button class="p-1 hover:bg-slate-50 text-slate-400"><span class="material-symbols-outlined text-lg">chevron_left</span></button>
+<span class="px-3 py-1 text-[11px] font-bold border-x border-slate-200 bg-indigo-50 text-indigo-600">1</span>
+<button class="p-1 hover:bg-slate-50 text-slate-400"><span class="material-symbols-outlined text-lg">chevron_right</span></button>
+</div>
+<span class="text-[11px] text-slate-500 font-bold">1-25 of 1,247</span>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

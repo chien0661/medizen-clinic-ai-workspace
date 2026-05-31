@@ -1,0 +1,50 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e1992]:
+      - complementary [ref=e1993]:
+        - generic [ref=e1994]:
+          - img [ref=e1996]
+          - generic [ref=e1997]: MediZen
+        - generic [ref=e1998]:
+          - heading [level=2] [ref=e1999]: Đăng nhập hệ thống
+          - paragraph [ref=e2000]: Quản lý phòng khám
+        - generic [ref=e2001]:
+          - generic [ref=e2002]:
+            - img [ref=e2003]
+            - generic [ref=e2006]: Patient-first
+          - generic [ref=e2007]:
+            - img [ref=e2008]
+            - generic [ref=e2010]: Real-time queue
+          - generic [ref=e2011]:
+            - img [ref=e2012]
+            - generic [ref=e2014]: RBAC + audit
+      - main [ref=e2015]:
+        - generic [ref=e2016]:
+          - generic [ref=e2017]:
+            - heading "Đăng nhập hệ thống" [level=1] [ref=e2018]
+            - paragraph [ref=e2019]: Quản lý phòng khám
+          - generic [ref=e2020]:
+            - generic [ref=e2021]:
+              - text: Tên đăng nhập
+              - generic [ref=e2022]:
+                - img
+                - textbox "Tên đăng nhập" [ref=e2023]:
+                  - /placeholder: Nhập tên đăng nhập
+            - generic [ref=e2024]:
+              - generic [ref=e2025]:
+                - generic [ref=e2026]: Mật khẩu
+                - button "Quên mật khẩu?" [ref=e2027] [cursor=pointer]
+              - generic [ref=e2028]:
+                - img
+                - textbox "Mật khẩu" [ref=e2029]:
+                  - /placeholder: Nhập mật khẩu
+                - button "Show password" [ref=e2030] [cursor=pointer]:
+                  - img [ref=e2031]
+            - generic [ref=e2034]:
+              - checkbox "Ghi nhớ đăng nhập" [ref=e2035] [cursor=pointer]
+              - checkbox
+              - generic [ref=e2036] [cursor=pointer]: Ghi nhớ đăng nhập
+            - button "Đăng nhập" [ref=e2037] [cursor=pointer]
+          - paragraph [ref=e2038]: © 2026 MediZen · v0.1.0
+    - region "Notifications alt+T"
+  - generic [ref=e385]: "0"

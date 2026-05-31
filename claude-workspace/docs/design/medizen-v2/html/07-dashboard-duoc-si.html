@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 - Dashboard Dược Sĩ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* =============================================
+     DESIGN SYSTEM TOKENS
+  ============================================= */
+  :root {
+    /* Colors */
+    --color-primary: #4F46E5;
+    --color-primary-light: #EEF2FF;
+    --color-primary-dark: #3730A3;
+    --color-secondary: #7C3AED;
+    --color-secondary-light: #F5F3FF;
+    --color-accent: #EC4899;
+    --color-accent-light: #FDF2F8;
+    --color-bg: #F5F3FF;
+    --color-surface: #FFFFFF;
+    --color-border: #E8E4F3;
+
+    /* Status Colors */
+    --color-emerald: #10B981;
+    --color-emerald-light: #D1FAE5;
+    --color-emerald-dark: #065F46;
+    --color-amber: #F59E0B;
+    --color-amber-light: #FEF3C7;
+    --color-amber-dark: #92400E;
+    --color-rose: #F43F5E;
+    --color-rose-light: #FFE4E6;
+    --color-rose-dark: #9F1239;
+    --color-indigo: #4F46E5;
+    --color-indigo-light: #EEF2FF;
+    --color-indigo-dark: #3730A3;
+    --color-orange: #F97316;
+    --color-orange-light: #FFEDD5;
+    --color-yellow: #EAB308;
+    --color-yellow-light: #FEF9C3;
+
+    /* Text */
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-tertiary: #9CA3AF;
+    --text-inverse: #FFFFFF;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(79,70,229,0.06);
+    --shadow-md: 0 4px 6px -1px rgba(79,70,229,0.08), 0 2px 4px -1px rgba(79,70,229,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(79,70,229,0.10), 0 4px 6px -2px rgba(79,70,229,0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(79,70,229,0.12), 0 10px 10px -5px rgba(79,70,229,0.06);
+
+    /* Spacing (8px grid) */
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 20px;
+    --sp-6: 24px;
+    --sp-8: 32px;
+    --sp-10: 40px;
+    --sp-12: 48px;
+
+    /* Border radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+    /* Sidebar */
+    --sidebar-width: 260px;
+    --topbar-height: 68px;
+
+    /* Typography */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  /* =============================================
+     RESET & BASE
+  ============================================= */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--text-primary);
+    min-width: 1920px;
+    overflow-x: hidden;
+  }
+
+  /* =============================================
+     LAYOUT
+  ============================================= */
+  .app-shell {
+    display: flex;
+    min-height: 100vh;
+    width: 1920px;
+    margin: 0 auto;
+  }
+
+  /* =============================================
+     SIDEBAR
+  ============================================= */
+  .sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(175deg, #1E1B4B 0%, #312E81 40%, #4338CA 100%);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+    box-shadow: 4px 0 24px rgba(79,70,229,0.25);
+    overflow: hidden;
+  }
+
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .sidebar-logo {
+    padding: 24px 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #818CF8, #A78BFA);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(129,140,248,0.4);
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    font-family: var(--font-heading);
+    color: white;
+  }
+
+  .logo-text .logo-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text .logo-version {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* Sidebar section label */
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 20px 20px 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Nav items */
+  .sidebar-nav {
+    flex: 1;
+    padding: 8px 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+  }
+
+  .sidebar-nav::-webkit-scrollbar { display: none; }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .nav-item:hover {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-item.active {
+    background: linear-gradient(135deg, rgba(129,140,248,0.25), rgba(167,139,250,0.15));
+    border: 1px solid rgba(129,140,248,0.3);
+  }
+
+  .nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 24px;
+    background: linear-gradient(180deg, #818CF8, #A78BFA);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .nav-icon {
+    font-size: 17px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nav-label {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    flex: 1;
+  }
+
+  .nav-item.active .nav-label {
+    color: #C7D2FE;
+    font-weight: 600;
+  }
+
+  .nav-badge {
+    background: var(--color-rose);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    min-width: 18px;
+    text-align: center;
+  }
+
+  /* User profile bottom */
+  .sidebar-profile {
+    padding: 16px 16px 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 1;
+  }
+
+  .profile-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.06);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .profile-card:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #A78BFA, #EC4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(167,139,250,0.4);
+  }
+
+  .profile-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profile-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+
+  .profile-role {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 1px;
+  }
+
+  .profile-chevron {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* =============================================
+     MAIN CONTENT AREA
+  ============================================= */
+  .main-wrapper {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* =============================================
+     TOPBAR
+  ============================================= */
+  .topbar {
+    height: var(--topbar-height);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .breadcrumb-module {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .breadcrumb-sep {
+    color: var(--text-tertiary);
+    font-size: 14px;
+  }
+
+  .breadcrumb-page {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .topbar-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: 8px 16px;
+    width: 340px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .topbar-search:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .topbar-search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: var(--text-primary);
+    width: 100%;
+  }
+
+  .topbar-search input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 17px;
+    position: relative;
+  }
+
+  .icon-btn:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+  }
+
+  .notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 16px;
+    height: 16px;
+    background: var(--color-rose);
+    border-radius: var(--radius-full);
+    font-size: 9px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+  }
+
+  .topbar-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--color-border);
+    margin: 0 6px;
+  }
+
+  .topbar-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: var(--radius-md);
+    transition: background 0.2s;
+  }
+
+  .topbar-user:hover {
+    background: var(--color-bg);
+  }
+
+  .topbar-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #A78BFA, #EC4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 8px rgba(167,139,250,0.35);
+  }
+
+  .topbar-user-info {
+    text-align: left;
+  }
+
+  .topbar-user-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .topbar-user-role {
+    font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  /* =============================================
+     PAGE CONTENT
+  ============================================= */
+  .page-content {
+    flex: 1;
+    padding: 28px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* =============================================
+     PAGE HEADER
+  ============================================= */
+  .page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .page-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .greeting-title {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .greeting-subtitle {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(79,70,229,0.2);
+  }
+
+  .quick-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), #6366F1);
+    color: white;
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), #4F46E5);
+    box-shadow: 0 6px 16px rgba(79,70,229,0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, var(--color-accent), #F97316);
+    color: white;
+    box-shadow: 0 4px 12px rgba(236,72,153,0.3);
+  }
+
+  .btn-accent:hover {
+    box-shadow: 0 6px 16px rgba(236,72,153,0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-emerald {
+    background: linear-gradient(135deg, var(--color-emerald), #059669);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+  }
+
+  .btn-emerald:hover {
+    box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+    transform: translateY(-1px);
+  }
+
+  /* =============================================
+     STAT CARDS
+  ============================================= */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .stat-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 22px 24px;
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.06;
+    transform: translate(40px, -40px);
+  }
+
+  .stat-card.amber::before { background: var(--color-amber); }
+  .stat-card.emerald::before { background: var(--color-emerald); }
+  .stat-card.rose::before { background: var(--color-rose); }
+  .stat-card.indigo::before { background: var(--color-indigo); }
+
+  .stat-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .stat-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .stat-icon-wrap.amber { background: var(--color-amber-light); }
+  .stat-icon-wrap.emerald { background: var(--color-emerald-light); }
+  .stat-icon-wrap.rose { background: var(--color-rose-light); }
+  .stat-icon-wrap.indigo { background: var(--color-indigo-light); }
+
+  .stat-trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .stat-trend.up { background: var(--color-emerald-light); color: var(--color-emerald-dark); }
+  .stat-trend.down { background: var(--color-rose-light); color: var(--color-rose-dark); }
+  .stat-trend.neutral { background: var(--color-amber-light); color: var(--color-amber-dark); }
+
+  .stat-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .stat-value.amber { color: var(--color-amber); }
+  .stat-value.emerald { color: var(--color-emerald); }
+  .stat-value.rose { color: var(--color-rose); }
+  .stat-value.indigo { color: var(--color-indigo); }
+
+  .stat-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .stat-sub {
+    font-size: 11.5px;
+    color: var(--text-tertiary);
+    margin-top: 2px;
+  }
+
+  /* =============================================
+     MAIN GRID (60/40)
+  ============================================= */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* =============================================
+     CARDS
+  ============================================= */
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .card-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-subtitle {
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+  }
+
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 7px;
+    background: var(--color-amber-light);
+    color: var(--color-amber-dark);
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .card-body {
+    padding: 16px 24px 22px;
+  }
+
+  /* =============================================
+     TABLE
+  ============================================= */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table thead tr {
+    background: var(--color-bg);
+  }
+
+  .data-table thead th {
+    padding: 10px 14px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    text-align: left;
+    border-bottom: 1.5px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  .data-table thead th:first-child { border-radius: 8px 0 0 8px; }
+  .data-table thead th:last-child { border-radius: 0 8px 8px 0; }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid rgba(232,228,243,0.6);
+    transition: background 0.15s;
+  }
+
+  .data-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .data-table tbody tr:hover {
+    background: rgba(245,243,255,0.8);
+  }
+
+  .data-table tbody td {
+    padding: 13px 14px;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    vertical-align: middle;
+  }
+
+  .order-id {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+  }
+
+  .patient-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .patient-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .patient-id {
+    font-size: 11.5px;
+    color: var(--text-tertiary);
+  }
+
+  .doctor-cell {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .drug-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+
+  /* Status badges */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .status-badge.waiting {
+    background: var(--color-amber-light);
+    color: var(--color-amber-dark);
+    border: 1px solid rgba(245,158,11,0.25);
+  }
+
+  .status-badge.preparing {
+    background: var(--color-indigo-light);
+    color: var(--color-indigo-dark);
+    border: 1px solid rgba(79,70,229,0.2);
+  }
+
+  .status-badge.urgent {
+    background: var(--color-rose-light);
+    color: var(--color-rose-dark);
+    border: 1px solid rgba(244,63,94,0.25);
+    animation: pulse-badge 2s infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-dot.waiting { background: var(--color-amber); }
+  .status-dot.preparing { background: var(--color-indigo); }
+  .status-dot.urgent { background: var(--color-rose); }
+
+  .btn-dispense {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .btn-dispense:hover {
+    background: var(--color-primary-dark);
+    box-shadow: 0 3px 8px rgba(79,70,229,0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-dispense.urgent {
+    background: var(--color-rose);
+  }
+
+  .btn-dispense.urgent:hover {
+    background: #E11D48;
+    box-shadow: 0 3px 8px rgba(244,63,94,0.3);
+  }
+
+  /* =============================================
+     STOCK WARNING PANEL
+  ============================================= */
+  .stock-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stock-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    border: 1.5px solid;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .stock-item:hover {
+    transform: translateX(3px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .stock-item.level-critical {
+    background: rgba(254,242,242,0.8);
+    border-color: rgba(244,63,94,0.25);
+  }
+
+  .stock-item.level-low {
+    background: rgba(255,237,213,0.7);
+    border-color: rgba(249,115,22,0.22);
+  }
+
+  .stock-item.level-medium {
+    background: rgba(254,252,232,0.7);
+    border-color: rgba(234,179,8,0.22);
+  }
+
+  .stock-item-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    width: 30px;
+    text-align: center;
+  }
+
+  .stock-item-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .stock-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .stock-item-detail {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .stock-qty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .stock-qty-badge.critical {
+    background: var(--color-rose-light);
+    color: var(--color-rose-dark);
+    border: 1.5px solid rgba(244,63,94,0.3);
+  }
+
+  .stock-qty-badge.low {
+    background: var(--color-orange-light);
+    color: #C2410C;
+    border: 1.5px solid rgba(249,115,22,0.3);
+  }
+
+  .stock-qty-badge.medium {
+    background: var(--color-yellow-light);
+    color: #854D0E;
+    border: 1.5px solid rgba(234,179,8,0.3);
+  }
+
+  .stock-progress {
+    height: 4px;
+    background: rgba(0,0,0,0.06);
+    border-radius: var(--radius-full);
+    margin-top: 6px;
+    overflow: hidden;
+  }
+
+  .stock-progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.6s ease;
+  }
+
+  .stock-progress-fill.critical { background: var(--color-rose); }
+  .stock-progress-fill.low { background: var(--color-orange); }
+  .stock-progress-fill.medium { background: var(--color-yellow); }
+
+  /* =============================================
+     BOTTOM ACTION BAR
+  ============================================= */
+  .bottom-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: 20px 28px;
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .bottom-actions-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: 4px;
+  }
+
+  .bottom-actions-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--color-border);
+    margin: 0 6px;
+  }
+
+  .action-btn-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-lg);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .action-btn-large .btn-icon {
+    font-size: 18px;
+  }
+
+  .action-btn-large.primary {
+    background: linear-gradient(135deg, var(--color-primary), #6366F1);
+    color: white;
+    box-shadow: 0 4px 14px rgba(79,70,229,0.32);
+  }
+
+  .action-btn-large.primary:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), #4F46E5);
+    box-shadow: 0 6px 20px rgba(79,70,229,0.42);
+    transform: translateY(-2px);
+  }
+
+  .action-btn-large.secondary {
+    background: var(--color-surface);
+    color: var(--color-secondary);
+    border: 1.5px solid rgba(124,58,237,0.3);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .action-btn-large.secondary:hover {
+    background: var(--color-secondary-light);
+    border-color: var(--color-secondary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .action-btn-large.tertiary {
+    background: var(--color-surface);
+    color: var(--color-emerald);
+    border: 1.5px solid rgba(16,185,129,0.3);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .action-btn-large.tertiary:hover {
+    background: var(--color-emerald-light);
+    border-color: var(--color-emerald);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .ml-auto { margin-left: auto; }
+
+  /* =============================================
+     MISC
+  ============================================= */
+  .divider-row {
+    height: 1.5px;
+    background: var(--color-border);
+    margin: 14px 0;
+    border-radius: var(--radius-full);
+  }
+
+  .empty-row td {
+    text-align: center;
+    color: var(--text-tertiary);
+    padding: 32px;
+    font-size: 13px;
+  }
+
+  .table-scroll-wrapper {
+    overflow-x: auto;
+  }
+
+  /* Stock footer */
+  .stock-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stock-summary-text {
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  /* Small scrollbar for table */
+  .table-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .table-scroll-wrapper::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  .table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+  }
+
+  /* Section header divider */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .section-divider-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, var(--color-border), transparent);
+  }
+
+  .section-divider-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Shift tag */
+  .shift-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(124,58,237,0.08));
+    border: 1px solid rgba(79,70,229,0.2);
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ======================================================
+       SIDEBAR
+  ====================================================== -->
+  <aside class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <a href="index.html" class="logo-container" style="text-decoration: none;">
+        <div class="logo-icon">💊</div>
+        <div class="logo-text">
+          <div class="logo-name">MediZen</div>
+          <div class="logo-version">Version 2.0</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Menu chính</div>
+
+      <a class="nav-item" href="04-dashboard-le-tan.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Tổng quan</span>
+      </a>
+
+      <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">Bệnh nhân</span>
+      </a>
+
+      <a class="nav-item" href="14-lich-hen.html">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Lịch hẹn</span>
+      </a>
+
+      <a class="nav-item" href="13-phong-cho-queue.html">
+        <span class="nav-icon">🕐</span>
+        <span class="nav-label">Phòng chờ</span>
+      </a>
+
+      <a class="nav-item" href="15-emr-sinh-hieu.html">
+        <span class="nav-icon">🩺</span>
+        <span class="nav-label">Khám bệnh</span>
+      </a>
+
+      <a class="nav-item active" href="21-cap-phat-don-thuoc.html">
+        <span class="nav-icon">💊</span>
+        <span class="nav-label">Dược</span>
+        <span class="nav-badge">15</span>
+      </a>
+
+      <div class="sidebar-section-label" style="margin-top: 4px; margin-bottom: 2px; padding-left: 28px; font-size: 10px; color: rgba(255,255,255,0.25);">Dược — phân mục</div>
+
+      <a class="nav-item" href="21-cap-phat-don-thuoc.html" style="padding-left: 28px;">
+        <span class="nav-icon">💊</span>
+        <span class="nav-label">Cấp phát</span>
+      </a>
+
+      <a class="nav-item" href="22-danh-muc-thuoc.html" style="padding-left: 28px;">
+        <span class="nav-icon">📋</span>
+        <span class="nav-label">Danh mục</span>
+      </a>
+
+      <a class="nav-item" href="23-nhap-kho.html" style="padding-left: 28px;">
+        <span class="nav-icon">📦</span>
+        <span class="nav-label">Nhập kho</span>
+      </a>
+
+      <a class="nav-item" href="22-danh-muc-thuoc.html" style="padding-left: 28px;">
+        <span class="nav-icon">🔍</span>
+        <span class="nav-label">Kiểm kê</span>
+      </a>
+
+      <a class="nav-item" href="24-thanh-toan.html">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label">Thanh toán</span>
+      </a>
+
+      <a class="nav-item" href="index.html">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Báo cáo</span>
+      </a>
+
+      <a class="nav-item" href="index.html">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Cấu hình</span>
+      </a>
+    </nav>
+
+    <!-- Profile -->
+    <div class="sidebar-profile">
+      <div class="profile-card">
+        <div class="profile-avatar">TM</div>
+        <div class="profile-info">
+          <div class="profile-name">DS. Trần Thị Mai</div>
+          <div class="profile-role">Dược sĩ phụ trách</div>
+        </div>
+        <span class="profile-chevron">›</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================================================
+       MAIN WRAPPER
+  ====================================================== -->
+  <div class="main-wrapper">
+
+    <!-- ====================================================
+         TOPBAR
+    ==================================================== -->
+    <header class="topbar">
+      <div class="topbar-breadcrumb">
+        <span class="breadcrumb-module">💊 Quản lý Dược</span>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-page">Tổng quan Dược sĩ</span>
+      </div>
+
+      <div class="topbar-search">
+        <span style="font-size:15px; color: var(--text-tertiary);">🔍</span>
+        <input type="text" placeholder="Tìm kiếm thuốc, mã đơn, bệnh nhân...">
+      </div>
+
+      <div class="topbar-actions">
+        <div class="icon-btn" title="Thông báo">
+          🔔
+          <span class="notification-badge">5</span>
+        </div>
+        <div class="icon-btn" title="Tin nhắn">💬</div>
+        <div class="icon-btn" title="Cài đặt nhanh">⚙️</div>
+        <div class="topbar-divider"></div>
+        <div class="topbar-user">
+          <div class="topbar-avatar">TM</div>
+          <div class="topbar-user-info">
+            <div class="topbar-user-name">DS. Trần Thị Mai</div>
+            <div class="topbar-user-role">Dược sĩ · Ca sáng</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ====================================================
+         PAGE CONTENT
+    ==================================================== -->
+    <main class="page-content">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-greeting">
+          <div class="greeting-title">Xin chào, Dược sĩ Mai! 💊</div>
+          <div class="greeting-subtitle">
+            <span class="date-badge">📅 Chủ nhật, 31/05/2026</span>
+            <span class="shift-tag">🌅 Ca sáng: 07:00 – 14:00</span>
+            <span style="color: var(--text-tertiary); font-size: 13px;">Chúc bạn làm việc hiệu quả hôm nay</span>
+          </div>
+        </div>
+        <div class="quick-actions">
+          <button class="btn btn-secondary">📊 Báo cáo ngày</button>
+          <button class="btn btn-secondary">🔔 Cảnh báo <span style="background: var(--color-rose); color: white; font-size: 11px; padding: 1px 6px; border-radius: 99px; margin-left: 2px;">8</span></button>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+
+        <!-- Đơn chờ cấp phát -->
+        <div class="stat-card amber">
+          <div class="stat-top">
+            <div class="stat-icon-wrap amber">📋</div>
+            <div class="stat-trend neutral">⏳ Chờ xử lý</div>
+          </div>
+          <div class="stat-bottom">
+            <div class="stat-value amber">15</div>
+            <div class="stat-label">Đơn chờ cấp phát</div>
+            <div class="stat-sub">3 đơn khẩn cấp cần ưu tiên</div>
+          </div>
+        </div>
+
+        <!-- Đã cấp phát -->
+        <div class="stat-card emerald">
+          <div class="stat-top">
+            <div class="stat-icon-wrap emerald">✅</div>
+            <div class="stat-trend up">↑ +8 hôm nay</div>
+          </div>
+          <div class="stat-bottom">
+            <div class="stat-value emerald">42</div>
+            <div class="stat-label">Đã cấp phát hôm nay</div>
+            <div class="stat-sub">Tính đến 13:45 hôm nay</div>
+          </div>
+        </div>
+
+        <!-- Thuốc sắp hết -->
+        <div class="stat-card rose">
+          <div class="stat-top">
+            <div class="stat-icon-wrap rose">⚠️</div>
+            <div class="stat-trend down">🔴 Cần đặt hàng</div>
+          </div>
+          <div class="stat-bottom">
+            <div class="stat-value rose">8</div>
+            <div class="stat-label">Thuốc sắp hết tồn kho</div>
+            <div class="stat-sub">2 loại dưới mức tối thiểu</div>
+          </div>
+        </div>
+
+        <!-- Nhập kho tuần -->
+        <div class="stat-card indigo">
+          <div class="stat-top">
+            <div class="stat-icon-wrap indigo">📦</div>
+            <div class="stat-trend up">↑ Tuần này</div>
+          </div>
+          <div class="stat-bottom">
+            <div class="stat-value indigo">12</div>
+            <div class="stat-label">Lô nhập kho trong tuần</div>
+            <div class="stat-sub">Cập nhật lúc 08:30 sáng nay</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- END Stats Grid -->
+
+      <!-- Main 60/40 Grid -->
+      <div class="main-grid">
+
+        <!-- LEFT: Đơn thuốc chờ cấp phát -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-title">
+                📋 Đơn thuốc chờ cấp phát
+                <span class="card-badge">15</span>
+              </div>
+              <div class="card-subtitle">Danh sách đơn thuốc cần xử lý — cập nhật theo thời gian thực</div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-shrink: 0;">
+              <button class="btn btn-secondary" style="font-size: 12.5px; padding: 7px 14px;">🔍 Lọc</button>
+              <button class="btn btn-secondary" style="font-size: 12.5px; padding: 7px 14px;">↻ Làm mới</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-scroll-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Mã đơn</th>
+                    <th>Bệnh nhân</th>
+                    <th>Bác sĩ kê đơn</th>
+                    <th style="text-align: center;">Số loại thuốc</th>
+                    <th>Trạng thái</th>
+                    <th style="text-align: center;">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <!-- Row 1: Urgent -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2640</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Nguyễn Văn Hùng</span>
+                        <span class="patient-id">BN-00412 · Phòng 201</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Lê Minh Khoa</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 5 loại</span></td>
+                    <td>
+                      <span class="status-badge urgent">
+                        <span class="status-dot urgent"></span>
+                        🚨 Khẩn cấp
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense urgent">⚡ Cấp phát</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 2: Waiting -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2639</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Trần Thị Lan Anh</span>
+                        <span class="patient-id">BN-00387 · Phòng 105</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Phạm Thị Hoa</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 3 loại</span></td>
+                    <td>
+                      <span class="status-badge waiting">
+                        <span class="status-dot waiting"></span>
+                        ⏳ Chờ xử lý
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense">💊 Cấp phát</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 3: Preparing -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2638</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Lê Quang Minh</span>
+                        <span class="patient-id">BN-00365 · Phòng 308</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Nguyễn Đức Thắng</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 7 loại</span></td>
+                    <td>
+                      <span class="status-badge preparing">
+                        <span class="status-dot preparing"></span>
+                        🔄 Đang chuẩn bị
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense">💊 Cấp phát</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 4: Urgent -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2637</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Phạm Thị Thu Hằng</span>
+                        <span class="patient-id">BN-00441 · Cấp cứu</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Đỗ Thanh Tùng</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 4 loại</span></td>
+                    <td>
+                      <span class="status-badge urgent">
+                        <span class="status-dot urgent"></span>
+                        🚨 Khẩn cấp
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense urgent">⚡ Cấp phát</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 5: Waiting -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2636</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Hoàng Văn Đức</span>
+                        <span class="patient-id">BN-00298 · Phòng 112</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Vũ Thị Nga</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 2 loại</span></td>
+                    <td>
+                      <span class="status-badge waiting">
+                        <span class="status-dot waiting"></span>
+                        ⏳ Chờ xử lý
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense">💊 Cấp phát</a>
+                    </td>
+                  </tr>
+
+                  <!-- Row 6: Preparing -->
+                  <tr>
+                    <td><a href="21-cap-phat-don-thuoc.html" style="text-decoration: none;"><span class="order-id">#RX-2635</span></a></td>
+                    <td>
+                      <div class="patient-cell">
+                        <span class="patient-name">Nguyễn Thị Bích Ngọc</span>
+                        <span class="patient-id">BN-00319 · Phòng 204</span>
+                      </div>
+                    </td>
+                    <td><span class="doctor-cell">BS. Lê Minh Khoa</span></td>
+                    <td style="text-align: center;"><span class="drug-count">💊 6 loại</span></td>
+                    <td>
+                      <span class="status-badge preparing">
+                        <span class="status-dot preparing"></span>
+                        🔄 Đang chuẩn bị
+                      </span>
+                    </td>
+                    <td style="text-align: center;">
+                      <a href="21-cap-phat-don-thuoc.html" class="btn-dispense">💊 Cấp phát</a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Table Footer -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1.5px solid var(--color-border);">
+              <span style="font-size: 12.5px; color: var(--text-tertiary);">
+                Hiển thị 6 / 15 đơn · <span style="color: var(--color-rose); font-weight: 600;">3 đơn khẩn cấp</span> · <span style="color: var(--color-amber); font-weight: 600;">5 đang chờ</span> · <span style="color: var(--color-indigo); font-weight: 600;">7 đang chuẩn bị</span>
+              </span>
+              <button class="btn btn-secondary" style="font-size: 12.5px; padding: 7px 16px;">Xem tất cả đơn →</button>
+            </div>
+          </div>
+        </div>
+        <!-- END LEFT CARD -->
+
+        <!-- RIGHT: Cảnh báo tồn kho -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <div class="card-title">
+                ⚠️ Cảnh báo tồn kho
+                <span class="card-badge" style="background: var(--color-rose-light); color: var(--color-rose-dark);">8</span>
+              </div>
+              <div class="card-subtitle">Thuốc cần bổ sung — cập nhật 13:30 hôm nay</div>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <div class="stock-list">
+
+              <!-- Item 1: Amoxicillin - Critical -->
+              <div class="stock-item level-critical">
+                <div class="stock-item-icon">🔴</div>
+                <div class="stock-item-info">
+                  <div class="stock-item-name">Amoxicillin 500mg</div>
+                  <div class="stock-item-detail">Kháng sinh · Mức tối thiểu: 50 hộp</div>
+                  <div class="stock-progress">
+                    <div class="stock-progress-fill critical" style="width: 18%;"></div>
+                  </div>
+                </div>
+                <div class="stock-qty-badge critical">
+                  ⚠️ 12 hộp
+                </div>
+              </div>
+
+              <!-- Item 2: Paracetamol - Critical -->
+              <div class="stock-item level-critical">
+                <div class="stock-item-icon">🔴</div>
+                <div class="stock-item-info">
+                  <div class="stock-item-name">Paracetamol 500mg</div>
+                  <div class="stock-item-detail">Giảm đau · Mức tối thiểu: 100 hộp</div>
+                  <div class="stock-progress">
+                    <div class="stock-progress-fill critical" style="width: 8%;"></div>
+                  </div>
+                </div>
+                <div class="stock-qty-badge critical">
+                  🔴 8 hộp
+                </div>
+              </div>
+
+              <!-- Item 3: Vitamin C - Low -->
+              <div class="stock-item level-low">
+                <div class="stock-item-icon">🟠</div>
+                <div class="stock-item-info">
+                  <div class="stock-item-name">Vitamin C 1000mg</div>
+                  <div class="stock-item-detail">Bổ sung vitamin · Mức tối thiểu: 80 lọ</div>
+                  <div class="stock-progress">
+                    <div class="stock-progress-fill low" style="width: 31%;"></div>
+                  </div>
+                </div>
+                <div class="stock-qty-badge low">
+                  🟠 25 lọ
+                </div>
+              </div>
+
+              <!-- Item 4: Omeprazol - Low -->
+              <div class="stock-item level-low">
+                <div class="stock-item-icon">🟠</div>
+                <div class="stock-item-info">
+                  <div class="stock-item-name">Omeprazol 20mg</div>
+                  <div class="stock-item-detail">Dạ dày · Mức tối thiểu: 60 vỉ</div>
+                  <div class="stock-progress">
+                    <div class="stock-progress-fill low" style="width: 25%;"></div>
+                  </div>
+                </div>
+                <div class="stock-qty-badge low">
+                  🟠 15 vỉ
+                </div>
+              </div>
+
+              <!-- Item 5: Metformin - Medium -->
+              <div class="stock-item level-medium">
+                <div class="stock-item-icon">🟡</div>
+                <div class="stock-item-info">
+                  <div class="stock-item-name">Metformin 500mg</div>
+                  <div class="stock-item-detail">Tiểu đường · Mức tối thiểu: 50 hộp</div>
+                  <div class="stock-progress">
+                    <div class="stock-progress-fill medium" style="width: 40%;"></div>
+                  </div>
+                </div>
+                <div class="stock-qty-badge medium">
+                  🟡 20 hộp
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Stock Footer -->
+            <div class="stock-footer">
+              <div class="stock-summary-text">
+                Còn <strong style="color: var(--color-rose);">3 loại thuốc khác</strong> sắp hết hạn trong 30 ngày tới
+              </div>
+              <a href="23-nhap-kho.html" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 14px; padding: 12px 20px;">
+                📝 Lập phiếu đặt hàng
+              </a>
+              <a href="22-danh-muc-thuoc.html" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 13px; padding: 9px 20px;">
+                📊 Xem toàn bộ tồn kho
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <!-- END RIGHT CARD -->
+
+      </div>
+      <!-- END Main Grid -->
+
+      <!-- ================================================
+           BOTTOM ACTION BAR
+      ================================================ -->
+      <div class="bottom-actions">
+        <span class="bottom-actions-label">⚡ Thao tác nhanh:</span>
+
+        <a href="21-cap-phat-don-thuoc.html" class="action-btn-large primary">
+          <span class="btn-icon">💊</span>
+          Cấp phát đơn mới
+        </a>
+
+        <a href="23-nhap-kho.html" class="action-btn-large secondary">
+          <span class="btn-icon">📦</span>
+          Nhập kho
+        </a>
+
+        <a href="22-danh-muc-thuoc.html" class="action-btn-large tertiary">
+          <span class="btn-icon">🔍</span>
+          Kiểm kê hôm nay
+        </a>
+
+        <div class="bottom-actions-divider"></div>
+
+        <button class="action-btn-large" style="background: var(--color-surface); color: var(--color-secondary); border: 1.5px solid rgba(124,58,237,0.25); font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-lg); cursor: pointer; transition: all 0.2s; white-space: nowrap;">
+          <span class="btn-icon">📋</span>
+          Tra cứu thuốc
+        </button>
+
+        <button class="action-btn-large" style="background: var(--color-surface); color: #B45309; border: 1.5px solid rgba(245,158,11,0.3); font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius-lg); cursor: pointer; transition: all 0.2s; white-space: nowrap;">
+          <span class="btn-icon">📝</span>
+          Ghi chú ca trực
+        </button>
+
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 12px; color: var(--text-tertiary);">Trạng thái hệ thống:</span>
+          <span style="display: inline-flex; align-items: center; gap: 5px; background: var(--color-emerald-light); color: var(--color-emerald-dark); font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-full); border: 1px solid rgba(16,185,129,0.25);">
+            <span style="width: 7px; height: 7px; background: var(--color-emerald); border-radius: 50%; display: inline-block; animation: pulse-badge 1.8s infinite;"></span>
+            Hệ thống hoạt động bình thường
+          </span>
+          <span style="font-size: 12px; color: var(--text-tertiary);">· Cập nhật: 13:45</span>
+        </div>
+      </div>
+      <!-- END Bottom Action Bar -->
+
+    </main>
+    <!-- END PAGE CONTENT -->
+
+  </div>
+  <!-- END MAIN WRAPPER -->
+
+</div>
+<!-- END APP SHELL -->
+
+</body>
+</html>

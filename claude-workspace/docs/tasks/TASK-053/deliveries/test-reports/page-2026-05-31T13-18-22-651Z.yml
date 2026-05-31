@@ -1,0 +1,1800 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e135]:
+      - complementary [ref=e136]:
+        - generic [ref=e137]:
+          - img "MediZen" [ref=e138]
+          - generic [ref=e139]: MediZen
+        - navigation [ref=e140]:
+          - generic [ref=e141]:
+            - generic [ref=e144]: Super Admin
+            - link "Tổng quan" [ref=e146] [cursor=pointer]:
+              - /url: "#/superadmin"
+              - img [ref=e147]
+              - generic [ref=e149]: Tổng quan
+            - link "Thống kê" [active] [ref=e150] [cursor=pointer]:
+              - /url: "#/superadmin/analytics"
+              - img [ref=e151]
+              - generic [ref=e153]: Thống kê
+            - link "Phòng khám" [ref=e154] [cursor=pointer]:
+              - /url: "#/superadmin/clinics"
+              - img [ref=e155]
+              - generic [ref=e159]: Phòng khám
+            - link "Tài khoản" [ref=e160] [cursor=pointer]:
+              - /url: "#/superadmin/accounts"
+              - img [ref=e161]
+              - generic [ref=e166]: Tài khoản
+            - link "Audit Logs" [ref=e167] [cursor=pointer]:
+              - /url: "#/superadmin/audit-logs"
+              - img [ref=e168]
+              - generic [ref=e171]: Audit Logs
+        - button "Thu nhỏ menu" [ref=e173] [cursor=pointer]:
+          - generic [ref=e174]: Thu nhỏ menu
+          - img [ref=e175]
+      - generic [ref=e177]:
+        - banner [ref=e178]:
+          - button "Chuyển phòng khám" [ref=e180] [cursor=pointer]:
+            - img [ref=e182]
+            - generic [ref=e186]: Platform System
+          - button "Open quick search (Ctrl+K)" [ref=e187] [cursor=pointer]:
+            - img [ref=e188]
+            - generic [ref=e191]: Tìm kiếm
+            - generic [ref=e192]: ⌘K
+          - generic [ref=e193]:
+            - status "Online" [ref=e194]:
+              - generic [ref=e196]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e350]': (!)
+            - button "Thông báo" [ref=e199] [cursor=pointer]:
+              - img [ref=e200]
+            - button "VI" [ref=e203] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e204] [cursor=pointer]:
+              - img [ref=e205]
+            - button "Chọn giao diện màu" [ref=e207] [cursor=pointer]:
+              - img [ref=e208]
+            - button "Menu người dùng" [ref=e214] [cursor=pointer]:
+              - generic [ref=e215]: SA
+              - generic [ref=e216]: super_admin
+        - navigation "Breadcrumb" [ref=e351]:
+          - link "Home" [ref=e352] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e353]
+          - generic [ref=e356]:
+            - img [ref=e357]
+            - link "Superadmin" [ref=e359] [cursor=pointer]:
+              - /url: "#/superadmin"
+          - generic [ref=e360]:
+            - img [ref=e361]
+            - generic [ref=e363]: Analytics
+        - main [ref=e217]:
+          - generic [ref=e364]:
+            - generic [ref=e365]:
+              - heading "Thống kê phòng khám" [level=1] [ref=e366]
+              - paragraph [ref=e367]: Xem chỉ số hoạt động theo thời gian — toàn hệ thống hoặc từng phòng khám
+            - generic [ref=e368]:
+              - generic [ref=e369]:
+                - generic [ref=e370]: Phòng khám
+                - combobox [ref=e371]:
+                  - option "Tất cả phòng khám" [selected]
+                  - option "Phòng khám Dr Trường"
+                  - option "Tag E2E Clinic F66E88"
+                  - option "Tag E2E Clinic 44ADB1"
+                  - option "Tag E2E Clinic 837566"
+                  - option "Tag E2E Clinic 50882A"
+                  - option "Tag E2E Clinic 49021F"
+                  - option "Tag E2E Clinic 0BE656"
+                  - option "Tag E2E Clinic 40237A"
+                  - option "Tag E2E Clinic 935D05"
+                  - option "Tag E2E Clinic 72BBEB"
+                  - option "Tag E2E Clinic 1FCD66"
+                  - option "Tag E2E Clinic 7F6C15"
+                  - option "Tag E2E Clinic F77633"
+                  - option "Tag E2E Clinic B3B034"
+                  - option "Tag E2E Clinic 7192F6"
+                  - option "Tag E2E Clinic 7E9161"
+                  - option "Tag E2E Clinic 289471"
+                  - option "Tag E2E Clinic 5A25BA"
+                  - option "Tag E2E Clinic 530C40"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 7972E5"
+                  - option "Report Test Clinic CE0B84"
+                  - option "Report Test Clinic 2946A4"
+                  - option "Report Test Clinic 7D6305"
+                  - option "Report Test Clinic 90B4BA"
+                  - option "Report Test Clinic 41FAB5"
+                  - option "Report Test Clinic 75F708"
+                  - option "Report Test Clinic D0F83F"
+                  - option "Report Test Clinic E98283"
+                  - option "Report Test Clinic 2A5588"
+                  - option "Report Test Clinic 9A8788"
+                  - option "AR Test Clinic 17FCE5"
+                  - option "AR Test Clinic 47C105"
+                  - option "AR Test Clinic FF0CC6"
+                  - option "AR Test Clinic EC3471"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 4DD3DC"
+                  - option "AR Test Clinic 8B78F3"
+                  - option "AR Test Clinic DA4EFF"
+                  - option "AR Test Clinic 6828A5"
+                  - option "AR Test Clinic FD046C"
+                  - option "AR Test Clinic 10C4F8"
+                  - option "AR Test Clinic CB0568"
+                  - option "AR Test Clinic CAB0DE"
+                  - option "AR Test Clinic D21E61"
+                  - option "AR Test Clinic 98E0DF"
+                  - option "AR Test Clinic 52338C"
+                  - option "AR Test Clinic 1168F8"
+                  - option "AR Test Clinic E44875"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 595BB9"
+                  - option "AR Test Clinic B68612"
+                  - option "AR Test Clinic A3CCDD"
+                  - option "AR Test Clinic B17FA1"
+                  - option "AR Test Clinic 2D4959"
+                  - option "AR Test Clinic 16880B"
+                  - option "AR Test Clinic 1FA97A"
+                  - option "AR Test Clinic 976722"
+                  - option "AR Test Clinic CF78E7"
+                  - option "AR Test Clinic 14AC4A"
+                  - option "AR Test Clinic 936346"
+                  - option "AR Test Clinic A4F78F"
+                  - option "AR Test Clinic 82BF06"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic D91C59"
+                  - option "AR Test Clinic B38C2A"
+                  - option "AR Test Clinic 7D8FEF"
+                  - option "AR Test Clinic 0D74C7"
+                  - option "AR Test Clinic 20E598"
+                  - option "AR Test Clinic D0D13E"
+                  - option "AR Test Clinic FAC328"
+                  - option "AR Test Clinic BA0F83"
+                  - option "AR Test Clinic 9D0378"
+                  - option "AR Test Clinic 6D321E"
+                  - option "AR Test Clinic 7E5D57"
+                  - option "AR Test Clinic C4BF68"
+                  - option "AR Test Clinic 9E9E75"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 35B671"
+                  - option "AR Test Clinic 17CC64"
+                  - option "AR Test Clinic 30916C"
+                  - option "AR Test Clinic 859253"
+                  - option "AR Test Clinic 652E7D"
+                  - option "AR Test Clinic 5C215C"
+                  - option "AR Test Clinic FFC9FE"
+                  - option "AR Test Clinic 7935EF"
+                  - option "AR Test Clinic 69D942"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 31625B"
+                  - option "Report Test Clinic D24A4B"
+                  - option "Report Test Clinic 65ACE7"
+                  - option "Report Test Clinic 9EB123"
+                  - option "Report Test Clinic E1788C"
+                  - option "Report Test Clinic 965BF7"
+                  - option "Report Test Clinic 4AC777"
+                  - option "Report Test Clinic 60F615"
+                  - option "Report Test Clinic D819A5"
+                  - option "Report Test Clinic B43018"
+                  - option "Report Test Clinic 3E0A20"
+                  - option "AR Test Clinic 0CFF47"
+                  - option "AR Test Clinic 025DB7"
+                  - option "AR Test Clinic C8D1D6"
+                  - option "AR Test Clinic E23710"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic BBD0D8"
+                  - option "AR Test Clinic 6B29BD"
+                  - option "AR Test Clinic 3B56DD"
+                  - option "AR Test Clinic 4D3B15"
+                  - option "AR Test Clinic 15C932"
+                  - option "AR Test Clinic 615725"
+                  - option "AR Test Clinic 27FDE1"
+                  - option "AR Test Clinic 5FFDCF"
+                  - option "AR Test Clinic 7061DF"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 226BAB"
+                  - option "Report Test Clinic 867D00"
+                  - option "Report Test Clinic 955A0F"
+                  - option "Report Test Clinic 173308"
+                  - option "Report Test Clinic 22FEBC"
+                  - option "Report Test Clinic 3EA8FC"
+                  - option "Report Test Clinic 232DDD"
+                  - option "Report Test Clinic C1CD9A"
+                  - option "Report Test Clinic 31A722"
+                  - option "Report Test Clinic 8D6B65"
+                  - option "Report Test Clinic 1F6AC6"
+                  - option "AR Test Clinic B21A8A"
+                  - option "AR Test Clinic 0E047D"
+                  - option "AR Test Clinic C4040E"
+                  - option "AR Test Clinic AACC96"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 24F1BA"
+                  - option "AR Test Clinic BBB4C6"
+                  - option "AR Test Clinic D7B64A"
+                  - option "AR Test Clinic 758CC7"
+                  - option "AR Test Clinic ABC5D0"
+                  - option "AR Test Clinic C1A4C0"
+                  - option "AR Test Clinic 9A3254"
+                  - option "AR Test Clinic D15BE9"
+                  - option "AR Test Clinic F3B2ED"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 12B7AB"
+                  - option "Report Test Clinic 636D5B"
+                  - option "Report Test Clinic B39193"
+                  - option "Report Test Clinic AC6D6A"
+                  - option "Report Test Clinic 7CCAEB"
+                  - option "Report Test Clinic CCD309"
+                  - option "Report Test Clinic 007D00"
+                  - option "Report Test Clinic 2AF433"
+                  - option "Report Test Clinic FEF2D4"
+                  - option "Report Test Clinic C895D4"
+                  - option "Report Test Clinic 220559"
+                  - option "AR Test Clinic 667FA6"
+                  - option "AR Test Clinic FC101F"
+                  - option "AR Test Clinic ADFBCC"
+                  - option "AR Test Clinic 492E89"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic B552A0"
+                  - option "AR Test Clinic EAA999"
+                  - option "AR Test Clinic 732B07"
+                  - option "AR Test Clinic BDBBC3"
+                  - option "AR Test Clinic 3971FA"
+                  - option "AR Test Clinic AF0C13"
+                  - option "AR Test Clinic 4F4E5F"
+                  - option "AR Test Clinic 7327AB"
+                  - option "AR Test Clinic A4282E"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 9F9E91"
+                  - option "Report Test Clinic E7D646"
+                  - option "Report Test Clinic EFFD84"
+                  - option "Report Test Clinic 5851C6"
+                  - option "Report Test Clinic CCC540"
+                  - option "Report Test Clinic E2B1BB"
+                  - option "Report Test Clinic 9B5F9A"
+                  - option "Report Test Clinic 3AE423"
+                  - option "Report Test Clinic A767C0"
+                  - option "Report Test Clinic 09D098"
+                  - option "Report Test Clinic EF7A5C"
+                  - option "AR Test Clinic 240092"
+                  - option "AR Test Clinic 8533D0"
+                  - option "AR Test Clinic AC507F"
+                  - option "AR Test Clinic 115558"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 764B3D"
+                  - option "AR Test Clinic 82980E"
+                  - option "AR Test Clinic 904190"
+                  - option "AR Test Clinic FFA8EB"
+                  - option "AR Test Clinic 5257ED"
+                  - option "AR Test Clinic 36BEC3"
+                  - option "AR Test Clinic 320FFB"
+                  - option "AR Test Clinic F94D81"
+                  - option "AR Test Clinic 9034CC"
+                  - option "AR Test Clinic 0CE5B5"
+                  - option "AR Test Clinic 11B361"
+                  - option "AR Test Clinic 42D1E8"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 0E7904"
+                  - option "AR Test Clinic E2FC7C"
+                  - option "AR Test Clinic 449F65"
+                  - option "AR Test Clinic E06A24"
+                  - option "AR Test Clinic B6F21A"
+                  - option "AR Test Clinic CCA40F"
+                  - option "AR Test Clinic E129A6"
+                  - option "AR Test Clinic 4B9996"
+                  - option "AR Test Clinic D3E34E"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 5C1088"
+                  - option "Report Test Clinic 7167F5"
+                  - option "Report Test Clinic 48EA7F"
+                  - option "Report Test Clinic 6469C2"
+                  - option "Report Test Clinic 5BC3FD"
+                  - option "Report Test Clinic D0DA99"
+                  - option "Report Test Clinic BAEA0C"
+                  - option "Report Test Clinic 13040D"
+                  - option "Report Test Clinic 298275"
+                  - option "Report Test Clinic 32B2E1"
+                  - option "Report Test Clinic AF465F"
+                  - option "AR Test Clinic A488F3"
+                  - option "AR Test Clinic 2E436A"
+                  - option "AR Test Clinic BE77E8"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 7BF85A"
+                  - option "AR Test Clinic A4702D"
+                  - option "AR Test Clinic 7F7B5A"
+                  - option "AR Test Clinic 9AA448"
+                  - option "AR Test Clinic 41F2EE"
+                  - option "AR Test Clinic A32919"
+                  - option "AR Test Clinic AD81A7"
+                  - option "AR Test Clinic 9AD1F2"
+                  - option "AR Test Clinic 19F985"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 643E91"
+                  - option "Report Test Clinic ED7301"
+                  - option "Report Test Clinic C3138F"
+                  - option "Report Test Clinic 3532D9"
+                  - option "Report Test Clinic F6B554"
+                  - option "Report Test Clinic F02BC1"
+                  - option "Report Test Clinic CFF5F1"
+                  - option "Report Test Clinic 321034"
+                  - option "Report Test Clinic 9D57D3"
+                  - option "Report Test Clinic 6B4D00"
+                  - option "Report Test Clinic C09EB9"
+                  - option "AR Test Clinic DFFDDE"
+                  - option "AR Test Clinic F25B0E"
+                  - option "AR Test Clinic AA32EE"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic 15C612"
+                  - option "AR Test Clinic 7C4F5C"
+                  - option "AR Test Clinic 18169E"
+                  - option "AR Test Clinic 8702D7"
+                  - option "AR Test Clinic FBC1EB"
+                  - option "AR Test Clinic 882A9F"
+                  - option "AR Test Clinic 2FFC64"
+                  - option "AR Test Clinic 9C3F41"
+                  - option "AR Test Clinic B2E2C0"
+                  - option "AR Test Clinic 52D04F"
+                  - option "AR Test Clinic B4B94F"
+                  - option "AR Test Clinic DF83D9"
+                  - option "Other Clinic"
+                  - option "AR Test Clinic D3A6A7"
+                  - option "AR Test Clinic 7648CA"
+                  - option "AR Test Clinic 009251"
+                  - option "AR Test Clinic C078FC"
+                  - option "AR Test Clinic 0BFCC7"
+                  - option "AR Test Clinic 2E5770"
+                  - option "AR Test Clinic 8373AA"
+                  - option "AR Test Clinic 3F5EF0"
+                  - option "AR Test Clinic 036C86"
+                  - option "SoD Test Clinic EE9657"
+                  - option "Report Test Clinic 0EBC85"
+                  - option "Coverage Clinic 30C659"
+                  - option "Coverage Clinic 07595D"
+                  - option "Coverage Clinic AD8BE4"
+                  - option "Coverage Clinic E8533B"
+                  - option "Coverage Clinic 1DB9C1"
+                  - option "Coverage Clinic ED26E7"
+                  - option "Coverage Clinic 6577E6"
+                  - option "Rx E2E Clinic BCC662"
+                  - option "Rx E2E Clinic 8839AE"
+                  - option "Rx Clinic B 96D0E0"
+                  - option "Rx E2E Clinic 7A4CFA"
+                  - option "Rx E2E Clinic 8B6329"
+                  - option "Rx E2E Clinic 49011C"
+                  - option "Rx E2E Clinic 443754"
+                  - option "Rx E2E Clinic 05DAAD"
+                  - option "Rx E2E Clinic 6ADEF1"
+                  - option "Rx E2E Clinic F5C381"
+                  - option "Rx E2E Clinic 76762C"
+                  - option "Rx E2E Clinic 76CD65"
+                  - option "Rx E2E Clinic 7EDB15"
+                  - option "Rx E2E Clinic B5D2B2"
+                  - option "Gen-from-visit Clinic 4084AE"
+                  - option "SoD Test Clinic 8A2DE5"
+                  - option "Report Test Clinic 5986DB"
+                  - option "Coverage Clinic B93B9E"
+                  - option "Coverage Clinic 1A4F7D"
+                  - option "Coverage Clinic 936CCC"
+                  - option "Coverage Clinic 5D489D"
+                  - option "Coverage Clinic D9A089"
+                  - option "Coverage Clinic F17658"
+                  - option "Coverage Clinic 915E43"
+                  - option "Rx E2E Clinic 35EA6A"
+                  - option "Rx E2E Clinic BD0B2A"
+                  - option "Rx Clinic B 53C81E"
+                  - option "Rx E2E Clinic 564251"
+                  - option "Rx E2E Clinic 286410"
+                  - option "Rx E2E Clinic 4BFB6F"
+                  - option "Rx E2E Clinic BFD914"
+                  - option "Rx E2E Clinic BE00B2"
+                  - option "Rx E2E Clinic CAF292"
+                  - option "Rx E2E Clinic 6CB7E7"
+                  - option "Rx E2E Clinic 4B513C"
+                  - option "Rx E2E Clinic 86F354"
+                  - option "Rx E2E Clinic C8DBF2"
+                  - option "Rx E2E Clinic AF2533"
+                  - option "Gen-from-visit Clinic 8E2DDD"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "BCD339E"
+                  - option "CCD339E"
+                  - option "BFCD907"
+                  - option "CFCD907"
+                  - option "BA84A90"
+                  - option "CA84A90"
+                  - option "C1621AA"
+                  - option "B1621AA"
+                  - option "B86C3BA"
+                  - option "C86C3BA"
+                  - option "BE4A3A2"
+                  - option "CE4A3A2"
+                  - option "C5A4935"
+                  - option "B5A4935"
+                  - option "B49788E"
+                  - option "C49788E"
+                  - option "B7BD056"
+                  - option "C7BD056"
+                  - option "B8FAAAA"
+                  - option "C8FAAAA"
+                  - option "B10D3C3"
+                  - option "C10D3C3"
+                  - option "B7D225E"
+                  - option "C7D225E"
+                  - option "BDB8AFD"
+                  - option "CDB8AFD"
+                  - option "B457EA5"
+                  - option "C457EA5"
+                  - option "BBB0075"
+                  - option "CBB0075"
+                  - option "B2C7424"
+                  - option "C2C7424"
+                  - option "B33D43F"
+                  - option "C33D43F"
+                  - option "B166535"
+                  - option "C166535"
+                  - option "B65C77D"
+                  - option "C65C77D"
+                  - option "Lifecycle Clinic B"
+                  - option "Lifecycle Clinic A"
+                  - option "Lifecycle Clinic B"
+                  - option "Lifecycle Clinic A"
+                  - option "Lifecycle Clinic B"
+                  - option "Lifecycle Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "SoD Test Clinic 70F490"
+                  - option "SoD Test Clinic B49D92"
+                  - option "SoD Test Clinic A0550E"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic EF2F07"
+                  - option "Report Test Clinic 3195E8"
+                  - option "Report Test Clinic CB3BF0"
+                  - option "Report Test Clinic 56B612"
+                  - option "Report Test Clinic 9B6581"
+                  - option "Report Test Clinic D34C85"
+                  - option "Report Test Clinic 3F76CA"
+                  - option "Report Test Clinic 1DD5B5"
+                  - option "Report Test Clinic 63037E"
+                  - option "Report Test Clinic 65842D"
+                  - option "Report Test Clinic 36C5B3"
+                  - option "Coverage Clinic 3DC948"
+                  - option "Coverage Clinic 33A7A0"
+                  - option "Coverage Clinic 72EA39"
+                  - option "Coverage Clinic 24E54A"
+                  - option "Coverage Clinic 4ABD18"
+                  - option "Coverage Clinic 65536D"
+                  - option "Coverage Clinic 9ABA33"
+                  - option "Rx E2E Clinic C8FFEE"
+                  - option "Rx E2E Clinic 10935B"
+                  - option "Rx Clinic B FB2279"
+                  - option "Rx E2E Clinic 4B8B05"
+                  - option "Rx E2E Clinic A1D857"
+                  - option "Rx E2E Clinic 13E182"
+                  - option "Rx E2E Clinic B7BDE7"
+                  - option "Rx E2E Clinic 0C2927"
+                  - option "Rx E2E Clinic EE1AEF"
+                  - option "Rx E2E Clinic F942AF"
+                  - option "Rx E2E Clinic F8B956"
+                  - option "Rx E2E Clinic BDE0CB"
+                  - option "Rx E2E Clinic 44B599"
+                  - option "Rx E2E Clinic 3B96F7"
+                  - option "Pharmacy E2E Clinic 063404"
+                  - option "Pharmacy E2E Clinic 822EC5"
+                  - option "Pharmacy E2E Clinic 5D484C"
+                  - option "Pharmacy E2E Clinic 91F5AF"
+                  - option "Pharmacy E2E Clinic 6EBE80"
+                  - option "Pharmacy E2E Clinic D99571"
+                  - option "Pharmacy E2E Clinic 6B32E5"
+                  - option "Notification Test Clinic 5259AE"
+                  - option "Notification Test Clinic 4CD035"
+                  - option "Notification Test Clinic 0987AA"
+                  - option "Notification Test Clinic C47BDD"
+                  - option "Notification Test Clinic F91AF3"
+                  - option "Notification Test Clinic 9B75CD"
+                  - option "Notification Test Clinic EBECEF"
+                  - option "Notification Test Clinic 037561"
+                  - option "Notification Test Clinic 488FD5"
+                  - option "Clinic B 67300D"
+                  - option "Stocktake E2E Clinic 3CE844"
+                  - option "Stocktake E2E Clinic 7EB204"
+                  - option "Stocktake E2E Clinic 979AE8"
+                  - option "Stocktake E2E Clinic 09D5AA"
+                  - option "Stocktake E2E Clinic 10A75C"
+                  - option "Stocktake E2E Clinic 97EA11"
+                  - option "Stocktake E2E Clinic 69D94E"
+                  - option "Stocktake E2E Clinic AB7854"
+                  - option "Stocktake E2E Clinic D62190"
+                  - option "Stocktake E2E Clinic 75AFBB"
+                  - option "Stocktake E2E Clinic 181BC6"
+                  - option "Stocktake E2E Clinic 867493"
+                  - option "Stocktake E2E Clinic AE9602"
+                  - option "Clinic B a60321"
+                  - option "Inventory E2E Clinic 3B5054"
+                  - option "Inventory E2E Clinic F976D2"
+                  - option "Inventory E2E Clinic 3EAE92"
+                  - option "Inventory E2E Clinic 2D39E4"
+                  - option "Inventory E2E Clinic E70658"
+                  - option "Inventory E2E Clinic 6D85CF"
+                  - option "Inventory E2E Clinic F7DF8C"
+                  - option "Inventory E2E Clinic A3A289"
+                  - option "Inventory E2E Clinic E653ED"
+                  - option "Svc Clinic 58A60A"
+                  - option "Svc Clinic F7E89F"
+                  - option "Svc Clinic 3251B2"
+                  - option "Svc Clinic 355A80"
+                  - option "Svc Clinic 61C31F"
+                  - option "Svc Clinic 61D40B"
+                  - option "Svc Clinic 363A00"
+                  - option "Svc Clinic C86BB3"
+                  - option "Svc Clinic D8F621"
+                  - option "Svc Clinic CC5AF8"
+                  - option "Gen-from-visit Clinic 50CBAA"
+                  - option "Gen-from-visit Clinic 0103EF"
+                  - option "Billing E2E Clinic 00C979"
+                  - option "Billing E2E Clinic 3CB1DA"
+                  - option "Billing E2E Clinic 6C38B3"
+                  - option "Billing E2E Clinic FF02BB"
+                  - option "Billing Clinic 2 871890"
+                  - option "Billing E2E Clinic FED405"
+                  - option "Billing E2E Clinic 80BF55"
+                  - option "Billing E2E Clinic 4DB9DB"
+                  - option "Billing E2E Clinic C44BAD"
+                  - option "Billing E2E Clinic 2C557F"
+                  - option "Billing E2E Clinic A948B3"
+                  - option "Billing E2E Clinic 68A107"
+                  - option "Billing E2E Clinic 0815FF"
+                  - option "Billing E2E Clinic 6553B8"
+                  - option "Billing E2E Clinic 472788"
+                  - option "Billing E2E Clinic 2BDAA6"
+                  - option "Billing E2E Clinic E4A7D8"
+                  - option "Billing E2E Clinic B0C7EF"
+                  - option "Billing E2E Clinic B0337F"
+                  - option "Billing E2E Clinic BBE431"
+                  - option "Billing E2E Clinic 5CE9E5"
+                  - option "Billing E2E Clinic A64E62"
+                  - option "Notification Test Clinic FD05F8"
+                  - option "Notification Test Clinic 5C1701"
+                  - option "Notification Test Clinic C22173"
+                  - option "Notification Test Clinic 7F0220"
+                  - option "Notification Test Clinic 9B9AD1"
+                  - option "Notification Test Clinic B83976"
+                  - option "Notification Test Clinic A53F0A"
+                  - option "Notification Test Clinic EBE549"
+                  - option "Notification Test Clinic 397B45"
+                  - option "Clinic B 8455BC"
+                  - option "Stocktake E2E Clinic B53C72"
+                  - option "Stocktake E2E Clinic 566CD6"
+                  - option "Stocktake E2E Clinic E36D7E"
+                  - option "Stocktake E2E Clinic F890F7"
+                  - option "Stocktake E2E Clinic A23B98"
+                  - option "Stocktake E2E Clinic DB0E54"
+                  - option "Stocktake E2E Clinic 4AF37A"
+                  - option "Stocktake E2E Clinic A5B270"
+                  - option "Stocktake E2E Clinic D96AB4"
+                  - option "Stocktake E2E Clinic F69336"
+                  - option "Stocktake E2E Clinic 74AD0F"
+                  - option "Stocktake E2E Clinic 024F5C"
+                  - option "Stocktake E2E Clinic 77E179"
+                  - option "Clinic B 6acad5"
+                  - option "Inventory E2E Clinic 1A1725"
+                  - option "Inventory E2E Clinic 2850DC"
+                  - option "Inventory E2E Clinic E9813E"
+                  - option "Inventory E2E Clinic 6F0126"
+                  - option "Inventory E2E Clinic 3A53E8"
+                  - option "Inventory E2E Clinic 0838C6"
+                  - option "Inventory E2E Clinic A7A055"
+                  - option "Inventory E2E Clinic 92FA31"
+                  - option "Inventory E2E Clinic FFFAC8"
+                  - option "Svc Clinic C395CC"
+                  - option "Svc Clinic 8F3D05"
+                  - option "Svc Clinic 648B51"
+                  - option "Svc Clinic 59302F"
+                  - option "Svc Clinic 9A3954"
+                  - option "Svc Clinic C6C1AB"
+                  - option "Svc Clinic 549797"
+                  - option "Svc Clinic 703851"
+                  - option "Svc Clinic 77288C"
+                  - option "Svc Clinic 8506B8"
+                  - option "Gen-from-visit Clinic FCA7FC"
+                  - option "Gen-from-visit Clinic DC1F1F"
+                  - option "Billing E2E Clinic 96ED3B"
+                  - option "Billing E2E Clinic A90375"
+                  - option "Billing E2E Clinic 23C347"
+                  - option "Billing E2E Clinic AD892B"
+                  - option "Billing Clinic 2 AE79B2"
+                  - option "Billing E2E Clinic 67BB7A"
+                  - option "Billing E2E Clinic 4CE5F1"
+                  - option "Billing E2E Clinic F3B8D0"
+                  - option "Billing E2E Clinic 00D88F"
+                  - option "Billing E2E Clinic 161652"
+                  - option "Billing E2E Clinic 33B195"
+                  - option "Billing E2E Clinic A51238"
+                  - option "Billing E2E Clinic E8E84F"
+                  - option "Billing E2E Clinic BA3B5D"
+                  - option "Billing E2E Clinic 4B50EE"
+                  - option "Billing E2E Clinic C0BF20"
+                  - option "Billing E2E Clinic B0C9A2"
+                  - option "Billing E2E Clinic 23F550"
+                  - option "Billing E2E Clinic 3CC9E2"
+                  - option "Billing E2E Clinic F0DD95"
+                  - option "Billing E2E Clinic 8ED883"
+                  - option "Billing E2E Clinic BA1AC1"
+                  - option "Clinic B 54A4F6"
+                  - option "Stocktake E2E Clinic 43B6FD"
+                  - option "Stocktake E2E Clinic 57491B"
+                  - option "Stocktake E2E Clinic BE89DD"
+                  - option "Stocktake E2E Clinic 4E9668"
+                  - option "Stocktake E2E Clinic 1DEDA7"
+                  - option "Stocktake E2E Clinic ECBB69"
+                  - option "Stocktake E2E Clinic F82F55"
+                  - option "Stocktake E2E Clinic 2E1389"
+                  - option "Stocktake E2E Clinic D49B35"
+                  - option "Stocktake E2E Clinic F82CC1"
+                  - option "Stocktake E2E Clinic 916154"
+                  - option "Stocktake E2E Clinic E1997E"
+                  - option "Stocktake E2E Clinic 27948B"
+                  - option "Clinic B A484F3"
+                  - option "Stocktake E2E Clinic 4DE80F"
+                  - option "Stocktake E2E Clinic CCCA58"
+                  - option "Stocktake E2E Clinic 8F3D21"
+                  - option "Stocktake E2E Clinic 013965"
+                  - option "Stocktake E2E Clinic 49030B"
+                  - option "Stocktake E2E Clinic FAFD4F"
+                  - option "Stocktake E2E Clinic 98367A"
+                  - option "Stocktake E2E Clinic AE30E1"
+                  - option "Stocktake E2E Clinic 059F08"
+                  - option "Stocktake E2E Clinic 896299"
+                  - option "Stocktake E2E Clinic 6DA9F6"
+                  - option "Stocktake E2E Clinic C71A2A"
+                  - option "Stocktake E2E Clinic 7A4333"
+                  - option "Clinic B 3831B5"
+                  - option "Stocktake E2E Clinic 39C4BB"
+                  - option "Stocktake E2E Clinic 5E68EF"
+                  - option "Stocktake E2E Clinic 63353F"
+                  - option "Stocktake E2E Clinic F32457"
+                  - option "Stocktake E2E Clinic 4B1259"
+                  - option "Stocktake E2E Clinic 811514"
+                  - option "Stocktake E2E Clinic E2D979"
+                  - option "Stocktake E2E Clinic 566DAC"
+                  - option "Stocktake E2E Clinic 420DC3"
+                  - option "Stocktake E2E Clinic 8BAC62"
+                  - option "Stocktake E2E Clinic 7860A7"
+                  - option "Stocktake E2E Clinic B8EC84"
+                  - option "Stocktake E2E Clinic 0ED766"
+                  - option "Clinic B 8455B3"
+                  - option "Stocktake E2E Clinic C9B5B2"
+                  - option "Stocktake E2E Clinic 737131"
+                  - option "Stocktake E2E Clinic E8843E"
+                  - option "Stocktake E2E Clinic 650EBD"
+                  - option "Stocktake E2E Clinic 0E5C8A"
+                  - option "Stocktake E2E Clinic B4876F"
+                  - option "Stocktake E2E Clinic FC2212"
+                  - option "Stocktake E2E Clinic FC01AD"
+                  - option "Stocktake E2E Clinic F2F1BF"
+                  - option "Stocktake E2E Clinic AA75C3"
+                  - option "Stocktake E2E Clinic D9010A"
+                  - option "Stocktake E2E Clinic 43E64F"
+                  - option "Clinic B 382B3E"
+                  - option "Stocktake E2E Clinic 5ADFC0"
+                  - option "Stocktake E2E Clinic BF43FA"
+                  - option "Stocktake E2E Clinic 51B8CA"
+                  - option "Stocktake E2E Clinic 0B6B40"
+                  - option "Stocktake E2E Clinic D74ABD"
+                  - option "Stocktake E2E Clinic E33F14"
+                  - option "Stocktake E2E Clinic 353FE6"
+                  - option "Stocktake E2E Clinic 72E381"
+                  - option "Stocktake E2E Clinic 5B15CD"
+                  - option "Stocktake E2E Clinic 03503C"
+                  - option "Stocktake E2E Clinic 47ADEB"
+                  - option "Stocktake E2E Clinic 502774"
+                  - option "Clinic B 094a27"
+                  - option "Inventory E2E Clinic 621675"
+                  - option "Inventory E2E Clinic D3F953"
+                  - option "Inventory E2E Clinic A66864"
+                  - option "Inventory E2E Clinic 51CB61"
+                  - option "Inventory E2E Clinic C974F6"
+                  - option "Inventory E2E Clinic 887D1F"
+                  - option "Inventory E2E Clinic 599118"
+                  - option "Inventory E2E Clinic A55D63"
+                  - option "Inventory E2E Clinic 18F86E"
+                  - option "Clinic B 64221F"
+                  - option "Stocktake E2E Clinic C21EAD"
+                  - option "Stocktake E2E Clinic 16F3AB"
+                  - option "Stocktake E2E Clinic 71653E"
+                  - option "Stocktake E2E Clinic BD836D"
+                  - option "Stocktake E2E Clinic C4D8B0"
+                  - option "Stocktake E2E Clinic 788B5C"
+                  - option "Stocktake E2E Clinic 3C5B24"
+                  - option "Stocktake E2E Clinic EDF278"
+                  - option "Stocktake E2E Clinic 579777"
+                  - option "Stocktake E2E Clinic 6DCBE6"
+                  - option "Stocktake E2E Clinic B11865"
+                  - option "Stocktake E2E Clinic 7E42D4"
+                  - option "Clinic B cce8da"
+                  - option "Inventory E2E Clinic A07A14"
+                  - option "Inventory E2E Clinic CC799E"
+                  - option "Inventory E2E Clinic D4CDD8"
+                  - option "Inventory E2E Clinic 3E773B"
+                  - option "Inventory E2E Clinic FB1B5A"
+                  - option "Inventory E2E Clinic E17A96"
+                  - option "Inventory E2E Clinic CAE420"
+                  - option "Inventory E2E Clinic AA1D13"
+                  - option "Inventory E2E Clinic 44D5B5"
+                  - option "Pharmacy E2E Clinic 34AA1F"
+                  - option "Pharmacy E2E Clinic BB3074"
+                  - option "Pharmacy E2E Clinic 58EC5E"
+                  - option "Pharmacy E2E Clinic DCD6C2"
+                  - option "Pharmacy E2E Clinic 043BBC"
+                  - option "Pharmacy E2E Clinic 9C9D72"
+                  - option "Pharmacy E2E Clinic CDFA8B"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "B5B363C"
+                  - option "C5B363C"
+                  - option "C25FD46"
+                  - option "B25FD46"
+                  - option "CBE1FE1"
+                  - option "BBE1FE1"
+                  - option "B649105"
+                  - option "C649105"
+                  - option "B7A78F6"
+                  - option "C7A78F6"
+                  - option "CD903DA"
+                  - option "BD903DA"
+                  - option "BBE2897"
+                  - option "CBE2897"
+                  - option "CCD8933"
+                  - option "BCD8933"
+                  - option "B255CF3"
+                  - option "C255CF3"
+                  - option "CD5AFC4"
+                  - option "BD5AFC4"
+                  - option "C4BEA8C"
+                  - option "B4BEA8C"
+                  - option "B8AF5B1"
+                  - option "C8AF5B1"
+                  - option "BDB2AD7"
+                  - option "CDB2AD7"
+                  - option "B362AA2"
+                  - option "C362AA2"
+                  - option "CF372C1"
+                  - option "BF372C1"
+                  - option "C765AFE"
+                  - option "B765AFE"
+                  - option "B5EF2F1"
+                  - option "C5EF2F1"
+                  - option "B030F43"
+                  - option "C030F43"
+                  - option "B67E5B9"
+                  - option "C67E5B9"
+                  - option "E2E Test Clinic"
+                  - option "SoD Test Clinic 711A25"
+                  - option "SoD Test Clinic E50F8D"
+                  - option "SoD Test Clinic B15122"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic FDA315"
+                  - option "Report Test Clinic F40B07"
+                  - option "Report Test Clinic 71FF55"
+                  - option "Report Test Clinic BDD2AD"
+                  - option "Report Test Clinic 631500"
+                  - option "Report Test Clinic D45341"
+                  - option "Report Test Clinic 17847B"
+                  - option "Report Test Clinic 2C644B"
+                  - option "Report Test Clinic 84629F"
+                  - option "Report Test Clinic 032326"
+                  - option "Report Test Clinic B0C173"
+                  - option "Coverage Clinic 831CB1"
+                  - option "Coverage Clinic D5798A"
+                  - option "Coverage Clinic D1CCEF"
+                  - option "Coverage Clinic 75F0A8"
+                  - option "Coverage Clinic 671B50"
+                  - option "Coverage Clinic 9112F0"
+                  - option "Coverage Clinic 1360FB"
+                  - option "Rx E2E Clinic 534F96"
+                  - option "Rx E2E Clinic 8226A0"
+                  - option "Rx Clinic B 22A96F"
+                  - option "Rx E2E Clinic 6943F9"
+                  - option "Rx E2E Clinic F8D81A"
+                  - option "Rx E2E Clinic 6B8D6F"
+                  - option "Rx E2E Clinic E38008"
+                  - option "Rx E2E Clinic 43508C"
+                  - option "Rx E2E Clinic 8F302C"
+                  - option "Rx E2E Clinic 0F93C9"
+                  - option "Rx E2E Clinic 058096"
+                  - option "Rx E2E Clinic 0F0A01"
+                  - option "Rx E2E Clinic 531C98"
+                  - option "Rx E2E Clinic EAA0F4"
+                  - option "Pharmacy E2E Clinic 101352"
+                  - option "Pharmacy E2E Clinic 238DBC"
+                  - option "Pharmacy E2E Clinic D5D51A"
+                  - option "Pharmacy E2E Clinic BFB8E8"
+                  - option "Pharmacy E2E Clinic A4CD32"
+                  - option "Pharmacy E2E Clinic B59A94"
+                  - option "Pharmacy E2E Clinic AF2C20"
+                  - option "Notification Test Clinic 935730"
+                  - option "Notification Test Clinic AF14C2"
+                  - option "Notification Test Clinic 48C4F8"
+                  - option "Notification Test Clinic A3DAA8"
+                  - option "Notification Test Clinic 2DFCB6"
+                  - option "Notification Test Clinic 38826C"
+                  - option "Notification Test Clinic 5E8C9F"
+                  - option "Notification Test Clinic B20D69"
+                  - option "Notification Test Clinic CC90B0"
+                  - option "Clinic B 55a065"
+                  - option "Inventory E2E Clinic 2893DA"
+                  - option "Inventory E2E Clinic D33637"
+                  - option "Inventory E2E Clinic 0A3A3D"
+                  - option "Inventory E2E Clinic 3D2F33"
+                  - option "Inventory E2E Clinic 555452"
+                  - option "Inventory E2E Clinic 9C3D20"
+                  - option "Inventory E2E Clinic 6D4ACA"
+                  - option "Inventory E2E Clinic 634907"
+                  - option "Inventory E2E Clinic 4F87AF"
+                  - option "Svc Clinic A93453"
+                  - option "Svc Clinic C509F1"
+                  - option "Svc Clinic A1F612"
+                  - option "Svc Clinic 2F5BE4"
+                  - option "Svc Clinic 4ACD88"
+                  - option "Svc Clinic 465800"
+                  - option "Svc Clinic 106D6D"
+                  - option "Svc Clinic 5D107B"
+                  - option "Svc Clinic 032105"
+                  - option "Svc Clinic B8556C"
+                  - option "Gen-from-visit Clinic E08450"
+                  - option "Gen-from-visit Clinic 7A8107"
+                  - option "Billing E2E Clinic 0FD3D5"
+                  - option "Billing E2E Clinic FDEFBB"
+                  - option "Billing E2E Clinic 1BE367"
+                  - option "Billing E2E Clinic F82CE1"
+                  - option "Billing Clinic 2 CF19FD"
+                  - option "Billing E2E Clinic 239D9B"
+                  - option "Billing E2E Clinic 70754C"
+                  - option "Billing E2E Clinic 5E4D99"
+                  - option "Billing E2E Clinic 73F149"
+                  - option "Billing E2E Clinic BF7585"
+                  - option "Billing E2E Clinic C64C49"
+                  - option "Billing E2E Clinic B77B1D"
+                  - option "Billing E2E Clinic C29B58"
+                  - option "Billing E2E Clinic 21A8F0"
+                  - option "Billing E2E Clinic 33EF29"
+                  - option "Billing E2E Clinic 2FE934"
+                  - option "Billing E2E Clinic E11432"
+                  - option "Billing E2E Clinic 3F6427"
+                  - option "Billing E2E Clinic 678EB3"
+                  - option "Billing E2E Clinic C89BEB"
+                  - option "Billing E2E Clinic FF6212"
+                  - option "Billing E2E Clinic 80399D"
+                  - option "Pharmacy E2E Clinic 72FA77"
+                  - option "Pharmacy E2E Clinic 2DF599"
+                  - option "Pharmacy E2E Clinic 4ECE7A"
+                  - option "Pharmacy E2E Clinic 8CD5D1"
+                  - option "Pharmacy E2E Clinic 80D76B"
+                  - option "Pharmacy E2E Clinic 6B119F"
+                  - option "Pharmacy E2E Clinic 3F9CEF"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 795B58"
+                  - option "Report Test Clinic ECFCDE"
+                  - option "Report Test Clinic 418C00"
+                  - option "Report Test Clinic 81D2E1"
+                  - option "Report Test Clinic 05A1AC"
+                  - option "Report Test Clinic DA1094"
+                  - option "Report Test Clinic F022A8"
+                  - option "Report Test Clinic F8C11A"
+                  - option "Report Test Clinic 8167AA"
+                  - option "Report Test Clinic 84929F"
+                  - option "Report Test Clinic 789C2C"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "CD8DF16"
+                  - option "BD8DF16"
+                  - option "BF41726"
+                  - option "CF41726"
+                  - option "C4BD869"
+                  - option "B4BD869"
+                  - option "C050C82"
+                  - option "B050C82"
+                  - option "BFB3C20"
+                  - option "CFB3C20"
+                  - option "CFA1442"
+                  - option "BFA1442"
+                  - option "C4A6CFB"
+                  - option "B4A6CFB"
+                  - option "C630ED1"
+                  - option "B630ED1"
+                  - option "C3A78AA"
+                  - option "B3A78AA"
+                  - option "C9F1EAB"
+                  - option "B9F1EAB"
+                  - option "BFA23C3"
+                  - option "CFA23C3"
+                  - option "CDA52E8"
+                  - option "BDA52E8"
+                  - option "BFF5923"
+                  - option "CFF5923"
+                  - option "B03610E"
+                  - option "C03610E"
+                  - option "BF70ECF"
+                  - option "CF70ECF"
+                  - option "BC470A2"
+                  - option "CC470A2"
+                  - option "B493A28"
+                  - option "C493A28"
+                  - option "C9B0CD5"
+                  - option "B9B0CD5"
+                  - option "CAC6450"
+                  - option "BAC6450"
+                  - option "SoD Test Clinic A31CBD"
+                  - option "SoD Test Clinic 4CCD97"
+                  - option "SoD Test Clinic F9459C"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 895AF5"
+                  - option "Report Test Clinic BC5A49"
+                  - option "Report Test Clinic 1F2CA6"
+                  - option "Report Test Clinic 32D66D"
+                  - option "Report Test Clinic EB5699"
+                  - option "Report Test Clinic 1CCE54"
+                  - option "Report Test Clinic 23D742"
+                  - option "Report Test Clinic B8F35E"
+                  - option "Report Test Clinic 177E61"
+                  - option "Report Test Clinic C5EB54"
+                  - option "Report Test Clinic C7214D"
+                  - option "Coverage Clinic 53BBF3"
+                  - option "Coverage Clinic 94811D"
+                  - option "Coverage Clinic 55921E"
+                  - option "Coverage Clinic 0370A2"
+                  - option "Coverage Clinic 584D40"
+                  - option "Coverage Clinic 88AE42"
+                  - option "Coverage Clinic B19796"
+                  - option "Rx E2E Clinic 6D7225"
+                  - option "Rx E2E Clinic 41E4E5"
+                  - option "Rx Clinic B BAF039"
+                  - option "Rx E2E Clinic C06BD6"
+                  - option "Rx E2E Clinic 5EC6F2"
+                  - option "Rx E2E Clinic 4DC8CA"
+                  - option "Rx E2E Clinic 9F9342"
+                  - option "Rx E2E Clinic 2787DF"
+                  - option "Rx E2E Clinic C4FEB3"
+                  - option "Rx E2E Clinic 19D381"
+                  - option "Rx E2E Clinic A07F40"
+                  - option "Rx E2E Clinic 1175BD"
+                  - option "Rx E2E Clinic 7012CE"
+                  - option "Rx E2E Clinic 0F14E0"
+                  - option "Pharmacy E2E Clinic F2A1E4"
+                  - option "Pharmacy E2E Clinic 968ECE"
+                  - option "Pharmacy E2E Clinic 42C22B"
+                  - option "Pharmacy E2E Clinic 9D323C"
+                  - option "Pharmacy E2E Clinic 446555"
+                  - option "Pharmacy E2E Clinic CD2B21"
+                  - option "Pharmacy E2E Clinic B81166"
+                  - option "Notification Test Clinic 8A8C34"
+                  - option "Notification Test Clinic 2027E4"
+                  - option "Notification Test Clinic 1D2AAF"
+                  - option "Notification Test Clinic 2C3792"
+                  - option "Notification Test Clinic C65EE2"
+                  - option "Notification Test Clinic 66D104"
+                  - option "Notification Test Clinic F472BC"
+                  - option "Notification Test Clinic A67F35"
+                  - option "Notification Test Clinic 0E03E8"
+                  - option "Clinic B ce3abf"
+                  - option "Inventory E2E Clinic FB0B8D"
+                  - option "Inventory E2E Clinic A5671F"
+                  - option "Inventory E2E Clinic CC9CFC"
+                  - option "Inventory E2E Clinic 32F372"
+                  - option "Inventory E2E Clinic A45653"
+                  - option "Inventory E2E Clinic F6FA95"
+                  - option "Inventory E2E Clinic B8433B"
+                  - option "Inventory E2E Clinic 329784"
+                  - option "Inventory E2E Clinic 33DCDB"
+                  - option "Svc Clinic C47027"
+                  - option "Svc Clinic 058611"
+                  - option "Svc Clinic 6D7C38"
+                  - option "Svc Clinic 84943C"
+                  - option "Svc Clinic C5348F"
+                  - option "Svc Clinic 5E2F96"
+                  - option "Svc Clinic 1FFE86"
+                  - option "Svc Clinic 9390BD"
+                  - option "Svc Clinic 9354F3"
+                  - option "Svc Clinic 307612"
+                  - option "Gen-from-visit Clinic B86663"
+                  - option "Gen-from-visit Clinic FA37A9"
+                  - option "Billing E2E Clinic 0EEB68"
+                  - option "Billing E2E Clinic B2459B"
+                  - option "Billing E2E Clinic C4692B"
+                  - option "Billing E2E Clinic 7576FD"
+                  - option "Billing Clinic 2 BD2721"
+                  - option "Billing E2E Clinic 7AE938"
+                  - option "Billing E2E Clinic 9D7B1E"
+                  - option "Billing E2E Clinic 59B1E9"
+                  - option "Billing E2E Clinic 99C5C2"
+                  - option "Billing E2E Clinic F2C447"
+                  - option "Billing E2E Clinic C3BA53"
+                  - option "Billing E2E Clinic AEF349"
+                  - option "Billing E2E Clinic 5D3B92"
+                  - option "Billing E2E Clinic 3139AE"
+                  - option "Billing E2E Clinic 364FB2"
+                  - option "Billing E2E Clinic 41F475"
+                  - option "Billing E2E Clinic 3D6DD4"
+                  - option "Billing E2E Clinic E861A4"
+                  - option "Billing E2E Clinic E4A2D0"
+                  - option "Billing E2E Clinic D89AF1"
+                  - option "Billing E2E Clinic 02BFC7"
+                  - option "Billing E2E Clinic 8E5F7C"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 509912"
+                  - option "Report Test Clinic 90172E"
+                  - option "Report Test Clinic 8A247C"
+                  - option "Report Test Clinic 43B152"
+                  - option "Report Test Clinic C97398"
+                  - option "Report Test Clinic F1B4DA"
+                  - option "Report Test Clinic 125838"
+                  - option "Report Test Clinic 050EB5"
+                  - option "Report Test Clinic 9AB1C2"
+                  - option "Report Test Clinic FD866B"
+                  - option "Report Test Clinic A65A76"
+                  - option "Notification Test Clinic 418E63"
+                  - option "Notification Test Clinic C6800F"
+                  - option "Notification Test Clinic 2C6ED2"
+                  - option "Notification Test Clinic D69F05"
+                  - option "Notification Test Clinic D526C6"
+                  - option "Notification Test Clinic 0AD7D3"
+                  - option "Notification Test Clinic 7D5FE5"
+                  - option "Notification Test Clinic 66EE26"
+                  - option "Notification Test Clinic 84D80F"
+                  - option "Clinic B 733230"
+                  - option "Inventory E2E Clinic 4EFBC1"
+                  - option "Inventory E2E Clinic A24E9C"
+                  - option "Inventory E2E Clinic 0F467F"
+                  - option "Inventory E2E Clinic 940BC8"
+                  - option "Inventory E2E Clinic 5436F3"
+                  - option "Inventory E2E Clinic FF56CA"
+                  - option "Inventory E2E Clinic 630877"
+                  - option "Inventory E2E Clinic 1E76B6"
+                  - option "Inventory E2E Clinic 40B277"
+                  - option "SoD Test Clinic 349551"
+                  - option "SoD Test Clinic 0DEA7A"
+                  - option "SoD Test Clinic 9F1217"
+                  - option "SoD Test Clinic 08204A"
+                  - option "SoD Test Clinic 7DAE2C"
+                  - option "SoD Test Clinic EF13F5"
+                  - option "Pharmacy E2E Clinic 7E5A03"
+                  - option "Pharmacy E2E Clinic 73CF15"
+                  - option "Pharmacy E2E Clinic BCE7FA"
+                  - option "Pharmacy E2E Clinic 9CD69A"
+                  - option "Pharmacy E2E Clinic DB6FA3"
+                  - option "Pharmacy E2E Clinic 3A32D1"
+                  - option "Pharmacy E2E Clinic AA562D"
+                  - option "Coverage Clinic FD240B"
+                  - option "Coverage Clinic 2DB221"
+                  - option "Coverage Clinic 73D153"
+                  - option "Coverage Clinic 1F6251"
+                  - option "Coverage Clinic 479276"
+                  - option "Coverage Clinic 9AB0F4"
+                  - option "Coverage Clinic DA2B74"
+                  - option "Rx E2E Clinic EB00EA"
+                  - option "Rx E2E Clinic 7632CE"
+                  - option "Rx Clinic B C55944"
+                  - option "Rx E2E Clinic 1E079B"
+                  - option "Rx E2E Clinic 14D8F8"
+                  - option "Rx E2E Clinic B7F2CB"
+                  - option "Rx E2E Clinic 5062B8"
+                  - option "Rx E2E Clinic D03713"
+                  - option "Rx E2E Clinic B4ADF8"
+                  - option "Rx E2E Clinic FE58A0"
+                  - option "Rx E2E Clinic FB40F1"
+                  - option "Rx E2E Clinic 12320A"
+                  - option "Rx E2E Clinic DB891F"
+                  - option "Rx E2E Clinic 98116A"
+                  - option "CF8AEF2"
+                  - option "BF8AEF2"
+                  - option "C8E448D"
+                  - option "B8E448D"
+                  - option "B3C1580"
+                  - option "C3C1580"
+                  - option "C5E9CA9"
+                  - option "B5E9CA9"
+                  - option "C90F2DA"
+                  - option "B90F2DA"
+                  - option "C6757C2"
+                  - option "B6757C2"
+                  - option "B7BAD97"
+                  - option "C7BAD97"
+                  - option "BEF59C5"
+                  - option "CEF59C5"
+                  - option "CFDBBB5"
+                  - option "BFDBBB5"
+                  - option "C5DB45A"
+                  - option "B5DB45A"
+                  - option "CE5E8A9"
+                  - option "BE5E8A9"
+                  - option "B752D25"
+                  - option "C752D25"
+                  - option "BBE9AF6"
+                  - option "CBE9AF6"
+                  - option "C2A8722"
+                  - option "B2A8722"
+                  - option "BB7700D"
+                  - option "CB7700D"
+                  - option "B9AB941"
+                  - option "C9AB941"
+                  - option "CC43335"
+                  - option "BC43335"
+                  - option "CE1E8E0"
+                  - option "BE1E8E0"
+                  - option "C5A6532"
+                  - option "B5A6532"
+                  - option "Pharmacy E2E Clinic 491F25"
+                  - option "Pharmacy E2E Clinic FF4600"
+                  - option "Pharmacy E2E Clinic E15972"
+                  - option "Pharmacy E2E Clinic 70A53E"
+                  - option "Pharmacy E2E Clinic 1BB072"
+                  - option "Pharmacy E2E Clinic 3DFE71"
+                  - option "Pharmacy E2E Clinic 49AC34"
+                  - option "Report Test Clinic 6291E5"
+                  - option "Report Test Clinic 5E6B84"
+                  - option "Pharmacy E2E Clinic FC5718"
+                  - option "Pharmacy E2E Clinic 7518CA"
+                  - option "Other Clinic"
+                  - option "Report Test Clinic 28FF35"
+                  - option "Report Test Clinic B543F2"
+                  - option "Report Test Clinic EFC0D3"
+                  - option "Report Test Clinic 5401A7"
+                  - option "Report Test Clinic D48B7D"
+                  - option "Report Test Clinic 052A76"
+                  - option "Report Test Clinic FC7160"
+                  - option "Report Test Clinic EADC69"
+                  - option "Report Test Clinic 7725DD"
+                  - option "Report Test Clinic 8C43B2"
+                  - option "Pharmacy E2E Clinic D11F71"
+                  - option "Report Test Clinic C649C6"
+                  - option "Pharmacy E2E Clinic 0BB6E2"
+                  - option "Pharmacy E2E Clinic C51AFA"
+                  - option "Pharmacy E2E Clinic 4FF917"
+                  - option "Pharmacy E2E Clinic F9D32B"
+                  - option "Pharmacy E2E Clinic F2275B"
+                  - option "Pharmacy E2E Clinic 37E02A"
+                  - option "Pharmacy E2E Clinic 9971F8"
+                  - option "Pharmacy E2E Clinic C62947"
+                  - option "Pharmacy E2E Clinic 88A4F2"
+                  - option "Pharmacy E2E Clinic CC90CE"
+                  - option "Pharmacy E2E Clinic 503C2F"
+                  - option "Pharmacy E2E Clinic C6347D"
+                  - option "Pharmacy E2E Clinic F5A712"
+                  - option "Notification Test Clinic 7004FC"
+                  - option "Notification Test Clinic 114125"
+                  - option "Notification Test Clinic 1DF4ED"
+                  - option "Notification Test Clinic 10D138"
+                  - option "Notification Test Clinic DB73BC"
+                  - option "Notification Test Clinic 2F86F2"
+                  - option "Notification Test Clinic 2FC50C"
+                  - option "Notification Test Clinic 28BFA8"
+                  - option "Notification Test Clinic 640383"
+                  - option "Coverage Clinic C0EB65"
+                  - option "Coverage Clinic 42CAA3"
+                  - option "Coverage Clinic 040B9D"
+                  - option "Coverage Clinic 3ECAEC"
+                  - option "Coverage Clinic 4BC1E4"
+                  - option "Coverage Clinic 1F3756"
+                  - option "Coverage Clinic A3FC92"
+                  - option "Svc Clinic E9BACF"
+                  - option "Svc Clinic 9B3FAF"
+                  - option "Svc Clinic 45448B"
+                  - option "Svc Clinic C545A7"
+                  - option "Svc Clinic 2AC66B"
+                  - option "Svc Clinic 781AFF"
+                  - option "Svc Clinic 057495"
+                  - option "Svc Clinic 1FFEA0"
+                  - option "Svc Clinic 22EB21"
+                  - option "Svc Clinic 3DD9DC"
+                  - option "Gen-from-visit Clinic F26FBD"
+                  - option "Gen-from-visit Clinic 2E7CC0"
+                  - option "Clinic B 43064c"
+                  - option "Inventory E2E Clinic 6097C7"
+                  - option "Inventory E2E Clinic ECD53D"
+                  - option "Inventory E2E Clinic E2A290"
+                  - option "Inventory E2E Clinic ED5253"
+                  - option "Inventory E2E Clinic E5309B"
+                  - option "Inventory E2E Clinic 405710"
+                  - option "Inventory E2E Clinic D14AF7"
+                  - option "Rx E2E Clinic E07573"
+                  - option "Inventory E2E Clinic 9A0CAD"
+                  - option "Rx E2E Clinic 4B0D97"
+                  - option "Inventory E2E Clinic DCA478"
+                  - option "Rx Clinic B 3D2C41"
+                  - option "Rx E2E Clinic 8832B0"
+                  - option "Rx E2E Clinic 8336CA"
+                  - option "Rx E2E Clinic 8EE9A0"
+                  - option "Rx E2E Clinic D4B762"
+                  - option "Rx E2E Clinic 4F9A2C"
+                  - option "Rx E2E Clinic 163026"
+                  - option "Rx E2E Clinic 772A4F"
+                  - option "Rx E2E Clinic 931A8B"
+                  - option "Rx E2E Clinic C13F3D"
+                  - option "Rx E2E Clinic 6B9654"
+                  - option "Rx E2E Clinic C8BAE0"
+                  - option "Billing E2E Clinic 6AF011"
+                  - option "Billing E2E Clinic 3A9901"
+                  - option "Billing E2E Clinic 7B294D"
+                  - option "Billing E2E Clinic 436E9E"
+                  - option "Billing Clinic 2 A5285D"
+                  - option "Billing E2E Clinic C7A532"
+                  - option "Billing E2E Clinic F6EB3B"
+                  - option "Billing E2E Clinic 8E621A"
+                  - option "Billing E2E Clinic FE39F7"
+                  - option "Billing E2E Clinic 970675"
+                  - option "Billing E2E Clinic 43EAD9"
+                  - option "Billing E2E Clinic F8255C"
+                  - option "Billing E2E Clinic E88B56"
+                  - option "Billing E2E Clinic 868870"
+                  - option "Billing E2E Clinic E37F7B"
+                  - option "Billing E2E Clinic 75D554"
+                  - option "Billing E2E Clinic F0BD45"
+                  - option "Billing E2E Clinic D71CB5"
+                  - option "Billing E2E Clinic B71CE0"
+                  - option "Billing E2E Clinic 41091C"
+                  - option "Billing E2E Clinic 1653FC"
+                  - option "Billing E2E Clinic 71BB68"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic A"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic B"
+                  - option "Visit E2E Clinic A"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "SoD Test Clinic BE36D6"
+                  - option "SoD Test Clinic 72F598"
+                  - option "SoD Test Clinic 35802E"
+                  - option "Gen-from-visit Clinic EA6A43"
+                  - option "Gen-from-visit Clinic 225B54"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "Worker Test Clinic"
+                  - option "BUG-022 Test Clinic"
+                  - option "SoD Test Clinic 71D4C3"
+                  - option "SoD Test Clinic B1DBAA"
+                  - option "SoD Test Clinic 3AC843"
+                  - option "Cashier Seed Test Clinic"
+                  - option "Cashier Seed Test Clinic"
+                  - option "Search Enc Clinic F03432"
+                  - option "BUG-003 Test Clinic"
+                  - option "Gen-from-visit Clinic 89A5AA"
+                  - option "Gen-from-visit Clinic CA9CCE"
+                  - option "Phòng Khám Smoke Test SMOKE486843"
+                  - option "Isolation Test Clinic B"
+                  - option "Phòng Khám Smoke Test SMOKE872712"
+                  - option "Isolation Test Clinic B"
+                  - option "Phòng Khám Smoke Test SMOKE769055"
+                  - option "Isolation Test Clinic B"
+                  - option "Phòng Khám Smoke Test SMOKE177844"
+                  - option "Isolation Test Clinic B"
+                  - option "Phòng Khám Smoke Test SMOKE166714"
+                  - option "Isolation Test Clinic B"
+                  - option "Gen-from-visit Clinic 480A14"
+                  - option "Gen-from-visit Clinic 188FBA"
+                  - option "SoD Test Clinic C3A729"
+                  - option "SoD Test Clinic 2B6C06"
+                  - option "Gen-from-visit Clinic C38CFC"
+                  - option "Gen-from-visit Clinic 36B345"
+                  - option "Gen-from-visit Clinic CCA71D"
+                  - option "Gen-from-visit Clinic 69610E"
+                  - option "Gen-from-visit Clinic 57D0D0"
+                  - option "Gen-from-visit Clinic 9467B9"
+                  - option "Gen-from-visit Clinic D1E923"
+                  - option "Gen-from-visit Clinic 22413A"
+                  - option "Gen-from-visit Clinic BE4F16"
+                  - option "Gen-from-visit Clinic 6D2966"
+                  - option "Gen-from-visit Clinic D5118A"
+                  - option "Gen-from-visit Clinic DFD8C5"
+                  - option "Gen-from-visit Clinic 83717A"
+                  - option "Gen-from-visit Clinic A23723"
+                  - option "SoD Test Clinic B0A001"
+                  - option "SoD Test Clinic 867FA0"
+                  - option "SoD Test Clinic A2F6A4"
+                  - option "SoD Test Clinic E5B37D"
+                  - option "SoD Test Clinic 55F3E0"
+                  - option "SoD Test Clinic 5BDFDA"
+                  - option "Phong kham MediZen Demo"
+              - generic [ref=e372]:
+                - generic [ref=e373]: Bộ lọc nhanh
+                - generic [ref=e374]:
+                  - button "Hôm nay" [ref=e375] [cursor=pointer]
+                  - button "7 ngày" [ref=e376] [cursor=pointer]
+                  - button "30 ngày" [ref=e377] [cursor=pointer]
+                  - button "Tháng này" [ref=e378] [cursor=pointer]
+                  - button "Năm này" [ref=e379] [cursor=pointer]
+              - generic [ref=e380]:
+                - generic [ref=e381]: Từ ngày
+                - textbox [ref=e382]: 2026-05-02
+              - generic [ref=e383]:
+                - generic [ref=e384]: Đến ngày
+                - textbox [ref=e385]: 2026-05-31
+              - generic [ref=e386]:
+                - generic [ref=e387]: Granularity
+                - generic [ref=e388]:
+                  - button "Ngày" [ref=e389] [cursor=pointer]
+                  - button "Tuần" [ref=e390] [cursor=pointer]
+                  - button "Tháng" [ref=e391] [cursor=pointer]
+                  - button "Năm" [ref=e392] [cursor=pointer]
+            - generic [ref=e393]:
+              - generic [ref=e394]:
+                - img [ref=e396]
+                - generic [ref=e398]:
+                  - paragraph [ref=e399]: Tổng lượt khám
+                  - paragraph [ref=e400]: "7"
+              - generic [ref=e401]:
+                - img [ref=e403]
+                - generic [ref=e405]:
+                  - paragraph [ref=e406]: Tổng doanh thu
+                  - paragraph [ref=e407]: 25.008.909.975 ₫
+              - generic [ref=e408]:
+                - img [ref=e410]
+                - generic [ref=e413]:
+                  - paragraph [ref=e414]: Lượt khám TB/ngày
+                  - paragraph [ref=e415]: "0"
+              - generic [ref=e416]:
+                - img [ref=e418]
+                - generic [ref=e420]:
+                  - paragraph [ref=e421]: Lượt khám TB/tháng
+                  - paragraph [ref=e422]: "7"
+            - generic [ref=e423]:
+              - generic [ref=e424]:
+                - img [ref=e426]
+                - generic [ref=e431]:
+                  - paragraph [ref=e432]: Bệnh nhân mới
+                  - paragraph [ref=e433]: "314"
+              - generic [ref=e434]:
+                - img [ref=e436]
+                - generic [ref=e441]:
+                  - paragraph [ref=e442]: Bệnh nhân tái khám
+                  - paragraph [ref=e443]: "0"
+              - generic [ref=e444]:
+                - img [ref=e446]
+                - generic [ref=e448]:
+                  - paragraph [ref=e449]: Doanh thu TB/lượt khám
+                  - paragraph [ref=e450]: 3.572.701.425 ₫
+            - generic [ref=e451]:
+              - generic [ref=e452]:
+                - heading "Xu hướng theo thời gian" [level=2] [ref=e453]
+                - generic [ref=e454]:
+                  - button "Lượt khám" [ref=e455] [cursor=pointer]
+                  - button "Doanh thu" [ref=e456] [cursor=pointer]
+              - application [ref=e459]:
+                - generic [ref=e472]:
+                  - generic [ref=e475]: 2026-05-30
+                  - generic [ref=e476]:
+                    - generic [ref=e478]: "0"
+                    - generic [ref=e480]: "2"
+                    - generic [ref=e482]: "4"
+                    - generic [ref=e484]: "6"
+                    - generic [ref=e486]: "8"
+            - generic [ref=e487]:
+              - heading "So sánh phòng khám" [level=2] [ref=e488]
+              - table [ref=e490]:
+                - rowgroup [ref=e491]:
+                  - row "Phòng khám Lượt khám Doanh thu TB/ngày TB/tuần DT TB/tháng" [ref=e492]:
+                    - columnheader "Phòng khám" [ref=e493]
+                    - columnheader "Lượt khám" [ref=e494] [cursor=pointer]
+                    - columnheader "Doanh thu" [ref=e495] [cursor=pointer]:
+                      - text: Doanh thu
+                      - img [ref=e496]
+                    - columnheader "TB/ngày" [ref=e498] [cursor=pointer]
+                    - columnheader "TB/tuần" [ref=e499] [cursor=pointer]
+                    - columnheader "DT TB/tháng" [ref=e500] [cursor=pointer]
+                - rowgroup [ref=e501]:
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e502]:
+                    - cell "Other Clinic" [ref=e503]
+                    - cell "0" [ref=e504]
+                    - cell "999.999.999 ₫" [ref=e505]
+                    - cell "0.0" [ref=e506]
+                    - cell "0.0" [ref=e507]
+                    - cell "999.999.999 ₫" [ref=e508]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e509]:
+                    - cell "Other Clinic" [ref=e510]
+                    - cell "0" [ref=e511]
+                    - cell "999.999.999 ₫" [ref=e512]
+                    - cell "0.0" [ref=e513]
+                    - cell "0.0" [ref=e514]
+                    - cell "999.999.999 ₫" [ref=e515]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e516]:
+                    - cell "Other Clinic" [ref=e517]
+                    - cell "0" [ref=e518]
+                    - cell "999.999.999 ₫" [ref=e519]
+                    - cell "0.0" [ref=e520]
+                    - cell "0.0" [ref=e521]
+                    - cell "999.999.999 ₫" [ref=e522]
+                  - row "AR Test Clinic 30916C 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e523]:
+                    - cell "AR Test Clinic 30916C" [ref=e524]
+                    - cell "0" [ref=e525]
+                    - cell "999.999.999 ₫" [ref=e526]
+                    - cell "0.0" [ref=e527]
+                    - cell "0.0" [ref=e528]
+                    - cell "999.999.999 ₫" [ref=e529]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e530]:
+                    - cell "Other Clinic" [ref=e531]
+                    - cell "0" [ref=e532]
+                    - cell "999.999.999 ₫" [ref=e533]
+                    - cell "0.0" [ref=e534]
+                    - cell "0.0" [ref=e535]
+                    - cell "999.999.999 ₫" [ref=e536]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e537]:
+                    - cell "Other Clinic" [ref=e538]
+                    - cell "0" [ref=e539]
+                    - cell "999.999.999 ₫" [ref=e540]
+                    - cell "0.0" [ref=e541]
+                    - cell "0.0" [ref=e542]
+                    - cell "999.999.999 ₫" [ref=e543]
+                  - row "AR Test Clinic 904190 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e544]:
+                    - cell "AR Test Clinic 904190" [ref=e545]
+                    - cell "0" [ref=e546]
+                    - cell "999.999.999 ₫" [ref=e547]
+                    - cell "0.0" [ref=e548]
+                    - cell "0.0" [ref=e549]
+                    - cell "999.999.999 ₫" [ref=e550]
+                  - row "AR Test Clinic 449F65 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e551]:
+                    - cell "AR Test Clinic 449F65" [ref=e552]
+                    - cell "0" [ref=e553]
+                    - cell "999.999.999 ₫" [ref=e554]
+                    - cell "0.0" [ref=e555]
+                    - cell "0.0" [ref=e556]
+                    - cell "999.999.999 ₫" [ref=e557]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e558]:
+                    - cell "Other Clinic" [ref=e559]
+                    - cell "0" [ref=e560]
+                    - cell "999.999.999 ₫" [ref=e561]
+                    - cell "0.0" [ref=e562]
+                    - cell "0.0" [ref=e563]
+                    - cell "999.999.999 ₫" [ref=e564]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e565]:
+                    - cell "Other Clinic" [ref=e566]
+                    - cell "0" [ref=e567]
+                    - cell "999.999.999 ₫" [ref=e568]
+                    - cell "0.0" [ref=e569]
+                    - cell "0.0" [ref=e570]
+                    - cell "999.999.999 ₫" [ref=e571]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e572]:
+                    - cell "Other Clinic" [ref=e573]
+                    - cell "0" [ref=e574]
+                    - cell "999.999.999 ₫" [ref=e575]
+                    - cell "0.0" [ref=e576]
+                    - cell "0.0" [ref=e577]
+                    - cell "999.999.999 ₫" [ref=e578]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e579]:
+                    - cell "Other Clinic" [ref=e580]
+                    - cell "0" [ref=e581]
+                    - cell "999.999.999 ₫" [ref=e582]
+                    - cell "0.0" [ref=e583]
+                    - cell "0.0" [ref=e584]
+                    - cell "999.999.999 ₫" [ref=e585]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e586]:
+                    - cell "Other Clinic" [ref=e587]
+                    - cell "0" [ref=e588]
+                    - cell "999.999.999 ₫" [ref=e589]
+                    - cell "0.0" [ref=e590]
+                    - cell "0.0" [ref=e591]
+                    - cell "999.999.999 ₫" [ref=e592]
+                  - row "AR Test Clinic DA4EFF 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e593]:
+                    - cell "AR Test Clinic DA4EFF" [ref=e594]
+                    - cell "0" [ref=e595]
+                    - cell "999.999.999 ₫" [ref=e596]
+                    - cell "0.0" [ref=e597]
+                    - cell "0.0" [ref=e598]
+                    - cell "999.999.999 ₫" [ref=e599]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e600]:
+                    - cell "Other Clinic" [ref=e601]
+                    - cell "0" [ref=e602]
+                    - cell "999.999.999 ₫" [ref=e603]
+                    - cell "0.0" [ref=e604]
+                    - cell "0.0" [ref=e605]
+                    - cell "999.999.999 ₫" [ref=e606]
+                  - row "AR Test Clinic 7F7B5A 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e607]:
+                    - cell "AR Test Clinic 7F7B5A" [ref=e608]
+                    - cell "0" [ref=e609]
+                    - cell "999.999.999 ₫" [ref=e610]
+                    - cell "0.0" [ref=e611]
+                    - cell "0.0" [ref=e612]
+                    - cell "999.999.999 ₫" [ref=e613]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e614]:
+                    - cell "Other Clinic" [ref=e615]
+                    - cell "0" [ref=e616]
+                    - cell "999.999.999 ₫" [ref=e617]
+                    - cell "0.0" [ref=e618]
+                    - cell "0.0" [ref=e619]
+                    - cell "999.999.999 ₫" [ref=e620]
+                  - row "AR Test Clinic 732B07 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e621]:
+                    - cell "AR Test Clinic 732B07" [ref=e622]
+                    - cell "0" [ref=e623]
+                    - cell "999.999.999 ₫" [ref=e624]
+                    - cell "0.0" [ref=e625]
+                    - cell "0.0" [ref=e626]
+                    - cell "999.999.999 ₫" [ref=e627]
+                  - row "AR Test Clinic A3CCDD 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e628]:
+                    - cell "AR Test Clinic A3CCDD" [ref=e629]
+                    - cell "0" [ref=e630]
+                    - cell "999.999.999 ₫" [ref=e631]
+                    - cell "0.0" [ref=e632]
+                    - cell "0.0" [ref=e633]
+                    - cell "999.999.999 ₫" [ref=e634]
+                  - row "AR Test Clinic 7D8FEF 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e635]:
+                    - cell "AR Test Clinic 7D8FEF" [ref=e636]
+                    - cell "0" [ref=e637]
+                    - cell "999.999.999 ₫" [ref=e638]
+                    - cell "0.0" [ref=e639]
+                    - cell "0.0" [ref=e640]
+                    - cell "999.999.999 ₫" [ref=e641]
+                  - row "AR Test Clinic 18169E 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e642]:
+                    - cell "AR Test Clinic 18169E" [ref=e643]
+                    - cell "0" [ref=e644]
+                    - cell "999.999.999 ₫" [ref=e645]
+                    - cell "0.0" [ref=e646]
+                    - cell "0.0" [ref=e647]
+                    - cell "999.999.999 ₫" [ref=e648]
+                  - row "AR Test Clinic 009251 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e649]:
+                    - cell "AR Test Clinic 009251" [ref=e650]
+                    - cell "0" [ref=e651]
+                    - cell "999.999.999 ₫" [ref=e652]
+                    - cell "0.0" [ref=e653]
+                    - cell "0.0" [ref=e654]
+                    - cell "999.999.999 ₫" [ref=e655]
+                  - row "Other Clinic 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e656]:
+                    - cell "Other Clinic" [ref=e657]
+                    - cell "0" [ref=e658]
+                    - cell "999.999.999 ₫" [ref=e659]
+                    - cell "0.0" [ref=e660]
+                    - cell "0.0" [ref=e661]
+                    - cell "999.999.999 ₫" [ref=e662]
+                  - row "AR Test Clinic 3B56DD 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e663]:
+                    - cell "AR Test Clinic 3B56DD" [ref=e664]
+                    - cell "0" [ref=e665]
+                    - cell "999.999.999 ₫" [ref=e666]
+                    - cell "0.0" [ref=e667]
+                    - cell "0.0" [ref=e668]
+                    - cell "999.999.999 ₫" [ref=e669]
+                  - row "AR Test Clinic D7B64A 0 999.999.999 ₫ 0.0 0.0 999.999.999 ₫" [ref=e670]:
+                    - cell "AR Test Clinic D7B64A" [ref=e671]
+                    - cell "0" [ref=e672]
+                    - cell "999.999.999 ₫" [ref=e673]
+                    - cell "0.0" [ref=e674]
+                    - cell "0.0" [ref=e675]
+                    - cell "999.999.999 ₫" [ref=e676]
+                  - row "Billing E2E Clinic 00C979 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e677]:
+                    - cell "Billing E2E Clinic 00C979" [ref=e678]
+                    - cell "0" [ref=e679]
+                    - cell "500.000 ₫" [ref=e680]
+                    - cell "0.0" [ref=e681]
+                    - cell "0.0" [ref=e682]
+                    - cell "500.000 ₫" [ref=e683]
+                  - row "Billing E2E Clinic 6AF011 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e684]:
+                    - cell "Billing E2E Clinic 6AF011" [ref=e685]
+                    - cell "0" [ref=e686]
+                    - cell "500.000 ₫" [ref=e687]
+                    - cell "0.0" [ref=e688]
+                    - cell "0.0" [ref=e689]
+                    - cell "500.000 ₫" [ref=e690]
+                  - row "Billing E2E Clinic BA1AC1 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e691]:
+                    - cell "Billing E2E Clinic BA1AC1" [ref=e692]
+                    - cell "0" [ref=e693]
+                    - cell "500.000 ₫" [ref=e694]
+                    - cell "0.0" [ref=e695]
+                    - cell "0.0" [ref=e696]
+                    - cell "500.000 ₫" [ref=e697]
+                  - row "Billing E2E Clinic A64E62 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e698]:
+                    - cell "Billing E2E Clinic A64E62" [ref=e699]
+                    - cell "0" [ref=e700]
+                    - cell "500.000 ₫" [ref=e701]
+                    - cell "0.0" [ref=e702]
+                    - cell "0.0" [ref=e703]
+                    - cell "500.000 ₫" [ref=e704]
+                  - row "Billing E2E Clinic 80399D 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e705]:
+                    - cell "Billing E2E Clinic 80399D" [ref=e706]
+                    - cell "0" [ref=e707]
+                    - cell "500.000 ₫" [ref=e708]
+                    - cell "0.0" [ref=e709]
+                    - cell "0.0" [ref=e710]
+                    - cell "500.000 ₫" [ref=e711]
+                  - row "Billing E2E Clinic 0FD3D5 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e712]:
+                    - cell "Billing E2E Clinic 0FD3D5" [ref=e713]
+                    - cell "0" [ref=e714]
+                    - cell "500.000 ₫" [ref=e715]
+                    - cell "0.0" [ref=e716]
+                    - cell "0.0" [ref=e717]
+                    - cell "500.000 ₫" [ref=e718]
+                  - row "Billing E2E Clinic 0EEB68 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e719]:
+                    - cell "Billing E2E Clinic 0EEB68" [ref=e720]
+                    - cell "0" [ref=e721]
+                    - cell "500.000 ₫" [ref=e722]
+                    - cell "0.0" [ref=e723]
+                    - cell "0.0" [ref=e724]
+                    - cell "500.000 ₫" [ref=e725]
+                  - row "Billing E2E Clinic 8E5F7C 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e726]:
+                    - cell "Billing E2E Clinic 8E5F7C" [ref=e727]
+                    - cell "0" [ref=e728]
+                    - cell "500.000 ₫" [ref=e729]
+                    - cell "0.0" [ref=e730]
+                    - cell "0.0" [ref=e731]
+                    - cell "500.000 ₫" [ref=e732]
+                  - row "Billing E2E Clinic 71BB68 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e733]:
+                    - cell "Billing E2E Clinic 71BB68" [ref=e734]
+                    - cell "0" [ref=e735]
+                    - cell "500.000 ₫" [ref=e736]
+                    - cell "0.0" [ref=e737]
+                    - cell "0.0" [ref=e738]
+                    - cell "500.000 ₫" [ref=e739]
+                  - row "Billing E2E Clinic 96ED3B 0 500.000 ₫ 0.0 0.0 500.000 ₫" [ref=e740]:
+                    - cell "Billing E2E Clinic 96ED3B" [ref=e741]
+                    - cell "0" [ref=e742]
+                    - cell "500.000 ₫" [ref=e743]
+                    - cell "0.0" [ref=e744]
+                    - cell "0.0" [ref=e745]
+                    - cell "500.000 ₫" [ref=e746]
+                  - row "Report Test Clinic B43018 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e747]:
+                    - cell "Report Test Clinic B43018" [ref=e748]
+                    - cell "0" [ref=e749]
+                    - cell "300.000 ₫" [ref=e750]
+                    - cell "0.0" [ref=e751]
+                    - cell "0.0" [ref=e752]
+                    - cell "300.000 ₫" [ref=e753]
+                  - row "Report Test Clinic 2A5588 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e754]:
+                    - cell "Report Test Clinic 2A5588" [ref=e755]
+                    - cell "0" [ref=e756]
+                    - cell "300.000 ₫" [ref=e757]
+                    - cell "0.0" [ref=e758]
+                    - cell "0.0" [ref=e759]
+                    - cell "300.000 ₫" [ref=e760]
+                  - row "Report Test Clinic 8D6B65 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e761]:
+                    - cell "Report Test Clinic 8D6B65" [ref=e762]
+                    - cell "0" [ref=e763]
+                    - cell "300.000 ₫" [ref=e764]
+                    - cell "0.0" [ref=e765]
+                    - cell "0.0" [ref=e766]
+                    - cell "300.000 ₫" [ref=e767]
+                  - row "Report Test Clinic C895D4 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e768]:
+                    - cell "Report Test Clinic C895D4" [ref=e769]
+                    - cell "0" [ref=e770]
+                    - cell "300.000 ₫" [ref=e771]
+                    - cell "0.0" [ref=e772]
+                    - cell "0.0" [ref=e773]
+                    - cell "300.000 ₫" [ref=e774]
+                  - row "Report Test Clinic 09D098 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e775]:
+                    - cell "Report Test Clinic 09D098" [ref=e776]
+                    - cell "0" [ref=e777]
+                    - cell "300.000 ₫" [ref=e778]
+                    - cell "0.0" [ref=e779]
+                    - cell "0.0" [ref=e780]
+                    - cell "300.000 ₫" [ref=e781]
+                  - row "Report Test Clinic 6B4D00 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e782]:
+                    - cell "Report Test Clinic 6B4D00" [ref=e783]
+                    - cell "0" [ref=e784]
+                    - cell "300.000 ₫" [ref=e785]
+                    - cell "0.0" [ref=e786]
+                    - cell "0.0" [ref=e787]
+                    - cell "300.000 ₫" [ref=e788]
+                  - row "Report Test Clinic 32B2E1 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e789]:
+                    - cell "Report Test Clinic 32B2E1" [ref=e790]
+                    - cell "0" [ref=e791]
+                    - cell "300.000 ₫" [ref=e792]
+                    - cell "0.0" [ref=e793]
+                    - cell "0.0" [ref=e794]
+                    - cell "300.000 ₫" [ref=e795]
+                  - row "Report Test Clinic 65842D 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e796]:
+                    - cell "Report Test Clinic 65842D" [ref=e797]
+                    - cell "0" [ref=e798]
+                    - cell "300.000 ₫" [ref=e799]
+                    - cell "0.0" [ref=e800]
+                    - cell "0.0" [ref=e801]
+                    - cell "300.000 ₫" [ref=e802]
+                  - row "Report Test Clinic 84929F 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e803]:
+                    - cell "Report Test Clinic 84929F" [ref=e804]
+                    - cell "0" [ref=e805]
+                    - cell "300.000 ₫" [ref=e806]
+                    - cell "0.0" [ref=e807]
+                    - cell "0.0" [ref=e808]
+                    - cell "300.000 ₫" [ref=e809]
+                  - row "Report Test Clinic C5EB54 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e810]:
+                    - cell "Report Test Clinic C5EB54" [ref=e811]
+                    - cell "0" [ref=e812]
+                    - cell "300.000 ₫" [ref=e813]
+                    - cell "0.0" [ref=e814]
+                    - cell "0.0" [ref=e815]
+                    - cell "300.000 ₫" [ref=e816]
+                  - row "Report Test Clinic FD866B 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e817]:
+                    - cell "Report Test Clinic FD866B" [ref=e818]
+                    - cell "0" [ref=e819]
+                    - cell "300.000 ₫" [ref=e820]
+                    - cell "0.0" [ref=e821]
+                    - cell "0.0" [ref=e822]
+                    - cell "300.000 ₫" [ref=e823]
+                  - row "Report Test Clinic 8C43B2 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e824]:
+                    - cell "Report Test Clinic 8C43B2" [ref=e825]
+                    - cell "0" [ref=e826]
+                    - cell "300.000 ₫" [ref=e827]
+                    - cell "0.0" [ref=e828]
+                    - cell "0.0" [ref=e829]
+                    - cell "300.000 ₫" [ref=e830]
+                  - row "Report Test Clinic 032326 0 300.000 ₫ 0.0 0.0 300.000 ₫" [ref=e831]:
+                    - cell "Report Test Clinic 032326" [ref=e832]
+                    - cell "0" [ref=e833]
+                    - cell "300.000 ₫" [ref=e834]
+                    - cell "0.0" [ref=e835]
+                    - cell "0.0" [ref=e836]
+                    - cell "300.000 ₫" [ref=e837]
+                  - row "Phong kham MediZen Demo 0 10.000 ₫ 0.0 0.0 10.000 ₫" [ref=e838]:
+                    - cell "Phong kham MediZen Demo" [ref=e839]
+                    - cell "0" [ref=e840]
+                    - cell "10.000 ₫" [ref=e841]
+                    - cell "0.0" [ref=e842]
+                    - cell "0.0" [ref=e843]
+                    - cell "10.000 ₫" [ref=e844]
+                  - row "Gen-from-visit Clinic D1E923 0 0 ₫ 0.0 0.0 0 ₫" [ref=e845]:
+                    - cell "Gen-from-visit Clinic D1E923" [ref=e846]
+                    - cell "0" [ref=e847]
+                    - cell "0 ₫" [ref=e848]
+                    - cell "0.0" [ref=e849]
+                    - cell "0.0" [ref=e850]
+                    - cell "0 ₫" [ref=e851]
+    - region "Notifications alt+T"
+  - generic [ref=e852]: "0"

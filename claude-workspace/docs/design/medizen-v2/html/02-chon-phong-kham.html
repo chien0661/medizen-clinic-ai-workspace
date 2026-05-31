@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediZen v2.0 — Chọn Phòng Khám</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Design System Tokens ─────────────────────────────────────── */
+    :root {
+      /* Colors */
+      --color-primary:        #4F46E5;
+      --color-primary-hover:  #4338CA;
+      --color-primary-light:  #EEF2FF;
+      --color-primary-50:     #EEF2FF;
+      --color-primary-100:    #E0E7FF;
+      --color-primary-200:    #C7D2FE;
+      --color-primary-600:    #4F46E5;
+      --color-primary-700:    #4338CA;
+
+      --color-secondary:      #7C3AED;
+      --color-secondary-100:  #EDE9FE;
+      --color-secondary-600:  #7C3AED;
+
+      --color-accent:         #EC4899;
+      --color-accent-100:     #FCE7F3;
+
+      --color-emerald-50:     #ECFDF5;
+      --color-emerald-100:    #D1FAE5;
+      --color-emerald-600:    #059669;
+      --color-emerald-700:    #047857;
+
+      --color-amber-50:       #FFFBEB;
+      --color-amber-100:      #FEF3C7;
+      --color-amber-600:      #D97706;
+      --color-amber-700:      #B45309;
+
+      --color-violet-100:     #EDE9FE;
+      --color-violet-600:     #7C3AED;
+
+      --color-bg:             #F5F3FF;
+      --color-surface:        #FFFFFF;
+      --color-border:         #E8E4F3;
+      --color-border-soft:    #F0EDF8;
+
+      --color-text-primary:   #1E1B4B;
+      --color-text-secondary: #6B7280;
+      --color-text-muted:     #9CA3AF;
+
+      /* Spacing (8px grid) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+
+      /* Radius */
+      --radius-sm:  6px;
+      --radius-md:  10px;
+      --radius-lg:  16px;
+      --radius-xl:  20px;
+      --radius-full: 9999px;
+
+      /* Typography */
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      /* Shadows */
+      --shadow-card:  0 8px 40px rgba(79,70,229,0.10), 0 2px 12px rgba(79,70,229,0.06);
+      --shadow-hover: 0 4px 20px rgba(79,70,229,0.14), 0 1px 6px rgba(79,70,229,0.08);
+      --shadow-btn:   0 4px 14px rgba(79,70,229,0.35);
+    }
+
+    /* ─── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 1920px;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Page Layout ──────────────────────────────────────────────── */
+    .page {
+      width: 1920px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Decorative blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .blob-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, #C7D2FE 0%, #A5B4FC 60%, transparent 100%);
+      top: -200px; left: -180px;
+    }
+    .blob-2 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, #DDD6FE 0%, #C4B5FD 60%, transparent 100%);
+      bottom: -180px; right: -140px;
+    }
+    .blob-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #FCE7F3 0%, #FBCFE8 60%, transparent 100%);
+      top: 50%; right: 280px;
+      transform: translateY(-50%);
+    }
+
+    /* ─── Card ─────────────────────────────────────────────────────── */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 560px;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-border);
+      padding: var(--space-10) var(--space-8);
+    }
+
+    /* ─── Logo Block ───────────────────────────────────────────────── */
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 6px 20px rgba(79,70,229,0.30);
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-version {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: -6px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      text-align: center;
+      margin-top: var(--space-1);
+      line-height: 1.5;
+    }
+
+    /* ─── User Block ───────────────────────────────────────────────── */
+    .user-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      background: var(--color-primary-50);
+      border: 1px solid var(--color-primary-100);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(79,70,229,0.25);
+    }
+
+    .user-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .user-greeting {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-meta {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin-top: 1px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .badge-violet {
+      background: var(--color-secondary-100);
+      color: var(--color-secondary-600);
+    }
+
+    .badge-emerald {
+      background: var(--color-emerald-100);
+      color: var(--color-emerald-700);
+    }
+
+    .badge-amber {
+      background: var(--color-amber-100);
+      color: var(--color-amber-700);
+    }
+
+    /* ─── Divider ──────────────────────────────────────────────────── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .divider-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── Clinic Section ───────────────────────────────────────────── */
+    .clinics-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: var(--space-3);
+    }
+
+    .clinics-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+
+    /* ─── Clinic Row ───────────────────────────────────────────────── */
+    .clinic-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      height: 72px;
+      padding: 0 var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-border);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      position: relative;
+    }
+
+    .clinic-row:hover {
+      border-color: var(--color-primary-200);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-1px);
+    }
+
+    .clinic-row.selected {
+      background: var(--color-primary-50);
+      border-color: var(--color-primary-200);
+      border-left: 3px solid var(--color-primary);
+      padding-left: calc(var(--space-4) - 1.5px);
+    }
+
+    /* Clinic icon wrapper */
+    .clinic-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .clinic-icon-indigo { background: var(--color-primary-100); }
+    .clinic-icon-violet { background: var(--color-violet-100); }
+    .clinic-icon-emerald { background: var(--color-emerald-100); }
+
+    .clinic-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .clinic-name {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+    }
+
+    .clinic-address {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .clinic-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-shrink: 0;
+    }
+
+    .checkmark {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    /* ─── CTA Button ────────────────────────────────────────────────── */
+    .btn-primary {
+      width: 100%;
+      height: 44px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      box-shadow: var(--shadow-btn);
+      transition: all 0.18s ease;
+      letter-spacing: 0.1px;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover) 0%, #6D28D9 100%);
+      box-shadow: 0 6px 20px rgba(79,70,229,0.42);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-btn);
+    }
+
+    /* ─── Footer Links ──────────────────────────────────────────────── */
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+
+    .footer-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-primary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .footer-link:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    .footer-link.danger {
+      color: var(--color-text-secondary);
+    }
+
+    .footer-link.danger:hover {
+      color: #DC2626;
+    }
+
+    .footer-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--color-border);
+    }
+
+    /* ─── Bottom watermark ──────────────────────────────────────────── */
+    .watermark {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      font-size: 12px;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .watermark span {
+      font-weight: 600;
+      color: var(--color-primary);
+      opacity: 0.7;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Decorative blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Main Card -->
+  <div class="card">
+
+    <!-- Logo Block -->
+    <div class="logo-block">
+      <a href="01-login.html" style="text-decoration:none;display:flex;align-items:center;justify-content:center;"><div class="logo-icon">🏥</div></a>
+      <div>
+        <div class="logo-text">MediZen</div>
+        <div class="logo-version">v2.0 · Hệ thống quản lý phòng khám</div>
+      </div>
+      <div class="card-title">Chọn phòng khám để tiếp tục</div>
+      <div class="card-subtitle">Bạn có quyền truy cập vào nhiều phòng khám.<br/>Vui lòng chọn phòng khám để bắt đầu làm việc.</div>
+    </div>
+
+    <!-- User Block -->
+    <div class="user-block">
+      <div class="avatar">NM</div>
+      <div class="user-info">
+        <div class="user-greeting">Xin chào, BS. Nguyễn Văn Minh</div>
+        <div class="user-meta">nguyenvanminh@medizen.vn</div>
+      </div>
+      <span class="badge badge-violet">👨‍⚕️ Bác sĩ</span>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-label">Phòng khám của bạn</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Clinics List -->
+    <div class="clinics-list">
+
+      <!-- Clinic 1 — SELECTED -->
+      <div class="clinic-row selected">
+        <div class="clinic-icon-wrap clinic-icon-indigo">🏢</div>
+        <div class="clinic-info">
+          <div class="clinic-name">Phòng Khám Đa Khoa Hoàn Mỹ</div>
+          <div class="clinic-address">📍 12 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</div>
+        </div>
+        <div class="clinic-meta">
+          <span class="badge badge-emerald">⭐ Mặc định</span>
+          <div class="checkmark">✓</div>
+        </div>
+      </div>
+
+      <!-- Clinic 2 — With unread badge -->
+      <div class="clinic-row">
+        <div class="clinic-icon-wrap clinic-icon-violet">🏗️</div>
+        <div class="clinic-info">
+          <div class="clinic-name">Phòng Khám Nhi Khoa Sài Gòn</div>
+          <div class="clinic-address">📍 45 Lê Lợi, Quận 3, TP. Hồ Chí Minh</div>
+        </div>
+        <div class="clinic-meta">
+          <span class="badge badge-amber">🔔 3 chưa đọc</span>
+        </div>
+      </div>
+
+      <!-- Clinic 3 — Normal -->
+      <div class="clinic-row">
+        <div class="clinic-icon-wrap clinic-icon-emerald">🏬</div>
+        <div class="clinic-info">
+          <div class="clinic-name">Trung Tâm Y Tế Bình Thạnh</div>
+          <div class="clinic-address">📍 78 Đinh Tiên Hoàng, Quận Bình Thạnh, TP.HCM</div>
+        </div>
+        <div class="clinic-meta">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <a href="04-dashboard-le-tan.html" style="text-decoration:none;display:block;">
+    <button class="btn-primary">
+      <span>🏢</span>
+      Tiếp tục với Phòng Khám Đa Khoa Hoàn Mỹ
+      <span>→</span>
+    </button>
+    </a>
+
+    <!-- Footer Links -->
+    <div class="footer-links">
+      <a class="footer-link">⭐ Đặt làm mặc định</a>
+      <div class="footer-dot"></div>
+      <a class="footer-link danger" href="01-login.html">🚪 Đăng xuất</a>
+    </div>
+
+  </div>
+
+  <!-- Bottom watermark -->
+  <div class="watermark">
+    <span>MediZen v2.0</span>
+    · Hệ thống quản lý phòng khám thông minh · © 2026 MediZen Health Technology
+  </div>
+
+</div>
+
+</body>
+</html>

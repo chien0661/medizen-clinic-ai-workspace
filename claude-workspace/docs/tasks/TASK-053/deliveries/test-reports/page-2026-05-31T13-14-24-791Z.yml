@@ -1,0 +1,57 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - img "MediZen" [ref=e6]
+        - generic [ref=e7]: MediZen
+      - navigation [ref=e8]:
+        - generic [ref=e9]:
+          - generic [ref=e12]: Super Admin
+          - link "Tổng quan" [ref=e14] [cursor=pointer]:
+            - /url: "#/superadmin"
+            - img [ref=e15]
+            - generic [ref=e17]: Tổng quan
+          - link "Thống kê" [ref=e18] [cursor=pointer]:
+            - /url: "#/superadmin/analytics"
+            - img [ref=e19]
+            - generic [ref=e21]: Thống kê
+          - link "Phòng khám" [ref=e22] [cursor=pointer]:
+            - /url: "#/superadmin/clinics"
+            - img [ref=e23]
+            - generic [ref=e27]: Phòng khám
+          - link "Tài khoản" [ref=e28] [cursor=pointer]:
+            - /url: "#/superadmin/accounts"
+            - img [ref=e29]
+            - generic [ref=e34]: Tài khoản
+          - link "Audit Logs" [ref=e35] [cursor=pointer]:
+            - /url: "#/superadmin/audit-logs"
+            - img [ref=e36]
+            - generic [ref=e39]: Audit Logs
+      - button "Thu nhỏ menu" [ref=e41] [cursor=pointer]:
+        - generic [ref=e42]: Thu nhỏ menu
+        - img [ref=e43]
+    - generic [ref=e45]:
+      - banner [ref=e46]:
+        - button "Chuyển phòng khám" [ref=e48] [cursor=pointer]:
+          - img [ref=e50]
+          - generic [ref=e54]: Platform System
+        - button "Open quick search (Ctrl+K)" [ref=e55] [cursor=pointer]:
+          - img [ref=e56]
+          - generic [ref=e59]: Tìm kiếm
+          - generic [ref=e60]: ⌘K
+        - generic [ref=e61]:
+          - status "Online" [ref=e62]:
+            - generic [ref=e64]: Online
+          - button "Thông báo" [ref=e66] [cursor=pointer]:
+            - img [ref=e67]
+          - button "VI" [ref=e70] [cursor=pointer]
+          - button "Chuyển sang chế độ tối" [ref=e71] [cursor=pointer]:
+            - img [ref=e72]
+          - button "Chọn giao diện màu" [ref=e74] [cursor=pointer]:
+            - img [ref=e75]
+          - button "Menu người dùng" [ref=e81] [cursor=pointer]:
+            - generic [ref=e82]: SA
+            - generic [ref=e83]: super_admin
+      - main [ref=e84]:
+        - generic [ref=e87]: Đang tải dữ liệu...
+  - region "Notifications alt+T"

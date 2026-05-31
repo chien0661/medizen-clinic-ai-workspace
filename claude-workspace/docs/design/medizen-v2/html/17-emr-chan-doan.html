@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>MediZen v2.0 — Chẩn đoán ICD-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary: #4F46E5;
+    --primary-light: #6366F1;
+    --primary-dark: #3730A3;
+    --secondary: #7C3AED;
+    --accent: #EC4899;
+    --bg: #F5F3FF;
+    --surface: #FFFFFF;
+    --sidebar-bg: #1E1B4B;
+    --sidebar-hover: #312E81;
+    --sidebar-active: #4F46E5;
+    --text-primary: #1E1B4B;
+    --text-secondary: #6B7280;
+    --text-muted: #9CA3AF;
+    --border: #E5E7EB;
+    --border-focus: #4F46E5;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
+    --indigo-50: #EEF2FF;
+    --indigo-100: #E0E7FF;
+    --indigo-200: #C7D2FE;
+    --indigo-600: #4F46E5;
+    --indigo-700: #4338CA;
+    --purple-50: #FAF5FF;
+    --purple-100: #F3E8FF;
+  }
+
+  html, body {
+    width: 1920px;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ==================== SIDEBAR ==================== */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow: hidden;
+  }
+
+  .sidebar-logo {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+  }
+
+  .logo-text { flex: 1; }
+  .logo-text h1 {
+    font-size: 16px; font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .logo-text span {
+    font-size: 10px; color: rgba(255,255,255,0.5);
+    font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .sidebar-section-label {
+    font-size: 10px; font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1.2px; text-transform: uppercase;
+    padding: 16px 20px 6px;
+  }
+
+  .sidebar-nav { flex: 1; overflow-y: auto; padding: 8px 12px; }
+  .sidebar-nav::-webkit-scrollbar { width: 4px; }
+  .sidebar-nav::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px; border-radius: 8px;
+    cursor: pointer; transition: all 0.15s;
+    color: rgba(255,255,255,0.6);
+    font-size: 13.5px; font-weight: 500;
+    margin-bottom: 2px;
+    text-decoration: none;
+  }
+  .nav-item:hover { background: var(--sidebar-hover); color: rgba(255,255,255,0.9); }
+  .nav-item.active {
+    background: var(--sidebar-active);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.4);
+  }
+  .nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+  .nav-badge {
+    margin-left: auto;
+    background: var(--accent);
+    color: #fff; font-size: 10px; font-weight: 700;
+    padding: 1px 6px; border-radius: 10px; min-width: 18px; text-align: center;
+  }
+
+  .sidebar-footer {
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .sidebar-user {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .sidebar-user:hover { background: rgba(255,255,255,0.06); }
+  .user-avatar-sm {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; color: #fff; font-weight: 700; flex-shrink: 0;
+  }
+  .user-info-sm { flex: 1; min-width: 0; }
+  .user-info-sm .name { font-size: 12.5px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .user-info-sm .role { font-size: 10.5px; color: rgba(255,255,255,0.4); }
+
+  /* ==================== TOPBAR ==================== */
+  .topbar {
+    position: fixed;
+    top: 0; left: 240px; right: 0;
+    height: 56px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 0 28px;
+    z-index: 90;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-secondary);
+    flex: 1;
+  }
+  .breadcrumb span { cursor: pointer; transition: color 0.15s; }
+  .breadcrumb span:hover { color: var(--primary); }
+  .breadcrumb .sep { color: var(--border); }
+  .breadcrumb .current { color: var(--text-primary); font-weight: 600; }
+
+  .topbar-actions { display: flex; align-items: center; gap: 8px; }
+
+  .topbar-btn {
+    width: 36px; height: 36px; border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--text-secondary);
+    transition: all 0.15s; position: relative;
+  }
+  .topbar-btn:hover { background: var(--indigo-50); border-color: var(--indigo-200); color: var(--primary); }
+
+  .notif-dot {
+    position: absolute; top: 6px; right: 6px;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); border: 1.5px solid #fff;
+  }
+
+  .topbar-divider { width: 1px; height: 28px; background: var(--border); margin: 0 4px; }
+
+  .topbar-user {
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer; padding: 4px 10px 4px 4px;
+    border-radius: 10px; transition: background 0.15s;
+  }
+  .topbar-user:hover { background: var(--indigo-50); }
+  .topbar-avatar {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: #fff; font-weight: 700;
+  }
+  .topbar-user-info .name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .topbar-user-info .dept { font-size: 11px; color: var(--text-secondary); }
+
+  .topbar-date {
+    font-size: 12px; color: var(--text-secondary);
+    background: var(--indigo-50); padding: 4px 10px;
+    border-radius: 6px; border: 1px solid var(--indigo-100);
+    font-weight: 500;
+  }
+
+  /* ==================== LAYOUT ==================== */
+  .main-layout {
+    margin-left: 240px;
+    margin-top: 56px;
+    padding: 0;
+    min-height: calc(100vh - 56px);
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ==================== PATIENT BANNER ==================== */
+  .patient-banner {
+    background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4C1D95 100%);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .patient-banner::before {
+    content: '';
+    position: absolute; top: -30px; right: -30px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .patient-banner::after {
+    content: '';
+    position: absolute; bottom: -50px; left: 300px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(236,72,153,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .patient-avatar-lg {
+    width: 60px; height: 60px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; color: #fff; font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(99,102,241,0.4);
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .patient-info { flex: 1; min-width: 0; }
+  .patient-name {
+    font-size: 20px; font-weight: 800; color: #fff;
+    letter-spacing: -0.3px; margin-bottom: 4px;
+  }
+  .patient-meta {
+    display: flex; align-items: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .patient-meta-item {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 12.5px; color: rgba(255,255,255,0.7);
+  }
+  .patient-meta-item strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+  .patient-meta-sep { color: rgba(255,255,255,0.3); }
+
+  .patient-badges {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+  }
+
+  .patient-id-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px; border-radius: 8px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .visit-badge {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(16,185,129,0.2);
+    border: 1px solid rgba(16,185,129,0.4);
+    color: #6EE7B7;
+    padding: 4px 12px; border-radius: 6px;
+    font-size: 11.5px; font-weight: 600;
+  }
+  .visit-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #34D399;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; } 50% { opacity: 0.4; }
+  }
+
+  .vital-chips {
+    display: flex; align-items: center; gap: 10px;
+    margin-left: auto;
+  }
+  .vital-chip {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 6px 12px;
+    text-align: center;
+  }
+  .vital-chip .label { font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 1px; }
+  .vital-chip .value { font-size: 14px; font-weight: 700; color: #fff; font-family: 'Inter', sans-serif; }
+  .vital-chip .unit { font-size: 9px; color: rgba(255,255,255,0.5); }
+  .vital-chip.warning .value { color: #FCD34D; }
+  .vital-chip.danger .value { color: #FCA5A5; }
+
+  /* ==================== EMR TABS ==================== */
+  .emr-tabs-bar {
+    background: var(--surface);
+    border-bottom: 2px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .emr-tab {
+    display: flex; align-items: center; gap: 7px;
+    padding: 14px 22px 12px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    color: var(--text-secondary);
+    font-size: 13.5px; font-weight: 500;
+    white-space: nowrap;
+    position: relative;
+  }
+  .emr-tab:hover { color: var(--primary); background: var(--indigo-50); }
+  .emr-tab.active {
+    color: var(--primary); font-weight: 700;
+    border-bottom-color: var(--primary);
+    background: var(--indigo-50);
+  }
+  .emr-tab .tab-num {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--indigo-100); color: var(--primary);
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .emr-tab.active .tab-num {
+    background: var(--primary); color: #fff;
+  }
+  .emr-tab.done .tab-num {
+    background: var(--success); color: #fff;
+  }
+  .emr-tab.done { color: var(--success); }
+  .tab-icon { font-size: 15px; }
+  .tab-check { font-size: 11px; margin-left: 3px; color: var(--success); }
+
+  /* ==================== CONTENT AREA ==================== */
+  .content-area {
+    flex: 1;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 20px;
+    flex: 1;
+  }
+
+  /* ==================== CARDS ==================== */
+  .card {
+    background: var(--surface);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--indigo-50) 0%, #FAF5FF 100%);
+  }
+
+  .card-header-icon {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #fff;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+    flex-shrink: 0;
+  }
+
+  .card-header h3 {
+    font-size: 15px; font-weight: 700;
+    color: var(--text-primary); flex: 1;
+  }
+
+  .card-body { padding: 20px; }
+
+  /* ==================== SECTIONS ==================== */
+  .section {
+    margin-bottom: 22px;
+  }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-title {
+    font-size: 12px; font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .section-title::before {
+    content: '';
+    width: 3px; height: 14px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    flex-shrink: 0;
+  }
+
+  /* ==================== SEARCH BAR ==================== */
+  .search-bar {
+    display: flex; gap: 8px; margin-bottom: 12px;
+  }
+
+  .search-input-wrap {
+    flex: 1; position: relative;
+  }
+  .search-input-wrap .search-icon {
+    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    font-size: 14px; color: var(--text-muted);
+    pointer-events: none;
+  }
+  .search-input {
+    width: 100%; height: 40px;
+    padding: 0 12px 0 36px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13.5px; font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-primary); background: var(--surface);
+    transition: all 0.15s; outline: none;
+  }
+  .search-input::placeholder { color: var(--text-muted); }
+  .search-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  .search-btn {
+    height: 40px; padding: 0 18px;
+    background: var(--primary); color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap;
+  }
+  .search-btn:hover { background: var(--indigo-700); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(79,70,229,0.3); }
+
+  /* ==================== DIAGNOSIS CARDS ==================== */
+  .diag-primary-card {
+    background: var(--indigo-50);
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex; align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(79,70,229,0.12);
+  }
+
+  .icd-badge-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 5px 10px; border-radius: 7px;
+    font-size: 12px; font-weight: 800;
+    letter-spacing: 0.5px; white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(79,70,229,0.35);
+  }
+
+  .diag-content { flex: 1; }
+  .diag-name {
+    font-size: 14.5px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .diag-name-en {
+    font-size: 12px; color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .diag-primary-label {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: rgba(79,70,229,0.12);
+    color: var(--primary);
+    padding: 2px 8px; border-radius: 5px;
+    font-size: 11px; font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .diag-delete-btn {
+    display: flex; align-items: center; gap: 5px;
+    padding: 5px 12px; border-radius: 7px;
+    border: 1.5px solid #FCA5A5;
+    background: #FEF2F2; color: var(--danger);
+    font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .diag-delete-btn:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+
+  /* Secondary diagnosis */
+  .secondary-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .diag-secondary-card {
+    background: var(--surface);
+    border: 1.5px solid var(--indigo-200);
+    border-radius: 9px;
+    padding: 11px 14px;
+    display: flex; align-items: center;
+    gap: 10px;
+    transition: all 0.15s;
+  }
+  .diag-secondary-card:hover { border-color: var(--primary); box-shadow: 0 2px 8px rgba(79,70,229,0.1); }
+
+  .icd-badge-secondary {
+    background: var(--indigo-100);
+    color: var(--primary);
+    padding: 4px 9px; border-radius: 6px;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.5px; white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .diag-secondary-name {
+    flex: 1; font-size: 13.5px; font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .diag-remove-btn {
+    width: 26px; height: 26px; border-radius: 6px;
+    border: 1.5px solid var(--border);
+    background: transparent; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; flex-shrink: 0;
+  }
+  .diag-remove-btn:hover { background: #FEF2F2; border-color: #FCA5A5; color: var(--danger); }
+
+  .add-diag-btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 16px; border-radius: 8px;
+    border: 1.5px dashed var(--indigo-200);
+    background: var(--indigo-50); color: var(--primary);
+    font-size: 13.5px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: 8px; width: 100%;
+    justify-content: center;
+  }
+  .add-diag-btn:hover {
+    border-color: var(--primary);
+    background: var(--indigo-100);
+    box-shadow: 0 2px 8px rgba(79,70,229,0.12);
+  }
+
+  /* ==================== STAGE/SEVERITY ==================== */
+  .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
+  .radio-item {
+    display: flex; align-items: center; gap: 7px;
+    cursor: pointer; padding: 8px 14px;
+    border-radius: 8px; border: 1.5px solid var(--border);
+    background: var(--surface);
+    transition: all 0.15s;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-secondary);
+  }
+  .radio-item:hover { border-color: var(--indigo-200); color: var(--primary); background: var(--indigo-50); }
+  .radio-item.selected {
+    border-color: var(--primary);
+    background: var(--indigo-50);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .radio-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .radio-item.selected .radio-dot {
+    border-color: var(--primary);
+    background: var(--primary);
+  }
+  .radio-item.selected .radio-dot::after {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #fff;
+  }
+
+  .severity-group { display: flex; gap: 10px; margin-top: 10px; }
+  .severity-chip {
+    flex: 1; text-align: center;
+    padding: 8px 12px; border-radius: 8px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer; transition: all 0.15s;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-secondary);
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .severity-chip:hover { border-color: var(--indigo-200); background: var(--indigo-50); }
+  .severity-chip.selected-mild { border-color: var(--success); background: #ECFDF5; color: #065F46; font-weight: 600; }
+  .severity-chip.selected-moderate { border-color: var(--warning); background: #FFFBEB; color: #78350F; font-weight: 600; }
+  .severity-chip.selected-severe { border-color: var(--danger); background: #FEF2F2; color: #7F1D1D; font-weight: 600; }
+
+  /* ==================== TEXTAREA ==================== */
+  .note-textarea {
+    width: 100%; min-height: 90px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px; color: var(--text-primary);
+    background: var(--surface);
+    resize: vertical; outline: none;
+    transition: all 0.15s;
+    line-height: 1.6;
+  }
+  .note-textarea::placeholder { color: var(--text-muted); }
+  .note-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  }
+
+  /* ==================== RIGHT PANEL - ICD LOOKUP ==================== */
+  .right-panel { display: flex; flex-direction: column; gap: 16px; }
+
+  .icd-search-card {
+    background: var(--surface);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .icd-search-header {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--sidebar-bg) 0%, #312E81 100%);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .icd-search-header h3 {
+    font-size: 14px; font-weight: 700; color: #fff;
+    flex: 1;
+  }
+  .icd-version-badge {
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    padding: 2px 8px; border-radius: 5px;
+    font-size: 11px; font-weight: 600;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .icd-search-body { padding: 14px; }
+
+  .icd-search-bar {
+    display: flex; gap: 8px; margin-bottom: 12px;
+  }
+
+  .icd-results-label {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .results-count {
+    font-size: 12px; font-weight: 600; color: var(--primary);
+    background: var(--indigo-100); padding: 2px 8px; border-radius: 5px;
+  }
+  .results-category {
+    font-size: 11.5px; color: var(--text-secondary);
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  .icd-list {
+    max-height: 420px; overflow-y: auto;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .icd-list-scroll {
+    max-height: 420px; overflow-y: auto;
+  }
+  .icd-list-scroll::-webkit-scrollbar { width: 6px; }
+  .icd-list-scroll::-webkit-scrollbar-track { background: var(--indigo-50); }
+  .icd-list-scroll::-webkit-scrollbar-thumb { background: var(--indigo-200); border-radius: 3px; }
+  .icd-list-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+  .icd-group-header {
+    padding: 8px 14px;
+    background: linear-gradient(135deg, var(--indigo-50), var(--purple-50));
+    border-bottom: 1px solid var(--indigo-100);
+    display: flex; align-items: center; gap: 8px;
+    position: sticky; top: 0; z-index: 1;
+  }
+  .icd-group-header span {
+    font-size: 11px; font-weight: 700;
+    color: var(--primary); text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .icd-group-line {
+    flex: 1; height: 1px; background: var(--indigo-200);
+  }
+
+  .icd-row {
+    display: flex; align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer; transition: all 0.15s;
+    gap: 10px;
+  }
+  .icd-row:last-child { border-bottom: none; }
+  .icd-row:hover {
+    background: var(--indigo-50);
+    border-left: 3px solid var(--primary);
+    padding-left: 11px;
+  }
+  .icd-row.active {
+    background: var(--indigo-50);
+    border-left: 3px solid var(--primary);
+    padding-left: 11px;
+  }
+
+  .icd-row-code {
+    font-size: 12px; font-weight: 800;
+    color: var(--primary); font-family: 'Inter', sans-serif;
+    min-width: 48px;
+    background: var(--indigo-100);
+    padding: 3px 7px; border-radius: 5px;
+    flex-shrink: 0; text-align: center;
+  }
+  .icd-row.active .icd-row-code {
+    background: var(--primary); color: #fff;
+  }
+
+  .icd-row-content { flex: 1; min-width: 0; }
+  .icd-row-vi { font-size: 13px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .icd-row-en { font-size: 11px; color: var(--text-muted); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .icd-row-add {
+    width: 26px; height: 26px; border-radius: 6px;
+    border: 1.5px solid var(--indigo-200);
+    background: var(--indigo-50); color: var(--primary);
+    cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .icd-row-add:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .icd-row-add.added {
+    background: var(--success); color: #fff; border-color: var(--success);
+    font-size: 12px;
+  }
+
+  .icd-category-card {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .icd-category-card h4 {
+    font-size: 12px; font-weight: 700;
+    color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.6px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .category-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .category-chip {
+    padding: 5px 12px; border-radius: 20px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    font-size: 12px; font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .category-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--indigo-50); }
+  .category-chip.active { border-color: var(--primary); color: var(--primary); background: var(--indigo-50); font-weight: 600; }
+
+  /* ==================== BOTTOM ACTIONS ==================== */
+  .bottom-actions {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 16px 32px;
+    display: flex; align-items: center;
+    gap: 12px;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+  }
+
+  .btn {
+    display: flex; align-items: center; gap: 7px;
+    padding: 10px 22px; border-radius: 9px;
+    font-size: 13.5px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    border: none; font-family: 'Plus Jakarta Sans', sans-serif;
+    text-decoration: none;
+  }
+
+  .btn-outline {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: var(--indigo-50); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(79,70,229,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(79,70,229,0.4); }
+
+  .btn-success {
+    background: linear-gradient(135deg, #059669, #10B981);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(16,185,129,0.3);
+  }
+  .btn-success:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(16,185,129,0.4); }
+
+  .btn-secondary-nav {
+    background: var(--surface);
+    border: 1.5px solid var(--indigo-200);
+    color: var(--primary);
+  }
+  .btn-secondary-nav:hover { background: var(--indigo-50); border-color: var(--primary); }
+
+  .btn-lg { padding: 11px 28px; font-size: 14px; }
+
+  .bottom-right { margin-left: auto; display: flex; gap: 10px; }
+
+  .progress-info {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .progress-label { font-size: 12.5px; color: var(--text-secondary); font-weight: 500; }
+  .progress-bar-wrap {
+    width: 180px; height: 6px; border-radius: 3px;
+    background: var(--indigo-100); overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    width: 60%;
+  }
+  .progress-pct { font-size: 12px; font-weight: 700; color: var(--primary); }
+
+  /* Auto save indicator */
+  .autosave {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11.5px; color: var(--success);
+    font-weight: 500;
+  }
+  .autosave-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--success);
+  }
+
+  .divider-v { width: 1px; height: 24px; background: var(--border); }
+
+  /* ==================== EMR STEP INDICATOR ==================== */
+  .emr-step-indicator {
+    display: flex; align-items: center;
+    padding: 0 32px 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ==================== HELPER CLASSES ==================== */
+  .mt-2 { margin-top: 8px; }
+  .mt-3 { margin-top: 12px; }
+  .mb-2 { margin-bottom: 8px; }
+  .text-sm { font-size: 12px; }
+  .text-muted { color: var(--text-secondary); }
+  .fw-600 { font-weight: 600; }
+
+  /* Subtype label */
+  .sub-label {
+    font-size: 11.5px; font-weight: 600;
+    color: var(--text-secondary); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 5px;
+  }
+
+  /* ==================== TOOLTIP ==================== */
+  .tooltip-wrap { position: relative; display: inline-flex; }
+  .tooltip-wrap:hover .tooltip { opacity: 1; visibility: visible; }
+  .tooltip {
+    position: absolute; bottom: calc(100% + 6px); left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary); color: #fff;
+    font-size: 11px; font-weight: 500;
+    padding: 4px 9px; border-radius: 5px; white-space: nowrap;
+    opacity: 0; visibility: hidden; transition: all 0.15s;
+    pointer-events: none; z-index: 99;
+  }
+
+  /* ==================== INFO BANNER ==================== */
+  .info-banner {
+    background: linear-gradient(135deg, var(--indigo-50), var(--purple-50));
+    border: 1px solid var(--indigo-100);
+    border-radius: 8px; padding: 10px 14px;
+    display: flex; align-items: flex-start; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .info-banner-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .info-banner-text { font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
+  .info-banner-text strong { color: var(--primary); }
+</style>
+</head>
+<body>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <div class="logo-icon">🏥</div>
+    <div class="logo-text">
+      <h1>MediZen</h1>
+      <span>v2.0 EMR System</span>
+    </div>
+    </a>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="sidebar-section-label">Tổng quan</div>
+    <a class="nav-item" href="04-dashboard-le-tan.html">
+      <span class="nav-icon">🏠</span>
+      Tổng quan
+    </a>
+    <a class="nav-item" href="10-danh-sach-benh-nhan.html">
+      <span class="nav-icon">👥</span>
+      Bệnh nhân
+    </a>
+    <a class="nav-item" href="14-lich-hen.html">
+      <span class="nav-icon">📅</span>
+      Lịch hẹn
+    </a>
+    <a class="nav-item" href="13-phong-cho-queue.html">
+      <span class="nav-icon">🕐</span>
+      Phòng chờ
+    </a>
+
+    <div class="sidebar-section-label">Lâm sàng</div>
+    <a class="nav-item active" href="15-emr-sinh-hieu.html">
+      <span class="nav-icon">🩺</span>
+      Khám bệnh
+    </a>
+
+    <div class="sidebar-section-label">Quản lý</div>
+    <a class="nav-item" href="21-cap-phat-don-thuoc.html">
+      <span class="nav-icon">💊</span>
+      Dược
+    </a>
+    <a class="nav-item" href="24-thanh-toan.html">
+      <span class="nav-icon">💰</span>
+      Thanh toán
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">📊</span>
+      Báo cáo
+    </a>
+    <a class="nav-item" href="index.html">
+      <span class="nav-icon">⚙️</span>
+      Cấu hình
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="user-avatar-sm">BS</div>
+      <div class="user-info-sm">
+        <div class="name">BS. Trần Minh Đức</div>
+        <div class="role">Nội tim mạch · Trưởng khoa</div>
+      </div>
+      <span style="color:rgba(255,255,255,0.3);font-size:16px;">⚙</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ==================== TOPBAR ==================== -->
+<header class="topbar">
+  <div class="breadcrumb">
+    <a href="index.html" style="color:inherit;text-decoration:none;"><span>🏥 Trang chủ</span></a>
+    <span class="sep">›</span>
+    <span>Khám bệnh</span>
+    <span class="sep">›</span>
+    <a href="11-ho-so-benh-nhan.html" style="color:inherit;text-decoration:none;"><span>Phiên khám #PK-2026-1847</span></a>
+    <span class="sep">›</span>
+    <span class="current">Chẩn đoán ICD-10</span>
+  </div>
+  <div class="topbar-date">📅 Thứ 7, 31/05/2026 — 09:42 SA</div>
+  <div class="topbar-actions">
+    <button class="topbar-btn" title="Tìm kiếm">🔍</button>
+    <button class="topbar-btn" title="Thông báo">
+      🔔
+      <span class="notif-dot"></span>
+    </button>
+    <button class="topbar-btn" title="Trợ giúp">❓</button>
+    <div class="topbar-divider"></div>
+    <div class="topbar-user">
+      <div class="topbar-avatar">MD</div>
+      <div class="topbar-user-info">
+        <div class="name">BS. Trần Minh Đức</div>
+        <div class="dept">Khoa Nội Tim mạch</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MAIN LAYOUT ==================== -->
+<div class="main-layout">
+
+  <!-- Patient Banner -->
+  <div class="patient-banner">
+    <div class="patient-avatar-lg">AN</div>
+    <div class="patient-info">
+      <div class="patient-name">Nguyễn Văn An</div>
+      <div class="patient-meta">
+        <div class="patient-meta-item">👤 <strong>Nam</strong></div>
+        <span class="patient-meta-sep">•</span>
+        <div class="patient-meta-item">🎂 <strong>52 tuổi</strong> (14/03/1974)</div>
+        <span class="patient-meta-sep">•</span>
+        <div class="patient-meta-item">📞 <strong>0912 345 678</strong></div>
+        <span class="patient-meta-sep">•</span>
+        <div class="patient-meta-item">🏠 Quận Hoàn Kiếm, Hà Nội</div>
+        <span class="patient-meta-sep">•</span>
+        <div class="patient-meta-item">🩺 BS. <strong>Trần Minh Đức</strong></div>
+        <span class="patient-meta-sep">•</span>
+        <div class="patient-meta-item">🏥 Phòng <strong>P.201</strong></div>
+      </div>
+    </div>
+
+    <div class="vital-chips">
+      <div class="vital-chip warning">
+        <div class="label">HA</div>
+        <div class="value">148/92</div>
+        <div class="unit">mmHg</div>
+      </div>
+      <div class="vital-chip">
+        <div class="label">Mạch</div>
+        <div class="value">88</div>
+        <div class="unit">lần/ph</div>
+      </div>
+      <div class="vital-chip">
+        <div class="label">SpO₂</div>
+        <div class="value">97</div>
+        <div class="unit">%</div>
+      </div>
+      <div class="vital-chip">
+        <div class="label">Nhiệt độ</div>
+        <div class="value">36.8</div>
+        <div class="unit">°C</div>
+      </div>
+      <div class="vital-chip">
+        <div class="label">Cân nặng</div>
+        <div class="value">72</div>
+        <div class="unit">kg</div>
+      </div>
+    </div>
+
+    <div class="patient-badges">
+      <div class="patient-id-badge">BN-2026-00847</div>
+      <div class="visit-badge">
+        <span class="visit-dot"></span>
+        Đang khám
+      </div>
+    </div>
+  </div>
+
+  <!-- EMR Tabs -->
+  <div class="emr-tabs-bar">
+    <a class="emr-tab done" href="15-emr-sinh-hieu.html" style="text-decoration:none;">
+      <div class="tab-num">①</div>
+      <span class="tab-icon">📝</span>
+      Sinh hiệu
+    </a>
+    <a class="emr-tab done" href="16-emr-kham-lam-sang.html" style="text-decoration:none;">
+      <div class="tab-num">②</div>
+      <span class="tab-icon">🩺</span>
+      Khám lâm sàng
+    </a>
+    <a class="emr-tab active" href="17-emr-chan-doan.html" style="text-decoration:none;">
+      <div class="tab-num">③</div>
+      <span class="tab-icon">🔍</span>
+      Chẩn đoán
+    </a>
+    <a class="emr-tab" href="18-emr-ke-don.html" style="text-decoration:none;">
+      <div class="tab-num">④</div>
+      <span class="tab-icon">💊</span>
+      Kê đơn
+    </a>
+    <a class="emr-tab" href="19-emr-can-lam-sang.html" style="text-decoration:none;">
+      <div class="tab-num">⑤</div>
+      <span class="tab-icon">🔬</span>
+      Cận lâm sàng
+    </a>
+    <a class="emr-tab" href="20-emr-tom-tat.html" style="text-decoration:none;">
+      <div class="tab-num">⑥</div>
+      <span class="tab-icon">📋</span>
+      Tóm tắt & Hoàn tất
+    </a>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content-area">
+
+    <!-- Info Banner -->
+    <div class="info-banner">
+      <span class="info-banner-icon">💡</span>
+      <div class="info-banner-text">
+        Đang sử dụng danh mục <strong>ICD-10-CM 2026</strong> — Phiên bản cập nhật tháng 01/2026 bởi WHO. Chẩn đoán chính sẽ xuất hiện trên giấy ra viện và đơn thuốc.
+      </div>
+    </div>
+
+    <!-- 2-Column Grid -->
+    <div class="content-grid">
+
+      <!-- LEFT: Diagnosis Form -->
+      <div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-header-icon">🔍</div>
+            <h3>Chẩn đoán bệnh nhân</h3>
+            <div style="display:flex;align-items:center;gap:8px;margin-left:auto;">
+              <div style="display:flex;align-items:center;gap:5px;font-size:11.5px;color:#10B981;font-weight:600;">
+                <span style="width:6px;height:6px;border-radius:50%;background:#10B981;display:inline-block;"></span>
+                Đã lưu tự động
+              </div>
+              <button style="display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:7px;border:1.5px solid #E0E7FF;background:#EEF2FF;color:#4F46E5;font-size:12px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">
+                📎 Lịch sử chẩn đoán
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <!-- Section: Chẩn đoán chính -->
+            <div class="section">
+              <div class="section-title">Chẩn đoán chính <span style="color:#EF4444;font-size:13px;">*</span></div>
+
+              <div class="search-bar">
+                <div class="search-input-wrap">
+                  <span class="search-icon">🔎</span>
+                  <input class="search-input" type="text" placeholder="Tìm theo mã ICD-10 hoặc tên bệnh (ví dụ: I20, đau thắt ngực...)">
+                </div>
+                <button class="search-btn">
+                  🔍 Tìm kiếm
+                </button>
+              </div>
+
+              <div class="diag-primary-card">
+                <div class="icd-badge-primary">I20.9</div>
+                <div class="diag-content">
+                  <div class="diag-name">Đau thắt ngực không xác định</div>
+                  <div class="diag-name-en">Angina pectoris, unspecified</div>
+                  <div>
+                    <span class="diag-primary-label">
+                      ⭐ Chẩn đoán chính
+                    </span>
+                  </div>
+                </div>
+                <button class="diag-delete-btn">
+                  ✕ Xóa
+                </button>
+              </div>
+            </div>
+
+            <!-- Section: Chẩn đoán kèm theo -->
+            <div class="section">
+              <div class="section-title">
+                Chẩn đoán kèm theo
+                <span style="background:#E0E7FF;color:#4338CA;padding:1px 7px;border-radius:10px;font-size:10.5px;font-weight:700;text-transform:none;letter-spacing:0;">Tối đa 3</span>
+              </div>
+
+              <div class="secondary-list">
+                <div class="diag-secondary-card">
+                  <div class="icd-badge-secondary">I10</div>
+                  <div class="diag-secondary-name">
+                    Tăng huyết áp nguyên phát
+                    <div style="font-size:11px;color:#9CA3AF;font-style:italic;font-weight:400;">Essential (primary) hypertension</div>
+                  </div>
+                  <button class="diag-remove-btn" title="Xóa">✕</button>
+                </div>
+
+                <button class="add-diag-btn">
+                  ＋ Thêm chẩn đoán kèm theo
+                </button>
+              </div>
+            </div>
+
+            <!-- Section: Giai đoạn / Phân độ -->
+            <div class="section">
+              <div class="section-title">Giai đoạn / Phân độ bệnh</div>
+
+              <div class="sub-label">📌 Tính chất bệnh:</div>
+              <div class="radio-group">
+                <div class="radio-item selected">
+                  <div class="radio-dot"></div>
+                  🔴 Cấp tính
+                </div>
+                <div class="radio-item">
+                  <div class="radio-dot"></div>
+                  🔵 Mãn tính
+                </div>
+                <div class="radio-item">
+                  <div class="radio-dot"></div>
+                  🟡 Tái phát
+                </div>
+                <div class="radio-item">
+                  <div class="radio-dot"></div>
+                  ⚪ Không xác định
+                </div>
+              </div>
+
+              <div class="sub-label mt-3">📊 Mức độ nặng:</div>
+              <div class="severity-group">
+                <div class="severity-chip">
+                  💚 Nhẹ
+                </div>
+                <div class="severity-chip selected-moderate">
+                  🟡 Vừa phải
+                </div>
+                <div class="severity-chip">
+                  🔴 Nặng
+                </div>
+                <div class="severity-chip">
+                  ⚫ Rất nặng
+                </div>
+              </div>
+            </div>
+
+            <!-- Section: Ghi chú -->
+            <div class="section">
+              <div class="section-title">Ghi chú chẩn đoán</div>
+              <textarea class="note-textarea" placeholder="Nhập ghi chú bổ sung về chẩn đoán (triệu chứng đặc trưng, hoàn cảnh khởi phát, diễn tiến bệnh...)">Bệnh nhân nam 52 tuổi, nhập viện vì đau ngực tái phát. Đau thắt ngực xuất hiện khi gắng sức, kéo dài 5-10 phút, lan lên vai trái. Tiền sử tăng huyết áp 5 năm, điều trị không đều. HA hiện tại 148/92 mmHg. ECG có thay đổi ST nhẹ ở V4-V6.</textarea>
+              <div style="display:flex;justify-content:flex-end;margin-top:4px;">
+                <span style="font-size:11px;color:#9CA3AF;">187 / 500 ký tự</span>
+              </div>
+            </div>
+
+            <!-- Differential Diagnosis -->
+            <div class="section">
+              <div class="section-title">Chẩn đoán phân biệt</div>
+              <div style="display:flex;flex-wrap:wrap;gap:7px;">
+                <span style="padding:5px 12px;border-radius:7px;background:#FEF2F2;border:1px solid #FCA5A5;color:#DC2626;font-size:12.5px;font-weight:500;cursor:pointer;">
+                  ⚠️ NMCT không ST chênh
+                </span>
+                <span style="padding:5px 12px;border-radius:7px;background:#FFFBEB;border:1px solid #FCD34D;color:#92400E;font-size:12.5px;font-weight:500;cursor:pointer;">
+                  🫁 Co thắt mạch vành
+                </span>
+                <span style="padding:5px 12px;border-radius:7px;background:#F0FDF4;border:1px solid #86EFAC;color:#166534;font-size:12.5px;font-weight:500;cursor:pointer;">
+                  💔 Viêm màng ngoài tim
+                </span>
+                <span style="padding:5px 12px;border-radius:7px;background:#EFF6FF;border:1px solid #BFDBFE;color:#1E40AF;font-size:12.5px;font-weight:500;cursor:pointer;">
+                  ＋ Thêm
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: ICD-10 Lookup -->
+      <div class="right-panel">
+
+        <div class="icd-search-card">
+          <div class="icd-search-header">
+            <span style="font-size:18px;">📚</span>
+            <h3>Tra cứu ICD-10</h3>
+            <span class="icd-version-badge">ICD-10-CM 2026</span>
+          </div>
+          <div class="icd-search-body">
+
+            <div class="icd-search-bar">
+              <div class="search-input-wrap" style="flex:1;">
+                <span class="search-icon">🔎</span>
+                <input class="search-input" type="text" value="I20 angina tim mạch" style="font-size:13px;">
+              </div>
+              <button class="search-btn" style="padding:0 14px;font-size:12.5px;">Tra cứu</button>
+            </div>
+
+            <div class="icd-results-label">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span class="results-count">18 kết quả</span>
+                <span style="font-size:11.5px;color:#9CA3AF;">khớp với "I20"</span>
+              </div>
+              <div class="results-category">
+                <span>📂</span> Chương IX · Bệnh tim mạch
+              </div>
+            </div>
+
+            <div class="icd-list">
+              <div class="icd-list-scroll">
+
+                <!-- Group: Angina -->
+                <div class="icd-group-header">
+                  <span>❤️ Đau thắt ngực (I20)</span>
+                  <div class="icd-group-line"></div>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I20</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đau thắt ngực (nhóm)</div>
+                    <div class="icd-row-en">Angina pectoris</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row active">
+                  <div class="icd-row-code">I20.9</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đau thắt ngực không xác định ✓</div>
+                    <div class="icd-row-en">Angina pectoris, unspecified</div>
+                  </div>
+                  <button class="icd-row-add added">✓</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I20.0</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đau thắt ngực không ổn định</div>
+                    <div class="icd-row-en">Unstable angina</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I20.1</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đau thắt ngực do co thắt mạch vành</div>
+                    <div class="icd-row-en">Angina pectoris with documented spasm</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I20.8</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đau thắt ngực khác</div>
+                    <div class="icd-row-en">Other forms of angina pectoris</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <!-- Group: Hypertension -->
+                <div class="icd-group-header">
+                  <span>🩸 Tăng huyết áp (I10–I15)</span>
+                  <div class="icd-group-line"></div>
+                </div>
+
+                <div class="icd-row active">
+                  <div class="icd-row-code">I10</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Tăng huyết áp nguyên phát ✓</div>
+                    <div class="icd-row-en">Essential (primary) hypertension</div>
+                  </div>
+                  <button class="icd-row-add added">✓</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I11</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh tim do tăng huyết áp</div>
+                    <div class="icd-row-en">Hypertensive heart disease</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I11.0</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh tim THA có suy tim</div>
+                    <div class="icd-row-en">Hypertensive heart disease with heart failure</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I12</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh thận do tăng huyết áp</div>
+                    <div class="icd-row-en">Hypertensive renal disease</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I13</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh tim-thận do tăng huyết áp</div>
+                    <div class="icd-row-en">Hypertensive heart and renal disease</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I15</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Tăng huyết áp thứ phát</div>
+                    <div class="icd-row-en">Secondary hypertension</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <!-- Group: Ischemic Heart Disease -->
+                <div class="icd-group-header">
+                  <span>💔 Bệnh tim thiếu máu (I21–I25)</span>
+                  <div class="icd-group-line"></div>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I21</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">NMCT cấp</div>
+                    <div class="icd-row-en">ST elevation (STEMI) myocardial infarction</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I21.4</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">NMCT không ST chênh (NSTEMI)</div>
+                    <div class="icd-row-en">Non-ST elevation myocardial infarction</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I25</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh tim thiếu máu mạn tính</div>
+                    <div class="icd-row-en">Chronic ischaemic heart disease</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">I25.1</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Bệnh tim mạch vành xơ vữa</div>
+                    <div class="icd-row-en">Atherosclerotic heart disease of native coronary artery</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <!-- Lipids group -->
+                <div class="icd-group-header">
+                  <span>🧪 Rối loạn chuyển hóa liên quan</span>
+                  <div class="icd-group-line"></div>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">E78.5</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Tăng lipid máu hỗn hợp</div>
+                    <div class="icd-row-en">Hyperlipidemia, unspecified</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+                <div class="icd-row">
+                  <div class="icd-row-code">E11</div>
+                  <div class="icd-row-content">
+                    <div class="icd-row-vi">Đái tháo đường type 2</div>
+                    <div class="icd-row-en">Type 2 diabetes mellitus</div>
+                  </div>
+                  <button class="icd-row-add">＋</button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="icd-category-card">
+          <h4>📂 Lọc theo nhóm bệnh</h4>
+          <div class="category-chips">
+            <div class="category-chip active">❤️ Tim mạch</div>
+            <div class="category-chip">🫁 Hô hấp</div>
+            <div class="category-chip">🧠 Thần kinh</div>
+            <div class="category-chip">🦷 Tiêu hóa</div>
+            <div class="category-chip">🩺 Nội tiết</div>
+            <div class="category-chip">🦴 Cơ xương</div>
+            <div class="category-chip">🔬 Nhiễm trùng</div>
+            <div class="category-chip">🧬 Ung thư</div>
+          </div>
+        </div>
+
+        <!-- Quick Info Card -->
+        <div class="card">
+          <div class="card-body" style="padding:14px;">
+            <div style="font-size:12px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+              <span>📌</span> Thông tin mã I20.9
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:#F5F3FF;border-radius:7px;padding:9px 11px;">
+                <div style="font-size:10.5px;color:#9CA3AF;font-weight:600;margin-bottom:2px;">Chương</div>
+                <div style="font-size:12.5px;font-weight:700;color:#1E1B4B;">IX · Tim mạch</div>
+              </div>
+              <div style="background:#F5F3FF;border-radius:7px;padding:9px 11px;">
+                <div style="font-size:10.5px;color:#9CA3AF;font-weight:600;margin-bottom:2px;">Nhóm</div>
+                <div style="font-size:12.5px;font-weight:700;color:#1E1B4B;">I20–I25</div>
+              </div>
+              <div style="background:#FEF2F2;border-radius:7px;padding:9px 11px;">
+                <div style="font-size:10.5px;color:#9CA3AF;font-weight:600;margin-bottom:2px;">Phân loại</div>
+                <div style="font-size:12.5px;font-weight:700;color:#DC2626;">Cấp tính</div>
+              </div>
+              <div style="background:#F0FDF4;border-radius:7px;padding:9px 11px;">
+                <div style="font-size:10.5px;color:#9CA3AF;font-weight:600;margin-bottom:2px;">Tần suất dùng</div>
+                <div style="font-size:12.5px;font-weight:700;color:#065F46;">Rất phổ biến</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Actions -->
+  <div class="bottom-actions">
+    <div class="progress-info">
+      <span class="progress-label">Hoàn thành hồ sơ:</span>
+      <div class="progress-bar-wrap">
+        <div class="progress-fill"></div>
+      </div>
+      <span class="progress-pct">60%</span>
+    </div>
+    <div class="divider-v"></div>
+    <div class="autosave">
+      <span class="autosave-dot"></span>
+      Đã lưu lúc 09:38 SA
+    </div>
+
+    <div class="bottom-right">
+      <button class="btn btn-outline">
+        💾 Lưu tạm
+      </button>
+      <a class="btn btn-secondary-nav btn-lg" href="16-emr-kham-lam-sang.html">
+        ← Khám lâm sàng
+      </a>
+      <a class="btn btn-success btn-lg" href="18-emr-ke-don.html">
+        ✅ Lưu chẩn đoán
+      </a>
+      <a class="btn btn-primary btn-lg" href="18-emr-ke-don.html">
+        Kê đơn →
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Radio toggles
+  document.querySelectorAll('.radio-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const group = this.closest('.radio-group');
+      group.querySelectorAll('.radio-item').forEach(i => i.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+
+  // Severity toggles
+  document.querySelectorAll('.severity-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.severity-chip').forEach(c => {
+        c.classList.remove('selected-mild','selected-moderate','selected-severe');
+      });
+      const text = this.textContent.trim();
+      if (text.includes('Nhẹ')) this.classList.add('selected-mild');
+      else if (text.includes('Vừa')) this.classList.add('selected-moderate');
+      else if (text.includes('Nặng') && !text.includes('Rất')) this.classList.add('selected-severe');
+      else this.classList.add('selected-severe');
+    });
+  });
+
+  // ICD row selection
+  document.querySelectorAll('.icd-row').forEach(row => {
+    row.addEventListener('click', function() {
+      document.querySelectorAll('.icd-row').forEach(r => r.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Category chips
+  document.querySelectorAll('.category-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Add button toggle
+  document.querySelectorAll('.icd-row-add:not(.added)').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.textContent = '✓';
+      this.classList.add('added');
+    });
+  });
+</script>
+</body>
+</html>

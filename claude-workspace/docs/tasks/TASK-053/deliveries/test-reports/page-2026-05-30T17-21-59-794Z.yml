@@ -1,0 +1,244 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e11190]:
+      - complementary [ref=e11191]:
+        - generic [ref=e11192]:
+          - img "MediZen" [ref=e11193]
+          - generic [ref=e11194]: MediZen
+        - navigation [ref=e11195]:
+          - link "Tổng quan" [ref=e11196] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e11197]
+            - generic [ref=e11202]: Tổng quan
+          - generic [ref=e11203]:
+            - button "Tiếp tân" [ref=e11204] [cursor=pointer]:
+              - img [ref=e11205]
+              - generic [ref=e11207]: Tiếp tân
+              - img [ref=e11208]
+            - generic [ref=e11210]:
+              - link "Bệnh nhân" [ref=e11211] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e11212]
+                - generic [ref=e11217]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e11218] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e11219]
+                - generic [ref=e11223]: Lịch hẹn
+              - link "Hàng chờ" [ref=e11224] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e11225]
+                - generic [ref=e11229]: Hàng chờ
+          - generic [ref=e11230]:
+            - button "Nhà thuốc active role" [ref=e11231] [cursor=pointer]:
+              - img [ref=e11232]
+              - generic [ref=e11235]: Nhà thuốc
+              - generic "active role" [ref=e11236]
+              - img [ref=e11237]
+            - generic [ref=e11239]:
+              - link "Cấp phát chờ" [ref=e11240] [cursor=pointer]:
+                - /url: "#/pharmacy/pending"
+                - img [ref=e11241]
+                - generic [ref=e11243]: Cấp phát chờ
+              - link "Đổi lô thuốc" [ref=e11244] [cursor=pointer]:
+                - /url: "#/pharmacy/substitute"
+                - img [ref=e11245]
+                - generic [ref=e11248]: Đổi lô thuốc
+              - link "Tồn kho" [ref=e11249] [cursor=pointer]:
+                - /url: "#/pharmacy/inventory"
+                - img [ref=e11250]
+                - generic [ref=e11260]: Tồn kho
+              - link "Kiểm kê điều chỉnh" [ref=e11261] [cursor=pointer]:
+                - /url: "#/pharmacy/adjustments"
+                - img [ref=e11262]
+                - generic [ref=e11263]: Kiểm kê điều chỉnh
+              - link "Nhập hàng" [ref=e11264] [cursor=pointer]:
+                - /url: "#/pharmacy/purchase-in"
+                - img [ref=e11265]
+                - generic [ref=e11269]: Nhập hàng
+              - link "Kiểm kê kho" [ref=e11270] [cursor=pointer]:
+                - /url: "#/pharmacy/stocktake"
+                - img [ref=e11271]
+                - generic [ref=e11276]: Kiểm kê kho
+              - link "Xử lý hết hạn" [ref=e11277] [cursor=pointer]:
+                - /url: "#/pharmacy/expiry"
+                - img [ref=e11278]
+                - generic [ref=e11280]: Xử lý hết hạn
+          - generic [ref=e11281]:
+            - button "Thanh toán" [ref=e11282] [cursor=pointer]:
+              - img [ref=e11283]
+              - generic [ref=e11285]: Thanh toán
+              - img [ref=e11286]
+            - link "Hóa đơn" [ref=e11289] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e11290]
+              - generic [ref=e11293]: Hóa đơn
+          - generic [ref=e11294]:
+            - button "Báo cáo" [ref=e11295] [cursor=pointer]:
+              - img [ref=e11296]
+              - generic [ref=e11298]: Báo cáo
+              - img [ref=e11299]
+            - generic [ref=e11301]:
+              - link "Tồn kho" [ref=e11302] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e11303]
+                - generic [ref=e11307]: Tồn kho
+              - link "Lượt khám" [ref=e11308] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e11309]
+                - generic [ref=e11312]: Lượt khám
+              - link "Đơn thuốc" [ref=e11313] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e11314]
+                - generic [ref=e11317]: Đơn thuốc
+          - link "Thông báo" [ref=e11318] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e11319]
+            - generic [ref=e11322]: Thông báo
+          - generic [ref=e11323]:
+            - button "Nhân sự" [ref=e11324] [cursor=pointer]:
+              - img [ref=e11325]
+              - generic [ref=e11330]: Nhân sự
+              - img [ref=e11331]
+            - generic [ref=e11333]:
+              - link "Lịch ca" [ref=e11334] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e11335]
+                - generic [ref=e11337]: Lịch ca
+              - link "Chấm công" [ref=e11338] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e11339]
+                - generic [ref=e11342]: Chấm công
+              - link "Nghỉ phép" [ref=e11343] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e11344]
+                - generic [ref=e11347]: Nghỉ phép
+          - generic [ref=e11348]:
+            - button "Quản trị" [ref=e11349] [cursor=pointer]:
+              - img [ref=e11350]
+              - generic [ref=e11352]: Quản trị
+              - img [ref=e11353]
+            - link "Danh mục thuốc" [ref=e11356] [cursor=pointer]:
+              - /url: "#/admin/medicines"
+              - img [ref=e11357]
+              - generic [ref=e11361]: Danh mục thuốc
+          - link "Cài đặt" [ref=e11362] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e11363]
+            - generic [ref=e11366]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e11368] [cursor=pointer]:
+          - generic [ref=e11369]: Thu nhỏ menu
+          - img [ref=e11370]
+      - generic [ref=e11372]:
+        - banner [ref=e11373]:
+          - button "Chuyển phòng khám" [ref=e11375] [cursor=pointer]:
+            - img [ref=e11377]
+            - generic [ref=e11381]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e11382] [cursor=pointer]:
+            - img [ref=e11383]
+            - generic [ref=e11386]: Tìm kiếm
+            - generic [ref=e11387]: ⌘K
+          - generic [ref=e11388]:
+            - status "Online" [ref=e11389]:
+              - generic [ref=e11391]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e11392]': (!)
+            - button "Thông báo" [ref=e11394] [cursor=pointer]:
+              - img [ref=e11395]
+              - generic [ref=e11398]: "1"
+            - button "VI" [ref=e11399] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e11400] [cursor=pointer]:
+              - img [ref=e11401]
+            - button "Menu người dùng" [ref=e11403] [cursor=pointer]:
+              - generic [ref=e11404]: DN
+              - generic [ref=e11405]: Dược sĩ
+        - main [ref=e11406]:
+          - generic [ref=e11407]:
+            - generic [ref=e11408]:
+              - heading "Tổng quan" [level=1] [ref=e11409]
+              - paragraph [ref=e11410]: Xin chào, DS. Nguyễn Minh Cường
+            - generic [ref=e11411]:
+              - generic [ref=e11412]:
+                - generic [ref=e11413]:
+                  - generic [ref=e11414]: Lượt khám hôm nay
+                  - img [ref=e11416]
+                - generic [ref=e11421]:
+                  - generic [ref=e11422]: "0"
+                  - generic [ref=e11423]:
+                    - img [ref=e11424]
+                    - text: —
+                - generic [ref=e11427]: so với hôm qua
+              - generic [ref=e11428]:
+                - generic [ref=e11429]:
+                  - generic [ref=e11430]: Doanh thu hôm nay
+                  - img [ref=e11432]
+                - generic [ref=e11435]: 0 ₫
+              - generic [ref=e11436] [cursor=pointer]:
+                - generic [ref=e11437]:
+                  - generic [ref=e11438]: Chờ cấp phát
+                  - img [ref=e11440]
+                - generic [ref=e11443]: "0"
+              - generic [ref=e11444] [cursor=pointer]:
+                - generic [ref=e11445]:
+                  - generic [ref=e11446]: Cảnh báo kho
+                  - img [ref=e11448]
+                - generic [ref=e11451]: "1"
+                - generic [ref=e11452]: "Tồn kho thấp: 1 · Sắp hết hạn: 0"
+              - generic [ref=e11453] [cursor=pointer]:
+                - generic [ref=e11454]:
+                  - generic [ref=e11455]: Thông báo chưa đọc
+                  - img [ref=e11457]
+                - generic [ref=e11461]: "1"
+            - generic [ref=e11463] [cursor=pointer]:
+              - generic [ref=e11464]:
+                - generic [ref=e11465]: Hóa đơn chờ
+                - img [ref=e11467]
+              - generic [ref=e11471]: "0"
+            - generic [ref=e11472]:
+              - heading "Thao tác nhanh" [level=2] [ref=e11473]
+              - generic [ref=e11474]:
+                - button "Khám mới (walk-in)" [ref=e11475] [cursor=pointer]:
+                  - img [ref=e11476]
+                  - text: Khám mới (walk-in)
+                - button "Đặt lịch" [ref=e11479] [cursor=pointer]:
+                  - img [ref=e11480]
+                  - text: Đặt lịch
+                - button "Tra cứu bệnh nhân" [ref=e11482] [cursor=pointer]:
+                  - img [ref=e11483]
+                  - text: Tra cứu bệnh nhân
+            - generic [ref=e11486]:
+              - generic [ref=e11487]:
+                - heading "Doanh thu 7 ngày" [level=2] [ref=e11488]
+                - application [ref=e11491]
+              - generic [ref=e11496]:
+                - heading "Lượt khám theo giờ" [level=2] [ref=e11497]
+                - application [ref=e11500]:
+                  - generic [ref=e11512]:
+                    - generic [ref=e11515]: 00:00
+                    - generic [ref=e11516]:
+                      - generic [ref=e11518]: "0"
+                      - generic [ref=e11520]: "0.25"
+                      - generic [ref=e11522]: "0.5"
+                      - generic [ref=e11524]: "0.75"
+                      - generic [ref=e11526]: "1"
+            - generic [ref=e11527]:
+              - heading "Chấm công" [level=2] [ref=e11528]
+              - generic [ref=e11529]:
+                - paragraph [ref=e11530]: Ca hôm nay
+                - paragraph [ref=e11531]: Không có ca hôm nay
+              - generic [ref=e11532]:
+                - button "Thủ công" [ref=e11533] [cursor=pointer]:
+                  - img [ref=e11534]
+                  - text: Thủ công
+                - button "PIN Mã PIN" [ref=e11537] [cursor=pointer]:
+                  - generic [ref=e11538]: PIN
+                  - text: Mã PIN
+                - button "QR Code" [ref=e11539] [cursor=pointer]:
+                  - img [ref=e11540]
+                  - text: QR Code
+                - button "Sinh trắc học" [ref=e11545] [cursor=pointer]:
+                  - img [ref=e11546]
+                  - text: Sinh trắc học
+              - button "Check-in" [ref=e11556] [cursor=pointer]:
+                - img [ref=e11557]
+                - text: Check-in
+    - region "Notifications alt+T"
+  - generic [ref=e7814]: "0.25"

@@ -1,0 +1,339 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - complementary [ref=e4]:
+        - generic [ref=e5]:
+          - img "MediZen" [ref=e6]
+          - generic [ref=e7]: MediZen
+        - navigation [ref=e8]:
+          - link "Tổng quan" [ref=e9] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e10]
+            - generic [ref=e15]: Tổng quan
+          - generic [ref=e16]:
+            - button "Tiếp tân" [ref=e17] [cursor=pointer]:
+              - img [ref=e18]
+              - generic [ref=e20]: Tiếp tân
+              - img [ref=e21]
+            - generic [ref=e23]:
+              - link "Bệnh nhân" [ref=e24] [cursor=pointer]:
+                - /url: "#/patients"
+                - img [ref=e25]
+                - generic [ref=e30]: Bệnh nhân
+              - link "Lịch hẹn" [ref=e31] [cursor=pointer]:
+                - /url: "#/appointments"
+                - img [ref=e32]
+                - generic [ref=e36]: Lịch hẹn
+              - link "Hàng chờ" [ref=e37] [cursor=pointer]:
+                - /url: "#/queue"
+                - img [ref=e38]
+                - generic [ref=e42]: Hàng chờ
+          - generic [ref=e43]:
+            - button "Bác sĩ" [ref=e44] [cursor=pointer]:
+              - img [ref=e45]
+              - generic [ref=e49]: Bác sĩ
+              - img [ref=e50]
+            - generic [ref=e52]:
+              - link "Hàng đợi của tôi" [ref=e53] [cursor=pointer]:
+                - /url: "#/doctor/queue"
+                - img [ref=e54]
+                - generic [ref=e57]: Hàng đợi của tôi
+              - link "Bảng điều khiển" [ref=e58] [cursor=pointer]:
+                - /url: "#/doctor/dashboard"
+                - img [ref=e59]
+                - generic [ref=e61]: Bảng điều khiển
+          - generic [ref=e62]:
+            - button "Nhà thuốc" [ref=e63] [cursor=pointer]:
+              - img [ref=e64]
+              - generic [ref=e67]: Nhà thuốc
+              - img [ref=e68]
+            - generic [ref=e70]:
+              - link "Cấp phát chờ" [ref=e71] [cursor=pointer]:
+                - /url: "#/pharmacy/pending"
+                - img [ref=e72]
+                - generic [ref=e74]: Cấp phát chờ
+              - link "Đổi lô thuốc" [ref=e75] [cursor=pointer]:
+                - /url: "#/pharmacy/substitute"
+                - img [ref=e76]
+                - generic [ref=e79]: Đổi lô thuốc
+              - link "Tồn kho" [ref=e80] [cursor=pointer]:
+                - /url: "#/pharmacy/inventory"
+                - img [ref=e81]
+                - generic [ref=e91]: Tồn kho
+              - link "Kiểm kê điều chỉnh" [ref=e92] [cursor=pointer]:
+                - /url: "#/pharmacy/adjustments"
+                - img [ref=e93]
+                - generic [ref=e94]: Kiểm kê điều chỉnh
+              - link "Nhập hàng" [ref=e95] [cursor=pointer]:
+                - /url: "#/pharmacy/purchase-in"
+                - img [ref=e96]
+                - generic [ref=e100]: Nhập hàng
+              - link "Kiểm kê kho" [ref=e101] [cursor=pointer]:
+                - /url: "#/pharmacy/stocktake"
+                - img [ref=e102]
+                - generic [ref=e107]: Kiểm kê kho
+              - link "Xử lý hết hạn" [ref=e108] [cursor=pointer]:
+                - /url: "#/pharmacy/expiry"
+                - img [ref=e109]
+                - generic [ref=e111]: Xử lý hết hạn
+          - generic [ref=e112]:
+            - button "Thanh toán" [ref=e113] [cursor=pointer]:
+              - img [ref=e114]
+              - generic [ref=e116]: Thanh toán
+              - img [ref=e117]
+            - link "Hóa đơn" [ref=e120] [cursor=pointer]:
+              - /url: "#/billing/invoices"
+              - img [ref=e121]
+              - generic [ref=e124]: Hóa đơn
+          - generic [ref=e125]:
+            - button "Báo cáo active role" [ref=e126] [cursor=pointer]:
+              - img [ref=e127]
+              - generic [ref=e129]: Báo cáo
+              - generic "active role" [ref=e130]
+              - img [ref=e131]
+            - generic [ref=e133]:
+              - link "Doanh thu" [ref=e134] [cursor=pointer]:
+                - /url: "#/reports/revenue"
+                - img [ref=e135]
+                - generic [ref=e138]: Doanh thu
+              - link "Tồn kho" [ref=e139] [cursor=pointer]:
+                - /url: "#/reports/inventory"
+                - img [ref=e140]
+                - generic [ref=e144]: Tồn kho
+              - link "Hiệu suất bác sĩ" [ref=e145] [cursor=pointer]:
+                - /url: "#/reports/doctor-performance"
+                - img [ref=e146]
+                - generic [ref=e148]: Hiệu suất bác sĩ
+              - link "Lượt khám" [ref=e149] [cursor=pointer]:
+                - /url: "#/reports/visit-volume"
+                - img [ref=e150]
+                - generic [ref=e153]: Lượt khám
+              - link "Đơn thuốc" [ref=e154] [cursor=pointer]:
+                - /url: "#/reports/prescriptions"
+                - img [ref=e155]
+                - generic [ref=e158]: Đơn thuốc
+              - link "Công nợ AR" [ref=e159] [cursor=pointer]:
+                - /url: "#/reports/ar-aging"
+                - img [ref=e160]
+                - generic [ref=e163]: Công nợ AR
+          - link "Thông báo" [ref=e164] [cursor=pointer]:
+            - /url: "#/notifications"
+            - img [ref=e165]
+            - generic [ref=e168]: Thông báo
+          - generic [ref=e169]:
+            - button "Nhân sự active role" [ref=e170] [cursor=pointer]:
+              - img [ref=e171]
+              - generic [ref=e176]: Nhân sự
+              - generic "active role" [ref=e177]
+              - img [ref=e178]
+            - generic [ref=e180]:
+              - link "Lịch ca" [ref=e181] [cursor=pointer]:
+                - /url: "#/hr/schedule"
+                - img [ref=e182]
+                - generic [ref=e184]: Lịch ca
+              - link "Chấm công" [ref=e185] [cursor=pointer]:
+                - /url: "#/hr/me/timelog"
+                - img [ref=e186]
+                - generic [ref=e189]: Chấm công
+              - link "Nghỉ phép" [ref=e190] [cursor=pointer]:
+                - /url: "#/hr/leave/new"
+                - img [ref=e191]
+                - generic [ref=e194]: Nghỉ phép
+              - link "Duyệt phép" [ref=e195] [cursor=pointer]:
+                - /url: "#/hr/leave/approve"
+                - img [ref=e196]
+                - generic [ref=e200]: Duyệt phép
+              - link "Lịch định kỳ" [ref=e201] [cursor=pointer]:
+                - /url: "#/hr/recurring"
+                - img [ref=e202]
+                - generic [ref=e207]: Lịch định kỳ
+              - link "Mẫu ca" [ref=e208] [cursor=pointer]:
+                - /url: "#/hr/shift-templates"
+                - img [ref=e209]
+                - generic [ref=e212]: Mẫu ca
+              - link "Chấm công" [ref=e213] [cursor=pointer]:
+                - /url: "#/hr/attendance/export"
+                - img [ref=e214]
+                - generic [ref=e216]: Chấm công
+          - generic [ref=e217]:
+            - button "Quản trị active role" [ref=e218] [cursor=pointer]:
+              - img [ref=e219]
+              - generic [ref=e221]: Quản trị
+              - generic "active role" [ref=e222]
+              - img [ref=e223]
+            - generic [ref=e225]:
+              - link "Người dùng" [ref=e226] [cursor=pointer]:
+                - /url: "#/admin/users"
+                - img [ref=e227]
+                - generic [ref=e239]: Người dùng
+              - link "Vai trò & Phân quyền" [ref=e240] [cursor=pointer]:
+                - /url: "#/admin/roles"
+                - img [ref=e241]
+                - generic [ref=e245]: Vai trò & Phân quyền
+              - link "Cài đặt phòng khám" [ref=e246] [cursor=pointer]:
+                - /url: "#/admin/settings"
+                - img [ref=e247]
+                - generic [ref=e249]: Cài đặt phòng khám
+              - link "Chỉ số sinh tồn" [ref=e250] [cursor=pointer]:
+                - /url: "#/admin/vitals"
+                - img [ref=e251]
+                - generic [ref=e253]: Chỉ số sinh tồn
+              - link "Danh mục dịch vụ" [ref=e254] [cursor=pointer]:
+                - /url: "#/admin/services"
+                - img [ref=e255]
+                - generic [ref=e258]: Danh mục dịch vụ
+              - link "Danh mục thuốc" [ref=e259] [cursor=pointer]:
+                - /url: "#/admin/medicines"
+                - img [ref=e260]
+                - generic [ref=e264]: Danh mục thuốc
+              - link "Nhật ký hoạt động" [ref=e265] [cursor=pointer]:
+                - /url: "#/admin/audit"
+                - img [ref=e266]
+                - generic [ref=e270]: Nhật ký hoạt động
+          - link "Cài đặt" [ref=e271] [cursor=pointer]:
+            - /url: "#/settings"
+            - img [ref=e272]
+            - generic [ref=e275]: Cài đặt
+        - button "Thu nhỏ menu" [ref=e277] [cursor=pointer]:
+          - generic [ref=e278]: Thu nhỏ menu
+          - img [ref=e279]
+      - generic [ref=e281]:
+        - banner [ref=e282]:
+          - button "Chuyển phòng khám" [ref=e284] [cursor=pointer]:
+            - img [ref=e286]
+            - generic [ref=e290]: Phong kham MediZen Demo
+          - button "Open quick search (Ctrl+K)" [ref=e291] [cursor=pointer]:
+            - img [ref=e292]
+            - generic [ref=e295]: Tìm kiếm
+            - generic [ref=e296]: ⌘K
+          - generic [ref=e297]:
+            - status "Online" [ref=e298]:
+              - generic [ref=e300]: Online
+              - 'generic "Sync error: Failed to load Tauri SQL plugin. Ensure app is running in Tauri context." [ref=e7610]': (!)
+            - button "Thông báo" [ref=e302] [cursor=pointer]:
+              - img [ref=e303]
+              - generic [ref=e325]: "1"
+            - button "VI" [ref=e306] [cursor=pointer]
+            - button "Chuyển sang chế độ tối" [ref=e307] [cursor=pointer]:
+              - img [ref=e308]
+            - button "Menu người dùng" [ref=e310] [cursor=pointer]:
+              - generic [ref=e311]: DA
+              - generic [ref=e312]: Quản trị
+        - navigation "Breadcrumb" [ref=e313]:
+          - link "Home" [ref=e314] [cursor=pointer]:
+            - /url: "#/dashboard"
+            - img [ref=e315]
+          - generic [ref=e7611]:
+            - img [ref=e7612]
+            - link "Báo cáo" [ref=e7614] [cursor=pointer]:
+              - /url: "#/reports"
+          - generic [ref=e7666]:
+            - img [ref=e7667]
+            - generic [ref=e7669]: Ar-aging
+        - main [ref=e322]:
+          - generic [ref=e7672]:
+            - generic [ref=e7673]:
+              - generic [ref=e7674]:
+                - heading "Công nợ phải thu (AR Aging)" [level=1] [ref=e7675]
+                - paragraph [ref=e7676]: "Tính đến: 2026-05-30"
+              - generic [ref=e7677]:
+                - button "Làm mới" [ref=e7678] [cursor=pointer]:
+                  - img [ref=e7679]
+                  - text: Làm mới
+                - button "Xuất CSV" [ref=e7684] [cursor=pointer]:
+                  - img [ref=e7685]
+                  - text: Xuất CSV
+            - generic [ref=e7688]:
+              - generic [ref=e7689]:
+                - paragraph [ref=e7690]: 0 - 30 ngày
+                - paragraph [ref=e7691]: 15.200.000 ₫
+              - generic [ref=e7692]:
+                - paragraph [ref=e7693]: 31 - 60 ngày
+                - paragraph [ref=e7694]: 8.500.000 ₫
+              - generic [ref=e7695]:
+                - paragraph [ref=e7696]: 61 - 90 ngày
+                - paragraph [ref=e7697]: 4.300.000 ₫
+              - generic [ref=e7698]:
+                - paragraph [ref=e7699]: "> 90 ngày"
+                - paragraph [ref=e7700]: 2.100.000 ₫
+              - generic [ref=e7701]:
+                - paragraph [ref=e7702]: Tổng công nợ
+                - paragraph [ref=e7703]: 30.100.000 ₫
+            - generic [ref=e7704]:
+              - heading "Biểu đồ phân bổ công nợ theo thời hạn" [level=2] [ref=e7705]
+              - generic [ref=e7707]:
+                - generic:
+                  - status:
+                    - paragraph: ">90 ngày"
+                    - list:
+                      - listitem: "Công nợ : 2.100.000 ₫"
+                - application [ref=e7708]:
+                  - generic [ref=e7737]:
+                    - generic [ref=e7738]:
+                      - generic [ref=e7740]: 0-30 ngày
+                      - generic [ref=e7742]: 31-60 ngày
+                      - generic [ref=e7744]: 61-90 ngày
+                      - generic [ref=e7746]: ">90 ngày"
+                    - generic [ref=e7747]:
+                      - generic [ref=e7749]: 0K
+                      - generic [ref=e7751]: 4M
+                      - generic [ref=e7753]: 8M
+                      - generic [ref=e7755]: 12M
+                      - generic [ref=e7757]: 16M
+            - generic [ref=e7758]:
+              - generic [ref=e7759]:
+                - heading "Chi tiết theo bệnh nhân" [level=2] [ref=e7760]
+                - searchbox "Tìm bệnh nhân..." [ref=e7761]
+              - table [ref=e7763]:
+                - rowgroup [ref=e7764]:
+                  - row "Mã BN Tên bệnh nhân 0-30 ngày 31-60 ngày 61-90 ngày >90 ngày Tổng" [ref=e7765]:
+                    - columnheader "Mã BN" [ref=e7766]
+                    - columnheader "Tên bệnh nhân" [ref=e7767]
+                    - columnheader "0-30 ngày" [ref=e7768]
+                    - columnheader "31-60 ngày" [ref=e7769]
+                    - columnheader "61-90 ngày" [ref=e7770]
+                    - columnheader ">90 ngày" [ref=e7771]
+                    - columnheader "Tổng" [ref=e7772]
+                - rowgroup [ref=e7773]:
+                  - row "BN001 Nguyễn Văn An 3.500.000 ₫ — — — 3.500.000 ₫" [ref=e7774]:
+                    - cell "BN001" [ref=e7775]
+                    - cell "Nguyễn Văn An" [ref=e7776]
+                    - cell "3.500.000 ₫" [ref=e7777]
+                    - cell "—" [ref=e7778]
+                    - cell "—" [ref=e7779]
+                    - cell "—" [ref=e7780]
+                    - cell "3.500.000 ₫" [ref=e7781]
+                  - row "BN002 Trần Thị Bảo 2.000.000 ₫ 1.500.000 ₫ 800.000 ₫ — 4.300.000 ₫" [ref=e7782]:
+                    - cell "BN002" [ref=e7783]
+                    - cell "Trần Thị Bảo" [ref=e7784]
+                    - cell "2.000.000 ₫" [ref=e7785]
+                    - cell "1.500.000 ₫" [ref=e7786]
+                    - cell "800.000 ₫" [ref=e7787]
+                    - cell "—" [ref=e7788]
+                    - cell "4.300.000 ₫" [ref=e7789]
+                  - row "BN003 Lê Minh Châu 4.200.000 ₫ 3.200.000 ₫ — — 7.400.000 ₫" [ref=e7790]:
+                    - cell "BN003" [ref=e7791]
+                    - cell "Lê Minh Châu" [ref=e7792]
+                    - cell "4.200.000 ₫" [ref=e7793]
+                    - cell "3.200.000 ₫" [ref=e7794]
+                    - cell "—" [ref=e7795]
+                    - cell "—" [ref=e7796]
+                    - cell "7.400.000 ₫" [ref=e7797]
+                  - row "BN004 Phạm Thị Dung 1.500.000 ₫ 1.800.000 ₫ 2.500.000 ₫ 1.200.000 ₫ 7.000.000 ₫" [ref=e7798]:
+                    - cell "BN004" [ref=e7799]
+                    - cell "Phạm Thị Dung" [ref=e7800]
+                    - cell "1.500.000 ₫" [ref=e7801]
+                    - cell "1.800.000 ₫" [ref=e7802]
+                    - cell "2.500.000 ₫" [ref=e7803]
+                    - cell "1.200.000 ₫" [ref=e7804]
+                    - cell "7.000.000 ₫" [ref=e7805]
+                  - row "BN005 Hoàng Văn Đức 4.000.000 ₫ 2.000.000 ₫ 1.000.000 ₫ 900.000 ₫ 7.900.000 ₫" [ref=e7806]:
+                    - cell "BN005" [ref=e7807]
+                    - cell "Hoàng Văn Đức" [ref=e7808]
+                    - cell "4.000.000 ₫" [ref=e7809]
+                    - cell "2.000.000 ₫" [ref=e7810]
+                    - cell "1.000.000 ₫" [ref=e7811]
+                    - cell "900.000 ₫" [ref=e7812]
+                    - cell "7.900.000 ₫" [ref=e7813]
+    - region "Notifications alt+T"
+  - generic [ref=e7814]: 0K

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ca trực & Giờ làm — MediZen — MediZen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Screen meta info bar */
+    #meta-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #1e293b; color: #94a3b8; font-family: monospace;
+      font-size: 11px; padding: 4px 12px; display: flex; gap: 16px;
+      align-items: center;
+    }
+    #meta-bar a { color: #60a5fa; text-decoration: none; }
+    body { padding-top: 28px; }
+    /* Inline CSS from Stitch */
+    
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+        .shift-grid {
+            display: grid;
+            grid-template-columns: 60px repeat(7, 1fr);
+        }
+        .time-row {
+            height: 32px;
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    
+  </style>
+</head>
+<body>
+  <div id="meta-bar">
+    <span><strong style="color:#f1f5f9">Ca trực & Giờ làm — MediZen</strong></span>
+    <span>ID: c37cf2c381c44368aed26bc6f03c9116</span>
+    <span>2560×2070 DESKTOP</span>
+    <a href="../index.html">← Index</a>
+  </div>
+  
+<!-- SideNavBar Shell -->
+<aside class="flex flex-col fixed left-0 top-0 h-full py-4 z-50 bg-white border-r border-slate-200 w-[240px] font-['Inter'] text-sm font-medium">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center text-white font-bold">M</div>
+<div>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-xl text-indigo-600 leading-none">MediZen</h1>
+<p class="text-[10px] text-slate-400 uppercase tracking-wider mt-1">Clinical EMR</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1 px-3">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+<span>Patients</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Schedules</span>
+</div>
+<!-- NHÂN SỰ Expanded -->
+<div class="space-y-1">
+<div class="flex items-center justify-between px-3 py-2 text-indigo-600 bg-indigo-50/50 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">groups</span>
+<span>Human Resources</span>
+</div>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+<div class="pl-11 space-y-1">
+<div class="px-3 py-1.5 text-slate-400 hover:text-indigo-600 cursor-pointer">Danh sách NV</div>
+<div class="px-3 py-1.5 bg-indigo-50 text-indigo-600 border-r-4 border-indigo-600 font-semibold cursor-pointer">Ca trực &amp; Giờ làm</div>
+<div class="px-3 py-1.5 text-slate-400 hover:text-indigo-600 cursor-pointer">Bảng lương</div>
+</div>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">package_2</span>
+<span>Inventory</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">bar_chart</span>
+<span>Reports</span>
+</div>
+</nav>
+<div class="px-3 pt-4 mt-4 border-t border-slate-100">
+<button class="w-full bg-indigo-600 text-white rounded-lg py-2.5 px-4 flex items-center justify-center gap-2 shadow-md shadow-indigo-200 hover:bg-indigo-700 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="text-sm">New Appointment</span>
+</button>
+</div>
+<div class="mt-auto px-3 space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-slate-500 hover:bg-slate-50 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</div>
+</div>
+</aside>
+<!-- TopBar Shell -->
+<header class="flex justify-between items-center px-6 w-full sticky top-0 z-40 bg-white border-b border-slate-200 h-14 ml-[240px] w-[calc(100%-240px)]">
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-2 text-xs text-slate-400">
+<span>Trang chủ</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Cấu hình</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-slate-600 font-medium">Ca trực</span>
+</nav>
+<div class="ml-8 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="bg-slate-50 border-none rounded-full py-1.5 pl-10 pr-4 text-sm w-64 focus:ring-2 focus:ring-indigo-500/20" placeholder="Tìm kiếm... (Cmd+K)" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 text-xs font-medium cursor-pointer hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-lg">apartment</span>
+<span>Clinic Switcher</span>
+</div>
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-full relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-slate-50 rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-800 leading-none">QT. Admin</p>
+<p class="text-[10px] text-slate-400 mt-1">Super Admin</p>
+</div>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-indigo-100" data-alt="A professional headshot of a female hospital administrator in a clean white medical environment. The lighting is bright and modern, emphasizing a clinical yet approachable atmosphere. The focus is sharp on her friendly expression, set against a blurred background of a high-end medical facility with indigo accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGzRgXL1VX9Cvi6Tl6crdvoylZjhKXSGL4obHC3kCJV3_2hmE2Zt6zcSvr7PRvFg7rHkFkfrtFSErhRKP0hRDdibv-X3njdn4aROZGsFE_WbboiGAwhYpDnS7kXM5vB37Iz-E1pE8-3FLVVpet5OdaQVe5vmRVUTi1osJE2NW5dw3oWXlEJ-PW6vwQceyGqI5Xh9YOk2vF5WeOf5EPwPi8qjGayvRJX9LKTbhmhlOgML1C2y8HQC7rzSi3vNVZDpDT_fn0w8XR0CE"/>
+</div>
+</div>
+</header>
+<main class="ml-[240px] p-6 max-w-[1600px] flex gap-6">
+<!-- Main Content Area -->
+<div class="flex-1 min-w-0">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="text-2xl font-bold font-headline text-slate-900 tracking-tight">Ca trực &amp; Giờ làm</h2>
+<p class="text-slate-500 text-sm mt-1">Tuần 18/2026 (29/04 - 05/05) · <span class="font-semibold">28 nhân viên</span> · 4 ca/ngày</p>
+</div>
+<div class="flex bg-slate-100 p-1 rounded-xl">
+<button class="px-4 py-1.5 text-sm font-medium rounded-lg text-slate-500 hover:text-indigo-600 transition-colors">Mẫu ca</button>
+<button class="px-4 py-1.5 text-sm font-bold rounded-lg bg-white text-indigo-600 shadow-sm">Lịch ca tuần</button>
+<button class="px-4 py-1.5 text-sm font-medium rounded-lg text-slate-500 hover:text-indigo-600 transition-colors">Lịch ca tháng</button>
+<button class="px-4 py-1.5 text-sm font-medium rounded-lg text-slate-500 hover:text-indigo-600 transition-colors">Off</button>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex items-center justify-between mb-4 gap-4">
+<div class="flex items-center gap-2">
+<div class="flex items-center bg-white border border-slate-200 rounded-lg overflow-hidden">
+<button class="p-2 hover:bg-slate-50 text-slate-400 border-r border-slate-200">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="px-4 text-sm font-bold text-slate-700">Tuần 18</div>
+<button class="p-2 hover:bg-slate-50 text-slate-400 border-l border-slate-200">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<button class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 transition-colors">Today</button>
+<div class="h-6 w-px bg-slate-200 mx-2"></div>
+<div class="flex gap-1 bg-slate-100 p-1 rounded-lg">
+<button class="px-3 py-1 text-xs font-semibold rounded-md bg-white text-slate-700 shadow-sm border border-slate-200">Tất cả</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md text-slate-500 hover:bg-slate-200">BS</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md text-slate-500 hover:bg-slate-200">ĐD</button>
+<button class="px-3 py-1 text-xs font-medium rounded-md text-slate-500 hover:bg-slate-200">DS</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-lg">content_copy</span>
+                        Sao chép tuần trước
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Xuất Excel
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold shadow-md shadow-indigo-100 hover:bg-indigo-700">
+<span class="material-symbols-outlined text-lg">add</span>
+                        Tạo ca mới
+                    </button>
+</div>
+</div>
+<!-- Calendar Grid Content -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+<!-- Grid Header -->
+<div class="shift-grid border-b border-slate-200 bg-slate-50/50">
+<div class="time-row border-r border-slate-200"></div>
+<div class="px-3 py-2 border-r border-slate-200 text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T2</p>
+<p class="text-sm font-bold text-indigo-600">29/04</p>
+</div>
+<div class="px-3 py-2 border-r border-slate-200 text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T3</p>
+<p class="text-sm font-bold text-slate-600">30/04</p>
+</div>
+<div class="px-3 py-2 border-r border-slate-200 text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T4</p>
+<p class="text-sm font-bold text-slate-600">01/05</p>
+</div>
+<div class="px-3 py-2 border-r border-slate-200 text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T5</p>
+<p class="text-sm font-bold text-slate-600">02/05</p>
+</div>
+<div class="px-3 py-2 border-r border-slate-200 text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T6</p>
+<p class="text-sm font-bold text-slate-600">03/05</p>
+</div>
+<div class="px-3 py-2 border-r border-slate-200 text-center bg-slate-100/50">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">T7</p>
+<p class="text-sm font-bold text-slate-600">04/05</p>
+</div>
+<div class="px-3 py-2 text-center bg-slate-100/50">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">CN</p>
+<p class="text-sm font-bold text-slate-600">05/05</p>
+</div>
+</div>
+<!-- Grid Rows -->
+<div class="relative">
+<!-- Time Labels Column (Simulation of multiple rows) -->
+<div class="absolute left-0 top-0 w-[60px] h-full border-r border-slate-200 pointer-events-none"></div>
+<!-- Content Simulation -->
+<div class="shift-grid group relative">
+<!-- Left Time Indicator Column -->
+<div class="flex flex-col text-[10px] font-bold text-slate-400 text-right pr-2 pt-2 gap-[32px]">
+<span>07:00</span>
+<span>09:00</span>
+<span>11:00</span>
+<span>13:00</span>
+<span>15:00</span>
+<span>17:00</span>
+<span>19:00</span>
+<span>21:00</span>
+</div>
+<!-- Days Columns -->
+<!-- T2 -->
+<div class="border-r border-slate-200 min-h-[600px] p-2 space-y-2 relative group/cell">
+<div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-indigo-700 leading-tight">BS. Nguyễn Hoàng An</p>
+<p class="text-[9px] text-indigo-600/70 mt-0.5 font-medium">7-14h · P201</p>
+</div>
+<div class="bg-sky-50 border border-sky-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-sky-700 leading-tight">ĐD Lê Mai</p>
+<p class="text-[9px] text-sky-600/70 mt-0.5 font-medium">7-14h · Khu A</p>
+</div>
+<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-emerald-700 leading-tight">DS Trần Minh</p>
+<p class="text-[9px] text-emerald-600/70 mt-0.5 font-medium">9-17h · Quầy 1</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity hover:border-indigo-200 hover:text-indigo-400">+ Thêm</button>
+</div>
+<!-- T3 -->
+<div class="border-r border-slate-200 p-2 space-y-2 group/cell">
+<div class="bg-amber-50 border border-amber-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-amber-700 leading-tight">LT Nguyễn Lan</p>
+<p class="text-[9px] text-amber-600/70 mt-0.5 font-medium">7-15h · Sảnh</p>
+</div>
+<!-- Conflict Card -->
+<div class="bg-white border-2 border-red-500 rounded-lg p-2 shadow-lg relative">
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white ring-2 ring-red-100"></div>
+<p class="text-[10px] font-bold text-slate-800 leading-tight">BS. Trần B</p>
+<p class="text-[9px] text-red-500 mt-0.5 font-bold italic">Trùng lịch ca đêm</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+<!-- T4 -->
+<div class="border-r border-slate-200 p-2 space-y-2 group/cell">
+<div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2 shadow-sm opacity-60">
+<p class="text-[10px] font-bold text-indigo-700 leading-tight">BS. Phạm Huy</p>
+<p class="text-[9px] text-indigo-600/70 mt-0.5 font-medium">13-21h · P102</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+<!-- T5 -->
+<div class="border-r border-slate-200 p-2 space-y-2 group/cell">
+<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-emerald-700 leading-tight">DS. Nguyễn Vi</p>
+<p class="text-[9px] text-emerald-600/70 mt-0.5 font-medium">7-14h · Quầy 1</p>
+</div>
+<div class="bg-sky-50 border border-sky-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-sky-700 leading-tight">ĐD. Hoà</p>
+<p class="text-[9px] text-sky-600/70 mt-0.5 font-medium">14-22h · Cấp cứu</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+<!-- T6 -->
+<div class="border-r border-slate-200 p-2 space-y-2 group/cell">
+<!-- Empty morning -->
+<div class="bg-indigo-50 border border-indigo-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-indigo-700 leading-tight">BS. Anh</p>
+<p class="text-[9px] text-indigo-600/70 mt-0.5 font-medium">14-21h · P201</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+<!-- T7 -->
+<div class="border-r border-slate-200 p-2 space-y-2 bg-slate-50/50 group/cell">
+<div class="bg-amber-50 border border-amber-200 rounded-lg p-2 shadow-sm">
+<p class="text-[10px] font-bold text-amber-700 leading-tight">LT. Thanh</p>
+<p class="text-[9px] text-amber-600/70 mt-0.5 font-medium">8-16h · Sảnh</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+<!-- CN -->
+<div class="p-2 space-y-2 bg-slate-50/50 group/cell">
+<div class="bg-white border-2 border-red-500 rounded-lg p-2 shadow-lg relative">
+<div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></div>
+<p class="text-[10px] font-bold text-slate-800 leading-tight">BS. Hoàng</p>
+<p class="text-[9px] text-red-500 mt-0.5 font-bold italic text-xs">🔴 Conflict</p>
+</div>
+<button class="w-full py-2 border-2 border-dashed border-slate-100 rounded-lg text-slate-300 text-[10px] font-bold opacity-0 group-hover/cell:opacity-100 transition-opacity">+ Thêm</button>
+</div>
+</div>
+</div>
+<!-- Legend / Role Mapping -->
+<div class="border-t border-slate-200 p-4 bg-white flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-indigo-500"></div>
+<span class="text-xs font-medium text-slate-500">Bác sĩ (BS)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-sky-400"></div>
+<span class="text-xs font-medium text-slate-500">Điều dưỡng (ĐD)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-medium text-slate-500">Dược sĩ (DS)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-amber-500"></div>
+<span class="text-xs font-medium text-slate-500">Lễ tân (LT)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-sm">info</span>
+<span class="text-[10px]">Nhấn và kéo để thay đổi thời gian ca trực</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Panel (Context Drawer) -->
+<aside class="w-[320px] flex flex-col gap-6">
+<!-- Empty Slots -->
+<section class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+<div class="p-4 border-b border-slate-100 flex items-center justify-between">
+<h3 class="font-bold text-sm text-slate-800">Ca rỗng cần lấp</h3>
+<span class="px-2 py-0.5 bg-red-50 text-red-600 text-[10px] font-bold rounded-full">5 slot</span>
+</div>
+<div class="p-2 space-y-1">
+<div class="p-3 hover:bg-slate-50 rounded-lg border border-transparent hover:border-slate-100 transition-all group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-xs font-bold text-slate-700">Thứ 6, 03/05</p>
+<p class="text-[10px] text-slate-400 font-medium italic">Ca sáng (07:00 - 12:00)</p>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">Phân công</button>
+</div>
+</div>
+<div class="p-3 hover:bg-slate-50 rounded-lg border border-transparent hover:border-slate-100 transition-all group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-xs font-bold text-slate-700">Chủ Nhật, 05/05</p>
+<p class="text-[10px] text-slate-400 font-medium italic">Ca tối (18:00 - 22:00)</p>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">Phân công</button>
+</div>
+</div>
+<div class="p-3 hover:bg-slate-50 rounded-lg border border-transparent hover:border-slate-100 transition-all group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-xs font-bold text-slate-700">Thứ 4, 01/05</p>
+<p class="text-[10px] text-slate-400 font-medium italic">Lễ: Trực đêm</p>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">Phân công</button>
+</div>
+</div>
+<div class="p-3 hover:bg-slate-50 rounded-lg border border-transparent hover:border-slate-100 transition-all group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-xs font-bold text-slate-700">Thứ 7, 04/05</p>
+<p class="text-[10px] text-slate-400 font-medium italic">Ca chiều</p>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">Phân công</button>
+</div>
+</div>
+<div class="p-3 hover:bg-slate-50 rounded-lg border border-transparent hover:border-slate-100 transition-all group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-xs font-bold text-slate-700">Thứ 5, 02/05</p>
+<p class="text-[10px] text-slate-400 font-medium italic">Toàn thời gian</p>
+</div>
+<button class="text-[10px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded hover:bg-indigo-600 hover:text-white transition-colors">Phân công</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Conflict Section -->
+<section class="bg-white rounded-xl border-2 border-red-100 overflow-hidden shadow-sm shadow-red-100/50">
+<div class="p-4 border-b border-red-50 bg-red-50/30 flex items-center gap-2">
+<span class="material-symbols-outlined text-red-500">warning</span>
+<h3 class="font-bold text-sm text-red-900">Cảnh báo conflict</h3>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="BS. Trần B" class="w-10 h-10 rounded-lg object-cover grayscale" data-alt="A close-up portrait of a male doctor in his 40s looking fatigued, set in a dimly lit hospital corridor at night. The color palette is muted with heavy blues and shadows, contrasting with a sharp red notification highlight on his digital tablet. The atmosphere is stressful and clinical, reflecting a shift conflict scenario in a modern medical center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9VakZvKUD1gQhN9fcChs3YuK8VlimM_Ti2Zi6NXifCNDgMG2J3evA-1e-aulWzSaO4un_mhTNKtxqFNi7qP4BeOnANw77lI6antuW-8z4uFFdYx9iJ8-Xmk57vq8T4YLrBfly7gP3Ig-cvs2BdYKDbzCaiTg26o_seG0DN3-I3US0RdhpZmTA0QbPFvOOJLJQRPUxqcmu9oCKXgwAf-iRspVScVxvKJ9Wq4zN3wWmo42-fko-1vvrzOVlWupr0_6TXJgQdvz2Hsw"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-[10px] text-white">close</span>
+</div>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-800">BS. Trần B</p>
+<p class="text-[11px] text-red-600 font-medium">Trùng lịch nghỉ phép và ca trực</p>
+<p class="text-[10px] text-slate-400 mt-1">Thứ 3, 30/04 - Phòng 302</p>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition-colors">Giải quyết ngay</button>
+</div>
+</section>
+</aside>
+</main>
+<!-- Contextual FAB (Suppressed based on rules for Details/Settings, but this is a Dashboard/Config Hybrid) -->
+<!-- Not rendering FAB per suppression rule for configuration/transactional sub-pages -->
+
+</body>
+</html>
