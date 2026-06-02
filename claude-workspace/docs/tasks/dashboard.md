@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-01 00:15 (auto-generated)
+**Last Updated**: 2026-06-02 (TASK-076 → DONE)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,17 +12,17 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 57 |
+| **Total Tasks** | 60 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 4 (TASK-029, TASK-041, TASK-052, TASK-069) |
-| **DONE** | 51 |
+| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
+| **DONE** | 53 (incl. TASK-075, TASK-076) |
 
 ### By Priority
 
-- **High**: 32 tasks
+- **High**: 33 tasks
 - **Medium**: 12 tasks
 - **Low**: 2 (TASK-039b)
 - **Other**: 1
@@ -40,6 +40,14 @@
 ## Active Tasks
 
 ### 🔴 High Priority
+
+#### TODO
+
+- **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
+  - **Assigned**: Unassigned
+  - **Branch**: `feature/TASK-072-ui-v2-indigo-premium` (clinic-cms-web — đã tạo)
+  - **Design ref**: `docs/design/medizen-v2/html/` (25 HTML screens)
+  - **Note**: 25 screens prototype HTML đầy đủ navigation. Triển khai lên React/Tauri.
 
 #### IN_REVIEW
 
@@ -99,6 +107,14 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-076](tasks/TASK-076/task.md)** - Danh mục dạng bào chế cấu hình động + E2E — DONE 2026-06-02
+  - **Completed**: 2026-06-02
+  - **Details**: `medicine.dosage_form` enum cứng → master-data CRUD. BE: model/service/routes + migration 0038 (table + RLS cho clinic_id NULL + perms dosage_form.read/manage + 8 seed hệ thống). FE: DosageFormsPage `/admin/dosage-forms`, dropdown thuốc động (label=name, value=code), nav + i18n + tests (12/12). E2E (docker py3.11 + Playwright): create "Gel bôi ngoài da" qua UI → hiện ở dropdown form thuốc; delete system row → 403. FE `79f7183` · BE `405ebfd`. Spec: `deliveries/test-reports/test-report.md`
+
+- **[TASK-075](tasks/TASK-075/task.md)** - Fix duplicate menu (multi-role) + pagination/Excel export cho list screens — DONE 2026-06-02
+  - **Completed**: 2026-06-02
+  - **Details**: Sidebar dedup multi-role (8/8 tests). Pagination 50/100/200 (default 50) + nút Xuất Excel trên ~28 list screen. 26 BE export endpoint (1 CSV ar-aging giữ chống formula-injection + 25 XLSX qua helper `app/core/excel.py`, đã neutralize injection). Full FE→BE coverage (no 404). Loại trừ StocktakePage/SettingsPage. Review APPROVED. FE `94f5139,c3c9e70,ebe99b9` · BE `3e280e5,ccc8891`. Follow-up: pytest BE cho endpoint export mới (CI py3.11). Spec: `deliveries/final-specs/menu-pagination-export-functional-design.md`
 
 - **[TASK-071](tasks/TASK-071/task.md)** - Super Admin Analytics — Thống kê phòng khám theo thời gian — DONE 2026-06-01
   - **Completed**: 2026-06-01
