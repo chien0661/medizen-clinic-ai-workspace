@@ -152,7 +152,8 @@
       "Bash(node .claude/hooks/*:*)",
       "Bash(node scripts/worker-service.js:*)",
       "Bash(node scripts/setup-memory.js:*)",
-      "Bash(node mcp-servers/claude-mem-server/dist/*:*)"
+      "Bash(node mcp-servers/claude-mem-server/dist/*:*)",
+      "Bash(curl *)"
     ],
     "deny": [
       "Read(./.env)",
@@ -169,7 +170,6 @@
       "Bash(rm -fr:*)",
       "Bash(sudo rm:*)",
       "Bash(sudo:*)",
-      "Bash(curl:*)",
       "Bash(wget:*)",
       "WebFetch",
       "Bash(apt:*)",

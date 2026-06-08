@@ -1,0 +1,112 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: clinic_cms_postgres
+    environment:
+      POSTGRES_DB: cms
+      POSTGRES_USER: cms
+      POSTGRES_PASSWORD: cms
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres-init.sql:/docker-entrypoint-initdb.d/01-extensions.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cms -d cms"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: clinic_cms_redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: clinic_cms_api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      DATABASE_URL: postgresql+asyncpg://cms:cms@postgres:5432/cms
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: dev-secret-change-me
+      ENVIRONMENT: development
+      DEBUG: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../app:/app/app
+      - ../alembic:/app/alembic
+      - ../alembic.ini:/app/alembic.ini
+      - ../tests:/app/tests
+      - ../pyproject.toml:/app/pyproject.toml
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: clinic_cms_worker
+    command: arq app.workers.scheduler.WorkerSettings
+    environment:
+      DATABASE_URL: postgresql+asyncpg://cms:cms@postgres:5432/cms
+      REDIS_URL: redis://redis:6379/0
+      JWT_SECRET: dev-secret-change-me
+      ENVIRONMENT: development
+    volumes:
+      - ../app:/app/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      disable: true
+
+  db-backup:
+    image: postgres:15-alpine
+    container_name: clinic_cms_db_backup
+    restart: unless-stopped
+    environment:
+      PGPASSWORD: cms
+      # Backup mỗi 6h (21600s); giữ lại 28 bản gần nhất (~7 ngày)
+      BACKUP_INTERVAL: "21600"
+      BACKUP_KEEP: "28"
+    volumes:
+      - ./backups:/backups
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        echo "[backup] service started (interval=$${BACKUP_INTERVAL}s, keep=$${BACKUP_KEEP})"
+        while true; do
+          ts=$$(date +%Y%m%d-%H%M%S)
+          echo "[backup] $$ts starting pg_dump..."
+          if pg_dump -h postgres -U cms -d cms -F c -f /backups/cms-$$ts.dump; then
+            echo "[backup] $$ts OK -> cms-$$ts.dump"
+          else
+            echo "[backup] $$ts FAILED"
+            rm -f /backups/cms-$$ts.dump
+          fi
+          # retention: xoá các bản cũ, chỉ giữ $$BACKUP_KEEP bản mới nhất
+          ls -1t /backups/cms-*.dump 2>/dev/null | tail -n +$$(($${BACKUP_KEEP} + 1)) | xargs -r rm -f
+          sleep $${BACKUP_INTERVAL}
+        done
+
+volumes:
+  pgdata:

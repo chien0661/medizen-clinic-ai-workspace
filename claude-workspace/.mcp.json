@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless",
+        "--isolated",
+        "--output-dir",
+        "E:\\MyProject\\clinic-cms-workspace\\claude-workspace\\docs\\tasks\\TASK-053\\deliveries\\test-reports"
+      ]
+    }
+  }
+}

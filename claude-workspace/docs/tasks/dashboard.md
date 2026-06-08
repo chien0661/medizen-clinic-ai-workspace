@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-02 (TASK-076 → DONE)
+**Last Updated**: 2026-06-08 (TASK-077 → DONE)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,13 +12,13 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 60 |
+| **Total Tasks** | 61 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 53 (incl. TASK-075, TASK-076) |
+| **DONE** | 55 (incl. TASK-074, TASK-075, TASK-076, TASK-077) |
 
 ### By Priority
 
@@ -107,6 +107,14 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-074](tasks/TASK-074/task.md)** - Pagination, Excel export, menu reorganization for multi-role users — DONE 2026-06-08
+  - **Completed**: 2026-06-08
+  - **Details**: E2E retest via Playwright MCP. TC-1 pagination ✅, TC-2 page-size ✅, TC-3 patients export ✅ (fix: `address`→`address_line`), TC-4c services export ✅ (fix: remove non-existent `unit` field), TC-4d medicines export ✅, TC-4e users export ✅, TC-5 multi-role sidebar ✅. 2 BE bugs fixed in `clinic-cms`. Spec: `deliveries/test-reports/e2e-test-report-retest.md`
+
+- **[TASK-077](tasks/TASK-077/task.md)** - E2E test luồng đầy đủ: cấu hình → tiếp nhận → khám → kê đơn → dịch vụ → thanh toán — DONE 2026-06-08
+  - **Completed**: 2026-06-08
+  - **Details**: E2E Playwright MCP toàn luồng. TC-01~TC-10: 8 PASS, 2 PARTIAL. 2 bugs fixed: BUG-077-001 (ServicesTab crash — API type mismatch), BUG-077-002 (complete-emr 500 — wrong table name `service_order`→`visit_service`). 2 findings mới: BUG-077-003 (SOD silent failure), BUG-077-004 (no prescription print route after visit completion). Invoice INV-20260608-001 paid 400k tiền mặt. Spec: `deliveries/test-reports/test-report-2026-06-08.md`
 
 - **[TASK-076](tasks/TASK-076/task.md)** - Danh mục dạng bào chế cấu hình động + E2E — DONE 2026-06-02
   - **Completed**: 2026-06-02

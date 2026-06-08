@@ -14,10 +14,13 @@ workspace-type: microservice    # This repo is a workspace; source code lives in
 repos:
   clinic-cms:
     path: ../clinic-cms
-    description: FastAPI backend (Python 3.11, PostgreSQL 15, Redis 7, Alembic, Arq).
+    description: FastAPI backend (Python 3.11, PostgreSQL 15, Redis 7, Alembic, Arq). NOTE - this directory is often left checked out on a stale per-task feature branch. Audits/integration work should target ../clinic-cms-merge instead, which is the main worktree.
+  clinic-cms-merge:
+    path: ../clinic-cms-merge
+    description: Backend MAIN-branch worktree (same git repo as clinic-cms, different worktree). Use this for read audits, integration testing, and any "what's actually shipped on main" question. Contains all merged modules (admin, appointments, audit, auth, billing, hr, inventory, notifications, patients, pharmacy, prescriptions, reports, services, users, visits, vitals).
   clinic-cms-web:
     path: ../clinic-cms-web
-    description: Tauri 2 desktop client (React 18 + Vite + TypeScript + TanStack Query + zustand).
+    description: Tauri 2 desktop client (React 18 + Vite + TypeScript + TanStack Query + zustand). Currently checked out on main.
   clinic-cms-landing:
     path: ../clinic-cms-landing
     description: Next.js 15 marketing landing site (Vercel SSR). SEO-optimized, separate from desktop app. Branch feature/TASK-030-landing-page.

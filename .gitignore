@@ -1,0 +1,8 @@
+# Source repos — tracked separately, not part of workspace
+clinic-cms/
+clinic-cms-web/
+clinic-cms-gateway/
+clinic-cms-landing/
+
+# Misc docs at root (not workspace content)
+docs/
