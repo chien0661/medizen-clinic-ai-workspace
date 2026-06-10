@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-08 (TASK-077 → DONE)
+**Last Updated**: 2026-06-10 (TASK-078 → DONE)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,13 +12,13 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 61 |
+| **Total Tasks** | 62 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 55 (incl. TASK-074, TASK-075, TASK-076, TASK-077) |
+| **DONE** | 56 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078) |
 
 ### By Priority
 
