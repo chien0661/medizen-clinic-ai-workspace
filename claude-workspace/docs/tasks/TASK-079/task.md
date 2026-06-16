@@ -2,9 +2,9 @@
 id: TASK-079
 type: feature
 title: "Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái bình thường/không bình thường có cấu trúc"
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Review Agent
+assigned: Documentation Agent
 created: 2026-06-16
 updated: 2026-06-16
 branch: "feature/TASK-079-dynamic-vitals"
@@ -69,10 +69,10 @@ Module **vitals** đã có sẵn nền tảng cấu hình động ở backend v�
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -89,6 +89,9 @@ Module **vitals** đã có sẵn nền tảng cấu hình động ở backend v�
 
 - **Created**: 2026-06-16
 - **Implementation Completed**: 2026-06-16
+- **Review Completed**: 2026-06-16 (APPROVED)
+- **Testing Completed**: 2026-06-16 (ALL PASS — 48/48 BE, 12/12 FE)
+- **Documentation Completed**: 2026-06-16
 
 ## Notes
 

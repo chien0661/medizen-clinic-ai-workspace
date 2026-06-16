@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-16 (TASK-079 implementation complete → IN_REVIEW)
+**Last Updated**: 2026-06-16 (TASK-079 → DONE — functional design + API spec + SQL reference completed)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,17 +12,17 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 63 |
+| **Total Tasks** | 64 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 2 (TASK-047, TASK-079) |
+| **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 56 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078) |
+| **TODO** | 6 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072, TASK-080) |
+| **DONE** | 57 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079) |
 
 ### By Priority
 
-- **High**: 33 tasks
+- **High**: 34 tasks
 - **Medium**: 12 tasks
 - **Low**: 2 (TASK-039b)
 - **Other**: 1
@@ -41,12 +41,17 @@
 
 ### 🔴 High Priority
 
+#### IN_TESTING
+
+*(none)*
+
 #### TODO
 
-- **[TASK-079](tasks/TASK-079/task.md)** - Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái BT/không-BT có cấu trúc
+- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
   - **Assigned**: Unassigned
-  - **Affected repos**: clinic-cms (BE: migration 0041 + schema/validator/service), clinic-cms-web (FE: VitalsTab động)
-  - **Note**: Nền tảng cấu hình động đã có; nối form nhập của bác sĩ vào `/vitals/definitions` + lưu cờ normal/abnormal + ghi chú per-field có cấu trúc. Chốt mô hình cột ở `/task-plan`.
+  - **Type**: feature · **Repos**: clinic-cms-web (+ clinic-cms nếu cần lưu cấu hình)
+  - **Ref**: `tasks/TASK-080/refs/prescription-template-sample.png` (mẫu "ĐƠN THUỐC")
+  - **Note**: Đổi layout `PrintablePrescription.tsx` từ "Phiếu Khám Bệnh" (bảng) sang "ĐƠN THUỐC" (dòng kẻ chấm 1–6) + cân nặng/chẩn đoán + lời dặn cấu hình được. Liên quan TASK-047, BUG-077-004.
 
 - **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
   - **Assigned**: Unassigned
@@ -100,9 +105,6 @@
 
 *(none)*
 
-#### DOCUMENTING
-
-*(none)*
 
 
 
@@ -112,6 +114,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-079](tasks/TASK-079/task.md)** - Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái BT/không-BT có cấu trúc — DONE 2026-06-16
+  - **Completed**: 2026-06-16
+  - **Details**: Dynamic vitals form rewrite (FE) + structured status storage (BE). Migration 0041 adds `field_status` + `field_notes` JSONB columns. VisitVitalsCreate/Response updated. Validator checks status ∈ {normal,abnormal}, key exists. Service persists + returns both fields. FE VitalsTab renders from definitions (data_type, unit, options, group, sort), auto-evaluates BT/not-BT per warning→min/max, sends structured payload. Timeline displays dynamically with field colors + notes. 6 new i18n keys (VI+EN). BE: 48/48 tests (23 unit TestAnnotations + 25 integration TestFieldStatusAnnotations). FE: 12/12 VitalsTab tests. Backward compat verified. Deliverables: `deliveries/final-specs/dynamic-vitals-functional-design.md` (Vietnamese, natural language), `deliveries/api-specs/vitals-api.md` (endpoint spec + validation rules), `deliveries/sql-scripts/0041_add_vital_field_status.md` (migration reference).
 
 - **[TASK-074](tasks/TASK-074/task.md)** - Pagination, Excel export, menu reorganization for multi-role users — DONE 2026-06-08
   - **Completed**: 2026-06-08
