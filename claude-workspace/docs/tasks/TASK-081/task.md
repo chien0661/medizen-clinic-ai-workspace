@@ -102,6 +102,7 @@ Cấu trúc này trùng khít cơ chế `field_status` (normal/abnormal) + `fiel
 
 - **Created**: 2026-06-16
 - **Implementation Completed**: 2026-06-17
+- **Review (1) — CHANGES_REQUESTED**: 2026-06-17 (1 MAJOR: FE old-visit snapshot rendering, criterion D)
 
 ## Notes
 
