@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-16 (TASK-079 → DONE — functional design + API spec + SQL reference completed)
+**Last Updated**: 2026-06-16 (TASK-080 → IN_REVIEW — prescription template ĐƠN THUỐC implemented)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,10 +14,10 @@
 |--------|-------|
 | **Total Tasks** | 64 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 1 (TASK-047) |
+| **IN_REVIEW** | 2 (TASK-047, TASK-080) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
-| **TODO** | 6 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072, TASK-080) |
+| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
 | **DONE** | 57 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079) |
 
 ### By Priority
@@ -45,13 +45,15 @@
 
 *(none)*
 
-#### TODO
+#### IN_REVIEW
 
 - **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
-  - **Assigned**: Unassigned
-  - **Type**: feature · **Repos**: clinic-cms-web (+ clinic-cms nếu cần lưu cấu hình)
-  - **Ref**: `tasks/TASK-080/refs/prescription-template-sample.png` (mẫu "ĐƠN THUỐC")
-  - **Note**: Đổi layout `PrintablePrescription.tsx` từ "Phiếu Khám Bệnh" (bảng) sang "ĐƠN THUỐC" (dòng kẻ chấm 1–6) + cân nặng/chẩn đoán + lời dặn cấu hình được. Liên quan TASK-047, BUG-077-004.
+  - **Assigned**: Code Review Agent
+  - **Type**: feature · **Repos**: clinic-cms-web, clinic-cms
+  - **Ref**: `tasks/TASK-080/handoff/implementation-to-review.md`
+  - **Note**: Đã implement: PrintablePrescription rewrite → ĐƠN THUỐC layout, PrescriptionTemplateSettings BE schema + defaults, user.title column + migration, SettingsPage config panel, i18n vi/en. FE 20/20 tests pass, BE 7/7 unit tests pass.
+
+#### TODO
 
 - **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
   - **Assigned**: Unassigned
