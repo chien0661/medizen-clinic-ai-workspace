@@ -2,9 +2,9 @@
 id: TASK-080
 type: feature
 title: Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
-status: IN_REVIEW
+status: IN_TESTING
 priority: High
-assigned: Code Review Agent
+assigned: Test Agent
 created: 2026-06-16
 updated: 2026-06-16
 branch: "feature/TASK-080-prescription-template"
@@ -101,6 +101,9 @@ Phần 2 của yêu cầu: **cho phép cấu hình template đơn thuốc** — 
 
 - **Created**: 2026-06-16
 - **Implementation Completed**: 2026-06-16
+- **Review Completed**: 2026-06-16
+- **Testing Failed**: 2026-06-16
+- **Bug Fixed**: 2026-06-16 -- BUG-080-001 resolved (commit 0b29fbc); back to IN_TESTING — BUG-080-001 (Critical): `_build_settings_response` missing `prescription_template` field → HTTP 500 on all settings endpoints
 
 ## Notes
 

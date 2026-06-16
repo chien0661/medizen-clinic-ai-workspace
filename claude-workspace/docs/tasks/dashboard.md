@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-16 (TASK-080 → IN_REVIEW — prescription template ĐƠN THUỐC implemented)
+**Last Updated**: 2026-06-16 (TASK-080 → IN_TESTING — BUG-080-001 fixed, commit 0b29fbc)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,8 +14,8 @@
 |--------|-------|
 | **Total Tasks** | 64 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 2 (TASK-047, TASK-080) |
-| **IN_TESTING** | 0 |
+| **IN_REVIEW** | 1 (TASK-047) |
+| **IN_TESTING** | 1 (TASK-080) |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
 | **DONE** | 57 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079) |
@@ -43,15 +43,15 @@
 
 #### IN_TESTING
 
-*(none)*
+- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
+  - **Assigned**: Test Agent
+  - **Branch**: `feature/TASK-080-prescription-template` (clinic-cms + clinic-cms-web)
+  - **Fix**: BUG-080-001 resolved (commit 0b29fbc) — `prescription_template` field added to `_build_settings_response`
+  - **Ref**: `tasks/TASK-080/handoff/fix-BUG-080-001.md`
 
 #### IN_REVIEW
 
-- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
-  - **Assigned**: Code Review Agent
-  - **Type**: feature · **Repos**: clinic-cms-web, clinic-cms
-  - **Ref**: `tasks/TASK-080/handoff/implementation-to-review.md`
-  - **Note**: Đã implement: PrintablePrescription rewrite → ĐƠN THUỐC layout, PrescriptionTemplateSettings BE schema + defaults, user.title column + migration, SettingsPage config panel, i18n vi/en. FE 20/20 tests pass, BE 7/7 unit tests pass.
+*(TASK-047 listed below)*
 
 #### TODO
 
