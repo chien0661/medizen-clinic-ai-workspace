@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-16 (TASK-080 → DONE — all 97 tests PASS, BUG-080-001 RESOLVED, functional design + API spec documented)
+**Last Updated**: 2026-06-17 (TASK-081 IN_REVIEW — PHẦN KHÁM BỆNH implementation complete)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,9 +12,9 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 64 |
+| **Total Tasks** | 65 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 1 (TASK-047) |
+| **IN_REVIEW** | 2 (TASK-047, TASK-081) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
@@ -22,7 +22,7 @@
 
 ### By Priority
 
-- **High**: 34 tasks
+- **High**: 35 tasks
 - **Medium**: 12 tasks
 - **Low**: 2 (TASK-039b)
 - **Other**: 1
@@ -44,6 +44,13 @@
 #### IN_REVIEW
 
 *(TASK-047 listed below)*
+
+#### IN_REVIEW
+
+- **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
+  - **Assigned**: Code Review Agent
+  - **Type**: feature · **Repos**: clinic-cms (6e0eade), clinic-cms-web (f5e7325)
+  - **Note**: exam_status data_type + 13 mục seed trong system_vital_preset + ExaminationSection FE component. 13 unit + 11 integration + 10 FE tests PASS. Handoff: `tasks/TASK-081/handoff/implementation-to-review.md`.
 
 #### TODO
 
