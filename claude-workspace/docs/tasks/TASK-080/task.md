@@ -2,11 +2,12 @@
 id: TASK-080
 type: feature
 title: Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
-status: IN_TESTING
+status: DONE
 priority: High
-assigned: Test Agent
+assigned: Documentation Agent
 created: 2026-06-16
 updated: 2026-06-16
+completed: 2026-06-16
 branch: "feature/TASK-080-prescription-template"
 jira_key: ""
 tags: [frontend, print, prescription, clinic-settings, template]
@@ -69,18 +70,18 @@ Phần 2 của yêu cầu: **cho phép cấu hình template đơn thuốc** — 
 
 ## Acceptance Criteria
 
-- [ ] Bản in đơn thuốc trên giấy khớp bố cục mẫu `prescription-template-sample.png` (kiểm tra print preview A5/A4).
-- [ ] Sửa header/lời dặn/SĐT/chức danh bác sĩ trong cấu hình → bản in cập nhật theo, không cần đổi code.
-- [ ] Cân nặng + chẩn đoán hiển thị đúng khi visit có dữ liệu; ẩn/để trống gọn gàng khi không có.
-- [ ] Unit test FE cho component bản in mới + cấu hình; không phá vỡ test hiện có (PrintablePrescription.test.tsx cập nhật theo).
-- [ ] E2E: kê đơn → in → kiểm tra nội dung theo template + theo cấu hình.
+- [x] Bản in đơn thuốc trên giấy khớp bố cục mẫu `prescription-template-sample.png` (kiểm tra print preview A5/A4).
+- [x] Sửa header/lời dặn/SĐT/chức danh bác sĩ trong cấu hình → bản in cập nhật theo, không cần đổi code.
+- [x] Cân nặng + chẩn đoán hiển thị đúng khi visit có dữ liệu; ẩn/để trống gọn gàng khi không có.
+- [x] Unit test FE cho component bản in mới + cấu hình; không phá vỡ test hiện có (PrintablePrescription.test.tsx cập nhật theo).
+- [x] E2E: kê đơn → in → kiểm tra nội dung theo template + theo cấu hình.
 
 ## Progress Checklist
 
-- [ ] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Implementation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -104,6 +105,7 @@ Phần 2 của yêu cầu: **cho phép cấu hình template đơn thuốc** — 
 - **Review Completed**: 2026-06-16
 - **Testing Failed**: 2026-06-16
 - **Bug Fixed**: 2026-06-16 -- BUG-080-001 resolved (commit 0b29fbc); back to IN_TESTING — BUG-080-001 (Critical): `_build_settings_response` missing `prescription_template` field → HTTP 500 on all settings endpoints
+- **Testing Completed**: 2026-06-16 -- All 97 tests PASS; BUG-080-001 RESOLVED; E2E verified (Settings tab + PrintPrescriptionModal); status → DOCUMENTING
 
 ## Notes
 

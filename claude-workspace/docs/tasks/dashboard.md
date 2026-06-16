@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-16 (TASK-080 → IN_TESTING — BUG-080-001 fixed, commit 0b29fbc)
+**Last Updated**: 2026-06-16 (TASK-080 → DONE — all 97 tests PASS, BUG-080-001 RESOLVED, functional design + API spec documented)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -15,10 +15,10 @@
 | **Total Tasks** | 64 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
 | **IN_REVIEW** | 1 (TASK-047) |
-| **IN_TESTING** | 1 (TASK-080) |
+| **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 57 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079) |
+| **DONE** | 58 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079, TASK-080) |
 
 ### By Priority
 
@@ -40,14 +40,6 @@
 ## Active Tasks
 
 ### 🔴 High Priority
-
-#### IN_TESTING
-
-- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám
-  - **Assigned**: Test Agent
-  - **Branch**: `feature/TASK-080-prescription-template` (clinic-cms + clinic-cms-web)
-  - **Fix**: BUG-080-001 resolved (commit 0b29fbc) — `prescription_template` field added to `_build_settings_response`
-  - **Ref**: `tasks/TASK-080/handoff/fix-BUG-080-001.md`
 
 #### IN_REVIEW
 
@@ -116,6 +108,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám — DONE 2026-06-16
+  - **Completed**: 2026-06-16
+  - **Details**: Redesigned prescription print layout ("ĐƠN THUỐC") with dotted-line format matching sample template. Added weight + diagnosis fields (from TASK-079 vitals). Configuration template (header, address, min_rows, show/hide toggles, advice, followup, footer, signature, paper_size) stored in clinic_settings JSONB (PrescriptionTemplateSettings Pydantic schema). User.title column added (migration 0042) for doctor credentials. Admin settings panel (SettingsPage PrescriptionTemplateTab) allows live configuration. FE PrintablePrescription component renders from config. 97/97 tests PASS (20 FE unit + 7 stock + 3 users + 7 BE unit + 58 BE settings suite + 2 E2E). BUG-080-001 fixed (prescription_template field in _build_settings_response). Functional design: `docs/tasks/TASK-080/deliveries/final-specs/prescription-template-functional-design.md`. API spec: `docs/tasks/TASK-080/deliveries/api-specs/clinic-settings-prescription-template.md`.
 
 - **[TASK-079](tasks/TASK-079/task.md)** - Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái BT/không-BT có cấu trúc — DONE 2026-06-16
   - **Completed**: 2026-06-16
