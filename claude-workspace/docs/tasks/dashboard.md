@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-10 (TASK-078 → DONE)
+**Last Updated**: 2026-06-16 (TASK-079 implementation complete → IN_REVIEW)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,9 +12,9 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 62 |
+| **Total Tasks** | 63 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 1 (TASK-047) |
+| **IN_REVIEW** | 2 (TASK-047, TASK-079) |
 | **IN_TESTING** | 0 |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
@@ -42,6 +42,11 @@
 ### 🔴 High Priority
 
 #### TODO
+
+- **[TASK-079](tasks/TASK-079/task.md)** - Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái BT/không-BT có cấu trúc
+  - **Assigned**: Unassigned
+  - **Affected repos**: clinic-cms (BE: migration 0041 + schema/validator/service), clinic-cms-web (FE: VitalsTab động)
+  - **Note**: Nền tảng cấu hình động đã có; nối form nhập của bác sĩ vào `/vitals/definitions` + lưu cờ normal/abnormal + ghi chú per-field có cấu trúc. Chốt mô hình cột ở `/task-plan`.
 
 - **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
   - **Assigned**: Unassigned
