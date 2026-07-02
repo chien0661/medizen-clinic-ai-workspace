@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-03 (TASK-082 permission presets — DONE, functional design + API spec completed)
+**Last Updated**: 2026-07-03 (TASK-083 inventory valuation — DONE)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -14,11 +14,11 @@
 |--------|-------|
 | **Total Tasks** | 68 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 2 (TASK-047, TASK-083) |
+| **IN_REVIEW** | 1 (TASK-047) |
 | **IN_TESTING** | 1 (TASK-081) |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 60 (incl. TASK-079, TASK-080, TASK-082, TASK-084) |
+| **DONE** | 61 (incl. TASK-079, TASK-080, TASK-082, TASK-083, TASK-084) |
 
 ### By Priority
 
@@ -96,11 +96,6 @@
 
 ### 🟡 Medium Priority
 
-#### IN_REVIEW
-
-- **[TASK-083](tasks/TASK-083/task.md)** - Cấu hình giá thuốc + báo cáo tồn kho + xem giá trị tiền tồn kho
-  - **Assigned**: Code Review Agent · **Type**: feature · **Repos**: clinic-cms (`6c17fb8`), clinic-cms-web (`a6cfb06`) — branch `feature/TASK-084-exam-templates`
-  - **Note**: `medicine.sale_price` + `default_cost_price` (migration 0047, off head 0046). New `GET /reports/inventory-valuation`(+`/export`), gated `report.financial`: cost basis = Σ(available_qty × batch.unit_cost) per medicine over active batches on hand ("tiền đang nằm trong thuốc"), optional retail reference = available_qty × sale_price. Missing unit_cost falls back to default_cost_price else 0 + `has_missing_cost` flag. FE: MedicinesPage "Giá bán" field + new InventoryValuationReportPage tab. BE 144 passed (13 new e2e), ruff/mypy clean. FE 1051/1051 passed, tsc/eslint clean. Handoff: `tasks/TASK-083/handoff/implementation-to-review.md`.
 
 #### TODO
 
@@ -121,6 +116,11 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-083](tasks/TASK-083/task.md)** - Cấu hình giá thuốc + báo cáo tồn kho + xem giá trị tiền tồn kho — DONE 2026-07-03
+  - **Completed**: 2026-07-03
+  - **Repos**: clinic-cms `6c17fb8`, clinic-cms-web `a6cfb06` (branch `feature/TASK-084-exam-templates`)
+  - **Details**: Medicine `sale_price` + `default_cost_price` (migration 0047, off head 0046). New inventory-valuation report `GET /reports/inventory-valuation` (+`/export`), gated `report.financial`: cost basis = Σ(available_qty × batch.unit_cost) per medicine over active batches on hand ("tiền đang nằm trong thuốc"), optional retail reference = available_qty × sale_price. Missing unit_cost falls back to default_cost_price else 0 + `has_missing_cost` flag. FE: MedicinesPage "Giá bán" field + new InventoryValuationReportPage tab + ReportsHub tab. Review APPROVED (0 crit/0 major, 3 minor). Testing all 6 AC PASS: BE 147/147 (13 orig + 3 new e2e closing gaps: permission-403 gate, dispense/adjustment qty decrease reconciliation, XLSX formula-injection actual decode-verify), FE 1051/1051 full suite, tsc clean, migration single head 0047. Functional design: `deliveries/final-specs/medicine-pricing-inventory-valuation-functional-design.md` (Vietnamese, cost basis formula + SQL + business rules). API spec: `deliveries/api-specs/inventory-valuation-api.md` (2 endpoints, 200/4xx/5xx scenarios).
 
 - **[TASK-082](tasks/TASK-082/task.md)** - Cấu hình phân quyền đơn giản hóa — cho phép 1 bác sĩ có đủ quyền (phòng khám nhỏ) — DONE 2026-07-03
   - **Completed**: 2026-07-03
