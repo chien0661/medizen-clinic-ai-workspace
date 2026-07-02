@@ -1,0 +1,116 @@
+    # 5. PATIENT — Quản lý bệnh nhân (DONE TASK-005)
+    # ═══════════════════════════════════════════════════════════════════
+    f("PATIENT", "PAT-001", "Tạo bệnh nhân mới",
+      "Form đăng ký đầy đủ",
+      "Receptionist click 'Đăng ký mới' → form 5 sections: (1) Thông tin cơ bản (tên, dob, gender, phone, email), (2) Địa chỉ (tỉnh/quận/phường/chi tiết), (3) Y tế (BHYT, nhóm máu, dị ứng, bệnh mãn tính), (4) Người giám hộ (nếu <18 tuổi), (5) Tài liệu đính kèm. Validate phone VN format, age từ dob. Submit → INSERT patient với clinic_id auto từ JWT, audit event.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-002", "Auto-gen patient_code",
+      "BN0001, BN0002... per clinic",
+      "PostgreSQL function fn_next_patient_code(clinic_id) sinh code tuần tự từ MAX của all rows (kể cả soft-deleted) trong clinic. Format: prefix + 4 digit zero-pad (BN0001). Race-condition safe qua row lock. Prefix tuỳ chỉnh per clinic qua settings.",
+      "System", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-003", "Xem hồ sơ chi tiết",
+      "Profile + lịch sử",
+      "Trang /patients/:id với 5 tabs: Profile (info cơ bản + y tế), Visits (lịch sử khám), Prescriptions (đơn thuốc lịch sử), Invoices (hóa đơn), Documents (tài liệu đính kèm). Audit patient.read mỗi lần truy cập (async qua BackgroundTask để không block request).",
+      "Doctor+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-004", "Sửa thông tin BN",
+      "Edit basic info",
+      "Form edit tương tự create form nhưng pre-fill data hiện tại. Diff tracking — chỉ những field thay đổi mới ghi audit. Một số field protected: patient_code (immutable), clinic_id (immutable), dob (cần admin perm 'patient.dob.edit' để đổi).",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-005", "Soft-delete BN",
+      "Đánh dấu xoá, vẫn giữ data",
+      "DELETE /patients/:id → set is_deleted=true, deleted_at=now(), deleted_by=user_id. Patient ẩn khỏi list bình thường. Vẫn giữ visit/Rx/invoice references để báo cáo lịch sử. Admin có thể restore trong 30 ngày qua /admin/patients/trash.",
+      "Admin", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-006", "Search theo SĐT",
+      "Exact match",
+      "Endpoint GET /patients/search?q=0901234567&type=phone. Index ix_patient_clinic_phone giúp lookup <50ms cho 100k row. Phone không unique vì 1 SĐT có thể của nhiều thành viên gia đình. Trả về list match + highlight trùng để user chọn.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-007", "Search theo tên (fuzzy)",
+      "Trigram + unaccent",
+      "Endpoint GET /patients/search?q=nguyen vn an&type=name. Sử dụng PostgreSQL pg_trgm extension + immutable_unaccent() function bỏ dấu. Query dùng % similarity operator threshold 0.3. Index gix_patient_name_trgm GIN giúp fast. 'nguyen vn an' match được 'Nguyễn Văn An' nhờ trigram + unaccent.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-008", "Search theo mã BN",
+      "Exact match patient_code",
+      "Endpoint GET /patients/search?q=BN0023&type=code. Index uq_patient_clinic_code (partial WHERE NOT is_deleted) cho exact match O(1). Case-insensitive 'bn0023' = 'BN0023'.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-009", "Performance: 100k record <100ms",
+      "AC: phone search p95<100ms",
+      "Acceptance Criteria từ TASK-005: với 100k patient trong clinic, phone search p95 < 100ms. Verified bằng performance test (test_perf_phone_search_100k.py). Phone p95 = 46.9ms PASS. Đạt được nhờ partial index + RLS scope clinic_id.",
+      "System", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-010", "Guardian relationship",
+      "Thêm người giám hộ",
+      "Bảng patient_relation M2M giữa 2 patient với type ENUM (parent/child/spouse/sibling/guardian). Form thêm guardian: search patient B → chọn type → optional 'Là người liên hệ chính'. UI hiện trên patient profile. Use case: trẻ em < 18 cần guardian là cha/mẹ.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-011", "Primary contact flag",
+      "1 guardian là contact chính",
+      "Field patient_relation.is_primary_contact bool. Mỗi patient có thể có nhiều guardian nhưng chỉ 1 is_primary_contact=true (DB constraint partial unique). UI gửi SMS reminder mặc định cho contact chính. Có thể đổi bất kỳ lúc nào.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-012", "Merge duplicate BN",
+      "Gộp 2 hồ sơ trùng",
+      "Admin với perm 'patient.merge' truy cập /patients/merge → search 2 patient → so sánh side-by-side → tick keep field từ A vs B → confirm 2 lần. POST /patients/merge với {keep_id, drop_id}. Atomic transaction: reassign visit/Rx/invoice/document của drop_id → keep_id, soft-delete drop_id, INSERT patient_merge_log với manifest đầy đủ (per-row reassignment cho undo).",
+      "Admin", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-013", "Undo merge (7 ngày)",
+      "Khôi phục merge",
+      "POST /patients/merge/:merge_id/undo trong 7 ngày kể từ merged_at. Khôi phục từ patient_merge_log: restore drop_id, reassign visit/Rx/invoice ngược lại theo manifest. Sau 7 ngày: 410 Gone. Verify clinic ownership trước khi undo (BUG-004 fix).",
+      "Admin", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-014", "BHYT info",
+      "Số thẻ + ngày hết hạn",
+      "Field bhyt_number (text), bhyt_expires_at (date). Validate format BHYT VN (15 ký tự alphanumeric). Hiển thị trên patient profile + auto-fill khi tạo hóa đơn (BHYT chi trả vs BN trả). Cảnh báo vàng nếu hết hạn <30 ngày.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-015", "Allergies tracking",
+      "List dị ứng — cảnh báo khi kê thuốc",
+      "Field allergies TEXT[] (Postgres array). Form input là multi-tag với autocomplete từ master list (paracetamol, penicillin, hải sản, etc.). Khi doctor kê đơn → BE check medicine.active_ingredient có trong allergies → frontend hiện cảnh báo đỏ với option override + lý do.",
+      "Doctor+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-016", "Chronic conditions",
+      "Tiền sử bệnh mãn tính",
+      "Field chronic_conditions TEXT[]. Multi-tag với master list (tiểu đường type 2, cao huyết áp, hen suyễn, etc.). Hiển thị nổi bật trong patient profile sidebar khi doctor mở visit. Phase 2: cảnh báo drug-condition khi kê thuốc chống chỉ định.",
+      "Doctor+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-017", "Blood type",
+      "Nhóm máu",
+      "Field blood_type ENUM (A+, A-, B+, B-, AB+, AB-, O+, O-, unknown). Hiển thị trong patient profile sidebar. Quan trọng cho cấp cứu, truyền máu. Nurse/doctor có thể update khi có kết quả XN máu.",
+      "Doctor+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-018", "DOB hoặc birth_year",
+      "Cho phép chỉ nhập năm sinh",
+      "Field dob DATE nullable + birth_year INT nullable. Constraint: phải có ít nhất 1 trong 2; nếu có cả 2 thì year(dob)=birth_year. Use case: bệnh nhân lớn tuổi không nhớ ngày sinh, chỉ biết năm. Tuổi tính từ dob nếu có, fallback birth_year. Form input có toggle '☑ Tôi không nhớ ngày sinh — chỉ nhập năm'.",
+      "Receptionist+", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-019", "Đính kèm tài liệu",
+      "Upload CMND/BHYT/XQuang",
+      "Bảng patient_document (id, patient_id, type, filename, s3_key, size, mime_type). Upload qua presigned S3 URL. Type: id_card | health_card | xray | lab_result | prescription | other. Preview trong /patients/:id/documents. Storage S3-compatible chưa wire (cần TASK-005 finalize).",
+      "Receptionist+", "v1", "TASK-005", TODO),
+
+    f("PATIENT", "PAT-020", "Audit patient.read",
+      "Mỗi lần đọc PHI ghi log",
+      "Khi GET /patients/:id, BackgroundTask ghi audit event 'patient.read' với who, when, patient_id. Async để không block request. Bảng audit_log có index riêng cho query 'ai đã xem hồ sơ X'. Bắt buộc cho HIPAA-style compliance + Nghị định 13/2023.",
+      "System", "v1", "TASK-005", DONE),
+
+    f("PATIENT", "PAT-021", "Export hồ sơ BN",
+      "PDF tổng hợp",
+      "Phase 2: button 'Export PDF' trong /patients/:id. Server render PDF với letterhead clinic + tất cả info BN + lịch sử visit + đơn thuốc + tài liệu đính kèm. Watermark 'Confidential' + timestamp. Audit export_patient_pdf event.",
+      "Doctor+", "v2", "—", IDEA),
+
+    f("PATIENT", "PAT-022", "Bulk import CSV",
+      "Import từ hệ thống cũ",
+      "Phase 2: trang /admin/patients/import. Upload CSV với mapping cột (full_name, dob, phone, etc.). Preview 10 dòng đầu. Validate + show errors. Confirm → batch INSERT với progress bar. Generate patient_code tuần tự. Skip rows lỗi + tạo report.",
+      "Admin", "v2", "—", IDEA),
+
+    # ═══════════════════════════════════════════════════════════════════
+    # 6. VISIT — Quản lý visit
+    # ═══════════════════════════════════════════════════════════════════
+    f("VISIT", "VIS-001", "Tạo visit",

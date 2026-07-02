@@ -2,9 +2,9 @@
 id: TASK-081
 type: feature
 title: PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
-status: IN_REVIEW
+status: IN_TESTING
 priority: High
-assigned: Code Review Agent
+assigned: Test Agent
 created: 2026-06-16
 updated: 2026-06-17
 branch: "feature/TASK-081-examination-section"
@@ -103,6 +103,7 @@ Cấu trúc này trùng khít cơ chế `field_status` (normal/abnormal) + `fiel
 - **Created**: 2026-06-16
 - **Implementation Completed**: 2026-06-17
 - **Review (1) — CHANGES_REQUESTED**: 2026-06-17 (1 MAJOR: FE old-visit snapshot rendering, criterion D)
+- **Review (2) — APPROVED**: 2026-06-17 (MAJOR resolved: FE renders from schema_version snapshot; B017 cleared; regression test proven non-vacuous)
 
 ## Notes
 

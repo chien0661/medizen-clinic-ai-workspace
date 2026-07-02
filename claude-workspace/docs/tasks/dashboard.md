@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-06-17 (TASK-081 IN_REVIEW — PHẦN KHÁM BỆNH implementation complete)
+**Last Updated**: 2026-07-03 (TASK-082 permission presets — DONE, functional design + API spec completed)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,18 +12,18 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 65 |
+| **Total Tasks** | 68 |
 | **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 2 (TASK-047, TASK-081) |
-| **IN_TESTING** | 0 |
+| **IN_REVIEW** | 2 (TASK-047, TASK-083) |
+| **IN_TESTING** | 1 (TASK-081) |
 | **DOCUMENTING** | 0 |
 | **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 58 (incl. TASK-074, TASK-075, TASK-076, TASK-077, TASK-078, TASK-079, TASK-080) |
+| **DONE** | 60 (incl. TASK-079, TASK-080, TASK-082, TASK-084) |
 
 ### By Priority
 
-- **High**: 35 tasks
-- **Medium**: 12 tasks
+- **High**: 37 tasks
+- **Medium**: 13 tasks
 - **Low**: 2 (TASK-039b)
 - **Other**: 1
 
@@ -45,12 +45,13 @@
 
 *(TASK-047 listed below)*
 
-#### IN_REVIEW
+
+#### IN_TESTING
 
 - **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
-  - **Assigned**: Code Review Agent
-  - **Type**: feature · **Repos**: clinic-cms (6e0eade), clinic-cms-web (f5e7325)
-  - **Note**: exam_status data_type + 13 mục seed trong system_vital_preset + ExaminationSection FE component. 13 unit + 11 integration + 10 FE tests PASS. Handoff: `tasks/TASK-081/handoff/implementation-to-review.md`.
+  - **Assigned**: Test Agent
+  - **Type**: feature · **Repos**: clinic-cms (a3ec28a), clinic-cms-web (b1294c0)
+  - **Note**: Review 2 = APPROVED. MAJOR (criterion D) resolved: FE timeline renders each old visit from its `schema_version` snapshot via `getSchemaVersion(n)`, per-version cache + in-flight guard (no effect loop); regression test proven non-vacuous (fails when fix reverted). B017 cleared. FE 23/23 + BE 49/49 PASS, tsc/eslint/ruff clean (2× B904 pre-existing). Handoff: `tasks/TASK-081/handoff/review-to-test.md`. Non-gating MINORs: clone-not-wired-to-onboarding (pre-existing), optional kham_benh group filter.
 
 #### TODO
 
@@ -66,7 +67,6 @@
   - **Assigned**: code-review-agent
   - **Branch**: `feature/TASK-047-print-receipts` (clinic-cms-web, commit 391c09b)
   - **Note**: PrintableInvoice (A4) + PrintablePrescription (A5) + PrintPrescriptionModal implemented. 21 new unit tests. 799/799 tests pass.
-
 
 #### IN_PROGRESS
 
@@ -96,6 +96,12 @@
 
 ### 🟡 Medium Priority
 
+#### IN_REVIEW
+
+- **[TASK-083](tasks/TASK-083/task.md)** - Cấu hình giá thuốc + báo cáo tồn kho + xem giá trị tiền tồn kho
+  - **Assigned**: Code Review Agent · **Type**: feature · **Repos**: clinic-cms (`6c17fb8`), clinic-cms-web (`a6cfb06`) — branch `feature/TASK-084-exam-templates`
+  - **Note**: `medicine.sale_price` + `default_cost_price` (migration 0047, off head 0046). New `GET /reports/inventory-valuation`(+`/export`), gated `report.financial`: cost basis = Σ(available_qty × batch.unit_cost) per medicine over active batches on hand ("tiền đang nằm trong thuốc"), optional retail reference = available_qty × sale_price. Missing unit_cost falls back to default_cost_price else 0 + `has_missing_cost` flag. FE: MedicinesPage "Giá bán" field + new InventoryValuationReportPage tab. BE 144 passed (13 new e2e), ruff/mypy clean. FE 1051/1051 passed, tsc/eslint clean. Handoff: `tasks/TASK-083/handoff/implementation-to-review.md`.
+
 #### TODO
 
 - **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
@@ -115,6 +121,16 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-082](tasks/TASK-082/task.md)** - Cấu hình phân quyền đơn giản hóa — cho phép 1 bác sĩ có đủ quyền (phòng khám nhỏ) — DONE 2026-07-03
+  - **Completed**: 2026-07-03
+  - **Repos**: clinic-cms `832c7da`, clinic-cms-web `aa831e0` (branch `feature/TASK-084-exam-templates`)
+  - **Details**: Permission Preset feature — system preset `small_clinic_doctor` (64 operational permissions minus platform blacklist). Migration 0046 + RLS (system=visible all, clinic=isolated). 6 endpoints (CRUD preset + create/apply role from preset). Backend guards platform codes unconditionally on all 4 write paths (`_strip_platform_codes`). Review APPROVED (0 crit/0 major, 3 minor). Testing all 5 acceptance criteria PASS: 403→200 grant flow, Redis cache invalidation SCAN-verified, platform-code strip everywhere, RLS isolation, FE permission grouping. BE 10/10 new + 175 regression PASS (10 pre-existing unrelated fails proven identical to pre-task baseline). FE 5/5 new + 1051/1051 suite, tsc clean. Functional design: `deliveries/final-specs/permission-presets-functional-design.md`; API spec: `deliveries/api-specs/permission-presets-api.md`.
+
+- **[TASK-084](tasks/TASK-084/task.md)** - Mẫu khám bệnh động — bỏ SOAP, trình thiết kế mẫu (element) + chọn mẫu mặc định/khi khám — DONE 2026-07-02
+  - **Completed**: 2026-07-02
+  - **Repos**: clinic-cms `e8966ac`, clinic-cms-web `c040de5` (branch `feature/TASK-084-exam-templates`)
+  - **Details**: Module `exam_templates` (4 bảng + RLS + versioning snapshot) thay SOAP. 7 loại element (normal_abnormal, negative_positive, text, textarea, select, checkbox, section_header). Migration 0044 (schema+perms `exam_template.read/manage`) + 0045 (seed mẫu "Khám lâm sàng cơ bản" 13 mục + "SOAP (legacy)"; migrate 49 dòng visit_soap→visit_exam, assert-before-drop; DROP visit_soap). FE: ExamTemplatesPage + ExamTemplateDesigner + ExamTab thay SoapTab; render lượt cũ theo template_version snapshot. Review APPROVED (0 crit/0 major, 5 minor). Testing all criteria PASS; BUG-084-001 (default preselect: clinic default lấn át system default) FIXED + regression test. BE 52/52 scoped real-DB + FE 1037/1037. Functional design: `deliveries/final-specs/exam-templates-functional-design.md`; API spec: `deliveries/api-specs/exam-templates-api.md`. Lưu ý: mẫu hệ thống chưa auto-clone khi onboarding (clinic vẫn thấy qua RLS).
 
 - **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám — DONE 2026-06-16
   - **Completed**: 2026-06-16
