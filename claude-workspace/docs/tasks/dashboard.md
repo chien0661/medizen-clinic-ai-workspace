@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-03 (TASK-083 inventory valuation — DONE)
+**Last Updated**: 2026-07-20 05:16:11 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,28 +12,32 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 68 |
-| **IN_PROGRESS** | 2 (TASK-032 — Phase D paused; TASK-053 — audit done, pending review) |
-| **IN_REVIEW** | 1 (TASK-047) |
-| **IN_TESTING** | 1 (TASK-081) |
-| **DOCUMENTING** | 0 |
-| **TODO** | 5 (TASK-029, TASK-041, TASK-052, TASK-069, TASK-072) |
-| **DONE** | 61 (incl. TASK-079, TASK-080, TASK-082, TASK-083, TASK-084) |
+| **Total Tasks** | 96 |
+| **TODO** | 12 |
+| **IN_PROGRESS** | 10 |
+| **IN_REVIEW** | 3 |
+| **IN_TESTING** | 2 |
+| **BLOCKED** | 1 |
+| **DONE** | 68 |
 
 ### By Priority
 
-- **High**: 37 tasks
-- **Medium**: 13 tasks
-- **Low**: 2 (TASK-039b)
-- **Other**: 1
+- **High**: 64 tasks
+- **Medium**: 27 tasks
+- **Low**: 4 tasks
 
 ### By Agent
 
-- **Code Review Agent**: 1 task (TASK-039b)
-- **Documentation Agent**: 1 tasks (TASK-016)
-- **None**: 4 tasks (TASK-009, TASK-018, TASK-020, TASK-025)
-- **Unassigned**: 2 tasks (TASK-012, TASK-019)
-- **chiendv**: 20 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-032, TASK-033..042)
+- **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
+- **Code Review Agent**: 2 tasks (TASK-039b, TASK-092)
+- **Documentation Agent**: 12 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-093)
+- **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
+- **Test Agent**: 2 tasks (TASK-077, TASK-081)
+- **Unassigned**: 19 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-094)
+- **chiendv**: 28 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-030, TASK-031, TASK-032, TASK-033, TASK-034, TASK-035, TASK-036, TASK-037, TASK-038, TASK-039, TASK-039c, TASK-040, TASK-041, TASK-042, TASK-043, TASK-044, TASK-052, TASK-062, TASK-091)
+- **claude-main**: 1 tasks (TASK-049)
+- **code-review-agent**: 1 tasks (TASK-047)
+- **test-agent**: 1 tasks (TASK-078)
 
 ---
 
@@ -41,75 +45,122 @@
 
 ### 🔴 High Priority
 
-#### IN_REVIEW
-
-*(TASK-047 listed below)*
-
-
-#### IN_TESTING
-
-- **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
-  - **Assigned**: Test Agent
-  - **Type**: feature · **Repos**: clinic-cms (a3ec28a), clinic-cms-web (b1294c0)
-  - **Note**: Review 2 = APPROVED. MAJOR (criterion D) resolved: FE timeline renders each old visit from its `schema_version` snapshot via `getSchemaVersion(n)`, per-version cache + in-flight guard (no effect loop); regression test proven non-vacuous (fails when fix reverted). B017 cleared. FE 23/23 + BE 49/49 PASS, tsc/eslint/ruff clean (2× B904 pre-existing). Handoff: `tasks/TASK-081/handoff/review-to-test.md`. Non-gating MINORs: clone-not-wired-to-onboarding (pre-existing), optional kham_benh group filter.
-
 #### TODO
+
+- **[TASK-054](tasks/TASK-054/task.md)** - Billing correctness — VAT, BHYT split, change-due, VietQR, void→reverse stock, POS/A4 print, manual invoice
+  - **Assigned**: Unassigned
+
+- **[TASK-055](tasks/TASK-055/task.md)** - Subscription & clinic lifecycle (provider billing) — model + state machine + guard + admin actions + jobs
+  - **Assigned**: Unassigned
+
+- **[TASK-057](tasks/TASK-057/task.md)** - Self-signup & lead funnel — public signup form, email verify, lead management, convert lead→clinic, atomic clinic+admin
+  - **Assigned**: Unassigned
+
+- **[TASK-058](tasks/TASK-058/task.md)** - Clinical safety & inventory integrity — allergy warning, partial/reverse dispense, adjustment approval, vital trends, service-doctor map
+  - **Assigned**: Unassigned
+
+- **[TASK-061](tasks/TASK-061/task.md)** - Auth & RBAC gaps — clinic-admin password reset, forgot-password, clone-role via API, full SoD coverage
+  - **Assigned**: Unassigned
 
 - **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
   - **Assigned**: Unassigned
-  - **Branch**: `feature/TASK-072-ui-v2-indigo-premium` (clinic-cms-web — đã tạo)
-  - **Design ref**: `docs/design/medizen-v2/html/` (25 HTML screens)
-  - **Note**: 25 screens prototype HTML đầy đủ navigation. Triển khai lên React/Tauri.
+  - **Branch**: `feature/TASK-072-ui-v2-indigo-premium`
 
-#### IN_REVIEW
-
-- **[TASK-047](tasks/TASK-047/task.md)** - In phiếu khám + in hóa đơn (FE) — native browser print, A5/A4
-  - **Assigned**: code-review-agent
-  - **Branch**: `feature/TASK-047-print-receipts` (clinic-cms-web, commit 391c09b)
-  - **Note**: PrintableInvoice (A4) + PrintablePrescription (A5) + PrintPrescriptionModal implemented. 21 new unit tests. 799/799 tests pass.
+- **[TASK-094](tasks/TASK-094/task.md)** - Fix prescription printing (default template + diagnosis) & add usage / dosage-unit fields
+  - **Assigned**: Unassigned
 
 #### IN_PROGRESS
 
 - **[TASK-032](tasks/TASK-032/task.md)** - Audit FE + BE theo MediZen Modern design + function list v1.3 — gap analysis + tự tạo sub-tasks + tự implement
   - **Assigned**: chiendv
-  - **Note**: Phase A/B/C COMPLETE. Audit report → `docs/tasks/TASK-032/deliveries/final-specs/audit-report.md`. 10 sub-tasks created (TASK-033..042). Phase D PAUSED — user decision needed on execution strategy + KMS choice + branch consolidation strategy. See audit-report.md "Recommendation to user" section.
+
+- **[TASK-043](tasks/TASK-043/task.md)** - FE Stitch conformance audit — clinic-cms-web vs 63 màn HTML reference + E2E test
+  - **Assigned**: chiendv
+
+- **[TASK-052](tasks/TASK-052/task.md)** - Tài liệu API mapping theo function list (461 fn × 26 module) + audit gap test toàn bộ BE + fix bug
+  - **Assigned**: chiendv
+  - **Branch**: `fix/TASK-052-test-encryption-fixtures`
 
 - **[TASK-053](tasks/TASK-053/task.md)** - Khởi động FE + BE(merge), phân tích FE đã đáp ứng UI/UX chưa & rà soát toàn bộ chức năng
-  - **Assigned**: Code Implementation Agent · **Type**: feature (audit) · **Started**: 2026-05-30
-  - **Note**: Audit/phân tích (không build mới). Deliverables: `deliveries/final-specs/ui-ux-audit.md` (đối chiếu design MediZen Modern/Pro) + `functional-audit.md` (FE↔BE). Target: FE `../clinic-cms-web` (main), BE `../clinic-cms-merge` (audit trên state hiện tại, nhánh `fix/TASK-052-*`).
+  - **Assigned**: Code Implementation Agent
 
+- **[TASK-089](tasks/TASK-089/task.md)** - Quản lý hồ sơ nhân sự — gắn tài khoản, lịch làm việc, chấm công
+  - **Assigned**: Code Implementation Agent
+  - **Branch**: `feature/TASK-089-staff-management`
 
+- **[TASK-090](tasks/TASK-090/task.md)** - Quên mật khẩu (email) + OTP xác thực qua email
+  - **Assigned**: Code Implementation Agent
+  - **Branch**: `feature/TASK-090-auth-email`
 
-#### TODO
+#### IN_REVIEW
 
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
   - **Assigned**: chiendv
 
-- **[TASK-041](tasks/TASK-041/task.md)** - BE branch consolidation — merge medicines/inventory/billing/notifications/prescriptions/reports/pharmacy from feature branches
-  - **Assigned**: chiendv · **Effort**: Medium (2-5d, revised from "Very Large" after verification)
-  - **Note**: Modules exist on `feature/task-010..015` branches. NOT a fresh build. See TASK-041 task.md correction.
-  - **Blocked by**: TASK-033 (decide refactor-before-merge vs merge-then-refactor)
-
-- **[TASK-052](tasks/TASK-052/task.md)** - Tài liệu API mapping theo function list (461 fn × 26 module) + audit gap test toàn bộ BE + fix bug
-  - **Assigned**: chiendv · **Type**: feature · **Branch**: `fix/TASK-052-test-encryption-fixtures`
-  - **Note**: BE test sweep + bugfix DONE (1498 passed / 26 failed→parked). **API mapping DONE + source-verified (v2) 2026-05-30** → `deliveries/api-specs/api-mapping.md`: 461 fn ↔ 207 endpoint = **200 MAPPED · 24 DRIFT · 85 GAP · 152 N/A** (đã đọc source xác minh từng DRIFT/GAP, file:line). Còn lại: Review → Test → Docs. Scope guard: 85 GAP là backlog, KHÔNG build trong task này.
-
-### 🟡 Medium Priority
-
-
-#### TODO
-
-- **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
-  - **Assigned**: chiendv · **Effort**: Large (5-7d)
-  - **Blocked by**: TASK-039, TASK-033, TASK-041, TASK-034
+- **[TASK-047](tasks/TASK-047/task.md)** - In phiếu khám + in hóa đơn (FE) — native browser print, A5/A4
+  - **Assigned**: code-review-agent
+  - **Branch**: `feature/TASK-047-print-receipts`
 
 #### IN_TESTING
 
-*(none)*
+- **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
+  - **Assigned**: Test Agent
+  - **Branch**: `feature/TASK-081-examination-section`
 
+#### BLOCKED
 
+- **[TASK-050](tasks/TASK-050/task.md)** - Seed data cho các danh mục (services, ICD, drugs, units, etc.)
+  - **Assigned**: Unassigned
+  - **Branch**: `feature/TASK-050-seed-categories`
 
+### 🟡 Medium Priority
 
+#### TODO
+
+- **[TASK-048](tasks/TASK-048/task.md)** - Rà soát + cleanup các tính năng FE đang gắn nhãn Beta
+  - **Assigned**: Unassigned
+
+- **[TASK-056](tasks/TASK-056/task.md)** - Reports dimensions + exports — payment-method/specialty/least-used/cost/no-show/demographic/duration/wait + CSV/PDF + data export (PDPA)
+  - **Assigned**: Unassigned
+
+- **[TASK-059](tasks/TASK-059/task.md)** - Appointments completeness + HR shift integration — reschedule, block schedule, HR conflict, smart queue, real slot capacity, no-show grace
+  - **Assigned**: Unassigned
+
+- **[TASK-060](tasks/TASK-060/task.md)** - Document storage (S3) & attachments — S3 wiring + patient/visit document upload + clinic logo
+  - **Assigned**: Unassigned
+
+#### IN_PROGRESS
+
+- **[TASK-028](tasks/TASK-028/task.md)** - Landing Page MediZen — Stitch project (design-only deliverable)
+  - **Assigned**: Unassigned
+
+- **[TASK-062](tasks/TASK-062/task.md)** - Email infra & event-driven notifications — email provider + transactional/templates + visit-complete/stock-low/sub-expiring notify
+  - **Assigned**: chiendv
+  - **Branch**: `fix/TASK-052-test-encryption-fixtures`
+
+#### IN_REVIEW
+
+- **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
+  - **Assigned**: Code Review Agent
+
+#### IN_TESTING
+
+- **[TASK-069](tasks/TASK-069/task.md)** - Tag system for medicines and services
+  - **Assigned**: Unassigned
+  - **Branch**: `feature/TASK-069-tag-system`
+
+### 🟢 Low Priority
+
+#### TODO
+
+- **[TASK-063](tasks/TASK-063/task.md)** - Clinic config & platform-admin completeness — settings (holiday/lunch/prefixes/timezone/language) + platform role CRUD/clinic detail/system config/notes/activity feed
+  - **Assigned**: Unassigned
+
+#### IN_PROGRESS
+
+- **[TASK-039c](tasks/TASK-039c/task.md)** - MediZen logo SVG + favicon + Tauri icon — TASK-039 F.8/F.9 follow-up
+  - **Assigned**: chiendv
+  - **Branch**: `feature/task-039c-logo-favicon`
 
 ---
 
@@ -117,211 +168,22 @@
 
 ### Recently Completed (Last 7 Days)
 
-- **[TASK-083](tasks/TASK-083/task.md)** - Cấu hình giá thuốc + báo cáo tồn kho + xem giá trị tiền tồn kho — DONE 2026-07-03
-  - **Completed**: 2026-07-03
-  - **Repos**: clinic-cms `6c17fb8`, clinic-cms-web `a6cfb06` (branch `feature/TASK-084-exam-templates`)
-  - **Details**: Medicine `sale_price` + `default_cost_price` (migration 0047, off head 0046). New inventory-valuation report `GET /reports/inventory-valuation` (+`/export`), gated `report.financial`: cost basis = Σ(available_qty × batch.unit_cost) per medicine over active batches on hand ("tiền đang nằm trong thuốc"), optional retail reference = available_qty × sale_price. Missing unit_cost falls back to default_cost_price else 0 + `has_missing_cost` flag. FE: MedicinesPage "Giá bán" field + new InventoryValuationReportPage tab + ReportsHub tab. Review APPROVED (0 crit/0 major, 3 minor). Testing all 6 AC PASS: BE 147/147 (13 orig + 3 new e2e closing gaps: permission-403 gate, dispense/adjustment qty decrease reconciliation, XLSX formula-injection actual decode-verify), FE 1051/1051 full suite, tsc clean, migration single head 0047. Functional design: `deliveries/final-specs/medicine-pricing-inventory-valuation-functional-design.md` (Vietnamese, cost basis formula + SQL + business rules). API spec: `deliveries/api-specs/inventory-valuation-api.md` (2 endpoints, 200/4xx/5xx scenarios).
+- **[TASK-091](tasks/TASK-091/task.md)** - Chuẩn hóa toàn bộ danh sách — phân trang cố định + xuất Excel đồng nhất
+  - **Completed**: 2026-07-15
 
-- **[TASK-082](tasks/TASK-082/task.md)** - Cấu hình phân quyền đơn giản hóa — cho phép 1 bác sĩ có đủ quyền (phòng khám nhỏ) — DONE 2026-07-03
-  - **Completed**: 2026-07-03
-  - **Repos**: clinic-cms `832c7da`, clinic-cms-web `aa831e0` (branch `feature/TASK-084-exam-templates`)
-  - **Details**: Permission Preset feature — system preset `small_clinic_doctor` (64 operational permissions minus platform blacklist). Migration 0046 + RLS (system=visible all, clinic=isolated). 6 endpoints (CRUD preset + create/apply role from preset). Backend guards platform codes unconditionally on all 4 write paths (`_strip_platform_codes`). Review APPROVED (0 crit/0 major, 3 minor). Testing all 5 acceptance criteria PASS: 403→200 grant flow, Redis cache invalidation SCAN-verified, platform-code strip everywhere, RLS isolation, FE permission grouping. BE 10/10 new + 175 regression PASS (10 pre-existing unrelated fails proven identical to pre-task baseline). FE 5/5 new + 1051/1051 suite, tsc clean. Functional design: `deliveries/final-specs/permission-presets-functional-design.md`; API spec: `deliveries/api-specs/permission-presets-api.md`.
+- **[TASK-093](tasks/TASK-093/task.md)** - Cảnh báo thuốc/kho phân cấp theo thời gian & số lượng (thuốc → dạng đóng gói → phòng khám)
+  - **Completed**: 2026-07-18
 
-- **[TASK-084](tasks/TASK-084/task.md)** - Mẫu khám bệnh động — bỏ SOAP, trình thiết kế mẫu (element) + chọn mẫu mặc định/khi khám — DONE 2026-07-02
-  - **Completed**: 2026-07-02
-  - **Repos**: clinic-cms `e8966ac`, clinic-cms-web `c040de5` (branch `feature/TASK-084-exam-templates`)
-  - **Details**: Module `exam_templates` (4 bảng + RLS + versioning snapshot) thay SOAP. 7 loại element (normal_abnormal, negative_positive, text, textarea, select, checkbox, section_header). Migration 0044 (schema+perms `exam_template.read/manage`) + 0045 (seed mẫu "Khám lâm sàng cơ bản" 13 mục + "SOAP (legacy)"; migrate 49 dòng visit_soap→visit_exam, assert-before-drop; DROP visit_soap). FE: ExamTemplatesPage + ExamTemplateDesigner + ExamTab thay SoapTab; render lượt cũ theo template_version snapshot. Review APPROVED (0 crit/0 major, 5 minor). Testing all criteria PASS; BUG-084-001 (default preselect: clinic default lấn át system default) FIXED + regression test. BE 52/52 scoped real-DB + FE 1037/1037. Functional design: `deliveries/final-specs/exam-templates-functional-design.md`; API spec: `deliveries/api-specs/exam-templates-api.md`. Lưu ý: mẫu hệ thống chưa auto-clone khi onboarding (clinic vẫn thấy qua RLS).
 
-- **[TASK-080](tasks/TASK-080/task.md)** - Cập nhật & cấu hình template in đơn thuốc theo mẫu phòng khám — DONE 2026-06-16
-  - **Completed**: 2026-06-16
-  - **Details**: Redesigned prescription print layout ("ĐƠN THUỐC") with dotted-line format matching sample template. Added weight + diagnosis fields (from TASK-079 vitals). Configuration template (header, address, min_rows, show/hide toggles, advice, followup, footer, signature, paper_size) stored in clinic_settings JSONB (PrescriptionTemplateSettings Pydantic schema). User.title column added (migration 0042) for doctor credentials. Admin settings panel (SettingsPage PrescriptionTemplateTab) allows live configuration. FE PrintablePrescription component renders from config. 97/97 tests PASS (20 FE unit + 7 stock + 3 users + 7 BE unit + 58 BE settings suite + 2 E2E). BUG-080-001 fixed (prescription_template field in _build_settings_response). Functional design: `docs/tasks/TASK-080/deliveries/final-specs/prescription-template-functional-design.md`. API spec: `docs/tasks/TASK-080/deliveries/api-specs/clinic-settings-prescription-template.md`.
+---
 
-- **[TASK-079](tasks/TASK-079/task.md)** - Sinh hiệu động — form nhập theo cấu hình + lưu trạng thái BT/không-BT có cấu trúc — DONE 2026-06-16
-  - **Completed**: 2026-06-16
-  - **Details**: Dynamic vitals form rewrite (FE) + structured status storage (BE). Migration 0041 adds `field_status` + `field_notes` JSONB columns. VisitVitalsCreate/Response updated. Validator checks status ∈ {normal,abnormal}, key exists. Service persists + returns both fields. FE VitalsTab renders from definitions (data_type, unit, options, group, sort), auto-evaluates BT/not-BT per warning→min/max, sends structured payload. Timeline displays dynamically with field colors + notes. 6 new i18n keys (VI+EN). BE: 48/48 tests (23 unit TestAnnotations + 25 integration TestFieldStatusAnnotations). FE: 12/12 VitalsTab tests. Backward compat verified. Deliverables: `deliveries/final-specs/dynamic-vitals-functional-design.md` (Vietnamese, natural language), `deliveries/api-specs/vitals-api.md` (endpoint spec + validation rules), `deliveries/sql-scripts/0041_add_vital_field_status.md` (migration reference).
+## Bug Tracking
 
-- **[TASK-074](tasks/TASK-074/task.md)** - Pagination, Excel export, menu reorganization for multi-role users — DONE 2026-06-08
-  - **Completed**: 2026-06-08
-  - **Details**: E2E retest via Playwright MCP. TC-1 pagination ✅, TC-2 page-size ✅, TC-3 patients export ✅ (fix: `address`→`address_line`), TC-4c services export ✅ (fix: remove non-existent `unit` field), TC-4d medicines export ✅, TC-4e users export ✅, TC-5 multi-role sidebar ✅. 2 BE bugs fixed in `clinic-cms`. Spec: `deliveries/test-reports/e2e-test-report-retest.md`
+### Open Bugs (1)
 
-- **[TASK-077](tasks/TASK-077/task.md)** - E2E test luồng đầy đủ: cấu hình → tiếp nhận → khám → kê đơn → dịch vụ → thanh toán — DONE 2026-06-08
-  - **Completed**: 2026-06-08
-  - **Details**: E2E Playwright MCP toàn luồng. TC-01~TC-10: 8 PASS, 2 PARTIAL. 2 bugs fixed: BUG-077-001 (ServicesTab crash — API type mismatch), BUG-077-002 (complete-emr 500 — wrong table name `service_order`→`visit_service`). 2 findings mới: BUG-077-003 (SOD silent failure), BUG-077-004 (no prescription print route after visit completion). Invoice INV-20260608-001 paid 400k tiền mặt. Spec: `deliveries/test-reports/test-report-2026-06-08.md`
+- **[TASK-049](tasks/TASK-049/task.md)** - E2E clinical flow audit (Playwright) — full KCB walkthrough + bug catalog
+  - **Priority**: High | **Assigned**: claude-main
 
-- **[TASK-076](tasks/TASK-076/task.md)** - Danh mục dạng bào chế cấu hình động + E2E — DONE 2026-06-02
-  - **Completed**: 2026-06-02
-  - **Details**: `medicine.dosage_form` enum cứng → master-data CRUD. BE: model/service/routes + migration 0038 (table + RLS cho clinic_id NULL + perms dosage_form.read/manage + 8 seed hệ thống). FE: DosageFormsPage `/admin/dosage-forms`, dropdown thuốc động (label=name, value=code), nav + i18n + tests (12/12). E2E (docker py3.11 + Playwright): create "Gel bôi ngoài da" qua UI → hiện ở dropdown form thuốc; delete system row → 403. FE `79f7183` · BE `405ebfd`. Spec: `deliveries/test-reports/test-report.md`
-
-- **[TASK-075](tasks/TASK-075/task.md)** - Fix duplicate menu (multi-role) + pagination/Excel export cho list screens — DONE 2026-06-02
-  - **Completed**: 2026-06-02
-  - **Details**: Sidebar dedup multi-role (8/8 tests). Pagination 50/100/200 (default 50) + nút Xuất Excel trên ~28 list screen. 26 BE export endpoint (1 CSV ar-aging giữ chống formula-injection + 25 XLSX qua helper `app/core/excel.py`, đã neutralize injection). Full FE→BE coverage (no 404). Loại trừ StocktakePage/SettingsPage. Review APPROVED. FE `94f5139,c3c9e70,ebe99b9` · BE `3e280e5,ccc8891`. Follow-up: pytest BE cho endpoint export mới (CI py3.11). Spec: `deliveries/final-specs/menu-pagination-export-functional-design.md`
-
-- **[TASK-071](tasks/TASK-071/task.md)** - Super Admin Analytics — Thống kê phòng khám theo thời gian — DONE 2026-06-01
-  - **Completed**: 2026-06-01
-  - **Details**: 3 APIs (overview, timeseries, clinics) + FE page `/superadmin/analytics` + filter bar + stats cards (7 metrics) + line chart + sortable clinic comparison table. BE 38/38 tests (23 unit + 15 integration), FE 39/39 TASK-071 tests, 6/6 E2E (TC-001–TC-006) all PASS. Route guard verified (403 non-superuser). Functional design: `docs/tasks/TASK-071/deliveries/final-specs/analytics-functional-design.md`. API reference: `docs/tasks/TASK-071/deliveries/api-specs/analytics-api-reference.md`
-
-- **[TASK-070](tasks/TASK-070/task.md)** - FE Super Admin — Quản lý toàn hệ thống (clinics + accounts) — DONE 2026-05-31
-  - **Completed**: 2026-05-31
-  - **Details**: 4 pages (Dashboard + Clinics + Accounts + AuditLogs) + RequireSuperuser route guard + Sidebar section (conditional render). 22/22 unit tests + 7/7 E2E tests PASS. Live data: 1283 clinics, 1832 accounts. Functional design: `docs/tasks/TASK-070/deliveries/final-specs/superadmin-functional-design.md`. API reference: `docs/tasks/TASK-070/deliveries/api-specs/superadmin-api-reference.md`
-
-- **[TASK-068](tasks/TASK-068/task.md)** - Theme Selection & Customization System — 6 preset themes + live preview + color picker — DONE 2026-05-31
-  - **Completed**: 2026-05-31
-  - **Details**: 6 preset themes (Medical Blue, Emerald Health, Soft Lavender, Warm Coral, Midnight Dark, Slate Professional) + live preview + custom color picker. CSS custom properties, Zustand store, localStorage persistence, FOUC prevention. Round-2 testing: 914/914 unit tests + 7/7 E2E tests PASS. Functional design: `docs/tasks/TASK-068/deliveries/final-specs/theme-system-functional-design.md`
-
-- **[TASK-051](tasks/TASK-051/task.md)** - Cập nhật UI — tăng cỡ chữ, mặc định tiếng Việt, template in FE — DONE 2026-05-04
-  - **Completed**: 2026-05-04
-  - **Details**: i18n default Vietnamese (detection.order=['localStorage'] only, fallbackLng='vi'). Typography: 7 pages nudged (text-xs→text-sm, text-sm→text-base on body content). 4 print templates: VisitSlip A5 (QueueBoard), LabOrder A5 (PatientDetail), PaymentReceipt POS 80mm (InvoiceDetail), MedicalSummary A4 (PatientDetail). 838/838 tests pass (830 original +31 dev +8 test-agent i18n regression). 0 new lint/TS errors. Functional design: `docs/tasks/TASK-051/deliveries/final-specs/ui-typography-i18n-print-functional-design.md`
-
-- **[TASK-045](tasks/TASK-045/task.md)** - VSS BHYT integration — DONE 2026-05-01; 4 endpoints + 2 FE pages + mock client + 37 BE (22 unit + 15 integration) + 581 FE tests; 4 merge-time stubs documented
-  - **Completed**: 2026-05-01
-  - **Details**: Migration 0029 (vss_sync_log, RLS, index); VssClient mock adapter; 4 endpoints (eligibility-check/submit-claim/sync-log/status); VssIntegrationConfigPage + VssSyncLogPage; 2 tests added per review F3 (vss-failure → FAILED, RLS cross-tenant). Cross-task coord: TASK-034 (stubs replace), TASK-037 P2 (PII encrypt), TASK-038 (migration restamp), TASK-035 (sidebar nav).
-
-- **[TASK-038](tasks/TASK-038/task.md)** - Security NFR rest — DONE 2026-05-01; Q.1 + B.1-B.4 + B.5-B.7 + B.8-B.14 + B.15-B.17 all closed
-  - **Completed**: 2026-05-01
-  - **Details**: PII lifecycle erasure (B.15-B.17) — 31/31 tests pass; 2-step token-bound erasure + daily pii_archive cron + cascade soft-delete + audit preserved; 3 post-review fixes (last_accessed_at update, admin-binding token check, audit_actions constants + json.dumps). All sub-scopes complete: JWT validator, password history, anomaly cron, MFA/TOTP, login fingerprint, PII lifecycle.
-
-- **[TASK-039b](tasks/TASK-039b/task.md)** - MediZen component restyle — DONE 2026-05-01; 11 components + 670 tests; backward-compat preserved post-fix
-  - **Completed**: 2026-05-01
-  - **Details**: Button/Input/Select/Textarea/Card/Dialog/Toast/Badge/Tooltip/Popover/Tabs/Avatar restyled with MediZen variants. 9 new components, 2 updated. 123 new tests (670 total). Dialog padding regression fixed (p-6 restored). Input conditional wrapping. Popover a11y fixed (role=region + aria-label). Functional design: `docs/tasks/TASK-039b/deliveries/final-specs/component-restyle-functional-design.md`
-
-- **[TASK-046](tasks/TASK-046/task.md)** - Bảo mật settings — DONE 2026-05-01; 4 panels + TenantErasureModal + 31 tests + 7 mocks documented
-  - **Completed**: 2026-05-01
-  - **Details**: MFA, Encryption, Login History, Password panels; 2-step crypto-shred confirmation; 55 i18n keys (vi/en); 578 total tests; route guard + DialogDescription a11y fix applied; 7 upstream-task mocks documented
-
-- **[TASK-044](tasks/TASK-044/task.md)** - 4 role dashboards — DONE 2026-05-01; 572 tests; mock data placeholders; 4 new perms documented for BE seed
-  - **Completed**: 2026-05-01
-  - **Details**: ReceptionDashboardPage + NurseDashboardPage + PharmacyDashboardPage + AdminDashboardPage; 25 task tests (572 total); permission renamed to 2-level convention (reception.dashboard / nurse.dashboard / pharmacy.dashboard / admin.dashboard); A11y fix kpi-low-stock → button; merge-time TODOs: BE seed + Sidebar nav entries
-
-- **[TASK-035](tasks/TASK-035/task.md)** - Multi-role merge sidebar UX (RBAC-015..018) + applied_role audit + SoD framework
-  - **Completed**: 2026-05-01
-  - **Details**: Multi-role sidebar grouping + applied_role audit + SoD framework; 14 BE tests (8 SoD unit + 3 audit unit + 3 SoD integration) + 592 FE tests (6 Sidebar-multi-role + 6 Topbar role chip + applied-role context); F.5/F.6/F.7 applied_role context wired post-fix; 2/3 SoD endpoints applied (invoice payment + pharmacy dispense); TASK-037 hash-chain merge coordination tracked
-
-- **[TASK-036](tasks/TASK-036/task.md)** - Cmd+K Quick Search (NAV-001..008) — BE search API + FE palette + breadcrumb + global shortcuts
-  - **Completed**: 2026-05-01
-  - **Details**: 6 search modes (bn/thuoc/inv/rx/lk/all) + 4 shortcut keys + breadcrumb auto-gen + cheatsheet; 646 FE tests (67 task-specific) + 22 BE tests; 4 fixes (Breadcrumb Link, rate limit 30/min, exception handling, ShortcutCheatsheet); migration 0027 with 5 GIN trigram indexes + encryption merge coordination flagged
-
-- **[TASK-037](tasks/TASK-037/task.md)** - Column encryption (envelope/DEK/KEK) + hash chain audit log (NFR-024/025/031)
-  - **Completed**: 2026-05-01
-  - **Details**: TASK-037 Phase 1 + Phase 2 DONE; 50/50 tests (20 P1 + 30 P2). Phase 1: hash chain audit with pg_advisory_xact_lock + chain_seq-inside-lock. Phase 2: 19 PII columns encrypted (Patient 11 + User 4 + Clinic 4) with per-tenant DEK + master KEK; Vault stub (prod) / pgcrypto (dev); crypto-shred 2-step (token + HMAC); with_tenant_context helper for Arq workers; audit redaction strategy (no audit-DEK YAGNI); 4 merge-time coordination items (bhyt_facility_code/password_rotation/SOAP-encryption/search-redesign) documented
-
-- **[TASK-034](tasks/TASK-034/task.md)** - BHYT toggle wiring (CFG-017) — feature flag primitive + 11 UI gates + BhytConfigPage + BhytReportPage
-  - **Completed**: 2026-05-01
-  - **Details**: TASK-034 BHYT toggle — DONE 2026-05-01; 10/11 UI gates + feature flag primitive + 33 BE + 547 FE tests; Gate #7 LabOrdersTab deferred (TASK-033/041 dep); 4 i18n parity keys added post-review
-
-- **[TASK-042](tasks/TASK-042/task.md)** - EMR 8-tab refactor + RX-016 stock chip 3-state + lot tooltip + substitute suggest
-  - **Completed**: 2026-05-01
-  - **Details**: 6 base tabs + 1 backward-compat; 59 task-specific + 588 BE unit tests PASS; 568 FE tests PASS, 0 TS, 0 lint; RX-016 3-state chip (emerald/amber/red) + substitute drawer; ICD-10: 225 seeds (14 categories); F1 Wave 3-A encryption, F2 audit log, F3 lot tooltip data path flagged for follow-up
-
-- **[TASK-040](tasks/TASK-040/task.md)** - Phase D screens port — ForgotPassword + PatientDetail 8-tab + QueueKanban 5-col + Profile 5-tab + ARAging + Notifications full + Pharmacy stocktake/expiry
-  - **Completed**: 2026-05-01
-  - **Details**: 7/8 màn DONE (ProfilePage multi-clinic tab deferred to TASK-033 merge); 566/566 tests pass, 0 TS, 0 lint; ForgotPasswordPage 2-state, PatientDetailPage 3-col + 4 tabs wired, QueueBoard 5-col Kanban, ARAgingReport buckets + BarChart, Notifications bulk+pagination+filter, Stocktake 3-step wizard, ExpiryProcessing 30/60/90 + a11y
-
-- **[TASK-033](tasks/TASK-033/task.md)** - Multi-clinic per account (AUTH-018..022) — schema + auth flow + JWT shape + RBAC cache
-  - **Completed**: 2026-05-01
-  - **Details**: 27 BE unit + 31 auth integration + 568 FE tests all PASS; migration `0021_multi_clinic_account` with email-dup pre-check; JWT `active_clinic_id` claims; ClinicSwitcher + ClinicSelectorPage + ProfilePage "Phòng khám của tôi"; ~50 call sites updated; 2 fixes (price-override clinic_id threading, 0-clinic guard, integration test clinic_code cleanup)
-
-- **[TASK-039](tasks/TASK-039/task.md)** - MediZen Modern design system port — Tailwind tokens + Indigo brand + fonts
-  - **Completed**: 2026-05-01
-  - **Details**: 64 files, 191 codemod replacements, 547/547 tests pass, 0 brand-* references, unblocks TASK-034/035/036/040/042
-
-- **[TASK-030](tasks/TASK-030/task.md)** - Landing Page MediZen — Repo riêng + implement với rich semantic annotations + SEO chuẩn
-  - **Completed**: 2026-05-01
-  - **Details**: 12 sections, 5 JSON-LD schemas, WCAG 2.1 AA, 35/35 tests pass, 152 kB bundle, Lighthouse-CI gates ready
-
-- **[TASK-031](tasks/TASK-031/task.md)** - MediZen UI — Generate 15 màn còn lại (45/47 canonical, 2 blocked-stitch-api)
-  - **Completed**: 2026-05-01
-
-- **[TASK-001](tasks/TASK-001/task.md)** - Foundation — Project Skeleton, Docker Compose, Base Models, Alembic
-  - **Completed**: 2026-04-26
-
-- **[TASK-002](tasks/TASK-002/task.md)** - Tenancy + RLS Policies + Audit Log Infrastructure
-  - **Completed**: 2026-04-26
-
-- **[TASK-003](tasks/TASK-003/task.md)** - Auth — JWT Login/Refresh + Password Reset + Account Lockout
-  - **Completed**: 2026-04-27
-
-- **[TASK-004](tasks/TASK-004/task.md)** - Users + RBAC (Role + Permission + Multi-Role)
-  - **Completed**: 2026-04-28
-
-- **[TASK-005](tasks/TASK-005/task.md)** - Patient Management — CRUD + Guardian + Search + Merge Duplicates
-  - **Completed**: 2026-04-27
-
-- **[TASK-006](tasks/TASK-006/task.md)** - Clinic Settings + Tenant Onboarding Wizard
-  - **Completed**: 2026-04-27
-
-- **[TASK-007](tasks/TASK-007/task.md)** - Visit — Entity + State Machine + Visit Number Generation
-  - **Completed**: 2026-04-28
-
-- **[TASK-008](tasks/TASK-008/task.md)** - Appointment + Queue (Slot Capacity + Smart Walk-in vs Appointment)
-  - **Completed**: 2026-04-29
-
-- **[TASK-009](tasks/TASK-009/task.md)** - Vitals Dynamic Form (3 Tables + 5 Specialty Presets + Runtime Validation)
-  - **Completed**: 2026-04-27
-
-- **[TASK-010](tasks/TASK-010/task.md)** - Service Catalog + VisitService (Performed Services Tracking)
-  - **Completed**: 2026-04-28
-
-- **[TASK-011](tasks/TASK-011/task.md)** - Medicine Catalog + Prescription (In-House / External Mixed)
-  - **Completed**: 2026-04-27
-
-- **[TASK-012](tasks/TASK-012/task.md)** - Inventory + Batch + StockMovement + FEFO + Pharmacy Dispense
-  - **Completed**: 2026-04-27
-
-- **[TASK-013](tasks/TASK-013/task.md)** - Billing — Invoice + Multi-Payment + Discount + Void/Refund
-  - **Completed**: 2026-04-27
-
-- **[TASK-014](tasks/TASK-014/task.md)** - HR — Shift + Recurring Schedule + Attendance + Leave Request
-  - **Completed**: 2026-04-28
-
-- **[TASK-015](tasks/TASK-015/task.md)** - Reporting + In-App Notifications + Background Jobs (Arq)
-  - **Completed**: 2026-04-27
-
-- **[TASK-016](tasks/TASK-016/task.md)** - Tauri Foundation — Shell + Offline Sync Engine + Hardware Integration
-  - **Completed**: 2026-04-27
-
-- **[TASK-017](tasks/TASK-017/task.md)** - FE — Auth + App Shell + Design System + i18n (vi/en)
-  - **Completed**: 2026-04-27
-
-- **[TASK-018](tasks/TASK-018/task.md)** - FE — Reception (Patient Register/Search/Merge + Walk-in + Appointment Booking + Queue Board)
-  - **Completed**: 2026-04-27
-
-- **[TASK-019](tasks/TASK-019/task.md)** - FE — Doctor (My Queue + Consultation + Vitals Dynamic + Service + Prescription)
-  - **Completed**: 2026-04-27
-
-- **[TASK-020](tasks/TASK-020/task.md)** - FE — Pharmacy (Pending Dispense + Substitute Batch + Inventory + Stock Adjustment)
-  - **Completed**: 2026-04-27
-
-- **[TASK-021](tasks/TASK-021/task.md)** - FE — Billing (Invoice Auto-Gen + Multi-Payment + Discount + Void/Refund + POS Print)
-  - **Completed**: 2026-04-27
-
-- **[TASK-022](tasks/TASK-022/task.md)** - FE — HR (Shift Calendar + Recurring Schedule + Leave Request + Attendance Check-in/out)
-  - **Completed**: 2026-04-27
-
-- **[TASK-023](tasks/TASK-023/task.md)** - FE — Admin (Users + Roles + Clinic Settings + Vital Schema Editor + Onboarding Wizard)
-  - **Completed**: 2026-04-27
-
-- **[TASK-024](tasks/TASK-024/task.md)** - FE — Dashboard + Reports + Notifications Panel + Real-time Updates
-  - **Completed**: 2026-04-27
-
-- **[TASK-025](tasks/TASK-025/task.md)** - System Integration + E2E Test Suite (Playwright + Smoke + Regression + Performance)
-  - **Completed**: 2026-04-29
-
-- **[TASK-026](tasks/TASK-026/task.md)** - FE integration audit — replace remaining mocks with real BE + retest
-  - **Completed**: 2026-04-29
-
-- **[TASK-027](tasks/TASK-027/task.md)** - MediZen Modern UI — Phase B+C — Multi-role Dashboard + 17 tab variants (toàn bộ tab EMR/Cấu hình/Báo cáo)
-  - **Completed**: 2026-04-30
-
-- **[TASK-028](tasks/TASK-028/task.md)** - Landing Page MediZen — Stitch design (project mới) + implementation
-  - **Completed**: 2026-04-30
-
-- **[TASK-067](tasks/TASK-067/task.md)** - FE UI routes cleanup — Security route, BHYT config route, Reports hub, Profile stubs, useSync browser UX — DONE 2026-05-31
-  - **Completed**: 2026-05-31
-  - **Details**: 6 FE route changes: `/admin/security` (SecuritySettingsPage), `/admin/bhyt` (BhytConfigPage), `/reports` hub with tab nav + nested routes, Profile "info"/"notifications" tabs with read-only display + "coming soon" badges, `/settings` → `/admin/settings` redirect, `useSync` browser guard (skip Tauri sync when `window.__TAURI__` absent). All 930 unit tests + 8 E2E tests PASS. Functional design: `docs/tasks/TASK-067/deliveries/final-specs/fe-routes-cleanup-functional-design.md`
-
-- **[TASK-066](tasks/TASK-066/task.md)** - BE AR aging endpoint + gỡ MOCK_DATA fallback im lặng (ARAgingReportPage)
-  - **Completed**: 2026-05-31
-  - **Details**: 3 endpoints (GET /reports/ar-aging + export + doctor-weekly), MOCK_DATA removed from FE, 29 BE integration tests + 914 FE unit tests + 4 E2E tests all PASS. Functional design + API specs documented. BUG-066-001 resolved (stale unit test updates).
 
 ---
 
