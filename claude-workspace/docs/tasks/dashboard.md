@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-20 05:16:11 (auto-generated)
+**Last Updated**: 2026-07-22 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -13,12 +13,13 @@
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 96 |
-| **TODO** | 12 |
+| **TODO** | 11 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 3 |
 | **IN_TESTING** | 2 |
+| **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 68 |
+| **DONE** | 69 |
 
 ### By Priority
 
@@ -30,10 +31,10 @@
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
 - **Code Review Agent**: 2 tasks (TASK-039b, TASK-092)
-- **Documentation Agent**: 12 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-093)
+- **Documentation Agent**: 13 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-093, TASK-094)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
 - **Test Agent**: 2 tasks (TASK-077, TASK-081)
-- **Unassigned**: 19 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-094)
+- **Unassigned**: 18 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073)
 - **chiendv**: 28 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-030, TASK-031, TASK-032, TASK-033, TASK-034, TASK-035, TASK-036, TASK-037, TASK-038, TASK-039, TASK-039c, TASK-040, TASK-041, TASK-042, TASK-043, TASK-044, TASK-052, TASK-062, TASK-091)
 - **claude-main**: 1 tasks (TASK-049)
 - **code-review-agent**: 1 tasks (TASK-047)
@@ -65,9 +66,6 @@
 - **[TASK-072](tasks/TASK-072/task.md)** - FE v2.0 UI — Tạo branch và triển khai giao diện mới Indigo Premium
   - **Assigned**: Unassigned
   - **Branch**: `feature/TASK-072-ui-v2-indigo-premium`
-
-- **[TASK-094](tasks/TASK-094/task.md)** - Fix prescription printing (default template + diagnosis) & add usage / dosage-unit fields
-  - **Assigned**: Unassigned
 
 #### IN_PROGRESS
 
@@ -167,6 +165,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-094](tasks/TASK-094/task.md)** - Fix prescription printing (default template + diagnosis) & add usage / dosage-unit fields
+  - **Completed**: 2026-07-22
+  - **Note**: 5 features (A-E) + 2 bug fixes implemented + tested live (87/87 BE, 61/61 FE pass). Functional design + API specs documented.
 
 - **[TASK-091](tasks/TASK-091/task.md)** - Chuẩn hóa toàn bộ danh sách — phân trang cố định + xuất Excel đồng nhất
   - **Completed**: 2026-07-15
