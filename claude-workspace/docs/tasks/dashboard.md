@@ -15,11 +15,11 @@
 | **Total Tasks** | 96 |
 | **TODO** | 11 |
 | **IN_PROGRESS** | 10 |
-| **IN_REVIEW** | 3 |
+| **IN_REVIEW** | 2 |
 | **IN_TESTING** | 2 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 69 |
+| **DONE** | 70 |
 
 ### By Priority
 
@@ -30,8 +30,8 @@
 ### By Agent
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
-- **Code Review Agent**: 2 tasks (TASK-039b, TASK-092)
-- **Documentation Agent**: 13 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-093, TASK-094)
+- **Code Review Agent**: 1 tasks (TASK-039b)
+- **Documentation Agent**: 14 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
 - **Test Agent**: 2 tasks (TASK-077, TASK-081)
 - **Unassigned**: 18 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073)
@@ -136,11 +136,6 @@
   - **Assigned**: chiendv
   - **Branch**: `fix/TASK-052-test-encryption-fixtures`
 
-#### IN_REVIEW
-
-- **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
-  - **Assigned**: Code Review Agent
-
 #### IN_TESTING
 
 - **[TASK-069](tasks/TASK-069/task.md)** - Tag system for medicines and services
@@ -165,6 +160,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
+  - **Completed**: 2026-07-22
+  - **Note**: 3-group sidebar reorg + new System Config page (4 tabs: features, security, email, system-info) + backend system-config API + migration 0061. Functional design + API specs documented. All tests PASS (13/13 BE, 6/6 FE, 4/4 E2E).
 
 - **[TASK-094](tasks/TASK-094/task.md)** - Fix prescription printing (default template + diagnosis) & add usage / dosage-unit fields
   - **Completed**: 2026-07-22

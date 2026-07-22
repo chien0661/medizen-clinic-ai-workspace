@@ -3,11 +3,12 @@ id: TASK-092
 type: feature
 title: Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản,
   người dùng & cấu hình hệ thống
-status: IN_REVIEW
+status: DONE
 priority: Medium
-assigned: Code Review Agent
+assigned: Documentation Agent
 created: 2026-07-16
-updated: 2026-07-20
+updated: 2026-07-22
+completed: 2026-07-22
 branch: "feature/TASK-092-superadmin-system-config"
 jira_key: ""
 tags:
@@ -78,9 +79,9 @@ quản trị hệ thống khỏi khu vực Super Admin.
 ## Progress Checklist
 
 - [x] Implementation
-- [ ] Code Review
-- [ ] Testing
-- [ ] Documentation
+- [x] Code Review
+- [x] Testing
+- [x] Documentation
 
 ## Related Files
 
@@ -97,6 +98,8 @@ quản trị hệ thống khỏi khu vực Super Admin.
 - **Created**: 2026-07-16
 - **Started**: 2026-07-20 05:15:39
 - **Review Started**: 2026-07-20 05:16:10
+- **Review Completed**: 2026-07-22
+- **Testing Completed**: 2026-07-22
 
 ## Notes
 
@@ -131,6 +134,21 @@ quản trị hệ thống khỏi khu vực Super Admin.
   than introducing a new i18n pattern mid-module.
 - **Not yet done**: pushing branches to origin / opening PRs (blocked earlier in this session by no `gh` CLI —
   unresolved, awaiting user decision on `gh auth login` vs manual PR links, see prior handoffs in this session).
+
+### Testing summary (2026-07-22)
+
+- **Decision**: ALL PASS → DOCUMENTING. Full report: `deliveries/test-reports/test-report.md`.
+- **BE**: migrations applied (`0061` head, isolated w2e stack), `test_superadmin_system_config_e2e.py` 13/13 pass,
+  full regression 1743/1772 (29 pre-existing/unrelated RLS-auth-lockout-MFA failures — analyzed, confirmed not
+  regressions), ruff/mypy 0 new findings in 092-touched files.
+- **FE**: type-check clean, lint 0 new findings in 092-touched files, unit tests 1075/1078 (3 pre-existing/unrelated)
+  + 6/6 scoped `SuperAdminSystemConfigPage.test.tsx`.
+- **E2E (Playwright, real backend)**: all 4 mandated scenarios PASS — nav 3-group structure, System Config 4-tab
+  save/reload persistence + smtp_password write-only masking, non-superuser guard (403/redirect), Clinics+Accounts
+  CRUD end-to-end. Screenshots in `deliveries/test-reports/screenshots/`.
+- **Environment note**: the FE dev server found running at session start was serving a stale pre-branch bundle
+  (Sidebar nav rendered as the old flat 5-item list despite the source already having the 3-group structure);
+  restarting `npm run dev` fixed it — not a product bug, just a stale dev-server artifact from the prior session.
 
 ## Blockers
 
