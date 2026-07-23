@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-22 (auto-generated)
+**Last Updated**: 2026-07-23 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,18 +12,18 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 96 |
+| **Total Tasks** | 97 |
 | **TODO** | 11 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 2 |
-| **IN_TESTING** | 2 |
+| **IN_TESTING** | 1 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 70 |
+| **DONE** | 73 |
 
 ### By Priority
 
-- **High**: 64 tasks
+- **High**: 65 tasks
 - **Medium**: 27 tasks
 - **Low**: 4 tasks
 
@@ -31,7 +31,7 @@
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
 - **Code Review Agent**: 1 tasks (TASK-039b)
-- **Documentation Agent**: 14 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094)
+- **Documentation Agent**: 17 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-099, TASK-101)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
 - **Test Agent**: 2 tasks (TASK-077, TASK-081)
 - **Unassigned**: 18 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073)
@@ -160,6 +160,18 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-101](tasks/TASK-101/task.md)** - [Critical] Tạo lịch hẹn (FE) hỏng hoàn toàn — scheduled_at nối chuỗi sai → mọi create 422
+  - **Completed**: 2026-07-23
+  - **Note**: Bug C-6 (E2E TASK-095). Helper `buildScheduledAt()` fixed string concat → single valid ISO. Week + day view E2E verified live (Playwright 201 Created both flows). 5/5 unit tests pass.
+
+- **[TASK-099](tasks/TASK-099/task.md)** - [Critical] substitute_batch cho phép đổi reservation sang lô của thuốc KHÁC
+  - **Completed**: 2026-07-23
+  - **Note**: Bug C-4 (E2E TASK-095). Guard rejects cross-medicine batch substitution (409). Allows legitimate FEFO same-medicine swap. 20/20 tests pass (integration + unit).
+
+- **[TASK-096](tasks/TASK-096/task.md)** - [Critical] PATCH /patients/{id} luôn trả HTTP 500 (MissingGreenlet) + sibling dosage-form fix
+  - **Completed**: 2026-07-23
+  - **Note**: Bug C-1 (E2E TASK-095). Added `await db.refresh()` after flush in patient + dosage-form services → fixes expired `updated_at` MissingGreenlet. 6/6 new/regression tests pass; 99/104 full suite (5 pre-existing flakes).
 
 - **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
   - **Completed**: 2026-07-22
