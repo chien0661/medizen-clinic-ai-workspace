@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-24 (auto-generated; TASK-107 added to Completed)
+**Last Updated**: 2026-07-25 (TASK-112 → IN_TESTING after code review APPROVED)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,11 +12,11 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 97 |
+| **Total Tasks** | 98 |
 | **TODO** | 11 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 2 |
-| **IN_TESTING** | 1 |
+| **IN_TESTING** | 3 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
 | **DONE** | 79 |
@@ -104,6 +104,14 @@
 - **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
   - **Assigned**: Test Agent
   - **Branch**: `feature/TASK-081-examination-section`
+
+- **[TASK-109](tasks/TASK-109/task.md)** - [Medium] GET /patients/{id} không lọc clinic_id → 500 oracle + IDOR liên tenant tiềm ẩn
+  - **Assigned**: Test Agent
+  - **Branch**: `fix/TASK-109-patient-get-tenant-filter`
+
+- **[TASK-112](tasks/TASK-112/task.md)** - [Medium→cao] Đảo tiền (void/refund/recall) trên visit COMPLETED không mở khóa visit (M-5)
+  - **Assigned**: Test Agent
+  - **Branch**: `fix/TASK-112-unlock-visit-on-reversal`
 
 #### BLOCKED
 
