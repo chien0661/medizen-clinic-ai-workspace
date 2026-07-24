@@ -19,7 +19,7 @@
 | **IN_TESTING** | 1 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 75 |
+| **DONE** | 78 |
 
 ### By Priority
 
@@ -160,6 +160,18 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-106](tasks/TASK-106/task.md)** - [High] Report doctor-performance nhân bản Cartesian (over-count visits/revenue)
+  - **Completed**: 2026-07-24
+  - **Note**: Bug H-4 (E2E TASK-095). Fixed Cartesian product via CTEs pre-aggregating invoices/prescriptions → 1:1 join to visits. Visits_count/revenue now distinct, not inflated. 51/51 tests pass (13 integration reports + 6 unit + 32 other report tests).
+
+- **[TASK-105](tasks/TASK-105/task.md)** - [High] Refund không đảo payment → report payment-methods đếm tiền đã-thu vĩnh viễn sai
+  - **Completed**: 2026-07-24
+  - **Note**: Bug H-3 (E2E TASK-095). Approach A: refund voids related payments (mirrors void_payment logic). Paid_total/balance_due reset to 0/grand_total. Payment-methods == revenue (reconciled). 81/81 tests pass (billing + reports).
+
+- **[TASK-104](tasks/TASK-104/task.md)** - [High] substitute_batch cho phép thay sang lô ĐÃ HẾT HẠN (bỏ qua FEFO)
+  - **Completed**: 2026-07-24
+  - **Note**: Bug H-2 (E2E TASK-095). Guard: expiry_date <= today → 409. Mirrors reserve_for_prescription guard. TASK-099 same-medicine guard intact. 22/22 tests pass (pharmacy integration + unit).
 
 - **[TASK-098](tasks/TASK-098/task.md)** - [Critical] DELETE /patients/{id}/erase (NĐ13) luôn 500 và KHÔNG xóa
   - **Completed**: 2026-07-24
