@@ -2,9 +2,9 @@
 id: TASK-109
 type: bug
 title: "[Medium] GET /patients/{id} không lọc clinic_id → 500 oracle + IDOR liên tenant tiềm ẩn"
-status: IN_REVIEW
+status: DONE
 priority: High
-assigned: Code Review Agent
+assigned: Documentation Agent
 created: 2026-07-24
 updated: 2026-07-24
 branch: "fix/TASK-109-patient-get-tenant-filter"
@@ -29,7 +29,7 @@ refs:
 - [x] Integration test cross-tenant (foreign → 404, own → 200).
 
 ## Progress Checklist
-- [x] Implementation | [ ] Review | [ ] Testing | [ ] Documentation
+- [x] Implementation | [x] Review | [x] Testing | [x] Documentation
 
 ## Blockers
 Không. (Fix tầng app độc lập; RLS tổng thể vẫn theo TASK-102.)
@@ -50,3 +50,20 @@ Tests: unit 62/62 pass, integration patients 60/63 pass (3 pre-existing failures
 `merge_service`/phone-search, verified identical on unmodified `origin/dev` baseline —
 unrelated to this fix, out of scope). ruff/mypy: 0 new. Full detail in
 `handoff/implementation-to-review.md`.
+
+## Testing Completed: 2026-07-24
+
+Independently re-verified in a fresh isolated stack `v109` (api 9968 / pg
+5468 / redis 6450), migrated to head `0067` + superadmin seed, worktree
+`_fix109-be` @ `a8b0f5f`. `pytest -q --tb=short tests/integration/patients
+tests/unit/patients` → **122/125 passed** (3 known-baseline DEK/RLS
+merge/phone-search flakes, same 3 named in `handoff/review-to-test.md`, not
+caused by this fix). Key assertions confirmed: cross-tenant GET → 404 (no
+PII, no 500); own-clinic GET → 200; soft-deleted → 404; cross-tenant
+PATCH/DELETE → 404 (cascade). See
+`deliveries/test-reports/test-report.md`.
+
+## Documentation Completed: 2026-07-24
+
+Final spec document: `deliveries/final-specs/patient-get-tenant-scoping-fix.md`.
+Technical overview of M-19 (clinic_id scoping on patient GET) fix, including security impact analysis and follow-up recommendations (guardian_service, merge_service still unscoped).
