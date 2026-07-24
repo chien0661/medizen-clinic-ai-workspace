@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-23 (auto-generated)
+**Last Updated**: 2026-07-24 (auto-generated; TASK-097 entry added manually pending full regen)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -19,7 +19,7 @@
 | **IN_TESTING** | 1 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 73 |
+| **DONE** | 75 |
 
 ### By Priority
 
@@ -160,6 +160,14 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-098](tasks/TASK-098/task.md)** - [Critical] DELETE /patients/{id}/erase (NĐ13) luôn 500 và KHÔNG xóa
+  - **Completed**: 2026-07-24
+  - **Note**: Bug C-3 (E2E TASK-095). Fixed `:param::type` binding → `CAST(:param AS type)`. Cascade prescription via visit_id join. 1/1 integration test passes. Known gap: cascade incomplete for appointment/patient_relation/invoice/visit_exam/visit_service/prescription_item → follow-up task needed for full compliance.
+
+- **[TASK-097](tasks/TASK-097/task.md)** - [Critical] Merge bệnh nhân mồ côi dữ liệu lâm sàng (visit/appointment/đơn/hóa đơn)
+  - **Completed**: 2026-07-24
+  - **Note**: Bug C-2 (E2E TASK-095). Added visit/appointment to RELATED_PATIENT_TABLES. Safety-net COUNT aborts transaction if orphans remain. 7/7 merge-specific tests pass. Prescription/invoice follow via visit_id (no direct patient_id).
 
 - **[TASK-101](tasks/TASK-101/task.md)** - [Critical] Tạo lịch hẹn (FE) hỏng hoàn toàn — scheduled_at nối chuỗi sai → mọi create 422
   - **Completed**: 2026-07-23
