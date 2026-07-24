@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-24 (auto-generated; TASK-097 entry added manually pending full regen)
+**Last Updated**: 2026-07-24 (auto-generated; TASK-107 added to Completed)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -19,7 +19,7 @@
 | **IN_TESTING** | 1 |
 | **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 78 |
+| **DONE** | 79 |
 
 ### By Priority
 
@@ -160,6 +160,10 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-107](tasks/TASK-107/task.md)** - [High] Bất biến phiên/RBAC: vô hiệu hóa tài khoản, đổi mật khẩu, thu hồi role đều KHÔNG chấm dứt quyền
+  - **Completed**: 2026-07-24
+  - **Note**: Security fix (H-5/H-6/H-7 from E2E TASK-095). Version-check via `user.tokens_valid_after` (migration 0067) + Redis fast-path `sess:cutoff:{uid}`. H-5: deactivation revokes access token. H-6: password change/reset invalidates all sessions. H-7: role revoke syncs pivot + removes permission. 3/3 acceptance tests pass. Zero new regressions. Functional spec documented.
 
 - **[TASK-106](tasks/TASK-106/task.md)** - [High] Report doctor-performance nhân bản Cartesian (over-count visits/revenue)
   - **Completed**: 2026-07-24
