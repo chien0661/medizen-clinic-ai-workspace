@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-25 (TASK-112 → IN_TESTING after code review APPROVED)
+**Last Updated**: 2026-07-25 12:19:29 (auto-generated)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,29 +12,28 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 98 |
-| **TODO** | 11 |
+| **Total Tasks** | 120 |
+| **TODO** | 18 |
 | **IN_PROGRESS** | 10 |
-| **IN_REVIEW** | 2 |
-| **IN_TESTING** | 3 |
-| **DOCUMENTING** | 0 |
+| **IN_REVIEW** | 3 |
+| **IN_TESTING** | 2 |
 | **BLOCKED** | 1 |
-| **DONE** | 79 |
+| **DONE** | 86 |
 
 ### By Priority
 
-- **High**: 65 tasks
-- **Medium**: 27 tasks
+- **High**: 78 tasks
+- **Medium**: 37 tasks
 - **Low**: 4 tasks
 
 ### By Agent
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
 - **Code Review Agent**: 1 tasks (TASK-039b)
-- **Documentation Agent**: 17 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-099, TASK-101)
+- **Documentation Agent**: 30 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-097, TASK-098, TASK-099, TASK-101, TASK-104, TASK-105, TASK-106, TASK-107, TASK-108, TASK-109, TASK-110, TASK-111, TASK-112, TASK-113, TASK-114)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
-- **Test Agent**: 2 tasks (TASK-077, TASK-081)
-- **Unassigned**: 18 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073)
+- **Test Agent**: 3 tasks (TASK-077, TASK-081, TASK-117)
+- **Unassigned**: 25 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-095, TASK-100, TASK-102, TASK-103, TASK-118)
 - **chiendv**: 28 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-030, TASK-031, TASK-032, TASK-033, TASK-034, TASK-035, TASK-036, TASK-037, TASK-038, TASK-039, TASK-039c, TASK-040, TASK-041, TASK-042, TASK-043, TASK-044, TASK-052, TASK-062, TASK-091)
 - **claude-main**: 1 tasks (TASK-049)
 - **code-review-agent**: 1 tasks (TASK-047)
@@ -105,14 +104,6 @@
   - **Assigned**: Test Agent
   - **Branch**: `feature/TASK-081-examination-section`
 
-- **[TASK-109](tasks/TASK-109/task.md)** - [Medium] GET /patients/{id} không lọc clinic_id → 500 oracle + IDOR liên tenant tiềm ẩn
-  - **Assigned**: Test Agent
-  - **Branch**: `fix/TASK-109-patient-get-tenant-filter`
-
-- **[TASK-112](tasks/TASK-112/task.md)** - [Medium→cao] Đảo tiền (void/refund/recall) trên visit COMPLETED không mở khóa visit (M-5)
-  - **Assigned**: Test Agent
-  - **Branch**: `fix/TASK-112-unlock-visit-on-reversal`
-
 #### BLOCKED
 
 - **[TASK-050](tasks/TASK-050/task.md)** - Seed data cho các danh mục (services, ICD, drugs, units, etc.)
@@ -169,65 +160,45 @@
 
 ### Recently Completed (Last 7 Days)
 
-- **[TASK-107](tasks/TASK-107/task.md)** - [High] Bất biến phiên/RBAC: vô hiệu hóa tài khoản, đổi mật khẩu, thu hồi role đều KHÔNG chấm dứt quyền
-  - **Completed**: 2026-07-24
-  - **Note**: Security fix (H-5/H-6/H-7 from E2E TASK-095). Version-check via `user.tokens_valid_after` (migration 0067) + Redis fast-path `sess:cutoff:{uid}`. H-5: deactivation revokes access token. H-6: password change/reset invalidates all sessions. H-7: role revoke syncs pivot + removes permission. 3/3 acceptance tests pass. Zero new regressions. Functional spec documented.
-
-- **[TASK-106](tasks/TASK-106/task.md)** - [High] Report doctor-performance nhân bản Cartesian (over-count visits/revenue)
-  - **Completed**: 2026-07-24
-  - **Note**: Bug H-4 (E2E TASK-095). Fixed Cartesian product via CTEs pre-aggregating invoices/prescriptions → 1:1 join to visits. Visits_count/revenue now distinct, not inflated. 51/51 tests pass (13 integration reports + 6 unit + 32 other report tests).
-
-- **[TASK-105](tasks/TASK-105/task.md)** - [High] Refund không đảo payment → report payment-methods đếm tiền đã-thu vĩnh viễn sai
-  - **Completed**: 2026-07-24
-  - **Note**: Bug H-3 (E2E TASK-095). Approach A: refund voids related payments (mirrors void_payment logic). Paid_total/balance_due reset to 0/grand_total. Payment-methods == revenue (reconciled). 81/81 tests pass (billing + reports).
-
-- **[TASK-104](tasks/TASK-104/task.md)** - [High] substitute_batch cho phép thay sang lô ĐÃ HẾT HẠN (bỏ qua FEFO)
-  - **Completed**: 2026-07-24
-  - **Note**: Bug H-2 (E2E TASK-095). Guard: expiry_date <= today → 409. Mirrors reserve_for_prescription guard. TASK-099 same-medicine guard intact. 22/22 tests pass (pharmacy integration + unit).
-
-- **[TASK-098](tasks/TASK-098/task.md)** - [Critical] DELETE /patients/{id}/erase (NĐ13) luôn 500 và KHÔNG xóa
-  - **Completed**: 2026-07-24
-  - **Note**: Bug C-3 (E2E TASK-095). Fixed `:param::type` binding → `CAST(:param AS type)`. Cascade prescription via visit_id join. 1/1 integration test passes. Known gap: cascade incomplete for appointment/patient_relation/invoice/visit_exam/visit_service/prescription_item → follow-up task needed for full compliance.
-
-- **[TASK-097](tasks/TASK-097/task.md)** - [Critical] Merge bệnh nhân mồ côi dữ liệu lâm sàng (visit/appointment/đơn/hóa đơn)
-  - **Completed**: 2026-07-24
-  - **Note**: Bug C-2 (E2E TASK-095). Added visit/appointment to RELATED_PATIENT_TABLES. Safety-net COUNT aborts transaction if orphans remain. 7/7 merge-specific tests pass. Prescription/invoice follow via visit_id (no direct patient_id).
-
-- **[TASK-101](tasks/TASK-101/task.md)** - [Critical] Tạo lịch hẹn (FE) hỏng hoàn toàn — scheduled_at nối chuỗi sai → mọi create 422
-  - **Completed**: 2026-07-23
-  - **Note**: Bug C-6 (E2E TASK-095). Helper `buildScheduledAt()` fixed string concat → single valid ISO. Week + day view E2E verified live (Playwright 201 Created both flows). 5/5 unit tests pass.
-
-- **[TASK-099](tasks/TASK-099/task.md)** - [Critical] substitute_batch cho phép đổi reservation sang lô của thuốc KHÁC
-  - **Completed**: 2026-07-23
-  - **Note**: Bug C-4 (E2E TASK-095). Guard rejects cross-medicine batch substitution (409). Allows legitimate FEFO same-medicine swap. 20/20 tests pass (integration + unit).
-
-- **[TASK-096](tasks/TASK-096/task.md)** - [Critical] PATCH /patients/{id} luôn trả HTTP 500 (MissingGreenlet) + sibling dosage-form fix
-  - **Completed**: 2026-07-23
-  - **Note**: Bug C-1 (E2E TASK-095). Added `await db.refresh()` after flush in patient + dosage-form services → fixes expired `updated_at` MissingGreenlet. 6/6 new/regression tests pass; 99/104 full suite (5 pre-existing flakes).
-
 - **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
   - **Completed**: 2026-07-22
-  - **Note**: 3-group sidebar reorg + new System Config page (4 tabs: features, security, email, system-info) + backend system-config API + migration 0061. Functional design + API specs documented. All tests PASS (13/13 BE, 6/6 FE, 4/4 E2E).
 
 - **[TASK-094](tasks/TASK-094/task.md)** - Fix prescription printing (default template + diagnosis) & add usage / dosage-unit fields
   - **Completed**: 2026-07-22
-  - **Note**: 5 features (A-E) + 2 bug fixes implemented + tested live (87/87 BE, 61/61 FE pass). Functional design + API specs documented.
-
-- **[TASK-091](tasks/TASK-091/task.md)** - Chuẩn hóa toàn bộ danh sách — phân trang cố định + xuất Excel đồng nhất
-  - **Completed**: 2026-07-15
-
-- **[TASK-093](tasks/TASK-093/task.md)** - Cảnh báo thuốc/kho phân cấp theo thời gian & số lượng (thuốc → dạng đóng gói → phòng khám)
-  - **Completed**: 2026-07-18
 
 
 ---
 
 ## Bug Tracking
 
-### Open Bugs (1)
+### Open Bugs (9)
 
 - **[TASK-049](tasks/TASK-049/task.md)** - E2E clinical flow audit (Playwright) — full KCB walkthrough + bug catalog
   - **Priority**: High | **Assigned**: claude-main
+
+- **[TASK-095](tasks/TASK-095/task.md)** - Khóa sửa hồ sơ khám đã đóng (COMPLETED/CANCELLED) + sửa luồng hủy → sửa → xuất lại hóa đơn đã thanh toán
+  - **Priority**: High | **Assigned**: Unassigned
+
+- **[TASK-100](tasks/TASK-100/task.md)** - [Critical] IDOR liên tenant ở GET/PATCH /admin/clinics/{id} — đọc PII giải mã + sửa phòng khám khác
+  - **Priority**: High | **Assigned**: Unassigned
+
+- **[TASK-102](tasks/TASK-102/task.md)** - [Critical] App kết nối Postgres bằng role cms (rolbypassrls=t) — RLS bị bỏ qua toàn bộ runtime
+  - **Priority**: High | **Assigned**: Unassigned
+
+- **[TASK-103](tasks/TASK-103/task.md)** - [High] In đơn (server-side) thiếu chẩn đoán + tên bệnh nhân
+  - **Priority**: Medium | **Assigned**: Unassigned
+
+- **[TASK-115](tasks/TASK-115/task.md)** - [Medium] Receptionist (chỉ visit.write) ghi/ghi đè exam lâm sàng + auto-start visit
+  - **Priority**: Medium | **Status**: IN_TESTING | **Assigned**: Test Agent
+
+- **[TASK-116](tasks/TASK-116/task.md)** - [Medium] Bất đối xứng RBAC print-template: READ gate prescription.print, WRITE gate settings.clinic
+  - **Priority**: Medium | **Status**: IN_TESTING | **Assigned**: Test Agent
+
+- **[TASK-117](tasks/TASK-117/task.md)** - [Medium] Lịch hẹn: capacity/overlap bị né (M-1) + không đổi được giờ, PATCH scheduled_at bị drop (M-4)
+  - **Priority**: Medium | **Assigned**: Test Agent
+
+- **[TASK-118](tasks/TASK-118/task.md)** - [Medium] UX: giá dịch vụ 0đ trong dropdown (M-13) + dashboard bác sĩ 403 spam (M-14) + card lịch hiện UUID (M-16)
+  - **Priority**: Medium | **Assigned**: Test Agent (IN_TESTING — review APPROVED, round 2)
 
 
 ---
