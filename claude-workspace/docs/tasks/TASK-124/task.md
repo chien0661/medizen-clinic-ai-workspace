@@ -2,9 +2,9 @@
 id: TASK-124
 type: feature
 title: "Quản lý đa đơn vị đo + quy đổi (nhập / tồn-cảnh báo / bán-cấp phát)"
-status: IN_REVIEW
+status: DONE
 priority: Medium
-assigned: Code Review Agent
+assigned: Documentation Agent
 created: 2026-07-26
 updated: 2026-07-27
 branch: "feature/TASK-124-multi-unit"
@@ -56,10 +56,10 @@ Cho phép định nghĩa và **quy đổi nhất quán** giữa các đơn vị 
 
 ## Progress Checklist
 - [x] Planning (/task-plan — chốt thiết kế với người dùng)
-- [x] Implementation — Phase 1/3 (BE core + backfill) APPROVED + tested; Phase 2/3 (prescribe/dispense/invoice sell↔base wiring) APPROVED + tested; **Phase 3/3 (FE + BE admin CRUD gap-fill) DONE — IN_REVIEW**.
-- [x] Code Review — Phase 1 APPROVED 2026-07-26, Phase 2 APPROVED 2026-07-26 | Phase 3 pending
-- [ ] Testing (Phase 1+2 passed; Phase 3 pending Test Agent)
-- [ ] Documentation
+- [x] Implementation — Phase 1/3 (BE core + backfill) APPROVED + tested; Phase 2/3 (prescribe/dispense/invoice sell↔base wiring) APPROVED + tested; **Phase 3/3 (FE + BE admin CRUD gap-fill) DONE — IN_REVIEW**. BUG-001 fix (test-fixture only) applied 2026-07-27, commit `9b8b386`.
+- [x] Code Review — Phase 1 APPROVED 2026-07-26, Phase 2 APPROVED 2026-07-26, **Phase 3 APPROVED 2026-07-27 (final phase) → IN_TESTING**
+- [x] Testing — comprehensive full-stack feature test run 2026-07-27: 302/312 BE tests + FE (vitest/type-check/lint) PASSED, 10 BE unit tests FAILED (BUG-001) → fixed same day (test-fixture only, no production change), re-verified: targeted file 10/10 PASS, inventory-integration + prescriptions-unit sweep 82/82 PASS, `ruff check app tests` B008 64/64 (0 new vs origin/dev), `mypy app` 50/50 (0 new vs origin/dev). Testing Completed 2026-07-27.
+- [x] Documentation — Functional Design + API Spec completed 2026-07-27; **DONE**
 
 ## Blockers
-None. Design decisions were finalized 2026-07-26 (see `refs/implementation-plan.md`); Phase 1 (BE core+backfill), Phase 2 (BE prescribe/dispense/invoice wiring), and Phase 3 (BE admin CRUD gap-fill + FE) are all implemented and pushed on `feature/TASK-124-multi-unit`. Awaiting Code Review for Phase 3, then Test Agent for the full-stack pass.
+**BUG-001** — **RESOLVED 2026-07-27.** `tests/unit/inventory/test_medicine_service_effective.py` — 10 pre-existing TASK-093/113 unit tests failed with `AttributeError: 'types.SimpleNamespace' object has no attribute 'sell_unit'` because `_to_response()` reads `med.sell_unit` (TASK-124 Phase 1) but the test's `SimpleNamespace` mock helper wasn't updated. No production impact. Fix: added `sell_unit="viên"` to the mock-builder defaults (matches real backfill semantics, sell_unit defaults to base_unit). Also added `# noqa: B008` to the `Depends(get_db)` params on the 4 new unit-conversion admin-CRUD endpoints in `app/modules/inventory/api/routes.py`, matching the existing noqa convention used elsewhere in the same file (confirmed empirically: B008 count for the file is 29 on both this branch and origin/dev baseline — 0 new). Commit `9b8b386`, pushed to `feature/TASK-124-multi-unit`. See `docs/tasks/TASK-124/bugs/BUG-001.md` + `handoff/test-to-documentation.md`.
