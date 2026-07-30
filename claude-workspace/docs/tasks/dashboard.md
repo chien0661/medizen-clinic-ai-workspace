@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-25 12:19:29 (auto-generated)
+**Last Updated**: 2026-07-30 (batch 2026-07-30: +TASK-125..129)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,10 +12,10 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 120 |
-| **TODO** | 18 |
+| **Total Tasks** | 125 |
+| **TODO** | 22 |
 | **IN_PROGRESS** | 10 |
-| **IN_REVIEW** | 3 |
+| **IN_REVIEW** | 4 |
 | **IN_TESTING** | 2 |
 | **BLOCKED** | 1 |
 | **DONE** | 86 |
@@ -29,7 +29,7 @@
 ### By Agent
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
-- **Code Review Agent**: 1 tasks (TASK-039b)
+- **Code Review Agent**: 2 tasks (TASK-039b, TASK-125)
 - **Documentation Agent**: 30 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-097, TASK-098, TASK-099, TASK-101, TASK-104, TASK-105, TASK-106, TASK-107, TASK-108, TASK-109, TASK-110, TASK-111, TASK-112, TASK-113, TASK-114)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
 - **Test Agent**: 3 tasks (TASK-077, TASK-081, TASK-117)
@@ -46,6 +46,12 @@
 ### 🔴 High Priority
 
 #### TODO
+
+- **[TASK-127](tasks/TASK-127/task.md)** - HR: quản lý ca làm nhân viên linh động hơn (flexible shifts)
+  - **Assigned**: Unassigned — *batch 2026-07-30, ý #6; feed công/ca cho TASK-128*
+
+- **[TASK-128](tasks/TASK-128/task.md)** - Payroll: tính lương (KPI + chiết khấu thủ thuật/thuốc) + màn hình lương cuối tháng
+  - **Assigned**: Unassigned — *batch 2026-07-30, ý #1+#7; phụ thuộc TASK-125 + TASK-127*
 
 - **[TASK-054](tasks/TASK-054/task.md)** - Billing correctness — VAT, BHYT split, change-due, VietQR, void→reverse stock, POS/A4 print, manual invoice
   - **Assigned**: Unassigned
@@ -91,6 +97,10 @@
 
 #### IN_REVIEW
 
+- **[TASK-125](tasks/TASK-125/task.md)** - Phân loại danh mục dịch vụ: khám / thủ thuật / test (service type)
+  - **Assigned**: Code Review Agent — *batch 2026-07-30, ý #2; nền móng cho TASK-126 + TASK-128*
+  - **Branch**: `feature/TASK-125`
+
 - **[TASK-029](tasks/TASK-029/task.md)** - MediZen UI Phase D — Edit Stitch hiện hữu + sinh ~16 màn mới theo function list v1.3 + SECURITY.md
   - **Assigned**: chiendv
 
@@ -113,6 +123,12 @@
 ### 🟡 Medium Priority
 
 #### TODO
+
+- **[TASK-126](tasks/TASK-126/task.md)** - Thống kê sử dụng dịch vụ (service usage report)
+  - **Assigned**: Unassigned — *batch 2026-07-30, ý #3; phụ thuộc TASK-125*
+
+- **[TASK-129](tasks/TASK-129/task.md)** - Đơn thuốc: mẫu in (cách dùng cùng dòng liều dùng) + gợi ý liều theo đơn vị thuốc
+  - **Assigned**: Unassigned — *batch 2026-07-30, ý #4+#5; dùng TASK-124 sell_unit*
 
 - **[TASK-048](tasks/TASK-048/task.md)** - Rà soát + cleanup các tính năng FE đang gắn nhãn Beta
   - **Assigned**: Unassigned
