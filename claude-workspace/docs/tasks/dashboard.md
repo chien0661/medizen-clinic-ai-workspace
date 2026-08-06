@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-07-30 (TASK-128 implementation complete → IN_REVIEW)
+**Last Updated**: 2026-08-07 (TASK-138 DONE — full pipeline: implement → review ×2 → test → docs)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,17 +12,17 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 125 |
+| **Total Tasks** | 126 |
 | **TODO** | 20 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 6 |
 | **IN_TESTING** | 2 |
 | **BLOCKED** | 1 |
-| **DONE** | 86 |
+| **DONE** | 87 |
 
 ### By Priority
 
-- **High**: 78 tasks
+- **High**: 79 tasks
 - **Medium**: 37 tasks
 - **Low**: 4 tasks
 
@@ -33,7 +33,7 @@
 - **Documentation Agent**: 30 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-097, TASK-098, TASK-099, TASK-101, TASK-104, TASK-105, TASK-106, TASK-107, TASK-108, TASK-109, TASK-110, TASK-111, TASK-112, TASK-113, TASK-114)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
 - **Test Agent**: 3 tasks (TASK-077, TASK-081, TASK-117)
-- **Unassigned**: 25 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-095, TASK-100, TASK-102, TASK-103, TASK-118)
+- **Unassigned**: 26 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-095, TASK-100, TASK-102, TASK-103, TASK-118, TASK-138)
 - **chiendv**: 28 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-030, TASK-031, TASK-032, TASK-033, TASK-034, TASK-035, TASK-036, TASK-037, TASK-038, TASK-039, TASK-039c, TASK-040, TASK-041, TASK-042, TASK-043, TASK-044, TASK-052, TASK-062, TASK-091)
 - **claude-main**: 1 tasks (TASK-049)
 - **code-review-agent**: 1 tasks (TASK-047)
@@ -46,6 +46,9 @@
 ### 🔴 High Priority
 
 #### TODO
+
+- **[TASK-130](tasks/TASK-130/task.md)** - FE: export/download + polling trả 401 sau khi access token hết hạn (không silent-refresh)
+  - **Assigned**: Unassigned — *bug, phát hiện E2E 2026-07-31; ảnh hưởng mọi report/export*
 
 - **[TASK-054](tasks/TASK-054/task.md)** - Billing correctness — VAT, BHYT split, change-due, VietQR, void→reverse stock, POS/A4 print, manual invoice
   - **Assigned**: Unassigned
@@ -177,6 +180,9 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-138](tasks/TASK-138/task.md)** - Payroll: thêm kiểu tính lương theo buổi / theo ca + chiết khấu cấu hình theo từng nhân sự
+  - **Completed**: 2026-08-07 — *branch `feature/TASK-138-payroll-session-shift` (BE `cebf0bd`, FE `4bf1b55`) — chưa merge vào dev*
 
 - **[TASK-092](tasks/TASK-092/task.md)** - Nâng cấp màn hình Super Admin — tập trung quản lý hệ thống, tài khoản, người dùng & cấu hình hệ thống
   - **Completed**: 2026-07-22
