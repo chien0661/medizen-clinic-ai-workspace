@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-08-07 (TASK-138 DONE — full pipeline: implement → review ×2 → test → docs)
+**Last Updated**: 2026-08-08 (TASK-139 DONE — payroll export Excel + payslip PDF; TASK-140 TODO — fix RLS-blocked test teardown)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,18 +12,18 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 126 |
-| **TODO** | 20 |
+| **Total Tasks** | 128 |
+| **TODO** | 21 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 6 |
 | **IN_TESTING** | 2 |
 | **BLOCKED** | 1 |
-| **DONE** | 87 |
+| **DONE** | 88 |
 
 ### By Priority
 
-- **High**: 79 tasks
-- **Medium**: 37 tasks
+- **High**: 80 tasks
+- **Medium**: 38 tasks
 - **Low**: 4 tasks
 
 ### By Agent
@@ -129,6 +129,9 @@
 
 #### TODO
 
+- **[TASK-140](tasks/TASK-140/task.md)** - Test infra: fix integration-test fixture teardown bị RLS chặn — rò rỉ clinic/user vào DB e2e
+  - **Assigned**: Unassigned — *debt, phát hiện review TASK-139; DB đã dọn 2026-08-08, task này fix gốc rễ*
+
 - **[TASK-126](tasks/TASK-126/task.md)** - Thống kê sử dụng dịch vụ (service usage report)
   - **Assigned**: Unassigned — *batch 2026-07-30, ý #3; phụ thuộc TASK-125*
 
@@ -180,6 +183,9 @@
 ## Completed Tasks
 
 ### Recently Completed (Last 7 Days)
+
+- **[TASK-139](tasks/TASK-139/task.md)** - Payroll: xuất bảng lương Excel + phiếu lương PDF từng nhân viên
+  - **Completed**: 2026-08-08 — *branch `feature/TASK-139-payroll-export` (BE `37b258d`, FE `d271e00`), base trên TASK-138 — chưa merge dev*
 
 - **[TASK-138](tasks/TASK-138/task.md)** - Payroll: thêm kiểu tính lương theo buổi / theo ca + chiết khấu cấu hình theo từng nhân sự
   - **Completed**: 2026-08-07 — *branch `feature/TASK-138-payroll-session-shift` (BE `cebf0bd`, FE `4bf1b55`) — chưa merge vào dev*
