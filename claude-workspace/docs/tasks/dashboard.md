@@ -1,6 +1,6 @@
 # Task Tracking Dashboard
 
-**Last Updated**: 2026-08-08 (TASK-139 DONE — payroll export Excel + payslip PDF; TASK-140 TODO — fix RLS-blocked test teardown)
+**Last Updated**: 2026-09-01 (TASK-146 DONE — documentation complete. Functional design, API specs, architectural decisions, and follow-ups filed.)
 
 > **⚠️ Note**: This file is auto-generated. Do not edit manually.
 > To update task status, use: `/task-status TASK-ID STATUS`
@@ -12,17 +12,18 @@
 
 | Metric | Count |
 |--------|-------|
-| **Total Tasks** | 128 |
+| **Total Tasks** | 130 |
 | **TODO** | 21 |
 | **IN_PROGRESS** | 10 |
 | **IN_REVIEW** | 6 |
-| **IN_TESTING** | 2 |
+| **IN_TESTING** | 3 |
+| **DOCUMENTING** | 0 |
 | **BLOCKED** | 1 |
-| **DONE** | 88 |
+| **DONE** | 89 |
 
 ### By Priority
 
-- **High**: 80 tasks
+- **High**: 82 tasks
 - **Medium**: 38 tasks
 - **Low**: 4 tasks
 
@@ -30,10 +31,10 @@
 
 - **Code Implementation Agent**: 7 tasks (TASK-053, TASK-085, TASK-086, TASK-087, TASK-088, TASK-089, TASK-090)
 - **Code Review Agent**: 4 tasks (TASK-039b, TASK-125, TASK-127, TASK-128)
-- **Documentation Agent**: 30 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-097, TASK-098, TASK-099, TASK-101, TASK-104, TASK-105, TASK-106, TASK-107, TASK-108, TASK-109, TASK-110, TASK-111, TASK-112, TASK-113, TASK-114)
+- **Documentation Agent**: 31 tasks (TASK-016, TASK-064, TASK-065, TASK-066, TASK-067, TASK-070, TASK-079, TASK-080, TASK-082, TASK-083, TASK-084, TASK-092, TASK-093, TASK-094, TASK-096, TASK-097, TASK-098, TASK-099, TASK-101, TASK-104, TASK-105, TASK-106, TASK-107, TASK-108, TASK-109, TASK-110, TASK-111, TASK-112, TASK-113, TASK-114, TASK-145)
 - **None**: 6 tasks (TASK-009, TASK-018, TASK-020, TASK-025, TASK-075, TASK-076)
-- **Test Agent**: 3 tasks (TASK-077, TASK-081, TASK-117)
-- **Unassigned**: 26 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-095, TASK-100, TASK-102, TASK-103, TASK-118, TASK-138)
+- **Test Agent**: 4 tasks (TASK-077, TASK-081, TASK-117, TASK-146)
+- **Unassigned**: 25 tasks (TASK-012, TASK-019, TASK-048, TASK-050, TASK-054, TASK-055, TASK-056, TASK-057, TASK-058, TASK-059, TASK-060, TASK-061, TASK-063, TASK-068, TASK-069, TASK-071, TASK-072, TASK-073, TASK-095, TASK-100, TASK-102, TASK-103, TASK-118, TASK-138)
 - **chiendv**: 28 tasks (TASK-008, TASK-010, TASK-011, TASK-013, TASK-015, TASK-023, TASK-024, TASK-027, TASK-029, TASK-030, TASK-031, TASK-032, TASK-033, TASK-034, TASK-035, TASK-036, TASK-037, TASK-038, TASK-039, TASK-039c, TASK-040, TASK-041, TASK-042, TASK-043, TASK-044, TASK-052, TASK-062, TASK-091)
 - **claude-main**: 1 tasks (TASK-049)
 - **code-review-agent**: 1 tasks (TASK-047)
@@ -46,6 +47,15 @@
 ### 🔴 High Priority
 
 #### TODO
+
+- **[TASK-142](tasks/TASK-142/task.md)** - [Critical] Dược sĩ cấp phát được đơn thuốc bác sĩ chưa duyệt — pending-dispense không lọc Prescription.status
+  - **Assigned**: Unassigned — *bug, nguồn TASK-141; rủi ro an toàn người bệnh; tái hiện 100%, xảy ra 36–49% số lần submit*
+
+- **[TASK-143](tasks/TASK-143/task.md)** - [High] fn_next_patient_code không có khoá — race sinh trùng patient_code trả HTTP 500
+  - **Assigned**: Unassigned — *bug, nguồn TASK-141; 61 lỗi 500 trong 20' stress; đã có mẫu đúng là fn_next_visit_number*
+
+- **[TASK-144](tasks/TASK-144/task.md)** - [High] Audit hash chain dùng advisory lock toàn cục — trần mở rộng ~12 phòng khám
+  - **Assigned**: Unassigned — *debt kiến trúc, nguồn TASK-141; 981s chờ khoá trong cửa sổ 1.200s ở stress*
 
 - **[TASK-130](tasks/TASK-130/task.md)** - FE: export/download + polling trả 401 sau khi access token hết hạn (không silent-refresh)
   - **Assigned**: Unassigned — *bug, phát hiện E2E 2026-07-31; ảnh hưởng mọi report/export*
@@ -94,6 +104,10 @@
 
 #### IN_REVIEW
 
+- **[TASK-141](tasks/TASK-141/task.md)** - Performance test toàn hệ thống — 10 phòng khám chạy song song luồng khám bệnh end-to-end
+  - **Assigned**: Test Agent — *đã chạy đủ 4 hồ sơ (smoke/baseline/stress/soak 2h); điểm gãy ~223 VU ≈ 12 phòng khám; sinh ra TASK-142/143/144*
+  - **Branch**: `feature/TASK-141-perf-harness`
+
 - **[TASK-128](tasks/TASK-128/task.md)** - Payroll: tính lương (KPI + chiết khấu thủ thuật/thuốc) + màn hình lương cuối tháng
   - **Assigned**: Code Review Agent — *batch 2026-07-30, ý #1+#7; phụ thuộc TASK-125 + TASK-127*
   - **Branch**: `feature/TASK-128`
@@ -118,6 +132,10 @@
 - **[TASK-081](tasks/TASK-081/task.md)** - PHẦN KHÁM BỆNH — form khám lâm sàng động (BT/Bất thường + ghi chú) + seed 13 mục
   - **Assigned**: Test Agent
   - **Branch**: `feature/TASK-081-examination-section`
+
+#### DOCUMENTING
+
+*(None currently)*
 
 #### BLOCKED
 
