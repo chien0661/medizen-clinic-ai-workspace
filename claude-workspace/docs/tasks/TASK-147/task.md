@@ -2,11 +2,11 @@
 id: TASK-147
 type: bug
 title: FE thiếu bước "bác sĩ gửi đơn" — cấp phát thuốc bị chặn hoàn toàn sau TASK-142
-status: IN_PROGRESS
+status: IN_TESTING
 priority: High
 assigned: claude-main
 created: 2026-09-03
-updated: 2026-09-03
+updated: 2026-09-04
 branch: "dev"
 jira_key: ""
 tags: [prescription, pharmacy, dispense, regression, frontend]
@@ -63,7 +63,7 @@ phần FE tương ứng chưa bao giờ được làm.
 - [x] Nút "Cấp phát thuốc" ở Khu làm việc không được chết vì đơn còn draft
 - [x] Không phá luồng bác sĩ sửa đơn giữa buổi khám
 - [x] Unit test cho hành vi mới, có xác nhận test fail trên code chưa vá
-- [ ] E2E toàn luồng khám bệnh (theo yêu cầu user)
+- [x] E2E toàn luồng khám bệnh (theo yêu cầu user)
 
 ## Acceptance Criteria
 
@@ -81,14 +81,17 @@ phần FE tương ứng chưa bao giờ được làm.
   mà `quickCollectMutation` đã làm với hóa đơn.
 - [x] AC5 — Sau khi gửi, hàng đợi "Chờ cấp phát" của nhà thuốc thấy được đơn
   (invalidate query key `["pharmacy"]`).
-- [ ] AC6 — E2E: kê đơn → gửi → nhà thuốc cấp phát → thu tiền → lượt khám
-  COMPLETED, chạy được trọn vòng.
+- [x] AC6 — E2E: kê đơn → gửi → nhà thuốc cấp phát → thu tiền → lượt khám
+  COMPLETED, chạy được trọn vòng. API 21/21 PASS; UI lái thật 3 nhánh (nút gửi
+  ở tab Kê đơn, hàng đợi + cấp phát của nhà thuốc, nút Cấp phát ở Khu làm việc
+  đúng kịch bản lỗi user báo). Xem
+  `deliveries/test-reports/test-report.md`.
 
 ## Progress Checklist
 
 - [x] Implementation
 - [ ] Code Review
-- [ ] Testing
+- [x] Testing (E2E API + UI — chạy sớm theo yêu cầu user, trước cổng review)
 - [ ] Documentation
 
 ## Related Files
@@ -108,6 +111,7 @@ phần FE tương ứng chưa bao giờ được làm.
 
 - **Created**: 2026-09-03
 - **Implementation done**: 2026-09-03
+- **E2E tested**: 2026-09-04
 
 ## Notes
 
@@ -119,17 +123,37 @@ stepper của màn khám auto-save mỗi lần rời bước (`flushRef`). Gộp
 Save sẽ lấy mất quyền sửa đơn của bác sĩ ngay giữa buổi khám. Gửi đơn phải là
 hành động cố ý.
 
-### Kết quả test (2026-09-03)
+### Kết quả test
 
 | Việc | Kết quả |
 |---|---|
-| `PrescriptionTab-submit.test.tsx` (mới) | 5/5 pass |
-| 11 file test liên quan (`PrescriptionTab-*`, `ConsultationPage`, `PendingDispensePage`, `PrintPrescription*`) | pass, chạy từng file |
+| E2E API toàn luồng (`deliveries/test-cases/e2e_clinical_flow.py`) | **21 PASS / 0 FAIL** |
+| E2E UI — nút "Gửi đơn thuốc" (tab Kê đơn) | PASS |
+| E2E UI — hàng đợi nhà thuốc + cấp phát | PASS (trước đó rỗng vĩnh viễn) |
+| E2E UI — nút "Cấp phát thuốc" ở Khu làm việc (kịch bản lỗi user báo) | PASS, không còn `BUSINESS_RULE_VIOLATION` |
+| `PrescriptionTab-submit.test.tsx` (mới, 5 test) | 5/5 pass |
+| 11 file test liên quan, chạy từng file | pass hết |
 | Test mới chạy trên code chưa vá | **fail** — xác nhận bắt được lỗi |
 | `eslint` 2 file sửa | sạch |
 
+Guard của TASK-142 (chặn cấp phát đơn `draft`, hàng đợi lọc `pending`) được kiểm
+riêng ở bước 5 và 6 của E2E — vẫn nguyên hiệu lực sau khi vá.
+
+Báo cáo đầy đủ: [deliveries/test-reports/test-report.md](deliveries/test-reports/test-report.md)
+
 ### Hạn chế môi trường khi test
 
+- **Phải dùng `127.0.0.1`, không dùng `localhost`** khi lái stack E2E: máy này
+  phân giải `localhost` ra IPv6 `::1` trước mà Docker chỉ nghe IPv4 → Python
+  `urllib` treo 8s rồi timeout, trình duyệt `ERR_CONNECTION_RESET` (curl không
+  bị vì tự fallback). Kéo theo phải build lại image UI với
+  `--build-arg VITE_API_URL=http://127.0.0.1:8010` và thêm origin IPv4 vào
+  `CORS_ORIGINS` qua `docker-compose.e2e.cors.yml`.
+- **Không có endpoint nào expose `stock_movement`** (`/inventory/movements` →
+  404). Kiểm tra tồn kho ở tầng DB qua `docker exec ... psql`.
+- Nguyên nhân gốc của mọi OOM trong phiên (tsc, vitest, docker build): máy hết
+  commit charge — `CommitLimit 49.1 GB / CommitFree 0.3 GB`, RAM vật lý vẫn còn
+  7.7 GB trống. `docker build` báo đúng `errno=1455` = `ERROR_COMMITMENT_LIMIT`.
 - `tsc --noEmit` và `vitest run` full suite **OOM** trên máy dev
   (`Fatal process out of memory: Zone`, `Worker exited unexpectedly`) — máy
   đang chạy Oracle + Elasticsearch + Kafka. Phải chạy vitest từng file với
