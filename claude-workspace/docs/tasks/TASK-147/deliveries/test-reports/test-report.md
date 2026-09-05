@@ -162,3 +162,26 @@ BUSINESS_RULE_VIOLATION — Không thể cấp phát đơn thuốc ở trạng t
 Luồng khám bệnh chạy trọn vòng ở cả tầng API (21/21) và tầng UI (3 nhánh, gồm
 đúng kịch bản lỗi user báo). Guard của TASK-142 còn nguyên hiệu lực. Chưa
 typecheck được toàn bộ project — xem §4.1.
+
+
+---
+
+## 5. Chạy lại sau khi release lên `main` (2026-09-05)
+
+Sau khi merge `dev` → `main` (`c9906a2`, đã push). Kiểm `git diff origin/dev -- src/`
+trên worktree `_main-web` → **rỗng**, tức source trên `main` giống hệt `dev`, nên
+container UI đang chạy chính là code đã lên prod.
+
+| Hạng mục | Kết quả |
+|---|---|
+| E2E API toàn luồng (lượt khám `20260905-001`) | **21 PASS / 0 FAIL** — tồn 141→139, `stock_movement -2  91->89` |
+| UI nhánh A — nút "Gửi đơn thuốc" (`20260905-002`) | PASS — đơn → `pending`, nút biến mất, banner hiện |
+| UI — hàng đợi nhà thuốc + cấp phát | PASS — "Chờ cấp phát (1)" → (0), `stock_movement -2  89->87` |
+| UI nhánh B — nút "Cấp phát thuốc" ở Khu làm việc (`20260905-003`, đơn còn `draft`) | PASS — auto-submit → `dispensed`, chip "Đã cấp phát", **không có** `BUSINESS_RULE_VIOLATION`, blocker biến mất |
+
+Cả 2 đơn UI đều `dispensed`, kế toán kho liên tục và khớp: `91→89→87→84`.
+
+Guard TASK-142 vẫn nguyên hiệu lực (bước 5 và 6 của E2E API).
+
+§4 (hạn chế) không đổi: **`tsc --noEmit` vẫn chưa chạy được**, và
+`ClinicalWorkspacePage` vẫn chưa có unit test.
